@@ -1,0 +1,17 @@
+---
+layout: post
+title: "FreeBSD 初體驗"
+date: 2012-02-12
+comments: false
+---
+
+<div class='post'>
+其實說初體驗好像太誇張 XD<br /><br />大學時候有碰過一次  不過覺得好難玩(跟 Gentoo 比的話) (¬_¬) 所以就沒有繼續碰<br /><br />最近因為想評估 FreeBSD 一下所以就想說來試一下<br /><br />安裝非常簡單 都是選單互動的 比 Gentoo 簡單很多 XD<br /><!--more--><br />BSD 系列的其中一大特色就是他的 ports 系統啦<br /><br />最傳統的使用法是移動進去他的目錄然後打 make install clean<br /><br />比方說要裝 vim 就要打 <br /><br /><div id="gist1805904"><script type="text/javascript">$(function (){gist('https://gist.github.com/1805904.json');});</script></div><br />不過這實在太麻煩了還要移動目錄 看起來 FreeBSD 目前有幾個不錯的 manager<br /><ul><li>portmanager</li><li>portupgrade</li></ul><br />我選了 portmanager 因為有人說他效能比較好 他是用 C 寫的 相較於 portupgrade 是用 Ruby 寫的當然比較好 XD<br /><br />所以來裝一下吧<br /><br /><div id="gist1805917"><script type="text/javascript">$(function (){gist('https://gist.github.com/1805917.json');});</script></div><br />使用方法很簡單 <i>portmanager CATEGORY/PORT -ui</i> 即可 i 表示要 interactive 選 options<br /><br />比方說裝 vim 就變成 <i>portmanager editors/vim -ui</i><br /><br />不過在此之前讓我們來調整一下 ports 編譯時候相關設定<br /><br />先編輯 /etc/make.conf (可能會沒有那就建立他吧)<br /><br /><div id="gist1805935"><script type="text/javascript">$(function (){gist('https://gist.github.com/1805935.json');});</script></div><br />CFLAGS 就是編譯時最佳化的參數啦~<br />而 FORCE_MAKE_JOBS=yes MAKE_JOBS_NUMBER=9 則是 make 時要同時作多少個 jobs<br /><br />要順便加上全域的 WITHOUT_X11=yes 也行~<br /><br />再來是我覺得 ports 很奇怪的地方<br /><br />ports 在編譯時可以選不同的額外套件 (Gentoo 叫 USE)<br /><br />不過有的時候是另外寫 options 這個檔案 (在同資料夾下) 有的時候卻只有在 Makefile 才可以看到 = =<br /><br />像 vim 就是只有寫在 Makefile 這時候要編譯只能在 make 時加上 WITHOUT_X11=yes 之類的<br /><br />但是像 svn 他有寫 options 就可以在他的資料夾下打 make config 會跳出互動選單選額外套件 (或者 portmanager 有加 -i 也是會呼叫 make config)<br /><br />BTW, make config 會把設定存在 /var/db/ports/portname/options<br /><br />對於像 vim 這類的 portmanager 有另外的解決方法 首先 <i>cp /usr/local/etc/portmanager/{pm-020.conf.SAMPLE,pm-020.conf}</i><br /><br />然後編輯 /usr/local/etc/portmanager/pm-020.conf 加入類似以下的設定<br /><br /><div id="gist1805967"><script type="text/javascript">$(function (){gist('https://gist.github.com/1805967.json');});</script></div><br />這表示編譯 vim 時要加入 perl python ruby 的支援但是把圖形界面排除<br /><br />而 zsh 則是加入 pcre 的支援<br /><br />這樣一來 ports 的基本使用好像大致完善了<br /><br />如果要升級 ports tree 請使用 <i>portsnap fetch update</i><br /><br />然後檢查狀態 <i>portmanager -s</i><br /><br />如果要升級就 <i>portmanager -u</i><br /><br />要搜尋 ports 有三種方法<br /><ol><li><i>whereis vim</i> - 適用於知道完整的套件名字</li><li><i>echo /usr/ports/*/*vim*</i></li><li><i>cd /usr/ports && make search name=vim</i></li></ol><br />其中第三種方法 make search 需要 /usr/ports 已經有 index file<br /><br />index file 從哪裡來 你可以自己建立 <i>make index</i> (不過要好久 = =<br /><br />我們抓別人的就好了 <i>make fetchindex</i>  XD<br /><br />1M 多的檔案~快多了!<br /><br /><h4>後記</h4>關於 static route 只要在 /etc/rc.conf 作如下的設定<br /><br /><div id="gist1806010"><script type="text/javascript">$(function (){gist('https://gist.github.com/1806010.json');});</script></div></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Hookah</div>
+<div class='content'>
+FreeBSD 讚啦！</div>
+</div>
+</div>

@@ -1,0 +1,9 @@
+---
+layout: post
+title: "trac, moinmoin wiki 與 svn 搬移與安裝的三兩事(二)"
+date: 2011-04-13
+comments: false
+---
+
+<div class='post'>
+一 講完了 trac 與 moinmoin 之後<br /><br />二 這篇要講的是有關 svn<br /><br />敝單位有使用 LDAP 當做帳號管理<br /><br />所以要走 ssh+svn 的話首先要建立 LDAP 的認證機制<br /><br />因為是用 SLES 所以設定也不難 用 yast 建立就好了<br /><!--more--><br />進去 yast 的 User and Group Administration 的功能 然後再 Authentication Settings 那邊設定 LDAP 認證<br /><br />基本上就是把 LDAP server ip 跟 LDAP Base DN 填進去然後按下一步 yast 會先裝好兩三個套件(pam_ldap nss_ldap)~<br /><br />如果要調整更詳細的資訊就到 /etc/ldap.conf 這個檔案修改<br /><br />然後再修改這隻 /etc/nsswitch.conf 檔案 如下<br /><br /><div id="gist941598"><script type="text/javascript">$(function (){gist('https://gist.github.com/941598.json');});</script></div><br />然後測試看看<br /><br /><div id="gist941599"><script type="text/javascript">$(function (){gist('https://gist.github.com/941599.json');});</script></div><br />看看有沒有 LDAP 的帳號就知道有沒有成功了<br /><br />成功的話基本上 ssh 就可以吃到 LDAP 的帳號<br /><br />先複習一下 svn 相關資訊<br /><br />首先 svn 的資料假設放在 /home/svn (權限要隸屬於 svn:svn)<br /><br />然後程式的部份在 /usr/bin/svnserve<br /><br />但是因為我們要用 ssh+svn 的方式 所以要動一點小手腳<br /><br />首先 vi /usr/local/bin/svnserve<br /><br />裡面的內容是<br /><br /><div id="gist941600"><script type="text/javascript">$(function (){gist('https://gist.github.com/941600.json');});</script></div><br />這樣透過 umask 002 去執行 svnserve 時候權限才不會有問題<br /><br />然後 chmod +x /usr/local/bin/svnserve<br /><br />這樣 svn server 也都設定好了 因為透過 ssh+svn 所以不需要啟動 svn 的 server</div>
