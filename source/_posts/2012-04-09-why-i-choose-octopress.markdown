@@ -4,7 +4,7 @@ title: "為什麼我跳槽到 octopress"
 date: 2012-04-09 15:59
 comments: true
 categories: 
-tags: octopress
+tags: ["Octopress"]
 ---
 
 ###When I met Octopress
@@ -37,12 +37,14 @@ tags: octopress
 
 不過我覺得上面列的都還是小事(當然第三點支援很多 social media 也很吸引人啦)，使用上最大的差異是在產生 static html 時，Jekyll 只有 `` jekyll --auto --safe --no-server `` 然後他就會 listen 在那邊聽檔案的異動要回到 shell 還要在按 `` ctrl + c `` ，不過有時候我只想要產生一次就要 deploy site 了啊，Octopress 則是使用 `` rake generate `` 然後就會回到 Shell，簡單的指令是我對 Octopress 的印象。
 
-另外 Octopress 支援的 Syntax Highlight 也是多到誇張，從基本的 [Pygment](http://octopress.org/docs/plugins/codeblock/) 到 [Gist](http://octopress.org/docs/plugins/gist-tag/) (使用 <code> &#123;&#37; gist 996818 &#37;&#125; </code>
+另外 Octopress 支援的 Syntax Highlight 也是五花八門，從基本的 [Pygment](http://octopress.org/docs/plugins/codeblock/) 到 [Gist](http://octopress.org/docs/plugins/gist-tag/) (使用 <code> &#123;&#37; gist 996818 &#37;&#125; </code>
 即可)、甚至是 [static files](http://octopress.org/docs/plugins/include-code/) 或者 jsFiddler 也都有支援，這根本是替程式設計師設計的 Blogger！
 
 不然之前我用 BlogSpot 時每次都還要複製他們的 javascript 檔案，現在只要有 Gist ID 就可以啦~
 
 ***
+
+但是 Github 原生支援 Jekyll，只要 push source 他就會自動 build site。這點是 Octopress 不及的(要分成 master & source 兩個 branch 不過 Octopress 作者有寫好的 Script 就是)。
 
 ###一些基本的 Octopress 的指令
 

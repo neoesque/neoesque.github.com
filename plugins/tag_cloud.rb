@@ -1,3 +1,4 @@
+# encoding: utf-8
 # Tag Cloud for Octopress
 # =======================
 # 
@@ -68,7 +69,8 @@ module Jekyll
       html = ''
       lists.each do | tag, counter |
       	url = tag_dir + tag.gsub(/_|\P{Word}/, '-').gsub(/-{2,}/, '-').downcase
-	html << "<a href='#{url}'>#{tag.capitalize}"
+	      style = "font-size: #{100 + (60 * Float(counter)/max)}%"
+        html << "<a href='#{url}' style='#{style}'>#{tag.capitalize}"
         if @opts['counter']
 	    html << "(#{tags[tag].count})"
         end
