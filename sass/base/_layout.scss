@@ -57,3 +57,9 @@ a{
 	background: #FFFFC0;
 	color: #424242;
 }
+.entry a[href^="http"]::after {
+    content: 'i';
+    font-size: 0.9em;
+    vertical-align: top;
+    font-family: Pictos, "Liberation Sans", Arial, Helvetica, sans-serif;
+} /* http://kkovacs.eu/ */
