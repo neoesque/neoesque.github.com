@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://neoesque.github.com
+url: http://parseflo.at
 title: "parseFloat"
 subtitle: "(\"JavaScript\")"
 author: neoesque
@@ -42,7 +42,7 @@ markdown: kramdown
 pygments: false # default python pygments have been replaced by pygments.rb
 
 paginate: 10          # Posts per page on the blog index
-pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
+pagination_dir: post  # Directory base for pagination URLs eg. /blog/page/2/
 recent_posts: 5       # Posts in the sidebar Recent Posts section
 excerpt_link: "繼續閱讀"  # "Continue reading" link text at the bottom of excerpted articles
 
@@ -94,7 +94,7 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
+disqus_short_name: parsefloat
 disqus_show_comment_count: false
 
 # Google Analytics
