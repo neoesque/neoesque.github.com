@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>FreeBSD 初體驗 | neoesque</title>
+  <meta name="author" content="neoesque">
+  
+  <meta name="description" content="neoesque&#39;s Linux Blog">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="FreeBSD 初體驗"/>
+  <meta property="og:site_name" content="neoesque"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37617901-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">neoesque</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> FreeBSD 初體驗</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p>其實說初體驗好像太誇張 XD<br><br>大學時候有碰過一次  不過覺得好難玩(跟 Gentoo 比的話) (¬_¬) 所以就沒有繼續碰<br><br>最近因為想評估 FreeBSD 一下所以就想說來試一下<br><br>安裝非常簡單 都是選單互動的 比 Gentoo 簡單很多 XD<br><a id="more"></a><br>BSD 系列的其中一大特色就是他的 ports 系統啦<br><br>最傳統的使用法是移動進去他的目錄然後打 make install clean<br><br>比方說要裝 vim 就要打 <br><br><script src="//gist.github.com/1805904.js"></script><br>不過這實在太麻煩了還要移動目錄 看起來 FreeBSD 目前有幾個不錯的 manager<br><ul><li>portmanager</li><li>portupgrade</li></ul><br>我選了 portmanager 因為有人說他效能比較好 他是用 C 寫的 相較於 portupgrade 是用 Ruby 寫的當然比較好 XD<br><br>所以來裝一下吧<br><br><script src="//gist.github.com/1805917.js"></script><br>使用方法很簡單 <i>portmanager CATEGORY/PORT -ui</i> 即可 i 表示要 interactive 選 options<br><br>比方說裝 vim 就變成 <i>portmanager editors/vim -ui</i><br><br>不過在此之前讓我們來調整一下 ports 編譯時候相關設定<br><br>先編輯 /etc/make.conf (可能會沒有那就建立他吧)<br><br><script src="//gist.github.com/1805935.js"></script><br>CFLAGS 就是編譯時最佳化的參數啦~<br>而 FORCE_MAKE_JOBS=yes MAKE_JOBS_NUMBER=9 則是 make 時要同時作多少個 jobs<br><br>要順便加上全域的 WITHOUT_X11=yes 也行~<br><br>再來是我覺得 ports 很奇怪的地方<br><br>ports 在編譯時可以選不同的額外套件 (Gentoo 叫 USE)<br><br>不過有的時候是另外寫 options 這個檔案 (在同資料夾下) 有的時候卻只有在 Makefile 才可以看到 = =<br><br>像 vim 就是只有寫在 Makefile 這時候要編譯只能在 make 時加上 WITHOUT_X11=yes 之類的<br><br>但是像 svn 他有寫 options 就可以在他的資料夾下打 make config 會跳出互動選單選額外套件 (或者 portmanager 有加 -i 也是會呼叫 make config)<br><br>BTW, make config 會把設定存在 /var/db/ports/portname/options<br><br>對於像 vim 這類的 portmanager 有另外的解決方法 首先 <i>cp /usr/local/etc/portmanager/{pm-020.conf.SAMPLE,pm-020.conf}</i><br><br>然後編輯 /usr/local/etc/portmanager/pm-020.conf 加入類似以下的設定<br><br><script src="//gist.github.com/1805967.js"></script><br>這表示編譯 vim 時要加入 perl python ruby 的支援但是把圖形界面排除<br><br>而 zsh 則是加入 pcre 的支援<br><br>這樣一來 ports 的基本使用好像大致完善了<br><br>如果要升級 ports tree 請使用 <i>portsnap fetch update</i><br><br>然後檢查狀態 <i>portmanager -s</i><br><br>如果要升級就 <i>portmanager -u</i><br><br>要搜尋 ports 有三種方法<br><ol><li><i>whereis vim</i> - 適用於知道完整的套件名字</li><li><i>echo /usr/ports/<em>/</em>vim*</i></li><li><i>cd /usr/ports &amp;&amp; make search name=vim</i></li></ol><br>其中第三種方法 make search 需要 /usr/ports 已經有 index file<br><br>index file 從哪裡來 你可以自己建立 <i>make index</i> (不過要好久 = =<br><br>我們抓別人的就好了 <i>make fetchindex</i>  XD<br><br>1M 多的檔案~快多了!<br><br></p><h4>後記</h4>關於 static route 只要在 /etc/rc.conf 作如下的設定<br><br><script src="//gist.github.com/1806010.js"></script><p></p>
+<p></p><h2>Comments</h2><p></p>
+<div class="comments"><br><div class="comment"><br><div class="author">Hookah</div><br><div class="content"><br>FreeBSD 讚啦！</div><br></div><br></div>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/post/transfer-textmate-2-to-sublime-text-2/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/post/open-rc-ulimit/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div id="disqus_thread">
+     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  	 </div>
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2012-02-12, Sun 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/FreeBSD/">FreeBSD<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 neoesque
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'parsefloat';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

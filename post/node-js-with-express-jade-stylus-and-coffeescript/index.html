@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>node.js with Express, Jade, Stylus and CoffeeScript | neoesque</title>
+  <meta name="author" content="neoesque">
+  
+  <meta name="description" content="neoesque&#39;s Linux Blog">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="node.js with Express, Jade, Stylus and CoffeeScript"/>
+  <meta property="og:site_name" content="neoesque"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37617901-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">neoesque</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> node.js with Express, Jade, Stylus and CoffeeScript</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p>好像不用 node.js 寫一些小東西感覺不出來他的威力 <span style="text-decoration:line-through">而且<a href="http://liangkuo.blogspot.com/" target="_blank" rel="external">小郭</a>說每次 Demo 都用 Hello World!</span><br><br>所以決定動手寫一個小小的留言板<br><br>搭配的 Framework 有 <a href="http://expressjs.com/" target="_blank" rel="external">Express</a> <a href="http://jashkenas.github.com/coffee-script" target="_blank" rel="external">CoffeeScript</a> <a href="http://jade-lang.com/" target="_blank" rel="external">Jade</a> <a href="http://learnboost.github.com/stylus" target="_blank" rel="external">Stylus</a><br><br>這些 Framework 功能如下<br><br><ul><li>Express : 是 node.js 的 Web Framework</li><li>CoffeeScript : 是快速產生 Javascript 的好物！</li><li>Jade : HTML 的 Template Engine</li><li>Stylus : dynamic stylesheet 簡單的語言產生 css</li></ul><br>功能有<br><br><ul><li>新增留言</li><li>修改留言</li><li>刪除留言</li></ul><br></p><h3>Demo site 在 <a href="http://nodejs-hello.cloudfoundry.com/" target="_blank" rel="external">Cloud Foundry</a></h3><br>是透過 VMware 的 Cloud Foundry 執行的<br><br><h3>Source Code 在 <a href="https://github.com/neoesque/nodejs-demo" target="_blank" rel="external">GitHub</a></h3><br>以下是說明~<br><a id="more"></a>首先請先確認你的環境已經裝好 <a href="http://nodejs.org/" target="_blank" rel="external">node.js</a>, <a href="http://npmjs.org/" target="_blank" rel="external">npm</a>, 與 <a href="http://expressjs.com/" target="_blank" rel="external">Express</a><br><br>接下來在想要的目錄輸入<br><br><script src="//gist.github.com/952892.js"></script><br>會產生如下的目錄架構<br><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-xWqia9snGiw/Tb-kwd--FBI/AAAAAAAAA3c/JBoCMbi7fPI/s6400/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25882.46.07.png" imageanchor="1" style="margin-left:1em; margin-right:1em" target="_blank" rel="external"><img border="0" height="278" width="640" src="http://1.bp.blogspot.com/-xWqia9snGiw/Tb-kwd--FBI/AAAAAAAAA3c/JBoCMbi7fPI/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25882.46.07.png"></a></div><br>大概就是這樣<br><br><script src="//gist.github.com/952922.js"></script><br>其中的 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js" target="_blank" rel="external">app.js</a></strong> 就是主程式裡面包含了 <em>routing</em> 也是 <em>controller</em><br><br>順帶一提的是 Express 沒有什麼 MVC 的架構(或者說可以自己切 XD) 感覺上他只有包含了 Controller 跟 View<br><br>因為我們的計畫跑在 VMware Cloud Foundry 上, 所以要加上 <a href="https://github.com/neoesque/nodejs-demo/blob/master/package.json" target="_blank" rel="external">package.json</a> 內容如下<br><br><script src="//gist.github.com/952939.js"></script><br>再下指令<br><br><script src="//gist.github.com/952945.js"></script><br><b>npm 1.0 之後用 npm install -d</b><br><br>npm 就會幫我們把需要的 Framework 通通裝到 node_modules 裡了<br><br>所以目前目錄結構如下<br><br><script src="//gist.github.com/952941.js"></script><br>都準備好之後終於可以開始寫程式了 XD<br><br>因為 express 在產生目錄時我們有指定 jade 跟 stylus 當 html 跟 css 的 engine 但是 CoffeeScript 還沒有指定<br><br>所以為了讓 Express 能吃到 CoffeeScript 所以我們先在 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js" target="_blank" rel="external">app.js</a></strong> 的 app.configure 裡加上一行 app.use(express.compiler({src: __dirname + ‘/public’, enable: [‘coffeescript’]}));<br><br>也就是會長這樣拉~ <em>這是 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js" target="_blank" rel="external">app.js</a></strong> 的片段而已</em><br><br><script src="//gist.github.com/952948.js"></script><br>所以這樣一來我們的環境也就是 express 就可以支援<br><ul><li><strong>.jade</strong> 都放在 ./views 底下 由 Jade 翻譯</li><li><strong>.styl</strong> 都放在 ./public/stylesheets 底下 由 Stylus 翻譯</li><li><strong>.coffee</strong> 都放在 ./public/javascripts 底下 由 CoffeeScript 翻譯</li></ul><br>另外為了讓我們的環境可以吃 npm bundle 包的內容以及準備一些環境變數我們把 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js" target="_blank" rel="external">app.js</a></strong> 開頭改成<br><br><script src="//gist.github.com/952961.js"></script><br>express 的 Controller-View 的 架構非常簡單<br><br>以下圖來說 (取自 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js#L36" target="_blank" rel="external">app.js</a></strong> 的一段)<br><br><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/--Li416OOzx4/Tb-1uybAU6I/AAAAAAAAA3k/i0Z3C61tSsk/s6400/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25883.53.21.jpg" imageanchor="1" style="margin-left:1em; margin-right:1em" target="_blank" rel="external"><img border="0" height="200" width="640" src="http://1.bp.blogspot.com/--Li416OOzx4/Tb-1uybAU6I/AAAAAAAAA3k/i0Z3C61tSsk/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25883.53.21.jpg"></a></div><br><ol><li> <a href="http://expressjs.com/guide.html#routing" target="_blank" rel="external">app.get(參數1, 參數2) </a> 的 參數1 是接收的網址 比方說 當網址是 <a href="http://xxxxx/" target="_blank" rel="external">http://xxxxx/</a> 而且方法是 Get 時就會交由這個 Controller 的 參數2 去處理 <em>( 參數2 必須是 function!)</em></li><li> <a href="http://expressjs.com/guide.html#view-rendering" target="_blank" rel="external">res.render(參數1, 參數2) </a>的 參數1 是告訴 Jade 要用哪一個 template 去 render 結果上圖表示要用 index.jade 去 render 結果</li><li> res.render(參數1, 參數2) 的 參數2 就是傳遞給 index.jade 的變數 type 必須是 JSON </li></ol><br>Controller 跟 View 的合作很簡單吧 接下來我們看一下 View 怎麼做的<br><br>首先看 <a href="https://github.com/neoesque/nodejs-demo/blob/master/views/layout.jade" target="_blank" rel="external">./views/layout.jade</a><br><br><script src="//gist.github.com/952987.js"></script><br>第一行的 !!! 5 表示要用 html5 的 doctype 輸出!<br><br>再來是 <a href="https://github.com/neoesque/nodejs-demo/blob/master/views/index.jade" target="_blank" rel="external">./views/index.jade</a><br><br><script src="//gist.github.com/952980.js"></script><br>如果剛剛 res.render 參數2 的 JSON 裡沒有 layout:false 則所有的結果都會是 layout.jade + 參數1.jade 輸出<br><br>所以以剛剛的範例來說 title: ‘Hello Cloud Foundry’ 就會被 layout.jade 的 title= title 吃走<br><br>而 articles: articles 就會被 index.jade 裡面 - each article, key in articles 的 articles 吃走<br><br>詳細的 Jade 使用方法可以參考 Jade 官網<br><br>因為要寫出類似留言板的網站所以我們要一個存檔的功能<br><br>接下來我們來新增一個 save 的 Controller 方法是 POST 收的參數有一個就是 textarea 裡的 value 啦<br><br>所以請在 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js#L58" target="_blank" rel="external">app.js</a></strong> 裡新增 一個 app.post(‘/save’, function(){}) 的 method 如下<br><br><script src="//gist.github.com/953004.js"></script><br>POST 或 GET 收進來的變數都會由 req.body.[變數] 來取得<br><br>這邊的設計上 db 裡每一筆資料都是 JSON 裡面有兩個資料 一個是文章 id (由 md5 hash) 是做刪除用的 另一個是文章內容 content<br><br>而 render 的結果是由 save.jade 處理所以 res.render 的 參數1 我們填 ‘save’<br><br>參數2 必須是個 JSON 我們傳了三個東西<br><ol><li>id : 文章 id</li><li>content : 文章內容</li><li>layout : 要不要套用 layout.jade, 這裡是 false 表示單純輸出 save.jade 的內容就好</li></ol><br>BTW, 這邊的 db 其實我是用 array 做的 可以參考<strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js#L9" target="_blank" rel="external">app.js</a></strong> 因為 VMware Cloud Foundry 目前還沒支援任何 database (之後會有 MySQL, Redis, 和 MongoDB 的支援)<br><br>再來我們看一下 <a href="https://github.com/neoesque/nodejs-demo/blob/master/views/save.jade" target="_blank" rel="external">save.jade</a> 吧<br><br><script src="//gist.github.com/953008.js"></script><br>原理很簡單 就是把整塊 div 回傳回去到網頁端的 javascript 直接整個 append 上去就好 (簡單來說我把它當 template 用 XD)<br><br>再來進階一點我們還想要有修改的功能 一樣的 Controller 只是變成判斷有沒有 文章id 如果有的話就進去 db 尋找 id 有沒有 match 有的話就修改他 沒有文章 id 表示新增文章 因此 Controller 變成這樣<br><br><script src="//gist.github.com/953009.js"></script><br>最後我們來稍微看一下 Stylus 跟 CoffeeScript 吧<br><br>首先是 <a href="https://github.com/neoesque/nodejs-demo/blob/master/public/stylesheets/style.styl" target="_blank" rel="external">./public/stylesheets/style.styl</a><br><br><script src="//gist.github.com/953012.js"></script><br>Stylus 翻譯出來就變這樣!<br><script src="//gist.github.com/953013.js"></script><br>P.S. 我有偷偷修改 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js#L20" target="_blank" rel="external">app.js</a></strong> 的 app.configure 裡面的 Stylus 加上了 compress : true 讓 translate 出來的 css 有壓縮!<br><br>至於 javascript 的處理 我們看 <a href="https://github.com/neoesque/nodejs-demo/blob/master/public/javascripts/hello.coffee" target="_blank" rel="external">./public/javascripts/hello.coffee</a><br><br><script src="//gist.github.com/953022.js"></script><br>ㄜ… 這邊要解釋起來有點囉嗦改天再寫一篇 blog 目前請各位去看 docs 吧 XD<br><br>CoffeeScript 翻譯過的結果就是這樣<br><br><script src="//gist.github.com/953023.js"></script><br>很酷 對吧!<p></p>
+<p></p><h2>Comments</h2><p></p>
+<div class="comments"><br><div class="comment"><br><div class="author">Tim Wu</div><br><div class="content"><br>呵! 正在看這方面的資料, 想不到台灣有人try 這麼快.</div><br></div><br></div>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/post/nginx-performance-compare-with-php/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/post/build-website-with-nodejs-express/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div id="disqus_thread">
+     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  	 </div>
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2011-05-03, Tue 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/nodejs/">nodejs<span>4</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 neoesque
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'parsefloat';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

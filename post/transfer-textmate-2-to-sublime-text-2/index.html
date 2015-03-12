@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>從 TextMate 2 跳到 Sublime Text 2 | neoesque</title>
+  <meta name="author" content="neoesque">
+  
+  <meta name="description" content="neoesque&#39;s Linux Blog">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="從 TextMate 2 跳到 Sublime Text 2"/>
+  <meta property="og:site_name" content="neoesque"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37617901-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">neoesque</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> 從 TextMate 2 跳到 Sublime Text 2</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p>原本都是使用 TextMate 後來實在受不了不能好好支援 cjk 的輸入。</p>
+<p>加上 TextMate 已經過了好久都沒有更新，原本說好在 Mac OS X 10.5 出來的時候就要改用 CoreText 改寫，結果也跳票了。不然實在是離不開 TextMate 的 snippet 。</p>
+<p>不過雖然 TextMate 在前一陣子推出 TextMate 2 beta 但是很多功能還是沒有完整，而且不時還會當機，所以前陣子原本就想說找個替代品，一路搜尋下來就發現了 Sublime Text 2 (beta)。</p>
+<p>可以說 TextMate 該有的他都有，而且支援了更多的功能，加上跨 Windows, Linux, OS X 所以可以預料到未來應該會有更多人力加入寫 Sublime Text 2 packages 的行列。</p>
+<a id="more"></a>
+<p>之前試用了 Sublime Text 2 (Build 2165) 不過發現有個重大問題，就是沒辦法在 html 情境中的 script tag 使用 jQuery 的 snippet 真的很怪，所以後來評估之後之好先繼續使用 TextMate 2。</p>
+<p>不過這幾天又使用了最新版的 (Build 2181) 又修好了，應該真的是 2165 的 bug。所以看起來是真的可以完全換到 Sublime Text 2 了。</p>
+<p>不過沒有什麼 IDE 是原生就符合每個人的習慣的，一定要 tune 一下，裝一堆的 Plug-in，Sublime Text 2 也是一樣，不過幸好裝 Plug-in (Sublime Text 2 叫 Packages)是很簡單的事。</p>
+<hr>
+<h3 id="基本準備">基本準備</h3><p>首先按 <code>ctrl + ` </code> 然後會出現一個對話框，直接貼入下列的程式碼</p>
+<pre><code>import urllib2,os; pf=<span class="string">'Package Control.sublime-package'</span>; ipp=sublime.installed_packages_path(); os.makedirs(ipp) <span class="keyword">if</span> <span class="keyword">not</span> os.path.<span class="keyword">exists</span>(ipp) <span class="keyword">else</span> None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); <span class="keyword">open</span>(os.path.<span class="keyword">join</span>(ipp,pf),<span class="string">'wb'</span>).<span class="keyword">write</span>(urllib2.urlopen(<span class="string">'http://sublime.wbond.net/'</span>+pf.replace(<span class="string">' '</span>,<span class="string">'%20'</span>)).<span class="keyword">read</span>()); <span class="keyword">print</span> <span class="string">'Please restart Sublime Text to finish installation'</span>
+</code></pre><p><img src="https://lh5.googleusercontent.com/-OBhLI8lugD4/T4FAwZ6KVfI/AAAAAAAAD2Y/VKP9-1VWSEk/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-08%2520%25E4%25B8%258B%25E5%258D%25883.39.25.png" alt=""></p>
+<p>然後按下 Enter 就會安裝完成了，重開 Sublime Text 2 後，按下 <code>cmd + shift + p</code> 會叫出 Command Palette ，輸入 <code>package control</code> 就會顯示相關指令：</p>
+<p><img src="https://lh5.googleusercontent.com/-m8zEAF4lQ9s/T4FCM254SoI/AAAAAAAAD2o/eu8w-2dpU8Q/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-08%2520%25E4%25B8%258B%25E5%258D%25883.45.39.png" alt=""></p>
+<p>我們下面需要用到的是 Install 所以把游標移到 <em>Install Package</em> 按下 Enter (以後可以搜尋 install 就好)，他會上網截取所有的 Package 列表然後再次出現輸入提示：</p>
+<p><img src="https://lh6.googleusercontent.com/-hQn6BsiHXsQ/T4FCxb23XeI/AAAAAAAAD28/yYt4loeulA4/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-08%2520%25E4%25B8%258B%25E5%258D%25883.47.40.png" alt=""></p>
+<hr>
+<h3 id="推薦套件">推薦套件</h3><p>接下來介紹幾個我有用到的套件 (直接在 Install 裡搜尋即可)</p>
+<ul>
+<li><a href="https://bitbucket.org/sublimator/sublime-2-zencoding" target="_blank" rel="external">Zen Coding</a></li>
+</ul>
+<p><img src="https://lh6.googleusercontent.com/-D60HJjS0rcg/T4J4alehcxI/AAAAAAAAD4I/Y1mnCgK5HzY/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-09%2520%25E4%25B8%258B%25E5%258D%25881.49.06.png" alt=""></p>
+<p>可以用 zen coding 的方式展開 html tags</p>
+<ul>
+<li><a href="https://github.com/mrmartineau/Jquery" target="_blank" rel="external">jQuery</a></li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/-X8ysde3lY5o/T4J49H6sYLI/AAAAAAAAD4c/2pU_zuwF1RI/s576/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-09%2520%25E4%25B8%258B%25E5%258D%25881.51.41.png" alt=""></p>
+<p>是網頁設計師就要寫 jQuery 吧!</p>
+<ul>
+<li><a href="https://github.com/jdc0589/JsFormat" target="_blank" rel="external">JsFormat</a></li>
+<li><a href="https://github.com/kronuz/SublimeLinter/" target="_blank" rel="external">SublimeLinter</a></li>
+<li><a href="https://github.com/wbond/sublime_alignment" target="_blank" rel="external">Sublime Alignment</a></li>
+</ul>
+<p><img src="https://lh4.googleusercontent.com/-t4R1xKfapOg/T4J6i6rCAOI/AAAAAAAAD4w/bMK4aR70jjU/s576/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-09%2520%25E4%25B8%258B%25E5%258D%25881.58.27.png" alt=""></p>
+<p>對齊等號… 不過對於 javascript 好像有 Bug XD</p>
+<ul>
+<li><a href="https://github.com/jdc0589/CaseConversion" target="_blank" rel="external">Case Conversion</a></li>
+</ul>
+<p>誰不合作了嗎? 這個讓你在 pascal, camel, snake 這三種變數表示法中輕鬆切換。</p>
+<ul>
+<li><a href="https://github.com/facelessuser/BracketHighlighter" target="_blank" rel="external">BracketHighter</a></li>
+</ul>
+<p><img src="https://github.com/facelessuser/BracketHighlighter/raw/master/example.png" alt=""></p>
+<p>花俏的提示成對符號</p>
+<ul>
+<li><a href="https://github.com/colinta/SublimeChangeQuotes" target="_blank" rel="external">ChangeQuotes</a></li>
+</ul>
+<p>在單引號、雙引號中輕鬆切換。</p>
+<ul>
+<li><a href="https://github.com/devtellect/sublime-twitter-bootstrap-snippets/" target="_blank" rel="external">Twitter Bootstrap</a></li>
+</ul>
+<p>支援 Bootstap 的 snippet</p>
+<hr>
+<h3 id="推薦_Theme">推薦 Theme</h3><p>而在 Theme 方面我用的是 <a href="https://github.com/mattsanders/Prospettiva-Theme" target="_blank" rel="external">Prospettiva</a> + <a href="https://github.com/buymeasoda/soda-theme" target="_blank" rel="external">Soda</a></p>
+<p>Prospettiva 的安裝只要把他的 prospettiva.tmTheme 下載後放到 <em>~/Library/Application Support/Sublime Text 2/Packages/User</em> 即可</p>
+<p>而 Soda 則可以利用 Package Manager 安裝</p>
+<p>Soda 有一點類似掌管整個程式的 Decorator 而 Prospettiva 則是掌管 TextArea 的區塊，最後完成的結果像這樣：</p>
+<p><img src="https://lh6.googleusercontent.com/-9Dm_c1SPq0g/T4FJxWBn-QI/AAAAAAAAD3Q/pR3Rm9Ov0Bg/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-08%2520%25E4%25B8%258B%25E5%258D%25884.17.56.png" alt=""></p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/post/why-i-choose-octopress/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/post/freebsd-first-sight/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div id="disqus_thread">
+     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  	 </div>
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2012-04-08, Sun 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Sublime/">Sublime<span>1</span></a></li> <li><a href="/tags/TextMate/">TextMate<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 neoesque
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'parsefloat';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

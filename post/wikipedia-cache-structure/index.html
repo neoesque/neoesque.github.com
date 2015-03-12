@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Wikipedia cache 架構 | neoesque</title>
+  <meta name="author" content="neoesque">
+  
+  <meta name="description" content="neoesque&#39;s Linux Blog">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Wikipedia cache 架構"/>
+  <meta property="og:site_name" content="neoesque"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37617901-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">neoesque</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> Wikipedia cache 架構</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p>最近被 cache server 整的很慘 XD<br><br>先是以為我們用的 squid 效能不行 (後來證明是我頭腦的問題 XD)<br><br>改用了 nginx, varnish 甚至是 apache traffic server 結果出圖都還是不太順利<br><br>結果才發現是 SLB 說 cache server 的 80 port 一直 up and down<br><br>後來更慘 SLB 產生 Mac Flapping<br><br>後來把 Linux kernel 的 Netfilter 關掉<br><br>然後在 /etc/sysctl.conf 把 tcp 的 buffer 加大後<br><br>情況就舒緩許多 於是還是換回 squid 2.7.9<br><br>在穩定後 想研究一下其他網站的 cache  solution 是什麼<br><a id="more"></a>大致上離不開<br><ol><li>自己開發的 cache server,比如說 Facebook 採用自己開發的 Cachr 後端搭配 Haystacks 儲存</li><li>用 open source 的 cache server, 最知名的大概就是 <em>squid</em> (採用的有 wikipedia, 一些 CDN(Hinet …etc)), 或者 <em>varnish</em> (Gentoo 的 wiki), 或者 <em>traffic server</em> (Yahoo 所採用的)</li><li>改 open source 的 cache server, 像大陸的淘寶就是用 squid 去改寫號稱省好幾百MB的記憶體也支援 sendfile</li></ol><br>wikipedia 有簡報他們的 architecture<br><br>概觀如下<br><ul><li>30000 HTTP requests/s during peak-time</li><li>3 Gbit/s of data traffic</li><li>3 data centers:Tampa,Amsterdam, Seoul</li><li>350 servers, ranging between 1x P4 to 2x Xeon Quad- Core, 0.5 - 16 GB of memory</li></ul><br>本篇只著重在 cache 的部分<br><br>他們用 squid 當 cache 根據簡報所說<br><ul><li>有 55 台 squid server</li><li>每一台大約 1000 HTTP requests/s 壓力時會到 2500</li><li>流量每台大約 100 - 250 Mbit/s</li><li>連接數每台約 14000 - 32000</li></ul><br>關於硬體<br><br><ul><li>每台 squid 使用 40G 的空間當 cache</li><li>每台 squid 都四顆硬碟</li><li>每台都有 8G 的記憶體 squid 使用一半(也就是 4G)</li><li>Hit rates 的表現 Text 有 85%, 多媒體(img, music)的部分則達到 98% (因為使用了CARP)</li></ul><br>CARP 的使用如下<br><br><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-A-9_Zi0mxro/TpvjwpHbioI/AAAAAAAAB_0/ARv8XupyMxQ/s6400/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-10-17%2B%25E4%25B8%258B%25E5%258D%25884.13.38.png" imageanchor="1" style="margin-left:1em; margin-right:1em" target="_blank" rel="external"><img border="0" height="331" width="640" src="http://3.bp.blogspot.com/-A-9_Zi0mxro/TpvjwpHbioI/AAAAAAAAB_0/ARv8XupyMxQ/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-10-17%2B%25E4%25B8%258B%25E5%258D%25884.13.38.png"></a></div><br>相較之下 我們這裡…<br><ul><li>16台 squid server</li><li>每台大概 150 個 requests/s, 最多單台有來到 300 r/s,大概總 requests/s 在 3000 左右</li><li>每台流量大概 60Mb/s, 最多來到 180Mb/s 左右, 全部的 cache server 最高大概有 1.5Gb/s 的流量</li><li>每台都有兩顆硬碟採用 Raid0</li><li>每台記憶體都有 4G</li><li>hit rate 的表現大概在92%~95%</li></ul><br>我們這裡沒有用 CARP 直接 squid 後端接 original server<br><br>所以看起來表現好像還不錯…</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/post/ceramic-bow/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/post/squid-refresh-pattern/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div id="disqus_thread">
+     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  	 </div>
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2011-10-17, Mon 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/squid/">squid<span>4</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 neoesque
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'parsefloat';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

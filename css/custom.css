@@ -1,0 +1,15 @@
+.entry, .post {
+  line-height: 1.7em;
+  line-height-title: 1.1em;
+}
+
+p {
+  text-align: justify;
+  text-justify: ideographic;
+  margin-after: 0.5em;
+}
+
+code {
+  text-shadow: 0 1px #fff;
+  padding: 0 0.3em;
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>利用 nodejs 與 express 建立基本網站 | neoesque</title>
+  <meta name="author" content="neoesque">
+  
+  <meta name="description" content="neoesque&#39;s Linux Blog">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="利用 nodejs 與 express 建立基本網站"/>
+  <meta property="og:site_name" content="neoesque"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37617901-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">neoesque</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> 利用 nodejs 與 express 建立基本網站</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p><a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a> 可以說是今年蠻具有話題性的 server side 技術<br><br>在官方網頁上可以看到大大的 Evented I/O for V8 JavaScript<br><br>簡單來說她利用了 V8 Javascript Engine 的高速性能 加上了 non-blocking I/O 造就了特殊的程式樂趣<br><br>沒想到 javascript 除了 client 端 也可以寫 server 端的程式<br><br>原生的 node.js 就可以產生 server<br><br>不過當然搭配一些 framework 會讓我們寫程式更輕鬆啦~<br><br>目前跟 node.js 搭配的 framework 有三種<br><br>1. <a href="http://expressjs.com/" target="_blank" rel="external">Express</a><br>主要提供 view helper 跟 routing<br>2. <a href="http://jade-lang.com/" target="_blank" rel="external">Jade</a><br>是一個 html 的 template engine 可以減少很多寫 html 的工<br>3. <a href="http://learnboost.github.com/stylus/" target="_blank" rel="external">Stylus</a><br>類似 ruby 的 Sass 可以用來快速產生 css<br><a id="more"></a>首先用 npm 裝好這三種<br><br><script src="//gist.github.com/941555.js"></script><br>然後隨便開一個資料夾吧~<br><br>就叫做 express_demo 然後進去<br><br><script src="//gist.github.com/941556.js"></script><br>接下來利用 express 幫我們快速產生基本架構!<br><br><script src="//gist.github.com/941559.js?file=[filename]"></script><br>(-t 表示指定 html template engine; -c 是 css style)<br><br>如下圖<br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="214" width="640" src="http://1.bp.blogspot.com/-NPi7nIJ7ufc/TbQ1-xP7mdI/AAAAAAAAA3U/fjfMX3tXib8/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-24%2B%25E4%25B8%258B%25E5%258D%258810.38.31.png"></div><br>基本上 view 就都在 views/ 這個資料夾裡了 目前看到有 index.jade 與 layout.jade<br><br>現在直接打 node app.js 基本上就會 run 起一個基本的 express 的應用程式了!<br><br>不過假設我們想要 deploy 到 Cloud Foundry 一樣先編輯一個 package.json 如下<br><br><script src="//gist.github.com/941553.js"></script><br>然後再下<br><br><script src="//gist.github.com/941562.js"></script><br><b>npm 1.0 之後要改用 npm install -d</b><br><br>一樣會噴一堆 info 不過基本上就是把 express, jade, stylus 跟其相依的 libs 都放進去 node_modules 裡<br><br>這時候一樣改 app.js 在最前面加入 require.paths.unshift(‘./node_modules’);<br><br>然後原本的 app.listen(3000); 改成 app.listen(process.env.VMC_APP_PORT||3000);<br><br>這樣就可以準備發包到 Cloud Foundry 啦~<br><br>我們來改一下 views/index.jade 好了<br><br>改成如下<br><br><script src="//gist.github.com/941563.js"></script><br>存檔後發佈上去 Cloud Foundry (vmc update &lt;name&gt;)<br><br>範例網址在 <a href="http://nodejs-hello.cloudfoundry.com/" target="_blank" rel="external">這裡</a><br><br>如果要進階一點的話就是在 views 裡加額外的 .jade 頁面<br><br>然後再 app.js 裡增加 routing 規則 app.get(‘/about’, function(req, res){ res.render(‘about’ …. blahblah<br><br>這邊的 render(‘about’) 就會自動對應到 views 裡的 about.jade 了!<br><br>然後 stylus 要改的話則是到 publics/stylesheets/style.styl 修改!<br><br>BTW, 原本的 jade 是用 !!! 會產生 XHTML 我們建議改用 HTML5 所以請至 views/layout.jade 把第一行的 !!! 改成 !!! 5 這樣 Jade 就會產生 HTML 5 了</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/post/node-js-with-express-jade-stylus-and-coffeescript/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/post/vmware-cloud-foundry/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div id="disqus_thread">
+     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  	 </div>
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2011-04-24, Sun 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/nodejs/">nodejs<span>4</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 neoesque
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'parsefloat';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>install graylog2 | neoesque</title>
+  <meta name="author" content="neoesque">
+  
+  <meta name="description" content="neoesque&#39;s Linux Blog">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="install graylog2"/>
+  <meta property="og:site_name" content="neoesque"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37617901-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">neoesque</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> install graylog2</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <img src="https://lh4.googleusercontent.com/-HxbTnQ713EE/UuKP3HTDr_I/AAAAAAAAH0Y/5PqTkSwGYOY/w758-h379-no/Screenshot+2014-01-25+00.04.08.png">
+<p><a href="http://graylog2.org/" target="_blank" rel="external">Graylog2</a> 是一個開源的 log 收容器，主要有兩個部份集合而成 <code>server</code> 與 <code>web interface</code>，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 <a href="http://www.mongodb.org/" target="_blank" rel="external">mongodb</a>，而搜尋引擎則由 <a href="http://www.elasticsearch.org/" target="_blank" rel="external">elasticsearch</a> 提供。另外的 web interface 也是 Java 寫成的(早期好像是 Ruby on Rails)，主要的功能就是提供一個漂亮的搜尋與分析的界面。</p>
+<p>所以要使用 Graylog2 需要安裝五個元件</p>
+<table>
+<thead>
+<tr>
+<th>軟體</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java Runtime Environment</td>
+<td>7u51</td>
+</tr>
+<tr>
+<td>elasticsearch</td>
+<td>0.90.10</td>
+</tr>
+<tr>
+<td>mongodb</td>
+<td>2.4.9</td>
+</tr>
+<tr>
+<td>graylog2-server</td>
+<td>0.20.1-1rc</td>
+</tr>
+<tr>
+<td>graylog2-web-interface</td>
+<td>0.20.1-1rc</td>
+</tr>
+</tbody>
+</table>
+<p>我們先從 elasticsearch 開始安裝起，以下都用目前最新的版本來示範，基本上不分什麼 Linux Distribution，我們單位都用 SUSE，不過 Gentoo 或 Ubuntu 也都適用就是</p>
+<a id="more"></a>
+<p>首先因為 elasticsearch 跟 graylog2 都需要 Java，所以我們的系統需要安裝 JRE 先，最低需求是 Java 7.0 的版本，所以我們先到 <a href="http://java.com/en/download/manual.jsp" target="_blank" rel="external">Java Download</a> 下載 JRE 7u51 下來，假設下載到 /tmp/jre-7u51-linux-x64.tar.gz 下面，先解壓縮到 /opt 底下 <code>tar zxvf /tmp/jre-7u51-linux-x64.tar.gz -C /opt</code> 會產生 /opt/jre1.7.0_51/ 然後我們為了好看做一下 link <code>ln -s /opt/jre1.7.0_51 /opt/java</code> 這樣 Java 就裝好了。</p>
+<p>接下來來裝 elasticsearch，<code>curl https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.10.tar.gz -o /tmp/elasticsearch.tgz &amp;&amp; tar zxvf /tmp/elasticsearch.tgz -C /opt &amp;&amp; ln -s /opt/elasticsearch-0.90.10 /opt/elasticsearch</code> 這樣基本上就裝好了，不過我們還需要建立一些資料夾讓 elasticsearch 可以運作起來。</p>
+<figure class="highlight"><figcaption><span>build basic directory</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install -o nobody -g nogroup -d /var/log/elasticsearch/&#10;install -o nobody -g nogroup -d /var/lib/elasticsearch/data&#10;install -o nobody -g nogroup -d /var/lib/elasticsearch/work&#10;install -o nobody -g nogroup -d /var/run/elasticsearch/</span><br></pre></td></tr></table></figure>
+<p>之所以給 nobody:nogroup 是希望之後我們的 elasticsearch 就用 nobody 的身份執行，其實沒有強制，如果要建立 elasticsearch 的專用帳號也是可以的。</p>
+<p>接著改個設定</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i -e &#39;s|# cluster.name: elasticsearch|cluster.name: graylog2|&#39; /opt/elasticsearch/config/elasticsearch.yml</span><br></pre></td></tr></table></figure>
+<p>這個是把 elasticsearch 的名字設定成 graylog2，這樣之後 server 才吃得到。</p>
+<p>然後我們來建立啟動 elasticsearch 的 script 吧，貼上下列的 code 到 /etc/init.d/elasticsearch 然後 <code>chmod +x /etc/init.d/elasticsearch</code>。</p>
+<script src="//gist.github.com/a1d4fdbdca18d31cf437.js"></script>
+<p>接著 <code>/etc/init.d/elasticsearch start</code> ，理論上應該 elasticsearch 就啟動了。可以用 <code>tail -f /var/log/elasticsearch/graylog2.log</code> 來看情況。</p>
+<p>接下來是安裝 mongodb，<code>curl http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz -o /tmp/mongodb.tgz &amp;&amp; tar zxvf /tmp/mongodb.tgz -C /opt &amp;&amp; ln -s /opt/mongodb-linux-x86_64-2.4.9 /opt/mongodb</code> 這樣也裝好了，mongodb 基本上完全不需要設定(要設定帳密增加安全性也可以)。我們來增加啟動 mongob 的 script，新增下面的內容到 /etc/init.d/mongodb 然後 <code>chmod +x /etc/init.d/mongodb</code>。</p>
+<script src="//gist.github.com/c931db641e7f4008e4e3.js"></script>
+<p>一樣需要增加一些資料夾才能正常使用</p>
+<figure class="highlight"><figcaption><span>build basic directory</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install -o nobody -g nogroup -d /var/log/mongodb/&#10;install -o nobody -g nogroup -d /var/lib/mongodb/&#10;install -o nobody -g nogroup -d /var/run/mongodb/</span><br></pre></td></tr></table></figure>
+<p>接著也啟動看看 <code>/etc/init.d/mongodb start</code>，我們透過 <code>tail -f /var/log/mongodb/mongodb.log</code> 可以知道啟動的狀態，如果都沒錯理論上可以繼續下一步了。</p>
+<p>目前為止我們可以透過 <code>netstat -ntlp</code> 看 9300 (elasticsearch 的 port) 跟 27017 (mongodb 的 port) 有沒有在監聽著，就知道有沒有啟動成功了。</p>
+<p>接下來就是要裝 graylog2 啦，首先是 server，<code>curl https://github.com/Graylog2/graylog2-server/releases/download/0.20.0-rc.1-1/graylog2-server-0.20.0-rc.1-1.tgz -o /tmp/graylog2-server.tgz &amp;&amp; tar zxvf /tmp/graylog2-server.tgz -C /opt &amp;&amp; ln -s /opt/graylog2-server-0.20.0-rc.1-1 /opt/graylog2-server</code> 然後我們需要設定一下</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /opt/graylog2-server/graylog2.conf.example /etc/graylog2.conf&#10;pass_secret=$(pwgen -s 96)&#10;sed -i -e &#39;s|password_secret =|password_secret = &#39;$pass_secret&#39;|&#39; /etc/graylog2.conf&#10;#&#23494;&#30908;&#33258;&#24049;&#35373;&#23450; web &#30331;&#20837;&#29992;&#30340; root_pass_sha2=$(echo -n password123 | shasum -a 256)&#10;sed -i -e &#34;s|root_password_sha2 =|root_password_sha2 = ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f|&#34; /etc/graylog2.conf&#10;sed -i -e &#39;s|elasticsearch_shards = 4|elasticsearch_shards = 1|&#39; /etc/graylog2.conf&#10;sed -i -e &#39;s|mongodb_useauth = true|mongodb_useauth = false|&#39; /etc/graylog2.conf&#10;sed -i -e &#39;s|#elasticsearch_discovery_zen_ping_multicast_enabled = false|elasticsearch_discovery_zen_ping_multicast_enabled = false|&#39; /etc/graylog2.conf&#10;sed -i -e &#39;s|#elasticsearch_discovery_zen_ping_unicast_hosts = 192.168.1.203:9300|elasticsearch_discovery_zen_ping_unicast_hosts = 127.0.0.1:9300|&#39; /etc/graylog2.conf&#10;sed -i &#39;s|retention_strategy = delete|retention_strategy = close|&#39; /etc/graylog2.conf</span><br></pre></td></tr></table></figure>
+<p>然後一樣來增加 init script 吧，在 /etc/init.d/graylog2-server 填入下列，並 <code>chmod +x /etc/init.d/graylog2-server</code></p>
+<script src="//gist.github.com/62ad68382f8a33244a6e.js"></script>
+<p>然後直接啟動了！ <code>/etc/init.d/graylog2-server start</code>，看看 <code>tail -f /var/log/graylog2-server.log</code> 是不是有出現錯誤訊息，沒有錯的話 <code>netstat -ntlp</code> 應該可以看到 port:12900 有被監聽了，這是 server 的 REST 傳輸 port。</p>
+<p>最後我們就可以來裝 web interface 了，<code>curl hhttps://github.com/Graylog2/graylog2-web-interface/releases/download/0.20.0-rc.1-1/graylog2-web-interface-0.20.0-rc.1-1.tgz -o /tmp/graylog2-web-interface.tgz &amp;&amp; tar zxvf /tmp/graylog2-web-interface.tgz -C /opt &amp;&amp; ln -s /opt/graylog2-web-interface-0.20.0-rc.1-1 /opt/graylog2-web-interface</code><br>這裡我們只有兩個地方要設定</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i -e &#39;s|graylog2-server.uris=&#34;&#34;|graylog2-server.uris=&#34;http://127.0.0.1:12900/&#34;|&#39; /opt/graylog2-web-interface/conf/graylog2-web-interface.conf&#10;# &#36889;&#35041;&#22635;&#20837;&#21083;&#21083; server &#30340; app_secret&#10;sed -i -e &#39;s|application.secret=&#34;&#34;|application.secret=&#34;&#39;$app_secret&#39;&#34;|&#39; /opt/graylog2-web-interface/conf/graylog2-web-interface.conf</span><br></pre></td></tr></table></figure>
+<p>然後我們也來寫一下 init script 吧，檔名存 /etc/init.d/graylog2-web-interface，記得一樣 <code>chmod +x /etc/init.d/graylog2-web-interface</code></p>
+<script src="//gist.github.com/97ac6a26cf7d5f2da36f.js"></script>
+<p>最後啟動 <code>/etc/init.d/graylog2-web-interface start</code>，因為我們沒有寫 log，直接用 <code>netstat -ntlp</code> 觀察看看 port:9000 有沒有被聽著，這是他的 web interface 預設的 http port。</p>
+<p>如果 port:9000 有起來的話，請用你的瀏覽器打開 <a href="http://ip:9000" target="_blank" rel="external">http://ip:9000</a> 看，沒有意外的話應該會出現一個登入的畫面了，帳號一開始都是 admin，密碼則是剛剛自己設定在 /etc/graylog2.conf 的 root_pass_sha2=$(echo -n password123 | shasum -a 256)，如果剛剛是直接複製貼上然後按下 enter 的話，密碼就是 password123，如果沒有意外應該就可以進去啦！恭喜，現在可以開始使用 graylog2 了。</p>
+<hr>
+<p>參考資料</p>
+<ul>
+<li><a href="http://everythingshouldbevirtual.com/ubuntu-12-04-graylog2-installation" target="_blank" rel="external">Ubuntu 12.04 Graylog2 Installation</a></li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/post/conky/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/post/saltstack-custom-grains/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div id="disqus_thread">
+     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  	 </div>
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2014-01-24, Fri 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Linux/">Linux<span>18</span></a></li> <li><a href="/tags/graylog2/">graylog2<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 neoesque
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'parsefloat';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

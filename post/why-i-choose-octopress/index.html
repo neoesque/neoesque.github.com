@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>為什麼我跳槽到 octopress | neoesque</title>
+  <meta name="author" content="neoesque">
+  
+  <meta name="description" content="neoesque&#39;s Linux Blog">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="為什麼我跳槽到 octopress"/>
+  <meta property="og:site_name" content="neoesque"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37617901-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">neoesque</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> 為什麼我跳槽到 octopress</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <h3 id="When_I_met_Octopress">When I met Octopress</h3><p><a href="http://octopress.org" target="_blank" rel="external">Octopress</a> 是一個之前(應該是兩年前吧 XD)很流行的 Static Blog Generators 的產物，Based的語言是 Ruby，底層依賴 <a href="https://github.com/mojombo/jekyll" target="_blank" rel="external">Jekyll</a>，由於 Jekyll 支援很多其他有的沒的，像是 Markdown Engine 支援很多種(包含了 <a href="http://maruku.rubyforge.org" target="_blank" rel="external">Maruku</a> 或者 <a href="http://kramdown.rubyforge.org" target="_blank" rel="external">Kramdown</a> )，另外也有 Syntax Highlight (可以使用 <a href="http://pygments.org" target="_blank" rel="external">Pygment</a> 或者 <a href="http://coderay.rubychan.de" target="_blank" rel="external">Coderay</a>)，加上 Octopress 作者自己的延伸讓 Octopress 常見的功能(甚至是不會用到的功能XD)都有提供了。</p>
+<p>之前公司的學弟就使用 Markdown 在寫工作日誌，其實滿不明所以然<a id="more"></a>不過真正跳進來之後才發現原來使用 Markdown 寫東西這麼愉快，大量簡化的語法，全部都是基於符號，像是 <code>#</code> 表示 <code>&lt;h1&gt; 系列</code>、<code>***</code> 表示 <code>橫列</code>、<code>+ - *</code> 表示 <code>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;</code>，另外 img 或者 link 也都相當簡單，這個真的大幅度的降低寫 Blog 的干擾，可以更專心的寫作(當然還是要學習一下啦，不過算是簡單就可以上手)。</p>
+<p>不過坊間這麼多 Static Blog Generators，要怎麼挑個好的，當然先從自己熟悉的語言開始，原本是想用基於 <a href="http://nodejs.org" target="_blank" rel="external">node.js</a> 大概有以下選擇：</p>
+<ul>
+<li><a href="https://github.com/caolan/petrify" target="_blank" rel="external">Pretrify</a></li>
+<li><a href="https://github.com/bevry/docpad" target="_blank" rel="external">DocPad</a></li>
+<li><a href="https://github.com/jnordberg/wintersmith" target="_blank" rel="external">Wintersmith</a></li>
+</ul>
+<p>其中大概以 DocPad 知名度最高，當然功能也最豐富，Markdown、CoffeeScript、SASS，不過看來看去好像都沒有支援 Syntax Highlight(當然要自己加也可以，BTW 前一陣子有個不錯的 Javascript Syntax Highlighter <a href="http://craig.is/making/rainbows" target="_blank" rel="external">Rainbow</a>)，所以接下來第二程式選大概就是 Ruby 啦。</p>
+<p>我覺得 Ruby 在網頁開發上一直有著類似 Python 的特色：沒得選擇 XD，這個當然我覺得是一種不錯的形態，大家都走一樣的路資源也會集中，尤其在 OpenSource 我想 Feedback 的力量會很大(啊，離題了)，回到 Ruby，大概就下面兩樣選擇(其實也可以說是同一樣)：</p>
+<ul>
+<li><a href="http://jekyllrb.com/" target="_blank" rel="external">Jekyll</a></li>
+<li><a href="http://octopress.org" target="_blank" rel="external">Octopress</a></li>
+</ul>
+<p>前面提到 Octopress 其實底層就是從 Jekyll 改的，之前有小用過 Jekyll 一下，官網提到Octopress 比 Jekyll 的優異處在於：</p>
+<ul>
+<li>A semantic HTML5 template</li>
+<li>A Mobile first responsive layout (rotate, or resize your browser and see)</li>
+<li>Built in 3rd party support for Twitter, Google Plus One, Disqus Comments, Pinboard, Delicious, and Google Analytics</li>
+<li>An easy deployment strategy using Github pages or Rsync</li>
+<li>Built in support for POW and Rack servers</li>
+<li>Easy theming with Compass and Sass</li>
+<li>A Beautiful <a href="http://ethanschoonover.com/solarized" target="_blank" rel="external">Solarized</a> syntax highlighting</li>
+</ul>
+<p>不過我覺得上面列的都還是小事(當然第三點支援很多 social media 也很吸引人啦)，使用上最大的差異是在產生 static html 時，Jekyll 只有 <code>jekyll --auto --safe --no-server</code> 然後他就會 listen 在那邊聽檔案的異動要回到 shell 還要在按 <code>ctrl + c</code> ，不過有時候我只想要產生一次就要 deploy site 了啊，Octopress 則是使用 <code>rake generate</code> 然後就會回到 Shell，簡單的指令是我對 Octopress 的印象。</p>
+<p>另外 Octopress 支援的 Syntax Highlight 也是五花八門，從基本的 <a href="http://octopress.org/docs/plugins/codeblock/" target="_blank" rel="external">Pygment</a> 到 <a href="http://octopress.org/docs/plugins/gist-tag/" target="_blank" rel="external">Gist</a> (使用 <code> &#123;&#37; gist 996818 &#37;&#125; </code><br>即可)、甚至是 <a href="http://octopress.org/docs/plugins/include-code/" target="_blank" rel="external">static files</a> 或者 jsFiddler 也都有支援，這根本是替程式設計師設計的 Blogger！</p>
+<p>不然之前我用 BlogSpot 時每次都還要複製他們的 javascript 檔案，現在只要有 Gist ID 就可以啦~</p>
+<hr>
+<p>但是 Github 原生支援 Jekyll，只要 push source 他就會自動 build site。這點是 Octopress 不及的(要分成 master &amp; source 兩個 branch 不過 Octopress 作者有寫好的 Script 就是)。</p>
+<h3 id="一些基本的_Octopress_的指令">一些基本的 Octopress 的指令</h3><ul>
+<li><code>rake generate</code> - 用來產生 static site 在 <em>public</em> 資料夾底下</li>
+<li><code>rake new_post[&quot;title&quot;]</code> - 產生新的 POST</li>
+<li><code>rake watch</code> - 寫新的文章時很好用，他會監聽檔案異動，及時產生 static files</li>
+<li><code>rake deploy</code> - 參考 <a href="http://octopress.org/docs/deploying/github/" target="_blank" rel="external">Deploying to Github</a></li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/post/no-syn-slash-ack-after-receive-syn-packet/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/post/transfer-textmate-2-to-sublime-text-2/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div id="disqus_thread">
+     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  	 </div>
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2012-04-09, Mon 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Octopress/">Octopress<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 neoesque
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'parsefloat';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

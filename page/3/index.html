@@ -1,0 +1,638 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 3 頁 | neoesque</title>
+  <meta name="author" content="neoesque">
+  
+  <meta name="description" content="neoesque&#39;s Linux Blog">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="neoesque"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37617901-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">neoesque</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header">
+  <h1>Making Life Better</h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart"></i>
+      Believe in Yourself.
+</div>    
+
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+			<a href="/post/popclip-upgrading-to-mountain-lion/" >popclip upgrading to Mountain Lion</a>
+			<span class="date"> 2012-08-06, Mon </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>最近把 MacBook Pro 從 OS X 10.7 (aka. Lion) 升級成 OS X 10.8 (aka. Mountain Lion) 之後，大部分的軟體都還蠻無痛升級的，其中 PopClip 在升級之後就開始秀逗秀逗，在 Safari 裡面有時 Work 有時不 Work (就是不太靈敏-偶爾會出現彈出選項，偶爾又沒有)，官方有一個解決方法是把原本的設定刪除掉讓她重新產生即可。步驟如下</p>
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/post/popclip-upgrading-to-mountain-lion/#more" class="btn btn-default more">閱讀本文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+			<a href="/post/nginx-cache-last-step-of-optimization/" >nginx cache - last step of optimization</a>
+			<span class="date"> 2012-07-15, Sun </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx，當然除了複雜的 rewrite rule 要寫，還有就是想盡量榨出 nginx 的效能及所有功能，而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整！</p>
+<p>調整了很多參數之後，說實在的也不知道有什麼可以調整了，查一查網路發現：對呀！ nginx 有 cache 的模組可以用阿，因為這次轉換的機器有 php 的部分，而且大部分是出圖跟利用 php 來做 javascript 模組的合併(就是所謂的 combo loader)，這些幾乎都是做一次就不會在更改結果的，所以就查了一下 nginx 的 fastcgi cache 的設定：</p>
+<p>在 <code>http</code> 的 section 加入</p>
+<pre><code>fastcgi_cache_path /dev/shm/cache/ <span class="variable">levels=</span><span class="number">1</span>:<span class="number">1</span> <span class="variable">keys_zone=</span>PHP:<span class="number">8</span>m <span class="variable">inactive=</span><span class="number">60</span>m <span class="variable">max_size=</span><span class="number">256</span>m;
+</code></pre><p>然後在 <code>location ~ \.php$</code> 的 section 裡面加入<br>
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/post/nginx-cache-last-step-of-optimization/#more" class="btn btn-default more">閱讀本文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+			<a href="/post/squid-nginx-http1-dot-1-gzip/" >squid nginx http1.1 gzip</a>
+			<span class="date"> 2012-07-07, Sat </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>在 nginx 中要啟用 gzip 非常簡單，只要在 http 的段落裡面加入</p>
+<pre><code><span class="title">gzip</span>  <span class="built_in">on</span>;
+<span class="title">gzip_http_version</span> <span class="number">1</span>.<span class="number">0</span>;
+<span class="title">gzip_comp_level</span> <span class="number">9</span>;
+<span class="title">gzip_proxied</span> any;
+<span class="title">gzip_min_length</span> <span class="number">1400</span>;
+<span class="title">gzip_types</span> text/css application/x-javascript text/javascript;
+<span class="title">gzip_vary</span> <span class="built_in">on</span>;
+</code></pre><p>但是加了之後，因為我們前端還有先過 squid，結果發現怎麼有的 css 檔就是沒有被 gzip，但是有些 js 檔卻又有，在網路查到原來是還要在 squid.conf 加入</p>
+<pre><code><span class="keyword">cache_vary</span> <span class="literal">on</span>
+<span class="keyword">broken_vary_encoding</span> allow <span class="literal">all</span>
+</code></pre><p>這是因為啟用 gzip 後，HTTP Header 也會加入 <code>Vary:Accept-Encoding</code>，加了上面的設定才可以讓 squid 保存 gzip 的內容，不會很自作聰明的解壓縮在傳給 client 端，不過網路另有一說是因為 squid 不是完整的支援 HTTP1.1 的 protocol，所以在面對 gzip HTTP1.0 跟 HTTP1.1 的版本的時候就會有問題，不過我有在 nginx 加了 <code>gzip_http_version 1.0</code> 了還是一樣有問題，加了那兩行才 ok。</p>
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/post/squid-nginx-http1-dot-1-gzip/#more" class="btn btn-default more">閱讀本文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+			<a href="/post/ifconfig-dot-me-the-web-ifconfig/" >ifconfig.me - the web ifconfig</a>
+			<span class="date"> 2012-06-26, Tue </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>前幾天公司同事在問我們的機器出去的 public ip 是多少，突然發現原來大家好像都不知道有一個方便的網站可以查，對於會 Unix 的來說網址是在好記不過了，就是跟 Unix 看 ip 的 <code>ifconfig</code> 同樣的名稱 <em><a href="http://ifconfig.me" target="_blank" rel="external">http://ifconfig.me</a></em></p>
+<p><a href="http://ifconfig.me" target="_blank" rel="external">ifconfig.me</a> 可以取得你現在 ip 資訊的網站，不過他跟一般顯示 ip 的網站不同的是他功能比較強！</p>
+<p>除了會顯示一些基本的資訊</p>
+<p><img src="https://lh3.googleusercontent.com/-5BSm9ZrTOco/T-lyYRUgngI/AAAAAAAAEHM/eG84iuti-UI/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-06-26%2520%25E4%25B8%258B%25E5%258D%25884.25.56.png" alt=""></p>
+<p>他還支援了不同的網址只顯示需要的部分，比方說我們可以在 Terminal 打 <code>curl ifconfig.me/ip</code> 就會得到 <code>61.219.37.20</code> ，又或者 <code>curl ifconfig.me/port</code> 就可以知道本地端出去的 port <code>51081</code>，如果有經過 Proxy 的話 <code>curl ifconfig.me/forwarded</code> 還會顯示 <code>61.219.66.125, 172.30.4.166, 61.219.37.20</code></p>
+<p>甚至更有趣的是他也支援 XML / json ，網址分別是 <em><a href="http://ifconfig.me/all.xml" target="_blank" rel="external">http://ifconfig.me/all.xml</a></em> 與 <em><a href="http://ifconfig.me/all.json" target="_blank" rel="external">http://ifconfig.me/all.json</a></em> 詳細的內容可以看 <a href="http://ifconfig.me" target="_blank" rel="external">ifconfig.me</a></p>
+
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/post/ifconfig-dot-me-the-web-ifconfig/#more" class="btn btn-default more">閱讀本文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+			<a href="/post/fabric-machine-manager/" >fabric - Machine Manager</a>
+			<span class="date"> 2012-04-30, Mon </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>Python <a href="http://docs.fabfile.org">Fabirc</a> 是一個類似 Ruby capistrano 的自動化部署跟系統管理工具，安裝指令是 <code>pip install -U fabric</code> 或者 <code>easy_install fabric</code> 都可以。fabric 的使用也非常的簡單，只要寫好一個檔名是 <em>fabfile.py</em> 的檔案，在同一個資料夾底下打 <code>fab --list</code> 就可以看到有哪些參數可以下(就是 fabfile.py 裡面的 function)。</p>
+<p>以下是一個簡單的範例 template</p>
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/post/fabric-machine-manager/#more" class="btn btn-default more">閱讀本文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+			<a href="/post/use-vghetto-manage-vmware-vcenter/" >使用 vGhetto 管理 VMware vCenter</a>
+			<span class="date"> 2012-04-21, Sat </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p><a href="http://communities.vmware.com/docs/DOC-9852">vGhetto</a> 是一個由社群主導的專案，主要的目的當然是簡化管理 VMware 的工作，不用使用最原始的 <code>vmrun</code> 這個指令或者 Perl SDK 做管理，整個專案放在 SourceForge，到 <a href="http://vghetto.sourceforge.net">專案頁面</a> 下載，抓下來的目錄長這樣 (或者直接用 <code>svn co https://vghetto.svn.sourceforge.net/svnroot/vghetto vghetto</code> 也可以)</p>
+<pre><code>.
+./INSTALL
+./TODO
+.<span class="regexp">/bitmaps/</span>
+.<span class="regexp">/build/</span>
+.<span class="regexp">/demo/</span>
+.<span class="regexp">/installers/</span>
+.<span class="regexp">/other/</span>
+.<span class="regexp">/scripts/</span>
+./vGhetto.pl*
+.<span class="regexp">/wbin/</span>
+</code></pre><p>其中的 scripts 資料夾就是放置管理用 script 的地方，裡面是一堆 .pl 的 perl 檔案
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/post/use-vghetto-manage-vmware-vcenter/#more" class="btn btn-default more">閱讀本文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+			<a href="/post/postfix-spf-domainkeys-tinydns/" >設定 SPF 跟 DomainKeys 在 postfix 和 tinydns</a>
+			<span class="date"> 2012-04-18, Wed </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <ul>
+<li>Will be replaced with the ToC<br>{:toc}</li>
+</ul>
+<p>部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 <a href="https://support.google.com/mail/bin/answer.py?hl=zh-TW&amp;answer=180707">電子郵件驗證</a> 中說的，要可以被 <a href="http://support.google.com/mail/bin/answer.py?hl=zh-Hant&amp;answer=81126#authentication">驗證和識別</a>，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 DomainKeys，不過有了 DKIM 後原本單純 DomainKeys 就被廢棄了(當然目前還是可以用的)。我們單位用的 mail server 是 Postfix 而 DNS 則是 tinydns (djbdns)</p>
+<h3 id="設定_SPF">設定 SPF</h3><p>SPF 只是簡單的 DNS TXT 發佈而已，可以利用 <a href="http://spfwizard.com">easySPF</a> 製作。於是在 tinydns 的設定檔加入下列資訊：</p>
+<pre><code><span class="attribute">'foo</span>.bar:v=spf1 ip4\<span class="number">07211.22</span><span class="number">.33</span><span class="number">.44</span>/<span class="number">32</span> ~<span class="keyword">all</span>:<span class="number">600</span>
+</code></pre><p>這裡用 <code>foo.bar</code> 當作 domain，而 <code>11.22.33.44</code> 則是 Server 寄信出來的 public ip，這樣子就完成啦~</p>
+<p>我們用 <code>dig TXT foo.bar @8.8.8.8 +tcp</code> 可以觀察到</p>
+<pre><code>;; ANSWER <span class="keyword">SECTION</span>:
+foo.bar.        <span class="number">600</span>     <span class="keyword">IN</span>    TXT    <span class="string">"v=spf1 ip4:11.22.33.44/32 ~all"</span>
+</code></pre><h3 id="設定_DKIM">設定 DKIM</h3>
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/post/postfix-spf-domainkeys-tinydns/#more" class="btn btn-default more">閱讀本文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+			<a href="/post/no-syn-slash-ack-after-receive-syn-packet/" >Server 收到 SYN packet 後沒有 SYN/ACK 回應</a>
+			<span class="date"> 2012-04-17, Tue </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>這是最近管發生的怪現象，就是公司某個單位一直跟我們說他們的 Server 要連我們的 Server，結果我們這邊時好時壞，… 什麼?! 我們這邊時好時壞? 從沒有聽過用戶說我們的 Server 連不上阿，於是就跟他們一起 Debug，開了 <code>tcpdump</code> 來看，發現我們這邊的確有時候收到 SYN 結果就不回 SYN/ACK kernel 直接 drop 封包 XD 這是什麼鬼，kernel 也太不聽話了，不過我們這邊 kernel 沒有打開 iptables 也沒有什麼 drop 封包的規則，於是就 Google 了一下，原來有人跟我們遇到一樣的狀況 <a href="http://serverfault.com/questions/235965/why-would-a-server-not-send-a-syn-ack-packet-in-response-to-a-syn-packet" target="_blank" rel="external">Why would a server not send a SYN/ACK packet in response to a SYN packet</a></p>
+<p>簡單的來說跟我們一模一樣，隨機的不回 SYN ，根據那篇文章說的，解法有下列兩種：</p>
+<ul>
+<li>關掉 client 的 tcp window scaling</li>
+</ul>
+<p>不過這個顯然不是什麼好的方法，因為我們不能限制 client 阿</p>
+<ul>
+<li>關掉 server 的 tcp window scaling 跟 tcp timestamps</li>
+</ul>
+<p>看起來是因為 client 送的 tcp window size 不被 server 接受所以就 drop 掉，可是為什麼是 SYN 就被 drop 實在是不可得知。不過我們的 Server 後來加了以下設定後的確就好了：</p>
+<pre><code>net<span class="class">.ipv4</span><span class="class">.tcp_tw_reuse</span> = <span class="number">0</span>
+net<span class="class">.ipv4</span><span class="class">.tcp_tw_recycle</span> = <span class="number">0</span>
+net<span class="class">.ipv4</span><span class="class">.tcp_window_scaling</span> = <span class="number">0</span>
+net<span class="class">.ipv4</span><span class="class">.tcp_timestamps</span> = <span class="number">0</span>
+net<span class="class">.ipv4</span><span class="class">.tcp_sack</span> = <span class="number">0</span>
+</code></pre><hr>
+<p>參考資料:</p>
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/Sysctl" target="_blank" rel="external">sysctl</a></li>
+<li><a href="http://www.ecr6.ohio-state.edu/window-scaling.html" target="_blank" rel="external">Handling TCP Window Scaling</a></li>
+<li><a href="http://www.frozentux.net/ipsysctl-tutorial/ipsysctl-tutorial.html" target="_blank" rel="external">Ipsysctl tutorial</a></li>
+</ul>
+
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/post/no-syn-slash-ack-after-receive-syn-packet/#more" class="btn btn-default more">閱讀本文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+			<a href="/post/why-i-choose-octopress/" >為什麼我跳槽到 octopress</a>
+			<span class="date"> 2012-04-09, Mon </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <h3 id="When_I_met_Octopress">When I met Octopress</h3><p><a href="http://octopress.org">Octopress</a> 是一個之前(應該是兩年前吧 XD)很流行的 Static Blog Generators 的產物，Based的語言是 Ruby，底層依賴 <a href="https://github.com/mojombo/jekyll">Jekyll</a>，由於 Jekyll 支援很多其他有的沒的，像是 Markdown Engine 支援很多種(包含了 <a href="http://maruku.rubyforge.org">Maruku</a> 或者 <a href="http://kramdown.rubyforge.org">Kramdown</a> )，另外也有 Syntax Highlight (可以使用 <a href="http://pygments.org">Pygment</a> 或者 <a href="http://coderay.rubychan.de">Coderay</a>)，加上 Octopress 作者自己的延伸讓 Octopress 常見的功能(甚至是不會用到的功能XD)都有提供了。</p>
+<p>之前公司的學弟就使用 Markdown 在寫工作日誌，其實滿不明所以然
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/post/why-i-choose-octopress/#more" class="btn btn-default more">閱讀本文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+			<a href="/post/transfer-textmate-2-to-sublime-text-2/" >從 TextMate 2 跳到 Sublime Text 2</a>
+			<span class="date"> 2012-04-08, Sun </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>原本都是使用 TextMate 後來實在受不了不能好好支援 cjk 的輸入。</p>
+<p>加上 TextMate 已經過了好久都沒有更新，原本說好在 Mac OS X 10.5 出來的時候就要改用 CoreText 改寫，結果也跳票了。不然實在是離不開 TextMate 的 snippet 。</p>
+<p>不過雖然 TextMate 在前一陣子推出 TextMate 2 beta 但是很多功能還是沒有完整，而且不時還會當機，所以前陣子原本就想說找個替代品，一路搜尋下來就發現了 Sublime Text 2 (beta)。</p>
+<p>可以說 TextMate 該有的他都有，而且支援了更多的功能，加上跨 Windows, Linux, OS X 所以可以預料到未來應該會有更多人力加入寫 Sublime Text 2 packages 的行列。</p>
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/post/transfer-textmate-2-to-sublime-text-2/#more" class="btn btn-default more">閱讀本文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+<ul class="pagination">
+	 
+		
+    	<li class="prev"><a href="/page/2/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i> 上一頁</a></li>
+  		
+
+        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/page/4/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+        
+	
+</ul>
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			<div class="form-group has-success has-feedback">
+  <form action="//google.com/search" method="get" accept-charset="utf-8" >
+    <input type="search" name="q" results="0" placeholder="搜尋" class="form-control">
+    <input type="hidden" name="q" value="site:parseflo.at">	
+  </form>
+</div>
+
+		
+			
+		
+			
+	<div class="widget">
+		<h4>標籤雲</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/php/">php<span>2</span></a></li>
+		
+			<li><a href="/tags/nodejs/">nodejs<span>4</span></a></li>
+		
+			<li><a href="/tags/NIS/">NIS<span>1</span></a></li>
+		
+			<li><a href="/tags/Healthy/">Healthy<span>1</span></a></li>
+		
+			<li><a href="/tags/旅遊/">旅遊<span>1</span></a></li>
+		
+			<li><a href="/tags/obj-c/">obj-c<span>1</span></a></li>
+		
+			<li><a href="/tags/FreeBSD/">FreeBSD<span>1</span></a></li>
+		
+			<li><a href="/tags/graylog2/">graylog2<span>1</span></a></li>
+		
+			<li><a href="/tags/pushover/">pushover<span>1</span></a></li>
+		
+			<li><a href="/tags/E-M5/">E-M5<span>3</span></a></li>
+		
+			<li><a href="/tags/Gentoo/">Gentoo<span>5</span></a></li>
+		
+			<li><a href="/tags/Casio-TR15/">Casio TR15<span>1</span></a></li>
+		
+			<li><a href="/tags/cgroups/">cgroups<span>1</span></a></li>
+		
+			<li><a href="/tags/JavaScript/">JavaScript<span>1</span></a></li>
+		
+			<li><a href="/tags/Octopress/">Octopress<span>1</span></a></li>
+		
+			<li><a href="/tags/squid/">squid<span>4</span></a></li>
+		
+			<li><a href="/tags/OpenRC/">OpenRC<span>1</span></a></li>
+		
+			<li><a href="/tags/TextMate/">TextMate<span>1</span></a></li>
+		
+			<li><a href="/tags/i18n/">i18n<span>1</span></a></li>
+		
+			<li><a href="/tags/Sublime/">Sublime<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>33</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/post/ingress-email-attack-notify-to-Pushover/"  title="Ingress 及時的攻擊通知 over Pushover" ><i class="fa fa-file-o"></i>用 Pushover 收 Ingress 成就點攻擊通...</a>
+      </li>
+    
+      <li>
+        <a href="/post/USwest-canyon/"  title="2014-11-07 ~ 2014-11-14 美西一週峽谷之旅" ><i class="fa fa-file-o"></i>美西峽谷行...</a>
+      </li>
+    
+      <li>
+        <a href="/post/NCLP-11-考試/" ><i class="fa fa-file-o"></i>NCLP 11 考試...</a>
+      </li>
+    
+      <li>
+        <a href="/post/build-static-link-nginx/" ><i class="fa fa-file-o"></i>build static link nginx...</a>
+      </li>
+    
+      <li>
+        <a href="/post/conky/" ><i class="fa fa-file-o"></i>Conky...</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/neoesque" title="My Github repository." target="_blank"]);">Github</a></li>
+	
+		<li><i class="fa fa-twitter"></i><a href="https://www.twitter.com/neoesque" title="My Twitter account." target="_blank"]);">Twitter</a></li>
+	
+		<li><i class="fa fa-facebook"></i><a href="https://facebook.com/neoesque" title="My Facebook" target="_blank"]);">Facebook</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 neoesque
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'parsefloat';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>設定 SPF 跟 DomainKeys 在 postfix 和 tinydns | neoesque</title>
+  <meta name="author" content="neoesque">
+  
+  <meta name="description" content="neoesque&#39;s Linux Blog">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="設定 SPF 跟 DomainKeys 在 postfix 和 tinydns"/>
+  <meta property="og:site_name" content="neoesque"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37617901-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">neoesque</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> 設定 SPF 跟 DomainKeys 在 postfix 和 tinydns</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <ul>
+<li>Will be replaced with the ToC<br>{:toc}</li>
+</ul>
+<p>部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 <a href="https://support.google.com/mail/bin/answer.py?hl=zh-TW&amp;answer=180707" target="_blank" rel="external">電子郵件驗證</a> 中說的，要可以被 <a href="http://support.google.com/mail/bin/answer.py?hl=zh-Hant&amp;answer=81126#authentication" target="_blank" rel="external">驗證和識別</a>，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 DomainKeys，不過有了 DKIM 後原本單純 DomainKeys 就被廢棄了(當然目前還是可以用的)。我們單位用的 mail server 是 Postfix 而 DNS 則是 tinydns (djbdns)</p>
+<h3 id="設定_SPF">設定 SPF</h3><p>SPF 只是簡單的 DNS TXT 發佈而已，可以利用 <a href="http://spfwizard.com" target="_blank" rel="external">easySPF</a> 製作。於是在 tinydns 的設定檔加入下列資訊：</p>
+<pre><code><span class="attribute">'foo</span>.bar:v=spf1 ip4\<span class="number">07211.22</span><span class="number">.33</span><span class="number">.44</span>/<span class="number">32</span> ~<span class="keyword">all</span>:<span class="number">600</span>
+</code></pre><p>這裡用 <code>foo.bar</code> 當作 domain，而 <code>11.22.33.44</code> 則是 Server 寄信出來的 public ip，這樣子就完成啦~</p>
+<p>我們用 <code>dig TXT foo.bar @8.8.8.8 +tcp</code> 可以觀察到</p>
+<pre><code>;; ANSWER <span class="keyword">SECTION</span>:
+foo.bar.        <span class="number">600</span>     <span class="keyword">IN</span>    TXT    <span class="string">"v=spf1 ip4:11.22.33.44/32 ~all"</span>
+</code></pre><h3 id="設定_DKIM">設定 DKIM</h3><a id="more"></a>
+<p>先到 <a href="http://www.opendkim.org" target="_blank" rel="external">DKIM</a> 的官網下載，然後編譯的參數用 <code>./configure --with-openssl --with-milter</code>， <code>make install</code> 裝好之後我們先編輯 <em>/etc/postfix/opendkim.conf</em></p>
+<pre><code>Domain                  foo.bar
+KeyFile                 <span class="regexp">/etc/</span>postfix/rsa.<span class="keyword">private</span>
+InternalHosts           <span class="regexp">/etc/</span>postfix/ilist
+Selector                dk
+Socket                  <span class="string">inet:</span><span class="number">8891</span><span class="annotation">@localhost</span>
+Syslog                  Yes
+UserID                  postfix
+</code></pre><p>以下分開說明每個參數的作用：</p>
+<ul>
+<li>Domain : 就是我們要 sign 的 domain</li>
+<li>KeyFile : 由於 DKIM 或者 Domainkeys 都是靠非對稱加解密方式(像 RSA)作驗證，所以需要一把 private/public key，這裡填入的是 sign 需要的 private key</li>
+</ul>
+<p>這裡先說明怎麼建立這兩把 key</p>
+<pre><code>openssl genrsa -out <span class="regexp">/etc/</span>postfix/rsa.<span class="keyword">private</span> <span class="number">512</span>
+openssl rsa -<span class="keyword">in</span> <span class="regexp">/etc/</span>postfix<span class="regexp">/rsa.private -out /</span>etc<span class="regexp">/postfix/</span>rsa.<span class="keyword">public</span> -pubout -outform PEM
+</code></pre><p>其中第二把分離出來的 public key 就有我們要填到 DNS 的資訊， <code>cat /etc/postfix/rsa.public</code>大概會長的像下面一樣</p>
+<pre><code><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">BEGIN</span> <span class="comment">PUBLIC</span> <span class="comment">KEY</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
+<span class="comment">MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL</span><span class="literal">+</span><span class="comment">BLtIPf6o3YlrLJUO8b</span><span class="literal">+</span><span class="literal">+</span><span class="comment">v4Jc9ppkf</span>
+<span class="comment">tBdRZfTB0jprUosjt</span><span class="literal">+</span><span class="comment">QHmY8t8bPFEK83XmRrSTEh94MJOjbXwN7AhGcCAwEAAQ==</span>
+<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">END</span> <span class="comment">PUBLIC</span> <span class="comment">KEY</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
+</code></pre><p>從 MF…(略)…Q== 就是我們要填的資訊</p>
+<ul>
+<li>InternalHosts：這個檔案就是告訴 DKIM 從哪些 ip 來的 relay 我們都要 sign mail，格式如下：</li>
+</ul>
+<pre><code>127.0.0.1
+10.0.0.0/8
+</code></pre><p>事實上官方文件說從 2.2 之後不需要這個檔案， opendkim 會自動判斷 header 的 From 只要等於 Domain 就會自動 sign，可是我實驗的結果沒有成功 = =，所以還是加上去了。</p>
+<ul>
+<li>Selector：這個是驗證時候要用的 subdomain，就隨便定一個名稱吧。</li>
+<li>Socket：由於 opendkim 是一個 daemon，這是他要 listen 的 socket (unix domain socket 也是 ok 的)</li>
+<li>Syslog：要不要使用 syslog 來記錄，會被歸類在 mail facility。</li>
+<li>UserID：daemon 的 UID</li>
+</ul>
+<p>設定也好了之後我們就來啟動 daemon 吧！指令很簡單 <code>opendkim -x /etc/postfix/opendkim.conf -A -l</code>，搞定收工。這樣 opendkim 就會 listen 在 port 8891 了。</p>
+<p>然後我們要設定讓 postfix 吃到這個 milter，在 <em>/etc/postfix/main.cf</em> 加入下列資訊：</p>
+<pre><code>smtpd_milters = <span class="string">inet:</span><span class="string">localhost:</span><span class="number">8891</span>
+non_smtpd_milters = <span class="string">inet:</span><span class="string">localhost:</span><span class="number">8891</span>
+</code></pre><p>然後 <code>/etc/init.d/postfix restart</code> 就完成了 opendkim 的設置。</p>
+<p>接下來是 tinydns 的設定，還記得剛剛的 public key 嗎?我們需要它了，打開 tinydns 的設定，加入下列資訊：</p>
+<pre><code>'_domainkey.foo.bar:<span class="variable">o=</span>-:<span class="number">600</span>
+'dk._domainkey.foo.bar:<span class="variable">k=</span>rsa; <span class="variable">p=</span>MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAL+BLtIPf6o3YlrLJUO8b++v4Jc9ppkftBdRZfTB0jprUosjt+<span class="variable">QHmY8t8bPFEK83XmRrSTEh94MJOjbXwN7AhGcCAwEAAQ=</span>=:<span class="number">600</span>
+</code></pre><p>其中的 _domainkey. 這個 subdomain 是固定的一定要叫這樣才會 work，我後來才發現(因為懶得慢慢嗑 SPEC 試了好久 QQ)，而第二行的 dk._domainkey. 的這個 dk 則是對應前面 <em>/etc/postfix/opendkim.conf</em> 的 <em>Selector</em></p>
+<p>這樣整個 DKIM 驗證設定就完成了。</p>
+<h3 id="Domainkeys">Domainkeys</h3><p>由於我們已經設定好了 key ，所以接下來要設定 Domainkeys 就簡單多了，首先到 <a href="http://sourceforge.net/projects/dk-milter/" target="_blank" rel="external">domainkeys-milter</a> 下載，然後編譯的指令是 <code>sh Build -c &amp;&amp; sh Build install</code> 裝好之後，由於 dk-milter 比較傳統只有支援 command line 的指令所以沒有設定檔支援，要啟動他的指令如下 <code>/usr/bin/dk-filter -i /etc/postfix/ilist -l -b sv -p inet:8892@localhost -d foo.bar -H -s /etc/postfix/rsa.private -S dk &amp;</code></p>
+<p>指令的內容其實都跟 opendkim 一樣(其實是 opendkim 跟他一樣才對 XD)，應該不難理解，所以就這樣啦，然後注意的是我讓 dk-milter listen 在 8892，而 key 則用剛剛產生的，然後我們一樣要修改 <em>/etc/postfix/main.cf</em></p>
+<pre><code>smtpd_milters = <span class="string">inet:</span><span class="string">localhost:</span><span class="number">8891</span>, <span class="string">inet:</span><span class="string">localhost:</span><span class="number">8892</span>
+non_smtpd_milters = <span class="string">inet:</span><span class="string">localhost:</span><span class="number">8891</span>, <span class="string">inet:</span><span class="string">localhost:</span><span class="number">8892</span>
+</code></pre><p>簡單來說就是有幾個 milter 就一直加上去就對了！</p>
+<p>至於 DNS 的部分由於 DKIM 跟 domainkeys 都吃一模一樣的 key 所以就不用在設定一次拉~</p>
+<h3 id="驗證有沒有成功">驗證有沒有成功</h3><p>最簡單的方式就是從 Server 寄一次看看啦~</p>
+<pre><code>telnet localhost <span class="number">25</span>
+MAIL <span class="string">FROM:</span>xxx<span class="annotation">@foo</span>.bar
+RCPT <span class="string">TO:</span>xxx<span class="annotation">@gmail</span>.com
+DATA
+<span class="string">From:</span> xxx<span class="annotation">@foo</span>.bar
+<span class="string">To:</span> xxx<span class="annotation">@gmail</span>.com
+<span class="string">Subject:</span> test message
+This is test message!
+.
+QUIT
+</code></pre><p>然後到 GMail 收信，看信件的 Header 應該會有：<em>spf=pass</em> 跟 <em>dkim=pass</em> 的字樣就表示成功了！而 Yahoo 也是一樣會有 pass 的字樣哦~</p>
+<p><img src="https://lh5.googleusercontent.com/-A6MtopadkXk/T47U_sZ8eqI/AAAAAAAAD7Y/TdkEhjis8jE/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-18%2520%25E4%25B8%258B%25E5%258D%258810.51.09.png" alt=""></p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/post/use-vghetto-manage-vmware-vcenter/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/post/no-syn-slash-ack-after-receive-syn-packet/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div id="disqus_thread">
+     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  	 </div>
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2012-04-18, Wed 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Linux/">Linux<span>18</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 neoesque
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'parsefloat';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

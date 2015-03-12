@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>VMware Cloud Foundry 試玩小小小之在小不過的心得 | neoesque</title>
+  <meta name="author" content="neoesque">
+  
+  <meta name="description" content="neoesque&#39;s Linux Blog">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="VMware Cloud Foundry 試玩小小小之在小不過的心得"/>
+  <meta property="og:site_name" content="neoesque"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37617901-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">neoesque</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> VMware Cloud Foundry 試玩小小小之在小不過的心得</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p>話說十天前看到了 <a href="http://cloudfoundry.com/" target="_blank" rel="external">Cloud Foundry</a> 的網頁 可以 Request an invite account 當下馬上就申請了一個 XD<br><br>他的特色是… 就是 VMware 的雲 <span style="text-decoration: line-through;">沒了!</span> 屬於 PaaS (Platform as a Service) 最大的特色應該算是他們強調是 Open 的 (Open Source !) 主要是社群維護 <a href="http://www.cloudfoundry.org/" target="_blank" rel="external">cloudfoundry.org</a> Source Code 在<a href="https://github.com/cloudfoundry" target="_blank" rel="external">這裡</a> 不過在 VMware 的平台(cloudfoundry.com)上營運要付錢 所以免費版就是下載回去自己架起來 XD (目前是 Beta 一切免費！)<br><br>目前支援 Java, Ruby, Node.js (via <a href="http://cloudfoundry.com/faq" target="_blank" rel="external">FAQ</a>)<br><br>資料庫選擇有 MongoDB、MySQL和Redis<br><br>Java 的話可以搭配 Spring 或其他 JVM 可以吃的 framework<br><br>Ruby 可以選用 Rails 或者 Sinatra (沒玩過 Sinatra 可是看起來好像很簡單耶)<br><br>Node.js 則可以原生就可以支援或者搭配 <a href="http://expressjs.com/" target="_blank" rel="external">express</a> 與 <a href="http://npmjs.org/" target="_blank" rel="external">npm</a> 的 bundle<br><br>然後九天後…也就是昨天晚上就收到通知信啦！<br><br>今天早上馬上來試玩一下~<br><br>以下是小小小小小小試玩心得~ 歡迎切磋指教 :P <br><a id="more"></a>參考 <a href="http://goo.gl/NeknL" target="_blank" rel="external">VMware 官方手冊</a><br><br>首先要裝好 rubygems<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="251" src="http://3.bp.blogspot.com/-_GMjblt6S_I/TbI8KmGsFuI/AAAAAAAAA2s/NPRbgUcpKv0/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258810.39.55.png" width="640"></div><br>(建議 Mac OS X 的用戶先更新 RubyGems) 因為 小於 RubyGems 1.3.6 都很 buggy (SnowLeopard 搭載 1.3.5) via <a href="http://goo.gl/CEsTD" target="_blank" rel="external">Gems, Eggs and Perl Modules</a> 升級指令也可以參考這裡<br><br>裝好 gem 後打<br><br><script src="//gist.github.com/941567.js"></script><br>就是這麼簡單 VMware Cloud Foundry 的控制指令 - vmc 就裝好了<br><br>首先要登入<br><br><script src="//gist.github.com/941569.js"></script><br>login 時會問 帳號 密碼<br><br>接下來介紹如何 deploy node.js 順便帶過一些基本指令 (我想 Ruby on Rails 很多人玩眾高手比我熟 - - Java Spring 我不會 XD)<br><br>首先 node.js 要搭配 npm bundle 所以先裝一下 <a href="http://npmjs.org/" target="_blank" rel="external">npm</a> 吧<br><br><script src="//gist.github.com/941571.js"></script><br>準備好 npm 後建立一個資料夾 (資料夾名稱跟計畫可以無關)<br><br><script src="//gist.github.com/941573.js"></script><br>如果是 node.js 的程式的話主程式一定要叫做 app.js (VMware Cloud Foundry 的要求 - -)<br><br>所以先編輯 app.js<br><br>內容先隨便寫吧 依照標準的 express 的 demo 就是<br><br><script src="//gist.github.com/941574.js"></script><br>然後編輯一個 package.json (給 npm 的 package 看的)<br><br>填入下列內容<br><br><script src="//gist.github.com/941575.js"></script><br>所以我們的目錄現在是長這樣…<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="124" width="640" src="http://4.bp.blogspot.com/-fr0NUWwN0Ac/TbJDT00Y4nI/AAAAAAAAA20/Grjhr9VVyFc/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.10.50.png"></div><br>接下來就是產生 bundle 啦 在同一個目錄下打<br><br><script src="//gist.github.com/941562.js"></script><br>npm 就會自己產生一堆鬼 info ~ (略…)<br><br>成功後在看看資料夾變成這樣了!<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="249" width="640" src="http://4.bp.blogspot.com/-7wUzP8yDiwE/TbJEFM1nu2I/AAAAAAAAA28/PH9kA-oBEhg/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.14.09.png"></div><br>主要就是多了 hello.js 跟 node_modules 的資料夾<br><br>這時候我們回頭改一下 app.js<br><br>在最前面加入 require.paths.unshift(‘./node_modules’)<br><br>最後面的 app.listen(3000); 改成 app.listen(process.env.VMC_APP_PORT||3000);<br><br>也就是完整的檔案如下<br><br><script src="//gist.github.com/941577.js"></script><br>這樣就全部準備完成啦 可以 deploy 到 VMware Cloud Foundry 上了<br><br>同樣在 hello 的資料夾下打 vmc push (表示要新增計畫)<br><br><script src="//gist.github.com/941579.js"></script><br>他會互動式的問一些問題 比方說計畫名稱(管理用的) deploy 的網址 偵測程式的 type (Node.js/Ruby/Java) Memory 用量 如下圖<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="213" width="640" src="http://1.bp.blogspot.com/-ZmV8lQlhsB4/TbJFbNiU1SI/AAAAAAAAA3E/LUf3Sx1tI8c/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.19.55.png"></div><br>成功後就可以到你設定的網址去看成果了!<br><br>最後 如果計畫案有修改想要更新的話一樣先打 npm bundle 之後指令是 vmc update &lt;appname&gt; (比方說 nodejs-hello)<br><br><div class="separator" style="clear: both; text-align: center;"><a class="images" href="http://1.bp.blogspot.com/-l7TStV9cTjw/TbJG1Bk8ReI/AAAAAAAAA3M/IPNNHAxBLUQ/s6400/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.25.35.png" imageanchor="1" style="margin-left:1em; margin-right:1em" target="_blank" rel="external"><img border="0" height="304" width="640" src="http://1.bp.blogspot.com/-l7TStV9cTjw/TbJG1Bk8ReI/AAAAAAAAA3M/IPNNHAxBLUQ/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.25.35.png"></a></div><br>其他的指令就打 vmc help 看吧<br>重要的大概就<br>start &lt;appname&gt;                              Start the application<br>stop  &lt;appname&gt;                             Stop the application<br>restart &lt;appname&gt;                            Restart the application<br>delete &lt;appname&gt;                             Delete the application<br>rename &lt;appname&gt; &lt;newname&gt;                   Rename the application</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/post/build-website-with-nodejs-express/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/post/mac-os-x-dmg-convert-to-iso/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div id="disqus_thread">
+     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  	 </div>
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2011-04-23, Sat 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/VMware/">VMware<span>2</span></a></li> <li><a href="/tags/nodejs/">nodejs<span>4</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 neoesque
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'parsefloat';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

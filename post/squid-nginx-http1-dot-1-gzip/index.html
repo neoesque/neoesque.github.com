@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>squid nginx http1.1 gzip | neoesque</title>
+  <meta name="author" content="neoesque">
+  
+  <meta name="description" content="neoesque&#39;s Linux Blog">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="squid nginx http1.1 gzip"/>
+  <meta property="og:site_name" content="neoesque"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37617901-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">neoesque</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> squid nginx http1.1 gzip</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p>在 nginx 中要啟用 gzip 非常簡單，只要在 http 的段落裡面加入</p>
+<pre><code><span class="title">gzip</span>  <span class="built_in">on</span>;
+<span class="title">gzip_http_version</span> <span class="number">1</span>.<span class="number">0</span>;
+<span class="title">gzip_comp_level</span> <span class="number">9</span>;
+<span class="title">gzip_proxied</span> any;
+<span class="title">gzip_min_length</span> <span class="number">1400</span>;
+<span class="title">gzip_types</span> text/css application/x-javascript text/javascript;
+<span class="title">gzip_vary</span> <span class="built_in">on</span>;
+</code></pre><p>但是加了之後，因為我們前端還有先過 squid，結果發現怎麼有的 css 檔就是沒有被 gzip，但是有些 js 檔卻又有，在網路查到原來是還要在 squid.conf 加入</p>
+<pre><code><span class="keyword">cache_vary</span> <span class="literal">on</span>
+<span class="keyword">broken_vary_encoding</span> allow <span class="literal">all</span>
+</code></pre><p>這是因為啟用 gzip 後，HTTP Header 也會加入 <code>Vary:Accept-Encoding</code>，加了上面的設定才可以讓 squid 保存 gzip 的內容，不會很自作聰明的解壓縮在傳給 client 端，不過網路另有一說是因為 squid 不是完整的支援 HTTP1.1 的 protocol，所以在面對 gzip HTTP1.0 跟 HTTP1.1 的版本的時候就會有問題，不過我有在 nginx 加了 <code>gzip_http_version 1.0</code> 了還是一樣有問題，加了那兩行才 ok。</p>
+<a id="more"></a>
+<p>另外一個問題是在 nginx 裡面預設是有支援 Connection:Keep-Alive ，但是經過 squid 之後每次 Header 都只有直接出 <code>Connection:Close</code>，在網路好像沒什麼相關的討論，後來突然想到會不會也是因為 squid 沒有完整支援 HTTP1.1 的 protocol 害得，後來查了 squid 的 Document 發現可以手動打開 HTTP1.1 的方法(不過不是完全支援)，打開的方式如下</p>
+<pre><code><span class="title">http_port</span> <span class="number">80</span> accel vhost http11
+cache_peer <span class="number">127.0.0.1</span> parent <span class="number">80</span> <span class="number">0</span> originserver proxy-only <span class="built_in">no</span>-digest <span class="built_in">no</span>-query http11
+</code></pre><p>對於 <code>http_port http11</code> 來說就是對 Client 端啟用支援 HTTP1.1，我們可以在加入後看到 Header 的部分都會回傳 <code>HTTP/1.1 200 OK</code> 而原本沒有 <code>http11</code> 的話則預設就是 <code>HTTP/1.0 200 OK</code>，後者 <code>cache_peer http11</code> 則是對後端 Server 啟用 HTTP1.1 ，我們可以在 nginx 的 access_log 看到 <code>GET /xxxx/xxxx.jpg HTTP/1.1</code> 而如果沒有 <code>http11</code> 的話則會是 <code>GET /xxxx/xxxx.jpg HTTP/1.0</code>，在加了 <code>cache_peer http11</code> 之後我們也要把剛剛 nginx gzip 用 1.0 的方式改一下所以把剛剛 nginx 的設定改成</p>
+<pre><code><span class="title">gzip_http_version</span> <span class="number">1</span>.<span class="number">1</span>;
+</code></pre><p>改成 HTTP1.1 的方式回給 Client 之後，由於 1.1 的 protocol 規範，預設是啟用 Persistent Connections 的除非 Header 出現 <code>Connection:Close</code> 才表示關閉長連接，但是在 HTTP1.0 當中預設是關閉的，除非出現 <code>Connection： keep-alive</code> 才表示啟用，在打開 HTTP1.1 之後目前還沒有什麼問題，雖然也不知道到底 Persistent Connections 有沒有生效 = =”</p>
+<p>最後在 squid 啟用 HTTP1.1 會跟 POST 的方法打架，因為HTTP1.1 規定 POST 之後不得有任何符號，但是有些瀏覽器會自己補上去 CRCL，結果就是 squid 會回看不懂，不過由於這次的 Server 沒有要收 POST ，所以還是給她大力的開下去！如果真的要避掉 POST 出錯可以在 <code>squid.conf</code> 加入</p>
+<pre><code>ignore_expect_100 <span class="function_start"><span class="keyword">on</span></span>
+</code></pre><hr>
+<p>參考資料:</p>
+<ul>
+<li><a href="http://blog.xuite.net/happyman/tips/14490890" target="_blank" rel="external">broken_vary_encoding</a></li>
+<li><a href="http://www.freesoft.org/CIE/RFC/2068/248.htm" target="_blank" rel="external">Compatibility with HTTP/1.0 Persistent Connections</a></li>
+<li><a href="http://blog.xuite.net/starsand/programming/35922253-Squid+TCP_MISS+%2F+417" target="_blank" rel="external">Squid TCP_MISS / 417</a></li>
+<li><a href="http://www.squid-cache.org/Doc/config/ignore_expect_100" target="_blank" rel="external">ignore expect 100</a></li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/post/nginx-cache-last-step-of-optimization/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/post/ifconfig-dot-me-the-web-ifconfig/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div id="disqus_thread">
+     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  	 </div>
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2012-07-07, Sat 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Linux/">Linux<span>18</span></a></li> <li><a href="/tags/nginx/">nginx<span>7</span></a></li> <li><a href="/tags/squid/">squid<span>4</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 neoesque
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'parsefloat';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

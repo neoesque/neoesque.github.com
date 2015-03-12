@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>fabric - Machine Manager | neoesque</title>
+  <meta name="author" content="neoesque">
+  
+  <meta name="description" content="neoesque&#39;s Linux Blog">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="fabric - Machine Manager"/>
+  <meta property="og:site_name" content="neoesque"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37617901-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">neoesque</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> fabric - Machine Manager</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p>Python <a href="http://docs.fabfile.org" target="_blank" rel="external">Fabirc</a> 是一個類似 Ruby capistrano 的自動化部署跟系統管理工具，安裝指令是 <code>pip install -U fabric</code> 或者 <code>easy_install fabric</code> 都可以。fabric 的使用也非常的簡單，只要寫好一個檔名是 <em>fabfile.py</em> 的檔案，在同一個資料夾底下打 <code>fab --list</code> 就可以看到有哪些參數可以下(就是 fabfile.py 裡面的 function)。</p>
+<p>以下是一個簡單的範例 template</p>
+<a id="more"></a>
+<pre><code><span class="keyword">import</span> fabric
+<span class="keyword">from</span> fabric.api <span class="keyword">import</span> run, env
+<span class="keyword">from</span> fabric.operations <span class="keyword">import</span> put
+env.warn_only = <span class="keyword">True</span>
+<span class="comment"># Broken machine</span>
+env.skip_bad_hosts = <span class="keyword">True</span>
+env.parallel = <span class="keyword">True</span>
+env.pool_size = <span class="number">5</span>
+env.timeout = <span class="number">5</span>
+
+message = <span class="string">"""
+fabric.state.output["status"] = False
+"""</span>
+fabric.state.output[<span class="string">"running"</span>] = <span class="keyword">False</span>
+fabric.state.output[<span class="string">"user"</span>] = <span class="keyword">False</span>
+fabric.state.output[<span class="string">"warnings"</span>] = <span class="keyword">False</span>
+fabric.state.output[<span class="string">"stderr"</span>] = <span class="keyword">False</span>
+
+
+<span class="function"><span class="keyword">def</span> <span class="title">web</span><span class="params">()</span>:</span>
+    <span class="keyword">for</span> x <span class="keyword">in</span> xrange(<span class="number">1</span>,<span class="number">9</span>):
+        env.hosts.append(<span class="string">'192.168.0.'</span> + str(x))
+    <span class="keyword">for</span> x <span class="keyword">in</span> xrange(<span class="number">11</span>,<span class="number">19</span>):
+        env.hosts.append(<span class="string">'192.168.0..'</span> + str(x))
+    <span class="keyword">for</span> x <span class="keyword">in</span> xrange(<span class="number">31</span>, <span class="number">39</span>):
+        env.hosts.append(<span class="string">'192.168.0.'</span> + str(x))
+
+
+<span class="function"><span class="keyword">def</span> <span class="title">cache</span><span class="params">()</span>:</span>
+    <span class="keyword">for</span> x <span class="keyword">in</span> xrange(<span class="number">1</span>, <span class="number">9</span>):
+        env.hosts.append(<span class="string">'192.168.1.'</span> + str(x))
+
+
+<span class="function"><span class="keyword">def</span> <span class="title">all</span><span class="params">()</span>:</span>
+    web()
+    cache()
+
+
+<span class="comment"># define needed functions here.</span>
+<span class="function"><span class="keyword">def</span> <span class="title">host_info</span><span class="params">()</span>:</span>
+    <span class="keyword">print</span> <span class="string">'Checking lsb_release of host: '</span>,  env.host
+    run(<span class="string">'lsb_release -a'</span>)
+
+
+<span class="function"><span class="keyword">def</span> <span class="title">uptime</span><span class="params">()</span>:</span>
+    run(<span class="string">'uptime'</span>)
+
+<span class="function"><span class="keyword">def</span> <span class="title">date</span><span class="params">()</span>:</span>
+    run(<span class="string">'date'</span>)
+</code></pre><p>然後我們打 fab —list 應該會顯示</p>
+<pre><code>Available commands:
+
+    <span class="literal">all</span>
+    <span class="keyword">cache</span>
+    <span class="built_in">date</span>
+    host_info
+    uptime
+    web
+</code></pre><p>如果我們要知道 web 的 uptime 是多少就可以這樣使用 <code>fab web uptime</code>，那如果要知道 cache 的 host_info 就可以下 <code>fab cache host_info</code>，相同的如果要知道全部的機器的時間準不準就打 <code>fab all date</code>，使用了 fabric 之後管理就變簡單了吧！</p>
+<p>進階的還有用 <code>put</code> 指令來做類似 <code>rsync</code> 的工作，請參閱 fabric 的文件即可。</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/post/ifconfig-dot-me-the-web-ifconfig/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/post/use-vghetto-manage-vmware-vcenter/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div id="disqus_thread">
+     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  	 </div>
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2012-04-30, Mon 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Linux/">Linux<span>18</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 neoesque
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'parsefloat';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

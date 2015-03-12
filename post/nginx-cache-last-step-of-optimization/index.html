@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>nginx cache - last step of optimization | neoesque</title>
+  <meta name="author" content="neoesque">
+  
+  <meta name="description" content="neoesque&#39;s Linux Blog">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="nginx cache - last step of optimization"/>
+  <meta property="og:site_name" content="neoesque"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-37617901-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">neoesque</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> nginx cache - last step of optimization</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p>最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx，當然除了複雜的 rewrite rule 要寫，還有就是想盡量榨出 nginx 的效能及所有功能，而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整！</p>
+<p>調整了很多參數之後，說實在的也不知道有什麼可以調整了，查一查網路發現：對呀！ nginx 有 cache 的模組可以用阿，因為這次轉換的機器有 php 的部分，而且大部分是出圖跟利用 php 來做 javascript 模組的合併(就是所謂的 combo loader)，這些幾乎都是做一次就不會在更改結果的，所以就查了一下 nginx 的 fastcgi cache 的設定：</p>
+<p>在 <code>http</code> 的 section 加入</p>
+<pre><code>fastcgi_cache_path /dev/shm/cache/ <span class="variable">levels=</span><span class="number">1</span>:<span class="number">1</span> <span class="variable">keys_zone=</span>PHP:<span class="number">8</span>m <span class="variable">inactive=</span><span class="number">60</span>m <span class="variable">max_size=</span><span class="number">256</span>m;
+</code></pre><p>然後在 <code>location ~ \.php$</code> 的 section 裡面加入<br><a id="more"></a></p>
+<pre><code><span class="title">fastcgi_cache</span> PHP;
+<span class="title">fastcgi_cache_valid</span> <span class="number">200</span> <span class="number">7d</span>;
+</code></pre><p>這樣 nginx 就會利用 <code>/dev/shm/cache</code> 當作快取，由於 /dev/shm 是記憶體所以速度相當的快，而記憶體的 cache 則是在 <code>keys_zone</code> 的第二部分也就是開了 8MB，而這塊快取的名字叫做 <code>PHP</code> 之後會用到，至於 <code>inactive</code> 就是用來指定快取裡面的物件多久之後沒有用到就要被剔除掉，然後最後面的 <code>max_size</code> 則是硬碟要用多少當 cache，由於通常 /dev/shm 預設會是記憶體大小的一半所以這裡就適當的調整大小。接著在用到 fastcgi 的地方，通常就是 <code>location ~ \.php$</code> 這段，加入 <code>fastcgi_cache PHP;</code> 的設定，這樣就會讓經過 fastcgi 的 request 也收進PHP 這塊的暫存區了，但是什麼東西才要記起來呢？這個則要透過 <code>fastcgi_cache_valid</code> 來指定。</p>
+<p>來看看啟用後神奇的效果 :)</p>
+<p><img src="https://lh3.googleusercontent.com/-eoc0HB1J2F8/UALL9fMD1HI/AAAAAAAAELY/K6ChB-3PwBQ/s582/graph_image.php-2.jpg" alt=""></p>
+<p>可以看到啟用後… php 就不工作了(誤)，因為大部分的都在 cache 的階段就出去了，不過注意的是當 nginx 看到 header 有 <code>Pragma:no-cache</code> 就不會加進去快取了。所以這個比較適合前面提到的 php 是用來出圖或者合併 javascript 等所謂的靜態內容。當然除了 CPU 的閒置，另外 response time 也增快很多，因為不需要經過 php 的運算了。</p>
+<p>結論就是：最佳化的最後一步就是加快取什麼就都解決了 XD</p>
+<hr>
+<p>參考資料:</p>
+<ul>
+<li><a href="http://wiki.nginx.org/HttpFastcgiModule#fastcgi_cache" target="_blank" rel="external">nginx fastcgi_cache</a></li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/post/popclip-upgrading-to-mountain-lion/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/post/squid-nginx-http1-dot-1-gzip/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div id="disqus_thread">
+     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  	 </div>
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2012-07-15, Sun 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/nginx/">nginx<span>7</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 neoesque
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'parsefloat';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>
