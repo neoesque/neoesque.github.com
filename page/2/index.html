@@ -120,6 +120,40 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	
 	<!-- display as entry -->
 		<h3 class="title">
+			<a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" >solve dmesg appeared nouveau No connectors reported connected with modes after upgrading kernel to 3.8 or later</a>
+			<span class="date"> 2013-05-31, Fri </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>  My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append <code>video=VGA-1:1440x900@60</code> to kernel parameters. Because I use a 2-meter-long VGA line to connect my computer and monitor, I have to enforce using VGA port as display output. And it works perfectly.</p>
+<p>  The dmesg before kernel 3.7 says</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">Initialized</span> <span class="tag">drm</span> <span class="tag">1</span><span class="class">.1</span><span class="class">.0</span> <span class="tag">20060810</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Detected</span> <span class="tag">an</span> <span class="tag">NV50</span> <span class="tag">generation</span> <span class="tag">card</span> (<span class="number">0</span>x0a8280a2)</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Checking</span> <span class="tag">PRAMIN</span> <span class="tag">for</span> <span class="tag">VBIOS</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: ... <span class="tag">appears</span> <span class="tag">to</span> <span class="tag">be</span> <span class="tag">valid</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Using</span> <span class="tag">VBIOS</span> <span class="tag">from</span> <span class="tag">PRAMIN</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">BIT</span> <span class="tag">BIOS</span> <span class="tag">found</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Bios</span> <span class="tag">version</span> <span class="tag">70</span><span class="class">.18</span><span class="class">.2c</span><span class="class">.00</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">TMDS</span> <span class="tag">table</span> <span class="tag">version</span> <span class="tag">2</span><span class="class">.0</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">MXM</span>: <span class="tag">no</span> <span class="tag">VBIOS</span> <span class="tag">data</span>, <span class="tag">nothing</span> <span class="tag">to</span> <span class="tag">do</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">version</span> <span class="tag">4</span><span class="class">.0</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">outp</span> <span class="tag">00</span>: <span class="tag">01000302</span> <span class="tag">00020030</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">outp</span> <span class="tag">01</span>: <span class="tag">02000300</span> <span class="tag">00000000</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">outp</span> <span class="tag">02</span>: <span class="tag">02011362</span> <span class="tag">0f220010</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">outp</span> <span class="tag">03</span>: <span class="tag">01022310</span> <span class="tag">00020010</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">conn</span> <span class="tag">00</span>: <span class="tag">00001030</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">conn</span> <span class="tag">01</span>: <span class="tag">00202161</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">conn</span> <span class="tag">02</span>: <span class="tag">00000200</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">0</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xD0B7</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">0xD40D</span>: <span class="tag">Condition</span> <span class="tag">still</span> <span class="tag">not</span> <span class="tag">met</span> <span class="tag">after</span> <span class="tag">20ms</span>, <span class="tag">skipping</span> <span class="tag">following</span> <span class="tag">opcodes</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">0xD411</span>: <span class="tag">Condition</span> <span class="tag">still</span> <span class="tag">not</span> <span class="tag">met</span> <span class="tag">after</span> <span class="tag">20ms</span>, <span class="tag">skipping</span> <span class="tag">following</span> <span class="tag">opcodes</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">1</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xD608</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">2</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xE0DA</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">3</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xE10F</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">4</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xE2C2</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xE327</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">0xE327</span>: <span class="tag">Condition</span> <span class="tag">still</span> <span class="tag">not</span> <span class="tag">met</span> <span class="tag">after</span> <span class="tag">20ms</span>, <span class="tag">skipping</span> <span class="tag">following</span> <span class="tag">opcodes</span></span><br><span class="line"><span class="attr_selector">[TTM]</span> <span class="tag">Zone</span>  <span class="tag">kernel</span>: <span class="tag">Available</span> <span class="tag">graphics</span> <span class="tag">memory</span>: <span class="tag">3051544</span> <span class="tag">kiB</span></span><br><span class="line"><span class="attr_selector">[TTM]</span> <span class="tag">Zone</span>   <span class="tag">dma32</span>: <span class="tag">Available</span> <span class="tag">graphics</span> <span class="tag">memory</span>: <span class="tag">2097152</span> <span class="tag">kiB</span></span><br><span class="line"><span class="attr_selector">[TTM]</span> <span class="tag">Initializing</span> <span class="tag">pool</span> <span class="tag">allocator</span></span><br><span class="line"><span class="attr_selector">[TTM]</span> <span class="tag">Initializing</span> <span class="tag">DMA</span> <span class="tag">pool</span> <span class="tag">allocator</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Detected</span> <span class="tag">512MiB</span> <span class="tag">VRAM</span> (DDR2)</span><br><span class="line"><span class="tag">mtrr</span>: <span class="tag">type</span> <span class="tag">mismatch</span> <span class="tag">for</span> <span class="tag">e0000000</span>,<span class="tag">10000000</span> <span class="tag">old</span>: <span class="tag">write-back</span> <span class="tag">new</span>: <span class="tag">write-combining</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">512</span> <span class="tag">MiB</span> <span class="tag">GART</span> (aperture)</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">Supports</span> <span class="tag">vblank</span> <span class="tag">timestamp</span> <span class="tag">caching</span> <span class="tag">Rev</span> <span class="tag">1</span> (<span class="number">10.10</span>.<span class="number">2010</span>).</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">No</span> <span class="tag">driver</span> <span class="tag">support</span> <span class="tag">for</span> <span class="tag">vblank</span> <span class="tag">timestamp</span> <span class="tag">query</span>.</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">3</span> <span class="tag">available</span> <span class="tag">performance</span> <span class="tag">level</span>(s)</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">0</span>: <span class="tag">core</span> <span class="tag">135MHz</span> <span class="tag">shader</span> <span class="tag">270MHz</span> <span class="tag">memory</span> <span class="tag">135MHz</span> <span class="tag">voltage</span> <span class="tag">850mV</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">1</span>: <span class="tag">core</span> <span class="tag">405MHz</span> <span class="tag">shader</span> <span class="tag">810MHz</span> <span class="tag">memory</span> <span class="tag">405MHz</span> <span class="tag">voltage</span> <span class="tag">900mV</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">3</span>: <span class="tag">core</span> <span class="tag">589MHz</span> <span class="tag">shader</span> <span class="tag">1402MHz</span> <span class="tag">memory</span> <span class="tag">400MHz</span> <span class="tag">voltage</span> <span class="tag">1000mV</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">c</span>: <span class="tag">core</span> <span class="tag">405MHz</span> <span class="tag">shader</span> <span class="tag">810MHz</span> <span class="tag">memory</span> <span class="tag">405MHz</span> <span class="tag">voltage</span> <span class="tag">900mV</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">allocated</span> <span class="tag">1440x900</span> <span class="tag">fb</span>: <span class="tag">0x310000</span>, <span class="tag">bo</span> <span class="tag">ffff8801a78dc000</span></span><br><span class="line"><span class="tag">fbcon</span>: <span class="tag">nouveaufb</span> (fb0) <span class="tag">is</span> <span class="tag">primary</span> <span class="tag">device</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">no</span> <span class="tag">native</span> <span class="tag">mode</span>, <span class="tag">forcing</span> <span class="tag">panel</span> <span class="tag">scaling</span></span><br><span class="line"><span class="tag">Console</span>: <span class="tag">switching</span> <span class="tag">to</span> <span class="tag">colour</span> <span class="tag">frame</span> <span class="tag">buffer</span> <span class="tag">device</span> <span class="tag">180x56</span></span><br><span class="line"><span class="tag">fb0</span>: <span class="tag">nouveaufb</span> <span class="tag">frame</span> <span class="tag">buffer</span> <span class="tag">device</span></span><br></pre></td></tr></table></figure>
+<p>  The kernel 3.7 or prior version was enforced using VGA as output successfully. And the resolution is right.</p>
+<p>  But after upgrading to 3.8 or above, I found that the parameter <code>video=VGA-1:1440x900@60</code> causes a faulty screen after booting. I google it, and find some people bump into the same problem. <a href="https://bugzilla.redhat.com/show_bug.cgi?id=910945">No signal to monitor after kernel modesetting fails</a> <a href="http://forums.fedoraforum.org/showthread.php?t=289189">Problems with kernel-3.8 and kernel-3.9 modesetting</a></p>
+<p>  The kernel 3.8 or above says</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">nouveau  [<span class="link_label">  DEVICE</span>][<span class="link_reference">0000:01:00.0</span>] BOOT0  : 0x0a8280a2</span><br><span class="line">nouveau  [<span class="link_label">  DEVICE</span>][<span class="link_reference">0000:01:00.0</span>] Chipset: GT218 (NVA8)</span><br><span class="line">nouveau  [<span class="link_label">  DEVICE</span>][<span class="link_reference">0000:01:00.0</span>] Family : NV50</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] checking PRAMIN for image...</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] ... appears to be valid</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] using image from PRAMIN</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] BIT signature found</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] version 70.18.2c.00.04</span><br><span class="line">nouveau  [<span class="link_label">     PFB</span>][<span class="link_reference">0000:01:00.0</span>] RAM type: DDR2</span><br><span class="line">nouveau  [<span class="link_label">     PFB</span>][<span class="link_reference">0000:01:00.0</span>] RAM size: 512 MiB</span><br><span class="line">nouveau  [<span class="link_label">     PFB</span>][<span class="link_reference">0000:01:00.0</span>]    ZCOMP: 960 tags</span><br><span class="line">nouveau  [<span class="link_label">  PTHERM</span>][<span class="link_reference">0000:01:00.0</span>] FAN control: none / external</span><br><span class="line">nouveau  [<span class="link_label">  PTHERM</span>][<span class="link_reference">0000:01:00.0</span>] fan management: disabled</span><br><span class="line">nouveau  [<span class="link_label">  PTHERM</span>][<span class="link_reference">0000:01:00.0</span>] internal sensor: yes</span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3050978 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">nouveau  [     DRM] VRAM: 512 MiB</span><br><span class="line">nouveau  [     DRM] GART: 512 MiB</span><br><span class="line">nouveau  [     DRM] TMDS table version 2.0</span><br><span class="line">nouveau  [     DRM] DCB version 4.0</span><br><span class="line">nouveau  [     DRM] DCB outp 00: 01000302 00020030</span><br><span class="line">nouveau  [     DRM] DCB outp 01: 02000300 00000000</span><br><span class="line">nouveau  [     DRM] DCB outp 02: 02011362 0f220010</span><br><span class="line">nouveau  [     DRM] DCB outp 03: 01022310 00020010</span><br><span class="line">nouveau  [     DRM] DCB conn 00: 00001030</span><br><span class="line">nouveau  [     DRM] DCB conn 01: 00202161</span><br><span class="line">nouveau  [     DRM] DCB conn 02: 00000200</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">nouveau  [     DRM] 3 available performance level(s)</span><br><span class="line">nouveau  [     DRM] 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">nouveau  [     DRM] 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">nouveau  [     DRM] c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] MM: using COPY for buffer copies</span><br><span class="line">nouveau 0000:01:00.0: No connectors reported connected with modes</span><br><span class="line">[drm] Cannot find any crtc or sizes - going 1024x768</span><br><span class="line">nouveau  [     DRM] allocated 1024x768 fb: 0x70000, bo ffff8801a7c37c00</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br></pre></td></tr></table></figure>
+<p>  The kernel 3.8 says it cannot find a connector?</p>
+<p>  I read the documents of KMS, and then I solved the problem.</p>
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/#more" class="btn btn-default more">閱讀本文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 			<a href="/post/e-m5-wooden-grip/" >E-M5 木質手把</a>
 			<span class="date"> 2013-05-16, Thu </span>
 		</h3>
@@ -395,32 +429,6 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </div>
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-			<a href="/post/colonoscopy/" >大腸鏡檢查 - 輝雄診所</a>
-			<span class="date"> 2012-11-05, Mon </span>
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-12">
-	  
-	
-	  <p>每年九月一到就是年度的健康檢查，大概大家都是一片哀嚎 XD 不過其實也還好似乎年紀越大紅字越多好像是正常的，其實每年也沒什麼要注意的，我都只注意 GOT, GPT 而已，其他的向來都不會紅字，不過不幸的今年健康檢查竟然紅字出現在一個不可思議的地方…糞便潛血反應，當下的表情已經不是「囧」可以表現的了。既來之則安之，當下想的就是乖乖照大腸鏡，準備被「月工」吧 = =</p>
-	
-	</div>
-	
-  
-</div>
-	<a type="button" href="/post/colonoscopy/#more" class="btn btn-default more">閱讀本文</a>
-</div>
-
-		
 
 		</div>
 
@@ -469,45 +477,45 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		<h4>標籤雲</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Casio-TR15/">Casio TR15<span>1</span></a></li>
-		
-			<li><a href="/tags/SaltStack/">SaltStack<span>2</span></a></li>
-		
-			<li><a href="/tags/pushover/">pushover<span>1</span></a></li>
-		
-			<li><a href="/tags/trac/">trac<span>3</span></a></li>
-		
-			<li><a href="/tags/旅遊/">旅遊<span>1</span></a></li>
-		
-			<li><a href="/tags/ingress/">ingress<span>1</span></a></li>
-		
-			<li><a href="/tags/Octopress/">Octopress<span>1</span></a></li>
-		
-			<li><a href="/tags/Linux/">Linux<span>18</span></a></li>
-		
-			<li><a href="/tags/陶瓷/">陶瓷<span>1</span></a></li>
-		
-			<li><a href="/tags/Healthy/">Healthy<span>1</span></a></li>
-		
-			<li><a href="/tags/svn/">svn<span>2</span></a></li>
-		
-			<li><a href="/tags/TextMate/">TextMate<span>1</span></a></li>
-		
-			<li><a href="/tags/moinmoin/">moinmoin<span>3</span></a></li>
-		
-			<li><a href="/tags/nodejs/">nodejs<span>4</span></a></li>
-		
-			<li><a href="/tags/graylog2/">graylog2<span>1</span></a></li>
-		
-			<li><a href="/tags/蝴蝶結/">蝴蝶結<span>1</span></a></li>
+			<li><a href="/tags/Mac/">Mac<span>6</span></a></li>
 		
 			<li><a href="/tags/FreeBSD/">FreeBSD<span>1</span></a></li>
 		
-			<li><a href="/tags/php/">php<span>2</span></a></li>
+			<li><a href="/tags/VMware/">VMware<span>2</span></a></li>
+		
+			<li><a href="/tags/Casio-TR15/">Casio TR15<span>1</span></a></li>
+		
+			<li><a href="/tags/svn/">svn<span>2</span></a></li>
+		
+			<li><a href="/tags/ingress/">ingress<span>1</span></a></li>
+		
+			<li><a href="/tags/memcachedb/">memcachedb<span>1</span></a></li>
+		
+			<li><a href="/tags/Octopress/">Octopress<span>1</span></a></li>
+		
+			<li><a href="/tags/SaltStack/">SaltStack<span>2</span></a></li>
+		
+			<li><a href="/tags/trac/">trac<span>3</span></a></li>
 		
 			<li><a href="/tags/i18n/">i18n<span>1</span></a></li>
 		
 			<li><a href="/tags/OpenRC/">OpenRC<span>1</span></a></li>
+		
+			<li><a href="/tags/E-M5/">E-M5<span>3</span></a></li>
+		
+			<li><a href="/tags/蝴蝶結/">蝴蝶結<span>1</span></a></li>
+		
+			<li><a href="/tags/Linux/">Linux<span>19</span></a></li>
+		
+			<li><a href="/tags/nodejs/">nodejs<span>4</span></a></li>
+		
+			<li><a href="/tags/旅遊/">旅遊<span>1</span></a></li>
+		
+			<li><a href="/tags/Healthy/">Healthy<span>1</span></a></li>
+		
+			<li><a href="/tags/squid/">squid<span>4</span></a></li>
+		
+			<li><a href="/tags/Sublime/">Sublime<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>33</span></a></li>
@@ -523,6 +531,10 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/post/K760-Linux-fn-多媒體鍵切換/" ><i class="fa fa-file-o"></i>K760 Linux fn/多媒體鍵切換...</a>
+      </li>
+    
+      <li>
         <a href="/post/ingress-email-attack-notify-to-Pushover/"  title="Ingress 及時的攻擊通知 over Pushover" ><i class="fa fa-file-o"></i>用 Pushover 收 Ingress 成就點攻擊通...</a>
       </li>
     
@@ -536,10 +548,6 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     
       <li>
         <a href="/post/build-static-link-nginx/" ><i class="fa fa-file-o"></i>build static link nginx...</a>
-      </li>
-    
-      <li>
-        <a href="/post/conky/" ><i class="fa fa-file-o"></i>Conky...</a>
       </li>
     
   </ul>

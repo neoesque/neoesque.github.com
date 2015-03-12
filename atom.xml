@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Making Life Better]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://parseflo.at/"/>
-  <updated>2015-01-07T08:15:08.000Z</updated>
+  <updated>2015-03-12T08:30:51.000Z</updated>
   <id>http://parseflo.at/</id>
   
   <author>
@@ -13,6 +13,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[K760 Linux fn/多媒體鍵切換]]></title>
+    <link href="http://parseflo.at/post/K760-Linux-fn-%E5%A4%9A%E5%AA%92%E9%AB%94%E9%8D%B5%E5%88%87%E6%8F%9B/"/>
+    <id>http://parseflo.at/post/K760-Linux-fn-多媒體鍵切換/</id>
+    <published>2015-03-12T07:38:17.000Z</published>
+    <updated>2015-03-12T08:30:51.000Z</updated>
+    <content type="html"><![CDATA[<p>羅技 <a href="http://support.logitech.com/product/wireless-solar-keyboard-k760-for-mac" target="_blank" rel="external">K760</a> 鍵盤是一個一對三的藍芽鍵盤，而且是太陽能的，免換電池，使用上還蠻方便的，可是原生是適用 Mac / iOS 裝置，小弟公司電腦裝的是 Linux，其實拿來用也不錯，不過就是有個缺點就是羅技沒有針對 Linux 出鍵盤管理程式，所以沒辦法改掉多媒體鍵，在 Linux 很少用到多媒體鍵，反而是 function key 比較常用。</p>
+<p>所以在網路先找到了 <a href="http://www.trial-n-error.de/posts/2012/12/31/logitech-k810-keyboard-configurator/" target="_blank" rel="external">K810 on Linux 的解法</a> ，這個人有 OpenSource 他的程式碼，並且搭配了 udev 的修改，這樣電腦藍芽連接到鍵盤就會自動設定了，但是 K760 的 KeyCode 跟 K810 不一樣，所以又找了一下發現 <a href="http://askubuntu.com/questions/326959/how-can-i-make-the-function-keys-the-default-on-a-logitech-k760-bluetooh-keyboar" target="_blank" rel="external">這篇</a> 有人抓出 KeyCode 了。</p>
+<a id="more"></a>
+<p>於是小弟就改了一下程式碼，然後放在 <a href="https://github.com/neoesque/k760-linux-fn-conf" target="_blank" rel="external">GitHub</a>，請直接 <code>git clone https://github.com/neoesque/k760-linux-fn-conf.git</code>，然後 <code>./build.sh</code> 生出來的執行檔就可以控制了。但是注意的是你的 Linux Kernel 要記得編譯進去 [Device Drivers]-[HID support]-[/dev/hidraw raw HID device support]，確定 /dev/hidraw* 有出現之後就可以打 <code>k760_conf -d /dev/hidraw0 -f off</code> 就可以把多媒體鍵變成 function key 了。</p>
+<p>如果出現 <code>write: 0 were written instead of 7</code> 也沒關係，還是會設定進去才對。</p>
+<hr>
+<p>相關資料</p>
+<ul>
+<li><a href="http://www.trial-n-error.de/posts/2012/12/31/logitech-k810-keyboard-configurator/" target="_blank" rel="external">Logitech K810 Keyboard Configurator</a></li>
+<li><a href="http://askubuntu.com/questions/326959/how-can-i-make-the-function-keys-the-default-on-a-logitech-k760-bluetooh-keyboar" target="_blank" rel="external">How can I make the function keys the default on a Logitech K760 Bluetooh keyboard?</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>羅技 <a href="http://support.logitech.com/product/wireless-solar-keyboard-k760-for-mac">K760</a> 鍵盤是一個一對三的藍芽鍵盤，而且是太陽能的，免換電池，使用上還蠻方便的，可是原生是適用 Mac / iOS 裝置，小弟公司電腦裝的是 Linux，其實拿來用也不錯，不過就是有個缺點就是羅技沒有針對 Linux 出鍵盤管理程式，所以沒辦法改掉多媒體鍵，在 Linux 很少用到多媒體鍵，反而是 function key 比較常用。</p>
+<p>所以在網路先找到了 <a href="http://www.trial-n-error.de/posts/2012/12/31/logitech-k810-keyboard-configurator/">K810 on Linux 的解法</a> ，這個人有 OpenSource 他的程式碼，並且搭配了 udev 的修改，這樣電腦藍芽連接到鍵盤就會自動設定了，但是 K760 的 KeyCode 跟 K810 不一樣，所以又找了一下發現 <a href="http://askubuntu.com/questions/326959/how-can-i-make-the-function-keys-the-default-on-a-logitech-k760-bluetooh-keyboar">這篇</a> 有人抓出 KeyCode 了。</p>]]>
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://parseflo.at/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[用 Pushover 收 Ingress 成就點攻擊通知]]></title>
@@ -1369,51 +1397,6 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
       <category term="Linux" scheme="http://parseflo.at/tags/Linux/"/>
     
       <category term="squid" scheme="http://parseflo.at/tags/squid/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[大腸鏡檢查 - 輝雄診所]]></title>
-    <link href="http://parseflo.at/post/colonoscopy/"/>
-    <id>http://parseflo.at/post/colonoscopy/</id>
-    <published>2012-11-05T12:57:00.000Z</published>
-    <updated>2013-01-07T09:23:25.000Z</updated>
-    <content type="html"><![CDATA[<p>每年九月一到就是年度的健康檢查，大概大家都是一片哀嚎 XD 不過其實也還好似乎年紀越大紅字越多好像是正常的，其實每年也沒什麼要注意的，我都只注意 GOT, GPT 而已，其他的向來都不會紅字，不過不幸的今年健康檢查竟然紅字出現在一個不可思議的地方…糞便潛血反應，當下的表情已經不是「囧」可以表現的了。既來之則安之，當下想的就是乖乖照大腸鏡，準備被「月工」吧 = =</p>
-<a id="more"></a>
-<img src="https://lh5.googleusercontent.com/-C8fBX5g4Gxc/UJe6L8FKWXI/AAAAAAAAEYs/dcLRnSZ2-ms/s640/Photo%252011-05-2012-20.59.45_.jpg">
-<p>由於這次的檢查是「免疫法」，有別於傳統的「化學法」，免疫法可以直接有效的測試人體血紅素，也就是不會收到吃紅肉啦、豬血啦、維他命 C 的影響，所以檢測出來有血就是真的有人類的血 (除非我是食人族，不然血絕對是我的吧 XD)，看了網路的一些文章想說看來免疫法的 false alarm 機率很低，直接硬著頭皮做大腸鏡比較快。</p>
-<p>看了網路的一些文章似乎衆多部落客都很推薦<a href="http://www.care-u.com.tw" target="_blank" rel="external">輝雄診所</a>，這間診所專職健康檢查，也有很多日本人會去，不過缺點是他是自費的診所，其實網路的評價似乎是真的很好，所以在考慮了一下後，決定就自費的做吧，畢竟人生第一次被 <em>月工月工</em> 還是檢查的完整一點好，所以就在網頁上<a href="http://www.care-u.com.tw/reservation1.php" target="_blank" rel="external">線上預約</a>，隔天就會有人跟你確認時間了。然後檢查前三天還會有護士打電話跟你確認注意事項，像是什麼東西要避免不能吃 (深色蔬菜、有子的水果、牛奶、起司這類脂肪…等，詳細可以查閱網路 <a href="http://goo.gl/16T9G" target="_blank" rel="external">低渣飲食</a>)，不過我在前兩天就開始只吃土司、豆漿、水煮蛋之類的。</p>
-<img src="https://lh3.googleusercontent.com/-tStZClyuxMU/UJevfTS2ReI/AAAAAAAAEXg/Rne33U8YF1M/s512/Photo%252011-05-2012-07.55.23.jpg" title="裝潢優美的診所">
-<p>當天一早八點就到了醫院，填了初診的資料卡，量量血壓，然後護士會介紹一下他們的檢查內容跟簽同意書，我只做檢查 + 允許切片(一處 2700, 兩處好像 3500…)，因爲想說如果要切除瘜肉等於手術還是等有家人陪伴再說。然後就是再到大廳先繳錢(檢查費+掛號費，文章最後有價格)再等護士拿藥水來，等待的時候照了一張他們的海報。</p>
-<img src="https://lh5.googleusercontent.com/-KLg6_ypka74/UJevfQTYkTI/AAAAAAAAEXc/UXRl0d3q9Bs/s640/Photo%252011-05-2012-08.26.38.jpg">
-<p>大致上就是 NBI + 放大 80 倍 (不知道爲什麼海報寫 100 倍 = = 可能四捨五入了) 的儀器，不用透過傳統的染色劑也能分辨粘膜組織，然後非全身麻醉(所以是鎮定劑?)，風險較低。</p>
-<img src="https://lh5.googleusercontent.com/-dKToMlkBGqQ/UJevfdAg_jI/AAAAAAAAEXk/ZDLOSxN4ac4/s512/Photo%252011-05-2012-08.50.12_.jpg">
-<p>在一樓的大廳等了一會兒，護士就拿了準備好的瀉藥來了，大約是 2000 cc 一小時內要喝完，一開始要吃三顆藥丸，護士說是軟便劑，然後就是長期抗戰喝大量的藥水了，這個藥水鹹鹹的，護士說喝這個不會讓肚子痛，一開始護士會要求直接喝一整杯(右邊那杯的大小，一壺藥水大概可以裝四杯)，其實喝第一口會覺得還不錯喝，因爲鹹鹹的，不過後來我錯了，大概第三杯開始就開始覺得噁心…雖然還不至於想吐啦，不過真的覺得很糟糕…至於藥效每個人都不一樣，我慢慢喝大概喝到第三杯的時候，時間是過了 30 分鐘大約 8:50 就開始有感覺了！跑了幾次廁所，來回又繼續灌藥水，最後在 9:10 喝完一整壺，肚子整個就是脹死了，然後又繼續跑了幾次廁所，護士說大概第五次就要請他們看(廁所內有緊急鈴)，不過我大概第六次才請護士看，結果還是沒到標準，標準是要跟小便一樣-清澈的黃色液體不能有任何固體，護士就叫我繼續努力多喝水，然後就這樣喝溫水坐廁所來回又跑了幾次，一直到第九次或第十次(數不清了)拉出來真的是清澈無比的液體(這時候會覺得很神奇就是 = = 用屁股小號-有點噁但是真的是這樣 XD)護士才說可以上樓準備照了，然後會再給四顆藥丸，好像是腸胃鬆弛，吃完就準備上樓了，接下來就都不能喝水，想上廁所一樣可以上，此時大約是十點十分左右。邊喝水邊等待肚子反應的中間會有院長問診，大概就是問爲什麼回來，有什麼舊有疾病之類的例行性問診。在跑廁所時中間還發生小插曲，因爲一樓男廁只有一間大號的，裏面剛好有人，在外面走來走去，護士看到就帶我去女廁，這輩子第一次正大光明走進去女廁。而且拉到後來肛門痛死了，不知道是不是一開始衛生紙太用力擦過頭，後來輕輕碰就會痛，幸好後來都是拉水只要輕輕壓就好了 = =…</p>
-<img src="https://lh4.googleusercontent.com/-FInG_wqSZTY/UJevhEEAQtI/AAAAAAAAEX0/ZUU112Z-Lnw/s512/Photo%252011-05-2012-10.19.23.jpg">
-<p>接着護士會先帶到 2F 的更衣室準備更換他們的衣物，有以下配件：上衣、褲子、紙內褲、紙拖鞋，然後會給一個可以繫在手腕上的鑰匙(或網路有人是電子鎖，最下面會說)。基本上可以帶在身邊的只剩手機、眼鏡、綁在手腕的鑰匙，其他的都要收到置物櫃裡，換完大概就是下面這樣</p>
-<img src="https://lh5.googleusercontent.com/-M_U7ZGG1Cnk/UJevhCX9IQI/AAAAAAAAEX8/u5_r1_BleSw/s512/Photo%252011-05-2012-10.24.59_Snapseed.jpg">
-<p>換好後會被帶到 3F 準備做檢查，3F 空間蠻大的，有雜誌、電視、一個吧檯(檢查完提供餐點吃)，另外值得一提的是 3F 的廁所比較高級，是免治馬桶，我在 3F 又拉了最後一次，看到免治馬桶想說終於不用衛生紙了，就很開心的點了洗屁屁，結果靠…雖然是溫水滿溫和的但是水壓蠻強的，林杯的月工…差點痛死!趕快按停還是用衛生紙擦 = = 這個大概比較適合一開始用…</p>
-<p>然後等了一會兒大概是 10:40，就會有護士來叫你，準備進預備室，一進去就看到幾個人已經躺著應該是在恢復了，在更往裏面走就是一間一間的檢查室，然後護士會要求把身上的東西都卸掉，包含手機、眼鏡都要放在他們準備的收納盒裡，鑰匙可以照樣繫在手上，接着就是躺上去病床了，護士會先打點滴(電解液，可能怕我們拉到脫水)，還提醒說現在打的不是鎮定劑還不會想睡覺是正常的，等等才會打，然後又補了一針腸胃鬆弛在手臂上(酸的磊…)，接着會用一塊木板固定手，因爲他們怕檢查過程手會移動到，等到固定好了會叫你屈膝側睡，然後就是三針的鎮定劑了…網路有人說三針還沒打完就睡着，是有沒有這麼神奇 XD 我三針打完之後還有精神，護士叫我移動一下姿勢還可以移動，不過大概過了不知道幾秒，我就不醒人事了 0rz…，在此之前護士說有的人打完後還是不會睡着，不過至少屁屁是沒感覺的可以不用怕。</p>
-<img src="https://lh5.googleusercontent.com/-CqXikY3IocU/UJevhP8ZW2I/AAAAAAAAEX4/7Eb4oIDlCsY/s512/Photo%252011-05-2012-11.58.17.jpg">
-<p>等到再次恢復意識已經是 11 點 30、40 分了，然後會靜待點滴吊完，護士才會過來問頭還昏不昏，不暈基本上就可以起來了，然後會還手機、眼鏡，然後會被帶到 3F 的吧檯附近的桌椅等待今天的餐點。基本上我好像沒有很昏所以是自己走，網路有的人是被護士攙扶出去。</p>
-<img src="https://lh5.googleusercontent.com/-_g47Ll0TbsU/UJevieKMZFI/AAAAAAAAEYQ/XnCByrUoRQw/s512/Photo%252011-05-2012-12.13.28_.jpg">
-<img src="https://lh4.googleusercontent.com/-huJVMSCeRpY/UJevh-k9lVI/AAAAAAAAEYE/olH3RBhwnwI/s640/Photo%252011-05-2012-11.59.39.jpg">
-<p>餐點很簡單，可能是久沒進食不能吃太油膩的，土司 + 熱可可，飲料可以選有咖啡、紅茶(?有點忘了，護士念了一串，可能當時還在暈 XD)、可可，邊看電視邊吃，慢慢吃完之後護士就會帶下去二樓換回衣服，然後在帶到一樓，由院長本人解說今天的檢查情形。</p>
-<p>院長本人還蠻不錯的啦，他會說今天把大腸從頭檢查到尾，然後指着醫院常掛的那種構造圖說大概就是從鵝鑾鼻(用鐳射筆指着肛門口)檢查到基隆(大腸接小腸的地方)，然後就是給你看照出來的圖跟解說這邊是怎樣怎樣，基本上我的大腸很健康，有兩三處瘜肉，都是良性的所以以後觀察就好，不過我有輕微的痔瘡，！驚 = = 所以就是被叮嚀了一下，然後開個一個禮拜的藥就好，所以我的潛血反應可能剛好來自於痔瘡流血 v_v” ，不過大腸都沒事就好。談完之後就是去拿藥然後補藥費。</p>
-<p>基本上診所的環境從一樓大廳到二樓更衣室到三樓診療可以說相當舒適，在一樓大廳時還真的有不少日本人來，院長本人會說臺語，所以基本上我都是用臺語應答，還蠻親切的 XD，最後今天的金額是照大腸鏡 7000、掛號費 250、藥 560，說實在自費還真是他媽的貴 = =，不過我覺得好處是時間可以自由安排整個檢查也很舒服，反正是這輩子第一次做！而且也不怕去醫院遇到雷，還有看到報導說有的醫院只檢查大腸前 80 公分(大腸全長約 150 公分)，花大錢讓自己也安心一點 XD。</p>
-<hr>
-<p>後記</p>
-<ul>
-<li>好像如果做全身健康檢查的一開始就會被帶去 3F，因爲網路有人是全程都在 3F 免治馬桶 XD，然後在 2F 更衣室用的置物櫃也是電子鎖的，我是傳統的鑰匙鎖那區 = =”，吃的也比我豐盛(看倒數第三張圖），我左邊的那個男生(照的時候他去吧檯)就吃得比我豐盛 q_q”</li>
-<li>做大腸鏡好像越來越貴了，我在網路有看到以前檢查費只要 5000、 6200，然後我今年做要 7000 真是嚇死人 = =</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>每年九月一到就是年度的健康檢查，大概大家都是一片哀嚎 XD 不過其實也還好似乎年紀越大紅字越多好像是正常的，其實每年也沒什麼要注意的，我都只注意 GOT, GPT 而已，其他的向來都不會紅字，不過不幸的今年健康檢查竟然紅字出現在一個不可思議的地方…糞便潛血反應，當下的表情已經不是「囧」可以表現的了。既來之則安之，當下想的就是乖乖照大腸鏡，準備被「月工」吧 = =</p>]]>
-    
-    </summary>
-    
-      <category term="Healthy" scheme="http://parseflo.at/tags/Healthy/"/>
     
   </entry>
   

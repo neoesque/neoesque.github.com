@@ -120,6 +120,32 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	
 	<!-- display as entry -->
 		<h3 class="title">
+			<a href="/post/moinmoin-wiki-trac-nis/" >moinmoin wiki 跟 trac 改吃 NIS</a>
+			<span class="date"> 2011-05-14, Sat </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>最近敝單位正在將原本用 OpenLDAP 的認證方式轉成 Windows AD<br /><br />因為接下來還會進一步導入 <a href='http://www.vmware.com/tw/products/view/'>VMware View</a><br /><br />View 限制要吃 Windows AD 的帳號 所以學長說就都改用 Windows AD 吧 反正 Windows AD 可以把 帳號密碼跟群組用 NIS 的方式吐給 Unix 吃<br /><br />ssh 登入吃 NIS 非常方便 敝單位現在都用 SLES11 所以用 yast 新增一下就好了!<br /><br />這樣 svn 就不會有問題了<br /><br />然後原本敝單位還有採用 trac 來做 ticket 追蹤與 moinmoin wiki 當做大家的筆記<br /><br />以下是如何設定這兩個讓他們可以吃到 NIS 的帳號<br />
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/post/moinmoin-wiki-trac-nis/#more" class="btn btn-default more">閱讀本文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 			<a href="/post/nginx-performance-compare-with-php/" >nginx 的 performance compare with PHP</a>
 			<span class="date"> 2011-05-10, Tue </span>
 		</h3>
@@ -350,32 +376,6 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </div>
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-			<a href="/post/Mac-OS-all-applications-using-webkit-core/" >讓應用程式都使用 Webkit Core</a>
-			<span class="date"> 2009-12-06, Sun </span>
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-12">
-	  
-	
-	  <p>要讓比方說 Safari, MailPlane 或 CSSEdit 吃 Webkit 的核心的話其中一種方法是從終端機打開<br />如以下設定<br /><br />export DYLD_FRAMEWORK_PATH=/Applications/WebKit.app/Contents/Frameworks/10.6/<br />export WEBKIT_UNSET_DYLD_FRAMEWORK_PATH=YES<br />open /Applications/blahblah.app<br /><br />即可<br />可是要從終端機太麻煩了對吧~<br />Mac OS X 提供更方便的方式讓全系統都套用<br />
-	
-	</div>
-	
-  
-</div>
-	<a type="button" href="/post/Mac-OS-all-applications-using-webkit-core/#more" class="btn btn-default more">閱讀本文</a>
-</div>
-
-		
 
 		</div>
 
@@ -424,45 +424,45 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		<h4>標籤雲</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Gentoo/">Gentoo<span>5</span></a></li>
+			<li><a href="/tags/php/">php<span>2</span></a></li>
 		
-			<li><a href="/tags/OpenRC/">OpenRC<span>1</span></a></li>
+			<li><a href="/tags/Linux/">Linux<span>19</span></a></li>
 		
-			<li><a href="/tags/VMware/">VMware<span>2</span></a></li>
+			<li><a href="/tags/FreeBSD/">FreeBSD<span>1</span></a></li>
 		
-			<li><a href="/tags/E-M5/">E-M5<span>3</span></a></li>
+			<li><a href="/tags/蝴蝶結/">蝴蝶結<span>1</span></a></li>
 		
-			<li><a href="/tags/旅遊/">旅遊<span>1</span></a></li>
-		
-			<li><a href="/tags/Linux/">Linux<span>18</span></a></li>
+			<li><a href="/tags/Mac/">Mac<span>6</span></a></li>
 		
 			<li><a href="/tags/i18n/">i18n<span>1</span></a></li>
 		
 			<li><a href="/tags/graylog2/">graylog2<span>1</span></a></li>
 		
-			<li><a href="/tags/Healthy/">Healthy<span>1</span></a></li>
+			<li><a href="/tags/OpenRC/">OpenRC<span>1</span></a></li>
 		
-			<li><a href="/tags/Octopress/">Octopress<span>1</span></a></li>
+			<li><a href="/tags/SaltStack/">SaltStack<span>2</span></a></li>
 		
-			<li><a href="/tags/nodejs/">nodejs<span>4</span></a></li>
-		
-			<li><a href="/tags/nginx/">nginx<span>7</span></a></li>
-		
-			<li><a href="/tags/蝴蝶結/">蝴蝶結<span>1</span></a></li>
-		
-			<li><a href="/tags/TextMate/">TextMate<span>1</span></a></li>
+			<li><a href="/tags/NIS/">NIS<span>1</span></a></li>
 		
 			<li><a href="/tags/cgroups/">cgroups<span>1</span></a></li>
 		
-			<li><a href="/tags/squid/">squid<span>4</span></a></li>
-		
 			<li><a href="/tags/obj-c/">obj-c<span>1</span></a></li>
+		
+			<li><a href="/tags/JavaScript/">JavaScript<span>1</span></a></li>
+		
+			<li><a href="/tags/Octopress/">Octopress<span>1</span></a></li>
 		
 			<li><a href="/tags/SUSE/">SUSE<span>2</span></a></li>
 		
-			<li><a href="/tags/Mac/">Mac<span>6</span></a></li>
+			<li><a href="/tags/VMware/">VMware<span>2</span></a></li>
+		
+			<li><a href="/tags/memcachedb/">memcachedb<span>1</span></a></li>
 		
 			<li><a href="/tags/moinmoin/">moinmoin<span>3</span></a></li>
+		
+			<li><a href="/tags/Casio-TR15/">Casio TR15<span>1</span></a></li>
+		
+			<li><a href="/tags/E-M5/">E-M5<span>3</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>33</span></a></li>
@@ -478,6 +478,10 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/post/K760-Linux-fn-多媒體鍵切換/" ><i class="fa fa-file-o"></i>K760 Linux fn/多媒體鍵切換...</a>
+      </li>
+    
+      <li>
         <a href="/post/ingress-email-attack-notify-to-Pushover/"  title="Ingress 及時的攻擊通知 over Pushover" ><i class="fa fa-file-o"></i>用 Pushover 收 Ingress 成就點攻擊通...</a>
       </li>
     
@@ -491,10 +495,6 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     
       <li>
         <a href="/post/build-static-link-nginx/" ><i class="fa fa-file-o"></i>build static link nginx...</a>
-      </li>
-    
-      <li>
-        <a href="/post/conky/" ><i class="fa fa-file-o"></i>Conky...</a>
       </li>
     
   </ul>
