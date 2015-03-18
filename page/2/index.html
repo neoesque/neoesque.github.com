@@ -67,25 +67,25 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		  
 		  <li>
 			<a href="/archives" title="All the articles.">
-			  <i class="fa fa-archive"></i>Archives
+			  <i class="fa fa-archive"></i>彙整
 			</a>
 		  </li>
 		  
 		  <li>
 			<a href="/categories" title="All the categories.">
-			  <i class="fa fa-folder"></i>Categories
+			  <i class="fa fa-folder"></i>分類
 			</a>
 		  </li>
 		  
 		  <li>
 			<a href="/tags" title="All the tags.">
-			  <i class="fa fa-tags"></i>Tags
+			  <i class="fa fa-tags"></i>標籤
 			</a>
 		  </li>
 		  
 		  <li>
 			<a href="/about" title="About me.">
-			  <i class="fa fa-user"></i>About
+			  <i class="fa fa-user"></i>關於我
 			</a>
 		  </li>
 		  
@@ -115,6 +115,32 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		<div class="mypage">
 		
 		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+			<a href="/post/nice-to-meet-saltstack/" >Saltstack 使用心得&amp;簡介</a>
+			<span class="date"> 2013-06-30, Sun </span>
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>身為一個系統管理者，當你管理的機器數量只有十來台時，你可以很輕鬆的一台一台進去管理、設定機器，但是隨著服務開始搞大了，機器數量變成數十台時，也許會需要一些工具來輔助管理，之前我都是用 <a href="http://docs.fabfile.org/en/1.6/">Fabric</a> 來幫忙管理，不過 Fabric 有個缺點是他只是一個下指令的管理工具，當然我之前都硬幹，用 <a href="http://docs.fabfile.org/en/1.6/api/core/operations.html?highlight=put#fabric.operations.put">put</a> 硬把他當成管理 configuration 的工具，上傳完了再下一個 reload 的指令，當然這樣也不是不行，不過似乎真的是一個很土炮的方法，但是隨著機器的數量越來越大，已經到達幾百臺的時候，就算是用 Fabric + <a href="http://docs.fabfile.org/en/1.6/usage/env.html#env-parallel">parallel</a> 其實還是覺得很怪，一來是雖然他已經平行處理了，但是他的 output 卻變成無序的，也就是當受管理的機器有 output 他就直接顯示在管理端上，有點惱人就是，另外一個是 Fabric 需要自己寫 Group 管理，要自己定義東西，而不能透過簡單的 query 來對想要的機器下指令就好，所以最近開始想要轉型使用 configuration management tool，常見的選擇是 <a href="https://puppetlabs.com/">puppet</a>、<a href="http://www.opscode.com/chef/">chef</a>、<a href="http://cfengine.com/">CFEngine</a> 之類的，不過最近有個當紅的 OpenSource 軟體出現了，那就是 <a href="http://docs.saltstack.com/">SaltStack</a>。</p>
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/post/nice-to-meet-saltstack/#more" class="btn btn-default more">閱讀本文</a>
+</div>
+
 		
 			
 	
@@ -402,33 +428,6 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </div>
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-			<a href="/post/linux-tuning-for-write-heavy-system/" >高寫入系統 Linux 效能調教</a>
-			<span class="date"> 2012-11-06, Tue </span>
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-12">
-	  
-	
-	  <p>在我們使用 <a href="http://www.squid-cache.org">squid</a> 的環境裡，常常遇到一個瓶頸，就是面對高 I/O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下(下圖爲 cacti 畫的日圖)：</p>
-<img src="https://lh5.googleusercontent.com/-WhfEogOVTK8/UJkTvM-bZXI/AAAAAAAAEZE/QRegjwaXFC8/s566/graph_image.png">
-	
-	</div>
-	
-  
-</div>
-	<a type="button" href="/post/linux-tuning-for-write-heavy-system/#more" class="btn btn-default more">閱讀本文</a>
-</div>
-
-		
 
 		</div>
 
@@ -485,7 +484,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		
 			<li><a href="/categories/遊戲/">遊戲<span>1</span></a></li>
 		
-			<li><a href="/categories/遊記/">遊記<span>1</span></a></li>
+			<li><a href="/categories/遊記/">遊記<span>2</span></a></li>
 		
 		</ul>
 	</div>
@@ -496,48 +495,48 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		<h4>標籤雲</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Mac/">Mac<span>6</span></a></li>
+			<li><a href="/tags/Linux/">Linux<span>19</span></a></li>
 		
-			<li><a href="/tags/美國/">美國<span>1</span></a></li>
+			<li><a href="/tags/memcachedb/">memcachedb<span>1</span></a></li>
+		
+			<li><a href="/tags/cgroups/">cgroups<span>1</span></a></li>
+		
+			<li><a href="/tags/蝴蝶結/">蝴蝶結<span>1</span></a></li>
+		
+			<li><a href="/tags/graylog2/">graylog2<span>1</span></a></li>
 		
 			<li><a href="/tags/moinmoin/">moinmoin<span>3</span></a></li>
 		
 			<li><a href="/tags/nodejs/">nodejs<span>4</span></a></li>
 		
-			<li><a href="/tags/php/">php<span>2</span></a></li>
-		
-			<li><a href="/tags/trac/">trac<span>3</span></a></li>
-		
-			<li><a href="/tags/陶瓷/">陶瓷<span>1</span></a></li>
-		
-			<li><a href="/tags/蝴蝶結/">蝴蝶結<span>1</span></a></li>
-		
-			<li><a href="/tags/Gentoo/">Gentoo<span>5</span></a></li>
-		
-			<li><a href="/tags/pushover/">pushover<span>1</span></a></li>
-		
-			<li><a href="/tags/memcachedb/">memcachedb<span>1</span></a></li>
-		
-			<li><a href="/tags/graylog2/">graylog2<span>1</span></a></li>
-		
-			<li><a href="/tags/SaltStack/">SaltStack<span>2</span></a></li>
-		
-			<li><a href="/tags/squid/">squid<span>4</span></a></li>
-		
-			<li><a href="/tags/nginx/">nginx<span>7</span></a></li>
-		
-			<li><a href="/tags/TextMate/">TextMate<span>1</span></a></li>
+			<li><a href="/tags/VMware/">VMware<span>2</span></a></li>
 		
 			<li><a href="/tags/Healthy/">Healthy<span>1</span></a></li>
 		
-			<li><a href="/tags/Casio-TR15/">Casio TR15<span>1</span></a></li>
+			<li><a href="/tags/Gentoo/">Gentoo<span>5</span></a></li>
 		
-			<li><a href="/tags/JavaScript/">JavaScript<span>1</span></a></li>
+			<li><a href="/tags/FreeBSD/">FreeBSD<span>1</span></a></li>
+		
+			<li><a href="/tags/pushover/">pushover<span>1</span></a></li>
 		
 			<li><a href="/tags/ingress/">ingress<span>1</span></a></li>
 		
+			<li><a href="/tags/Sublime/">Sublime<span>1</span></a></li>
 		
-		   <li><a href="/tags">...<span>33</span></a></li>
+			<li><a href="/tags/SUSE/">SUSE<span>2</span></a></li>
+		
+			<li><a href="/tags/迪士尼/">迪士尼<span>1</span></a></li>
+		
+			<li><a href="/tags/TextMate/">TextMate<span>1</span></a></li>
+		
+			<li><a href="/tags/squid/">squid<span>4</span></a></li>
+		
+			<li><a href="/tags/trac/">trac<span>3</span></a></li>
+		
+			<li><a href="/tags/OpenRC/">OpenRC<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>34</span></a></li>
 		 
 		</ul>
 	</div>
@@ -548,6 +547,10 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/"  title="2014-11-15 ~ 2014-11-16 美東迪士尼之旅" ><i class="fa fa-file-o"></i>Walt Disney World Resort in...</a>
+      </li>
     
       <li>
         <a href="/post/K760-Linux-fn-多媒體鍵切換/" ><i class="fa fa-file-o"></i>K760 Linux fn/多媒體鍵切換...</a>
@@ -563,10 +566,6 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     
       <li>
         <a href="/post/NCLP-11-考試/" ><i class="fa fa-file-o"></i>NCLP 11 考試...</a>
-      </li>
-    
-      <li>
-        <a href="/post/build-static-link-nginx/" ><i class="fa fa-file-o"></i>build static link nginx...</a>
       </li>
     
   </ul>
