@@ -1,15 +1,31 @@
-.entry, .post {
-  line-height: 1.7em;
-  line-height-title: 1.1em;
+.heimu {
+  background-color: #252525 !important;
+  color: #252525 !important;
 }
-
-p {
-  text-align: justify;
-  text-justify: ideographic;
-  margin-after: 0.5em;
+.toc-article {
+  background: color-code;
+  margin: 2em 0 0 0.5em;
+  padding: 1em;
 }
-
-code {
-  text-shadow: 0 1px #fff;
-  padding: 0 0.3em;
+.toc-article strong {
+  padding: 0.3em 0;
+}
+#toc {
+  line-height: 1em;
+  font-size: 0.8em;
+  float: right;
+}
+#toc .toc {
+  padding: 0;
+}
+#toc .toc li {
+  list-style-type: none;
+}
+#toc .toc-child {
+  padding-left: 1.5em;
+}
+@media only print {
+  .print-invisible * {
+    display: none !important;
+  }
 }

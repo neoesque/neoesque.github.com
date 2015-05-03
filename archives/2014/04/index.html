@@ -1,851 +1,367 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   
-  <title>彙整：2014/4 | neoesque</title>
-  <meta name="author" content="neoesque">
-  
-  <meta name="description" content="neoesque&#39;s Linux Blog">
-  
-  
+  <title>neoesque</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+  <meta name="description" content="neoesque&apos;s Linux Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="neoesque">
+<meta property="og:url" content="http://parseflo.at/archives/2014/04/index.html">
+<meta property="og:site_name" content="neoesque">
+<meta property="og:description" content="neoesque&apos;s Linux Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="neoesque">
+<meta name="twitter:description" content="neoesque&apos;s Linux Blog">
+<meta name="twitter:creator" content="@neoesque">
+<meta property="fb:admins" content="1573449527">
+<meta property="fb:app_id" content="163923413772109">
   
-  <meta property="og:site_name" content="neoesque"/>
-
   
-    <meta property="og:image" content="undefined"/>
+    <link rel="icon" href="/favicon.png">
   
-
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
   
-    <link rel="alternative" href="/atom.xml" title="neoesque" type="application/atom+xml">
-  
-  
-    <link href="/favicon.png" rel="icon">
-  
-  
-  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-  <script src="/js/jquery-2.0.3.min.js"></script>
-
-  <!-- analytics -->
-  
+<!-- Google Analytics -->
 <script type="text/javascript">
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-37617901-1']);
-_gaq.push(['_trackPageview']);
-(function() {
-var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+ga('create', 'UA-37617901-1', 'auto');
+ga('send', 'pageview');
 
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
 </script>
+<!-- End Google Analytics -->
 
 
 </head>
-
- <body>  
-  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		<span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-	  <a class="navbar-brand" href="/">neoesque</a>
-      <div class="collapse navbar-collapse nav-menu">
-		<ul class="nav navbar-nav">
-		  
-		  <li>
-			<a href="/archives" title="All the articles.">
-			  <i class="fa fa-archive"></i>彙整
-			</a>
-		  </li>
-		  
-		  <li>
-			<a href="/categories" title="All the categories.">
-			  <i class="fa fa-folder"></i>分類
-			</a>
-		  </li>
-		  
-		  <li>
-			<a href="/tags" title="All the tags.">
-			  <i class="fa fa-tags"></i>標籤
-			</a>
-		  </li>
-		  
-		  <li>
-			<a href="/about" title="About me.">
-			  <i class="fa fa-user"></i>關於我
-			</a>
-		  </li>
-		  
-		</ul>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo"></i><span class="site-title">neoesque</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div class="profile" id="profile-nav">
+          <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+        </div>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="q" value="site:http://parseflo.at"></form>
       </div>
-    </div> <!-- container -->
-</nav>
-<div class="clearfix"></div>
-
-  <div class="container">
-  	<div class="content">
-    	 
-
-<!-- title -->
-<div class="page-header">
-  <h1 class="archive-title">2014/4</h1>
-</div>
-
-<div class="row page">
-  <!-- cols -->
-  
-  <div class="col-md-9">
-	
-
-	  
-	  <!-- display as list -->
-	  <div class="archive">
-				
-		
-		
-			
-			
-			<h4 class="archive-ul" data-toggle="collapse" data-target="#2015">2015<b class="caret"></b></h4>
-			<ul id="2015" class="collapse in">
-			
-		
-<li class="listing-item">
-  <span class="date_class"> 2015-03-14 </span> &raquo;
-  
-  <span class="title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/"  title="2014-11-15 ~ 2014-11-16 美東迪士尼之旅" >Walt Disney World Resort in Orlando, Florida</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2015-03-12 </span> &raquo;
-  
-  <span class="title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" >K760 Linux fn/多媒體鍵切換</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2015-01-07 </span> &raquo;
-  
-  <span class="title"><a href="/post/ingress-email-attack-notify-to-Pushover/"  title="Ingress 及時的攻擊通知 over Pushover" >用 Pushover 收 Ingress 成就點攻擊通知</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2015-01-03 </span> &raquo;
-  
-  <span class="title"><a href="/post/USwest-canyon/"  title="2014-11-07 ~ 2014-11-14 美西一週峽谷之旅" >美西峽谷行</a></span>
-  
-</li>			
-		
-		
-		
-			
-			</ul>
-			
-			
-			<h4 class="archive-ul" data-toggle="collapse" data-target="#2014">2014<b class="caret"></b></h4>
-			<ul id="2014" class="collapse in">
-			
-		
-<li class="listing-item">
-  <span class="date_class"> 2014-12-05 </span> &raquo;
-  
-  <span class="title"><a href="/post/NCLP-11-考試/" >NCLP 11 考試</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2014-04-09 </span> &raquo;
-  
-  <span class="title"><a href="/post/build-static-link-nginx/" >build static link nginx</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2014-02-27 </span> &raquo;
-  
-  <span class="title"><a href="/post/conky/" >Conky</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2014-01-24 </span> &raquo;
-  
-  <span class="title"><a href="/post/install-graylog2/" >install graylog2</a></span>
-  
-</li>			
-		
-		
-		
-			
-			</ul>
-			
-			
-			<h4 class="archive-ul" data-toggle="collapse" data-target="#2013">2013<b class="caret"></b></h4>
-			<ul id="2013" class="collapse in">
-			
-		
-<li class="listing-item">
-  <span class="date_class"> 2013-07-10 </span> &raquo;
-  
-  <span class="title"><a href="/post/saltstack-custom-grains/" >saltstack 自定 grains</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2013-07-02 </span> &raquo;
-  
-  <span class="title"><a href="/post/casio-tr15/" >自拍神器 Casio TR15 開箱</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2013-06-30 </span> &raquo;
-  
-  <span class="title"><a href="/post/nice-to-meet-saltstack/" >Saltstack 使用心得&amp;簡介</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2013-05-31 </span> &raquo;
-  
-  <span class="title"><a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" >solve dmesg appeared nouveau No connectors reported connected with modes after upgrading kernel to 3.8 or later</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2013-05-16 </span> &raquo;
-  
-  <span class="title"><a href="/post/e-m5-wooden-grip/" >E-M5 木質手把</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2013-04-27 </span> &raquo;
-  
-  <span class="title"><a href="/post/nginx-ssl-cipher-rc4-safari/" >Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2013-04-14 </span> &raquo;
-  
-  <span class="title"><a href="/post/nginx---using-map-as-a-simple-web-application-firewall/" >用 map 的功能把 nginx 變成簡單的應用程式防火牆</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2013-04-13 </span> &raquo;
-  
-  <span class="title"><a href="/post/e-m5-grip-base/" >E-M5 副廠手把</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2013-03-24 </span> &raquo;
-  
-  <span class="title"><a href="/post/e-m5-12mm-25mm/" >E-M5 12mm 25mm</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2013-02-26 </span> &raquo;
-  
-  <span class="title"><a href="/post/notices-about-nginx-rewrite-rule/" >nginx 設定檔規則概要</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2013-01-01 </span> &raquo;
-  
-  <span class="title"><a href="/post/linux-cgroups/" >Linux cgroups</a></span>
-  
-</li>			
-		
-		
-		
-			
-			</ul>
-			
-			
-			<h4 class="archive-ul" data-toggle="collapse" data-target="#2012">2012<b class="caret"></b></h4>
-			<ul id="2012" class="collapse in">
-			
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-11-20 </span> &raquo;
-  
-  <span class="title"><a href="/post/clear-memcachedb-log/" >刪除 memcachedb log 檔</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-11-06 </span> &raquo;
-  
-  <span class="title"><a href="/post/linux-tuning-for-write-heavy-system/" >高寫入系統 Linux 效能調教</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-11-05 </span> &raquo;
-  
-  <span class="title"><a href="/post/colonoscopy/" >大腸鏡檢查 - 輝雄診所</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-08-06 </span> &raquo;
-  
-  <span class="title"><a href="/post/popclip-upgrading-to-mountain-lion/" >popclip upgrading to Mountain Lion</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-07-15 </span> &raquo;
-  
-  <span class="title"><a href="/post/nginx-cache-last-step-of-optimization/" >nginx cache - last step of optimization</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-07-07 </span> &raquo;
-  
-  <span class="title"><a href="/post/squid-nginx-http1-dot-1-gzip/" >squid nginx http1.1 gzip</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-06-26 </span> &raquo;
-  
-  <span class="title"><a href="/post/ifconfig-dot-me-the-web-ifconfig/" >ifconfig.me - the web ifconfig</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-04-30 </span> &raquo;
-  
-  <span class="title"><a href="/post/fabric-machine-manager/" >fabric - Machine Manager</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-04-21 </span> &raquo;
-  
-  <span class="title"><a href="/post/use-vghetto-manage-vmware-vcenter/" >使用 vGhetto 管理 VMware vCenter</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-04-18 </span> &raquo;
-  
-  <span class="title"><a href="/post/postfix-spf-domainkeys-tinydns/" >設定 SPF 跟 DomainKeys 在 postfix 和 tinydns</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-04-17 </span> &raquo;
-  
-  <span class="title"><a href="/post/no-syn-slash-ack-after-receive-syn-packet/" >Server 收到 SYN packet 後沒有 SYN/ACK 回應</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-04-09 </span> &raquo;
-  
-  <span class="title"><a href="/post/why-i-choose-octopress/" >為什麼我跳槽到 octopress</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-04-08 </span> &raquo;
-  
-  <span class="title"><a href="/post/transfer-textmate-2-to-sublime-text-2/" >從 TextMate 2 跳到 Sublime Text 2</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-02-12 </span> &raquo;
-  
-  <span class="title"><a href="/post/freebsd-first-sight/" >FreeBSD 初體驗</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2012-02-09 </span> &raquo;
-  
-  <span class="title"><a href="/post/open-rc-ulimit/" >Open RC ulimit</a></span>
-  
-</li>			
-		
-		
-		
-			
-			</ul>
-			
-			
-			<h4 class="archive-ul" data-toggle="collapse" data-target="#2011">2011<b class="caret"></b></h4>
-			<ul id="2011" class="collapse in">
-			
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-12-13 </span> &raquo;
-  
-  <span class="title"><a href="/post/solve-os-x-lion-log-sanboxd-deny-messages/" >解決 OS X Lion 中 Log 一直出現 sanboxd deny 的訊息</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-11-27 </span> &raquo;
-  
-  <span class="title"><a href="/post/ceramic-bow/" >陶瓷蝴蝶結</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-10-17 </span> &raquo;
-  
-  <span class="title"><a href="/post/wikipedia-cache-structure/" >Wikipedia cache 架構</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-10-15 </span> &raquo;
-  
-  <span class="title"><a href="/post/squid-refresh-pattern/" >squid refresh_pattern</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-09-14 </span> &raquo;
-  
-  <span class="title"><a href="/post/os-x-application-i18n/" >OS X 路徑多語系</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-05-28 </span> &raquo;
-  
-  <span class="title"><a href="/post/compile-objective-c-on-gentoo/" >Compile Objective-C on Gentoo</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-05-20 </span> &raquo;
-  
-  <span class="title"><a href="/post/unix-bt-downloader-aria2/" >Unix 另一個分段下載程式(也是 bt downloader) - aria2</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-05-14 </span> &raquo;
-  
-  <span class="title"><a href="/post/moinmoin-wiki-trac-nis/" >moinmoin wiki 跟 trac 改吃 NIS</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-05-10 </span> &raquo;
-  
-  <span class="title"><a href="/post/nginx-performance-compare-with-php/" >nginx 的 performance compare with PHP</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-05-03 </span> &raquo;
-  
-  <span class="title"><a href="/post/node-js-with-express-jade-stylus-and-coffeescript/" >node.js with Express, Jade, Stylus and CoffeeScript</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-04-24 </span> &raquo;
-  
-  <span class="title"><a href="/post/build-website-with-nodejs-express/" >利用 nodejs 與 express 建立基本網站</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-04-23 </span> &raquo;
-  
-  <span class="title"><a href="/post/vmware-cloud-foundry/" >VMware Cloud Foundry 試玩小小小之在小不過的心得</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-04-15 </span> &raquo;
-  
-  <span class="title"><a href="/post/mac-os-x-dmg-convert-to-iso/" >在 Mac OS X 轉 dmg 成 iso 檔</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-04-13 </span> &raquo;
-  
-  <span class="title"><a href="/post/trac-moinmoin-wiki-svn-2/" >trac, moinmoin wiki 與 svn 搬移與安裝的三兩事(二)</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-04-12 </span> &raquo;
-  
-  <span class="title"><a href="/post/trac-moinmoin-wiki-svn-1/" >trac, moinmoin wiki 與 svn 搬移與安裝的三兩事(一)</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-04-09 </span> &raquo;
-  
-  <span class="title"><a href="/post/php-304-not-modified/" >讓 php 回 304 Not Modified</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2011-04-02 </span> &raquo;
-  
-  <span class="title"><a href="/post/add-sles-11-sp1-repository/" >在 SLES 11 SP1 追加 repository</a></span>
-  
-</li>			
-		
-		
-		
-			
-			</ul>
-			
-			
-			<h4 class="archive-ul" data-toggle="collapse" data-target="#2009">2009<b class="caret"></b></h4>
-			<ul id="2009" class="collapse in">
-			
-		
-<li class="listing-item">
-  <span class="date_class"> 2009-12-06 </span> &raquo;
-  
-  <span class="title"><a href="/post/Mac-OS-all-applications-using-webkit-core/" >讓應用程式都使用 Webkit Core</a></span>
-  
-</li>			
-		
-		
-		
-			
-			</ul>
-			
-			
-			<h4 class="archive-ul" data-toggle="collapse" data-target="#2008">2008<b class="caret"></b></h4>
-			<ul id="2008" class="collapse in">
-			
-		
-<li class="listing-item">
-  <span class="date_class"> 2008-04-28 </span> &raquo;
-  
-  <span class="title"><a href="/post/open-link-with-new-window-in-xhtml/" >XHTML: 連結開新視窗</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2008-04-23 </span> &raquo;
-  
-  <span class="title"><a href="/post/comment-styles/" >註解的編排</a></span>
-  
-</li>			
-		
-		
-		
-<li class="listing-item">
-  <span class="date_class"> 2008-04-09 </span> &raquo;
-  
-  <span class="title"><a href="/post/code-blocks-sdcc/" >Code::Blocks + SDCC</a></span>
-  
-</li>			
-
-</ul>
-</div>
-
-
-</div> <!-- col-md-9/col-md-12 -->
-
-
-<div class="col-md-3">
-	<div id="sidebar">
-	
-			<div class="form-group has-success has-feedback">
-  <form action="//google.com/search" method="get" accept-charset="utf-8" >
-    <input type="search" name="q" results="0" placeholder="搜尋" class="form-control">
-    <input type="hidden" name="q" value="site:parseflo.at">	
-  </form>
-</div>
-
-		
-			
-	<div class="widget">
-		<h4>分類</h4>
-		<ul class="tag_box inline list-unstyled">
-		
-			<li><a href="/categories/3C/">3C<span>5</span></a></li>
-		
-			<li><a href="/categories/健康/">健康<span>1</span></a></li>
-		
-			<li><a href="/categories/敗家/">敗家<span>1</span></a></li>
-		
-			<li><a href="/categories/資訊/">資訊<span>43</span></a></li>
-		
-			<li><a href="/categories/遊戲/">遊戲<span>1</span></a></li>
-		
-			<li><a href="/categories/遊記/">遊記<span>2</span></a></li>
-		
-		</ul>
-	</div>
-
-		
-			
-	<div class="widget">
-		<h4>標籤雲</h4>
-		<ul class="tag_box inline list-unstyled">		
-		
-			<li><a href="/tags/cgroups/">cgroups<span>1</span></a></li>
-		
-			<li><a href="/tags/OpenRC/">OpenRC<span>1</span></a></li>
-		
-			<li><a href="/tags/陶瓷/">陶瓷<span>1</span></a></li>
-		
-			<li><a href="/tags/squid/">squid<span>4</span></a></li>
-		
-			<li><a href="/tags/Sublime/">Sublime<span>1</span></a></li>
-		
-			<li><a href="/tags/SUSE/">SUSE<span>2</span></a></li>
-		
-			<li><a href="/tags/moinmoin/">moinmoin<span>3</span></a></li>
-		
-			<li><a href="/tags/obj-c/">obj-c<span>1</span></a></li>
-		
-			<li><a href="/tags/trac/">trac<span>3</span></a></li>
-		
-			<li><a href="/tags/graylog2/">graylog2<span>1</span></a></li>
-		
-			<li><a href="/tags/Mac/">Mac<span>6</span></a></li>
-		
-			<li><a href="/tags/Casio-TR15/">Casio TR15<span>1</span></a></li>
-		
-			<li><a href="/tags/svn/">svn<span>2</span></a></li>
-		
-			<li><a href="/tags/JavaScript/">JavaScript<span>1</span></a></li>
-		
-			<li><a href="/tags/Healthy/">Healthy<span>1</span></a></li>
-		
-			<li><a href="/tags/nginx/">nginx<span>7</span></a></li>
-		
-			<li><a href="/tags/TextMate/">TextMate<span>1</span></a></li>
-		
-			<li><a href="/tags/Linux/">Linux<span>19</span></a></li>
-		
-			<li><a href="/tags/蝴蝶結/">蝴蝶結<span>1</span></a></li>
-		
-			<li><a href="/tags/E-M5/">E-M5<span>3</span></a></li>
-		
-		
-		   <li><a href="/tags">...<span>34</span></a></li>
-		 
-		</ul>
-	</div>
-
-
-		
-			
-<div class="widget">
-  <h4>最新文章</h4>
-  <ul class="entry list-unstyled">
-    
-      <li>
-        <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/"  title="2014-11-15 ~ 2014-11-16 美東迪士尼之旅" ><i class="fa fa-file-o"></i>Walt Disney World Resort in...</a>
-      </li>
-    
-      <li>
-        <a href="/post/K760-Linux-fn-多媒體鍵切換/" ><i class="fa fa-file-o"></i>K760 Linux fn/多媒體鍵切換...</a>
-      </li>
-    
-      <li>
-        <a href="/post/ingress-email-attack-notify-to-Pushover/"  title="Ingress 及時的攻擊通知 over Pushover" ><i class="fa fa-file-o"></i>用 Pushover 收 Ingress 成就點攻擊通...</a>
-      </li>
-    
-      <li>
-        <a href="/post/USwest-canyon/"  title="2014-11-07 ~ 2014-11-14 美西一週峽谷之旅" ><i class="fa fa-file-o"></i>美西峽谷行...</a>
-      </li>
-    
-      <li>
-        <a href="/post/NCLP-11-考試/" ><i class="fa fa-file-o"></i>NCLP 11 考試...</a>
-      </li>
-    
-  </ul>
-</div>
-
-		
-			
-<div class="widget">
-	<h4>Links</h4>
-	<ul class="blogroll list-unstyled">
-	
-		<li><i class="fa fa-github"></i><a href="https://github.com/neoesque" title="My Github repository." target="_blank"]);">Github</a></li>
-	
-		<li><i class="fa fa-twitter"></i><a href="https://www.twitter.com/neoesque" title="My Twitter account." target="_blank"]);">Twitter</a></li>
-	
-		<li><i class="fa fa-facebook"></i><a href="https://facebook.com/neoesque" title="My Facebook" target="_blank"]);">Facebook</a></li>
-	
-	</ul>
-</div>
-
-
-		
-	</div> <!-- sidebar -->
-</div> <!-- col-md-3 -->
-
-
-
-
-	</div>
+    </div>
   </div>
-  <div class="container-narrow">
-  <footer> <p>
-  &copy; 2015 neoesque
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+      
+        <td><a class="main-nav-link" href="/">Home</a></td>
+      
+        <td><a class="main-nav-link" href="/archives">Archives</a></td>
+      
+        <td><a class="main-nav-link" href="/about">About</a></td>
+      
+      <td>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="q" value="site:http://parseflo.at"></form>
+      </td>
+      </tr>
+    </table>
+  </div>
   
-      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
-</p> </footer>
-</div> <!-- container-narrow -->
+  <div id="header-sub" class="header-sub header-inner">
+    <div class="outer">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">43</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
   
-<a id="gotop" href="#">   
-  <span>▲</span> 
+</header>
+    <div class="outer">
+      <aside id="profile">
+  <div class="inner profile-inner">
+  	<div class="base-info profile-block">
+		  <img id="avatar" src="/css/images/avatar.png">
+      <h2 id="name">neoesque</h2>
+      <h3 id="title">Linux Admin</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Taipei, Taiwan</span>
+      <a id="follow" href="https://twitter/neoesque/">FOLLOW</a>
+  	</div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        55
+        <span>posts</span>
+      </div>
+      <div class="article-info-block">
+        34
+        <span>tags</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+        
+          <td><a href="https://github.com/neoesque" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+        
+          <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+        
+          <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+        
+          <td><a href="/#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+        
+          <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+        
+        </tr>
+      </table>
+    </div>
+    
+  </div>
+</aside>
+      <section id="main">
+  
+  
+    
+    
+      
+        <div class="archive-year-wrap">
+          <i class="fa fa-calendar"></i>
+          <a href="/archives/2014" class="archive-year">2014</a>
+        </div>
+    
+    <article id="post-build-static-link-nginx" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/build-static-link-nginx/">build static link nginx</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          <div class="article-date">
+  <i class="fa fa-calendar"></i>
+  <a href="/post/build-static-link-nginx/">
+    <time datetime="2014-04-09T10:06:43.000Z" itemprop="datePublished">2014-04-09, Wed</time>
+  </a>
+</div>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        <p>因為敝公司系統的環境有 OpenSUSE 跟 SUSE Linux Enterprise Sever SP2/SP3 混合，所以要更新 nginx 時往往要生出三個版本，實在有點搞人，不過其實也可以不要理會 libcrypt 版本不合的訊息啦，可是還是覺得編譯一個萬用的版本比較方便維護。</p>
+<p>nginx 一共需要用到 libpthread, libcrypt, libpcre, libssl, libcrypto, libz, libdl，其中可以另外設定的有 OpenSSL, PCRE, Zlib 這三種，可以提供 libcrypt, libpcre, libssl, libcrypto, libz, libdl，然後 pthread 的就靠系統提供的 static 的 .a 了，所以要生出編譯的指令如下：</p>
+<script src="//gist.github.com/27c86d8318500a239858.js"></script>
+<p>備註：假設 我們自己 Download 的 openssl, pcre, zlib 的原始碼都放在 /usr/src 底下</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://parseflo.at/post/build-static-link-nginx/" data-id="ci98jmbse005vfzr57kdfbane" class="article-share-link">Share</a>
+      
+        <a href="http://parseflo.at/post/build-static-link-nginx/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">recents</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg
+)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+  
 </a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+              <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
+              <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, Sat</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
+              <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
+              <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, Thu</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/post/ingress-email-attack-notify-to-Pushover/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh3.googleusercontent.com/YoX0bNlxU8WQ43p7BkpK8slGEbnDZjY6gOv1DDOfqdU=w800-no
+)" alt="用 Pushover 收 Ingress 成就點攻擊通知" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/遊戲/">遊戲</a></p>
+              <p class="item-title"><a href="/post/ingress-email-attack-notify-to-Pushover/" class="title">用 Pushover 收 Ingress 成就點攻擊通知</a></p>
+              <p class="item-date"><time datetime="2015-01-07T05:53:43.000Z" itemprop="datePublished">2015-01-07, Wed</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/post/USwest-canyon/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh4.googleusercontent.com/-LMo8qVzCJ2k/VHaMEH8elSI/AAAAAAAAM8E/32cIHHBmwjk/w640-no/PB071889.jpg
+)" alt="美西峽谷行" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+              <p class="item-title"><a href="/post/USwest-canyon/" class="title">美西峽谷行</a></p>
+              <p class="item-date"><time datetime="2015-01-03T13:12:33.000Z" itemprop="datePublished">2015-01-03, Sat</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/post/NCLP-11-考試/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
+              <p class="item-title"><a href="/post/NCLP-11-考試/" class="title">NCLP 11 考試</a></p>
+              <p class="item-date"><time datetime="2014-12-05T03:05:40.000Z" itemprop="datePublished">2014-12-05, Fri</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tag cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a><a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a><a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a><a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a><a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a><a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20px;">Linux</a><a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a><a href="/tags/NIS/" style="font-size: 10px;">NIS</a><a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a><a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a><a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a><a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a><a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a><a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a><a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a><a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a><a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a><a href="/tags/i18n/" style="font-size: 10px;">i18n</a><a href="/tags/ingress/" style="font-size: 10px;">ingress</a><a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a><a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a><a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a><a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a><a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a><a href="/tags/php/" style="font-size: 11.43px;">php</a><a href="/tags/pushover/" style="font-size: 10px;">pushover</a><a href="/tags/squid/" style="font-size: 14.29px;">squid</a><a href="/tags/svn/" style="font-size: 11.43px;">svn</a><a href="/tags/trac/" style="font-size: 12.86px;">trac</a><a href="/tags/美國/" style="font-size: 11.43px;">美國</a><a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a><a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a><a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
+    </div>
+  </div>
 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">43</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
 
-<script type="text/javascript">
-var disqus_shortname = 'parsefloat';
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Casio-TR15/">Casio TR15</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/E-M5/">E-M5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeBSD/">FreeBSD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gentoo/">Gentoo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Healthy/">Healthy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenRC/">OpenRC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SUSE/">SUSE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SaltStack/">SaltStack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime/">Sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TextMate/">TextMate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMware/">VMware</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cgroups/">cgroups</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graylog2/">graylog2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i18n/">i18n</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ingress/">ingress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcachedb/">memcachedb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moinmoin/">moinmoin</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obj-c/">obj-c</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pushover/">pushover</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trac/">trac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美國/">美國</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蝴蝶結/">蝴蝶結</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/迪士尼/">迪士尼</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/陶瓷/">陶瓷</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 neoesque<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script>
+  var disqus_shortname = 'parsefloat';
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
 </script>
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
-</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
 </body>
-   </html>
+</html>
