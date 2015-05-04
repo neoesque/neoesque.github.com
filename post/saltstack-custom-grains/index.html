@@ -161,7 +161,7 @@ ga('send', 'pageview');
           
         </div>
       
-        <p><a href="http://parseflo.at/post/nice-to-meet-saltstack/" target="_blank" rel="external">上一集</a> 中，簡單的介紹了 Salt 的使用方法，這集要稍微深入的介紹 Salt 的其中一個部份 - <a href="http://docs.saltstack.com/topics/targeting/grains.html" target="_blank" rel="external">Grains</a>，Grains 基本上就是機器的資訊，通常指的是不會變動的部份，比方說 CPU 有幾顆、記憶體有多少、作業系統是用什麼的(CentOS, Ubuntu, SUSE…etc)、網卡資訊，至於會變動的資訊通常會用 Salt 的 <a href="http://docs.saltstack.com/topics/pillar/index.html" target="_blank" rel="external">Pilar</a> 功能，雖然 SaltStack 支援很多種 Linux Distribution，而且他的 API 也儘可能的豐富每一個 Distro，像是套件管理系統就有支援 CentOS 的 yum、 Ubuntu 的 APT、 SUSE 的 zypper，但是終究不是每一個系統的特色都能夠完整的支援(可能需要自己貢獻上去?)，像是 SUSE Linux Enterprise Server (簡稱 SLES) 除了大版本號，還有小版本的 Service Pack，撰文的今天剛好出了 SLES 11 SP3，但是 Salt 內建的 Grains 只有偵測到 OS 是 SLES 就沒了，有時候我會依照不同的 Service Pack 需要不一樣的設定(因為 SP2 的套件有時候會支援某些功能，但是 SP1 時候還沒有，像是 sudoer 的設定)，但是不能判斷版本怎麼辦? 沒關係 Salt 具有高度擴充性，我們可以自定想要的 Grains。</p>
+        <p><a href="/post/nice-to-meet-saltstack/">上一集</a> 中，簡單的介紹了 Salt 的使用方法，這集要稍微深入的介紹 Salt 的其中一個部份 - <a href="http://docs.saltstack.com/topics/targeting/grains.html" target="_blank" rel="external">Grains</a>，Grains 基本上就是機器的資訊，通常指的是不會變動的部份，比方說 CPU 有幾顆、記憶體有多少、作業系統是用什麼的(CentOS, Ubuntu, SUSE…etc)、網卡資訊，至於會變動的資訊通常會用 Salt 的 <a href="http://docs.saltstack.com/topics/pillar/index.html" target="_blank" rel="external">Pilar</a> 功能，雖然 SaltStack 支援很多種 Linux Distribution，而且他的 API 也儘可能的豐富每一個 Distro，像是套件管理系統就有支援 CentOS 的 yum、 Ubuntu 的 APT、 SUSE 的 zypper，但是終究不是每一個系統的特色都能夠完整的支援(可能需要自己貢獻上去?)，像是 SUSE Linux Enterprise Server (簡稱 SLES) 除了大版本號，還有小版本的 Service Pack，撰文的今天剛好出了 SLES 11 SP3，但是 Salt 內建的 Grains 只有偵測到 OS 是 SLES 就沒了，有時候我會依照不同的 Service Pack 需要不一樣的設定(因為 SP2 的套件有時候會支援某些功能，但是 SP1 時候還沒有，像是 sudoer 的設定)，但是不能判斷版本怎麼辦? 沒關係 Salt 具有高度擴充性，我們可以自定想要的 Grains。</p>
 <a id="more"></a>
 <p>我們先介紹一下內建的 Grains 有什麼好了，我們先隨便挑一台機器，<code>salt &#39;www-01&#39; grains.items</code>，如果執行有成功應該會出現如下的資訊：</p>
 <pre><code>www-<span class="number">01</span>:
@@ -254,7 +254,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/saltstack-custom-grains/" data-id="ci99mtz03001t5fr5jvy1h64q" class="article-share-link">Share</a>
+      <a data-url="http://blog.littlero.se/post/saltstack-custom-grains/" data-id="ci99nkocm001tdsr5z9qsvtrg" class="article-share-link">Share</a>
       
         <a href="http://blog.littlero.se/post/saltstack-custom-grains/#disqus_thread" class="article-comment-link">Comments</a>
       

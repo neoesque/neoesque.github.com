@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.littlero.se/post/saltstack-custom-grains/</loc>
+    <lastmod>2015-05-04T08:56:19.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.littlero.se/post/Walt-Disney-World-Resort-in-Orlando-Florida/</loc>
-    <lastmod>2015-03-18T03:20:11.000Z</lastmod>
+    <lastmod>2015-05-04T08:56:13.000Z</lastmod>
   </url>
   
   <url>
@@ -74,11 +79,6 @@
   <url>
     <loc>http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/</loc>
     <lastmod>2015-03-14T05:42:09.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.littlero.se/post/saltstack-custom-grains/</loc>
-    <lastmod>2015-03-14T05:42:06.000Z</lastmod>
   </url>
   
   <url>

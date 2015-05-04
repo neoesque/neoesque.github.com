@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Making Life Better]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.littlero.se/"/>
-  <updated>2015-03-18T03:20:11.000Z</updated>
+  <updated>2015-05-04T08:56:13.000Z</updated>
   <id>http://blog.littlero.se/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <link href="http://blog.littlero.se/post/Walt-Disney-World-Resort-in-Orlando-Florida/"/>
     <id>http://blog.littlero.se/post/Walt-Disney-World-Resort-in-Orlando-Florida/</id>
     <published>2015-03-14T13:02:38.000Z</published>
-    <updated>2015-03-18T03:20:11.000Z</updated>
-    <content type="html"><![CDATA[<p>續<a href="http://parseflo.at/post/USwest-canyon/" target="_blank" rel="external">上篇</a>，延續美西行之後，大家各自散會後，我就一個人獨自踏上往東岸的旅程，因為我要參加的 <a href="http://susecon.com/" target="_blank" rel="external">SUSEcon 14</a> 是在奧蘭多舉辦。</p>
+    <updated>2015-05-04T08:56:13.000Z</updated>
+    <content type="html"><![CDATA[<p>續<a href="/post/USwest-canyon/">上篇</a>，延續美西行之後，大家各自散會後，我就一個人獨自踏上往東岸的旅程，因為我要參加的 <a href="http://susecon.com/" target="_blank" rel="external">SUSEcon 14</a> 是在奧蘭多舉辦。</p>
 <h2 id="洛杉磯-奧蘭多">洛杉磯-奧蘭多</h2><p>因為是美國本土的飛機，所以在不是在洛杉磯機場的國際航廈，我是坐<a href="https://zt.delta.com/" target="_blank" rel="external">達美航空</a>，我覺得達美航空網站還不錯有繁體中文，而且他的 App 做得也很好，還有行李的運輸進度，達美在洛杉磯是第五航廈，所以跟同伴分開後我就從國際航廈走到第五航廈(中間跨了第四航廈，不過走路也不到十分鐘而已還蠻近的)，首先是要 check-in，結果走到第五航廈有點嚇到，因為沒有櫃檯是 check-in 的，只有量行李重量託運的櫃檯 = =”，繞了一下發現原來都是自助的(後來發現達美有開櫃檯 check-in，大概是中午休息時間?!)，不過這樣也好，自助就不會被問一堆英文了。</p>
 <p><img src="https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg" alt="達美 kiosk"></p>
 <a id="more"></a>
@@ -841,8 +841,8 @@
     <link href="http://blog.littlero.se/post/saltstack-custom-grains/"/>
     <id>http://blog.littlero.se/post/saltstack-custom-grains/</id>
     <published>2013-07-10T13:00:29.000Z</published>
-    <updated>2015-03-14T05:42:06.000Z</updated>
-    <content type="html"><![CDATA[<p><a href="http://parseflo.at/post/nice-to-meet-saltstack/" target="_blank" rel="external">上一集</a> 中，簡單的介紹了 Salt 的使用方法，這集要稍微深入的介紹 Salt 的其中一個部份 - <a href="http://docs.saltstack.com/topics/targeting/grains.html" target="_blank" rel="external">Grains</a>，Grains 基本上就是機器的資訊，通常指的是不會變動的部份，比方說 CPU 有幾顆、記憶體有多少、作業系統是用什麼的(CentOS, Ubuntu, SUSE…etc)、網卡資訊，至於會變動的資訊通常會用 Salt 的 <a href="http://docs.saltstack.com/topics/pillar/index.html" target="_blank" rel="external">Pilar</a> 功能，雖然 SaltStack 支援很多種 Linux Distribution，而且他的 API 也儘可能的豐富每一個 Distro，像是套件管理系統就有支援 CentOS 的 yum、 Ubuntu 的 APT、 SUSE 的 zypper，但是終究不是每一個系統的特色都能夠完整的支援(可能需要自己貢獻上去?)，像是 SUSE Linux Enterprise Server (簡稱 SLES) 除了大版本號，還有小版本的 Service Pack，撰文的今天剛好出了 SLES 11 SP3，但是 Salt 內建的 Grains 只有偵測到 OS 是 SLES 就沒了，有時候我會依照不同的 Service Pack 需要不一樣的設定(因為 SP2 的套件有時候會支援某些功能，但是 SP1 時候還沒有，像是 sudoer 的設定)，但是不能判斷版本怎麼辦? 沒關係 Salt 具有高度擴充性，我們可以自定想要的 Grains。</p>
+    <updated>2015-05-04T08:56:19.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="/post/nice-to-meet-saltstack/">上一集</a> 中，簡單的介紹了 Salt 的使用方法，這集要稍微深入的介紹 Salt 的其中一個部份 - <a href="http://docs.saltstack.com/topics/targeting/grains.html" target="_blank" rel="external">Grains</a>，Grains 基本上就是機器的資訊，通常指的是不會變動的部份，比方說 CPU 有幾顆、記憶體有多少、作業系統是用什麼的(CentOS, Ubuntu, SUSE…etc)、網卡資訊，至於會變動的資訊通常會用 Salt 的 <a href="http://docs.saltstack.com/topics/pillar/index.html" target="_blank" rel="external">Pilar</a> 功能，雖然 SaltStack 支援很多種 Linux Distribution，而且他的 API 也儘可能的豐富每一個 Distro，像是套件管理系統就有支援 CentOS 的 yum、 Ubuntu 的 APT、 SUSE 的 zypper，但是終究不是每一個系統的特色都能夠完整的支援(可能需要自己貢獻上去?)，像是 SUSE Linux Enterprise Server (簡稱 SLES) 除了大版本號，還有小版本的 Service Pack，撰文的今天剛好出了 SLES 11 SP3，但是 Salt 內建的 Grains 只有偵測到 OS 是 SLES 就沒了，有時候我會依照不同的 Service Pack 需要不一樣的設定(因為 SP2 的套件有時候會支援某些功能，但是 SP1 時候還沒有，像是 sudoer 的設定)，但是不能判斷版本怎麼辦? 沒關係 Salt 具有高度擴充性，我們可以自定想要的 Grains。</p>
 <a id="more"></a>
 <p>我們先介紹一下內建的 Grains 有什麼好了，我們先隨便挑一台機器，<code>salt &#39;www-01&#39; grains.items</code>，如果執行有成功應該會出現如下的資訊：</p>
 <pre><code>www-<span class="number">01</span>:
@@ -933,7 +933,7 @@
 </code></pre><p>自定 Grains 大概就是這麼一回事嘍~</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p><a href="http://parseflo.at/post/nice-to-meet-saltstack/">上一集</a> 中，簡單的介紹了 Salt 的使用方法，這集要稍微深入的介紹 Salt 的其中一個部份 - <a href="http://docs.saltstack.com/topics/targeting/grains.html">Grains</a>，Grains 基本上就是機器的資訊，通常指的是不會變動的部份，比方說 CPU 有幾顆、記憶體有多少、作業系統是用什麼的(CentOS, Ubuntu, SUSE…etc)、網卡資訊，至於會變動的資訊通常會用 Salt 的 <a href="http://docs.saltstack.com/topics/pillar/index.html">Pilar</a> 功能，雖然 SaltStack 支援很多種 Linux Distribution，而且他的 API 也儘可能的豐富每一個 Distro，像是套件管理系統就有支援 CentOS 的 yum、 Ubuntu 的 APT、 SUSE 的 zypper，但是終究不是每一個系統的特色都能夠完整的支援(可能需要自己貢獻上去?)，像是 SUSE Linux Enterprise Server (簡稱 SLES) 除了大版本號，還有小版本的 Service Pack，撰文的今天剛好出了 SLES 11 SP3，但是 Salt 內建的 Grains 只有偵測到 OS 是 SLES 就沒了，有時候我會依照不同的 Service Pack 需要不一樣的設定(因為 SP2 的套件有時候會支援某些功能，但是 SP1 時候還沒有，像是 sudoer 的設定)，但是不能判斷版本怎麼辦? 沒關係 Salt 具有高度擴充性，我們可以自定想要的 Grains。</p>]]>
+    <![CDATA[<p><a href="/post/nice-to-meet-saltstack/">上一集</a> 中，簡單的介紹了 Salt 的使用方法，這集要稍微深入的介紹 Salt 的其中一個部份 - <a href="http://docs.saltstack.com/topics/targeting/grains.html">Grains</a>，Grains 基本上就是機器的資訊，通常指的是不會變動的部份，比方說 CPU 有幾顆、記憶體有多少、作業系統是用什麼的(CentOS, Ubuntu, SUSE…etc)、網卡資訊，至於會變動的資訊通常會用 Salt 的 <a href="http://docs.saltstack.com/topics/pillar/index.html">Pilar</a> 功能，雖然 SaltStack 支援很多種 Linux Distribution，而且他的 API 也儘可能的豐富每一個 Distro，像是套件管理系統就有支援 CentOS 的 yum、 Ubuntu 的 APT、 SUSE 的 zypper，但是終究不是每一個系統的特色都能夠完整的支援(可能需要自己貢獻上去?)，像是 SUSE Linux Enterprise Server (簡稱 SLES) 除了大版本號，還有小版本的 Service Pack，撰文的今天剛好出了 SLES 11 SP3，但是 Salt 內建的 Grains 只有偵測到 OS 是 SLES 就沒了，有時候我會依照不同的 Service Pack 需要不一樣的設定(因為 SP2 的套件有時候會支援某些功能，但是 SP1 時候還沒有，像是 sudoer 的設定)，但是不能判斷版本怎麼辦? 沒關係 Salt 具有高度擴充性，我們可以自定想要的 Grains。</p>]]>
     
     </summary>
     
