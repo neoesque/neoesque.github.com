@@ -3,9 +3,9 @@
   <title><![CDATA[neoesque]]></title>
   <subtitle><![CDATA[Making Life Better]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="http://parseflo.at/"/>
+  <link href="http://blog.littlero.se/"/>
   <updated>2015-03-18T03:20:11.000Z</updated>
-  <id>http://parseflo.at/</id>
+  <id>http://blog.littlero.se/</id>
   
   <author>
     <name><![CDATA[neoesque]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[Walt Disney World Resort in Orlando, Florida]]></title>
-    <link href="http://parseflo.at/post/Walt-Disney-World-Resort-in-Orlando-Florida/"/>
-    <id>http://parseflo.at/post/Walt-Disney-World-Resort-in-Orlando-Florida/</id>
+    <link href="http://blog.littlero.se/post/Walt-Disney-World-Resort-in-Orlando-Florida/"/>
+    <id>http://blog.littlero.se/post/Walt-Disney-World-Resort-in-Orlando-Florida/</id>
     <published>2015-03-14T13:02:38.000Z</published>
     <updated>2015-03-18T03:20:11.000Z</updated>
     <content type="html"><![CDATA[<p>續<a href="http://parseflo.at/post/USwest-canyon/" target="_blank" rel="external">上篇</a>，延續美西行之後，大家各自散會後，我就一個人獨自踏上往東岸的旅程，因為我要參加的 <a href="http://susecon.com/" target="_blank" rel="external">SUSEcon 14</a> 是在奧蘭多舉辦。</p>
@@ -193,18 +193,18 @@
     
     </summary>
     
-      <category term="美國" scheme="http://parseflo.at/tags/%E7%BE%8E%E5%9C%8B/"/>
+      <category term="美國" scheme="http://blog.littlero.se/tags/%E7%BE%8E%E5%9C%8B/"/>
     
-      <category term="迪士尼" scheme="http://parseflo.at/tags/%E8%BF%AA%E5%A3%AB%E5%B0%BC/"/>
+      <category term="迪士尼" scheme="http://blog.littlero.se/tags/%E8%BF%AA%E5%A3%AB%E5%B0%BC/"/>
     
-      <category term="遊記" scheme="http://parseflo.at/categories/%E9%81%8A%E8%A8%98/"/>
+      <category term="遊記" scheme="http://blog.littlero.se/categories/%E9%81%8A%E8%A8%98/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[K760 Linux fn/多媒體鍵切換]]></title>
-    <link href="http://parseflo.at/post/K760-Linux-fn-%E5%A4%9A%E5%AA%92%E9%AB%94%E9%8D%B5%E5%88%87%E6%8F%9B/"/>
-    <id>http://parseflo.at/post/K760-Linux-fn-多媒體鍵切換/</id>
+    <link href="http://blog.littlero.se/post/K760-Linux-fn-%E5%A4%9A%E5%AA%92%E9%AB%94%E9%8D%B5%E5%88%87%E6%8F%9B/"/>
+    <id>http://blog.littlero.se/post/K760-Linux-fn-多媒體鍵切換/</id>
     <published>2015-03-12T07:38:17.000Z</published>
     <updated>2015-03-14T05:44:37.000Z</updated>
     <content type="html"><![CDATA[<p>羅技 <a href="http://support.logitech.com/product/wireless-solar-keyboard-k760-for-mac" target="_blank" rel="external">K760</a> 鍵盤是一個一對三的藍芽鍵盤，而且是太陽能的，免換電池，使用上還蠻方便的，可是原生是適用 Mac / iOS 裝置，小弟公司電腦裝的是 Linux，其實拿來用也不錯，不過就是有個缺點就是羅技沒有針對 Linux 出鍵盤管理程式，所以沒辦法改掉多媒體鍵，在 Linux 很少用到多媒體鍵，反而是 function key 比較常用。</p>
@@ -225,16 +225,16 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://parseflo.at/tags/Linux/"/>
+      <category term="Linux" scheme="http://blog.littlero.se/tags/Linux/"/>
     
-      <category term="3C" scheme="http://parseflo.at/categories/3C/"/>
+      <category term="3C" scheme="http://blog.littlero.se/categories/3C/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[用 Pushover 收 Ingress 成就點攻擊通知]]></title>
-    <link href="http://parseflo.at/post/ingress-email-attack-notify-to-Pushover/"/>
-    <id>http://parseflo.at/post/ingress-email-attack-notify-to-Pushover/</id>
+    <link href="http://blog.littlero.se/post/ingress-email-attack-notify-to-Pushover/"/>
+    <id>http://blog.littlero.se/post/ingress-email-attack-notify-to-Pushover/</id>
     <published>2015-01-07T05:53:43.000Z</published>
     <updated>2015-03-14T05:40:16.000Z</updated>
     <content type="html"><![CDATA[<p><a href="https://www.ingress.com/" target="_blank" rel="external">Ingress</a> 是 Google 在 2012 推出的虛擬實境(Virtual Reality)的遊戲，基本上就是一個打打殺殺的遊戲，遊戲裡面分兩個陣營 Resistance (藍軍)跟 Enlightened (綠軍)，在台灣好死不死剛好跟兩大政治陣營顏色一樣，看起來全世界是藍大於綠，但是台灣台北剛好綠大於藍，不知道是不是大家選的顏色剛好也有政治傾向(笑)，不過遊戲歸遊戲，其實裡面的人倒是不大會聊政治，遊戲內有自己的通訊功能，但是很爛，所以大家還是會用第三方軟體溝通，通常大家都直接用 Hangout，不過也有少部份地區聽說是用 Line 之類的。</p>
@@ -272,18 +272,18 @@
     
     </summary>
     
-      <category term="ingress" scheme="http://parseflo.at/tags/ingress/"/>
+      <category term="ingress" scheme="http://blog.littlero.se/tags/ingress/"/>
     
-      <category term="pushover" scheme="http://parseflo.at/tags/pushover/"/>
+      <category term="pushover" scheme="http://blog.littlero.se/tags/pushover/"/>
     
-      <category term="遊戲" scheme="http://parseflo.at/categories/%E9%81%8A%E6%88%B2/"/>
+      <category term="遊戲" scheme="http://blog.littlero.se/categories/%E9%81%8A%E6%88%B2/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[美西峽谷行]]></title>
-    <link href="http://parseflo.at/post/USwest-canyon/"/>
-    <id>http://parseflo.at/post/USwest-canyon/</id>
+    <link href="http://blog.littlero.se/post/USwest-canyon/"/>
+    <id>http://blog.littlero.se/post/USwest-canyon/</id>
     <published>2015-01-03T13:12:33.000Z</published>
     <updated>2015-03-14T13:08:28.000Z</updated>
     <content type="html"><![CDATA[<p>故事的開始是 2014 年 6 月時，跟大學同學約了 11 月要到美西玩，從台灣出發 6 人，美國當地還有唸書+工作的同學 3 人，一共九人，反正是跟著玩 XD 就直接答應了，當時六月直接上長榮的網站剛好有特惠機票可以買，桃園﹣洛杉磯不到三萬 (29xxx)就搞定了，旅遊時間是 11/7 (五) ~ 11/14 (五) 離開美西，11/7 禮拜五當天請了一個下午，回家整理一下，集合地點在松山機場外的客運站，我們坐客運到桃園機場。客運每 20 ~ 30 分鐘一班，還算蠻多班次的。</p>
@@ -622,16 +622,16 @@
     
     </summary>
     
-      <category term="美國" scheme="http://parseflo.at/tags/%E7%BE%8E%E5%9C%8B/"/>
+      <category term="美國" scheme="http://blog.littlero.se/tags/%E7%BE%8E%E5%9C%8B/"/>
     
-      <category term="遊記" scheme="http://parseflo.at/categories/%E9%81%8A%E8%A8%98/"/>
+      <category term="遊記" scheme="http://blog.littlero.se/categories/%E9%81%8A%E8%A8%98/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[NCLP 11 考試]]></title>
-    <link href="http://parseflo.at/post/NCLP-11-%E8%80%83%E8%A9%A6/"/>
-    <id>http://parseflo.at/post/NCLP-11-考試/</id>
+    <link href="http://blog.littlero.se/post/NCLP-11-%E8%80%83%E8%A9%A6/"/>
+    <id>http://blog.littlero.se/post/NCLP-11-考試/</id>
     <published>2014-12-05T03:05:40.000Z</published>
     <updated>2015-03-14T05:40:55.000Z</updated>
     <content type="html"><![CDATA[<p>今年十一月中因緣際會去奧蘭多參加了 <a href="http://susecon.com" target="_blank" rel="external">SUSEcon14</a>，會後有提供 NCLA、NCLP 11&amp;12 的認證。因為小弟已經有 NCLA (考過 LPIC-1 就會送了)，所以本次想說順便拿個 NCLP 的認證。</p>
@@ -652,16 +652,16 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://parseflo.at/tags/Linux/"/>
+      <category term="Linux" scheme="http://blog.littlero.se/tags/Linux/"/>
     
-      <category term="資訊" scheme="http://parseflo.at/categories/%E8%B3%87%E8%A8%8A/"/>
+      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[build static link nginx]]></title>
-    <link href="http://parseflo.at/post/build-static-link-nginx/"/>
-    <id>http://parseflo.at/post/build-static-link-nginx/</id>
+    <link href="http://blog.littlero.se/post/build-static-link-nginx/"/>
+    <id>http://blog.littlero.se/post/build-static-link-nginx/</id>
     <published>2014-04-09T10:06:43.000Z</published>
     <updated>2015-03-14T05:38:01.000Z</updated>
     <content type="html"><![CDATA[<p>因為敝公司系統的環境有 OpenSUSE 跟 SUSE Linux Enterprise Sever SP2/SP3 混合，所以要更新 nginx 時往往要生出三個版本，實在有點搞人，不過其實也可以不要理會 libcrypt 版本不合的訊息啦，可是還是覺得編譯一個萬用的版本比較方便維護。</p>
@@ -673,18 +673,18 @@
     <![CDATA[<p>因為敝公司系統的環境有 OpenSUSE 跟 SUSE Linux Enterprise Sever SP2/SP3 混合，所以要更新 nginx 時往往要生出三個版本，實在有點搞人，不過其實也可以不要理會 libcrypt 版本不合的訊息啦，可是還是覺得編譯一個萬用的版本]]>
     </summary>
     
-      <category term="Linux" scheme="http://parseflo.at/tags/Linux/"/>
+      <category term="Linux" scheme="http://blog.littlero.se/tags/Linux/"/>
     
-      <category term="nginx" scheme="http://parseflo.at/tags/nginx/"/>
+      <category term="nginx" scheme="http://blog.littlero.se/tags/nginx/"/>
     
-      <category term="資訊" scheme="http://parseflo.at/categories/%E8%B3%87%E8%A8%8A/"/>
+      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Conky]]></title>
-    <link href="http://parseflo.at/post/conky/"/>
-    <id>http://parseflo.at/post/conky/</id>
+    <link href="http://blog.littlero.se/post/conky/"/>
+    <id>http://blog.littlero.se/post/conky/</id>
     <published>2014-02-27T09:52:09.000Z</published>
     <updated>2015-03-14T05:39:08.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://conky.sourceforge.net/" target="_blank" rel="external">Conky</a> 是一款類似 Mac OS X <a href="http://projects.tynsoe.org/en/geektool/" target="_blank" rel="external">GeekTool</a> 的桌面小工具 (其實 Conky 比較早出生，不過我比較晚發現 XD)。</p>
@@ -710,16 +710,16 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://parseflo.at/tags/Linux/"/>
+      <category term="Linux" scheme="http://blog.littlero.se/tags/Linux/"/>
     
-      <category term="資訊" scheme="http://parseflo.at/categories/%E8%B3%87%E8%A8%8A/"/>
+      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[install graylog2]]></title>
-    <link href="http://parseflo.at/post/install-graylog2/"/>
-    <id>http://parseflo.at/post/install-graylog2/</id>
+    <link href="http://blog.littlero.se/post/install-graylog2/"/>
+    <id>http://blog.littlero.se/post/install-graylog2/</id>
     <published>2014-01-24T13:55:56.000Z</published>
     <updated>2015-03-14T05:40:20.000Z</updated>
     <content type="html"><![CDATA[<img src="https://lh4.googleusercontent.com/-HxbTnQ713EE/UuKP3HTDr_I/AAAAAAAAH0Y/5PqTkSwGYOY/w758-h379-no/Screenshot+2014-01-25+00.04.08.png">
@@ -828,18 +828,18 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://parseflo.at/tags/Linux/"/>
+      <category term="Linux" scheme="http://blog.littlero.se/tags/Linux/"/>
     
-      <category term="graylog2" scheme="http://parseflo.at/tags/graylog2/"/>
+      <category term="graylog2" scheme="http://blog.littlero.se/tags/graylog2/"/>
     
-      <category term="資訊" scheme="http://parseflo.at/categories/%E8%B3%87%E8%A8%8A/"/>
+      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[saltstack 自定 grains]]></title>
-    <link href="http://parseflo.at/post/saltstack-custom-grains/"/>
-    <id>http://parseflo.at/post/saltstack-custom-grains/</id>
+    <link href="http://blog.littlero.se/post/saltstack-custom-grains/"/>
+    <id>http://blog.littlero.se/post/saltstack-custom-grains/</id>
     <published>2013-07-10T13:00:29.000Z</published>
     <updated>2015-03-14T05:42:06.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://parseflo.at/post/nice-to-meet-saltstack/" target="_blank" rel="external">上一集</a> 中，簡單的介紹了 Salt 的使用方法，這集要稍微深入的介紹 Salt 的其中一個部份 - <a href="http://docs.saltstack.com/topics/targeting/grains.html" target="_blank" rel="external">Grains</a>，Grains 基本上就是機器的資訊，通常指的是不會變動的部份，比方說 CPU 有幾顆、記憶體有多少、作業系統是用什麼的(CentOS, Ubuntu, SUSE…etc)、網卡資訊，至於會變動的資訊通常會用 Salt 的 <a href="http://docs.saltstack.com/topics/pillar/index.html" target="_blank" rel="external">Pilar</a> 功能，雖然 SaltStack 支援很多種 Linux Distribution，而且他的 API 也儘可能的豐富每一個 Distro，像是套件管理系統就有支援 CentOS 的 yum、 Ubuntu 的 APT、 SUSE 的 zypper，但是終究不是每一個系統的特色都能夠完整的支援(可能需要自己貢獻上去?)，像是 SUSE Linux Enterprise Server (簡稱 SLES) 除了大版本號，還有小版本的 Service Pack，撰文的今天剛好出了 SLES 11 SP3，但是 Salt 內建的 Grains 只有偵測到 OS 是 SLES 就沒了，有時候我會依照不同的 Service Pack 需要不一樣的設定(因為 SP2 的套件有時候會支援某些功能，但是 SP1 時候還沒有，像是 sudoer 的設定)，但是不能判斷版本怎麼辦? 沒關係 Salt 具有高度擴充性，我們可以自定想要的 Grains。</p>
@@ -937,18 +937,18 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://parseflo.at/tags/Linux/"/>
+      <category term="Linux" scheme="http://blog.littlero.se/tags/Linux/"/>
     
-      <category term="SaltStack" scheme="http://parseflo.at/tags/SaltStack/"/>
+      <category term="SaltStack" scheme="http://blog.littlero.se/tags/SaltStack/"/>
     
-      <category term="資訊" scheme="http://parseflo.at/categories/%E8%B3%87%E8%A8%8A/"/>
+      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[自拍神器 Casio TR15 開箱]]></title>
-    <link href="http://parseflo.at/post/casio-tr15/"/>
-    <id>http://parseflo.at/post/casio-tr15/</id>
+    <link href="http://blog.littlero.se/post/casio-tr15/"/>
+    <id>http://blog.littlero.se/post/casio-tr15/</id>
     <published>2013-07-02T13:47:42.000Z</published>
     <updated>2015-03-14T05:39:40.000Z</updated>
     <content type="html"><![CDATA[<img src="http://farm4.staticflickr.com/3802/9193251238_d0c9f9b0d7_c.jpg">
@@ -1002,16 +1002,16 @@
     
     </summary>
     
-      <category term="Casio TR15" scheme="http://parseflo.at/tags/Casio-TR15/"/>
+      <category term="Casio TR15" scheme="http://blog.littlero.se/tags/Casio-TR15/"/>
     
-      <category term="3C" scheme="http://parseflo.at/categories/3C/"/>
+      <category term="3C" scheme="http://blog.littlero.se/categories/3C/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Saltstack 使用心得&簡介]]></title>
-    <link href="http://parseflo.at/post/nice-to-meet-saltstack/"/>
-    <id>http://parseflo.at/post/nice-to-meet-saltstack/</id>
+    <link href="http://blog.littlero.se/post/nice-to-meet-saltstack/"/>
+    <id>http://blog.littlero.se/post/nice-to-meet-saltstack/</id>
     <published>2013-06-30T03:17:28.000Z</published>
     <updated>2015-03-14T05:41:33.000Z</updated>
     <content type="html"><![CDATA[<p>身為一個系統管理者，當你管理的機器數量只有十來台時，你可以很輕鬆的一台一台進去管理、設定機器，但是隨著服務開始搞大了，機器數量變成數十台時，也許會需要一些工具來輔助管理，之前我都是用 <a href="http://docs.fabfile.org/en/1.6/" target="_blank" rel="external">Fabric</a> 來幫忙管理，不過 Fabric 有個缺點是他只是一個下指令的管理工具，當然我之前都硬幹，用 <a href="http://docs.fabfile.org/en/1.6/api/core/operations.html?highlight=put#fabric.operations.put" target="_blank" rel="external">put</a> 硬把他當成管理 configuration 的工具，上傳完了再下一個 reload 的指令，當然這樣也不是不行，不過似乎真的是一個很土炮的方法，但是隨著機器的數量越來越大，已經到達幾百臺的時候，就算是用 Fabric + <a href="http://docs.fabfile.org/en/1.6/usage/env.html#env-parallel" target="_blank" rel="external">parallel</a> 其實還是覺得很怪，一來是雖然他已經平行處理了，但是他的 output 卻變成無序的，也就是當受管理的機器有 output 他就直接顯示在管理端上，有點惱人就是，另外一個是 Fabric 需要自己寫 Group 管理，要自己定義東西，而不能透過簡單的 query 來對想要的機器下指令就好，所以最近開始想要轉型使用 configuration management tool，常見的選擇是 <a href="https://puppetlabs.com/" target="_blank" rel="external">puppet</a>、<a href="http://www.opscode.com/chef/" target="_blank" rel="external">chef</a>、<a href="http://cfengine.com/" target="_blank" rel="external">CFEngine</a> 之類的，不過最近有個當紅的 OpenSource 軟體出現了，那就是 <a href="http://docs.saltstack.com/" target="_blank" rel="external">SaltStack</a>。</p>
@@ -1121,18 +1121,18 @@ nginx:
     
     </summary>
     
-      <category term="Linux" scheme="http://parseflo.at/tags/Linux/"/>
+      <category term="Linux" scheme="http://blog.littlero.se/tags/Linux/"/>
     
-      <category term="SaltStack" scheme="http://parseflo.at/tags/SaltStack/"/>
+      <category term="SaltStack" scheme="http://blog.littlero.se/tags/SaltStack/"/>
     
-      <category term="資訊" scheme="http://parseflo.at/categories/%E8%B3%87%E8%A8%8A/"/>
+      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[solve dmesg appeared nouveau No connectors reported connected with modes after upgrading kernel to 3.8 or later]]></title>
-    <link href="http://parseflo.at/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/"/>
-    <id>http://parseflo.at/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/</id>
+    <link href="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/"/>
+    <id>http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/</id>
     <published>2013-05-31T14:29:10.000Z</published>
     <updated>2015-03-14T05:42:09.000Z</updated>
     <content type="html"><![CDATA[<p>  My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append <code>video=VGA-1:1440x900@60</code> to kernel parameters. Because I use a 2-meter-long VGA line to connect my computer and monitor, I have to enforce using VGA port as display output. And it works perfectly.</p>
@@ -1164,16 +1164,16 @@ nginx:
     
     </summary>
     
-      <category term="Linux" scheme="http://parseflo.at/tags/Linux/"/>
+      <category term="Linux" scheme="http://blog.littlero.se/tags/Linux/"/>
     
-      <category term="資訊" scheme="http://parseflo.at/categories/%E8%B3%87%E8%A8%8A/"/>
+      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[E-M5 木質手把]]></title>
-    <link href="http://parseflo.at/post/e-m5-wooden-grip/"/>
-    <id>http://parseflo.at/post/e-m5-wooden-grip/</id>
+    <link href="http://blog.littlero.se/post/e-m5-wooden-grip/"/>
+    <id>http://blog.littlero.se/post/e-m5-wooden-grip/</id>
     <published>2013-05-16T12:15:54.000Z</published>
     <updated>2015-03-14T05:39:53.000Z</updated>
     <content type="html"><![CDATA[<img src="https://farm8.staticflickr.com/7294/8740341439_0a08f31ecd_b.jpg">
@@ -1227,16 +1227,16 @@ nginx:
     
     </summary>
     
-      <category term="E-M5" scheme="http://parseflo.at/tags/E-M5/"/>
+      <category term="E-M5" scheme="http://blog.littlero.se/tags/E-M5/"/>
     
-      <category term="3C" scheme="http://parseflo.at/categories/3C/"/>
+      <category term="3C" scheme="http://blog.littlero.se/categories/3C/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線]]></title>
-    <link href="http://parseflo.at/post/nginx-ssl-cipher-rc4-safari/"/>
-    <id>http://parseflo.at/post/nginx-ssl-cipher-rc4-safari/</id>
+    <link href="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/"/>
+    <id>http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/</id>
     <published>2013-04-27T05:52:58.000Z</published>
     <updated>2015-03-14T05:41:29.000Z</updated>
     <content type="html"><![CDATA[<p>前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Safari … 結果果然不出所料… <code>Unable to establish a secure connection</code> XDDD 搞什麼連 Safari 也連不了，這樣子要 Debug 我就可以自己來了，不然要一直麻煩同事跟我對測不好意思，一開始先用 <code>tcpdump</code> 發現 Server 送 Certificate 給 Client 之後 Client 就自己斷掉 connection ?! WTF 這太沒有頭緒了吧，後來上網搜尋 <code>ssl connection fail safari</code>，結果一路看看看就看到了這個 <a href="https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/965371" target="_blank" rel="external">HTTPS requests fail on sites which immediately close the connection if TLS 1.1 negotiation is attempted, on Ubuntu 12.04</a>，起因是 OpenSSL 1.0.1 的一個 Bug，版上建議降成 OpenSSL 1.0.0 就可以了，因為我要啟用 nginx 的 spdy 所以一定要用 OpenSSL 1.0.1 才可以，不過秉持實驗的精神只好先解除這個功能，於是我就編譯了 nginx with openssl 1.0.0k，然後結果…靠背還是一樣 Safri 不能連其他都可以！不信邪改用 0.9.8y，結果在一模一樣的設定下這個 Safari 就可以連了 = = (這哪招)，總之越來越神秘，只好先回到 nginx with openssl 1.0.1e，(就是死命要 spdy 就對了 XD)，後來在沒什麼想法的情況下只好打開 nginx 的 debug mode <code>error_log xxxxx debug;</code>，瞧瞧裡面有什麼。</p>
@@ -1278,18 +1278,18 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
     
     </summary>
     
-      <category term="Mac" scheme="http://parseflo.at/tags/Mac/"/>
+      <category term="Mac" scheme="http://blog.littlero.se/tags/Mac/"/>
     
-      <category term="nginx" scheme="http://parseflo.at/tags/nginx/"/>
+      <category term="nginx" scheme="http://blog.littlero.se/tags/nginx/"/>
     
-      <category term="資訊" scheme="http://parseflo.at/categories/%E8%B3%87%E8%A8%8A/"/>
+      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[用 map 的功能把 nginx 變成簡單的應用程式防火牆]]></title>
-    <link href="http://parseflo.at/post/nginx---using-map-as-a-simple-web-application-firewall/"/>
-    <id>http://parseflo.at/post/nginx---using-map-as-a-simple-web-application-firewall/</id>
+    <link href="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/"/>
+    <id>http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/</id>
     <published>2013-04-14T03:44:22.000Z</published>
     <updated>2015-03-14T05:41:20.000Z</updated>
     <content type="html"><![CDATA[<p>要幫 nginx 增加安全性的話，大概首推 <a href="http://www.modsecurity.org/projects/modsecurity/nginx/" target="_blank" rel="external">modsecurity</a> 這個模組了，不過目前他只有支援 nginx 1.2 穩定版，尚未支援 1.3 開發版，基本上具有下列功能</p>
@@ -1347,16 +1347,16 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
     
     </summary>
     
-      <category term="nginx" scheme="http://parseflo.at/tags/nginx/"/>
+      <category term="nginx" scheme="http://blog.littlero.se/tags/nginx/"/>
     
-      <category term="資訊" scheme="http://parseflo.at/categories/%E8%B3%87%E8%A8%8A/"/>
+      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[E-M5 副廠手把]]></title>
-    <link href="http://parseflo.at/post/e-m5-grip-base/"/>
-    <id>http://parseflo.at/post/e-m5-grip-base/</id>
+    <link href="http://blog.littlero.se/post/e-m5-grip-base/"/>
+    <id>http://blog.littlero.se/post/e-m5-grip-base/</id>
     <published>2013-04-13T12:30:03.000Z</published>
     <updated>2015-03-14T05:39:43.000Z</updated>
     <content type="html"><![CDATA[<p>E-M5 的手感雖然有做出手把的弧形但是因為實在是太淺了，所以還是稍微差了一點，像我是手小的都覺得 E-M5 不好握的話，手大的應該就更難了，原廠賣的<a href="http://olympusomd.com/zh-TW/omd/e-m5/accessory/#&amp;panel1-2" target="_blank" rel="external">手把</a>是跟電池底座一起賣的要九張小朋友多一點的價格，真的是見鬼了，而且不喜歡加個電池底座多一個累贅，不過現在救星來了！ <a href="https://www.facebook.com/hoson.design" target="_blank" rel="external">HOSON</a> 團隊帶來了一個鋁鎂合金手把 MA-1</p>
@@ -1397,16 +1397,16 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
     
     </summary>
     
-      <category term="E-M5" scheme="http://parseflo.at/tags/E-M5/"/>
+      <category term="E-M5" scheme="http://blog.littlero.se/tags/E-M5/"/>
     
-      <category term="3C" scheme="http://parseflo.at/categories/3C/"/>
+      <category term="3C" scheme="http://blog.littlero.se/categories/3C/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[E-M5 12mm 25mm]]></title>
-    <link href="http://parseflo.at/post/e-m5-12mm-25mm/"/>
-    <id>http://parseflo.at/post/e-m5-12mm-25mm/</id>
+    <link href="http://blog.littlero.se/post/e-m5-12mm-25mm/"/>
+    <id>http://blog.littlero.se/post/e-m5-12mm-25mm/</id>
     <published>2013-03-24T03:05:58.000Z</published>
     <updated>2015-03-14T05:39:34.000Z</updated>
     <content type="html"><![CDATA[<p>三年前原本買了 <a href="http://www.four-thirds.org/en/microft/body.html#c=Panasonic&amp;i_dmc-gf2_panasonic" target="_blank" rel="external">GF2</a> + <a href="http://www.four-thirds.org/en/microft/single.html#i_014mm_f025_panasonic" target="_blank" rel="external">LUMIX G 14mm F2.5 ASPH</a> 要給我妹，結果他竟然嫌棄說 14mm 沒辦法變焦… 0rz… 這實在是，結果後來還是買了一般的小 DC 給她 = =+，然後去年入手了 <a href="http://www.four-thirds.org/en/microft/single.html#i_025mm_f014_panasonic" target="_blank" rel="external">LEICA DG SUMMILUX 25mm F1.4 ASPH</a> </p>
@@ -1447,16 +1447,16 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
     
     </summary>
     
-      <category term="E-M5" scheme="http://parseflo.at/tags/E-M5/"/>
+      <category term="E-M5" scheme="http://blog.littlero.se/tags/E-M5/"/>
     
-      <category term="3C" scheme="http://parseflo.at/categories/3C/"/>
+      <category term="3C" scheme="http://blog.littlero.se/categories/3C/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[nginx 設定檔規則概要]]></title>
-    <link href="http://parseflo.at/post/notices-about-nginx-rewrite-rule/"/>
-    <id>http://parseflo.at/post/notices-about-nginx-rewrite-rule/</id>
+    <link href="http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/"/>
+    <id>http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/</id>
     <published>2013-02-26T09:47:44.000Z</published>
     <updated>2015-03-14T05:41:45.000Z</updated>
     <content type="html"><![CDATA[<p>這篇是記錄一些 lighttpd 轉 nginx rewrite rule 的實作與一些注意事項，最後會講一些 squid 轉 nginx 的技巧。</p>
@@ -1497,16 +1497,16 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
     
     </summary>
     
-      <category term="nginx" scheme="http://parseflo.at/tags/nginx/"/>
+      <category term="nginx" scheme="http://blog.littlero.se/tags/nginx/"/>
     
-      <category term="資訊" scheme="http://parseflo.at/categories/%E8%B3%87%E8%A8%8A/"/>
+      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Linux cgroups]]></title>
-    <link href="http://parseflo.at/post/linux-cgroups/"/>
-    <id>http://parseflo.at/post/linux-cgroups/</id>
+    <link href="http://blog.littlero.se/post/linux-cgroups/"/>
+    <id>http://blog.littlero.se/post/linux-cgroups/</id>
     <published>2013-01-01T11:16:00.000Z</published>
     <updated>2015-03-14T05:40:32.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://en.wikipedia.org/wiki/Cgroups" target="_blank" rel="external">cgroups</a> 是 Linux 的一個特色，全名是 control groups，最簡單的概念就是控制資源的分配包含了隔離、記錄的功能，最早是由 Google 的工程師開發的，並且在 2.6.24 正式進了 Kernel，後來也陸續加了不少功能，而且在 3.3 之後又加了網路優先權(priority)功能。後來的 LXC (<a href="http://en.wikipedia.org/wiki/LXC" target="_blank" rel="external">LinuX Containers</a>) 就是用了 cgroups 的功能來的。</p>
@@ -1553,22 +1553,22 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
     
     </summary>
     
-      <category term="Gentoo" scheme="http://parseflo.at/tags/Gentoo/"/>
+      <category term="Gentoo" scheme="http://blog.littlero.se/tags/Gentoo/"/>
     
-      <category term="Linux" scheme="http://parseflo.at/tags/Linux/"/>
+      <category term="Linux" scheme="http://blog.littlero.se/tags/Linux/"/>
     
-      <category term="SUSE" scheme="http://parseflo.at/tags/SUSE/"/>
+      <category term="SUSE" scheme="http://blog.littlero.se/tags/SUSE/"/>
     
-      <category term="cgroups" scheme="http://parseflo.at/tags/cgroups/"/>
+      <category term="cgroups" scheme="http://blog.littlero.se/tags/cgroups/"/>
     
-      <category term="資訊" scheme="http://parseflo.at/categories/%E8%B3%87%E8%A8%8A/"/>
+      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[刪除 memcachedb log 檔]]></title>
-    <link href="http://parseflo.at/post/clear-memcachedb-log/"/>
-    <id>http://parseflo.at/post/clear-memcachedb-log/</id>
+    <link href="http://blog.littlero.se/post/clear-memcachedb-log/"/>
+    <id>http://blog.littlero.se/post/clear-memcachedb-log/</id>
     <published>2012-11-20T02:56:00.000Z</published>
     <updated>2015-03-14T05:38:38.000Z</updated>
     <content type="html"><![CDATA[<p><code>memcachedb</code> 用的是 BerkeleyDB 每 10M 會輸出一次 log file，所以久而久之你的資料夾會充滿一堆 <code>log.xxxxxxxxxx</code> x 是數字，依序編列，在正常的 Production 環境大概不出三天就會比原本的 DB 還多了一倍的大小，如果沒有要還原的需求的話是不需要這些 log 的，清除的方法有兩個，一個是手動刪，一個是透過 memcachedb 清。</p>
@@ -1581,9 +1581,9 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
     <![CDATA[<p><code>memcachedb</code> 用的是 BerkeleyDB 每 10M 會輸出一次 log file，所以久而久之你的資料夾會充滿一堆 <code>log.xxxxxxxxxx</code> x 是數字，依序編列，在正常的 Production 環境大概不]]>
     </summary>
     
-      <category term="memcachedb" scheme="http://parseflo.at/tags/memcachedb/"/>
+      <category term="memcachedb" scheme="http://blog.littlero.se/tags/memcachedb/"/>
     
-      <category term="資訊" scheme="http://parseflo.at/categories/%E8%B3%87%E8%A8%8A/"/>
+      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
