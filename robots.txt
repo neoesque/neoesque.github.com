@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://parseflo.at/sitemap.xml
+Sitemap: http://blog.littlero.se/sitemap.xml
