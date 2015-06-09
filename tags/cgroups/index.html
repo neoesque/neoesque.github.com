@@ -40,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  
 </head>
 <body>
   <div id="container">
@@ -82,7 +83,6 @@ ga('send', 'pageview');
       </tr>
     </table>
   </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -126,73 +126,45 @@ ga('send', 'pageview');
   </div>
 </aside>
       <section id="main">
-  
-  
+    <section class="archives-wrap">
+    <div class="archive-tag-wrap">
+      <span class="archive-tag">#cgroups</span>
+    </div>
+    <div class="archives">
     
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/linux-cgroups/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-    
-    <article id="post-linux-cgroups" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/linux-cgroups/">Linux cgroups</a>
+      <a class="archive-article-title" href="/post/linux-cgroups/">Linux cgroups</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/linux-cgroups/">
-    <time datetime="2013-01-01T11:16:00.000Z" itemprop="datePublished">2013-01-01, Tue</time>
+    <time datetime="2013-01-01T11:16:00.000Z" itemprop="datePublished">2013 Jan 1</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://en.wikipedia.org/wiki/Cgroups">cgroups</a> 是 Linux 的一個特色，全名是 control groups，最簡單的概念就是控制資源的分配包含了隔離、記錄的功能，最早是由 Google 的工程師開發的，並且在 2.6.24 正式進了 Kernel，後來也陸續加了不少功能，而且在 3.3 之後又加了網路優先權(priority)功能。後來的 LXC (<a href="http://en.wikipedia.org/wiki/LXC">LinuX Containers</a>) 就是用了 cgroups 的功能來的。</p>
-<p>由於是從 Kernel 控制的所以幾乎什麼都可以管理，舉凡 <code>blkio</code> (管理輸入輸出的 block device ，像是硬碟、USB)、<code>cpu</code> (設定忙碌時能使用的 CPU time)、<code>cpuacct</code> (做統計用的)、<code>cpuset</code> (設定由那顆 CPU 執行運算)、<code>device</code> (限制能使用的設備)、<code>memory</code> (限制記憶體用量)、<code>net_cls</code> (似乎跟網路有關)，管理的範圍是以 Group 為主，所謂的 Group 可以是同一個使用者、同一個群組、同樣的 Process。</p>
-<p>最簡單使用 <code>cgroups</code> 的方式就是裝 <code>libcgroup</code> 來管理
-        
-          <p class="article-more-link">
-            <a href="/post/linux-cgroups/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/linux-cgroups/" data-id="cial68p73003sq4r528jowiqy" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/linux-cgroups/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gentoo/">Gentoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SUSE/">SUSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cgroups/">cgroups</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
-  
-  
-</section>
+    
+    </div></section>
+    </section>
       
         <aside id="sidebar">
   

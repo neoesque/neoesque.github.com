@@ -222,6 +222,22 @@ a:visited {
     margin: 0 0.7692307692308%;
   }
 }
+.archive-article-header a,
+.layout-wrap-inner.tag-cloud a,
+.archive-article-header a:visited,
+.layout-wrap-inner.tag-cloud a:visited {
+  color: #565a5f;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.archive-article-header a:hover,
+.layout-wrap-inner.tag-cloud a:hover,
+.archive-article-header a:visited:hover,
+.layout-wrap-inner.tag-cloud a:visited:hover {
+  color: #38b7ea;
+}
 .article-date,
 .article-category-link,
 .archive-year,
@@ -235,8 +251,7 @@ a:visited {
 #profile .inner,
 .article-inner,
 #comments,
-.archive-year-wrap,
-.archive-article-inner,
+.archive-article,
 #toTop {
   background: #fff;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.05);
@@ -776,6 +791,10 @@ a:visited {
 .article-inner {
   overflow: hidden;
 }
+.article-banner {
+  width: 100%;
+  height: auto;
+}
 .article-meta:before,
 .article-meta:after {
   content: "";
@@ -790,10 +809,10 @@ a:visited {
 .article-meta .article-date,
 .article-meta .article-category {
   margin-right: 10px;
-  color: #565a5f;
+  color: #9a9ea3;
 }
 .article-meta a {
-  color: #565a5f;
+  color: #9a9ea3;
 }
 .article-meta a:hover {
   color: #38b7ea;
@@ -1218,9 +1237,6 @@ a.article-title:hover {
 #comments a {
   color: #38b7ea;
 }
-.archives-wrap {
-  margin: 40px 0;
-}
 .archives:before,
 .archives:after {
   content: "";
@@ -1232,22 +1248,38 @@ a.article-title:hover {
 .archives .article:first-child {
   margin: 20px 0;
 }
-.archive-year-wrap {
-  padding: 10px 20px;
-  margin: 40px 0 -20px 0;
+.archive-year-wrap,
+.archive-category-wrap,
+.archive-tag-wrap,
+.layout-title {
+  font-size: 1.4em;
+  margin: 40px 0 20px 0;
 }
 @media screen and (max-width: 559px) {
-  .archive-year-wrap {
-    margin: 20px 0 -20px 0;
+  .archive-year-wrap,
+  .archive-category-wrap,
+  .archive-tag-wrap,
+  .layout-title {
+    padding: 0 15px;
+    font-size: 1.2em;
   }
 }
-.archive-year-wrap .fa {
+.archive-year-wrap .fa,
+.archive-category-wrap .fa,
+.archive-tag-wrap .fa,
+.layout-title .fa {
   margin-right: 3px;
 }
-.archive-year-wrap .archive-year {
+.archive-year-wrap .archive-year,
+.archive-category-wrap .archive-year,
+.archive-tag-wrap .archive-year,
+.layout-title .archive-year {
   color: #565a5f;
 }
-.archive-year-wrap .archive-year:hover {
+.archive-year-wrap .archive-year:hover,
+.archive-category-wrap .archive-year:hover,
+.archive-tag-wrap .archive-year:hover,
+.layout-title .archive-year:hover {
   color: #38b7ea;
 }
 .archive-article {
@@ -1255,34 +1287,114 @@ a.article-title:hover {
   page-break-inside: avoid;
   overflow: hidden;
   break-inside: avoid-column;
-}
-.archive-article-inner {
-  padding: 10px;
+  padding: 0;
   margin-bottom: 15px;
 }
+.archive-article:before,
+.archive-article:after {
+  content: "";
+  display: table;
+}
+.archive-article:after {
+  clear: both;
+}
+.archive-article-thumbnail {
+  float: left;
+  margin-right: 10px;
+}
+.archive-article-thumbnail .thumbnail {
+  width: 160px;
+  height: 90px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+.archive-article-thumbnail .thumbnail span {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.archive-article-thumbnail .thumbnail .thumbnail-image {
+  position: absolute;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+.archive-article-thumbnail .thumbnail .thumbnail-none {
+  background-image: url("images/thumb-default-small.png");
+}
+@media screen and (max-width: 559px) {
+  .archive-article-thumbnail .thumbnail {
+    width: 120px;
+    height: 67.5px;
+  }
+}
+.archive-article-header {
+  padding: 10px;
+}
 .archive-article-title {
-  text-decoration: none;
-  font-weight: bold;
-  color: #565a5f;
-  -webkit-transition: color 0.2s;
-  -moz-transition: color 0.2s;
-  -ms-transition: color 0.2s;
-  transition: color 0.2s;
-  line-height: 1.6em;
+  font-size: 1.2em;
+  line-height: 1.2em;
 }
-.archive-article-title:hover {
-  color: #38b7ea;
-}
-.archive-article-footer {
-  margin-top: 1em;
+@media screen and (max-width: 559px) {
+  .archive-article-title {
+    font-size: 1em;
+    line-height: 1em;
+    height: 1em;
+    overflow: hidden;
+    display: block;
+  }
 }
 .archive-article-date {
-  color: #999;
-  text-decoration: none;
-  font-size: 0.85em;
-  line-height: 1em;
-  margin-bottom: 0.5em;
   display: block;
+  margin-top: 8px;
+}
+.layout-wrap-inner.list-categories ul {
+  margin-left: 15px;
+  list-style: none;
+}
+.layout-wrap-inner.list-categories ul li,
+.layout-wrap-inner.list-categories ul .category-list-child {
+  padding: 10px 0;
+  font-size: 16px;
+  border-bottom: 1px solid border-color;
+}
+.layout-wrap-inner.list-categories ul li a,
+.layout-wrap-inner.list-categories ul .category-list-child a {
+  color: #777;
+}
+.layout-wrap-inner.list-categories ul ul,
+.layout-wrap-inner.list-categories ul ol {
+  list-style: none;
+}
+.layout-wrap-inner.list-categories ul ul li,
+.layout-wrap-inner.list-categories ul ol li {
+  border: none;
+}
+.layout-wrap-inner.list-categories ul ul li:last-child,
+.layout-wrap-inner.list-categories ul ol li:last-child {
+  padding-bottom: 0px;
+}
+.layout-wrap-inner.list-categories li a:before {
+  color: #ccc;
+  content: "\f0da";
+  font-size: 12px;
+  margin-right: 6px;
+  font-family: FontAwesome;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.layout-wrap-inner.list-categories li a:hover:before {
+  color: #333;
+}
+.layout-wrap-inner.tag-cloud a {
+  margin-right: 8px;
+}
+.layout-wrap-inner.tag-cloud a:before {
+  content: '#';
 }
 #page-nav {
   margin: 40px auto;
@@ -1437,10 +1549,18 @@ a.article-title:hover {
   background: none;
   border: none;
 }
+.article-entry .gist .gist-file .gist-data table {
+  background: none;
+}
+.article-entry .gist .gist-file .gist-data .pl-vo {
+  color: #fff;
+}
 .article-entry .gist .gist-file .gist-data .line-numbers {
   background: none;
   border: none;
   padding: 0 20px 0 0;
+  height: 25.6px;
+  vertical-align: top;
 }
 .article-entry .gist .gist-file .gist-data .line-data {
   padding: 0 !important;
@@ -1672,13 +1792,17 @@ pre .javascript .function {
   list-style: none;
 }
 .widget ul li,
-.widget ol li {
+.widget ol li,
+.widget ul .category-list-child,
+.widget ol .category-list-child {
   padding: 10px 0;
   font-size: 16px;
   border-bottom: 1px solid border-color;
 }
 .widget ul li a,
-.widget ol li a {
+.widget ol li a,
+.widget ul .category-list-child a,
+.widget ol .category-list-child a {
   color: #777;
 }
 .widget ul ul,

@@ -40,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  
 </head>
 <body>
   <div id="container">
@@ -82,13 +83,6 @@ ga('send', 'pageview');
       </tr>
     </table>
   </div>
-  
-  <div id="header-sub" class="header-sub header-inner">
-    <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">43</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -132,584 +126,341 @@ ga('send', 'pageview');
   </div>
 </aside>
       <section id="main">
-  
-  
+      <div class="archive-year-wrap">
+        <a href="/archives/2012" class="archive-year">2012</a>
+      </div>
+      <section class="archives-wrap">
+        <div class="archives">
     
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/no-syn-slash-ack-after-receive-syn-packet/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2012" class="archive-year">2012</a>
-        </div>
-    
-    <article id="post-no-syn-slash-ack-after-receive-syn-packet" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/no-syn-slash-ack-after-receive-syn-packet/">Server 收到 SYN packet 後沒有 SYN/ACK 回應</a>
+      <a class="archive-article-title" href="/post/no-syn-slash-ack-after-receive-syn-packet/">Server 收到 SYN packet 後沒有 SYN/ACK 回應</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/no-syn-slash-ack-after-receive-syn-packet/">
-    <time datetime="2012-04-17T07:40:00.000Z" itemprop="datePublished">2012-04-17, Tue</time>
+    <time datetime="2012-04-17T07:40:00.000Z" itemprop="datePublished">Apr 17</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <p>這是最近管發生的怪現象，就是公司某個單位一直跟我們說他們的 Server 要連我們的 Server，結果我們這邊時好時壞，… 什麼?! 我們這邊時好時壞? 從沒有聽過用戶說我們的 Server 連不上阿，於是就跟他們一起 Debug，開了 <code>tcpdump</code> 來看，發現我們這邊的確有時候收到 SYN 結果就不回 SYN/ACK kernel 直接 drop 封包 XD 這是什麼鬼，kernel 也太不聽話了，不過我們這邊 kernel 沒有打開 iptables 也沒有什麼 drop 封包的規則，於是就 Google 了一下，原來有人跟我們遇到一樣的狀況 <a href="http://serverfault.com/questions/235965/why-would-a-server-not-send-a-syn-ack-packet-in-response-to-a-syn-packet" target="_blank" rel="external">Why would a server not send a SYN/ACK packet in response to a SYN packet</a></p>
-<p>簡單的來說跟我們一模一樣，隨機的不回 SYN ，根據那篇文章說的，解法有下列兩種：</p>
-<ul>
-<li>關掉 client 的 tcp window scaling</li>
-</ul>
-<p>不過這個顯然不是什麼好的方法，因為我們不能限制 client 阿</p>
-<ul>
-<li>關掉 server 的 tcp window scaling 跟 tcp timestamps</li>
-</ul>
-<p>看起來是因為 client 送的 tcp window size 不被 server 接受所以就 drop 掉，可是為什麼是 SYN 就被 drop 實在是不可得知。不過我們的 Server 後來加了以下設定後的確就好了：</p>
-<pre><code>net<span class="class">.ipv4</span><span class="class">.tcp_tw_reuse</span> = <span class="number">0</span>
-net<span class="class">.ipv4</span><span class="class">.tcp_tw_recycle</span> = <span class="number">0</span>
-net<span class="class">.ipv4</span><span class="class">.tcp_window_scaling</span> = <span class="number">0</span>
-net<span class="class">.ipv4</span><span class="class">.tcp_timestamps</span> = <span class="number">0</span>
-net<span class="class">.ipv4</span><span class="class">.tcp_sack</span> = <span class="number">0</span>
-</code></pre><hr>
-<p>參考資料:</p>
-<ul>
-<li><a href="https://wiki.archlinux.org/index.php/Sysctl" target="_blank" rel="external">sysctl</a></li>
-<li><a href="http://www.ecr6.ohio-state.edu/window-scaling.html" target="_blank" rel="external">Handling TCP Window Scaling</a></li>
-<li><a href="http://www.frozentux.net/ipsysctl-tutorial/ipsysctl-tutorial.html" target="_blank" rel="external">Ipsysctl tutorial</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/no-syn-slash-ack-after-receive-syn-packet/" data-id="cial68p63002tq4r5fnke1qa4" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/no-syn-slash-ack-after-receive-syn-packet/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/why-i-choose-octopress/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    <article id="post-why-i-choose-octopress" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/why-i-choose-octopress/">為什麼我跳槽到 octopress</a>
+      <a class="archive-article-title" href="/post/why-i-choose-octopress/">為什麼我跳槽到 octopress</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/why-i-choose-octopress/">
-    <time datetime="2012-04-09T07:59:00.000Z" itemprop="datePublished">2012-04-09, Mon</time>
+    <time datetime="2012-04-09T07:59:00.000Z" itemprop="datePublished">Apr 9</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="When_I_met_Octopress">When I met Octopress</h3><p><a href="http://octopress.org">Octopress</a> 是一個之前(應該是兩年前吧 XD)很流行的 Static Blog Generators 的產物，Based的語言是 Ruby，底層依賴 <a href="https://github.com/mojombo/jekyll">Jekyll</a>，由於 Jekyll 支援很多其他有的沒的，像是 Markdown Engine 支援很多種(包含了 <a href="http://maruku.rubyforge.org">Maruku</a> 或者 <a href="http://kramdown.rubyforge.org">Kramdown</a> )，另外也有 Syntax Highlight (可以使用 <a href="http://pygments.org">Pygment</a> 或者 <a href="http://coderay.rubychan.de">Coderay</a>)，加上 Octopress 作者自己的延伸讓 Octopress 常見的功能(甚至是不會用到的功能XD)都有提供了。</p>
-<p>之前公司的學弟就使用 Markdown 在寫工作日誌，其實滿不明所以然
-        
-          <p class="article-more-link">
-            <a href="/post/why-i-choose-octopress/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/why-i-choose-octopress/" data-id="cial68p47000aq4r5w3pv7zsr" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/why-i-choose-octopress/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Octopress/">Octopress</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/transfer-textmate-2-to-sublime-text-2/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh5.googleusercontent.com/-OBhLI8lugD4/T4FAwZ6KVfI/AAAAAAAAD2Y/VKP9-1VWSEk/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-08%2520%25E4%25B8%258B%25E5%258D%25883.39.25.png
+)" alt="從 TextMate 2 跳到 Sublime Text 2" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-transfer-textmate-2-to-sublime-text-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/transfer-textmate-2-to-sublime-text-2/">從 TextMate 2 跳到 Sublime Text 2</a>
+      <a class="archive-article-title" href="/post/transfer-textmate-2-to-sublime-text-2/">從 TextMate 2 跳到 Sublime Text 2</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/transfer-textmate-2-to-sublime-text-2/">
-    <time datetime="2012-04-08T04:44:00.000Z" itemprop="datePublished">2012-04-08, Sun</time>
+    <time datetime="2012-04-08T04:44:00.000Z" itemprop="datePublished">Apr 8</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原本都是使用 TextMate 後來實在受不了不能好好支援 cjk 的輸入。</p>
-<p>加上 TextMate 已經過了好久都沒有更新，原本說好在 Mac OS X 10.5 出來的時候就要改用 CoreText 改寫，結果也跳票了。不然實在是離不開 TextMate 的 snippet 。</p>
-<p>不過雖然 TextMate 在前一陣子推出 TextMate 2 beta 但是很多功能還是沒有完整，而且不時還會當機，所以前陣子原本就想說找個替代品，一路搜尋下來就發現了 Sublime Text 2 (beta)。</p>
-<p>可以說 TextMate 該有的他都有，而且支援了更多的功能，加上跨 Windows, Linux, OS X 所以可以預料到未來應該會有更多人力加入寫 Sublime Text 2 packages 的行列。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/transfer-textmate-2-to-sublime-text-2/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/transfer-textmate-2-to-sublime-text-2/" data-id="cial68p4l000uq4r5vwac6q50" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/transfer-textmate-2-to-sublime-text-2/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TextMate/">TextMate</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/freebsd-first-sight/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    <article id="post-freebsd-first-sight" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/freebsd-first-sight/">FreeBSD 初體驗</a>
+      <a class="archive-article-title" href="/post/freebsd-first-sight/">FreeBSD 初體驗</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/freebsd-first-sight/">
-    <time datetime="2012-02-11T16:00:00.000Z" itemprop="datePublished">2012-02-12, Sun</time>
+    <time datetime="2012-02-11T16:00:00.000Z" itemprop="datePublished">Feb 12</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>其實說初體驗好像太誇張 XD<br /><br />大學時候有碰過一次  不過覺得好難玩(跟 Gentoo 比的話) (¬_¬) 所以就沒有繼續碰<br /><br />最近因為想評估 FreeBSD 一下所以就想說來試一下<br /><br />安裝非常簡單 都是選單互動的 比 Gentoo 簡單很多 XD<br />
-        
-          <p class="article-more-link">
-            <a href="/post/freebsd-first-sight/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/freebsd-first-sight/" data-id="cial68p86004fq4r5yzl4gqsw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FreeBSD/">FreeBSD</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/open-rc-ulimit/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    <article id="post-open-rc-ulimit" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/open-rc-ulimit/">Open RC ulimit</a>
+      <a class="archive-article-title" href="/post/open-rc-ulimit/">Open RC ulimit</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/open-rc-ulimit/">
-    <time datetime="2012-02-08T16:00:00.000Z" itemprop="datePublished">2012-02-09, Thu</time>
+    <time datetime="2012-02-08T16:00:00.000Z" itemprop="datePublished">Feb 9</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><br />一切都是因為手賤 XD<br /><br />因為我們的 Server 要設定大一點的 ulimit<br /><br />傳統的 Linux (或者說 Gentoo 在舊的 baselayout ) 都是使用 /etc/security/limits.conf 來設 ulimit<br /><br />於是當然就照以前的印象做拉~<br /><br />結果重開機後…<br /><br /><script src="//gist.github.com/1778443.js"></script><br />然後所有的 service 就都起不來了 什麼鬼 / 口 \<br /><br />而且一開始還沒有想到是這個在搞鬼 以為是 PAM 或者 OpenRC 錯了<br /><br />一直在想是不是 emerge 的 USE flag 錯了還怎樣<br />
-        
-          <p class="article-more-link">
-            <a href="/post/open-rc-ulimit/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/open-rc-ulimit/" data-id="cial68p5q002dq4r5tvubyfg1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gentoo/">Gentoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenRC/">OpenRC</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
-    
-    
+        </div></section>
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2011" class="archive-year">2011</a>
-        </div>
+      <div class="archive-year-wrap">
+        <a href="/archives/2011" class="archive-year">2011</a>
+      </div>
+      <section class="archives-wrap">
+        <div class="archives">
     
-    <article id="post-solve-os-x-lion-log-sanboxd-deny-messages" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/solve-os-x-lion-log-sanboxd-deny-messages/" class="thumbnail">
+  
+    <span style="background-image:url(http://2.bp.blogspot.com/-KgSJHGoTXfM/TudwWeh_3lI/AAAAAAAAC7A/nnW32mD6ktw/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-12-13%2B%25E4%25B8%258B%25E5%258D%25889.59.03.jpg
+)" alt="解決 OS X Lion 中 Log 一直出現 sanboxd deny 的訊息" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/solve-os-x-lion-log-sanboxd-deny-messages/">解決 OS X Lion 中 Log 一直出現 sanboxd deny 的訊息</a>
+      <a class="archive-article-title" href="/post/solve-os-x-lion-log-sanboxd-deny-messages/">解決 OS X Lion 中 Log 一直出現 sanboxd deny 的訊息</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/solve-os-x-lion-log-sanboxd-deny-messages/">
-    <time datetime="2011-12-12T16:00:00.000Z" itemprop="datePublished">2011-12-13, Tue</time>
+    <time datetime="2011-12-12T16:00:00.000Z" itemprop="datePublished">Dec 13</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>雖然不是什麼大不了的事情<br /><br />不過看了總是很不順眼 XD<br /><br />就是每次開 Console Log 都會噴一堆<br /><br /><pre>sandboxd: ([]) WebProcess() deny file-read-data /Library/Caches/com.nvidia.OpenGL<br />sandboxd: ([]) WebProcess() deny file-write-create /Library/Caches/com.nvidia.OpenGL/<br /></pre><br />之類的 deny 訊息，如下圖<br /><br /><div class="separator" style="clear: both; text-align: center;"><img border="0" height="247" width="640" src="http://2.bp.blogspot.com/-KgSJHGoTXfM/TudwWeh_3lI/AAAAAAAAC7A/nnW32mD6ktw/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-12-13%2B%25E4%25B8%258B%25E5%258D%25889.59.03.jpg" /></div><br />這看了很讓人不順眼阿！<br />
-        
-          <p class="article-more-link">
-            <a href="/post/solve-os-x-lion-log-sanboxd-deny-messages/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/solve-os-x-lion-log-sanboxd-deny-messages/" data-id="cial68p54001mq4r5mukaoh4u" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/ceramic-bow/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh5.googleusercontent.com/-MXoANhK5dwM/TtDOmv66d2I/AAAAAAAACuk/JbxOy5C6Zb4/s640/P1050618.jpg
+)" alt="陶瓷蝴蝶結" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-ceramic-bow" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/ceramic-bow/">陶瓷蝴蝶結</a>
+      <a class="archive-article-title" href="/post/ceramic-bow/">陶瓷蝴蝶結</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/ceramic-bow/">
-    <time datetime="2011-11-26T16:00:00.000Z" itemprop="datePublished">2011-11-27, Sun</time>
+    <time datetime="2011-11-26T16:00:00.000Z" itemprop="datePublished">Nov 27</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/敗家/">敗家</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><div class="separator" style="clear: both; text-align: center;"><img border="0" height="480" width="640" src="https://lh5.googleusercontent.com/-MXoANhK5dwM/TtDOmv66d2I/AAAAAAAACuk/JbxOy5C6Zb4/s640/P1050618.jpg" /></div><br />這是女朋友在 Youtube 看到的~ 實在很勾錐~<br /><br /><div class="video-container"><iframe src="//www.youtube.com/embed/qZbuX4gRY50" frameborder="0" allowfullscreen></iframe></div><br /><br />陶瓷蝴蝶結 跟其他 杯子 盤子 都很可愛~<br /><br />不過電視上沒有寫聯絡方式<br /><br />於是就找啊找的人肉了一番 XD<br /><br />終於找到她們的部落格跟名字 <a href="http://www.wretch.cc/blog/pottery2010">小陶器</a> 設計師是鏡子跟金金<br /><br />她們專門在做可愛的陶瓷創作<br /><br />像是 陶瓷蝴蝶結<br /><br /><div class="separator" style="clear: both; text-align: center;"><img border="0" height="480" width="640" src="https://lh3.googleusercontent.com/-4mIgJr16C5Q/TtI_lO0ED2I/AAAAAAAACwY/IaD9H24Cf94/s640/P1050651.jpg" /></div>
-        
-          <p class="article-more-link">
-            <a href="/post/ceramic-bow/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/ceramic-bow/" data-id="cial68p9l005hq4r5g1p6axdh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蝴蝶結/">蝴蝶結</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/陶瓷/">陶瓷</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/wikipedia-cache-structure/" class="thumbnail">
+  
+    <span style="background-image:url(http://3.bp.blogspot.com/-A-9_Zi0mxro/TpvjwpHbioI/AAAAAAAAB_0/ARv8XupyMxQ/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-10-17%2B%25E4%25B8%258B%25E5%258D%25884.13.38.png
+)" alt="Wikipedia cache 架構" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-wikipedia-cache-structure" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/wikipedia-cache-structure/">Wikipedia cache 架構</a>
+      <a class="archive-article-title" href="/post/wikipedia-cache-structure/">Wikipedia cache 架構</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/wikipedia-cache-structure/">
-    <time datetime="2011-10-16T16:00:00.000Z" itemprop="datePublished">2011-10-17, Mon</time>
+    <time datetime="2011-10-16T16:00:00.000Z" itemprop="datePublished">Oct 17</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近被 cache server 整的很慘 XD<br /><br />先是以為我們用的 squid 效能不行 (後來證明是我頭腦的問題 XD)<br /><br />改用了 nginx, varnish 甚至是 apache traffic server 結果出圖都還是不太順利<br /><br />結果才發現是 SLB 說 cache server 的 80 port 一直 up and down<br /><br />後來更慘 SLB 產生 Mac Flapping<br /><br />後來把 Linux kernel 的 Netfilter 關掉<br /><br />然後在 /etc/sysctl.conf 把 tcp 的 buffer 加大後<br /><br />情況就舒緩許多 於是還是換回 squid 2.7.9<br /><br />在穩定後 想研究一下其他網站的 cache  solution 是什麼<br />
-        
-          <p class="article-more-link">
-            <a href="/post/wikipedia-cache-structure/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/wikipedia-cache-structure/" data-id="cial68p3y0005q4r5hnmf5zdt" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/squid/">squid</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/squid-refresh-pattern/" class="thumbnail">
+  
+    <span style="background-image:url(http://3.bp.blogspot.com/-63lbO3pkwRI/TpkE0C-X94I/AAAAAAAAB_U/rTEWldminQk/s640/graph_image.php.jpg
+)" alt="squid refresh_pattern" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-squid-refresh-pattern" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/squid-refresh-pattern/">squid refresh_pattern</a>
+      <a class="archive-article-title" href="/post/squid-refresh-pattern/">squid refresh_pattern</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/squid-refresh-pattern/">
-    <time datetime="2011-10-14T16:00:00.000Z" itemprop="datePublished">2011-10-15, Sat</time>
+    <time datetime="2011-10-14T16:00:00.000Z" itemprop="datePublished">Oct 15</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 squid 裡面最重要也是最難懂得設定大概就是 refresh_pattern 了<br /><br />其語法如下<br /><code>refresh_pattern [-i] regex min percent max [options]</code> <br />regex 表示要 cache 住的對象 是比對 uri<br /><br />-i 表示不分大小寫<br /><br />而 min, percent, max 則是調整 cache object 要待在 squid 裡的時間參數以 分 當單位<br /><br />而最重要的莫過於後面的 option 了 因為我們的 squid 是當 reverse proxy 所以可以加上一堆 違反 http 規則的選項
-        
-          <p class="article-more-link">
-            <a href="/post/squid-refresh-pattern/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/squid-refresh-pattern/" data-id="cial68p4w001dq4r5xv85i2se" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/squid/">squid</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/os-x-application-i18n/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    <article id="post-os-x-application-i18n" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/os-x-application-i18n/">OS X 路徑多語系</a>
+      <a class="archive-article-title" href="/post/os-x-application-i18n/">OS X 路徑多語系</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/os-x-application-i18n/">
-    <time datetime="2011-09-13T16:00:00.000Z" itemprop="datePublished">2011-09-14, Wed</time>
+    <time datetime="2011-09-13T16:00:00.000Z" itemprop="datePublished">Sep 14</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><br />剛剛不小心砍掉家目錄的「應用程式」資料夾<br /><br />結果去 Finder 重建 Applications 目錄後 Finder 還是顯示 Applications 而不是「應用程式」<br /><br />覺得很奇怪，查了一下發現是 OS X 的多語系在搞怪<br /><br />OS X 的 Finder 有一個功能就是可以配合系統的語系顯示目錄的名稱<br /><br />系統面上 OS X 提供了一層抽象層，區隔出「真正的檔案名稱」與「Finder 顯示的名稱」<br /><br />比方說 Applications 在 Finder 會顯示成「應用程式」或者 Library 會顯示成 「資源庫」<br /><br />以下是在 OS X 做多語系的方法<br />
-        
-          <p class="article-more-link">
-            <a href="/post/os-x-application-i18n/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/os-x-application-i18n/" data-id="cial68p5n0028q4r53kwblub9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/i18n/">i18n</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    </div></section>
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/5/">Next &raquo;</a>
-    </nav>
-  
-</section>
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/archives/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/5/">Next &raquo;</a>
+      </nav>
+    </section>
       
         <aside id="sidebar">
   

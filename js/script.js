@@ -103,4 +103,7 @@
     $(document).scrollTop(0);
   });
 
+  //Prevent TOC blocked by other
+  $('#toc').next().next().css('clear', 'both');
+
 })(jQuery);

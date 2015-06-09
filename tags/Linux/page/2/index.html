@@ -40,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  
 </head>
 <body>
   <div id="container">
@@ -82,7 +83,6 @@ ga('send', 'pageview');
       </tr>
     </table>
   </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -126,555 +126,301 @@ ga('send', 'pageview');
   </div>
 </aside>
       <section id="main">
-  
-  
+    <section class="archives-wrap">
+    <div class="archive-tag-wrap">
+      <span class="archive-tag">#Linux</span>
+    </div>
+    <div class="archives">
     
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/squid-nginx-http1-dot-1-gzip/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2012" class="archive-year">2012</a>
-        </div>
-    
-    <article id="post-squid-nginx-http1-dot-1-gzip" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/squid-nginx-http1-dot-1-gzip/">squid nginx http1.1 gzip</a>
+      <a class="archive-article-title" href="/post/squid-nginx-http1-dot-1-gzip/">squid nginx http1.1 gzip</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/squid-nginx-http1-dot-1-gzip/">
-    <time datetime="2012-07-07T11:23:00.000Z" itemprop="datePublished">2012-07-07, Sat</time>
+    <time datetime="2012-07-07T11:23:00.000Z" itemprop="datePublished">2012 Jul 7</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 nginx 中要啟用 gzip 非常簡單，只要在 http 的段落裡面加入</p>
-<pre><code><span class="title">gzip</span>  <span class="built_in">on</span>;
-<span class="title">gzip_http_version</span> <span class="number">1</span>.<span class="number">0</span>;
-<span class="title">gzip_comp_level</span> <span class="number">9</span>;
-<span class="title">gzip_proxied</span> any;
-<span class="title">gzip_min_length</span> <span class="number">1400</span>;
-<span class="title">gzip_types</span> text/css application/x-javascript text/javascript;
-<span class="title">gzip_vary</span> <span class="built_in">on</span>;
-</code></pre><p>但是加了之後，因為我們前端還有先過 squid，結果發現怎麼有的 css 檔就是沒有被 gzip，但是有些 js 檔卻又有，在網路查到原來是還要在 squid.conf 加入</p>
-<pre><code><span class="keyword">cache_vary</span> <span class="literal">on</span>
-<span class="keyword">broken_vary_encoding</span> allow <span class="literal">all</span>
-</code></pre><p>這是因為啟用 gzip 後，HTTP Header 也會加入 <code>Vary:Accept-Encoding</code>，加了上面的設定才可以讓 squid 保存 gzip 的內容，不會很自作聰明的解壓縮在傳給 client 端，不過網路另有一說是因為 squid 不是完整的支援 HTTP1.1 的 protocol，所以在面對 gzip HTTP1.0 跟 HTTP1.1 的版本的時候就會有問題，不過我有在 nginx 加了 <code>gzip_http_version 1.0</code> 了還是一樣有問題，加了那兩行才 ok。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/squid-nginx-http1-dot-1-gzip/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/squid-nginx-http1-dot-1-gzip/" data-id="cial68p50001gq4r5rdx61erw" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/squid-nginx-http1-dot-1-gzip/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/squid/">squid</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/ifconfig-dot-me-the-web-ifconfig/" class="thumbnail">
   
+    <span style="background-image:url(https://lh3.googleusercontent.com/-5BSm9ZrTOco/T-lyYRUgngI/AAAAAAAAEHM/eG84iuti-UI/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-06-26%2520%25E4%25B8%258B%25E5%258D%25884.25.56.png
+)" alt="ifconfig.me - the web ifconfig" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    
-    <article id="post-ifconfig-dot-me-the-web-ifconfig" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/ifconfig-dot-me-the-web-ifconfig/">ifconfig.me - the web ifconfig</a>
+      <a class="archive-article-title" href="/post/ifconfig-dot-me-the-web-ifconfig/">ifconfig.me - the web ifconfig</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/ifconfig-dot-me-the-web-ifconfig/">
-    <time datetime="2012-06-26T07:57:00.000Z" itemprop="datePublished">2012-06-26, Tue</time>
+    <time datetime="2012-06-26T07:57:00.000Z" itemprop="datePublished">2012 Jun 26</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <p>前幾天公司同事在問我們的機器出去的 public ip 是多少，突然發現原來大家好像都不知道有一個方便的網站可以查，對於會 Unix 的來說網址是在好記不過了，就是跟 Unix 看 ip 的 <code>ifconfig</code> 同樣的名稱 <em><a href="http://ifconfig.me" target="_blank" rel="external">http://ifconfig.me</a></em></p>
-<p><a href="http://ifconfig.me" target="_blank" rel="external">ifconfig.me</a> 可以取得你現在 ip 資訊的網站，不過他跟一般顯示 ip 的網站不同的是他功能比較強！</p>
-<p>除了會顯示一些基本的資訊</p>
-<p><img src="https://lh3.googleusercontent.com/-5BSm9ZrTOco/T-lyYRUgngI/AAAAAAAAEHM/eG84iuti-UI/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-06-26%2520%25E4%25B8%258B%25E5%258D%25884.25.56.png" alt=""></p>
-<p>他還支援了不同的網址只顯示需要的部分，比方說我們可以在 Terminal 打 <code>curl ifconfig.me/ip</code> 就會得到 <code>61.219.37.20</code> ，又或者 <code>curl ifconfig.me/port</code> 就可以知道本地端出去的 port <code>51081</code>，如果有經過 Proxy 的話 <code>curl ifconfig.me/forwarded</code> 還會顯示 <code>61.219.66.125, 172.30.4.166, 61.219.37.20</code></p>
-<p>甚至更有趣的是他也支援 XML / json ，網址分別是 <em><a href="http://ifconfig.me/all.xml" target="_blank" rel="external">http://ifconfig.me/all.xml</a></em> 與 <em><a href="http://ifconfig.me/all.json" target="_blank" rel="external">http://ifconfig.me/all.json</a></em> 詳細的內容可以看 <a href="http://ifconfig.me" target="_blank" rel="external">ifconfig.me</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/ifconfig-dot-me-the-web-ifconfig/" data-id="cial68p83004cq4r5wsha5igm" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/ifconfig-dot-me-the-web-ifconfig/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/fabric-machine-manager/" class="thumbnail">
   
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    
-    <article id="post-fabric-machine-manager" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/fabric-machine-manager/">fabric - Machine Manager</a>
+      <a class="archive-article-title" href="/post/fabric-machine-manager/">fabric - Machine Manager</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/fabric-machine-manager/">
-    <time datetime="2012-04-30T02:13:00.000Z" itemprop="datePublished">2012-04-30, Mon</time>
+    <time datetime="2012-04-30T02:13:00.000Z" itemprop="datePublished">2012 Apr 30</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Python <a href="http://docs.fabfile.org">Fabirc</a> 是一個類似 Ruby capistrano 的自動化部署跟系統管理工具，安裝指令是 <code>pip install -U fabric</code> 或者 <code>easy_install fabric</code> 都可以。fabric 的使用也非常的簡單，只要寫好一個檔名是 <em>fabfile.py</em> 的檔案，在同一個資料夾底下打 <code>fab --list</code> 就可以看到有哪些參數可以下(就是 fabfile.py 裡面的 function)。</p>
-<p>以下是一個簡單的範例 template</p>
-        
-          <p class="article-more-link">
-            <a href="/post/fabric-machine-manager/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/fabric-machine-manager/" data-id="cial68p8c004jq4r5w9rf9ik7" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/fabric-machine-manager/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/postfix-spf-domainkeys-tinydns/" class="thumbnail">
   
+    <span style="background-image:url(https://lh5.googleusercontent.com/-A6MtopadkXk/T47U_sZ8eqI/AAAAAAAAD7Y/TdkEhjis8jE/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-18%2520%25E4%25B8%258B%25E5%258D%258810.51.09.png
+)" alt="設定 SPF 跟 DomainKeys 在 postfix 和 tinydns" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    
-    <article id="post-postfix-spf-domainkeys-tinydns" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/postfix-spf-domainkeys-tinydns/">設定 SPF 跟 DomainKeys 在 postfix 和 tinydns</a>
+      <a class="archive-article-title" href="/post/postfix-spf-domainkeys-tinydns/">設定 SPF 跟 DomainKeys 在 postfix 和 tinydns</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/postfix-spf-domainkeys-tinydns/">
-    <time datetime="2012-04-18T12:22:00.000Z" itemprop="datePublished">2012-04-18, Wed</time>
+    <time datetime="2012-04-18T12:22:00.000Z" itemprop="datePublished">2012 Apr 18</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Will be replaced with the ToC<br>{:toc}</li>
-</ul>
-<p>部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 <a href="https://support.google.com/mail/bin/answer.py?hl=zh-TW&amp;answer=180707">電子郵件驗證</a> 中說的，要可以被 <a href="http://support.google.com/mail/bin/answer.py?hl=zh-Hant&amp;answer=81126#authentication">驗證和識別</a>，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 DomainKeys，不過有了 DKIM 後原本單純 DomainKeys 就被廢棄了(當然目前還是可以用的)。我們單位用的 mail server 是 Postfix 而 DNS 則是 tinydns (djbdns)</p>
-<h3 id="設定_SPF">設定 SPF</h3><p>SPF 只是簡單的 DNS TXT 發佈而已，可以利用 <a href="http://spfwizard.com">easySPF</a> 製作。於是在 tinydns 的設定檔加入下列資訊：</p>
-<pre><code><span class="attribute">'foo</span>.bar:v=spf1 ip4\<span class="number">07211.22</span><span class="number">.33</span><span class="number">.44</span>/<span class="number">32</span> ~<span class="keyword">all</span>:<span class="number">600</span>
-</code></pre><p>這裡用 <code>foo.bar</code> 當作 domain，而 <code>11.22.33.44</code> 則是 Server 寄信出來的 public ip，這樣子就完成啦~</p>
-<p>我們用 <code>dig TXT foo.bar @8.8.8.8 +tcp</code> 可以觀察到</p>
-<pre><code>;; ANSWER <span class="keyword">SECTION</span>:
-foo.bar.        <span class="number">600</span>     <span class="keyword">IN</span>    TXT    <span class="string">"v=spf1 ip4:11.22.33.44/32 ~all"</span>
-</code></pre><h3 id="設定_DKIM">設定 DKIM</h3>
-        
-          <p class="article-more-link">
-            <a href="/post/postfix-spf-domainkeys-tinydns/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/" data-id="cial68p5f001yq4r5lyhsjq9r" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/no-syn-slash-ack-after-receive-syn-packet/" class="thumbnail">
   
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    
-    <article id="post-no-syn-slash-ack-after-receive-syn-packet" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/no-syn-slash-ack-after-receive-syn-packet/">Server 收到 SYN packet 後沒有 SYN/ACK 回應</a>
+      <a class="archive-article-title" href="/post/no-syn-slash-ack-after-receive-syn-packet/">Server 收到 SYN packet 後沒有 SYN/ACK 回應</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/no-syn-slash-ack-after-receive-syn-packet/">
-    <time datetime="2012-04-17T07:40:00.000Z" itemprop="datePublished">2012-04-17, Tue</time>
+    <time datetime="2012-04-17T07:40:00.000Z" itemprop="datePublished">2012 Apr 17</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <p>這是最近管發生的怪現象，就是公司某個單位一直跟我們說他們的 Server 要連我們的 Server，結果我們這邊時好時壞，… 什麼?! 我們這邊時好時壞? 從沒有聽過用戶說我們的 Server 連不上阿，於是就跟他們一起 Debug，開了 <code>tcpdump</code> 來看，發現我們這邊的確有時候收到 SYN 結果就不回 SYN/ACK kernel 直接 drop 封包 XD 這是什麼鬼，kernel 也太不聽話了，不過我們這邊 kernel 沒有打開 iptables 也沒有什麼 drop 封包的規則，於是就 Google 了一下，原來有人跟我們遇到一樣的狀況 <a href="http://serverfault.com/questions/235965/why-would-a-server-not-send-a-syn-ack-packet-in-response-to-a-syn-packet" target="_blank" rel="external">Why would a server not send a SYN/ACK packet in response to a SYN packet</a></p>
-<p>簡單的來說跟我們一模一樣，隨機的不回 SYN ，根據那篇文章說的，解法有下列兩種：</p>
-<ul>
-<li>關掉 client 的 tcp window scaling</li>
-</ul>
-<p>不過這個顯然不是什麼好的方法，因為我們不能限制 client 阿</p>
-<ul>
-<li>關掉 server 的 tcp window scaling 跟 tcp timestamps</li>
-</ul>
-<p>看起來是因為 client 送的 tcp window size 不被 server 接受所以就 drop 掉，可是為什麼是 SYN 就被 drop 實在是不可得知。不過我們的 Server 後來加了以下設定後的確就好了：</p>
-<pre><code>net<span class="class">.ipv4</span><span class="class">.tcp_tw_reuse</span> = <span class="number">0</span>
-net<span class="class">.ipv4</span><span class="class">.tcp_tw_recycle</span> = <span class="number">0</span>
-net<span class="class">.ipv4</span><span class="class">.tcp_window_scaling</span> = <span class="number">0</span>
-net<span class="class">.ipv4</span><span class="class">.tcp_timestamps</span> = <span class="number">0</span>
-net<span class="class">.ipv4</span><span class="class">.tcp_sack</span> = <span class="number">0</span>
-</code></pre><hr>
-<p>參考資料:</p>
-<ul>
-<li><a href="https://wiki.archlinux.org/index.php/Sysctl" target="_blank" rel="external">sysctl</a></li>
-<li><a href="http://www.ecr6.ohio-state.edu/window-scaling.html" target="_blank" rel="external">Handling TCP Window Scaling</a></li>
-<li><a href="http://www.frozentux.net/ipsysctl-tutorial/ipsysctl-tutorial.html" target="_blank" rel="external">Ipsysctl tutorial</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/no-syn-slash-ack-after-receive-syn-packet/" data-id="cial68p63002tq4r5fnke1qa4" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/no-syn-slash-ack-after-receive-syn-packet/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/open-rc-ulimit/" class="thumbnail">
   
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    
-    <article id="post-open-rc-ulimit" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/open-rc-ulimit/">Open RC ulimit</a>
+      <a class="archive-article-title" href="/post/open-rc-ulimit/">Open RC ulimit</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/open-rc-ulimit/">
-    <time datetime="2012-02-08T16:00:00.000Z" itemprop="datePublished">2012-02-09, Thu</time>
+    <time datetime="2012-02-08T16:00:00.000Z" itemprop="datePublished">2012 Feb 9</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><br />一切都是因為手賤 XD<br /><br />因為我們的 Server 要設定大一點的 ulimit<br /><br />傳統的 Linux (或者說 Gentoo 在舊的 baselayout ) 都是使用 /etc/security/limits.conf 來設 ulimit<br /><br />於是當然就照以前的印象做拉~<br /><br />結果重開機後…<br /><br /><script src="//gist.github.com/1778443.js"></script><br />然後所有的 service 就都起不來了 什麼鬼 / 口 \<br /><br />而且一開始還沒有想到是這個在搞鬼 以為是 PAM 或者 OpenRC 錯了<br /><br />一直在想是不是 emerge 的 USE flag 錯了還怎樣<br />
-        
-          <p class="article-more-link">
-            <a href="/post/open-rc-ulimit/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/open-rc-ulimit/" data-id="cial68p5q002dq4r5tvubyfg1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gentoo/">Gentoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenRC/">OpenRC</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/compile-objective-c-on-gentoo/" class="thumbnail">
   
+    <span style="background-image:url(http://4.bp.blogspot.com/-YIoHmeZkG8E/TeD2-2tevHI/AAAAAAAAA4Q/EoIgXEyeBR4/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-28%2B%25E4%25B8%258B%25E5%258D%25889.21.25.png
+)" alt="Compile Objective-C on Gentoo" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2011" class="archive-year">2011</a>
-        </div>
-    
-    <article id="post-compile-objective-c-on-gentoo" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/compile-objective-c-on-gentoo/">Compile Objective-C on Gentoo</a>
+      <a class="archive-article-title" href="/post/compile-objective-c-on-gentoo/">Compile Objective-C on Gentoo</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/compile-objective-c-on-gentoo/">
-    <time datetime="2011-05-27T16:00:00.000Z" itemprop="datePublished">2011-05-28, Sat</time>
+    <time datetime="2011-05-27T16:00:00.000Z" itemprop="datePublished">2011 May 28</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>要寫 Objective-C 的程式理所當然的要在 Mac OS X 上 XD<br /><br />不過有時候想學而手邊沒有 Mac 的話也可以在 Linux / Windows 開發<br /><br />這一切都要感謝 <a href='http://en.wikipedia.org/wiki/GNUstep'>GNUStep</a> 的計畫<br /><br />在 Gentoo 上如果只是要開發 non-GUI 的程式只要安裝 gnustep-base/gnustep-base 即可<br /><br />會連帶安裝 gnustep-base/gnustep-make<br /><br />都裝好後我們就可以開始寫啦!<br />
-        
-          <p class="article-more-link">
-            <a href="/post/compile-objective-c-on-gentoo/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/compile-objective-c-on-gentoo/" data-id="cial68p910050q4r56032pcoh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gentoo/">Gentoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/obj-c/">obj-c</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/unix-bt-downloader-aria2/" class="thumbnail">
   
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    
-    <article id="post-unix-bt-downloader-aria2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/unix-bt-downloader-aria2/">Unix 另一個分段下載程式(也是 bt downloader) - aria2</a>
+      <a class="archive-article-title" href="/post/unix-bt-downloader-aria2/">Unix 另一個分段下載程式(也是 bt downloader) - aria2</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/unix-bt-downloader-aria2/">
-    <time datetime="2011-05-19T16:00:00.000Z" itemprop="datePublished">2011-05-20, Fri</time>
+    <time datetime="2011-05-19T16:00:00.000Z" itemprop="datePublished">2011 May 20</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前我在 Gentoo 上因為 portage 都要下載原始碼做編譯安裝的動作<br /><br />所以為了加快下載會另外安裝 <a href="http://axel.alioth.debian.org/">axel</a><br /><br />但是今天我發現有更多功能的程式可以用(顯然違背 Unix 哲學 do one thing and do it well)<br /><br />不過不管哪個 反正好用的程式一定要多推廣的 XD<br /><br />就是 <a href="http://aria2.sourceforge.net/">aria2</a><br /><br />他具有以下特色<br />
-        
-          <p class="article-more-link">
-            <a href="/post/unix-bt-downloader-aria2/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/unix-bt-downloader-aria2/" data-id="cial68p4h000pq4r54xj33vhj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gentoo/">Gentoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/add-sles-11-sp1-repository/" class="thumbnail">
   
+    <span style="background-image:url(http://2.bp.blogspot.com/-6bpk4yDJJiA/TZcs5YpnSRI/AAAAAAAAA2g/FVIhgz3P6TY/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2011-04-02+%25E4%25B8%258B%25E5%258D%25889.56.28.jpg
+)" alt="在 SLES 11 SP1 追加 repository" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    
-    <article id="post-add-sles-11-sp1-repository" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/add-sles-11-sp1-repository/">在 SLES 11 SP1 追加 repository</a>
+      <a class="archive-article-title" href="/post/add-sles-11-sp1-repository/">在 SLES 11 SP1 追加 repository</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/add-sles-11-sp1-repository/">
-    <time datetime="2011-04-01T16:00:00.000Z" itemprop="datePublished">2011-04-02, Sat</time>
+    <time datetime="2011-04-01T16:00:00.000Z" itemprop="datePublished">2011 Apr 2</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近敝單位在更新一些機器，長官決定採用 SLES (SUSE Linux Enterprise Sever)<br /><br />不過我最熟悉的其實是 Gentoo 對於其他 distro 像 SLES, Ubuntu 之類的都不熟<br /><br />所以大概花了一整個禮拜在研究 SLES (目前最新的是 SLES 11 service pack 1)<br /><br />其實最大的問題在於軟體 (software) 的處理不同<br /><br />Gentoo 的 portage system 實在太強大，從版本控制到 USE 控制哪些小功能要編入<br /><br />而 SLES 因為是 rpm based 的系統，而且 Enterprise Server 版似乎又很保守，一堆套件不是舊就是根本沒有 囧mm<br /><br />所以只能自己找 repository 了<br /><br />以下是新增 repository 的方法<br /><br /><code class="prettyprint"> </code>
-        
-          <p class="article-more-link">
-            <a href="/post/add-sles-11-sp1-repository/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/add-sles-11-sp1-repository/" data-id="cial68p9u005zq4r52hqogjr9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SUSE/">SUSE</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/Linux/">&laquo; Prev</a><a class="page-number" href="/tags/Linux/">1</a><span class="page-number current">2</span>
-    </nav>
-  
-</section>
+    
+    </div></section>
+    
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/tags/Linux/">&laquo; Prev</a><a class="page-number" href="/tags/Linux/">1</a><span class="page-number current">2</span>
+      </nav>
+    </section>
       
         <aside id="sidebar">
   

@@ -40,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  
 </head>
 <body>
   <div id="container">
@@ -82,13 +83,6 @@ ga('send', 'pageview');
       </tr>
     </table>
   </div>
-  
-  <div id="header-sub" class="header-sub header-inner">
-    <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">43</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -132,73 +126,45 @@ ga('send', 'pageview');
   </div>
 </aside>
       <section id="main">
-  
-  
+      <div class="archive-year-wrap">
+        <a href="/archives/2013" class="archive-year">2013</a>
+      </div>
+      <section class="archives-wrap">
+        <div class="archives">
     
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/notices-about-nginx-rewrite-rule/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-    
-    <article id="post-notices-about-nginx-rewrite-rule" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/notices-about-nginx-rewrite-rule/">nginx 設定檔規則概要</a>
+      <a class="archive-article-title" href="/post/notices-about-nginx-rewrite-rule/">nginx 設定檔規則概要</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/notices-about-nginx-rewrite-rule/">
-    <time datetime="2013-02-26T09:47:44.000Z" itemprop="datePublished">2013-02-26, Tue</time>
+    <time datetime="2013-02-26T09:47:44.000Z" itemprop="datePublished">Feb 26</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>這篇是記錄一些 lighttpd 轉 nginx rewrite rule 的實作與一些注意事項，最後會講一些 squid 轉 nginx 的技巧。</p>
-<p>這裡先講一些跟 nginx rewrite 有關的重點。</p>
-<p>首先 nginx 算是分成 <code>location</code> 跟 <code>rewrite</code>，lighttpd 是有 <code>url.rewrite</code>、<code>url.rewrite-repeat</code> 跟 <code>url.redirect</code>，其中 lighttpd 的 <code>url.rewrite</code> 就是 rewrite once 而 <code>url.rewrite-repeat</code> 則是重複一直 rewrite 的意思，這個則對應到 nginx <code>rewrite</code> 後面接的參數，也就是 <code>break</code> 跟 <code>last</code>，<code>break</code> 就是 rewrite 到此為止不要再跑 <code>rewrite</code> 了，但是 <code>last</code> 就會在重頭跑 rewrite 一次，而且 <code>last</code> 也是 <code>rewrite</code> 這個 directive 的預設值，所以如果你的 rewrite 不小心變成 loop (nginx 預設是 rewrite 10 次後就噴 500)請加上 <code>break</code>。至於 lighttpd 的 <code>url.redirect</code> 其實在 nginx 也是透過 <code>rewrite</code> 完成的，主要是加 <code>redirect</code> 跟 <code>permanent</code> 的參數，分別是回 302 跟 301。<code>rewrite</code> 的用法大約如下：</p>
-        
-          <p class="article-more-link">
-            <a href="/post/notices-about-nginx-rewrite-rule/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/" data-id="cial68p5z002nq4r5fj05ptow" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
-  
-</section>
+    </div></section>
+  </section>
       
         <aside id="sidebar">
   

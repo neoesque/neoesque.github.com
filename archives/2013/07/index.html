@@ -40,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  
 </head>
 <body>
   <div id="container">
@@ -82,13 +83,6 @@ ga('send', 'pageview');
       </tr>
     </table>
   </div>
-  
-  <div id="header-sub" class="header-sub header-inner">
-    <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">43</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -132,128 +126,77 @@ ga('send', 'pageview');
   </div>
 </aside>
       <section id="main">
-  
-  
+      <div class="archive-year-wrap">
+        <a href="/archives/2013" class="archive-year">2013</a>
+      </div>
+      <section class="archives-wrap">
+        <div class="archives">
     
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/saltstack-custom-grains/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-    
-    <article id="post-saltstack-custom-grains" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/saltstack-custom-grains/">saltstack 自定 grains</a>
+      <a class="archive-article-title" href="/post/saltstack-custom-grains/">saltstack 自定 grains</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/saltstack-custom-grains/">
-    <time datetime="2013-07-10T13:00:29.000Z" itemprop="datePublished">2013-07-10, Wed</time>
+    <time datetime="2013-07-10T13:00:29.000Z" itemprop="datePublished">Jul 10</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="/post/nice-to-meet-saltstack/">上一集</a> 中，簡單的介紹了 Salt 的使用方法，這集要稍微深入的介紹 Salt 的其中一個部份 - <a href="http://docs.saltstack.com/topics/targeting/grains.html">Grains</a>，Grains 基本上就是機器的資訊，通常指的是不會變動的部份，比方說 CPU 有幾顆、記憶體有多少、作業系統是用什麼的(CentOS, Ubuntu, SUSE…etc)、網卡資訊，至於會變動的資訊通常會用 Salt 的 <a href="http://docs.saltstack.com/topics/pillar/index.html">Pilar</a> 功能，雖然 SaltStack 支援很多種 Linux Distribution，而且他的 API 也儘可能的豐富每一個 Distro，像是套件管理系統就有支援 CentOS 的 yum、 Ubuntu 的 APT、 SUSE 的 zypper，但是終究不是每一個系統的特色都能夠完整的支援(可能需要自己貢獻上去?)，像是 SUSE Linux Enterprise Server (簡稱 SLES) 除了大版本號，還有小版本的 Service Pack，撰文的今天剛好出了 SLES 11 SP3，但是 Salt 內建的 Grains 只有偵測到 OS 是 SLES 就沒了，有時候我會依照不同的 Service Pack 需要不一樣的設定(因為 SP2 的套件有時候會支援某些功能，但是 SP1 時候還沒有，像是 sudoer 的設定)，但是不能判斷版本怎麼辦? 沒關係 Salt 具有高度擴充性，我們可以自定想要的 Grains。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/saltstack-custom-grains/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/saltstack-custom-grains/" data-id="cial68p5b001tq4r5683ho0bj" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/saltstack-custom-grains/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SaltStack/">SaltStack</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/casio-tr15/" class="thumbnail">
+  
+    <span style="background-image:url(http://farm4.staticflickr.com/3802/9193251238_d0c9f9b0d7_c.jpg
+)" alt="自拍神器 Casio TR15 開箱" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-casio-tr15" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/casio-tr15/">自拍神器 Casio TR15 開箱</a>
+      <a class="archive-article-title" href="/post/casio-tr15/">自拍神器 Casio TR15 開箱</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/casio-tr15/">
-    <time datetime="2013-07-02T13:47:42.000Z" itemprop="datePublished">2013-07-02, Tue</time>
+    <time datetime="2013-07-02T13:47:42.000Z" itemprop="datePublished">Jul 2</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/3C/">3C</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <img src="http://farm4.staticflickr.com/3802/9193251238_d0c9f9b0d7_c.jpg">
-<p>注意這款號稱「自拍神器」系列的相機也已經大概半年多了吧，大概是半年前小弟的女友跟小弟提起的，不過可怕的神器連價格也很可怕，此款的前兩代 TR150 台灣官方售價是一萬一，但是因為出貨速度緩慢，市場缺貨缺得要死，市場上大陸的水貨竟然叫價到接近 3 萬，實在是不知道台灣卡西歐在做什麼，製造速度有這麼慢嗎？這種水貨商實在讓人覺得坑殺小朋友不眨眼，尤其是在 Facebook 卡西歐的官方粉絲頁更有一些電信商趾高氣昂，更氣的是還買了一台兩百多萬的賓士！讓我都想去開通訊行坑殺高中生&amp;俗稱的水水(管他是不是正妹，這台拍下去保證各個都是正咩) XD</p>
-<p>其實我後來也就忘記這件事了，因為女友也叫我不要買，因為實在背離原價太多了，一直到六月中，再逛 Mobile01 時，突然看到消費相機版的卡西歐有人 po 了一篇文章說 TR200 的下一代 TR350 (大陸的稱呼) 已經在六月初上市了，然後台灣也會上國際版的，代號是 <a href="http://chiconydcd.tw/casio/products/preview/110.html">TR15</a>，於是就上了 Facebook 的卡西歐粉絲頁看了一下，果然會上！！但是！他媽的卡西歐是搶劫嗎，TR15 的售價竟然是兩萬四，竟然比 TR150 貴了一倍多 = =，不過功能也多一些些就是了(他媽的再罵一次 Casio 以為你是萊卡嗎！)，電容式觸碰螢幕，螢幕解析度也提升到 92 萬畫素，然後有 Wifi ，在傳輸照片或者是自拍控制都相當方便，核心處理引擎也變成兩顆，不管是開機速度或者拍照處理速度都比之前的更快，但主要的規格都差不多還是維持 1/2.3 寸的 1210 萬畫素、光圈 2.8、超廣角的等效焦距 21mm。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/casio-tr15/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/casio-tr15/" data-id="cial68p9n005oq4r5ei96q143" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/casio-tr15/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Casio-TR15/">Casio TR15</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
-  
-</section>
+    </div></section>
+  </section>
       
         <aside id="sidebar">
   

@@ -40,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  
 </head>
 <body>
   <div id="container">
@@ -82,13 +83,6 @@ ga('send', 'pageview');
       </tr>
     </table>
   </div>
-  
-  <div id="header-sub" class="header-sub header-inner">
-    <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">43</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -132,205 +126,108 @@ ga('send', 'pageview');
   </div>
 </aside>
       <section id="main">
-  
-  
+      <div class="archive-year-wrap">
+        <a href="/archives/2013" class="archive-year">2013</a>
+      </div>
+      <section class="archives-wrap">
+        <div class="archives">
     
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/nginx-ssl-cipher-rc4-safari/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-    
-    <article id="post-nginx-ssl-cipher-rc4-safari" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/nginx-ssl-cipher-rc4-safari/">Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線</a>
+      <a class="archive-article-title" href="/post/nginx-ssl-cipher-rc4-safari/">Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/nginx-ssl-cipher-rc4-safari/">
-    <time datetime="2013-04-27T05:52:58.000Z" itemprop="datePublished">2013-04-27, Sat</time>
+    <time datetime="2013-04-27T05:52:58.000Z" itemprop="datePublished">Apr 27</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Safari … 結果果然不出所料… <code>Unable to establish a secure connection</code> XDDD 搞什麼連 Safari 也連不了，這樣子要 Debug 我就可以自己來了，不然要一直麻煩同事跟我對測不好意思，一開始先用 <code>tcpdump</code> 發現 Server 送 Certificate 給 Client 之後 Client 就自己斷掉 connection ?! WTF 這太沒有頭緒了吧，後來上網搜尋 <code>ssl connection fail safari</code>，結果一路看看看就看到了這個 <a href="https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/965371">HTTPS requests fail on sites which immediately close the connection if TLS 1.1 negotiation is attempted, on Ubuntu 12.04</a>，起因是 OpenSSL 1.0.1 的一個 Bug，版上建議降成 OpenSSL 1.0.0 就可以了，因為我要啟用 nginx 的 spdy 所以一定要用 OpenSSL 1.0.1 才可以，不過秉持實驗的精神只好先解除這個功能，於是我就編譯了 nginx with openssl 1.0.0k，然後結果…靠背還是一樣 Safri 不能連其他都可以！不信邪改用 0.9.8y，結果在一模一樣的設定下這個 Safari 就可以連了 = = (這哪招)，總之越來越神秘，只好先回到 nginx with openssl 1.0.1e，(就是死命要 spdy 就對了 XD)，後來在沒什麼想法的情況下只好打開 nginx 的 debug mode <code>error_log xxxxx debug;</code>，瞧瞧裡面有什麼。</p>
-<p>結果就看到</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">SSL</span> <span class="id">handshake</span> <span class="id">handler</span>: <span class="number">0</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">do_handshake</span>: <span class="number">0</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">get_error</span>: <span class="number">5</span></span><br><span class="line">[<span class="id">info</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="id">peer</span> <span class="id">closed</span> <span class="id">connection</span> <span class="id">in</span> <span class="constant">SSL</span> <span class="id">handshake</span> <span class="id">while</span> <span class="constant">SSL</span> <span class="id">handshaking</span>, <span class="id">client</span>: x.x.x.x, <span class="id">server</span>: <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">443</span>                                  </span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="id">close</span> <span class="id">http</span> <span class="id">connection</span>: <span class="number">14</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">shutdown</span>: <span class="number">1</span></span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/post/nginx-ssl-cipher-rc4-safari/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/" data-id="cial68p6a0030q4r55gbyc7uw" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    <article id="post-nginx---using-map-as-a-simple-web-application-firewall" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/nginx---using-map-as-a-simple-web-application-firewall/">用 map 的功能把 nginx 變成簡單的應用程式防火牆</a>
+      <a class="archive-article-title" href="/post/nginx---using-map-as-a-simple-web-application-firewall/">用 map 的功能把 nginx 變成簡單的應用程式防火牆</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/">
-    <time datetime="2013-04-14T03:44:22.000Z" itemprop="datePublished">2013-04-14, Sun</time>
+    <time datetime="2013-04-14T03:44:22.000Z" itemprop="datePublished">Apr 14</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>要幫 nginx 增加安全性的話，大概首推 <a href="http://www.modsecurity.org/projects/modsecurity/nginx/">modsecurity</a> 這個模組了，不過目前他只有支援 nginx 1.2 穩定版，尚未支援 1.3 開發版，基本上具有下列功能</p>
-<ol>
-<li>超過 16000 規則防範下列攻擊<ul>
-<li>SQL injection</li>
-<li>Cross-site Scripting (XSS)</li>
-<li>Local File Include</li>
-<li>Remote File Include</li>
-</ul>
-</li>
-<li>可客製化規則，保護下列的應用<ul>
-<li>WordPress</li>
-<li>cPanel</li>
-<li>osCommerce</li>
-<li>Joomla</li>
-</ul>
-</li>
-<li>包含了 OWASP Core Rule Set</li>
-<li>IP 聲望偵測</li>
-<li>Malware Detection</li>
-</ol>
-<p>不過有一些在更簡單的功能，像是有時候會自己想擋一些 bot，或者要判斷合法的 referrer 才給過之類的就不在這個之內了，這時候我們可以利用 <a href="http://wiki.nginx.org/HttpMapModule">map</a> 來幫我們做簡單的過濾。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/" data-id="cial68p6i003cq4r5wzpfza7v" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/e-m5-grip-base/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh3.googleusercontent.com/-sHbJAFUfvyI/UWlS2uiztyI/AAAAAAAAFkg/zheRttROHWI/s640/P4131010.JPG
+)" alt="E-M5 副廠手把" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-e-m5-grip-base" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/e-m5-grip-base/">E-M5 副廠手把</a>
+      <a class="archive-article-title" href="/post/e-m5-grip-base/">E-M5 副廠手把</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/e-m5-grip-base/">
-    <time datetime="2013-04-13T12:30:03.000Z" itemprop="datePublished">2013-04-13, Sat</time>
+    <time datetime="2013-04-13T12:30:03.000Z" itemprop="datePublished">Apr 13</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/3C/">3C</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>E-M5 的手感雖然有做出手把的弧形但是因為實在是太淺了，所以還是稍微差了一點，像我是手小的都覺得 E-M5 不好握的話，手大的應該就更難了，原廠賣的<a href="http://olympusomd.com/zh-TW/omd/e-m5/accessory/#&amp;panel1-2">手把</a>是跟電池底座一起賣的要九張小朋友多一點的價格，真的是見鬼了，而且不喜歡加個電池底座多一個累贅，不過現在救星來了！ <a href="https://www.facebook.com/hoson.design">HOSON</a> 團隊帶來了一個鋁鎂合金手把 MA-1</p>
-<img src="https://lh3.googleusercontent.com/-sHbJAFUfvyI/UWlS2uiztyI/AAAAAAAAFkg/zheRttROHWI/s640/P4131010.JPG">
-<p>沒錯！他叫做阿魯把，是把不是八，剛看到時覺得挺妙的，作者補充說是阿嚕咪(aluminum)的手把啦~ 而且設計製造都是在台灣，純正的 MIT！</p>
-        
-          <p class="article-more-link">
-            <a href="/post/e-m5-grip-base/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/e-m5-grip-base/" data-id="cial68p8k004rq4r5207n6y8m" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/e-m5-grip-base/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/E-M5/">E-M5</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
-  
-</section>
+    </div></section>
+  </section>
       
         <aside id="sidebar">
   

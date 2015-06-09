@@ -40,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  
 </head>
 <body>
   <div id="container">
@@ -82,7 +83,6 @@ ga('send', 'pageview');
       </tr>
     </table>
   </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -126,72 +126,45 @@ ga('send', 'pageview');
   </div>
 </aside>
       <section id="main">
-  
-  
+    <section class="archives-wrap">
+    <div class="archive-tag-wrap">
+      <span class="archive-tag">#memcachedb</span>
+    </div>
+    <div class="archives">
     
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/clear-memcachedb-log/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2012" class="archive-year">2012</a>
-        </div>
-    
-    <article id="post-clear-memcachedb-log" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/clear-memcachedb-log/">刪除 memcachedb log 檔</a>
+      <a class="archive-article-title" href="/post/clear-memcachedb-log/">刪除 memcachedb log 檔</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/clear-memcachedb-log/">
-    <time datetime="2012-11-20T02:56:00.000Z" itemprop="datePublished">2012-11-20, Tue</time>
+    <time datetime="2012-11-20T02:56:00.000Z" itemprop="datePublished">2012 Nov 20</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <p><code>memcachedb</code> 用的是 BerkeleyDB 每 10M 會輸出一次 log file，所以久而久之你的資料夾會充滿一堆 <code>log.xxxxxxxxxx</code> x 是數字，依序編列，在正常的 Production 環境大概不出三天就會比原本的 DB 還多了一倍的大小，如果沒有要還原的需求的話是不需要這些 log 的，清除的方法有兩個，一個是手動刪，一個是透過 memcachedb 清。</p>
-<p>手動刪的話基本上就是用 find 就可以了，<code>find /home/memcachedb_data/ -iname &#39;log*&#39; | awk &#39;{if (NR &gt; 50) print}&#39; | xargs -i -t rm -f {}</code>，如果是要透過 memecachedb 清則可以透過 telnet 或 netcat，指令是 <code>db_archive</code>。不過如果每次都要手動下未免也太累了，所以我們可以放在 crontab 裡自動化，要放在 crontab 裡面一定要搭配 netcat ，因爲 telnet 不支援檔案重導符號 &lt; ，只要隨便開一個檔案填入下列內容</p>
-<pre><code>db_archive
-<span class="keyword">quit</span>
-</code></pre><p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netcat localhost 5566 &lt; /root/cmd/memcachedb_rotate_logs</code> 即可每小時自動清一次，其中 5566 就是 memcachedb 開的 port。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/clear-memcachedb-log/" data-id="cial68p9j005dq4r5as9mataz" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/clear-memcachedb-log/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memcachedb/">memcachedb</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
-  
-  
-</section>
+    
+    </div></section>
+    </section>
       
         <aside id="sidebar">
   

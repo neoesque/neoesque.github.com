@@ -40,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  
 </head>
 <body>
   <div id="container">
@@ -82,13 +83,6 @@ ga('send', 'pageview');
       </tr>
     </table>
   </div>
-  
-  <div id="header-sub" class="header-sub header-inner">
-    <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">43</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -132,336 +126,224 @@ ga('send', 'pageview');
   </div>
 </aside>
       <section id="main">
-  
-  
+      <div class="archive-year-wrap">
+        <a href="/archives/2011" class="archive-year">2011</a>
+      </div>
+      <section class="archives-wrap">
+        <div class="archives">
     
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/php-304-not-modified/" class="thumbnail">
+  
+    <span style="background-image:url(http://3.bp.blogspot.com/-_uoJgH66ctA/TZ_MbuifuxI/AAAAAAAAA2o/Oy9bGVFVw8A/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2011-04-09+%25E4%25B8%258A%25E5%258D%258811.02.06.png
+)" alt="讓 php 回 304 Not Modified" class="thumbnail-image"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2011" class="archive-year">2011</a>
-        </div>
-    
-    <article id="post-php-304-not-modified" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/php-304-not-modified/">讓 php 回 304 Not Modified</a>
+      <a class="archive-article-title" href="/post/php-304-not-modified/">讓 php 回 304 Not Modified</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/php-304-not-modified/">
-    <time datetime="2011-04-08T16:00:00.000Z" itemprop="datePublished">2011-04-09, Sat</time>
+    <time datetime="2011-04-08T16:00:00.000Z" itemprop="datePublished">Apr 9</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 Google Page Speed 的要點裡 有提到 <a href="http://code.google.com/intl/zh-TW/speed/page-speed/docs/rtt.html#CombineExternalJS" target="_blank">減少要求 request 的數量</a><br />這樣的話會有兩種作法<br /><br /><ol><li>deploy 時合併成一支大的 .js</li><li>透過 php 把要求的 js 合併一次傳送出去</li></ol><br />但是前者失去了彈性，假設我們有十種不同的元件( js 檔)，因為不是每次都需要這十種元件的功能，所以不可能每次都 loading 這十隻，如果要選擇性的 loading 就要把全部的組合都合併出來，這樣的排列組合未免也太恐怖了。<br /><br />因此實務上會寫一支 php (姑且稱之 combo loader)，透過傳遞不同的 js 元件需求，這隻 combo loader 可以輕鬆的組合出想要的元件。並且可以把合併的結果 cache 起來，下次遇到一樣的需求就不必再重新組合了。<br /><br />因此程式碼大概會長這樣。<br />
-        
-          <p class="article-more-link">
-            <a href="/post/php-304-not-modified/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/php-304-not-modified/" data-id="cial68p5m0024q4r57p7rpr26" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/add-sles-11-sp1-repository/" class="thumbnail">
+  
+    <span style="background-image:url(http://2.bp.blogspot.com/-6bpk4yDJJiA/TZcs5YpnSRI/AAAAAAAAA2g/FVIhgz3P6TY/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2011-04-02+%25E4%25B8%258B%25E5%258D%25889.56.28.jpg
+)" alt="在 SLES 11 SP1 追加 repository" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-add-sles-11-sp1-repository" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/add-sles-11-sp1-repository/">在 SLES 11 SP1 追加 repository</a>
+      <a class="archive-article-title" href="/post/add-sles-11-sp1-repository/">在 SLES 11 SP1 追加 repository</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/add-sles-11-sp1-repository/">
-    <time datetime="2011-04-01T16:00:00.000Z" itemprop="datePublished">2011-04-02, Sat</time>
+    <time datetime="2011-04-01T16:00:00.000Z" itemprop="datePublished">Apr 2</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近敝單位在更新一些機器，長官決定採用 SLES (SUSE Linux Enterprise Sever)<br /><br />不過我最熟悉的其實是 Gentoo 對於其他 distro 像 SLES, Ubuntu 之類的都不熟<br /><br />所以大概花了一整個禮拜在研究 SLES (目前最新的是 SLES 11 service pack 1)<br /><br />其實最大的問題在於軟體 (software) 的處理不同<br /><br />Gentoo 的 portage system 實在太強大，從版本控制到 USE 控制哪些小功能要編入<br /><br />而 SLES 因為是 rpm based 的系統，而且 Enterprise Server 版似乎又很保守，一堆套件不是舊就是根本沒有 囧mm<br /><br />所以只能自己找 repository 了<br /><br />以下是新增 repository 的方法<br /><br /><code class="prettyprint"> </code>
-        
-          <p class="article-more-link">
-            <a href="/post/add-sles-11-sp1-repository/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/add-sles-11-sp1-repository/" data-id="cial68p9u005zq4r52hqogjr9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SUSE/">SUSE</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
-    
-    
+        </div></section>
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2009" class="archive-year">2009</a>
-        </div>
+      <div class="archive-year-wrap">
+        <a href="/archives/2009" class="archive-year">2009</a>
+      </div>
+      <section class="archives-wrap">
+        <div class="archives">
     
-    <article id="post-Mac-OS-all-applications-using-webkit-core" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/Mac-OS-all-applications-using-webkit-core/" class="thumbnail">
+  
+    <span style="background-image:url(http://grab.by/10oy
+)" alt="讓應用程式都使用 Webkit Core" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/Mac-OS-all-applications-using-webkit-core/">讓應用程式都使用 Webkit Core</a>
+      <a class="archive-article-title" href="/post/Mac-OS-all-applications-using-webkit-core/">讓應用程式都使用 Webkit Core</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/Mac-OS-all-applications-using-webkit-core/">
-    <time datetime="2009-12-05T16:00:00.000Z" itemprop="datePublished">2009-12-06, Sun</time>
+    <time datetime="2009-12-05T16:00:00.000Z" itemprop="datePublished">Dec 6</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>要讓比方說 Safari, MailPlane 或 CSSEdit 吃 Webkit 的核心的話其中一種方法是從終端機打開<br />如以下設定<br /><br />export DYLD_FRAMEWORK_PATH=/Applications/WebKit.app/Contents/Frameworks/10.6/<br />export WEBKIT_UNSET_DYLD_FRAMEWORK_PATH=YES<br />open /Applications/blahblah.app<br /><br />即可<br />可是要從終端機太麻煩了對吧~<br />Mac OS X 提供更方便的方式讓全系統都套用<br />
-        
-          <p class="article-more-link">
-            <a href="/post/Mac-OS-all-applications-using-webkit-core/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/Mac-OS-all-applications-using-webkit-core/" data-id="cial68pa7006kq4r5i5cw278d" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
-    
-    
+        </div></section>
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2008" class="archive-year">2008</a>
-        </div>
+      <div class="archive-year-wrap">
+        <a href="/archives/2008" class="archive-year">2008</a>
+      </div>
+      <section class="archives-wrap">
+        <div class="archives">
     
-    <article id="post-open-link-with-new-window-in-xhtml" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/open-link-with-new-window-in-xhtml/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/open-link-with-new-window-in-xhtml/">XHTML: 連結開新視窗</a>
+      <a class="archive-article-title" href="/post/open-link-with-new-window-in-xhtml/">XHTML: 連結開新視窗</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/open-link-with-new-window-in-xhtml/">
-    <time datetime="2008-04-27T16:00:00.000Z" itemprop="datePublished">2008-04-28, Mon</time>
+    <time datetime="2008-04-27T16:00:00.000Z" itemprop="datePublished">Apr 28</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        由於 XHTML 1.1 或 XHTML 1.0 strict 不支援 target="_blank" 這種語法<br /><br />所以要繞過一大圈採用另一種方法 = ="<br /><br />要利用 rel 這個 attribute 跟 javascript 達到 (汗... w3c 幹麼搞得那麼麻煩 QQ<br />
-        
-          <p class="article-more-link">
-            <a href="/post/open-link-with-new-window-in-xhtml/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/open-link-with-new-window-in-xhtml/" data-id="cial68p5x002jq4r56kkwtx35" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/comment-styles/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    <article id="post-comment-styles" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/comment-styles/">註解的編排</a>
+      <a class="archive-article-title" href="/post/comment-styles/">註解的編排</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/comment-styles/">
-    <time datetime="2008-04-22T16:00:00.000Z" itemprop="datePublished">2008-04-23, Wed</time>
+    <time datetime="2008-04-22T16:00:00.000Z" itemprop="datePublished">Apr 23</time>
   </a>
 </div>
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
       
-        <p>摘錄自 O’REILLY 的 C++ 風格與藝術<br /><br />程式寫越多註解的編排就越感重要<br /><br />尤其是程式的註解有比較大的有比較小的<br /><br />C++ 風格與藝術 這本書提供了一些不錯的編排方式<br /><br />為了以後方便起見  就先打在上面以後複製比較方便XD<br />
-        
-          <p class="article-more-link">
-            <a href="/post/comment-styles/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/comment-styles/" data-id="cial68p990056q4r5xqzkqd11" class="article-share-link">Share</a>
-      
-      
-    </footer>
+    </header>
   </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/code-blocks-sdcc/" class="thumbnail">
+  
+    <span style="background-image:url(http://2.bp.blogspot.com/_hmIU1OIxdtY/R_zEv4Qsk2I/AAAAAAAAAPY/-nfIziHVDzk/s640/install_codeblock_1.PNG
+)" alt="Code::Blocks + SDCC" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-code-blocks-sdcc" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/code-blocks-sdcc/">Code::Blocks + SDCC</a>
+      <a class="archive-article-title" href="/post/code-blocks-sdcc/">Code::Blocks + SDCC</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/code-blocks-sdcc/">
-    <time datetime="2008-04-08T16:00:00.000Z" itemprop="datePublished">2008-04-09, Wed</time>
+    <time datetime="2008-04-08T16:00:00.000Z" itemprop="datePublished">Apr 9</time>
   </a>
 </div>
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
       
-        <p><h2>前言</h2><br />所謂 “工欲善其事必先利其器” ，在 8051 程式開發上，當然也有許多 compiler 選擇，最常見的不外乎 <a href="http://www.keil.com/c51/">Keil C</a> ，但是由於 Keil C 是商業軟體要賣錢的，因此對於學生的我們似乎不是那麼適用，另外一個也是相當知名但非商業軟體的要算是 <a href="http://sdcc.sourceforge.net/">SDCC</a> 了，由於 SDCC 本身只有 compiler 並沒有 IDE ，所以在編譯程式上顯得格外麻煩。前幾天在想 <a href="http://www.bloodshed.net/devcpp.html">Dec-C++</a> 可不可以跟 SDCC 整，網路搜尋似乎是有這種 plugin 的，可是我找不到了，而且 Dev-C++ 也很久沒開發了，因此想說換找另一個目前當紅的 IDE — <a href="http://www.codeblocks.org/">Code::Blocks</a> (以下用 CodeBlocks 稱乎) ，果然 CodeBlocks 有跟 SDCC 整在一起，這樣方便多了，以下將逐步介紹如何利用 CodeBlocks + SDCC 編譯出 8051 可以用的 Hex file。<br />
-        
-          <p class="article-more-link">
-            <a href="/post/code-blocks-sdcc/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/code-blocks-sdcc/" data-id="cial68p9g005cq4r5epmtjl37" class="article-share-link">Share</a>
-      
-      
-    </footer>
+    </header>
   </div>
-  
 </article>
-
-
   
+    </div></section>
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span>
-    </nav>
-  
-</section>
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span>
+      </nav>
+    </section>
       
         <aside id="sidebar">
   

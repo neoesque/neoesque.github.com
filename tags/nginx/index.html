@@ -40,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  
 </head>
 <body>
   <div id="container">
@@ -82,7 +83,6 @@ ga('send', 'pageview');
       </tr>
     </table>
   </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -126,456 +126,232 @@ ga('send', 'pageview');
   </div>
 </aside>
       <section id="main">
-  
-  
+    <section class="archives-wrap">
+    <div class="archive-tag-wrap">
+      <span class="archive-tag">#nginx</span>
+    </div>
+    <div class="archives">
     
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/build-static-link-nginx/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-    
-    <article id="post-build-static-link-nginx" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/build-static-link-nginx/">build static link nginx</a>
+      <a class="archive-article-title" href="/post/build-static-link-nginx/">build static link nginx</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/build-static-link-nginx/">
-    <time datetime="2014-04-09T10:06:43.000Z" itemprop="datePublished">2014-04-09, Wed</time>
+    <time datetime="2014-04-09T10:06:43.000Z" itemprop="datePublished">2014 Apr 9</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <p>因為敝公司系統的環境有 OpenSUSE 跟 SUSE Linux Enterprise Sever SP2/SP3 混合，所以要更新 nginx 時往往要生出三個版本，實在有點搞人，不過其實也可以不要理會 libcrypt 版本不合的訊息啦，可是還是覺得編譯一個萬用的版本比較方便維護。</p>
-<p>nginx 一共需要用到 libpthread, libcrypt, libpcre, libssl, libcrypto, libz, libdl，其中可以另外設定的有 OpenSSL, PCRE, Zlib 這三種，可以提供 libcrypt, libpcre, libssl, libcrypto, libz, libdl，然後 pthread 的就靠系統提供的 static 的 .a 了，所以要生出編譯的指令如下：</p>
-<script src="//gist.github.com/27c86d8318500a239858.js"></script>
-<p>備註：假設 我們自己 Download 的 openssl, pcre, zlib 的原始碼都放在 /usr/src 底下</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/build-static-link-nginx/" data-id="cial68p9s005vq4r5mtjma5wn" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/build-static-link-nginx/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/nginx-ssl-cipher-rc4-safari/" class="thumbnail">
   
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-    
-    <article id="post-nginx-ssl-cipher-rc4-safari" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/nginx-ssl-cipher-rc4-safari/">Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線</a>
+      <a class="archive-article-title" href="/post/nginx-ssl-cipher-rc4-safari/">Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/nginx-ssl-cipher-rc4-safari/">
-    <time datetime="2013-04-27T05:52:58.000Z" itemprop="datePublished">2013-04-27, Sat</time>
+    <time datetime="2013-04-27T05:52:58.000Z" itemprop="datePublished">2013 Apr 27</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Safari … 結果果然不出所料… <code>Unable to establish a secure connection</code> XDDD 搞什麼連 Safari 也連不了，這樣子要 Debug 我就可以自己來了，不然要一直麻煩同事跟我對測不好意思，一開始先用 <code>tcpdump</code> 發現 Server 送 Certificate 給 Client 之後 Client 就自己斷掉 connection ?! WTF 這太沒有頭緒了吧，後來上網搜尋 <code>ssl connection fail safari</code>，結果一路看看看就看到了這個 <a href="https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/965371">HTTPS requests fail on sites which immediately close the connection if TLS 1.1 negotiation is attempted, on Ubuntu 12.04</a>，起因是 OpenSSL 1.0.1 的一個 Bug，版上建議降成 OpenSSL 1.0.0 就可以了，因為我要啟用 nginx 的 spdy 所以一定要用 OpenSSL 1.0.1 才可以，不過秉持實驗的精神只好先解除這個功能，於是我就編譯了 nginx with openssl 1.0.0k，然後結果…靠背還是一樣 Safri 不能連其他都可以！不信邪改用 0.9.8y，結果在一模一樣的設定下這個 Safari 就可以連了 = = (這哪招)，總之越來越神秘，只好先回到 nginx with openssl 1.0.1e，(就是死命要 spdy 就對了 XD)，後來在沒什麼想法的情況下只好打開 nginx 的 debug mode <code>error_log xxxxx debug;</code>，瞧瞧裡面有什麼。</p>
-<p>結果就看到</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">SSL</span> <span class="id">handshake</span> <span class="id">handler</span>: <span class="number">0</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">do_handshake</span>: <span class="number">0</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">get_error</span>: <span class="number">5</span></span><br><span class="line">[<span class="id">info</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="id">peer</span> <span class="id">closed</span> <span class="id">connection</span> <span class="id">in</span> <span class="constant">SSL</span> <span class="id">handshake</span> <span class="id">while</span> <span class="constant">SSL</span> <span class="id">handshaking</span>, <span class="id">client</span>: x.x.x.x, <span class="id">server</span>: <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">443</span>                                  </span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="id">close</span> <span class="id">http</span> <span class="id">connection</span>: <span class="number">14</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">shutdown</span>: <span class="number">1</span></span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/post/nginx-ssl-cipher-rc4-safari/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/" data-id="cial68p6a0030q4r55gbyc7uw" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/" class="thumbnail">
   
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    
-    <article id="post-nginx---using-map-as-a-simple-web-application-firewall" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/nginx---using-map-as-a-simple-web-application-firewall/">用 map 的功能把 nginx 變成簡單的應用程式防火牆</a>
+      <a class="archive-article-title" href="/post/nginx---using-map-as-a-simple-web-application-firewall/">用 map 的功能把 nginx 變成簡單的應用程式防火牆</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/">
-    <time datetime="2013-04-14T03:44:22.000Z" itemprop="datePublished">2013-04-14, Sun</time>
+    <time datetime="2013-04-14T03:44:22.000Z" itemprop="datePublished">2013 Apr 14</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>要幫 nginx 增加安全性的話，大概首推 <a href="http://www.modsecurity.org/projects/modsecurity/nginx/">modsecurity</a> 這個模組了，不過目前他只有支援 nginx 1.2 穩定版，尚未支援 1.3 開發版，基本上具有下列功能</p>
-<ol>
-<li>超過 16000 規則防範下列攻擊<ul>
-<li>SQL injection</li>
-<li>Cross-site Scripting (XSS)</li>
-<li>Local File Include</li>
-<li>Remote File Include</li>
-</ul>
-</li>
-<li>可客製化規則，保護下列的應用<ul>
-<li>WordPress</li>
-<li>cPanel</li>
-<li>osCommerce</li>
-<li>Joomla</li>
-</ul>
-</li>
-<li>包含了 OWASP Core Rule Set</li>
-<li>IP 聲望偵測</li>
-<li>Malware Detection</li>
-</ol>
-<p>不過有一些在更簡單的功能，像是有時候會自己想擋一些 bot，或者要判斷合法的 referrer 才給過之類的就不在這個之內了，這時候我們可以利用 <a href="http://wiki.nginx.org/HttpMapModule">map</a> 來幫我們做簡單的過濾。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/" data-id="cial68p6i003cq4r5wzpfza7v" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/notices-about-nginx-rewrite-rule/" class="thumbnail">
   
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    
-    <article id="post-notices-about-nginx-rewrite-rule" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/notices-about-nginx-rewrite-rule/">nginx 設定檔規則概要</a>
+      <a class="archive-article-title" href="/post/notices-about-nginx-rewrite-rule/">nginx 設定檔規則概要</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/notices-about-nginx-rewrite-rule/">
-    <time datetime="2013-02-26T09:47:44.000Z" itemprop="datePublished">2013-02-26, Tue</time>
+    <time datetime="2013-02-26T09:47:44.000Z" itemprop="datePublished">2013 Feb 26</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>這篇是記錄一些 lighttpd 轉 nginx rewrite rule 的實作與一些注意事項，最後會講一些 squid 轉 nginx 的技巧。</p>
-<p>這裡先講一些跟 nginx rewrite 有關的重點。</p>
-<p>首先 nginx 算是分成 <code>location</code> 跟 <code>rewrite</code>，lighttpd 是有 <code>url.rewrite</code>、<code>url.rewrite-repeat</code> 跟 <code>url.redirect</code>，其中 lighttpd 的 <code>url.rewrite</code> 就是 rewrite once 而 <code>url.rewrite-repeat</code> 則是重複一直 rewrite 的意思，這個則對應到 nginx <code>rewrite</code> 後面接的參數，也就是 <code>break</code> 跟 <code>last</code>，<code>break</code> 就是 rewrite 到此為止不要再跑 <code>rewrite</code> 了，但是 <code>last</code> 就會在重頭跑 rewrite 一次，而且 <code>last</code> 也是 <code>rewrite</code> 這個 directive 的預設值，所以如果你的 rewrite 不小心變成 loop (nginx 預設是 rewrite 10 次後就噴 500)請加上 <code>break</code>。至於 lighttpd 的 <code>url.redirect</code> 其實在 nginx 也是透過 <code>rewrite</code> 完成的，主要是加 <code>redirect</code> 跟 <code>permanent</code> 的參數，分別是回 302 跟 301。<code>rewrite</code> 的用法大約如下：</p>
-        
-          <p class="article-more-link">
-            <a href="/post/notices-about-nginx-rewrite-rule/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/" data-id="cial68p5z002nq4r5fj05ptow" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/nginx-cache-last-step-of-optimization/" class="thumbnail">
   
+    <span style="background-image:url(https://lh3.googleusercontent.com/-eoc0HB1J2F8/UALL9fMD1HI/AAAAAAAAELY/K6ChB-3PwBQ/s582/graph_image.php-2.jpg
+)" alt="nginx cache - last step of optimization" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2012" class="archive-year">2012</a>
-        </div>
-    
-    <article id="post-nginx-cache-last-step-of-optimization" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/nginx-cache-last-step-of-optimization/">nginx cache - last step of optimization</a>
+      <a class="archive-article-title" href="/post/nginx-cache-last-step-of-optimization/">nginx cache - last step of optimization</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/nginx-cache-last-step-of-optimization/">
-    <time datetime="2012-07-15T13:00:00.000Z" itemprop="datePublished">2012-07-15, Sun</time>
+    <time datetime="2012-07-15T13:00:00.000Z" itemprop="datePublished">2012 Jul 15</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx，當然除了複雜的 rewrite rule 要寫，還有就是想盡量榨出 nginx 的效能及所有功能，而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整！</p>
-<p>調整了很多參數之後，說實在的也不知道有什麼可以調整了，查一查網路發現：對呀！ nginx 有 cache 的模組可以用阿，因為這次轉換的機器有 php 的部分，而且大部分是出圖跟利用 php 來做 javascript 模組的合併(就是所謂的 combo loader)，這些幾乎都是做一次就不會在更改結果的，所以就查了一下 nginx 的 fastcgi cache 的設定：</p>
-<p>在 <code>http</code> 的 section 加入</p>
-<pre><code>fastcgi_cache_path /dev/shm/cache/ <span class="variable">levels=</span><span class="number">1</span>:<span class="number">1</span> <span class="variable">keys_zone=</span>PHP:<span class="number">8</span>m <span class="variable">inactive=</span><span class="number">60</span>m <span class="variable">max_size=</span><span class="number">256</span>m;
-</code></pre><p>然後在 <code>location ~ \.php$</code> 的 section 裡面加入<br>
-        
-          <p class="article-more-link">
-            <a href="/post/nginx-cache-last-step-of-optimization/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/" data-id="cial68p6f0039q4r5f4twqeby" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/squid-nginx-http1-dot-1-gzip/" class="thumbnail">
   
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    
-    <article id="post-squid-nginx-http1-dot-1-gzip" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/squid-nginx-http1-dot-1-gzip/">squid nginx http1.1 gzip</a>
+      <a class="archive-article-title" href="/post/squid-nginx-http1-dot-1-gzip/">squid nginx http1.1 gzip</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/squid-nginx-http1-dot-1-gzip/">
-    <time datetime="2012-07-07T11:23:00.000Z" itemprop="datePublished">2012-07-07, Sat</time>
+    <time datetime="2012-07-07T11:23:00.000Z" itemprop="datePublished">2012 Jul 7</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 nginx 中要啟用 gzip 非常簡單，只要在 http 的段落裡面加入</p>
-<pre><code><span class="title">gzip</span>  <span class="built_in">on</span>;
-<span class="title">gzip_http_version</span> <span class="number">1</span>.<span class="number">0</span>;
-<span class="title">gzip_comp_level</span> <span class="number">9</span>;
-<span class="title">gzip_proxied</span> any;
-<span class="title">gzip_min_length</span> <span class="number">1400</span>;
-<span class="title">gzip_types</span> text/css application/x-javascript text/javascript;
-<span class="title">gzip_vary</span> <span class="built_in">on</span>;
-</code></pre><p>但是加了之後，因為我們前端還有先過 squid，結果發現怎麼有的 css 檔就是沒有被 gzip，但是有些 js 檔卻又有，在網路查到原來是還要在 squid.conf 加入</p>
-<pre><code><span class="keyword">cache_vary</span> <span class="literal">on</span>
-<span class="keyword">broken_vary_encoding</span> allow <span class="literal">all</span>
-</code></pre><p>這是因為啟用 gzip 後，HTTP Header 也會加入 <code>Vary:Accept-Encoding</code>，加了上面的設定才可以讓 squid 保存 gzip 的內容，不會很自作聰明的解壓縮在傳給 client 端，不過網路另有一說是因為 squid 不是完整的支援 HTTP1.1 的 protocol，所以在面對 gzip HTTP1.0 跟 HTTP1.1 的版本的時候就會有問題，不過我有在 nginx 加了 <code>gzip_http_version 1.0</code> 了還是一樣有問題，加了那兩行才 ok。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/squid-nginx-http1-dot-1-gzip/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/squid-nginx-http1-dot-1-gzip/" data-id="cial68p50001gq4r5rdx61erw" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/squid-nginx-http1-dot-1-gzip/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/squid/">squid</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/nginx-performance-compare-with-php/" class="thumbnail">
   
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2011" class="archive-year">2011</a>
-        </div>
-    
-    <article id="post-nginx-performance-compare-with-php" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/nginx-performance-compare-with-php/">nginx 的 performance compare with PHP</a>
+      <a class="archive-article-title" href="/post/nginx-performance-compare-with-php/">nginx 的 performance compare with PHP</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/nginx-performance-compare-with-php/">
-    <time datetime="2011-05-09T16:00:00.000Z" itemprop="datePublished">2011-05-10, Tue</time>
+    <time datetime="2011-05-09T16:00:00.000Z" itemprop="datePublished">2011 May 10</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>常言道 V8 超快 XD<br /><br />所以心中一直有疑惑,到底是快到哪裡去 = =<br /><br />node.js 真的有比其他的快嘛?<br /><br />所以做了一點小實驗<br /><br />比較 node.js 跟 php 的 performance<br />
-        
-          <p class="article-more-link">
-            <a href="/post/nginx-performance-compare-with-php/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nginx-performance-compare-with-php/" data-id="cial68p6d0034q4r5y6r3zzd8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
-  
-  
-</section>
+    
+    </div></section>
+    </section>
       
         <aside id="sidebar">
   

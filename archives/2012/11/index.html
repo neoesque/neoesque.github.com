@@ -40,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  
 </head>
 <body>
   <div id="container">
@@ -82,13 +83,6 @@ ga('send', 'pageview');
       </tr>
     </table>
   </div>
-  
-  <div id="header-sub" class="header-sub header-inner">
-    <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">43</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -132,183 +126,109 @@ ga('send', 'pageview');
   </div>
 </aside>
       <section id="main">
-  
-  
+      <div class="archive-year-wrap">
+        <a href="/archives/2012" class="archive-year">2012</a>
+      </div>
+      <section class="archives-wrap">
+        <div class="archives">
     
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/clear-memcachedb-log/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2012" class="archive-year">2012</a>
-        </div>
-    
-    <article id="post-clear-memcachedb-log" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/clear-memcachedb-log/">刪除 memcachedb log 檔</a>
+      <a class="archive-article-title" href="/post/clear-memcachedb-log/">刪除 memcachedb log 檔</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/clear-memcachedb-log/">
-    <time datetime="2012-11-20T02:56:00.000Z" itemprop="datePublished">2012-11-20, Tue</time>
+    <time datetime="2012-11-20T02:56:00.000Z" itemprop="datePublished">Nov 20</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <p><code>memcachedb</code> 用的是 BerkeleyDB 每 10M 會輸出一次 log file，所以久而久之你的資料夾會充滿一堆 <code>log.xxxxxxxxxx</code> x 是數字，依序編列，在正常的 Production 環境大概不出三天就會比原本的 DB 還多了一倍的大小，如果沒有要還原的需求的話是不需要這些 log 的，清除的方法有兩個，一個是手動刪，一個是透過 memcachedb 清。</p>
-<p>手動刪的話基本上就是用 find 就可以了，<code>find /home/memcachedb_data/ -iname &#39;log*&#39; | awk &#39;{if (NR &gt; 50) print}&#39; | xargs -i -t rm -f {}</code>，如果是要透過 memecachedb 清則可以透過 telnet 或 netcat，指令是 <code>db_archive</code>。不過如果每次都要手動下未免也太累了，所以我們可以放在 crontab 裡自動化，要放在 crontab 裡面一定要搭配 netcat ，因爲 telnet 不支援檔案重導符號 &lt; ，只要隨便開一個檔案填入下列內容</p>
-<pre><code>db_archive
-<span class="keyword">quit</span>
-</code></pre><p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netcat localhost 5566 &lt; /root/cmd/memcachedb_rotate_logs</code> 即可每小時自動清一次，其中 5566 就是 memcachedb 開的 port。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/clear-memcachedb-log/" data-id="cial68p9j005dq4r5as9mataz" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/clear-memcachedb-log/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memcachedb/">memcachedb</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/linux-tuning-for-write-heavy-system/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh5.googleusercontent.com/-WhfEogOVTK8/UJkTvM-bZXI/AAAAAAAAEZE/QRegjwaXFC8/s566/graph_image.png
+)" alt="高寫入系統 Linux 效能調教" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-linux-tuning-for-write-heavy-system" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/linux-tuning-for-write-heavy-system/">高寫入系統 Linux 效能調教</a>
+      <a class="archive-article-title" href="/post/linux-tuning-for-write-heavy-system/">高寫入系統 Linux 效能調教</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/linux-tuning-for-write-heavy-system/">
-    <time datetime="2012-11-06T13:26:00.000Z" itemprop="datePublished">2012-11-06, Tue</time>
+    <time datetime="2012-11-06T13:26:00.000Z" itemprop="datePublished">Nov 6</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在我們使用 <a href="http://www.squid-cache.org">squid</a> 的環境裡，常常遇到一個瓶頸，就是面對高 I/O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下(下圖爲 cacti 畫的日圖)：</p>
-<img src="https://lh5.googleusercontent.com/-WhfEogOVTK8/UJkTvM-bZXI/AAAAAAAAEZE/QRegjwaXFC8/s566/graph_image.png">
-        
-          <p class="article-more-link">
-            <a href="/post/linux-tuning-for-write-heavy-system/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/linux-tuning-for-write-heavy-system/" data-id="cial68p6x003oq4r5grbpeai1" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/linux-tuning-for-write-heavy-system/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/squid/">squid</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/colonoscopy/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh5.googleusercontent.com/-C8fBX5g4Gxc/UJe6L8FKWXI/AAAAAAAAEYs/dcLRnSZ2-ms/s640/Photo%252011-05-2012-20.59.45_.jpg
+)" alt="大腸鏡檢查 - 輝雄診所" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-colonoscopy" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/colonoscopy/">大腸鏡檢查 - 輝雄診所</a>
+      <a class="archive-article-title" href="/post/colonoscopy/">大腸鏡檢查 - 輝雄診所</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/colonoscopy/">
-    <time datetime="2012-11-05T12:57:00.000Z" itemprop="datePublished">2012-11-05, Mon</time>
+    <time datetime="2012-11-05T12:57:00.000Z" itemprop="datePublished">Nov 5</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/健康/">健康</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>每年九月一到就是年度的健康檢查，大概大家都是一片哀嚎 XD 不過其實也還好似乎年紀越大紅字越多好像是正常的，其實每年也沒什麼要注意的，我都只注意 GOT, GPT 而已，其他的向來都不會紅字，不過不幸的今年健康檢查竟然紅字出現在一個不可思議的地方…糞便潛血反應，當下的表情已經不是「囧」可以表現的了。既來之則安之，當下想的就是乖乖照大腸鏡，準備被「月工」吧 = =</p>
-        
-          <p class="article-more-link">
-            <a href="/post/colonoscopy/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/colonoscopy/" data-id="cial68p9e0057q4r50nf0bxs4" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/colonoscopy/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Healthy/">Healthy</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
-  
-</section>
+    </div></section>
+  </section>
       
         <aside id="sidebar">
   

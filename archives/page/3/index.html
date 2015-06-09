@@ -40,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  
 </head>
 <body>
   <div id="container">
@@ -82,13 +83,6 @@ ga('send', 'pageview');
       </tr>
     </table>
   </div>
-  
-  <div id="header-sub" class="header-sub header-inner">
-    <div class="outer">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">43</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -132,612 +126,334 @@ ga('send', 'pageview');
   </div>
 </aside>
       <section id="main">
-  
-  
+      <div class="archive-year-wrap">
+        <a href="/archives/2012" class="archive-year">2012</a>
+      </div>
+      <section class="archives-wrap">
+        <div class="archives">
     
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/clear-memcachedb-log/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2012" class="archive-year">2012</a>
-        </div>
-    
-    <article id="post-clear-memcachedb-log" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/clear-memcachedb-log/">刪除 memcachedb log 檔</a>
+      <a class="archive-article-title" href="/post/clear-memcachedb-log/">刪除 memcachedb log 檔</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/clear-memcachedb-log/">
-    <time datetime="2012-11-20T02:56:00.000Z" itemprop="datePublished">2012-11-20, Tue</time>
+    <time datetime="2012-11-20T02:56:00.000Z" itemprop="datePublished">Nov 20</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <p><code>memcachedb</code> 用的是 BerkeleyDB 每 10M 會輸出一次 log file，所以久而久之你的資料夾會充滿一堆 <code>log.xxxxxxxxxx</code> x 是數字，依序編列，在正常的 Production 環境大概不出三天就會比原本的 DB 還多了一倍的大小，如果沒有要還原的需求的話是不需要這些 log 的，清除的方法有兩個，一個是手動刪，一個是透過 memcachedb 清。</p>
-<p>手動刪的話基本上就是用 find 就可以了，<code>find /home/memcachedb_data/ -iname &#39;log*&#39; | awk &#39;{if (NR &gt; 50) print}&#39; | xargs -i -t rm -f {}</code>，如果是要透過 memecachedb 清則可以透過 telnet 或 netcat，指令是 <code>db_archive</code>。不過如果每次都要手動下未免也太累了，所以我們可以放在 crontab 裡自動化，要放在 crontab 裡面一定要搭配 netcat ，因爲 telnet 不支援檔案重導符號 &lt; ，只要隨便開一個檔案填入下列內容</p>
-<pre><code>db_archive
-<span class="keyword">quit</span>
-</code></pre><p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netcat localhost 5566 &lt; /root/cmd/memcachedb_rotate_logs</code> 即可每小時自動清一次，其中 5566 就是 memcachedb 開的 port。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/clear-memcachedb-log/" data-id="cial68p9j005dq4r5as9mataz" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/clear-memcachedb-log/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memcachedb/">memcachedb</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/linux-tuning-for-write-heavy-system/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh5.googleusercontent.com/-WhfEogOVTK8/UJkTvM-bZXI/AAAAAAAAEZE/QRegjwaXFC8/s566/graph_image.png
+)" alt="高寫入系統 Linux 效能調教" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-linux-tuning-for-write-heavy-system" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/linux-tuning-for-write-heavy-system/">高寫入系統 Linux 效能調教</a>
+      <a class="archive-article-title" href="/post/linux-tuning-for-write-heavy-system/">高寫入系統 Linux 效能調教</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/linux-tuning-for-write-heavy-system/">
-    <time datetime="2012-11-06T13:26:00.000Z" itemprop="datePublished">2012-11-06, Tue</time>
+    <time datetime="2012-11-06T13:26:00.000Z" itemprop="datePublished">Nov 6</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在我們使用 <a href="http://www.squid-cache.org">squid</a> 的環境裡，常常遇到一個瓶頸，就是面對高 I/O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下(下圖爲 cacti 畫的日圖)：</p>
-<img src="https://lh5.googleusercontent.com/-WhfEogOVTK8/UJkTvM-bZXI/AAAAAAAAEZE/QRegjwaXFC8/s566/graph_image.png">
-        
-          <p class="article-more-link">
-            <a href="/post/linux-tuning-for-write-heavy-system/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/linux-tuning-for-write-heavy-system/" data-id="cial68p6x003oq4r5grbpeai1" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/linux-tuning-for-write-heavy-system/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/squid/">squid</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/colonoscopy/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh5.googleusercontent.com/-C8fBX5g4Gxc/UJe6L8FKWXI/AAAAAAAAEYs/dcLRnSZ2-ms/s640/Photo%252011-05-2012-20.59.45_.jpg
+)" alt="大腸鏡檢查 - 輝雄診所" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-colonoscopy" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/colonoscopy/">大腸鏡檢查 - 輝雄診所</a>
+      <a class="archive-article-title" href="/post/colonoscopy/">大腸鏡檢查 - 輝雄診所</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/colonoscopy/">
-    <time datetime="2012-11-05T12:57:00.000Z" itemprop="datePublished">2012-11-05, Mon</time>
+    <time datetime="2012-11-05T12:57:00.000Z" itemprop="datePublished">Nov 5</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/健康/">健康</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>每年九月一到就是年度的健康檢查，大概大家都是一片哀嚎 XD 不過其實也還好似乎年紀越大紅字越多好像是正常的，其實每年也沒什麼要注意的，我都只注意 GOT, GPT 而已，其他的向來都不會紅字，不過不幸的今年健康檢查竟然紅字出現在一個不可思議的地方…糞便潛血反應，當下的表情已經不是「囧」可以表現的了。既來之則安之，當下想的就是乖乖照大腸鏡，準備被「月工」吧 = =</p>
-        
-          <p class="article-more-link">
-            <a href="/post/colonoscopy/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/colonoscopy/" data-id="cial68p9e0057q4r50nf0bxs4" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/colonoscopy/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Healthy/">Healthy</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/popclip-upgrading-to-mountain-lion/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh3.googleusercontent.com/-jdmTenw-Wxk/UB_C4uep6MI/AAAAAAAAEMA/kd3wpY9V4q0/s0/%2525E8%25259E%2525A2%2525E5%2525B9%252595%2525E5%2525BF%2525AB%2525E7%252585%2525A7%2525202012-08-06%252520%2525E4%2525B8%25258B%2525E5%25258D%2525889.07.49.png
+)" alt="popclip upgrading to Mountain Lion" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-popclip-upgrading-to-mountain-lion" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/popclip-upgrading-to-mountain-lion/">popclip upgrading to Mountain Lion</a>
+      <a class="archive-article-title" href="/post/popclip-upgrading-to-mountain-lion/">popclip upgrading to Mountain Lion</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/popclip-upgrading-to-mountain-lion/">
-    <time datetime="2012-08-06T12:55:00.000Z" itemprop="datePublished">2012-08-06, Mon</time>
+    <time datetime="2012-08-06T12:55:00.000Z" itemprop="datePublished">Aug 6</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近把 MacBook Pro 從 OS X 10.7 (aka. Lion) 升級成 OS X 10.8 (aka. Mountain Lion) 之後，大部分的軟體都還蠻無痛升級的，其中 PopClip 在升級之後就開始秀逗秀逗，在 Safari 裡面有時 Work 有時不 Work (就是不太靈敏-偶爾會出現彈出選項，偶爾又沒有)，官方有一個解決方法是把原本的設定刪除掉讓她重新產生即可。步驟如下</p>
-        
-          <p class="article-more-link">
-            <a href="/post/popclip-upgrading-to-mountain-lion/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/popclip-upgrading-to-mountain-lion/" data-id="cial68p5k0021q4r5eaec0z9o" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/popclip-upgrading-to-mountain-lion/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/nginx-cache-last-step-of-optimization/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh3.googleusercontent.com/-eoc0HB1J2F8/UALL9fMD1HI/AAAAAAAAELY/K6ChB-3PwBQ/s582/graph_image.php-2.jpg
+)" alt="nginx cache - last step of optimization" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-nginx-cache-last-step-of-optimization" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/nginx-cache-last-step-of-optimization/">nginx cache - last step of optimization</a>
+      <a class="archive-article-title" href="/post/nginx-cache-last-step-of-optimization/">nginx cache - last step of optimization</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/nginx-cache-last-step-of-optimization/">
-    <time datetime="2012-07-15T13:00:00.000Z" itemprop="datePublished">2012-07-15, Sun</time>
+    <time datetime="2012-07-15T13:00:00.000Z" itemprop="datePublished">Jul 15</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx，當然除了複雜的 rewrite rule 要寫，還有就是想盡量榨出 nginx 的效能及所有功能，而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整！</p>
-<p>調整了很多參數之後，說實在的也不知道有什麼可以調整了，查一查網路發現：對呀！ nginx 有 cache 的模組可以用阿，因為這次轉換的機器有 php 的部分，而且大部分是出圖跟利用 php 來做 javascript 模組的合併(就是所謂的 combo loader)，這些幾乎都是做一次就不會在更改結果的，所以就查了一下 nginx 的 fastcgi cache 的設定：</p>
-<p>在 <code>http</code> 的 section 加入</p>
-<pre><code>fastcgi_cache_path /dev/shm/cache/ <span class="variable">levels=</span><span class="number">1</span>:<span class="number">1</span> <span class="variable">keys_zone=</span>PHP:<span class="number">8</span>m <span class="variable">inactive=</span><span class="number">60</span>m <span class="variable">max_size=</span><span class="number">256</span>m;
-</code></pre><p>然後在 <code>location ~ \.php$</code> 的 section 裡面加入<br>
-        
-          <p class="article-more-link">
-            <a href="/post/nginx-cache-last-step-of-optimization/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/" data-id="cial68p6f0039q4r5f4twqeby" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/squid-nginx-http1-dot-1-gzip/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    <article id="post-squid-nginx-http1-dot-1-gzip" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/squid-nginx-http1-dot-1-gzip/">squid nginx http1.1 gzip</a>
+      <a class="archive-article-title" href="/post/squid-nginx-http1-dot-1-gzip/">squid nginx http1.1 gzip</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/squid-nginx-http1-dot-1-gzip/">
-    <time datetime="2012-07-07T11:23:00.000Z" itemprop="datePublished">2012-07-07, Sat</time>
+    <time datetime="2012-07-07T11:23:00.000Z" itemprop="datePublished">Jul 7</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 nginx 中要啟用 gzip 非常簡單，只要在 http 的段落裡面加入</p>
-<pre><code><span class="title">gzip</span>  <span class="built_in">on</span>;
-<span class="title">gzip_http_version</span> <span class="number">1</span>.<span class="number">0</span>;
-<span class="title">gzip_comp_level</span> <span class="number">9</span>;
-<span class="title">gzip_proxied</span> any;
-<span class="title">gzip_min_length</span> <span class="number">1400</span>;
-<span class="title">gzip_types</span> text/css application/x-javascript text/javascript;
-<span class="title">gzip_vary</span> <span class="built_in">on</span>;
-</code></pre><p>但是加了之後，因為我們前端還有先過 squid，結果發現怎麼有的 css 檔就是沒有被 gzip，但是有些 js 檔卻又有，在網路查到原來是還要在 squid.conf 加入</p>
-<pre><code><span class="keyword">cache_vary</span> <span class="literal">on</span>
-<span class="keyword">broken_vary_encoding</span> allow <span class="literal">all</span>
-</code></pre><p>這是因為啟用 gzip 後，HTTP Header 也會加入 <code>Vary:Accept-Encoding</code>，加了上面的設定才可以讓 squid 保存 gzip 的內容，不會很自作聰明的解壓縮在傳給 client 端，不過網路另有一說是因為 squid 不是完整的支援 HTTP1.1 的 protocol，所以在面對 gzip HTTP1.0 跟 HTTP1.1 的版本的時候就會有問題，不過我有在 nginx 加了 <code>gzip_http_version 1.0</code> 了還是一樣有問題，加了那兩行才 ok。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/squid-nginx-http1-dot-1-gzip/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/squid-nginx-http1-dot-1-gzip/" data-id="cial68p50001gq4r5rdx61erw" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/squid-nginx-http1-dot-1-gzip/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/squid/">squid</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/ifconfig-dot-me-the-web-ifconfig/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh3.googleusercontent.com/-5BSm9ZrTOco/T-lyYRUgngI/AAAAAAAAEHM/eG84iuti-UI/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-06-26%2520%25E4%25B8%258B%25E5%258D%25884.25.56.png
+)" alt="ifconfig.me - the web ifconfig" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-ifconfig-dot-me-the-web-ifconfig" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/ifconfig-dot-me-the-web-ifconfig/">ifconfig.me - the web ifconfig</a>
+      <a class="archive-article-title" href="/post/ifconfig-dot-me-the-web-ifconfig/">ifconfig.me - the web ifconfig</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/ifconfig-dot-me-the-web-ifconfig/">
-    <time datetime="2012-06-26T07:57:00.000Z" itemprop="datePublished">2012-06-26, Tue</time>
+    <time datetime="2012-06-26T07:57:00.000Z" itemprop="datePublished">Jun 26</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <p>前幾天公司同事在問我們的機器出去的 public ip 是多少，突然發現原來大家好像都不知道有一個方便的網站可以查，對於會 Unix 的來說網址是在好記不過了，就是跟 Unix 看 ip 的 <code>ifconfig</code> 同樣的名稱 <em><a href="http://ifconfig.me" target="_blank" rel="external">http://ifconfig.me</a></em></p>
-<p><a href="http://ifconfig.me" target="_blank" rel="external">ifconfig.me</a> 可以取得你現在 ip 資訊的網站，不過他跟一般顯示 ip 的網站不同的是他功能比較強！</p>
-<p>除了會顯示一些基本的資訊</p>
-<p><img src="https://lh3.googleusercontent.com/-5BSm9ZrTOco/T-lyYRUgngI/AAAAAAAAEHM/eG84iuti-UI/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-06-26%2520%25E4%25B8%258B%25E5%258D%25884.25.56.png" alt=""></p>
-<p>他還支援了不同的網址只顯示需要的部分，比方說我們可以在 Terminal 打 <code>curl ifconfig.me/ip</code> 就會得到 <code>61.219.37.20</code> ，又或者 <code>curl ifconfig.me/port</code> 就可以知道本地端出去的 port <code>51081</code>，如果有經過 Proxy 的話 <code>curl ifconfig.me/forwarded</code> 還會顯示 <code>61.219.66.125, 172.30.4.166, 61.219.37.20</code></p>
-<p>甚至更有趣的是他也支援 XML / json ，網址分別是 <em><a href="http://ifconfig.me/all.xml" target="_blank" rel="external">http://ifconfig.me/all.xml</a></em> 與 <em><a href="http://ifconfig.me/all.json" target="_blank" rel="external">http://ifconfig.me/all.json</a></em> 詳細的內容可以看 <a href="http://ifconfig.me" target="_blank" rel="external">ifconfig.me</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/ifconfig-dot-me-the-web-ifconfig/" data-id="cial68p83004cq4r5wsha5igm" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/ifconfig-dot-me-the-web-ifconfig/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/fabric-machine-manager/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    <article id="post-fabric-machine-manager" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/fabric-machine-manager/">fabric - Machine Manager</a>
+      <a class="archive-article-title" href="/post/fabric-machine-manager/">fabric - Machine Manager</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/fabric-machine-manager/">
-    <time datetime="2012-04-30T02:13:00.000Z" itemprop="datePublished">2012-04-30, Mon</time>
+    <time datetime="2012-04-30T02:13:00.000Z" itemprop="datePublished">Apr 30</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Python <a href="http://docs.fabfile.org">Fabirc</a> 是一個類似 Ruby capistrano 的自動化部署跟系統管理工具，安裝指令是 <code>pip install -U fabric</code> 或者 <code>easy_install fabric</code> 都可以。fabric 的使用也非常的簡單，只要寫好一個檔名是 <em>fabfile.py</em> 的檔案，在同一個資料夾底下打 <code>fab --list</code> 就可以看到有哪些參數可以下(就是 fabfile.py 裡面的 function)。</p>
-<p>以下是一個簡單的範例 template</p>
-        
-          <p class="article-more-link">
-            <a href="/post/fabric-machine-manager/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/fabric-machine-manager/" data-id="cial68p8c004jq4r5w9rf9ik7" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/fabric-machine-manager/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/use-vghetto-manage-vmware-vcenter/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    <article id="post-use-vghetto-manage-vmware-vcenter" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/use-vghetto-manage-vmware-vcenter/">使用 vGhetto 管理 VMware vCenter</a>
+      <a class="archive-article-title" href="/post/use-vghetto-manage-vmware-vcenter/">使用 vGhetto 管理 VMware vCenter</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/use-vghetto-manage-vmware-vcenter/">
-    <time datetime="2012-04-21T13:57:00.000Z" itemprop="datePublished">2012-04-21, Sat</time>
+    <time datetime="2012-04-21T13:57:00.000Z" itemprop="datePublished">Apr 21</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://communities.vmware.com/docs/DOC-9852">vGhetto</a> 是一個由社群主導的專案，主要的目的當然是簡化管理 VMware 的工作，不用使用最原始的 <code>vmrun</code> 這個指令或者 Perl SDK 做管理，整個專案放在 SourceForge，到 <a href="http://vghetto.sourceforge.net">專案頁面</a> 下載，抓下來的目錄長這樣 (或者直接用 <code>svn co https://vghetto.svn.sourceforge.net/svnroot/vghetto vghetto</code> 也可以)</p>
-<pre><code>.
-./INSTALL
-./TODO
-.<span class="regexp">/bitmaps/</span>
-.<span class="regexp">/build/</span>
-.<span class="regexp">/demo/</span>
-.<span class="regexp">/installers/</span>
-.<span class="regexp">/other/</span>
-.<span class="regexp">/scripts/</span>
-./vGhetto.pl*
-.<span class="regexp">/wbin/</span>
-</code></pre><p>其中的 scripts 資料夾就是放置管理用 script 的地方，裡面是一堆 .pl 的 perl 檔案
-        
-          <p class="article-more-link">
-            <a href="/post/use-vghetto-manage-vmware-vcenter/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/use-vghetto-manage-vmware-vcenter/" data-id="cial68p4c000kq4r5dkea5y08" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/use-vghetto-manage-vmware-vcenter/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gentoo/">Gentoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VMware/">VMware</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/postfix-spf-domainkeys-tinydns/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh5.googleusercontent.com/-A6MtopadkXk/T47U_sZ8eqI/AAAAAAAAD7Y/TdkEhjis8jE/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-18%2520%25E4%25B8%258B%25E5%258D%258810.51.09.png
+)" alt="設定 SPF 跟 DomainKeys 在 postfix 和 tinydns" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    <article id="post-postfix-spf-domainkeys-tinydns" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/postfix-spf-domainkeys-tinydns/">設定 SPF 跟 DomainKeys 在 postfix 和 tinydns</a>
+      <a class="archive-article-title" href="/post/postfix-spf-domainkeys-tinydns/">設定 SPF 跟 DomainKeys 在 postfix 和 tinydns</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/postfix-spf-domainkeys-tinydns/">
-    <time datetime="2012-04-18T12:22:00.000Z" itemprop="datePublished">2012-04-18, Wed</time>
+    <time datetime="2012-04-18T12:22:00.000Z" itemprop="datePublished">Apr 18</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Will be replaced with the ToC<br>{:toc}</li>
-</ul>
-<p>部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 <a href="https://support.google.com/mail/bin/answer.py?hl=zh-TW&amp;answer=180707">電子郵件驗證</a> 中說的，要可以被 <a href="http://support.google.com/mail/bin/answer.py?hl=zh-Hant&amp;answer=81126#authentication">驗證和識別</a>，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 DomainKeys，不過有了 DKIM 後原本單純 DomainKeys 就被廢棄了(當然目前還是可以用的)。我們單位用的 mail server 是 Postfix 而 DNS 則是 tinydns (djbdns)</p>
-<h3 id="設定_SPF">設定 SPF</h3><p>SPF 只是簡單的 DNS TXT 發佈而已，可以利用 <a href="http://spfwizard.com">easySPF</a> 製作。於是在 tinydns 的設定檔加入下列資訊：</p>
-<pre><code><span class="attribute">'foo</span>.bar:v=spf1 ip4\<span class="number">07211.22</span><span class="number">.33</span><span class="number">.44</span>/<span class="number">32</span> ~<span class="keyword">all</span>:<span class="number">600</span>
-</code></pre><p>這裡用 <code>foo.bar</code> 當作 domain，而 <code>11.22.33.44</code> 則是 Server 寄信出來的 public ip，這樣子就完成啦~</p>
-<p>我們用 <code>dig TXT foo.bar @8.8.8.8 +tcp</code> 可以觀察到</p>
-<pre><code>;; ANSWER <span class="keyword">SECTION</span>:
-foo.bar.        <span class="number">600</span>     <span class="keyword">IN</span>    TXT    <span class="string">"v=spf1 ip4:11.22.33.44/32 ~all"</span>
-</code></pre><h3 id="設定_DKIM">設定 DKIM</h3>
-        
-          <p class="article-more-link">
-            <a href="/post/postfix-spf-domainkeys-tinydns/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/" data-id="cial68p5f001yq4r5lyhsjq9r" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
   
+    </div></section>
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/4/">Next &raquo;</a>
-    </nav>
-  
-</section>
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/4/">Next &raquo;</a>
+      </nav>
+    </section>
       
         <aside id="sidebar">
   

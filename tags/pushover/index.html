@@ -40,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  
 </head>
 <body>
   <div id="container">
@@ -82,7 +83,6 @@ ga('send', 'pageview');
       </tr>
     </table>
   </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -126,74 +126,46 @@ ga('send', 'pageview');
   </div>
 </aside>
       <section id="main">
-  
-  
+    <section class="archives-wrap">
+    <div class="archive-tag-wrap">
+      <span class="archive-tag">#pushover</span>
+    </div>
+    <div class="archives">
     
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/ingress-email-attack-notify-to-Pushover/" class="thumbnail">
+  
+    <span style="background-image:url(https://lh3.googleusercontent.com/YoX0bNlxU8WQ43p7BkpK8slGEbnDZjY6gOv1DDOfqdU=w800-no
+)" alt="用 Pushover 收 Ingress 成就點攻擊通知" class="thumbnail-image"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-    
-    <article id="post-ingress-email-attack-notify-to-Pushover" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/ingress-email-attack-notify-to-Pushover/">用 Pushover 收 Ingress 成就點攻擊通知</a>
+      <a class="archive-article-title" href="/post/ingress-email-attack-notify-to-Pushover/">用 Pushover 收 Ingress 成就點攻擊通知</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/ingress-email-attack-notify-to-Pushover/">
-    <time datetime="2015-01-07T05:53:43.000Z" itemprop="datePublished">2015-01-07, Wed</time>
+    <time datetime="2015-01-07T05:53:43.000Z" itemprop="datePublished">2015 Jan 7</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/遊戲/">遊戲</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.ingress.com/">Ingress</a> 是 Google 在 2012 推出的虛擬實境(Virtual Reality)的遊戲，基本上就是一個打打殺殺的遊戲，遊戲裡面分兩個陣營 Resistance (藍軍)跟 Enlightened (綠軍)，在台灣好死不死剛好跟兩大政治陣營顏色一樣，看起來全世界是藍大於綠，但是台灣台北剛好綠大於藍，不知道是不是大家選的顏色剛好也有政治傾向(笑)，不過遊戲歸遊戲，其實裡面的人倒是不大會聊政治，遊戲內有自己的通訊功能，但是很爛，所以大家還是會用第三方軟體溝通，通常大家都直接用 Hangout，不過也有少部份地區聽說是用 Line 之類的。</p>
-<p>這遊戲有內建的被攻擊通知，可是他完全不能過濾你想收哪些通知，反正腳被攻擊或者 MOD 掉了就是直接無差別通知，不過有時候只想收特定 Portal 的攻擊通知，這時候該怎麼辦呢？原本我都用 IFTTT 這個 <a href="https://ifttt.com/recipes/203777-notify-when-guardian-portal-is-under-attack-ingress">Notify when guardian portal is under attack #ingress
-</a> 不過類似這種的有個缺點就是 IFTTT 是類似 polling 的，所以他是固定時間去問一次 Gmail，有時候我收到通知的時候都已經半個小時後，點都被打掉了 XD，搞屁，實在不夠及時，昨天在研究 Pushover 時突然發現他有 <a href="http://updates.pushover.net/post/24408806716/e-mail-to-pushover-gateway">E-mail gateway</a>，配合 Gmail 建立 Filter 時就可以 Forward E-mail，根本就是及時的 Push。</p>
-<p>實驗了一下發現效果不錯，至少比原本的 IFTTT 及時太多了，雖然還是有腳會被打掉之類的，不過如果對方真的要打其實也阻止不了，通常八炮連發根本擋不住，但是還是具有一些拖延對方效果就是了，而且也可以當成整理特殊點的攻擊 Log。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/ingress-email-attack-notify-to-Pushover/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/ingress-email-attack-notify-to-Pushover/" data-id="cial68p7y0045q4r5znzmnssr" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/ingress-email-attack-notify-to-Pushover/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ingress/">ingress</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pushover/">pushover</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
-  
-  
-</section>
+    
+    </div></section>
+    </section>
       
         <aside id="sidebar">
   

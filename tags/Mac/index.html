@@ -40,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  
 </head>
 <body>
   <div id="container">
@@ -82,7 +83,6 @@ ga('send', 'pageview');
       </tr>
     </table>
   </div>
-  
 </header>
     <div class="outer">
       <aside id="profile">
@@ -126,358 +126,203 @@ ga('send', 'pageview');
   </div>
 </aside>
       <section id="main">
-  
-  
+    <section class="archives-wrap">
+    <div class="archive-tag-wrap">
+      <span class="archive-tag">#Mac</span>
+    </div>
+    <div class="archives">
     
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
+    <div class="archive-article-thumbnail">
+      <a href="/post/nginx-ssl-cipher-rc4-safari/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-    
-    <article id="post-nginx-ssl-cipher-rc4-safari" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/nginx-ssl-cipher-rc4-safari/">Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線</a>
+      <a class="archive-article-title" href="/post/nginx-ssl-cipher-rc4-safari/">Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/nginx-ssl-cipher-rc4-safari/">
-    <time datetime="2013-04-27T05:52:58.000Z" itemprop="datePublished">2013-04-27, Sat</time>
+    <time datetime="2013-04-27T05:52:58.000Z" itemprop="datePublished">2013 Apr 27</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Safari … 結果果然不出所料… <code>Unable to establish a secure connection</code> XDDD 搞什麼連 Safari 也連不了，這樣子要 Debug 我就可以自己來了，不然要一直麻煩同事跟我對測不好意思，一開始先用 <code>tcpdump</code> 發現 Server 送 Certificate 給 Client 之後 Client 就自己斷掉 connection ?! WTF 這太沒有頭緒了吧，後來上網搜尋 <code>ssl connection fail safari</code>，結果一路看看看就看到了這個 <a href="https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/965371">HTTPS requests fail on sites which immediately close the connection if TLS 1.1 negotiation is attempted, on Ubuntu 12.04</a>，起因是 OpenSSL 1.0.1 的一個 Bug，版上建議降成 OpenSSL 1.0.0 就可以了，因為我要啟用 nginx 的 spdy 所以一定要用 OpenSSL 1.0.1 才可以，不過秉持實驗的精神只好先解除這個功能，於是我就編譯了 nginx with openssl 1.0.0k，然後結果…靠背還是一樣 Safri 不能連其他都可以！不信邪改用 0.9.8y，結果在一模一樣的設定下這個 Safari 就可以連了 = = (這哪招)，總之越來越神秘，只好先回到 nginx with openssl 1.0.1e，(就是死命要 spdy 就對了 XD)，後來在沒什麼想法的情況下只好打開 nginx 的 debug mode <code>error_log xxxxx debug;</code>，瞧瞧裡面有什麼。</p>
-<p>結果就看到</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">SSL</span> <span class="id">handshake</span> <span class="id">handler</span>: <span class="number">0</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">do_handshake</span>: <span class="number">0</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">get_error</span>: <span class="number">5</span></span><br><span class="line">[<span class="id">info</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="id">peer</span> <span class="id">closed</span> <span class="id">connection</span> <span class="id">in</span> <span class="constant">SSL</span> <span class="id">handshake</span> <span class="id">while</span> <span class="constant">SSL</span> <span class="id">handshaking</span>, <span class="id">client</span>: x.x.x.x, <span class="id">server</span>: <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">443</span>                                  </span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="id">close</span> <span class="id">http</span> <span class="id">connection</span>: <span class="number">14</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">shutdown</span>: <span class="number">1</span></span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/post/nginx-ssl-cipher-rc4-safari/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/" data-id="cial68p6a0030q4r55gbyc7uw" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/popclip-upgrading-to-mountain-lion/" class="thumbnail">
   
+    <span style="background-image:url(https://lh3.googleusercontent.com/-jdmTenw-Wxk/UB_C4uep6MI/AAAAAAAAEMA/kd3wpY9V4q0/s0/%2525E8%25259E%2525A2%2525E5%2525B9%252595%2525E5%2525BF%2525AB%2525E7%252585%2525A7%2525202012-08-06%252520%2525E4%2525B8%25258B%2525E5%25258D%2525889.07.49.png
+)" alt="popclip upgrading to Mountain Lion" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2012" class="archive-year">2012</a>
-        </div>
-    
-    <article id="post-popclip-upgrading-to-mountain-lion" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/popclip-upgrading-to-mountain-lion/">popclip upgrading to Mountain Lion</a>
+      <a class="archive-article-title" href="/post/popclip-upgrading-to-mountain-lion/">popclip upgrading to Mountain Lion</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/popclip-upgrading-to-mountain-lion/">
-    <time datetime="2012-08-06T12:55:00.000Z" itemprop="datePublished">2012-08-06, Mon</time>
+    <time datetime="2012-08-06T12:55:00.000Z" itemprop="datePublished">2012 Aug 6</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近把 MacBook Pro 從 OS X 10.7 (aka. Lion) 升級成 OS X 10.8 (aka. Mountain Lion) 之後，大部分的軟體都還蠻無痛升級的，其中 PopClip 在升級之後就開始秀逗秀逗，在 Safari 裡面有時 Work 有時不 Work (就是不太靈敏-偶爾會出現彈出選項，偶爾又沒有)，官方有一個解決方法是把原本的設定刪除掉讓她重新產生即可。步驟如下</p>
-        
-          <p class="article-more-link">
-            <a href="/post/popclip-upgrading-to-mountain-lion/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/popclip-upgrading-to-mountain-lion/" data-id="cial68p5k0021q4r5eaec0z9o" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/popclip-upgrading-to-mountain-lion/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/solve-os-x-lion-log-sanboxd-deny-messages/" class="thumbnail">
   
+    <span style="background-image:url(http://2.bp.blogspot.com/-KgSJHGoTXfM/TudwWeh_3lI/AAAAAAAAC7A/nnW32mD6ktw/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-12-13%2B%25E4%25B8%258B%25E5%258D%25889.59.03.jpg
+)" alt="解決 OS X Lion 中 Log 一直出現 sanboxd deny 的訊息" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2011" class="archive-year">2011</a>
-        </div>
-    
-    <article id="post-solve-os-x-lion-log-sanboxd-deny-messages" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/solve-os-x-lion-log-sanboxd-deny-messages/">解決 OS X Lion 中 Log 一直出現 sanboxd deny 的訊息</a>
+      <a class="archive-article-title" href="/post/solve-os-x-lion-log-sanboxd-deny-messages/">解決 OS X Lion 中 Log 一直出現 sanboxd deny 的訊息</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/solve-os-x-lion-log-sanboxd-deny-messages/">
-    <time datetime="2011-12-12T16:00:00.000Z" itemprop="datePublished">2011-12-13, Tue</time>
+    <time datetime="2011-12-12T16:00:00.000Z" itemprop="datePublished">2011 Dec 13</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>雖然不是什麼大不了的事情<br /><br />不過看了總是很不順眼 XD<br /><br />就是每次開 Console Log 都會噴一堆<br /><br /><pre>sandboxd: ([]) WebProcess() deny file-read-data /Library/Caches/com.nvidia.OpenGL<br />sandboxd: ([]) WebProcess() deny file-write-create /Library/Caches/com.nvidia.OpenGL/<br /></pre><br />之類的 deny 訊息，如下圖<br /><br /><div class="separator" style="clear: both; text-align: center;"><img border="0" height="247" width="640" src="http://2.bp.blogspot.com/-KgSJHGoTXfM/TudwWeh_3lI/AAAAAAAAC7A/nnW32mD6ktw/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-12-13%2B%25E4%25B8%258B%25E5%258D%25889.59.03.jpg" /></div><br />這看了很讓人不順眼阿！<br />
-        
-          <p class="article-more-link">
-            <a href="/post/solve-os-x-lion-log-sanboxd-deny-messages/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/solve-os-x-lion-log-sanboxd-deny-messages/" data-id="cial68p54001mq4r5mukaoh4u" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/os-x-application-i18n/" class="thumbnail">
   
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    
-    <article id="post-os-x-application-i18n" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/os-x-application-i18n/">OS X 路徑多語系</a>
+      <a class="archive-article-title" href="/post/os-x-application-i18n/">OS X 路徑多語系</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/os-x-application-i18n/">
-    <time datetime="2011-09-13T16:00:00.000Z" itemprop="datePublished">2011-09-14, Wed</time>
+    <time datetime="2011-09-13T16:00:00.000Z" itemprop="datePublished">2011 Sep 14</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><br />剛剛不小心砍掉家目錄的「應用程式」資料夾<br /><br />結果去 Finder 重建 Applications 目錄後 Finder 還是顯示 Applications 而不是「應用程式」<br /><br />覺得很奇怪，查了一下發現是 OS X 的多語系在搞怪<br /><br />OS X 的 Finder 有一個功能就是可以配合系統的語系顯示目錄的名稱<br /><br />系統面上 OS X 提供了一層抽象層，區隔出「真正的檔案名稱」與「Finder 顯示的名稱」<br /><br />比方說 Applications 在 Finder 會顯示成「應用程式」或者 Library 會顯示成 「資源庫」<br /><br />以下是在 OS X 做多語系的方法<br />
-        
-          <p class="article-more-link">
-            <a href="/post/os-x-application-i18n/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/os-x-application-i18n/" data-id="cial68p5n0028q4r53kwblub9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/i18n/">i18n</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/mac-os-x-dmg-convert-to-iso/" class="thumbnail">
   
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+    </div>
     
-    
-    <article id="post-mac-os-x-dmg-convert-to-iso" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <header class="archive-article-header">
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/mac-os-x-dmg-convert-to-iso/">在 Mac OS X 轉 dmg 成 iso 檔</a>
+      <a class="archive-article-title" href="/post/mac-os-x-dmg-convert-to-iso/">在 Mac OS X 轉 dmg 成 iso 檔</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/mac-os-x-dmg-convert-to-iso/">
-    <time datetime="2011-04-14T16:00:00.000Z" itemprop="datePublished">2011-04-15, Fri</time>
+    <time datetime="2011-04-14T16:00:00.000Z" itemprop="datePublished">2011 Apr 15</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>dmg (Disk iMaGe) 可以說是 Mac OS X 最常見的磁碟影像檔<br /><br />但是在其他的作業系統似乎 iso 更常見<br /><br />而 Mac 本身就提供了 iso 轉檔的功能 指令如下
-        
-          <p class="article-more-link">
-            <a href="/post/mac-os-x-dmg-convert-to-iso/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/mac-os-x-dmg-convert-to-iso/" data-id="cial68p6r003lq4r5j0l5f9s7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    
+    <div class="archive-article-thumbnail">
+      <a href="/post/Mac-OS-all-applications-using-webkit-core/" class="thumbnail">
   
+    <span style="background-image:url(http://grab.by/10oy
+)" alt="讓應用程式都使用 Webkit Core" class="thumbnail-image"></span>
+  
+</a>
+    </div>
     
-    
+    <header class="archive-article-header">
       
-        <div class="archive-year-wrap">
-          <i class="fa fa-calendar"></i>
-          <a href="/archives/2009" class="archive-year">2009</a>
-        </div>
-    
-    <article id="post-Mac-OS-all-applications-using-webkit-core" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post/Mac-OS-all-applications-using-webkit-core/">讓應用程式都使用 Webkit Core</a>
+      <a class="archive-article-title" href="/post/Mac-OS-all-applications-using-webkit-core/">讓應用程式都使用 Webkit Core</a>
     </h1>
   
 
-        <div class="article-meta">
-          <div class="article-date">
+      
+        <div class="archive-article-date">
   <i class="fa fa-calendar"></i>
   <a href="/post/Mac-OS-all-applications-using-webkit-core/">
-    <time datetime="2009-12-05T16:00:00.000Z" itemprop="datePublished">2009-12-06, Sun</time>
+    <time datetime="2009-12-05T16:00:00.000Z" itemprop="datePublished">2009 Dec 6</time>
   </a>
 </div>
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>要讓比方說 Safari, MailPlane 或 CSSEdit 吃 Webkit 的核心的話其中一種方法是從終端機打開<br />如以下設定<br /><br />export DYLD_FRAMEWORK_PATH=/Applications/WebKit.app/Contents/Frameworks/10.6/<br />export WEBKIT_UNSET_DYLD_FRAMEWORK_PATH=YES<br />open /Applications/blahblah.app<br /><br />即可<br />可是要從終端機太麻煩了對吧~<br />Mac OS X 提供更方便的方式讓全系統都套用<br />
-        
-          <p class="article-more-link">
-            <a href="/post/Mac-OS-all-applications-using-webkit-core/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/Mac-OS-all-applications-using-webkit-core/" data-id="cial68pa7006kq4r5i5cw278d" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
-
-    </footer>
-  </div>
-  
 </article>
-
-
-  
-  
-</section>
+    
+    </div></section>
+    </section>
       
         <aside id="sidebar">
   
