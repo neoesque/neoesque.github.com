@@ -1549,14 +1549,14 @@ ol.toc {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #34383d;
+  background: #fff;
   margin: 0 -20px;
   padding: 15px 20px;
   border-style: solid;
   border-color: #eceff2;
   border-width: 1px 0;
   overflow: auto;
-  color: #ccc;
+  color: #4d4d4c;
   line-height: 25.6px;
 }
 .article-entry .highlight .gutter pre,
@@ -1593,7 +1593,7 @@ ol.toc {
 }
 .article-entry .highlight figcaption {
   font-size: 0.85em;
-  color: #999;
+  color: #8e908c;
   line-height: 1em;
   margin-bottom: 1em;
 }
@@ -1620,7 +1620,7 @@ ol.toc {
   border-style: solid;
   border-color: #eceff2;
   border-width: 1px 0;
-  background: #34383d;
+  background: #fff;
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -1654,8 +1654,8 @@ ol.toc {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #34383d;
-  color: #999;
+  background: #fff;
+  color: #8e908c;
   font: 0.85em "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
   text-shadow: 0 0;
   padding: 0;
@@ -1674,7 +1674,7 @@ pre .title,
 pre .template_comment,
 pre .header,
 pre .javadoc {
-  color: #999;
+  color: #8e908c;
 }
 pre .variable,
 pre .attribute,
@@ -1700,7 +1700,7 @@ pre .important,
 pre .subst,
 pre .clojure .title,
 pre .deletion {
-  color: #f2777a;
+  color: #c82829;
 }
 pre .number,
 pre .preprocessor,
@@ -1713,13 +1713,13 @@ pre .command,
 pre .lisp .body,
 pre .parent,
 pre .haskell .type {
-  color: #f99157;
+  color: #f5871f;
 }
 pre .class,
 pre .ruby .class .title,
 pre .css .rules .attribute,
 pre .addition {
-  color: #9c9;
+  color: #718c00;
 }
 pre .string,
 pre .value,
@@ -1728,12 +1728,12 @@ pre .ruby .symbol,
 pre .symbol .string,
 pre .xml .cdata,
 pre .function .title {
-  color: #9c9;
+  color: #718c00;
 }
 pre .css .hexcolor,
 pre .phpdoc,
 pre .tex .formula {
-  color: #6cc;
+  color: #3e999f;
 }
 pre .function,
 pre .python .decorator,
@@ -1748,11 +1748,11 @@ pre .chunk,
 pre .decorator,
 pre .identifier,
 pre .vhdl {
-  color: #69c;
+  color: #4271ae;
 }
 pre .keyword,
 pre .javascript .function {
-  color: #c9c;
+  color: #8959a8;
 }
 @media screen and (min-width: 1200px) {
   #sidebar {
