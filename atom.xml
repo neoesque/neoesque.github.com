@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Making Life Better]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.littlero.se/"/>
-  <updated>2015-07-12T14:03:32.000Z</updated>
+  <updated>2015-12-17T04:37:55.000Z</updated>
   <id>http://blog.littlero.se/</id>
   
   <author>
@@ -13,6 +13,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[被調查局請去喝茶]]></title>
+    <link href="http://blog.littlero.se/post/make-tea-in-investigation-bureau/"/>
+    <id>http://blog.littlero.se/post/make-tea-in-investigation-bureau/</id>
+    <published>2015-11-26T14:54:44.000Z</published>
+    <updated>2015-12-17T04:37:55.000Z</updated>
+    <content type="html"><![CDATA[<p>啊，沒想到這輩子有機會被馬英九政府請去喝茶，一切都是從某個禮拜四早上說起，本來當天要去臺中出差，結果當天還在公司集合時，大約九點就收到一通電話，接起來後對方表明是臺北市調查局的盧先生，希望請我去 <del>泡茶</del> 啊！不是，是做個說明，要把通知書傳真給我，因為我趕着出發，我說你要現在傳真嗎，因為我現在不方便接傳真，等等要到臺中出差，可以先跟我說案由是什麼嗎，對方就建議我把出差取消，而且說我一定要到現場才方便跟我說案子，我說如果今天就一定要過去那幹嘛一定要傳真給我，我就說那不用了，我直接過去就好，問了對方地點(臺北市基隆路上的臺北市調查局)跟聯絡方式後跟他說大約一小時後到。</p>
+<a id="more"></a>
+<p>到了之後先去警衛室換證，然後坐在那裡等警衛叫調查官來帶你，進去後我就問盧先生說，我是因為什麼案子來的，他就說因為絲滑(小聲)，然後我就笑了XDDDDDD，我說是教育部那個哦，他就說對啊，無奈貌 XDDDD，然後一開始先去會客的地方把我的通知書給我，看了一下罪名是妨害電腦使用罪，簽了一張確實收到通知書的文件就說等等要帶我去調查室做筆錄，調查室超級簡陋的拉 XDD 沒冷氣，裡面除了我、盧先生還有另一個是 key 電腦的年輕人，年紀跟我差不多姑且稱乙好了。我一開始被帶進去後看到盧先生沒關門，想說要不要關門啊，我就問他，盧先生說：可是關了這個房間會很悶 XDDDDDDDDD 沒冷氣！！！有點扯，好吧我想說反正我也不 care 是不是被偷聽 XDD 就算了，我說好吧那開門好了，然後就是會遞 <del>茶</del> 水給你，然後就大概說一下接下來就會進入正式的筆錄流程，不過很奇妙的是好像沒有錄音跟錄影…</p>
+<p>一開始會先做基本的詢問，就是問姓名、身份證字號、戶籍地址、是否有前科、是否有清寒證明或原住民可以免費請律師，然後接下來就是正式的詢問了，首先他先問我學歷是哪裡，成大工程科學所，還問我主修什麼，就說計算機組，然後又問我的工作經驗，答曰：研發替代役進去中華電信，然後他就問我在中華電信數分做什麼(突然覺得他有我的基本資料了啊 XDD 都知道我是數分的了)，我就說一直都是系統管理員管 Xuite 的，然後問我過去在哪些單位待過，我就說內容處、雲端處、匯流處，不過好像大家聽到內容處都想說這什麼 XD，所以他又問是內…?，內容處就是 content 的內容，最後他說所以你有資訊背景啊；然後他就拿出一些我的資料，比方說我的 Twitter 頁面 <a href="https://twitter.com/neoesque" target="_blank" rel="external">https://twitter.com/neoesque</a> ，然後因為我的 Twitter 頁面又有連接到 <a href="http://about.me/neoesque" target="_blank" rel="external">http://about.me/neoesque</a> ，然後我的 about me 又連到 Facebook、Google+、LinkIn、GitHub，anyway 我就不是個匿名的人啊 XDD；一開始的詢問是，問他們印下來的這個 Twitter 是不是我的賬號，答曰：是，然後問我的賬號是不是都是我本人發的，答曰：是，我沒有粉絲 QQ；然後問我在網路還有哪些 ID，答曰：只有 neoesque 或我的英文名字 Yi-Chieh WANG；接下來是問我還有在哪些社群活動，我說：都有誒，很多，你想得到的都有 Facebook、Twitter、Google+、微博、人人也都有我的賬號(調查官應該傻眼了XDD)反正後來也沒記錄這麼多 = =</p>
+<p>再來就是重點了，他直接問我的某推是不是我親自推的 <a href="https://twitter.com/neoesque/status/627456198271369216" target="_blank" rel="external">https://twitter.com/neoesque/status/627456198271369216</a> 就是這則，答曰：是，然後問說我的動機是什麼，我說分享時事而已，順便表示贊同學生；然後問我 DoS、DDoS 是什麼，要記錄在筆錄上的，所以就稍微解釋 Distributed Denial of Service 就是一群人進去便利超商，每個人都買了一萬件商品，讓櫃檯處於忙碌的結賬狀態，無法服務其他人，然後很有趣的是前面說的乙先生會拼，調查官說哎呦你也懂哦，乙說因為我也是學資訊的 XD；然後問說為什麼我要加 #慎入 的 tag，答曰：因為我知道 DDoS 會對 Server 造成很大的負擔，是告訴網友請小心再點；然後又問了我知不知道網域 owner 時誰的，網站又是誰寫的，我說我怎麼會知道，我在網路看到的誒 XD，我絕對不是作者；接下來就問我有沒有點擊該連結，我說有啊，因為我是網站管理員，要看一下現在別人都怎麼攻擊的，所以我點進去後看了一下程式碼就離開了；後面接着就是他們印出那個網站的原始碼，要我解釋(莫名其妙) XDD，不過還好叔叔是有練過的，我還看得懂 js，我就在那邊解釋了起來他是開一個 iframe ，然後遇到固定的 timeout 就會 refresh 一次 blahblah；然後他問我知不知道有哪些人也點擊了這個網址，我最好會知道XDD；又問我點擊完後有沒有看教育部的網址，（當時教育部的網站早就被別人打趴了 T口T），我就說沒有，沒確認；最後就是再問一些我在哪裡點擊的，不過我忘記前租屋處的地址了 XDD，總之最後寫了一個那附近的地址然後備註不祥；最後就是問以上是否都是實話，不是實話生兒子沒屁眼(誤)，沒啦，就是是否都屬實這樣。</p>
+<p>然後筆錄完就是他們會印三份，然後就是蓋章這樣就結束了。</p>
+<p>在離開筆錄室之後就跟調查官聊了一下，反正就是閑聊，內容大概就不方便透露了 XD。接下來就是等收信，如果檢察官要起訴就會收到要出庭的信，沒有事就是不會受到信了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>啊，沒想到這輩子有機會被馬英九政府請去喝茶，一切都是從某個禮拜四早上說起，本來當天要去臺中出差，結果當天還在公司集合時，大約九點就收到一通電話，接起來後對方表明是臺北市調查局的盧先生，希望請我去 <del>泡茶</del> 啊！不是，是做個說明，要把通知書傳真給我，因為我趕着出發，我說你要現在傳真嗎，因為我現在不方便接傳真，等等要到臺中出差，可以先跟我說案由是什麼嗎，對方就建議我把出差取消，而且說我一定要到現場才方便跟我說案子，我說如果今天就一定要過去那幹嘛一定要傳真給我，我就說那不用了，我直接過去就好，問了對方地點(臺北市基隆路上的臺北市調查局)跟聯絡方式後跟他說大約一小時後到。</p>]]>
+    
+    </summary>
+    
+      <category term="喝茶" scheme="http://blog.littlero.se/tags/%E5%96%9D%E8%8C%B6/"/>
+    
+      <category term="調查局" scheme="http://blog.littlero.se/tags/%E8%AA%BF%E6%9F%A5%E5%B1%80/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[日本東京、箱根自助之旅]]></title>
@@ -1884,68 +1909,6 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
     </summary>
     
       <category term="nginx" scheme="http://blog.littlero.se/tags/nginx/"/>
-    
-      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Linux cgroups]]></title>
-    <link href="http://blog.littlero.se/post/linux-cgroups/"/>
-    <id>http://blog.littlero.se/post/linux-cgroups/</id>
-    <published>2013-01-01T11:16:00.000Z</published>
-    <updated>2015-03-14T05:40:32.000Z</updated>
-    <content type="html"><![CDATA[<p><a href="http://en.wikipedia.org/wiki/Cgroups" target="_blank" rel="external">cgroups</a> 是 Linux 的一個特色，全名是 control groups，最簡單的概念就是控制資源的分配包含了隔離、記錄的功能，最早是由 Google 的工程師開發的，並且在 2.6.24 正式進了 Kernel，後來也陸續加了不少功能，而且在 3.3 之後又加了網路優先權(priority)功能。後來的 LXC (<a href="http://en.wikipedia.org/wiki/LXC" target="_blank" rel="external">LinuX Containers</a>) 就是用了 cgroups 的功能來的。</p>
-<p>由於是從 Kernel 控制的所以幾乎什麼都可以管理，舉凡 <code>blkio</code> (管理輸入輸出的 block device ，像是硬碟、USB)、<code>cpu</code> (設定忙碌時能使用的 CPU time)、<code>cpuacct</code> (做統計用的)、<code>cpuset</code> (設定由那顆 CPU 執行運算)、<code>device</code> (限制能使用的設備)、<code>memory</code> (限制記憶體用量)、<code>net_cls</code> (似乎跟網路有關)，管理的範圍是以 Group 為主，所謂的 Group 可以是同一個使用者、同一個群組、同樣的 Process。</p>
-<p>最簡單使用 <code>cgroups</code> 的方式就是裝 <code>libcgroup</code> 來管理<a id="more"></a>，他有幾個跟 cgroups 相關的指令跟服務可以使用，Gentoo 要安裝相當簡單，因為 libcgroup 已經在 portage 裡面了，直接 <code>emerge dev-libs/libcgroup</code> 就裝好了，而 SUSE 則需要先加其他的 repos 才可以使用(下列範例使用 SLES11sp2 當範例):</p>
-<pre><code>zypper ar http://download.opensuse.org/repositories/<span class="type">Virtualization</span>/<span class="type">SLE_11_SP2</span>/<span class="type">Virtualization</span>.repo &amp;&amp; zypper -n <span class="keyword">ref</span> &amp;&amp; zypper --no-gpg-checks --non-interactive install --<span class="type">auto</span>-agree-<span class="keyword">with</span>-licenses libcgroup-tools &amp;&amp; zypper rr <span class="type">Virtualization</span>
-</code></pre><p>裝好之後系統裡面就會多了 <code>cg</code> 開頭的指令以及 <code>/etc/init.d/cgconfig</code> 跟 <code>/etc/init.d/cgred</code>，要使用這兩個服務會參照到 <code>/etc/cgconfig.conf</code> 跟 <code>/etc/cgrules.conf</code> 這兩個檔案，下面講解我使用到的情境搭配的設定。</p>
-<p>因為我們的伺服器會做轉檔的動作，有時候量大就會讓轉檔用的程式(以下叫 convert)咬死 CPU，讓 web server (以下叫 httpd) 跟 php-cgi 因為吃不到 CPU 所以就讓服務中斷了，因此在這裡會用到的是 cpuset 的功能，要注意到的是 cpu 跟 cpuset 的差異在設定 cpu 是限制佔用 CPU 的時間比，也就是當 process A CPU 100％ 跟 process B CPU 也 100% 時，才會看 cpu 這個參數的設定限制 CPU 使用時間，如果只有 process B CPU 100% 其他的 Process 沒有要資源，這樣 Kernel 還是會讓 B 使用全部的資源，因為轉檔時只有 convert 會 100% 其他的程序並沒有 100% 所以單純限制 cpu 還是沒什麼用，所以這時候就要用 cpuset，讓某個 Group 的程序只能使用某幾顆 CPU (現在都是 multi-core 的系統)，我的設定如下</p>
-<pre><code><span class="label">wwwrun:</span>httpd * httpd
-<span class="label">wwwrun:</span>php-cgi * php
-<span class="label">wwwrun:</span>convert * convert
-</code></pre><p><code>/etc/cgrules.conf</code> 是給 cgred 這個服務看的，它會監視系統新 fork 出來的 process 有沒有被這個檔案 mapping 到，有的話就會參照每行的第三個參數再去參考 <code>/etc/cgconfig.conf</code> 裡面的設定，至於第一個參數的 <code>wwwrun:httpd</code> 表示是 wwwrun 這個 user 身份執行的 httpd 這個 process，第二個星號(<em>)表示有哪些資源要管理，可以是 <code>cpu</code> <code>memory</code> <code>cpuset</code> 如果是 </em> 表示任何資源都要被管理(一樣會參照 <code>/etc/cgconfig.conf</code> 這個檔案)，所以第一行讀起來就是以 wwwrun 身份執行的 httpd 這個 process 要參考 httpd 這個 group 的設定來管理任何資源，而 <code>/etc/cgconfig.conf</code> 看下面</p>
-<pre><code><span class="component">group httpd {
-    cpuset {
-        cpuset<span class="string">.cpus</span> = 1;
-        cpuset<span class="string">.mems</span> = 0;
-        cpuset<span class="string">.cpu_exclusive</span> = 1;
-    }</span>
-}
-<span class="component">group php {
-    cpuset {
-        cpuset<span class="string">.cpus</span> = 2,3,4;
-        cpuset<span class="string">.mems</span> = 0;
-        cpuset<span class="string">.cpu_exclusive</span> = 1;
-    }</span>
-}
-<span class="component">group convert {
-    cpuset {
-        cpuset<span class="string">.cpus</span> = 5,6,7;
-        cpuset<span class="string">.mems</span> = 0;
-        cpuset<span class="string">.cpu_exclusive</span> = 1;
-    }</span>
-}
-<span class="component">mount {
-    cpuset = /cgroup/example;
-}</span>
-</code></pre><p>這幾行說明了一共定義了三個 Group <code>httpd</code> <code>php</code> <code>convert</code>，然後都只有定義了 cpuset 這個管理項目，其中 cpuset 又可以看到分別定義了三個變數 <code>cpuset.cpus</code> (必須)、<code>cpuset.mems</code> (必須)、<code>cpuset.cpu_exclusive</code> (非必要)， <code>cpuset.cpus</code> 就是這個群組的 process 只能使用哪幾顆 CPU，注意是從 0 開始數，這裏我示範的是如何錯開 CPU 的資源，在 convert 這個群組的 process 只能使用 3 顆 CPU，而 <code>cpuset.mems</code> 似乎是對 NUMA 的系統設定的，因為我們是跑在 VMware 上記憶體只有一個，所以定為 0，而 <code>cpuset.cpu_exclusive</code> 就是要不要讓 <code>cpuset.cpus</code> 裡面的 CPU 只能執行這個群組的 process，最後面的 <code>mount</code> 是管理 cgroups 的地方，會以資料夾跟檔案的方式呈現。</p>
-<p>一切都設定好之後就直接 <code>/etc/init.d/cgconfig start</code> 跟 <code>/etc/init.d/cgred start</code>，沒有錯誤的話 /cgroup/example 底下應該會出現資料夾跟一堆檔案，其中可以看到 tasks 這個檔案裡面就有一堆 pid 表示現在這些 pid 是套用到這個 group 的設定。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><a href="http://en.wikipedia.org/wiki/Cgroups">cgroups</a> 是 Linux 的一個特色，全名是 control groups，最簡單的概念就是控制資源的分配包含了隔離、記錄的功能，最早是由 Google 的工程師開發的，並且在 2.6.24 正式進了 Kernel，後來也陸續加了不少功能，而且在 3.3 之後又加了網路優先權(priority)功能。後來的 LXC (<a href="http://en.wikipedia.org/wiki/LXC">LinuX Containers</a>) 就是用了 cgroups 的功能來的。</p>
-<p>由於是從 Kernel 控制的所以幾乎什麼都可以管理，舉凡 <code>blkio</code> (管理輸入輸出的 block device ，像是硬碟、USB)、<code>cpu</code> (設定忙碌時能使用的 CPU time)、<code>cpuacct</code> (做統計用的)、<code>cpuset</code> (設定由那顆 CPU 執行運算)、<code>device</code> (限制能使用的設備)、<code>memory</code> (限制記憶體用量)、<code>net_cls</code> (似乎跟網路有關)，管理的範圍是以 Group 為主，所謂的 Group 可以是同一個使用者、同一個群組、同樣的 Process。</p>
-<p>最簡單使用 <code>cgroups</code> 的方式就是裝 <code>libcgroup</code> 來管理]]>
-    
-    </summary>
-    
-      <category term="Gentoo" scheme="http://blog.littlero.se/tags/Gentoo/"/>
-    
-      <category term="Linux" scheme="http://blog.littlero.se/tags/Linux/"/>
-    
-      <category term="SUSE" scheme="http://blog.littlero.se/tags/SUSE/"/>
-    
-      <category term="cgroups" scheme="http://blog.littlero.se/tags/cgroups/"/>
     
       <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
