@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>neoesque</title>
+  <title>安裝 Redmine - postgresql, nginx, rbenv | neoesque</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="neoesque&apos;s Linux Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="neoesque">
-<meta property="og:url" content="http://blog.littlero.se/archives/page/5/index.html">
+  <meta name="description" content="Redmine 是一套專案管理軟體，我們單位之前都用 Trac 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安裝 Redmine - postgresql, nginx, rbenv">
+<meta property="og:url" content="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/index.html">
 <meta property="og:site_name" content="neoesque">
-<meta property="og:description" content="neoesque&apos;s Linux Blog">
+<meta property="og:description" content="Redmine 是一套專案管理軟體，我們單位之前都用 Trac 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 p">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="neoesque">
-<meta name="twitter:description" content="neoesque&apos;s Linux Blog">
+<meta name="twitter:title" content="安裝 Redmine - postgresql, nginx, rbenv">
+<meta name="twitter:description" content="Redmine 是一套專案管理軟體，我們單位之前都用 Trac 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 p">
 <meta name="twitter:creator" content="@neoesque">
 <meta property="fb:admins" content="1573449527">
 <meta property="fb:app_id" content="163923413772109">
@@ -83,364 +83,177 @@ ga('send', 'pageview');
 
     <div class="outer">
       
-      <section id="main">
-      <div class="archive-year-wrap">
-        <a href="/archives/2011" class="archive-year">2011</a>
-      </div>
-      <section class="archives-wrap">
-        <div class="archives">
+      <section id="main"><article id="post-install-redmine-with-postgresql-nginx-rbenv" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
     
-    <div class="archive-article-thumbnail">
-      <a href="/post/squid-refresh-pattern/" class="thumbnail">
-  
-    <span style="background-image:url(http://3.bp.blogspot.com/-63lbO3pkwRI/TpkE0C-X94I/AAAAAAAAB_U/rTEWldminQk/s640/graph_image.php.jpg
-)" alt="squid refresh_pattern" class="thumbnail-image"></span>
-  
-</a>
-    </div>
     
-    <header class="archive-article-header">
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/squid-refresh-pattern/">squid refresh_pattern</a>
+    <h1 class="article-title" itemprop="name">
+      安裝 Redmine - postgresql, nginx, rbenv
     </h1>
   
 
-      
-        
-  <div class="archive-article-date">
+        <div class="article-meta">
+          
+  <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/post/squid-refresh-pattern/">
-      <time datetime="2011-10-14T16:00:00.000Z" itemprop="datePublished">Oct 15</time>
+    <a href="/post/install-redmine-with-postgresql-nginx-rbenv/">
+      <time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, Sun</time>
     </a>
   </div>
 
 
-      
-    </header>
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/資訊/">資訊</a>
   </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
+
+        </div>
+      </header>
     
-    <div class="archive-article-thumbnail">
-      <a href="/post/os-x-application-i18n/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        <div id="toc" class="toc-article">
+          <!-- # <strong class="toc-title">contents</strong> -->
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝套件"><span class="toc-number">1.</span> <span class="toc-text">安裝套件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立_redmine_使用者帳號"><span class="toc-number">2.</span> <span class="toc-text">建立 redmine 使用者帳號</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝_Ruby"><span class="toc-number">3.</span> <span class="toc-text">安裝 Ruby</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝_Redmine"><span class="toc-number">4.</span> <span class="toc-text">安裝 Redmine</span></a></li></ol>
+        </div>
+      
+        <p><a href="http://www.redmine.org/" target="_blank" rel="external">Redmine</a> 是一套專案管理軟體，我們單位之前都用 <a href="http://trac.edgewall.org/" target="_blank" rel="external">Trac</a> 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 postgresql + nginx 的組合。至於 Ruby 因為 Ubuntu 14.04 比較舊，所以使用 rbenv 搭建 Ruby 2.2 的環境。</p>
+<a id="more"></a>
+<p>在網路找到兩篇參考文章，此文基本上就是各取所需組合起來的，請參考最下面的參考資料。</p>
+<h3 id="安裝套件">安裝套件</h3><p>首先更新 Ubuntu 全部的 pkg 確保都是最新的。</p>
+<pre><code>sudo apt-<span class="built_in">get</span> <span class="keyword">update</span>
+sudo apt-<span class="built_in">get</span> -y upgrade
+</code></pre><p>然後安裝 Ruby 跟 Passenger 安裝的相依工具</p>
+<pre><code>sudo apt-<span class="built_in">get</span> install -y build-essential zlib1g-<span class="built_in">dev</span> libssl-<span class="built_in">dev</span> libreadline-<span class="built_in">dev</span> libyaml-<span class="built_in">dev</span> libcurl4-openssl-<span class="built_in">dev</span>
+</code></pre><p>PostgreSQL 的套件</p>
+<pre><code>sudo apt-<span class="built_in">get</span> install -y postgresql postgresql-server-<span class="built_in">dev</span>-<span class="number">9.3</span>
+</code></pre><p>nginx 的</p>
+<pre><code>sudo apt-<span class="keyword">get</span> install -y nginx-extras
+</code></pre><p>ImageMagick 的</p>
+<pre><code>sudo apt-<span class="built_in">get</span> install -y imagemagick libmagick++-<span class="built_in">dev</span>
+</code></pre><p>版控工具</p>
+<pre><code>sudo apt-<span class="keyword">get</span> install subversion git
+</code></pre><h3 id="建立_redmine_使用者帳號">建立 redmine 使用者帳號</h3><p>建立一個 user 供 Redmine 服務使用</p>
+<pre><code><span class="comment">sudo</span> <span class="comment">adduser</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">disabled</span><span class="literal">-</span><span class="comment">login</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">gecos</span> <span class="comment">'Redmine'</span> <span class="comment">redmine</span>
+<span class="comment">sudo</span> <span class="comment">su</span> <span class="literal">-</span> <span class="comment">redmine</span>
+</code></pre><p>以下開始用 redmine 這個帳號操作</p>
+<h3 id="安裝_Ruby">安裝 Ruby</h3><p>這裡使用 rbenv 來建立跑 redmine 的環境</p>
+<pre><code>git clone gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/sstephenson/rbenv.git .rbenv
+git clone gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/sstephenson/<span class="keyword">ruby</span>-build.git ~/.rbenv/plugins/<span class="keyword">ruby</span>-build
+</code></pre><p>把 rbenv 加入 shell 變數</p>
+<pre><code><span class="built_in">echo</span> <span class="string">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> &gt;&gt; ~/.bash_profile
+<span class="built_in">echo</span> <span class="string">'eval "$(rbenv init -)"'</span> &gt;&gt; ~/.bash_profile
+<span class="built_in">exec</span> <span class="variable">$SHELL</span> <span class="operator">-l</span>
+</code></pre><p>接着可以準備安裝 Ruby 了</p>
+<pre><code>rbenv <span class="keyword">install</span> <span class="number">2.2</span>.<span class="number">4</span>
+</code></pre><p>安裝完畢後可以確認一下</p>
+<pre><code>rbenv <span class="keyword">global</span> <span class="number">2.2</span>.<span class="number">4</span>
+<span class="keyword">ruby</span> -<span class="keyword">v</span>
+</code></pre><p>以下的操作先回到可以用 sudo 的帳號</p>
+<p>接着先建立給 Redmine 用的 postgresql 資料庫</p>
+<pre><code>sudo -<span class="keyword">u</span> postgres createuser -P redmine
+# 輸入想要的密碼兩次
+sudo -<span class="keyword">u</span> postgres createdb -<span class="keyword">E</span> UTF-8 -O redmine -T template0 redmine
+</code></pre><h3 id="安裝_Redmine">安裝 Redmine</h3><p>Ruby 環境準備好之後就可以裝 Redmine 了</p>
+<pre><code>sudo mkdir <span class="regexp">/home/</span>redmine/redmine
+sudo chown <span class="string">redmine:</span>www-data <span class="regexp">/home/</span>redmine/redmine
+sudo -u redmine svn co <span class="string">http:</span><span class="comment">//svn.redmine.org/redmine/branches/3.2-stable /home/redmine/redmine</span>
+</code></pre><p>先設定 puma</p>
+<pre><code>curl -Lo <span class="regexp">/home/</span>redmine<span class="regexp">/redmine/</span>config<span class="regexp">/puma.rb https:/</span><span class="regexp">/gist.githubusercontent.com/</span>jbradach<span class="regexp">/6ee5842e5e2543d59adb/</span>raw<span class="regexp">/</span>
+</code></pre><p>首先需要改一下 Redmine 的設定</p>
+<pre><code>sudo -u redmine vi <span class="regexp">/home/</span>redmine<span class="regexp">/redmine/</span>config<span class="regexp">/database.yml</span>
+</code></pre><p>改成如下</p>
+<pre><code><span class="attribute">production</span>:
+  <span class="attribute">adapter</span>: postgresql
+  <span class="attribute">database</span>: redmine
+  <span class="attribute">host</span>: localhost
+  <span class="attribute">username</span>: redmine
+  <span class="attribute">password</span>: <span class="string">"********"</span>
+  <span class="attribute">encoding</span>: utf8
+</code></pre><p>關於 EMail 的部分也可以改一下</p>
+<pre><code>sudo -u redmine vi <span class="regexp">/home/</span>redmine<span class="regexp">/redmine/</span>config<span class="regexp">/configuration.yml</span>
+</code></pre><p>如下</p>
+<pre><code><span class="attribute">production</span>:
+  <span class="attribute">email_delivery</span>:
+    <span class="attribute">delivery_method</span>: :smtp
+    <span class="attribute">smtp_settings</span>:
+      <span class="attribute">address</span>: <span class="string">"localhost"</span>
+      <span class="attribute">port</span>: <span class="number">25</span>
+      <span class="attribute">domain</span>: <span class="string">"example.com"</span>
+</code></pre><p>接着是安裝 Redmine 需要的相關 Ruby package (請變成 redmine )</p>
+<pre><code><span class="built_in">echo</span> <span class="string">"gem: --no-ri --no-rdoc"</span> &gt;&gt; ~/.gemrc
+<span class="built_in">echo</span> <span class="operator">-e</span> <span class="string">"# Gemfile.local\ngem 'puma'"</span> &gt;&gt; Gemfile.local
+gem install bundler
+rbenv <span class="built_in">rehash</span>
+bundle install --without development <span class="built_in">test</span>
+</code></pre><p>產生 Token (編碼 cookie 用)，建立 db 與初始資料</p>
+<pre><code>rake generate_secret_token
+RAILS_ENV=production rake <span class="string">db:</span>migrate
+RAILS_ENV=production rake <span class="string">redmine:</span>load_default_data
+</code></pre><p>至此我們已經可以先測試了</p>
+<pre><code>ruby <span class="keyword">script</span>/rails server webrick -e production
+</code></pre><p>打開瀏覽器，填入 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a> 看看有沒有畫面出現，有的話我們可以 ctrl + c 先回來。</p>
+<p>首先我們需要啓動 redmine 的 script</p>
+<pre><code>sudo curl -Lo <span class="regexp">/etc/</span>init.d<span class="regexp">/redmine https:/</span><span class="regexp">/gist.githubusercontent.com/</span>jbradach<span class="regexp">/17e73fa6ddc365bb0242/</span>raw/
+sudo chmod +x <span class="regexp">/etc/</span>init.d/redmine
+sudo update-rc.d redmine defaults
+service redmine start
+</code></pre><p>然後 nginx 的部分也很簡單，抓一下設定即可 (可以把 default 移除)</p>
+<pre><code>sudo curl -Lo <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-available/</span>redmine <span class="string">https:</span><span class="comment">//gist.githubusercontent.com/jbradach/31ad6d9c84c3be3b5730/raw/</span>
+sudo ln -s <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-available/</span>redmine <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-enabled/</span>redmine
+sudo service nginx restart
+</code></pre><p>這時候看瀏覽器 <a href="http://localhost" target="_blank" rel="external">http://localhost</a> 應該就有 redmine 了。</p>
+<hr>
+<p>參考資料</p>
+<ul>
+<li><p><a href="http://blog.redmine.jp/articles/3_2/install/ubuntu/" target="_blank" rel="external">Redmine 3.2 を Ubuntu Server 14.04.3 LTS にインストールする手順</a></p>
+</li>
+<li><p><a href="https://blog.rudeotter.com/install-redmine-with-nginx-puma-and-mariadbmysql-on-ubuntu-14-04/" target="_blank" rel="external">Install Redmine with Nginx, Puma, and MariaDB/MySQL on Ubuntu 14.04</a></p>
+</li>
+</ul>
+
+      
     </div>
-    
-    <header class="archive-article-header">
+    <footer class="article-footer">
+      <a data-url="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/" data-id="cik2l20yg00451r0q5b9pxh6d" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/os-x-application-i18n/">OS X 路徑多語系</a>
-    </h1>
-  
+        <a href="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
 
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/os-x-application-i18n/">
-      <time datetime="2011-09-13T16:00:00.000Z" itemprop="datePublished">Sep 14</time>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/post/make-tea-in-investigation-bureau/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">被調查局請去喝茶</div>
     </a>
-  </div>
+  
+</nav>
 
 
-      
-    </header>
-  </div>
+  
 </article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/post/compile-objective-c-on-gentoo/" class="thumbnail">
-  
-    <span style="background-image:url(http://4.bp.blogspot.com/-YIoHmeZkG8E/TeD2-2tevHI/AAAAAAAAA4Q/EoIgXEyeBR4/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-28%2B%25E4%25B8%258B%25E5%258D%25889.21.25.png
-)" alt="Compile Objective-C on Gentoo" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/compile-objective-c-on-gentoo/">Compile Objective-C on Gentoo</a>
-    </h1>
-  
 
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/compile-objective-c-on-gentoo/">
-      <time datetime="2011-05-27T16:00:00.000Z" itemprop="datePublished">May 28</time>
-    </a>
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
+</section>
 
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/post/unix-bt-downloader-aria2/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/unix-bt-downloader-aria2/">Unix 另一個分段下載程式(也是 bt downloader) - aria2</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/unix-bt-downloader-aria2/">
-      <time datetime="2011-05-19T16:00:00.000Z" itemprop="datePublished">May 20</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/post/moinmoin-wiki-trac-nis/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/moinmoin-wiki-trac-nis/">moinmoin wiki 跟 trac 改吃 NIS</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/moinmoin-wiki-trac-nis/">
-      <time datetime="2011-05-13T16:00:00.000Z" itemprop="datePublished">May 14</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/post/nginx-performance-compare-with-php/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/nginx-performance-compare-with-php/">nginx 的 performance compare with PHP</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/nginx-performance-compare-with-php/">
-      <time datetime="2011-05-09T16:00:00.000Z" itemprop="datePublished">May 10</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/post/node-js-with-express-jade-stylus-and-coffeescript/" class="thumbnail">
-  
-    <span style="background-image:url(http://1.bp.blogspot.com/-xWqia9snGiw/Tb-kwd--FBI/AAAAAAAAA3c/JBoCMbi7fPI/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25882.46.07.png
-)" alt="node.js with Express, Jade, Stylus and CoffeeScript" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/node-js-with-express-jade-stylus-and-coffeescript/">node.js with Express, Jade, Stylus and CoffeeScript</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/node-js-with-express-jade-stylus-and-coffeescript/">
-      <time datetime="2011-05-02T16:00:00.000Z" itemprop="datePublished">May 3</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/post/build-website-with-nodejs-express/" class="thumbnail">
-  
-    <span style="background-image:url(http://1.bp.blogspot.com/-NPi7nIJ7ufc/TbQ1-xP7mdI/AAAAAAAAA3U/fjfMX3tXib8/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-24%2B%25E4%25B8%258B%25E5%258D%258810.38.31.png
-)" alt="利用 nodejs 與 express 建立基本網站" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/build-website-with-nodejs-express/">利用 nodejs 與 express 建立基本網站</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/build-website-with-nodejs-express/">
-      <time datetime="2011-04-23T16:00:00.000Z" itemprop="datePublished">Apr 24</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/post/vmware-cloud-foundry/" class="thumbnail">
-  
-    <span style="background-image:url(http://3.bp.blogspot.com/-_GMjblt6S_I/TbI8KmGsFuI/AAAAAAAAA2s/NPRbgUcpKv0/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258810.39.55.png
-)" alt="VMware Cloud Foundry 試玩小小小之在小不過的心得" class="thumbnail-image"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/vmware-cloud-foundry/">VMware Cloud Foundry 試玩小小小之在小不過的心得</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/vmware-cloud-foundry/">
-      <time datetime="2011-04-22T16:00:00.000Z" itemprop="datePublished">Apr 23</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    
-    <div class="archive-article-thumbnail">
-      <a href="/post/mac-os-x-dmg-convert-to-iso/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-    </div>
-    
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/mac-os-x-dmg-convert-to-iso/">在 Mac OS X 轉 dmg 成 iso 檔</a>
-    </h1>
-  
-
-      
-        
-  <div class="archive-article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/mac-os-x-dmg-convert-to-iso/">
-      <time datetime="2011-04-14T16:00:00.000Z" itemprop="datePublished">Apr 15</time>
-    </a>
-  </div>
-
-
-      
-    </header>
-  </div>
-</article>
-  
-    </div></section>
-  
-      <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/page/4/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/6/">Next &raquo;</a>
-      </nav>
-    </section>
+</section>
       
         <aside id="sidebar">
   
@@ -590,7 +403,7 @@ ga('send', 'pageview');
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

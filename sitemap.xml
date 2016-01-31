@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/</loc>
+    <lastmod>2016-01-31T14:05:31.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.littlero.se/post/make-tea-in-investigation-bureau/</loc>
     <lastmod>2015-12-17T04:37:55.000Z</lastmod>
   </url>

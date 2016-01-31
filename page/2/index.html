@@ -84,6 +84,97 @@ ga('send', 'pageview');
     <div class="outer">
       
       <section id="main">
+      <article id="post-install-graylog2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post/install-graylog2/">install graylog2</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/post/install-graylog2/">
+      <time datetime="2014-01-24T13:55:56.000Z" itemprop="datePublished">2014-01-24, Fri</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/資訊/">資訊</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="https://lh4.googleusercontent.com/-HxbTnQ713EE/UuKP3HTDr_I/AAAAAAAAH0Y/5PqTkSwGYOY/w758-h379-no/Screenshot+2014-01-25+00.04.08.png">
+<p><a href="http://graylog2.org/">Graylog2</a> 是一個開源的 log 收容器，主要有兩個部份集合而成 <code>server</code> 與 <code>web interface</code>，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 <a href="http://www.mongodb.org/">mongodb</a>，而搜尋引擎則由 <a href="http://www.elasticsearch.org/">elasticsearch</a> 提供。另外的 web interface 也是 Java 寫成的(早期好像是 Ruby on Rails)，主要的功能就是提供一個漂亮的搜尋與分析的界面。</p>
+<p>所以要使用 Graylog2 需要安裝五個元件</p>
+<table>
+<thead>
+<tr>
+<th>軟體</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java Runtime Environment</td>
+<td>7u51</td>
+</tr>
+<tr>
+<td>elasticsearch</td>
+<td>0.90.10</td>
+</tr>
+<tr>
+<td>mongodb</td>
+<td>2.4.9</td>
+</tr>
+<tr>
+<td>graylog2-server</td>
+<td>0.20.1-1rc</td>
+</tr>
+<tr>
+<td>graylog2-web-interface</td>
+<td>0.20.1-1rc</td>
+</tr>
+</tbody>
+</table>
+<p>我們先從 elasticsearch 開始安裝起，以下都用目前最新的版本來示範，基本上不分什麼 Linux Distribution，我們單位都用 SUSE，不過 Gentoo 或 Ubuntu 也都適用就是</p>
+        
+          <p class="article-more-link">
+            <a href="/post/install-graylog2/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.littlero.se/post/install-graylog2/" data-id="cik2l20yi00481r0q0v0nh8of" class="article-share-link">Share</a>
+      
+        <a href="http://blog.littlero.se/post/install-graylog2/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graylog2/">graylog2</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-saltstack-custom-grains" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -127,7 +218,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/saltstack-custom-grains/" data-id="cihgddlfa001t970qrku2g70b" class="article-share-link">Share</a>
+      <a data-url="http://blog.littlero.se/post/saltstack-custom-grains/" data-id="cik2l20wz001t1r0qgpd11bur" class="article-share-link">Share</a>
       
         <a href="http://blog.littlero.se/post/saltstack-custom-grains/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -187,7 +278,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/casio-tr15/" data-id="cihgddlj0005o970qmew3gaaz" class="article-share-link">Share</a>
+      <a data-url="http://blog.littlero.se/post/casio-tr15/" data-id="cik2l210w005w1r0qxbfol3ve" class="article-share-link">Share</a>
       
         <a href="http://blog.littlero.se/post/casio-tr15/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -245,7 +336,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nice-to-meet-saltstack/" data-id="cihgddlgc002w970q4wiuuz83" class="article-share-link">Share</a>
+      <a data-url="http://blog.littlero.se/post/nice-to-meet-saltstack/" data-id="cik2l20xp002w1r0qz7xtpto5" class="article-share-link">Share</a>
       
         <a href="http://blog.littlero.se/post/nice-to-meet-saltstack/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -311,7 +402,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" data-id="cihgddlf7001q970qbmzz0e7c" class="article-share-link">Share</a>
+      <a data-url="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" data-id="cik2l20ww001q1r0qwjmysny3" class="article-share-link">Share</a>
       
         <a href="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -378,7 +469,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/e-m5-wooden-grip/" data-id="cihgddlhv004m970qgux3jpp1" class="article-share-link">Share</a>
+      <a data-url="http://blog.littlero.se/post/e-m5-wooden-grip/" data-id="cik2l20zi004u1r0ql6ut0950" class="article-share-link">Share</a>
       
         <a href="http://blog.littlero.se/post/e-m5-wooden-grip/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -438,7 +529,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/" data-id="cihgddlge0030970qhgoc4fzb" class="article-share-link">Share</a>
+      <a data-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/" data-id="cik2l20xs00301r0q0oucmylt" class="article-share-link">Share</a>
       
         <a href="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -516,7 +607,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/" data-id="cihgddlgj003c970qjau5izbg" class="article-share-link">Share</a>
+      <a data-url="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/" data-id="cik2l20xy003c1r0q0gld0r4c" class="article-share-link">Share</a>
       
         <a href="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -576,7 +667,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/e-m5-grip-base/" data-id="cihgddlhy004r970qq8opg92n" class="article-share-link">Share</a>
+      <a data-url="http://blog.littlero.se/post/e-m5-grip-base/" data-id="cik2l20zr004z1r0q7z3kx6pp" class="article-share-link">Share</a>
       
         <a href="http://blog.littlero.se/post/e-m5-grip-base/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -636,72 +727,12 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/e-m5-12mm-25mm/" data-id="cihgddli0004u970qsbxxivgy" class="article-share-link">Share</a>
+      <a data-url="http://blog.littlero.se/post/e-m5-12mm-25mm/" data-id="cik2l20zt00521r0qkng0ro0m" class="article-share-link">Share</a>
       
         <a href="http://blog.littlero.se/post/e-m5-12mm-25mm/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/E-M5/">E-M5</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-notices-about-nginx-rewrite-rule" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/notices-about-nginx-rewrite-rule/">nginx 設定檔規則概要</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/notices-about-nginx-rewrite-rule/">
-      <time datetime="2013-02-26T09:47:44.000Z" itemprop="datePublished">2013-02-26, Tue</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>這篇是記錄一些 lighttpd 轉 nginx rewrite rule 的實作與一些注意事項，最後會講一些 squid 轉 nginx 的技巧。</p>
-<p>這裡先講一些跟 nginx rewrite 有關的重點。</p>
-<p>首先 nginx 算是分成 <code>location</code> 跟 <code>rewrite</code>，lighttpd 是有 <code>url.rewrite</code>、<code>url.rewrite-repeat</code> 跟 <code>url.redirect</code>，其中 lighttpd 的 <code>url.rewrite</code> 就是 rewrite once 而 <code>url.rewrite-repeat</code> 則是重複一直 rewrite 的意思，這個則對應到 nginx <code>rewrite</code> 後面接的參數，也就是 <code>break</code> 跟 <code>last</code>，<code>break</code> 就是 rewrite 到此為止不要再跑 <code>rewrite</code> 了，但是 <code>last</code> 就會在重頭跑 rewrite 一次，而且 <code>last</code> 也是 <code>rewrite</code> 這個 directive 的預設值，所以如果你的 rewrite 不小心變成 loop (nginx 預設是 rewrite 10 次後就噴 500)請加上 <code>break</code>。至於 lighttpd 的 <code>url.redirect</code> 其實在 nginx 也是透過 <code>rewrite</code> 完成的，主要是加 <code>redirect</code> 跟 <code>permanent</code> 的參數，分別是回 302 跟 301。<code>rewrite</code> 的用法大約如下：</p>
-        
-          <p class="article-more-link">
-            <a href="/post/notices-about-nginx-rewrite-rule/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/" data-id="cihgddlg3002n970qu1i20yzi" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
 
     </footer>
   </div>
@@ -723,6 +754,23 @@ ga('send', 'pageview');
     <h3 class="widget-title">recents</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
+              <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
+              <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, Sun</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -794,24 +842,6 @@ ga('send', 'pageview');
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/ingress-email-attack-notify-to-Pushover/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh3.googleusercontent.com/YoX0bNlxU8WQ43p7BkpK8slGEbnDZjY6gOv1DDOfqdU=w800-no
-)" alt="用 Pushover 收 Ingress 成就點攻擊通知" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊戲/">遊戲</a></p>
-              <p class="item-title"><a href="/post/ingress-email-attack-notify-to-Pushover/" class="title">用 Pushover 收 Ingress 成就點攻擊通知</a></p>
-              <p class="item-date"><time datetime="2015-01-07T05:53:43.000Z" itemprop="datePublished">2015-01-07, Wed</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -830,7 +860,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">43</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -839,7 +869,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Casio-TR15/">Casio TR15</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/E-M5/">E-M5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeBSD/">FreeBSD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gentoo/">Gentoo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Healthy/">Healthy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenRC/">OpenRC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SUSE/">SUSE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SaltStack/">SaltStack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime/">Sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TextMate/">TextMate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMware/">VMware</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cgroups/">cgroups</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graylog2/">graylog2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i18n/">i18n</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ingress/">ingress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcachedb/">memcachedb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moinmoin/">moinmoin</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obj-c/">obj-c</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pushover/">pushover</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trac/">trac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/喝茶/">喝茶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美國/">美國</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蝴蝶結/">蝴蝶結</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/調查局/">調查局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/迪士尼/">迪士尼</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/陶瓷/">陶瓷</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Casio-TR15/">Casio TR15</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/E-M5/">E-M5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeBSD/">FreeBSD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gentoo/">Gentoo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Healthy/">Healthy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenRC/">OpenRC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SUSE/">SUSE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SaltStack/">SaltStack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime/">Sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TextMate/">TextMate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMware/">VMware</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cgroups/">cgroups</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graylog2/">graylog2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i18n/">i18n</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ingress/">ingress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcachedb/">memcachedb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moinmoin/">moinmoin</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obj-c/">obj-c</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pushover/">pushover</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trac/">trac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/喝茶/">喝茶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美國/">美國</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蝴蝶結/">蝴蝶結</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/調查局/">調查局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/迪士尼/">迪士尼</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/陶瓷/">陶瓷</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -852,7 +882,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 neoesque<br>
+      &copy; 2016 neoesque<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

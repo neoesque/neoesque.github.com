@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Making Life Better]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.littlero.se/"/>
-  <updated>2015-12-17T04:37:55.000Z</updated>
+  <updated>2016-01-31T14:05:31.000Z</updated>
   <id>http://blog.littlero.se/</id>
   
   <author>
@@ -13,6 +13,118 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[安裝 Redmine - postgresql, nginx, rbenv]]></title>
+    <link href="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/"/>
+    <id>http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/</id>
+    <published>2016-01-31T12:48:05.000Z</published>
+    <updated>2016-01-31T14:05:31.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="http://www.redmine.org/" target="_blank" rel="external">Redmine</a> 是一套專案管理軟體，我們單位之前都用 <a href="http://trac.edgewall.org/" target="_blank" rel="external">Trac</a> 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 postgresql + nginx 的組合。至於 Ruby 因為 Ubuntu 14.04 比較舊，所以使用 rbenv 搭建 Ruby 2.2 的環境。</p>
+<a id="more"></a>
+<p>在網路找到兩篇參考文章，此文基本上就是各取所需組合起來的，請參考最下面的參考資料。</p>
+<h3 id="安裝套件">安裝套件</h3><p>首先更新 Ubuntu 全部的 pkg 確保都是最新的。</p>
+<pre><code>sudo apt-<span class="built_in">get</span> <span class="keyword">update</span>
+sudo apt-<span class="built_in">get</span> -y upgrade
+</code></pre><p>然後安裝 Ruby 跟 Passenger 安裝的相依工具</p>
+<pre><code>sudo apt-<span class="built_in">get</span> install -y build-essential zlib1g-<span class="built_in">dev</span> libssl-<span class="built_in">dev</span> libreadline-<span class="built_in">dev</span> libyaml-<span class="built_in">dev</span> libcurl4-openssl-<span class="built_in">dev</span>
+</code></pre><p>PostgreSQL 的套件</p>
+<pre><code>sudo apt-<span class="built_in">get</span> install -y postgresql postgresql-server-<span class="built_in">dev</span>-<span class="number">9.3</span>
+</code></pre><p>nginx 的</p>
+<pre><code>sudo apt-<span class="keyword">get</span> install -y nginx-extras
+</code></pre><p>ImageMagick 的</p>
+<pre><code>sudo apt-<span class="built_in">get</span> install -y imagemagick libmagick++-<span class="built_in">dev</span>
+</code></pre><p>版控工具</p>
+<pre><code>sudo apt-<span class="keyword">get</span> install subversion git
+</code></pre><h3 id="建立_redmine_使用者帳號">建立 redmine 使用者帳號</h3><p>建立一個 user 供 Redmine 服務使用</p>
+<pre><code><span class="comment">sudo</span> <span class="comment">adduser</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">disabled</span><span class="literal">-</span><span class="comment">login</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">gecos</span> <span class="comment">'Redmine'</span> <span class="comment">redmine</span>
+<span class="comment">sudo</span> <span class="comment">su</span> <span class="literal">-</span> <span class="comment">redmine</span>
+</code></pre><p>以下開始用 redmine 這個帳號操作</p>
+<h3 id="安裝_Ruby">安裝 Ruby</h3><p>這裡使用 rbenv 來建立跑 redmine 的環境</p>
+<pre><code>git clone gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/sstephenson/rbenv.git .rbenv
+git clone gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/sstephenson/<span class="keyword">ruby</span>-build.git ~/.rbenv/plugins/<span class="keyword">ruby</span>-build
+</code></pre><p>把 rbenv 加入 shell 變數</p>
+<pre><code><span class="built_in">echo</span> <span class="string">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> &gt;&gt; ~/.bash_profile
+<span class="built_in">echo</span> <span class="string">'eval "$(rbenv init -)"'</span> &gt;&gt; ~/.bash_profile
+<span class="built_in">exec</span> <span class="variable">$SHELL</span> <span class="operator">-l</span>
+</code></pre><p>接着可以準備安裝 Ruby 了</p>
+<pre><code>rbenv <span class="keyword">install</span> <span class="number">2.2</span>.<span class="number">4</span>
+</code></pre><p>安裝完畢後可以確認一下</p>
+<pre><code>rbenv <span class="keyword">global</span> <span class="number">2.2</span>.<span class="number">4</span>
+<span class="keyword">ruby</span> -<span class="keyword">v</span>
+</code></pre><p>以下的操作先回到可以用 sudo 的帳號</p>
+<p>接着先建立給 Redmine 用的 postgresql 資料庫</p>
+<pre><code>sudo -<span class="keyword">u</span> postgres createuser -P redmine
+# 輸入想要的密碼兩次
+sudo -<span class="keyword">u</span> postgres createdb -<span class="keyword">E</span> UTF-8 -O redmine -T template0 redmine
+</code></pre><h3 id="安裝_Redmine">安裝 Redmine</h3><p>Ruby 環境準備好之後就可以裝 Redmine 了</p>
+<pre><code>sudo mkdir <span class="regexp">/home/</span>redmine/redmine
+sudo chown <span class="string">redmine:</span>www-data <span class="regexp">/home/</span>redmine/redmine
+sudo -u redmine svn co <span class="string">http:</span><span class="comment">//svn.redmine.org/redmine/branches/3.2-stable /home/redmine/redmine</span>
+</code></pre><p>先設定 puma</p>
+<pre><code>curl -Lo <span class="regexp">/home/</span>redmine<span class="regexp">/redmine/</span>config<span class="regexp">/puma.rb https:/</span><span class="regexp">/gist.githubusercontent.com/</span>jbradach<span class="regexp">/6ee5842e5e2543d59adb/</span>raw<span class="regexp">/</span>
+</code></pre><p>首先需要改一下 Redmine 的設定</p>
+<pre><code>sudo -u redmine vi <span class="regexp">/home/</span>redmine<span class="regexp">/redmine/</span>config<span class="regexp">/database.yml</span>
+</code></pre><p>改成如下</p>
+<pre><code><span class="attribute">production</span>:
+  <span class="attribute">adapter</span>: postgresql
+  <span class="attribute">database</span>: redmine
+  <span class="attribute">host</span>: localhost
+  <span class="attribute">username</span>: redmine
+  <span class="attribute">password</span>: <span class="string">"********"</span>
+  <span class="attribute">encoding</span>: utf8
+</code></pre><p>關於 EMail 的部分也可以改一下</p>
+<pre><code>sudo -u redmine vi <span class="regexp">/home/</span>redmine<span class="regexp">/redmine/</span>config<span class="regexp">/configuration.yml</span>
+</code></pre><p>如下</p>
+<pre><code><span class="attribute">production</span>:
+  <span class="attribute">email_delivery</span>:
+    <span class="attribute">delivery_method</span>: :smtp
+    <span class="attribute">smtp_settings</span>:
+      <span class="attribute">address</span>: <span class="string">"localhost"</span>
+      <span class="attribute">port</span>: <span class="number">25</span>
+      <span class="attribute">domain</span>: <span class="string">"example.com"</span>
+</code></pre><p>接着是安裝 Redmine 需要的相關 Ruby package (請變成 redmine )</p>
+<pre><code><span class="built_in">echo</span> <span class="string">"gem: --no-ri --no-rdoc"</span> &gt;&gt; ~/.gemrc
+<span class="built_in">echo</span> <span class="operator">-e</span> <span class="string">"# Gemfile.local\ngem 'puma'"</span> &gt;&gt; Gemfile.local
+gem install bundler
+rbenv <span class="built_in">rehash</span>
+bundle install --without development <span class="built_in">test</span>
+</code></pre><p>產生 Token (編碼 cookie 用)，建立 db 與初始資料</p>
+<pre><code>rake generate_secret_token
+RAILS_ENV=production rake <span class="string">db:</span>migrate
+RAILS_ENV=production rake <span class="string">redmine:</span>load_default_data
+</code></pre><p>至此我們已經可以先測試了</p>
+<pre><code>ruby <span class="keyword">script</span>/rails server webrick -e production
+</code></pre><p>打開瀏覽器，填入 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a> 看看有沒有畫面出現，有的話我們可以 ctrl + c 先回來。</p>
+<p>首先我們需要啓動 redmine 的 script</p>
+<pre><code>sudo curl -Lo <span class="regexp">/etc/</span>init.d<span class="regexp">/redmine https:/</span><span class="regexp">/gist.githubusercontent.com/</span>jbradach<span class="regexp">/17e73fa6ddc365bb0242/</span>raw/
+sudo chmod +x <span class="regexp">/etc/</span>init.d/redmine
+sudo update-rc.d redmine defaults
+service redmine start
+</code></pre><p>然後 nginx 的部分也很簡單，抓一下設定即可 (可以把 default 移除)</p>
+<pre><code>sudo curl -Lo <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-available/</span>redmine <span class="string">https:</span><span class="comment">//gist.githubusercontent.com/jbradach/31ad6d9c84c3be3b5730/raw/</span>
+sudo ln -s <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-available/</span>redmine <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-enabled/</span>redmine
+sudo service nginx restart
+</code></pre><p>這時候看瀏覽器 <a href="http://localhost" target="_blank" rel="external">http://localhost</a> 應該就有 redmine 了。</p>
+<hr>
+<p>參考資料</p>
+<ul>
+<li><p><a href="http://blog.redmine.jp/articles/3_2/install/ubuntu/" target="_blank" rel="external">Redmine 3.2 を Ubuntu Server 14.04.3 LTS にインストールする手順</a></p>
+</li>
+<li><p><a href="https://blog.rudeotter.com/install-redmine-with-nginx-puma-and-mariadbmysql-on-ubuntu-14-04/" target="_blank" rel="external">Install Redmine with Nginx, Puma, and MariaDB/MySQL on Ubuntu 14.04</a></p>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><a href="http://www.redmine.org/">Redmine</a> 是一套專案管理軟體，我們單位之前都用 <a href="http://trac.edgewall.org/">Trac</a> 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 postgresql + nginx 的組合。至於 Ruby 因為 Ubuntu 14.04 比較舊，所以使用 rbenv 搭建 Ruby 2.2 的環境。</p>]]>
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://blog.littlero.se/tags/Linux/"/>
+    
+      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[被調查局請去喝茶]]></title>
@@ -1861,56 +1973,6 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
       <category term="E-M5" scheme="http://blog.littlero.se/tags/E-M5/"/>
     
       <category term="3C" scheme="http://blog.littlero.se/categories/3C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[nginx 設定檔規則概要]]></title>
-    <link href="http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/"/>
-    <id>http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/</id>
-    <published>2013-02-26T09:47:44.000Z</published>
-    <updated>2015-03-14T05:41:45.000Z</updated>
-    <content type="html"><![CDATA[<p>這篇是記錄一些 lighttpd 轉 nginx rewrite rule 的實作與一些注意事項，最後會講一些 squid 轉 nginx 的技巧。</p>
-<p>這裡先講一些跟 nginx rewrite 有關的重點。</p>
-<p>首先 nginx 算是分成 <code>location</code> 跟 <code>rewrite</code>，lighttpd 是有 <code>url.rewrite</code>、<code>url.rewrite-repeat</code> 跟 <code>url.redirect</code>，其中 lighttpd 的 <code>url.rewrite</code> 就是 rewrite once 而 <code>url.rewrite-repeat</code> 則是重複一直 rewrite 的意思，這個則對應到 nginx <code>rewrite</code> 後面接的參數，也就是 <code>break</code> 跟 <code>last</code>，<code>break</code> 就是 rewrite 到此為止不要再跑 <code>rewrite</code> 了，但是 <code>last</code> 就會在重頭跑 rewrite 一次，而且 <code>last</code> 也是 <code>rewrite</code> 這個 directive 的預設值，所以如果你的 rewrite 不小心變成 loop (nginx 預設是 rewrite 10 次後就噴 500)請加上 <code>break</code>。至於 lighttpd 的 <code>url.redirect</code> 其實在 nginx 也是透過 <code>rewrite</code> 完成的，主要是加 <code>redirect</code> 跟 <code>permanent</code> 的參數，分別是回 302 跟 301。<code>rewrite</code> 的用法大約如下：</p>
-<a id="more"></a>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">rewrite</span> <span class="regexp"> ^(/download/.*)/media/(.*)\..*$</span>  <span class="variable">$1</span>/mp3/<span class="variable">$2</span>.mp3  <span class="built_in">last</span>;</span><br><span class="line"><span class="title">rewrite</span> <span class="regexp"> ^(/download/.*)/media/(.*)\..*$</span>  <span class="variable">$1</span>/mp3/<span class="variable">$2</span>.mp3  <span class="built_in">break</span>;</span><br><span class="line"><span class="title">rewrite</span><span class="regexp"> ^</span> <span class="url">http://example.com<span class="variable">$request_uri</span>?</span> <span class="built_in">permanent</span>;</span><br></pre></td></tr></table></figure>
-<p>注意的是 <code>rewrite</code> 可以擺在 <code>server</code> <code>location</code> <code>if</code> 這三種 block 裡。</p>
-<p>在完成了 <code>rewrite</code> 這個階段之後，也就是不管是被 <code>break</code> 或是 <code>last</code> 後重跑了一輪沒比對到，之後會開始比對所謂的 <code>location</code>，<code>location</code> 是用來處理 url 地址(被 rewrite 後)真正的地方，大概會長的像下面這樣。</p>
-<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">location = / <span class="list">&#123;</span><br><span class="line">  [ configuration A ] </span><br><span class="line">&#125;</span></span><br><span class="line">location / <span class="list">&#123;</span><br><span class="line">  [ configuration B ] </span><br><span class="line">&#125;</span></span><br><span class="line">location /documents/ <span class="list">&#123;</span><br><span class="line">  [ configuration C ] </span><br><span class="line">&#125;</span></span><br><span class="line">location ^~ /images/ <span class="list">&#123;</span><br><span class="line">  [ configuration D ] </span><br><span class="line">&#125;</span></span><br><span class="line">location ~* \.(gif|jpg|jpeg)$ <span class="list">&#123;</span><br><span class="line">  [ configuration E ] </span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>要注意的是 <code>location</code> 有比對的順序，依序是先從有 <code>=</code> 的，然後是 <code>^~</code>，再來就是依照順序，而 location / 則可以當成一個預設值，因為他會 match 到剩下的所有 url。<code>location</code> 可以放在 <code>server</code> block 裡。</p>
-<p>粗略的介紹完，接下來進入一些實務的介紹：</p>
-<ul>
-<li>lighttpd 原本的 <code>url.redirect</code> 就對應成 nginx 的 <code>rewrite http://foo.bar/ redirect</code></li>
-<li>如果原本的 lighttpd 後端因為是 zend 所以就會有一些 rewrite (像是特定的 static file) 是不能送到 zend 去做的，在 lighttpd 就會在 <code>url.rewrite-once</code> 看到一些 <code>&quot;^/images/.*$&quot; =&gt; &quot;$0&quot;</code> 這種的寫法，但是 nginx 沒有 $0 這種東西，這時候就直接把 $0 轉成 $uri 即可，也就是 <code>rewrite ^/images/ $uri last</code></li>
-<li>承上面那點，如果 nginx 背後的 php 是跑 zend 這類有 single entry point (什麼都交給 index.php 做 route)的架構，那樣設定會如下</li>
-</ul>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">location</span> <span class="regexp">~ \.php$</span> &#123;</span><br><span class="line">  <span class="title">try_files</span> <span class="variable">$uri</span> =<span class="number">404</span>;</span><br><span class="line">  <span class="title">include</span> fastcgi.conf;</span><br><span class="line">  <span class="title">fastcgi_pass</span> <span class="url">unix:/tmp/php.socket</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title">location</span> / &#123;</span><br><span class="line">  <span class="title">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php<span class="variable">$is_args</span><span class="variable">$args</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title">rewrite</span><span class="regexp"> ^/images/</span> <span class="variable">$uri</span> <span class="built_in">last</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>因為 lighttpd 的 rewrite 可以連 arguments (也就是 ? 後面的那串參數)都一起 rewrite，但是 nginx 不行，所以就變成需要在 location 裡面做(也就是先 rewrite 完 uri)，因此會變成類似這樣</li>
-</ul>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">location</span><span class="regexp"> ^~</span> /abc &#123;</span><br><span class="line">    <span class="title">if</span> (<span class="variable">$args</span> <span class="regexp">~* "(post|put)")</span>&#123;</span><br><span class="line">        <span class="title">set</span> <span class="variable">$args</span> type=<span class="variable">$1</span>;</span><br><span class="line">        <span class="title">rewrite</span><span class="regexp"> ^</span> /dispatch;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>像這個例子就會把 /abc?post 變成 /dispatch?type=post 然後丟給 dispatch 這個 location (假設存在 location = /dispatch 之類的)</p>
-<ul>
-<li>前面提到的 location 有比較順序，要注意的是只有兩種是可以接正規表示式的也就是 <code>~</code> 跟 <code>~*</code>，<code>~</code> 是有大小寫區分的，<code>~*</code> 則不分大小寫，然後 <code>=</code> 跟 <code>^~</code> 後面都是接一般的表示法，也就是下面這種都是不合法的</li>
-</ul>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># misusing</span></span><br><span class="line"><span class="title">location</span> =<span class="regexp"> ^/regular$</span> &#123;&#125;</span><br><span class="line"><span class="title">location</span><span class="regexp"> ^~</span><span class="regexp"> ^/regular2$</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>但是下列的就是合法的</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># right</span></span><br><span class="line"><span class="title">location</span> <span class="regexp">~ ^/regular$</span> &#123;&#125; <span class="comment"># matches $uri = '/regular'</span></span><br><span class="line"><span class="title">location</span><span class="regexp"> ^~</span><span class="regexp"> ^/regular2$</span> &#123;&#125; <span class="comment"># matches $uri = '/Regular2' or '/rEgular2' ...</span></span><br><span class="line"><span class="title">location</span> = /regular3 &#123;&#125; <span class="comment"># matches exactly $uri = '/regular3' with higher priority</span></span><br><span class="line"><span class="title">location</span><span class="regexp"> ^~</span> /regular4 &#123;&#125; <span class="comment"># matches $uri = '/regular4' or '/regular41' or 'regular4a' ...</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>另外就是關於 <code>last</code> 跟 <code>break</code> 的詳細用法，<code>rewrite</code> 預設是 <code>last</code>，兩個最基本的差異前面有提到 <code>break</code> 會停止任何 <code>rewrite</code> 進入找 <code>location</code> 的階段，但是 <code>last</code> 會從第一個 <code>rewrite</code> 重新 rewrite 階段，但是這裡其實隱含了一個潛規則，就是如果你的 <code>rewrite</code> 是在 <code>location</code> 裡面的話，搭配 <code>last</code> 就會回到 <code>server</code> 這個 scope 的 <code>rewrite</code> 重新跑一次，但是搭配 <code>break</code> 就只會在這個 <code>location</code> 裡面找 <code>location</code>，這是值得注意的規則，所以有時候建議把 location ~ .php$ {…} 擺在第一個，因為有時候 <code>location</code> 內的 <code>rewrite</code> 又會不小心掉回來這個 <code>location</code>，把 ~ .php$ 擺最前面時，這樣 <code>rewrite ... last</code> 回到 server scope 遇到 php 就會給 ~ .php$ 處理了。</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>這篇是記錄一些 lighttpd 轉 nginx rewrite rule 的實作與一些注意事項，最後會講一些 squid 轉 nginx 的技巧。</p>
-<p>這裡先講一些跟 nginx rewrite 有關的重點。</p>
-<p>首先 nginx 算是分成 <code>location</code> 跟 <code>rewrite</code>，lighttpd 是有 <code>url.rewrite</code>、<code>url.rewrite-repeat</code> 跟 <code>url.redirect</code>，其中 lighttpd 的 <code>url.rewrite</code> 就是 rewrite once 而 <code>url.rewrite-repeat</code> 則是重複一直 rewrite 的意思，這個則對應到 nginx <code>rewrite</code> 後面接的參數，也就是 <code>break</code> 跟 <code>last</code>，<code>break</code> 就是 rewrite 到此為止不要再跑 <code>rewrite</code> 了，但是 <code>last</code> 就會在重頭跑 rewrite 一次，而且 <code>last</code> 也是 <code>rewrite</code> 這個 directive 的預設值，所以如果你的 rewrite 不小心變成 loop (nginx 預設是 rewrite 10 次後就噴 500)請加上 <code>break</code>。至於 lighttpd 的 <code>url.redirect</code> 其實在 nginx 也是透過 <code>rewrite</code> 完成的，主要是加 <code>redirect</code> 跟 <code>permanent</code> 的參數，分別是回 302 跟 301。<code>rewrite</code> 的用法大約如下：</p>]]>
-    
-    </summary>
-    
-      <category term="nginx" scheme="http://blog.littlero.se/tags/nginx/"/>
-    
-      <category term="資訊" scheme="http://blog.littlero.se/categories/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
