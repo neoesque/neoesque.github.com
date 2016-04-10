@@ -16,7 +16,7 @@
 加上 TextMate 已經過了好久都沒有更新，原本說好在 Mac OS X 10.5 出來的時候就要改用 CoreText 改寫，結果也跳票了。不然實在是離不開 TextMate 的 snippet 。
 不過雖然 TextMate 在前一陣子推出 TextMate 2 beta 但是很多功能還是沒有完整，而且不時還會當">
 <meta property="og:image" content="https://lh5.googleusercontent.com/-OBhLI8lugD4/T4FAwZ6KVfI/AAAAAAAAD2Y/VKP9-1VWSEk/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-08%2520%25E4%25B8%258B%25E5%258D%25883.39.25.png">
-<meta property="og:updated_time" content="2015-03-14T05:42:33.000Z">
+<meta property="og:updated_time" content="2016-04-10T04:01:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="從 TextMate 2 跳到 Sublime Text 2">
 <meta name="twitter:description" content="原本都是使用 TextMate 後來實在受不了不能好好支援 cjk 的輸入。
@@ -255,8 +255,7 @@ ga('send', 'pageview');
 <p>不過這幾天又使用了最新版的 (Build 2181) 又修好了，應該真的是 2165 的 bug。所以看起來是真的可以完全換到 Sublime Text 2 了。</p>
 <p>不過沒有什麼 IDE 是原生就符合每個人的習慣的，一定要 tune 一下，裝一堆的 Plug-in，Sublime Text 2 也是一樣，不過幸好裝 Plug-in (Sublime Text 2 叫 Packages)是很簡單的事。</p>
 <hr>
-<p>###基本準備</p>
-<p>首先按 <code>ctrl + ` </code> 然後會出現一個對話框，直接貼入下列的程式碼</p>
+<h3 id="基本準備"><a href="#基本準備" class="headerlink" title="基本準備"></a>基本準備</h3><p>首先按 <code>ctrl + ` </code> 然後會出現一個對話框，直接貼入下列的程式碼</p>
 <pre><code>import urllib2,os; pf=&apos;Package Control.sublime-package&apos;; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),&apos;wb&apos;).write(urllib2.urlopen(&apos;http://sublime.wbond.net/&apos;+pf.replace(&apos; &apos;,&apos;%20&apos;)).read()); print &apos;Please restart Sublime Text to finish installation&apos;
 </code></pre><p><img src="https://lh5.googleusercontent.com/-OBhLI8lugD4/T4FAwZ6KVfI/AAAAAAAAD2Y/VKP9-1VWSEk/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-08%2520%25E4%25B8%258B%25E5%258D%25883.39.25.png" alt=""></p>
 <p>然後按下 Enter 就會安裝完成了，重開 Sublime Text 2 後，按下 <code>cmd + shift + p</code> 會叫出 Command Palette ，輸入 <code>package control</code> 就會顯示相關指令：</p>
@@ -264,8 +263,7 @@ ga('send', 'pageview');
 <p>我們下面需要用到的是 Install 所以把游標移到 <em>Install Package</em> 按下 Enter (以後可以搜尋 install 就好)，他會上網截取所有的 Package 列表然後再次出現輸入提示：</p>
 <p><img src="https://lh6.googleusercontent.com/-hQn6BsiHXsQ/T4FCxb23XeI/AAAAAAAAD28/yYt4loeulA4/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-08%2520%25E4%25B8%258B%25E5%258D%25883.47.40.png" alt=""></p>
 <hr>
-<p>###推薦套件</p>
-<p>接下來介紹幾個我有用到的套件 (直接在 Install 裡搜尋即可)</p>
+<h3 id="推薦套件"><a href="#推薦套件" class="headerlink" title="推薦套件"></a>推薦套件</h3><p>接下來介紹幾個我有用到的套件 (直接在 Install 裡搜尋即可)</p>
 <ul>
 <li><a href="https://bitbucket.org/sublimator/sublime-2-zencoding" target="_blank" rel="external">Zen Coding</a></li>
 </ul>
@@ -301,8 +299,7 @@ ga('send', 'pageview');
 </ul>
 <p>支援 Bootstap 的 snippet</p>
 <hr>
-<p>###推薦 Theme</p>
-<p>而在 Theme 方面我用的是 <a href="https://github.com/mattsanders/Prospettiva-Theme" target="_blank" rel="external">Prospettiva</a> + <a href="https://github.com/buymeasoda/soda-theme" target="_blank" rel="external">Soda</a></p>
+<h3 id="推薦-Theme"><a href="#推薦-Theme" class="headerlink" title="推薦 Theme"></a>推薦 Theme</h3><p>而在 Theme 方面我用的是 <a href="https://github.com/mattsanders/Prospettiva-Theme" target="_blank" rel="external">Prospettiva</a> + <a href="https://github.com/buymeasoda/soda-theme" target="_blank" rel="external">Soda</a></p>
 <p>Prospettiva 的安裝只要把他的 prospettiva.tmTheme 下載後放到 <em>~/Library/Application Support/Sublime Text 2/Packages/User</em> 即可</p>
 <p>而 Soda 則可以利用 Package Manager 安裝</p>
 <p>Soda 有一點類似掌管整個程式的 Decorator 而 Prospettiva 則是掌管 TextArea 的區塊，最後完成的結果像這樣：</p>
@@ -317,7 +314,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/transfer-textmate-2-to-sublime-text-2/" data-id="cimu08t5t004s0f0qsbtmz2bs" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/transfer-textmate-2-to-sublime-text-2/" data-id="cimu1q0yp004x280qshdazwg9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
