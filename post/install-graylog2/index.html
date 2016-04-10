@@ -1,35 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-  <meta charset="utf-8">
-  
-  <title>install graylog2 | neoesque</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Graylog2 是一個開源的 log 收容器，主要有兩個部份集合而成 server 與 web interface，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 mongodb，而搜尋引擎則由 elasticsearch 提供。另外的">
+    <meta charset="utf-8">
+    
+    <title>install graylog2 | neoesque</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Graylog2 是一個開源的 log 收容器，主要有兩個部份集合而成 server 與 web interface，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 mongodb，而搜尋引擎則由 elasticsearch 提供。另外">
 <meta property="og:type" content="article">
 <meta property="og:title" content="install graylog2">
 <meta property="og:url" content="http://blog.littlero.se/post/install-graylog2/index.html">
 <meta property="og:site_name" content="neoesque">
-<meta property="og:description" content="Graylog2 是一個開源的 log 收容器，主要有兩個部份集合而成 server 與 web interface，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 mongodb，而搜尋引擎則由 elasticsearch 提供。另外的">
+<meta property="og:description" content="Graylog2 是一個開源的 log 收容器，主要有兩個部份集合而成 server 與 web interface，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 mongodb，而搜尋引擎則由 elasticsearch 提供。另外">
 <meta property="og:image" content="https://lh4.googleusercontent.com/-HxbTnQ713EE/UuKP3HTDr_I/AAAAAAAAH0Y/5PqTkSwGYOY/w758-h379-no/Screenshot+2014-01-25+00.04.08.png">
+<meta property="og:updated_time" content="2015-03-14T05:40:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="install graylog2">
-<meta name="twitter:description" content="Graylog2 是一個開源的 log 收容器，主要有兩個部份集合而成 server 與 web interface，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 mongodb，而搜尋引擎則由 elasticsearch 提供。另外的">
+<meta name="twitter:description" content="Graylog2 是一個開源的 log 收容器，主要有兩個部份集合而成 server 與 web interface，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 mongodb，而搜尋引擎則由 elasticsearch 提供。另外">
+<meta name="twitter:image" content="https://lh4.googleusercontent.com/-HxbTnQ713EE/UuKP3HTDr_I/AAAAAAAAH0Y/5PqTkSwGYOY/w758-h379-no/Screenshot+2014-01-25+00.04.08.png">
 <meta name="twitter:creator" content="@neoesque">
 <meta property="fb:admins" content="1573449527">
 <meta property="fb:app_id" content="163923413772109">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
-  
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -38,93 +50,197 @@ ga('create', 'UA-37617901-1', 'auto');
 ga('send', 'pageview');
 
 </script>
-<!-- End Google Analytics -->
+    
+    
+    
 
-
-  
 </head>
 <body>
-  <div id="container">
-    <header id="header">
-  <div id="header-main" class="header-inner">
-    <div class="outer">
-      <a href="/" id="logo"><span class="site-title">neoesque</span></a>
-      <nav id="main-nav">
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-      </div>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">neoesque</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主頁</a>
+                
+                    <a class="main-nav-link" href="/archives">歸檔</a>
+                
+                    <a class="main-nav-link" href="/categories">分類</a>
+                
+                    <a class="main-nav-link" href="/tags">標籤</a>
+                
+                    <a class="main-nav-link" href="/about">關於我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-  </div>
-  <div id="main-nav-mobile" class="header-sub header-inner">
-    <table class="menu outer">
-      <tr>
-        
-          <td><a class="main-nav-link" href="/">Home</a></td>
-        
-          <td><a class="main-nav-link" href="/archives">Archives</a></td>
-        
-          <td><a class="main-nav-link" href="/about">About</a></td>
-        
-        <td>
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-        </td>
-      </tr>
-    </table>
-  </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: 'Pages',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主頁</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">歸檔</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分類</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">標籤</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">關於我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
 </header>
 
-    <div class="outer">
-      
-      <section id="main"><article id="post-install-graylog2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">neoesque</h2>
+            <h3 id="title">Linux Admin</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Taipei, Taiwan</span>
+            <a id="follow" target="_blank" href="https://github.com/neoesque/">關注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                58
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                37
+                <span>標籤</span>
+            </div>
+        </div>
         
-  
-    <h1 class="article-title" itemprop="name">
-      install graylog2
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/install-graylog2/">
-      <time datetime="2014-01-24T13:55:56.000Z" itemprop="datePublished">2014-01-24, Fri</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
-  </div>
-
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+                    
+                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    
+                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    
+                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    
+                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    
+                </tr>
+            </table>
         </div>
-      </header>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-install-graylog2" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div id="toc" class="toc-article">
-          <!-- # <strong class="toc-title">contents</strong> -->
-          
-        </div>
-      
-        <img src="https://lh4.googleusercontent.com/-HxbTnQ713EE/UuKP3HTDr_I/AAAAAAAAH0Y/5PqTkSwGYOY/w758-h379-no/Screenshot+2014-01-25+00.04.08.png">
+        <h1 class="article-title" itemprop="name">
+            install graylog2
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/install-graylog2/">
+            <time datetime="2014-01-24T13:55:56.000Z" itemprop="datePublished">2014-01-24, 週五</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/graylog2/">graylog2</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <img src="https://lh4.googleusercontent.com/-HxbTnQ713EE/UuKP3HTDr_I/AAAAAAAAH0Y/5PqTkSwGYOY/w758-h379-no/Screenshot+2014-01-25+00.04.08.png">
 <p><a href="http://graylog2.org/" target="_blank" rel="external">Graylog2</a> 是一個開源的 log 收容器，主要有兩個部份集合而成 <code>server</code> 與 <code>web interface</code>，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 <a href="http://www.mongodb.org/" target="_blank" rel="external">mongodb</a>，而搜尋引擎則由 <a href="http://www.elasticsearch.org/" target="_blank" rel="external">elasticsearch</a> 提供。另外的 web interface 也是 Java 寫成的(早期好像是 Ruby on Rails)，主要的功能就是提供一個漂亮的搜尋與分析的界面。</p>
 <p>所以要使用 Graylog2 需要安裝五個元件</p>
 <table>
@@ -161,10 +277,10 @@ ga('send', 'pageview');
 <a id="more"></a>
 <p>首先因為 elasticsearch 跟 graylog2 都需要 Java，所以我們的系統需要安裝 JRE 先，最低需求是 Java 7.0 的版本，所以我們先到 <a href="http://java.com/en/download/manual.jsp" target="_blank" rel="external">Java Download</a> 下載 JRE 7u51 下來，假設下載到 /tmp/jre-7u51-linux-x64.tar.gz 下面，先解壓縮到 /opt 底下 <code>tar zxvf /tmp/jre-7u51-linux-x64.tar.gz -C /opt</code> 會產生 /opt/jre1.7.0_51/ 然後我們為了好看做一下 link <code>ln -s /opt/jre1.7.0_51 /opt/java</code> 這樣 Java 就裝好了。</p>
 <p>接下來來裝 elasticsearch，<code>curl https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.10.tar.gz -o /tmp/elasticsearch.tgz &amp;&amp; tar zxvf /tmp/elasticsearch.tgz -C /opt &amp;&amp; ln -s /opt/elasticsearch-0.90.10 /opt/elasticsearch</code> 這樣基本上就裝好了，不過我們還需要建立一些資料夾讓 elasticsearch 可以運作起來。</p>
-<figure class="highlight"><figcaption><span>build basic directory</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install -o nobody -g nogroup -d /var/log/elasticsearch/&#10;install -o nobody -g nogroup -d /var/lib/elasticsearch/data&#10;install -o nobody -g nogroup -d /var/lib/elasticsearch/work&#10;install -o nobody -g nogroup -d /var/run/elasticsearch/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>build basic directory</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">install -o nobody -g nogroup -d /var/log/elasticsearch/</span><br><span class="line">install -o nobody -g nogroup -d /var/lib/elasticsearch/data</span><br><span class="line">install -o nobody -g nogroup -d /var/lib/elasticsearch/work</span><br><span class="line">install -o nobody -g nogroup -d /var/run/elasticsearch/</span><br></pre></td></tr></table></figure>
 <p>之所以給 nobody:nogroup 是希望之後我們的 elasticsearch 就用 nobody 的身份執行，其實沒有強制，如果要建立 elasticsearch 的專用帳號也是可以的。</p>
 <p>接著改個設定</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i -e &#39;s|# cluster.name: elasticsearch|cluster.name: graylog2|&#39; /opt/elasticsearch/config/elasticsearch.yml</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i -e &apos;s|# cluster.name: elasticsearch|cluster.name: graylog2|&apos; /opt/elasticsearch/config/elasticsearch.yml</span><br></pre></td></tr></table></figure>
 <p>這個是把 elasticsearch 的名字設定成 graylog2，這樣之後 server 才吃得到。</p>
 <p>然後我們來建立啟動 elasticsearch 的 script 吧，貼上下列的 code 到 /etc/init.d/elasticsearch 然後 <code>chmod +x /etc/init.d/elasticsearch</code>。</p>
 <script src="//gist.github.com/a1d4fdbdca18d31cf437.js"></script>
@@ -172,16 +288,16 @@ ga('send', 'pageview');
 <p>接下來是安裝 mongodb，<code>curl http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz -o /tmp/mongodb.tgz &amp;&amp; tar zxvf /tmp/mongodb.tgz -C /opt &amp;&amp; ln -s /opt/mongodb-linux-x86_64-2.4.9 /opt/mongodb</code> 這樣也裝好了，mongodb 基本上完全不需要設定(要設定帳密增加安全性也可以)。我們來增加啟動 mongob 的 script，新增下面的內容到 /etc/init.d/mongodb 然後 <code>chmod +x /etc/init.d/mongodb</code>。</p>
 <script src="//gist.github.com/c931db641e7f4008e4e3.js"></script>
 <p>一樣需要增加一些資料夾才能正常使用</p>
-<figure class="highlight"><figcaption><span>build basic directory</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install -o nobody -g nogroup -d /var/log/mongodb/&#10;install -o nobody -g nogroup -d /var/lib/mongodb/&#10;install -o nobody -g nogroup -d /var/run/mongodb/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>build basic directory</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">install -o nobody -g nogroup -d /var/log/mongodb/</span><br><span class="line">install -o nobody -g nogroup -d /var/lib/mongodb/</span><br><span class="line">install -o nobody -g nogroup -d /var/run/mongodb/</span><br></pre></td></tr></table></figure>
 <p>接著也啟動看看 <code>/etc/init.d/mongodb start</code>，我們透過 <code>tail -f /var/log/mongodb/mongodb.log</code> 可以知道啟動的狀態，如果都沒錯理論上可以繼續下一步了。</p>
 <p>目前為止我們可以透過 <code>netstat -ntlp</code> 看 9300 (elasticsearch 的 port) 跟 27017 (mongodb 的 port) 有沒有在監聽著，就知道有沒有啟動成功了。</p>
 <p>接下來就是要裝 graylog2 啦，首先是 server，<code>curl https://github.com/Graylog2/graylog2-server/releases/download/0.20.0-rc.1-1/graylog2-server-0.20.0-rc.1-1.tgz -o /tmp/graylog2-server.tgz &amp;&amp; tar zxvf /tmp/graylog2-server.tgz -C /opt &amp;&amp; ln -s /opt/graylog2-server-0.20.0-rc.1-1 /opt/graylog2-server</code> 然後我們需要設定一下</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /opt/graylog2-server/graylog2.conf.example /etc/graylog2.conf&#10;pass_secret=$(pwgen -s 96)&#10;sed -i -e &#39;s|password_secret =|password_secret = &#39;$pass_secret&#39;|&#39; /etc/graylog2.conf&#10;#&#23494;&#30908;&#33258;&#24049;&#35373;&#23450; web &#30331;&#20837;&#29992;&#30340; root_pass_sha2=$(echo -n password123 | shasum -a 256)&#10;sed -i -e &#34;s|root_password_sha2 =|root_password_sha2 = ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f|&#34; /etc/graylog2.conf&#10;sed -i -e &#39;s|elasticsearch_shards = 4|elasticsearch_shards = 1|&#39; /etc/graylog2.conf&#10;sed -i -e &#39;s|mongodb_useauth = true|mongodb_useauth = false|&#39; /etc/graylog2.conf&#10;sed -i -e &#39;s|#elasticsearch_discovery_zen_ping_multicast_enabled = false|elasticsearch_discovery_zen_ping_multicast_enabled = false|&#39; /etc/graylog2.conf&#10;sed -i -e &#39;s|#elasticsearch_discovery_zen_ping_unicast_hosts = 192.168.1.203:9300|elasticsearch_discovery_zen_ping_unicast_hosts = 127.0.0.1:9300|&#39; /etc/graylog2.conf&#10;sed -i &#39;s|retention_strategy = delete|retention_strategy = close|&#39; /etc/graylog2.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cp /opt/graylog2-server/graylog2.conf.example /etc/graylog2.conf</span><br><span class="line">pass_secret=$(pwgen -s 96)</span><br><span class="line">sed -i -e &apos;s|password_secret =|password_secret = &apos;$pass_secret&apos;|&apos; /etc/graylog2.conf</span><br><span class="line">#密碼自己設定 web 登入用的 root_pass_sha2=$(echo -n password123 | shasum -a 256)</span><br><span class="line">sed -i -e &quot;s|root_password_sha2 =|root_password_sha2 = ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f|&quot; /etc/graylog2.conf</span><br><span class="line">sed -i -e &apos;s|elasticsearch_shards = 4|elasticsearch_shards = 1|&apos; /etc/graylog2.conf</span><br><span class="line">sed -i -e &apos;s|mongodb_useauth = true|mongodb_useauth = false|&apos; /etc/graylog2.conf</span><br><span class="line">sed -i -e &apos;s|#elasticsearch_discovery_zen_ping_multicast_enabled = false|elasticsearch_discovery_zen_ping_multicast_enabled = false|&apos; /etc/graylog2.conf</span><br><span class="line">sed -i -e &apos;s|#elasticsearch_discovery_zen_ping_unicast_hosts = 192.168.1.203:9300|elasticsearch_discovery_zen_ping_unicast_hosts = 127.0.0.1:9300|&apos; /etc/graylog2.conf</span><br><span class="line">sed -i &apos;s|retention_strategy = delete|retention_strategy = close|&apos; /etc/graylog2.conf</span><br></pre></td></tr></table></figure>
 <p>然後一樣來增加 init script 吧，在 /etc/init.d/graylog2-server 填入下列，並 <code>chmod +x /etc/init.d/graylog2-server</code></p>
 <script src="//gist.github.com/62ad68382f8a33244a6e.js"></script>
 <p>然後直接啟動了！ <code>/etc/init.d/graylog2-server start</code>，看看 <code>tail -f /var/log/graylog2-server.log</code> 是不是有出現錯誤訊息，沒有錯的話 <code>netstat -ntlp</code> 應該可以看到 port:12900 有被監聽了，這是 server 的 REST 傳輸 port。</p>
 <p>最後我們就可以來裝 web interface 了，<code>curl hhttps://github.com/Graylog2/graylog2-web-interface/releases/download/0.20.0-rc.1-1/graylog2-web-interface-0.20.0-rc.1-1.tgz -o /tmp/graylog2-web-interface.tgz &amp;&amp; tar zxvf /tmp/graylog2-web-interface.tgz -C /opt &amp;&amp; ln -s /opt/graylog2-web-interface-0.20.0-rc.1-1 /opt/graylog2-web-interface</code><br>這裡我們只有兩個地方要設定</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i -e &#39;s|graylog2-server.uris=&#34;&#34;|graylog2-server.uris=&#34;http://127.0.0.1:12900/&#34;|&#39; /opt/graylog2-web-interface/conf/graylog2-web-interface.conf&#10;# &#36889;&#35041;&#22635;&#20837;&#21083;&#21083; server &#30340; app_secret&#10;sed -i -e &#39;s|application.secret=&#34;&#34;|application.secret=&#34;&#39;$app_secret&#39;&#34;|&#39; /opt/graylog2-web-interface/conf/graylog2-web-interface.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sed -i -e &apos;s|graylog2-server.uris=&quot;&quot;|graylog2-server.uris=&quot;http://127.0.0.1:12900/&quot;|&apos; /opt/graylog2-web-interface/conf/graylog2-web-interface.conf</span><br><span class="line"># 這裡填入剛剛 server 的 app_secret</span><br><span class="line">sed -i -e &apos;s|application.secret=&quot;&quot;|application.secret=&quot;&apos;$app_secret&apos;&quot;|&apos; /opt/graylog2-web-interface/conf/graylog2-web-interface.conf</span><br></pre></td></tr></table></figure>
 <p>然後我們也來寫一下 init script 吧，檔名存 /etc/init.d/graylog2-web-interface，記得一樣 <code>chmod +x /etc/init.d/graylog2-web-interface</code></p>
 <script src="//gist.github.com/97ac6a26cf7d5f2da36f.js"></script>
 <p>最後啟動 <code>/etc/init.d/graylog2-web-interface start</code>，因為我們沒有寫 log，直接用 <code>netstat -ntlp</code> 觀察看看 port:9000 有沒有被聽著，這是他的 web interface 預設的 http port。</p>
@@ -192,215 +308,303 @@ ga('send', 'pageview');
 <li><a href="http://everythingshouldbevirtual.com/ubuntu-12-04-graylog2-installation" target="_blank" rel="external">Ubuntu 12.04 Graylog2 Installation</a></li>
 </ul>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/install-graylog2/" data-id="cik2l20yi00481r0q0v0nh8of" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/install-graylog2/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graylog2/">graylog2</a></li></ul>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
-    </footer>
-  </div>
-  
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/install-graylog2/" data-id="cimu08t2n00240f0q7uuhuxwt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
     
+        <a href="/post/install-graylog2/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/install-graylog2/">評論</a>
+    
+
+        </footer>
+    </div>
+    
+        
 <nav id="article-nav">
-  
-    <a href="/post/conky/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Conky
-        
-      </div>
-    </a>
-  
-  
-    <a href="/post/saltstack-custom-grains/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">saltstack 自定 grains</div>
-    </a>
-  
+    
+        <a href="/post/conky/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Conky
+                
+            </div>
+        </a>
+    
+    
+        <a href="/post/saltstack-custom-grains/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">saltstack 自定 grains</div>
+        </a>
+    
 </nav>
 
 
-  
+    
 </article>
 
 
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
-
-</section>
-      
-        <aside id="sidebar">
-  
+            
+                <aside id="sidebar">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">recents</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
-              <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
-              <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, Sun</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
-              <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, Thu</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg
-)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
-              <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg
-)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
-              <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
-              <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
-              <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, Thu</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">tag cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a><a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a><a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a><a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a><a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a><a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20px;">Linux</a><a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a><a href="/tags/NIS/" style="font-size: 10px;">NIS</a><a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a><a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a><a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a><a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a><a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a><a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a><a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a><a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a><a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a><a href="/tags/i18n/" style="font-size: 10px;">i18n</a><a href="/tags/ingress/" style="font-size: 10px;">ingress</a><a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a><a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a><a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a><a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a><a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a><a href="/tags/php/" style="font-size: 11.43px;">php</a><a href="/tags/pushover/" style="font-size: 10px;">pushover</a><a href="/tags/squid/" style="font-size: 14.29px;">squid</a><a href="/tags/svn/" style="font-size: 11.43px;">svn</a><a href="/tags/trac/" style="font-size: 12.86px;">trac</a><a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a><a href="/tags/日本/" style="font-size: 10px;">日本</a><a href="/tags/美國/" style="font-size: 11.43px;">美國</a><a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a><a href="/tags/調查局/" style="font-size: 10px;">調查局</a><a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a><a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
-    </div>
-  </div>
-
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-
-  
+        <span class="thumbnail-image thumbnail-none"></span>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Casio-TR15/">Casio TR15</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/E-M5/">E-M5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeBSD/">FreeBSD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gentoo/">Gentoo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Healthy/">Healthy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenRC/">OpenRC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SUSE/">SUSE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SaltStack/">SaltStack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime/">Sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TextMate/">TextMate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMware/">VMware</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cgroups/">cgroups</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graylog2/">graylog2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i18n/">i18n</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ingress/">ingress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcachedb/">memcachedb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moinmoin/">moinmoin</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obj-c/">obj-c</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pushover/">pushover</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trac/">trac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/喝茶/">喝茶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美國/">美國</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蝴蝶結/">蝴蝶結</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/調查局/">調查局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/迪士尼/">迪士尼</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/陶瓷/">陶瓷</a><span class="tag-list-count">1</span></li></ul>
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
+                            <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
+                            <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, 週日</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
+                            <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, 週四</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
+                            <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
+                            <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
+                            <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
+                            <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, 週四</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
     </div>
-  </div>
 
-  
-  <div id="toTop" class="fa fa-chevron-up"></div>
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a> <a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a> <a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a> <a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a> <a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a> <a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a> <a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a> <a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a> <a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a> <a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a> <a href="/tags/i18n/" style="font-size: 10px;">i18n</a> <a href="/tags/ingress/" style="font-size: 10px;">ingress</a> <a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a> <a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a> <a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a> <a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a> <a href="/tags/php/" style="font-size: 11.43px;">php</a> <a href="/tags/pushover/" style="font-size: 10px;">pushover</a> <a href="/tags/squid/" style="font-size: 14.29px;">squid</a> <a href="/tags/svn/" style="font-size: 11.43px;">svn</a> <a href="/tags/trac/" style="font-size: 12.86px;">trac</a> <a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a> <a href="/tags/美國/" style="font-size: 11.43px;">美國</a> <a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a> <a href="/tags/調查局/" style="font-size: 10px;">調查局</a> <a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a> <a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-chevron-up"></div>
 </aside>
-      
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 neoesque<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
     </div>
-    <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 neoesque<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-    </div>
-  </div>
 </footer>
+        
     
-
-<script>
-  var disqus_shortname = 'parsefloat';
-  (function(){
+    <script>
+    var disqus_shortname = 'parsefloat';
+    
+    
+    var disqus_url = 'http://blog.littlero.se/post/install-graylog2/';
+    
+    (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+    })();
+    </script>
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
 
-
-<script src="/js/script.js" type="text/javascript"></script>
-
-  </div>
+    </div>
 </body>
 </html>

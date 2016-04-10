@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-  <meta charset="utf-8">
-  
-  <title>neoesque</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="neoesque&apos;s Linux Blog">
+    <meta charset="utf-8">
+    
+    <title>neoesque</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="neoesque&apos;s Linux Blog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="neoesque">
 <meta property="og:url" content="http://blog.littlero.se/page/2/index.html">
@@ -17,18 +17,28 @@
 <meta name="twitter:creator" content="@neoesque">
 <meta property="fb:admins" content="1573449527">
 <meta property="fb:app_id" content="163923413772109">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
-  
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -37,88 +47,197 @@ ga('create', 'UA-37617901-1', 'auto');
 ga('send', 'pageview');
 
 </script>
-<!-- End Google Analytics -->
+    
+    
+    
 
-
-  
 </head>
 <body>
-  <div id="container">
-    <header id="header">
-  <div id="header-main" class="header-inner">
-    <div class="outer">
-      <a href="/" id="logo"><span class="site-title">neoesque</span></a>
-      <nav id="main-nav">
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-      </div>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">neoesque</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主頁</a>
+                
+                    <a class="main-nav-link" href="/archives">歸檔</a>
+                
+                    <a class="main-nav-link" href="/categories">分類</a>
+                
+                    <a class="main-nav-link" href="/tags">標籤</a>
+                
+                    <a class="main-nav-link" href="/about">關於我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-  </div>
-  <div id="main-nav-mobile" class="header-sub header-inner">
-    <table class="menu outer">
-      <tr>
-        
-          <td><a class="main-nav-link" href="/">Home</a></td>
-        
-          <td><a class="main-nav-link" href="/archives">Archives</a></td>
-        
-          <td><a class="main-nav-link" href="/about">About</a></td>
-        
-        <td>
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-        </td>
-      </tr>
-    </table>
-  </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: 'Pages',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主頁</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">歸檔</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分類</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">標籤</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">關於我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
 </header>
 
-    <div class="outer">
-      
-      <section id="main">
-      <article id="post-install-graylog2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/install-graylog2/">install graylog2</a>
-    </h1>
-  
+        <div class="outer">
+            
+                
 
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/install-graylog2/">
-      <time datetime="2014-01-24T13:55:56.000Z" itemprop="datePublished">2014-01-24, Fri</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
-  </div>
-
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">neoesque</h2>
+            <h3 id="title">Linux Admin</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Taipei, Taiwan</span>
+            <a id="follow" target="_blank" href="https://github.com/neoesque/">關注我</a>
         </div>
-      </header>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                58
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                37
+                <span>標籤</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+                    
+                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    
+                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    
+                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    
+                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main">
+    <article id="post-install-graylog2" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <img src="https://lh4.googleusercontent.com/-HxbTnQ713EE/UuKP3HTDr_I/AAAAAAAAH0Y/5PqTkSwGYOY/w758-h379-no/Screenshot+2014-01-25+00.04.08.png">
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/install-graylog2/">install graylog2</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/install-graylog2/">
+            <time datetime="2014-01-24T13:55:56.000Z" itemprop="datePublished">2014-01-24, 週五</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/graylog2/">graylog2</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><img src="https://lh4.googleusercontent.com/-HxbTnQ713EE/UuKP3HTDr_I/AAAAAAAAH0Y/5PqTkSwGYOY/w758-h379-no/Screenshot+2014-01-25+00.04.08.png">
 <p><a href="http://graylog2.org/">Graylog2</a> 是一個開源的 log 收容器，主要有兩個部份集合而成 <code>server</code> 與 <code>web interface</code>，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 <a href="http://www.mongodb.org/">mongodb</a>，而搜尋引擎則由 <a href="http://www.elasticsearch.org/">elasticsearch</a> 提供。另外的 web interface 也是 Java 寫成的(早期好像是 Ruby on Rails)，主要的功能就是提供一個漂亮的搜尋與分析的界面。</p>
 <p>所以要使用 Graylog2 需要安裝五個元件</p>
 <table>
@@ -151,307 +270,672 @@ ga('send', 'pageview');
 </tr>
 </tbody>
 </table>
-<p>我們先從 elasticsearch 開始安裝起，以下都用目前最新的版本來示範，基本上不分什麼 Linux Distribution，我們單位都用 SUSE，不過 Gentoo 或 Ubuntu 也都適用就是</p>
+<p>我們先從 elasticsearch 開始安裝起，以下都用目前最新的版本來示範，基本上不分什麼 Linux Distribution，我們單位都用 SUSE，不過 Gentoo 或 Ubuntu 也都適用就是</p></p>
+            <p class="article-more-link">
+                <a href="/post/install-graylog2/#more">Read More</a>
+            </p>
         
-          <p class="article-more-link">
-            <a href="/post/install-graylog2/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/install-graylog2/" data-id="cik2l20yi00481r0q0v0nh8of" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/install-graylog2/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graylog2/">graylog2</a></li></ul>
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
-    </footer>
-  </div>
-  
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/install-graylog2/" data-id="cimu08t2n00240f0q7uuhuxwt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="/post/install-graylog2/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/install-graylog2/">評論</a>
+    
+
+        </footer>
+    </div>
+    
 </article>
 
 
 
-    
-      <article id="post-saltstack-custom-grains" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+    <article id="post-saltstack-custom-grains" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/saltstack-custom-grains/">saltstack 自定 grains</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/saltstack-custom-grains/">
-      <time datetime="2013-07-10T13:00:29.000Z" itemprop="datePublished">2013-07-10, Wed</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
-  </div>
-
-        </div>
-      </header>
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="/post/nice-to-meet-saltstack/">上一集</a> 中，簡單的介紹了 Salt 的使用方法，這集要稍微深入的介紹 Salt 的其中一個部份 - <a href="http://docs.saltstack.com/topics/targeting/grains.html">Grains</a>，Grains 基本上就是機器的資訊，通常指的是不會變動的部份，比方說 CPU 有幾顆、記憶體有多少、作業系統是用什麼的(CentOS, Ubuntu, SUSE…etc)、網卡資訊，至於會變動的資訊通常會用 Salt 的 <a href="http://docs.saltstack.com/topics/pillar/index.html">Pilar</a> 功能，雖然 SaltStack 支援很多種 Linux Distribution，而且他的 API 也儘可能的豐富每一個 Distro，像是套件管理系統就有支援 CentOS 的 yum、 Ubuntu 的 APT、 SUSE 的 zypper，但是終究不是每一個系統的特色都能夠完整的支援(可能需要自己貢獻上去?)，像是 SUSE Linux Enterprise Server (簡稱 SLES) 除了大版本號，還有小版本的 Service Pack，撰文的今天剛好出了 SLES 11 SP3，但是 Salt 內建的 Grains 只有偵測到 OS 是 SLES 就沒了，有時候我會依照不同的 Service Pack 需要不一樣的設定(因為 SP2 的套件有時候會支援某些功能，但是 SP1 時候還沒有，像是 sudoer 的設定)，但是不能判斷版本怎麼辦? 沒關係 Salt 具有高度擴充性，我們可以自定想要的 Grains。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/saltstack-custom-grains/#more">Read More</a>
-          </p>
-        
-      
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/saltstack-custom-grains/">saltstack 自定 grains</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/saltstack-custom-grains/">
+            <time datetime="2013-07-10T13:00:29.000Z" itemprop="datePublished">2013-07-10, 週三</time>
+        </a>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/saltstack-custom-grains/" data-id="cik2l20wz001t1r0qgpd11bur" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/saltstack-custom-grains/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SaltStack/">SaltStack</a></li></ul>
 
-    </footer>
-  </div>
-  
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/SaltStack/">SaltStack</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p><a href="/post/nice-to-meet-saltstack/">上一集</a> 中，簡單的介紹了 Salt 的使用方法，這集要稍微深入的介紹 Salt 的其中一個部份 - <a href="http://docs.saltstack.com/topics/targeting/grains.html">Grains</a>，Grains 基本上就是機器的資訊，通常指的是不會變動的部份，比方說 CPU 有幾顆、記憶體有多少、作業系統是用什麼的(CentOS, Ubuntu, SUSE…etc)、網卡資訊，至於會變動的資訊通常會用 Salt 的 <a href="http://docs.saltstack.com/topics/pillar/index.html">Pilar</a> 功能，雖然 SaltStack 支援很多種 Linux Distribution，而且他的 API 也儘可能的豐富每一個 Distro，像是套件管理系統就有支援 CentOS 的 yum、 Ubuntu 的 APT、 SUSE 的 zypper，但是終究不是每一個系統的特色都能夠完整的支援(可能需要自己貢獻上去?)，像是 SUSE Linux Enterprise Server (簡稱 SLES) 除了大版本號，還有小版本的 Service Pack，撰文的今天剛好出了 SLES 11 SP3，但是 Salt 內建的 Grains 只有偵測到 OS 是 SLES 就沒了，有時候我會依照不同的 Service Pack 需要不一樣的設定(因為 SP2 的套件有時候會支援某些功能，但是 SP1 時候還沒有，像是 sudoer 的設定)，但是不能判斷版本怎麼辦? 沒關係 Salt 具有高度擴充性，我們可以自定想要的 Grains。</p></p>
+            <p class="article-more-link">
+                <a href="/post/saltstack-custom-grains/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/saltstack-custom-grains/" data-id="cimu08t5e00440f0qhywu4jms" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="/post/saltstack-custom-grains/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/saltstack-custom-grains/">評論</a>
+    
+
+        </footer>
+    </div>
+    
 </article>
 
 
 
-    
-      <article id="post-casio-tr15" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+    <article id="post-casio-tr15" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/casio-tr15/">自拍神器 Casio TR15 開箱</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/casio-tr15/">
-      <time datetime="2013-07-02T13:47:42.000Z" itemprop="datePublished">2013-07-02, Tue</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/3C/">3C</a>
-  </div>
-
-        </div>
-      </header>
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <img src="http://farm4.staticflickr.com/3802/9193251238_d0c9f9b0d7_c.jpg">
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/casio-tr15/">自拍神器 Casio TR15 開箱</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/casio-tr15/">
+            <time datetime="2013-07-02T13:47:42.000Z" itemprop="datePublished">2013-07-02, 週二</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/3C/">3C</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Casio-TR15/">Casio TR15</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><img src="http://farm4.staticflickr.com/3802/9193251238_d0c9f9b0d7_c.jpg">
 <p>注意這款號稱「自拍神器」系列的相機也已經大概半年多了吧，大概是半年前小弟的女友跟小弟提起的，不過可怕的神器連價格也很可怕，此款的前兩代 TR150 台灣官方售價是一萬一，但是因為出貨速度緩慢，市場缺貨缺得要死，市場上大陸的水貨竟然叫價到接近 3 萬，實在是不知道台灣卡西歐在做什麼，製造速度有這麼慢嗎？這種水貨商實在讓人覺得坑殺小朋友不眨眼，尤其是在 Facebook 卡西歐的官方粉絲頁更有一些電信商趾高氣昂，更氣的是還買了一台兩百多萬的賓士！讓我都想去開通訊行坑殺高中生&amp;俗稱的水水(管他是不是正妹，這台拍下去保證各個都是正咩) XD</p>
-<p>其實我後來也就忘記這件事了，因為女友也叫我不要買，因為實在背離原價太多了，一直到六月中，再逛 Mobile01 時，突然看到消費相機版的卡西歐有人 po 了一篇文章說 TR200 的下一代 TR350 (大陸的稱呼) 已經在六月初上市了，然後台灣也會上國際版的，代號是 <a href="http://chiconydcd.tw/casio/products/preview/110.html">TR15</a>，於是就上了 Facebook 的卡西歐粉絲頁看了一下，果然會上！！但是！他媽的卡西歐是搶劫嗎，TR15 的售價竟然是兩萬四，竟然比 TR150 貴了一倍多 = =，不過功能也多一些些就是了(他媽的再罵一次 Casio 以為你是萊卡嗎！)，電容式觸碰螢幕，螢幕解析度也提升到 92 萬畫素，然後有 Wifi ，在傳輸照片或者是自拍控制都相當方便，核心處理引擎也變成兩顆，不管是開機速度或者拍照處理速度都比之前的更快，但主要的規格都差不多還是維持 1/2.3 寸的 1210 萬畫素、光圈 2.8、超廣角的等效焦距 21mm。</p>
+<p>其實我後來也就忘記這件事了，因為女友也叫我不要買，因為實在背離原價太多了，一直到六月中，再逛 Mobile01 時，突然看到消費相機版的卡西歐有人 po 了一篇文章說 TR200 的下一代 TR350 (大陸的稱呼) 已經在六月初上市了，然後台灣也會上國際版的，代號是 <a href="http://chiconydcd.tw/casio/products/preview/110.html">TR15</a>，於是就上了 Facebook 的卡西歐粉絲頁看了一下，果然會上！！但是！他媽的卡西歐是搶劫嗎，TR15 的售價竟然是兩萬四，竟然比 TR150 貴了一倍多 = =，不過功能也多一些些就是了(他媽的再罵一次 Casio 以為你是萊卡嗎！)，電容式觸碰螢幕，螢幕解析度也提升到 92 萬畫素，然後有 Wifi ，在傳輸照片或者是自拍控制都相當方便，核心處理引擎也變成兩顆，不管是開機速度或者拍照處理速度都比之前的更快，但主要的規格都差不多還是維持 1/2.3 寸的 1210 萬畫素、光圈 2.8、超廣角的等效焦距 21mm。</p></p>
+            <p class="article-more-link">
+                <a href="/post/casio-tr15/#more">Read More</a>
+            </p>
         
-          <p class="article-more-link">
-            <a href="/post/casio-tr15/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/casio-tr15/" data-id="cik2l210w005w1r0qxbfol3ve" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/casio-tr15/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Casio-TR15/">Casio TR15</a></li></ul>
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
-    </footer>
-  </div>
-  
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/casio-tr15/" data-id="cimu08t16000q0f0q1ksy62ha" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="/post/casio-tr15/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/casio-tr15/">評論</a>
+    
+
+        </footer>
+    </div>
+    
 </article>
 
 
 
-    
-      <article id="post-nice-to-meet-saltstack" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+    <article id="post-nice-to-meet-saltstack" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/nice-to-meet-saltstack/">Saltstack 使用心得&amp;簡介</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/nice-to-meet-saltstack/">
-      <time datetime="2013-06-30T03:17:28.000Z" itemprop="datePublished">2013-06-30, Sun</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
-  </div>
-
-        </div>
-      </header>
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>身為一個系統管理者，當你管理的機器數量只有十來台時，你可以很輕鬆的一台一台進去管理、設定機器，但是隨著服務開始搞大了，機器數量變成數十台時，也許會需要一些工具來輔助管理，之前我都是用 <a href="http://docs.fabfile.org/en/1.6/">Fabric</a> 來幫忙管理，不過 Fabric 有個缺點是他只是一個下指令的管理工具，當然我之前都硬幹，用 <a href="http://docs.fabfile.org/en/1.6/api/core/operations.html?highlight=put#fabric.operations.put">put</a> 硬把他當成管理 configuration 的工具，上傳完了再下一個 reload 的指令，當然這樣也不是不行，不過似乎真的是一個很土炮的方法，但是隨著機器的數量越來越大，已經到達幾百臺的時候，就算是用 Fabric + <a href="http://docs.fabfile.org/en/1.6/usage/env.html#env-parallel">parallel</a> 其實還是覺得很怪，一來是雖然他已經平行處理了，但是他的 output 卻變成無序的，也就是當受管理的機器有 output 他就直接顯示在管理端上，有點惱人就是，另外一個是 Fabric 需要自己寫 Group 管理，要自己定義東西，而不能透過簡單的 query 來對想要的機器下指令就好，所以最近開始想要轉型使用 configuration management tool，常見的選擇是 <a href="https://puppetlabs.com/">puppet</a>、<a href="http://www.opscode.com/chef/">chef</a>、<a href="http://cfengine.com/">CFEngine</a> 之類的，不過最近有個當紅的 OpenSource 軟體出現了，那就是 <a href="http://docs.saltstack.com/">SaltStack</a>。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/nice-to-meet-saltstack/#more">Read More</a>
-          </p>
-        
-      
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/nice-to-meet-saltstack/">Saltstack 使用心得&amp;簡介</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/nice-to-meet-saltstack/">
+            <time datetime="2013-06-30T03:17:28.000Z" itemprop="datePublished">2013-06-30, 週日</time>
+        </a>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nice-to-meet-saltstack/" data-id="cik2l20xp002w1r0qz7xtpto5" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/nice-to-meet-saltstack/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SaltStack/">SaltStack</a></li></ul>
 
-    </footer>
-  </div>
-  
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/SaltStack/">SaltStack</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>身為一個系統管理者，當你管理的機器數量只有十來台時，你可以很輕鬆的一台一台進去管理、設定機器，但是隨著服務開始搞大了，機器數量變成數十台時，也許會需要一些工具來輔助管理，之前我都是用 <a href="http://docs.fabfile.org/en/1.6/">Fabric</a> 來幫忙管理，不過 Fabric 有個缺點是他只是一個下指令的管理工具，當然我之前都硬幹，用 <a href="http://docs.fabfile.org/en/1.6/api/core/operations.html?highlight=put#fabric.operations.put">put</a> 硬把他當成管理 configuration 的工具，上傳完了再下一個 reload 的指令，當然這樣也不是不行，不過似乎真的是一個很土炮的方法，但是隨著機器的數量越來越大，已經到達幾百臺的時候，就算是用 Fabric + <a href="http://docs.fabfile.org/en/1.6/usage/env.html#env-parallel">parallel</a> 其實還是覺得很怪，一來是雖然他已經平行處理了，但是他的 output 卻變成無序的，也就是當受管理的機器有 output 他就直接顯示在管理端上，有點惱人就是，另外一個是 Fabric 需要自己寫 Group 管理，要自己定義東西，而不能透過簡單的 query 來對想要的機器下指令就好，所以最近開始想要轉型使用 configuration management tool，常見的選擇是 <a href="https://puppetlabs.com/">puppet</a>、<a href="http://www.opscode.com/chef/">chef</a>、<a href="http://cfengine.com/">CFEngine</a> 之類的，不過最近有個當紅的 OpenSource 軟體出現了，那就是 <a href="http://docs.saltstack.com/">SaltStack</a>。</p></p>
+            <p class="article-more-link">
+                <a href="/post/nice-to-meet-saltstack/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/nice-to-meet-saltstack/" data-id="cimu08t3r00360f0qkdfvi4xr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="/post/nice-to-meet-saltstack/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/nice-to-meet-saltstack/">評論</a>
+    
+
+        </footer>
+    </div>
+    
 </article>
 
 
 
-    
-      <article id="post-solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+    <article id="post-solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/">solve dmesg appeared nouveau No connectors reported connected with modes after upgrading kernel to 3.8 or later</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/">
-      <time datetime="2013-05-31T14:29:10.000Z" itemprop="datePublished">2013-05-31, Fri</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
-  </div>
-
-        </div>
-      </header>
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append <code>video=VGA-1:1440x900@60</code> to kernel parameters. Because I use a 2-meter-long VGA line to connect my computer and monitor, I have to enforce using VGA port as display output. And it works perfectly.</p>
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/">solve dmesg appeared nouveau No connectors reported connected with modes after upgrading kernel to 3.8 or later</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/">
+            <time datetime="2013-05-31T14:29:10.000Z" itemprop="datePublished">2013-05-31, 週五</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>  My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append <code>video=VGA-1:1440x900@60</code> to kernel parameters. Because I use a 2-meter-long VGA line to connect my computer and monitor, I have to enforce using VGA port as display output. And it works perfectly.</p>
 <p>  The dmesg before kernel 3.7 says</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">Initialized</span> <span class="tag">drm</span> <span class="tag">1</span><span class="class">.1</span><span class="class">.0</span> <span class="tag">20060810</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Detected</span> <span class="tag">an</span> <span class="tag">NV50</span> <span class="tag">generation</span> <span class="tag">card</span> (<span class="number">0</span>x0a8280a2)</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Checking</span> <span class="tag">PRAMIN</span> <span class="tag">for</span> <span class="tag">VBIOS</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: ... <span class="tag">appears</span> <span class="tag">to</span> <span class="tag">be</span> <span class="tag">valid</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Using</span> <span class="tag">VBIOS</span> <span class="tag">from</span> <span class="tag">PRAMIN</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">BIT</span> <span class="tag">BIOS</span> <span class="tag">found</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Bios</span> <span class="tag">version</span> <span class="tag">70</span><span class="class">.18</span><span class="class">.2c</span><span class="class">.00</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">TMDS</span> <span class="tag">table</span> <span class="tag">version</span> <span class="tag">2</span><span class="class">.0</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">MXM</span>: <span class="tag">no</span> <span class="tag">VBIOS</span> <span class="tag">data</span>, <span class="tag">nothing</span> <span class="tag">to</span> <span class="tag">do</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">version</span> <span class="tag">4</span><span class="class">.0</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">outp</span> <span class="tag">00</span>: <span class="tag">01000302</span> <span class="tag">00020030</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">outp</span> <span class="tag">01</span>: <span class="tag">02000300</span> <span class="tag">00000000</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">outp</span> <span class="tag">02</span>: <span class="tag">02011362</span> <span class="tag">0f220010</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">outp</span> <span class="tag">03</span>: <span class="tag">01022310</span> <span class="tag">00020010</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">conn</span> <span class="tag">00</span>: <span class="tag">00001030</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">conn</span> <span class="tag">01</span>: <span class="tag">00202161</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">conn</span> <span class="tag">02</span>: <span class="tag">00000200</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">0</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xD0B7</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">0xD40D</span>: <span class="tag">Condition</span> <span class="tag">still</span> <span class="tag">not</span> <span class="tag">met</span> <span class="tag">after</span> <span class="tag">20ms</span>, <span class="tag">skipping</span> <span class="tag">following</span> <span class="tag">opcodes</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">0xD411</span>: <span class="tag">Condition</span> <span class="tag">still</span> <span class="tag">not</span> <span class="tag">met</span> <span class="tag">after</span> <span class="tag">20ms</span>, <span class="tag">skipping</span> <span class="tag">following</span> <span class="tag">opcodes</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">1</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xD608</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">2</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xE0DA</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">3</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xE10F</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">4</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xE2C2</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xE327</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">0xE327</span>: <span class="tag">Condition</span> <span class="tag">still</span> <span class="tag">not</span> <span class="tag">met</span> <span class="tag">after</span> <span class="tag">20ms</span>, <span class="tag">skipping</span> <span class="tag">following</span> <span class="tag">opcodes</span></span><br><span class="line"><span class="attr_selector">[TTM]</span> <span class="tag">Zone</span>  <span class="tag">kernel</span>: <span class="tag">Available</span> <span class="tag">graphics</span> <span class="tag">memory</span>: <span class="tag">3051544</span> <span class="tag">kiB</span></span><br><span class="line"><span class="attr_selector">[TTM]</span> <span class="tag">Zone</span>   <span class="tag">dma32</span>: <span class="tag">Available</span> <span class="tag">graphics</span> <span class="tag">memory</span>: <span class="tag">2097152</span> <span class="tag">kiB</span></span><br><span class="line"><span class="attr_selector">[TTM]</span> <span class="tag">Initializing</span> <span class="tag">pool</span> <span class="tag">allocator</span></span><br><span class="line"><span class="attr_selector">[TTM]</span> <span class="tag">Initializing</span> <span class="tag">DMA</span> <span class="tag">pool</span> <span class="tag">allocator</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Detected</span> <span class="tag">512MiB</span> <span class="tag">VRAM</span> (DDR2)</span><br><span class="line"><span class="tag">mtrr</span>: <span class="tag">type</span> <span class="tag">mismatch</span> <span class="tag">for</span> <span class="tag">e0000000</span>,<span class="tag">10000000</span> <span class="tag">old</span>: <span class="tag">write-back</span> <span class="tag">new</span>: <span class="tag">write-combining</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">512</span> <span class="tag">MiB</span> <span class="tag">GART</span> (aperture)</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">Supports</span> <span class="tag">vblank</span> <span class="tag">timestamp</span> <span class="tag">caching</span> <span class="tag">Rev</span> <span class="tag">1</span> (<span class="number">10.10</span>.<span class="number">2010</span>).</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">No</span> <span class="tag">driver</span> <span class="tag">support</span> <span class="tag">for</span> <span class="tag">vblank</span> <span class="tag">timestamp</span> <span class="tag">query</span>.</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">3</span> <span class="tag">available</span> <span class="tag">performance</span> <span class="tag">level</span>(s)</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">0</span>: <span class="tag">core</span> <span class="tag">135MHz</span> <span class="tag">shader</span> <span class="tag">270MHz</span> <span class="tag">memory</span> <span class="tag">135MHz</span> <span class="tag">voltage</span> <span class="tag">850mV</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">1</span>: <span class="tag">core</span> <span class="tag">405MHz</span> <span class="tag">shader</span> <span class="tag">810MHz</span> <span class="tag">memory</span> <span class="tag">405MHz</span> <span class="tag">voltage</span> <span class="tag">900mV</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">3</span>: <span class="tag">core</span> <span class="tag">589MHz</span> <span class="tag">shader</span> <span class="tag">1402MHz</span> <span class="tag">memory</span> <span class="tag">400MHz</span> <span class="tag">voltage</span> <span class="tag">1000mV</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">c</span>: <span class="tag">core</span> <span class="tag">405MHz</span> <span class="tag">shader</span> <span class="tag">810MHz</span> <span class="tag">memory</span> <span class="tag">405MHz</span> <span class="tag">voltage</span> <span class="tag">900mV</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">allocated</span> <span class="tag">1440x900</span> <span class="tag">fb</span>: <span class="tag">0x310000</span>, <span class="tag">bo</span> <span class="tag">ffff8801a78dc000</span></span><br><span class="line"><span class="tag">fbcon</span>: <span class="tag">nouveaufb</span> (fb0) <span class="tag">is</span> <span class="tag">primary</span> <span class="tag">device</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">no</span> <span class="tag">native</span> <span class="tag">mode</span>, <span class="tag">forcing</span> <span class="tag">panel</span> <span class="tag">scaling</span></span><br><span class="line"><span class="tag">Console</span>: <span class="tag">switching</span> <span class="tag">to</span> <span class="tag">colour</span> <span class="tag">frame</span> <span class="tag">buffer</span> <span class="tag">device</span> <span class="tag">180x56</span></span><br><span class="line"><span class="tag">fb0</span>: <span class="tag">nouveaufb</span> <span class="tag">frame</span> <span class="tag">buffer</span> <span class="tag">device</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">[drm] nouveau 0000:01:00.0: Detected an NV50 generation card (0x0a8280a2)</span><br><span class="line">[drm] nouveau 0000:01:00.0: Checking PRAMIN for VBIOS</span><br><span class="line">[drm] nouveau 0000:01:00.0: ... appears to be valid</span><br><span class="line">[drm] nouveau 0000:01:00.0: Using VBIOS from PRAMIN</span><br><span class="line">[drm] nouveau 0000:01:00.0: BIT BIOS found</span><br><span class="line">[drm] nouveau 0000:01:00.0: Bios version 70.18.2c.00</span><br><span class="line">[drm] nouveau 0000:01:00.0: TMDS table version 2.0</span><br><span class="line">[drm] nouveau 0000:01:00.0: MXM: no VBIOS data, nothing to do</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB version 4.0</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 00: 01000302 00020030</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 01: 02000300 00000000</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 02: 02011362 0f220010</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 03: 01022310 00020010</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB conn 00: 00001030</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB conn 01: 00202161</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB conn 02: 00000200</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 0 at offset 0xD0B7</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0xD40D: Condition still not met after 20ms, skipping following opcodes</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0xD411: Condition still not met after 20ms, skipping following opcodes</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 1 at offset 0xD608</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 2 at offset 0xE0DA</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 3 at offset 0xE10F</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 4 at offset 0xE2C2</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table at offset 0xE327</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0xE327: Condition still not met after 20ms, skipping following opcodes</span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3051544 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">[drm] nouveau 0000:01:00.0: Detected 512MiB VRAM (DDR2)</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">[drm] nouveau 0000:01:00.0: 512 MiB GART (aperture)</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">[drm] nouveau 0000:01:00.0: 3 available performance level(s)</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: allocated 1440x900 fb: 0x310000, bo ffff8801a78dc000</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br><span class="line">[drm] nouveau 0000:01:00.0: no native mode, forcing panel scaling</span><br><span class="line">Console: switching to colour frame buffer device 180x56</span><br><span class="line">fb0: nouveaufb frame buffer device</span><br></pre></td></tr></table></figure>
 <p>  The kernel 3.7 or prior version was enforced using VGA as output successfully. And the resolution is right.</p>
 <p>  But after upgrading to 3.8 or above, I found that the parameter <code>video=VGA-1:1440x900@60</code> causes a faulty screen after booting. I google it, and find some people bump into the same problem. <a href="https://bugzilla.redhat.com/show_bug.cgi?id=910945">No signal to monitor after kernel modesetting fails</a> <a href="http://forums.fedoraforum.org/showthread.php?t=289189">Problems with kernel-3.8 and kernel-3.9 modesetting</a></p>
 <p>  The kernel 3.8 or above says</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">nouveau  [<span class="link_label">  DEVICE</span>][<span class="link_reference">0000:01:00.0</span>] BOOT0  : 0x0a8280a2</span><br><span class="line">nouveau  [<span class="link_label">  DEVICE</span>][<span class="link_reference">0000:01:00.0</span>] Chipset: GT218 (NVA8)</span><br><span class="line">nouveau  [<span class="link_label">  DEVICE</span>][<span class="link_reference">0000:01:00.0</span>] Family : NV50</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] checking PRAMIN for image...</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] ... appears to be valid</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] using image from PRAMIN</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] BIT signature found</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] version 70.18.2c.00.04</span><br><span class="line">nouveau  [<span class="link_label">     PFB</span>][<span class="link_reference">0000:01:00.0</span>] RAM type: DDR2</span><br><span class="line">nouveau  [<span class="link_label">     PFB</span>][<span class="link_reference">0000:01:00.0</span>] RAM size: 512 MiB</span><br><span class="line">nouveau  [<span class="link_label">     PFB</span>][<span class="link_reference">0000:01:00.0</span>]    ZCOMP: 960 tags</span><br><span class="line">nouveau  [<span class="link_label">  PTHERM</span>][<span class="link_reference">0000:01:00.0</span>] FAN control: none / external</span><br><span class="line">nouveau  [<span class="link_label">  PTHERM</span>][<span class="link_reference">0000:01:00.0</span>] fan management: disabled</span><br><span class="line">nouveau  [<span class="link_label">  PTHERM</span>][<span class="link_reference">0000:01:00.0</span>] internal sensor: yes</span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3050978 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">nouveau  [     DRM] VRAM: 512 MiB</span><br><span class="line">nouveau  [     DRM] GART: 512 MiB</span><br><span class="line">nouveau  [     DRM] TMDS table version 2.0</span><br><span class="line">nouveau  [     DRM] DCB version 4.0</span><br><span class="line">nouveau  [     DRM] DCB outp 00: 01000302 00020030</span><br><span class="line">nouveau  [     DRM] DCB outp 01: 02000300 00000000</span><br><span class="line">nouveau  [     DRM] DCB outp 02: 02011362 0f220010</span><br><span class="line">nouveau  [     DRM] DCB outp 03: 01022310 00020010</span><br><span class="line">nouveau  [     DRM] DCB conn 00: 00001030</span><br><span class="line">nouveau  [     DRM] DCB conn 01: 00202161</span><br><span class="line">nouveau  [     DRM] DCB conn 02: 00000200</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">nouveau  [     DRM] 3 available performance level(s)</span><br><span class="line">nouveau  [     DRM] 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">nouveau  [     DRM] 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">nouveau  [     DRM] c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] MM: using COPY for buffer copies</span><br><span class="line">nouveau 0000:01:00.0: No connectors reported connected with modes</span><br><span class="line">[drm] Cannot find any crtc or sizes - going 1024x768</span><br><span class="line">nouveau  [     DRM] allocated 1024x768 fb: 0x70000, bo ffff8801a7c37c00</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] BOOT0  : 0x0a8280a2</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] Chipset: GT218 (NVA8)</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] Family : NV50</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] checking PRAMIN for image...</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] ... appears to be valid</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] using image from PRAMIN</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] BIT signature found</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] version 70.18.2c.00.04</span><br><span class="line">nouveau  [     PFB][0000:01:00.0] RAM type: DDR2</span><br><span class="line">nouveau  [     PFB][0000:01:00.0] RAM size: 512 MiB</span><br><span class="line">nouveau  [     PFB][0000:01:00.0]    ZCOMP: 960 tags</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] FAN control: none / external</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] fan management: disabled</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] internal sensor: yes</span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3050978 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">nouveau  [     DRM] VRAM: 512 MiB</span><br><span class="line">nouveau  [     DRM] GART: 512 MiB</span><br><span class="line">nouveau  [     DRM] TMDS table version 2.0</span><br><span class="line">nouveau  [     DRM] DCB version 4.0</span><br><span class="line">nouveau  [     DRM] DCB outp 00: 01000302 00020030</span><br><span class="line">nouveau  [     DRM] DCB outp 01: 02000300 00000000</span><br><span class="line">nouveau  [     DRM] DCB outp 02: 02011362 0f220010</span><br><span class="line">nouveau  [     DRM] DCB outp 03: 01022310 00020010</span><br><span class="line">nouveau  [     DRM] DCB conn 00: 00001030</span><br><span class="line">nouveau  [     DRM] DCB conn 01: 00202161</span><br><span class="line">nouveau  [     DRM] DCB conn 02: 00000200</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">nouveau  [     DRM] 3 available performance level(s)</span><br><span class="line">nouveau  [     DRM] 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">nouveau  [     DRM] 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">nouveau  [     DRM] c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] MM: using COPY for buffer copies</span><br><span class="line">nouveau 0000:01:00.0: No connectors reported connected with modes</span><br><span class="line">[drm] Cannot find any crtc or sizes - going 1024x768</span><br><span class="line">nouveau  [     DRM] allocated 1024x768 fb: 0x70000, bo ffff8801a7c37c00</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br></pre></td></tr></table></figure>
 <p>  The kernel 3.8 says it cannot find a connector?</p>
-<p>  I read the documents of KMS, and then I solved the problem.</p>
+<p>  I read the documents of KMS, and then I solved the problem.</p></p>
+            <p class="article-more-link">
+                <a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/#more">Read More</a>
+            </p>
         
-          <p class="article-more-link">
-            <a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" data-id="cik2l20ww001q1r0qwjmysny3" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
-    </footer>
-  </div>
-  
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" data-id="cimu08t5h00480f0qwv2ryvab" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/">評論</a>
+    
+
+        </footer>
+    </div>
+    
 </article>
 
 
 
-    
-      <article id="post-e-m5-wooden-grip" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+    <article id="post-e-m5-wooden-grip" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/e-m5-wooden-grip/">E-M5 木質手把</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/e-m5-wooden-grip/">
-      <time datetime="2013-05-16T12:15:54.000Z" itemprop="datePublished">2013-05-16, Thu</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/3C/">3C</a>
-  </div>
-
-        </div>
-      </header>
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <img src="https://farm8.staticflickr.com/7294/8740341439_0a08f31ecd_b.jpg">
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/e-m5-wooden-grip/">E-M5 木質手把</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/e-m5-wooden-grip/">
+            <time datetime="2013-05-16T12:15:54.000Z" itemprop="datePublished">2013-05-16, 週四</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/3C/">3C</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/E-M5/">E-M5</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><img src="https://farm8.staticflickr.com/7294/8740341439_0a08f31ecd_b.jpg">
 <p>再次從 <a href="https://www.facebook.com/hoson.design">HOSON</a> 團隊拿到了一個測試手把。</p>
 <p>不同的是這次手柄是木質的 ！</p>
 <p>E-M5 的主人們不用再羡慕只有 E-P5 有限量版的木質手柄了 :P</p>
@@ -460,125 +944,271 @@ ga('send', 'pageview');
 <img src="http://i1266.photobucket.com/albums/jj524/picrumors/e-p5_premium_silver_zpse32957a1.jpg">
 <p>因為選用的木頭不同所以顏色是不一樣的，E-P5 是加拿大楓木，而版友所選的是質地經過測試很堅固的柚木。</p>
 <p>設計團隊測試了柚木跟槐木，發現槐木還是軟了一點，他們更看過紫檀木，不過後來因為成本過高就作罷了。</p>
-<p>註: 柚木在 <a href="https://zh.wikipedia.org/zh-tw/%E6%9F%9A%E6%9C%A8">wiki</a> 裡面記載 「機械性質極強、乾燥性良好，收縮率小、木質強韌、耐久性高、對菌類及蟲害抵抗力強 … 木理通直、質地堅硬、細緻，材面含油脂之觸感，乾燥性良好，耐久性高，為所有木材中膨脹收縮最少者一，尺寸安定性佳。材面木紋美觀優雅、且加工容易、為世界上高級木材之一。」</p>
+<p>註: 柚木在 <a href="https://zh.wikipedia.org/zh-tw/%E6%9F%9A%E6%9C%A8">wiki</a> 裡面記載 「機械性質極強、乾燥性良好，收縮率小、木質強韌、耐久性高、對菌類及蟲害抵抗力強 … 木理通直、質地堅硬、細緻，材面含油脂之觸感，乾燥性良好，耐久性高，為所有木材中膨脹收縮最少者一，尺寸安定性佳。材面木紋美觀優雅、且加工容易、為世界上高級木材之一。」</p></p>
+            <p class="article-more-link">
+                <a href="/post/e-m5-wooden-grip/#more">Read More</a>
+            </p>
         
-          <p class="article-more-link">
-            <a href="/post/e-m5-wooden-grip/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/e-m5-wooden-grip/" data-id="cik2l20zi004u1r0ql6ut0950" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/e-m5-wooden-grip/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/E-M5/">E-M5</a></li></ul>
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
-    </footer>
-  </div>
-  
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/e-m5-wooden-grip/" data-id="cimu08t22001m0f0q42h3mbcn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="/post/e-m5-wooden-grip/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/e-m5-wooden-grip/">評論</a>
+    
+
+        </footer>
+    </div>
+    
 </article>
 
 
 
-    
-      <article id="post-nginx-ssl-cipher-rc4-safari" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+    <article id="post-nginx-ssl-cipher-rc4-safari" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/nginx-ssl-cipher-rc4-safari/">Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/nginx-ssl-cipher-rc4-safari/">
-      <time datetime="2013-04-27T05:52:58.000Z" itemprop="datePublished">2013-04-27, Sat</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
-  </div>
-
-        </div>
-      </header>
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Safari … 結果果然不出所料… <code>Unable to establish a secure connection</code> XDDD 搞什麼連 Safari 也連不了，這樣子要 Debug 我就可以自己來了，不然要一直麻煩同事跟我對測不好意思，一開始先用 <code>tcpdump</code> 發現 Server 送 Certificate 給 Client 之後 Client 就自己斷掉 connection ?! WTF 這太沒有頭緒了吧，後來上網搜尋 <code>ssl connection fail safari</code>，結果一路看看看就看到了這個 <a href="https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/965371">HTTPS requests fail on sites which immediately close the connection if TLS 1.1 negotiation is attempted, on Ubuntu 12.04</a>，起因是 OpenSSL 1.0.1 的一個 Bug，版上建議降成 OpenSSL 1.0.0 就可以了，因為我要啟用 nginx 的 spdy 所以一定要用 OpenSSL 1.0.1 才可以，不過秉持實驗的精神只好先解除這個功能，於是我就編譯了 nginx with openssl 1.0.0k，然後結果…靠背還是一樣 Safri 不能連其他都可以！不信邪改用 0.9.8y，結果在一模一樣的設定下這個 Safari 就可以連了 = = (這哪招)，總之越來越神秘，只好先回到 nginx with openssl 1.0.1e，(就是死命要 spdy 就對了 XD)，後來在沒什麼想法的情況下只好打開 nginx 的 debug mode <code>error_log xxxxx debug;</code>，瞧瞧裡面有什麼。</p>
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/nginx-ssl-cipher-rc4-safari/">Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/nginx-ssl-cipher-rc4-safari/">
+            <time datetime="2013-04-27T05:52:58.000Z" itemprop="datePublished">2013-04-27, 週六</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Mac/">Mac</a>, <a class="tag-link" href="/tags/nginx/">nginx</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Safari … 結果果然不出所料… <code>Unable to establish a secure connection</code> XDDD 搞什麼連 Safari 也連不了，這樣子要 Debug 我就可以自己來了，不然要一直麻煩同事跟我對測不好意思，一開始先用 <code>tcpdump</code> 發現 Server 送 Certificate 給 Client 之後 Client 就自己斷掉 connection ?! WTF 這太沒有頭緒了吧，後來上網搜尋 <code>ssl connection fail safari</code>，結果一路看看看就看到了這個 <a href="https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/965371">HTTPS requests fail on sites which immediately close the connection if TLS 1.1 negotiation is attempted, on Ubuntu 12.04</a>，起因是 OpenSSL 1.0.1 的一個 Bug，版上建議降成 OpenSSL 1.0.0 就可以了，因為我要啟用 nginx 的 spdy 所以一定要用 OpenSSL 1.0.1 才可以，不過秉持實驗的精神只好先解除這個功能，於是我就編譯了 nginx with openssl 1.0.0k，然後結果…靠背還是一樣 Safri 不能連其他都可以！不信邪改用 0.9.8y，結果在一模一樣的設定下這個 Safari 就可以連了 = = (這哪招)，總之越來越神秘，只好先回到 nginx with openssl 1.0.1e，(就是死命要 spdy 就對了 XD)，後來在沒什麼想法的情況下只好打開 nginx 的 debug mode <code>error_log xxxxx debug;</code>，瞧瞧裡面有什麼。</p>
 <p>結果就看到</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">SSL</span> <span class="id">handshake</span> <span class="id">handler</span>: <span class="number">0</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">do_handshake</span>: <span class="number">0</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">get_error</span>: <span class="number">5</span></span><br><span class="line">[<span class="id">info</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="id">peer</span> <span class="id">closed</span> <span class="id">connection</span> <span class="id">in</span> <span class="constant">SSL</span> <span class="id">handshake</span> <span class="id">while</span> <span class="constant">SSL</span> <span class="id">handshaking</span>, <span class="id">client</span>: x.x.x.x, <span class="id">server</span>: <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">443</span>                                  </span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="id">close</span> <span class="id">http</span> <span class="id">connection</span>: <span class="number">14</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">shutdown</span>: <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SSL handshake handler: 0</span><br><span class="line">[debug] 7585#0: *1 SSL_do_handshake: 0</span><br><span class="line">[debug] 7585#0: *1 SSL_get_error: 5</span><br><span class="line">[info] 7585#0: *1 peer closed connection in SSL handshake while SSL handshaking, client: x.x.x.x, server: 0.0.0.0:443                                  </span><br><span class="line">[debug] 7585#0: *1 close http connection: 14</span><br><span class="line">[debug] 7585#0: *1 SSL_shutdown: 1</span><br></pre></td></tr></table></figure></p>
+            <p class="article-more-link">
+                <a href="/post/nginx-ssl-cipher-rc4-safari/#more">Read More</a>
+            </p>
         
-          <p class="article-more-link">
-            <a href="/post/nginx-ssl-cipher-rc4-safari/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/" data-id="cik2l20xs00301r0q0oucmylt" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
-    </footer>
-  </div>
-  
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/" data-id="cimu08t3o00320f0q2d58maxp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="/post/nginx-ssl-cipher-rc4-safari/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/nginx-ssl-cipher-rc4-safari/">評論</a>
+    
+
+        </footer>
+    </div>
+    
 </article>
 
 
 
-    
-      <article id="post-nginx---using-map-as-a-simple-web-application-firewall" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+    <article id="post-nginx---using-map-as-a-simple-web-application-firewall" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/nginx---using-map-as-a-simple-web-application-firewall/">用 map 的功能把 nginx 變成簡單的應用程式防火牆</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/">
-      <time datetime="2013-04-14T03:44:22.000Z" itemprop="datePublished">2013-04-14, Sun</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
-  </div>
-
-        </div>
-      </header>
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>要幫 nginx 增加安全性的話，大概首推 <a href="http://www.modsecurity.org/projects/modsecurity/nginx/">modsecurity</a> 這個模組了，不過目前他只有支援 nginx 1.2 穩定版，尚未支援 1.3 開發版，基本上具有下列功能</p>
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/nginx---using-map-as-a-simple-web-application-firewall/">用 map 的功能把 nginx 變成簡單的應用程式防火牆</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/">
+            <time datetime="2013-04-14T03:44:22.000Z" itemprop="datePublished">2013-04-14, 週日</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/nginx/">nginx</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>要幫 nginx 增加安全性的話，大概首推 <a href="http://www.modsecurity.org/projects/modsecurity/nginx/">modsecurity</a> 這個模組了，不過目前他只有支援 nginx 1.2 穩定版，尚未支援 1.3 開發版，基本上具有下列功能</p>
 <ol>
 <li>超過 16000 規則防範下列攻擊<ul>
 <li>SQL injection</li>
@@ -598,318 +1228,542 @@ ga('send', 'pageview');
 <li>IP 聲望偵測</li>
 <li>Malware Detection</li>
 </ol>
-<p>不過有一些在更簡單的功能，像是有時候會自己想擋一些 bot，或者要判斷合法的 referrer 才給過之類的就不在這個之內了，這時候我們可以利用 <a href="http://wiki.nginx.org/HttpMapModule">map</a> 來幫我們做簡單的過濾。</p>
+<p>不過有一些在更簡單的功能，像是有時候會自己想擋一些 bot，或者要判斷合法的 referrer 才給過之類的就不在這個之內了，這時候我們可以利用 <a href="http://wiki.nginx.org/HttpMapModule">map</a> 來幫我們做簡單的過濾。</p></p>
+            <p class="article-more-link">
+                <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/#more">Read More</a>
+            </p>
         
-          <p class="article-more-link">
-            <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/" data-id="cik2l20xy003c1r0q0gld0r4c" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-e-m5-grip-base" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/e-m5-grip-base/">E-M5 副廠手把</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/e-m5-grip-base/">
-      <time datetime="2013-04-13T12:30:03.000Z" itemprop="datePublished">2013-04-13, Sat</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/3C/">3C</a>
-  </div>
-
         </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>E-M5 的手感雖然有做出手把的弧形但是因為實在是太淺了，所以還是稍微差了一點，像我是手小的都覺得 E-M5 不好握的話，手大的應該就更難了，原廠賣的<a href="http://olympusomd.com/zh-TW/omd/e-m5/accessory/#&amp;panel1-2">手把</a>是跟電池底座一起賣的要九張小朋友多一點的價格，真的是見鬼了，而且不喜歡加個電池底座多一個累贅，不過現在救星來了！ <a href="https://www.facebook.com/hoson.design">HOSON</a> 團隊帶來了一個鋁鎂合金手把 MA-1</p>
-<img src="https://lh3.googleusercontent.com/-sHbJAFUfvyI/UWlS2uiztyI/AAAAAAAAFkg/zheRttROHWI/s640/P4131010.JPG">
-<p>沒錯！他叫做阿魯把，是把不是八，剛看到時覺得挺妙的，作者補充說是阿嚕咪(aluminum)的手把啦~ 而且設計製造都是在台灣，純正的 MIT！</p>
-        
-          <p class="article-more-link">
-            <a href="/post/e-m5-grip-base/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/e-m5-grip-base/" data-id="cik2l20zr004z1r0q7z3kx6pp" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/e-m5-grip-base/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/E-M5/">E-M5</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
 
-    
-      <article id="post-e-m5-12mm-25mm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post/e-m5-12mm-25mm/">E-M5 12mm 25mm</a>
-    </h1>
-  
+</div>
 
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/e-m5-12mm-25mm/">
-      <time datetime="2013-03-24T03:05:58.000Z" itemprop="datePublished">2013-03-24, Sun</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/3C/">3C</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>三年前原本買了 <a href="http://www.four-thirds.org/en/microft/body.html#c=Panasonic&amp;i_dmc-gf2_panasonic">GF2</a> + <a href="http://www.four-thirds.org/en/microft/single.html#i_014mm_f025_panasonic">LUMIX G 14mm F2.5 ASPH</a> 要給我妹，結果他竟然嫌棄說 14mm 沒辦法變焦… 0rz… 這實在是，結果後來還是買了一般的小 DC 給她 = =+，然後去年入手了 <a href="http://www.four-thirds.org/en/microft/single.html#i_025mm_f014_panasonic">LEICA DG SUMMILUX 25mm F1.4 ASPH</a> </p>
-<img src="http://farm9.staticflickr.com/8237/8584909748_bde84d9f1b_z.jpg">
-<p>大光圈的加持真的不是蓋的等效 50mm 也相當的好取景，但是最近對焦距離 30cm 真的稍遠不過他本來就被定位在人像鏡所以其實還好，整體來說還是超級棒的一顆鏡頭，只是去參觀室內的展覽(像是小叮噹誕生前百年特展)難免又被我妹嫌棄說為什麼拍照都要站這麼遠 XDDD，以下是 GF2 搭 25mm 拍出來的照片。</p>
-        
-          <p class="article-more-link">
-            <a href="/post/e-m5-12mm-25mm/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/e-m5-12mm-25mm/" data-id="cik2l20zt00521r0qkng0ro0m" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/e-m5-12mm-25mm/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/E-M5/">E-M5</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-      </nav>
-    </section>
-      
-        <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">recents</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
-              <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
-              <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, Sun</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
-              <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, Thu</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg
-)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
-              <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg
-)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
-              <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
-              <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
-              <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, Thu</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">tag cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a><a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a><a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a><a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a><a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a><a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20px;">Linux</a><a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a><a href="/tags/NIS/" style="font-size: 10px;">NIS</a><a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a><a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a><a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a><a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a><a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a><a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a><a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a><a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a><a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a><a href="/tags/i18n/" style="font-size: 10px;">i18n</a><a href="/tags/ingress/" style="font-size: 10px;">ingress</a><a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a><a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a><a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a><a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a><a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a><a href="/tags/php/" style="font-size: 11.43px;">php</a><a href="/tags/pushover/" style="font-size: 10px;">pushover</a><a href="/tags/squid/" style="font-size: 14.29px;">squid</a><a href="/tags/svn/" style="font-size: 11.43px;">svn</a><a href="/tags/trac/" style="font-size: 12.86px;">trac</a><a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a><a href="/tags/日本/" style="font-size: 10px;">日本</a><a href="/tags/美國/" style="font-size: 11.43px;">美國</a><a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a><a href="/tags/調查局/" style="font-size: 10px;">調查局</a><a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a><a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Casio-TR15/">Casio TR15</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/E-M5/">E-M5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeBSD/">FreeBSD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gentoo/">Gentoo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Healthy/">Healthy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenRC/">OpenRC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SUSE/">SUSE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SaltStack/">SaltStack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime/">Sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TextMate/">TextMate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMware/">VMware</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cgroups/">cgroups</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graylog2/">graylog2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i18n/">i18n</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ingress/">ingress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcachedb/">memcachedb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moinmoin/">moinmoin</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obj-c/">obj-c</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pushover/">pushover</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trac/">trac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/喝茶/">喝茶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美國/">美國</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蝴蝶結/">蝴蝶結</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/調查局/">調查局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/迪士尼/">迪士尼</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/陶瓷/">陶瓷</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-  <div id="toTop" class="fa fa-chevron-up"></div>
-</aside>
-      
-    </div>
-    <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 neoesque<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-    </div>
-  </div>
-</footer>
-    
-
+    <a data-url="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/" data-id="cimu08t3e002s0f0q4r3c6fle" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
-  var disqus_shortname = 'parsefloat';
-  (function(){
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/nginx---using-map-as-a-simple-web-application-firewall/">評論</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-e-m5-grip-base" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/e-m5-grip-base/">E-M5 副廠手把</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/e-m5-grip-base/">
+            <time datetime="2013-04-13T12:30:03.000Z" itemprop="datePublished">2013-04-13, 週六</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/3C/">3C</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/E-M5/">E-M5</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>E-M5 的手感雖然有做出手把的弧形但是因為實在是太淺了，所以還是稍微差了一點，像我是手小的都覺得 E-M5 不好握的話，手大的應該就更難了，原廠賣的<a href="http://olympusomd.com/zh-TW/omd/e-m5/accessory/#&amp;panel1-2">手把</a>是跟電池底座一起賣的要九張小朋友多一點的價格，真的是見鬼了，而且不喜歡加個電池底座多一個累贅，不過現在救星來了！ <a href="https://www.facebook.com/hoson.design">HOSON</a> 團隊帶來了一個鋁鎂合金手把 MA-1</p>
+<img src="https://lh3.googleusercontent.com/-sHbJAFUfvyI/UWlS2uiztyI/AAAAAAAAFkg/zheRttROHWI/s640/P4131010.JPG">
+<p>沒錯！他叫做阿魯把，是把不是八，剛看到時覺得挺妙的，作者補充說是阿嚕咪(aluminum)的手把啦~ 而且設計製造都是在台灣，純正的 MIT！</p></p>
+            <p class="article-more-link">
+                <a href="/post/e-m5-grip-base/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/e-m5-grip-base/" data-id="cimu08t20001j0f0qp2qty4ch" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="/post/e-m5-grip-base/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/e-m5-grip-base/">評論</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-e-m5-12mm-25mm" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/e-m5-12mm-25mm/">E-M5 12mm 25mm</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/e-m5-12mm-25mm/">
+            <time datetime="2013-03-24T03:05:58.000Z" itemprop="datePublished">2013-03-24, 週日</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/3C/">3C</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/E-M5/">E-M5</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>三年前原本買了 <a href="http://www.four-thirds.org/en/microft/body.html#c=Panasonic&amp;i_dmc-gf2_panasonic">GF2</a> + <a href="http://www.four-thirds.org/en/microft/single.html#i_014mm_f025_panasonic">LUMIX G 14mm F2.5 ASPH</a> 要給我妹，結果他竟然嫌棄說 14mm 沒辦法變焦… 0rz… 這實在是，結果後來還是買了一般的小 DC 給她 = =+，然後去年入手了 <a href="http://www.four-thirds.org/en/microft/single.html#i_025mm_f014_panasonic">LEICA DG SUMMILUX 25mm F1.4 ASPH</a> </p>
+<img src="http://farm9.staticflickr.com/8237/8584909748_bde84d9f1b_z.jpg">
+<p>大光圈的加持真的不是蓋的等效 50mm 也相當的好取景，但是最近對焦距離 30cm 真的稍遠不過他本來就被定位在人像鏡所以其實還好，整體來說還是超級棒的一顆鏡頭，只是去參觀室內的展覽(像是小叮噹誕生前百年特展)難免又被我妹嫌棄說為什麼拍照都要站這麼遠 XDDD，以下是 GF2 搭 25mm 拍出來的照片。</p></p>
+            <p class="article-more-link">
+                <a href="/post/e-m5-12mm-25mm/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/e-m5-12mm-25mm/" data-id="cimu08t1y001g0f0qfu9ecutp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="/post/e-m5-12mm-25mm/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/e-m5-12mm-25mm/">評論</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/">&laquo; 上一頁</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">下一頁 &raquo;</a>
+    </nav>
+</section>
+            
+                <aside id="sidebar">
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
+                            <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
+                            <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, 週日</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
+                            <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, 週四</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
+                            <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
+                            <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
+                            <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
+                            <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, 週四</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a> <a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a> <a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a> <a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a> <a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a> <a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a> <a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a> <a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a> <a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a> <a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a> <a href="/tags/i18n/" style="font-size: 10px;">i18n</a> <a href="/tags/ingress/" style="font-size: 10px;">ingress</a> <a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a> <a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a> <a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a> <a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a> <a href="/tags/php/" style="font-size: 11.43px;">php</a> <a href="/tags/pushover/" style="font-size: 10px;">pushover</a> <a href="/tags/squid/" style="font-size: 14.29px;">squid</a> <a href="/tags/svn/" style="font-size: 11.43px;">svn</a> <a href="/tags/trac/" style="font-size: 12.86px;">trac</a> <a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a> <a href="/tags/美國/" style="font-size: 11.43px;">美國</a> <a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a> <a href="/tags/調查局/" style="font-size: 10px;">調查局</a> <a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a> <a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 neoesque<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'parsefloat';
+    
+    
+    (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+    })();
+    </script>
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
 
-
-<script src="/js/script.js" type="text/javascript"></script>
-
-  </div>
+    </div>
 </body>
 </html>

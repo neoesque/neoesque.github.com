@@ -1,34 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-  <meta charset="utf-8">
-  
-  <title>Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線 | neoesque</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Sa">
+    <meta charset="utf-8">
+    
+    <title>Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線 | neoesque</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Sa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線">
 <meta property="og:url" content="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/index.html">
 <meta property="og:site_name" content="neoesque">
 <meta property="og:description" content="前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Sa">
+<meta property="og:updated_time" content="2015-03-14T05:41:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線">
 <meta name="twitter:description" content="前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Sa">
 <meta name="twitter:creator" content="@neoesque">
 <meta property="fb:admins" content="1573449527">
 <meta property="fb:app_id" content="163923413772109">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
-  
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -37,115 +48,219 @@ ga('create', 'UA-37617901-1', 'auto');
 ga('send', 'pageview');
 
 </script>
-<!-- End Google Analytics -->
+    
+    
+    
 
-
-  
 </head>
 <body>
-  <div id="container">
-    <header id="header">
-  <div id="header-main" class="header-inner">
-    <div class="outer">
-      <a href="/" id="logo"><span class="site-title">neoesque</span></a>
-      <nav id="main-nav">
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-      </div>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">neoesque</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主頁</a>
+                
+                    <a class="main-nav-link" href="/archives">歸檔</a>
+                
+                    <a class="main-nav-link" href="/categories">分類</a>
+                
+                    <a class="main-nav-link" href="/tags">標籤</a>
+                
+                    <a class="main-nav-link" href="/about">關於我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-  </div>
-  <div id="main-nav-mobile" class="header-sub header-inner">
-    <table class="menu outer">
-      <tr>
-        
-          <td><a class="main-nav-link" href="/">Home</a></td>
-        
-          <td><a class="main-nav-link" href="/archives">Archives</a></td>
-        
-          <td><a class="main-nav-link" href="/about">About</a></td>
-        
-        <td>
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-        </td>
-      </tr>
-    </table>
-  </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: 'Pages',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主頁</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">歸檔</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分類</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">標籤</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">關於我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
 </header>
 
-    <div class="outer">
-      
-      <section id="main"><article id="post-nginx-ssl-cipher-rc4-safari" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">neoesque</h2>
+            <h3 id="title">Linux Admin</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Taipei, Taiwan</span>
+            <a id="follow" target="_blank" href="https://github.com/neoesque/">關注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                58
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                37
+                <span>標籤</span>
+            </div>
+        </div>
         
-  
-    <h1 class="article-title" itemprop="name">
-      Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/nginx-ssl-cipher-rc4-safari/">
-      <time datetime="2013-04-27T05:52:58.000Z" itemprop="datePublished">2013-04-27, Sat</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
-  </div>
-
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+                    
+                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    
+                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    
+                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    
+                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    
+                </tr>
+            </table>
         </div>
-      </header>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-nginx-ssl-cipher-rc4-safari" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div id="toc" class="toc-article">
-          <!-- # <strong class="toc-title">contents</strong> -->
-          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#後記"><span class="toc-number">1.</span> <span class="toc-text">後記</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#後記_x2"><span class="toc-number">2.</span> <span class="toc-text">後記 x2</span></a></li></ol>
-        </div>
-      
-        <p>前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Safari … 結果果然不出所料… <code>Unable to establish a secure connection</code> XDDD 搞什麼連 Safari 也連不了，這樣子要 Debug 我就可以自己來了，不然要一直麻煩同事跟我對測不好意思，一開始先用 <code>tcpdump</code> 發現 Server 送 Certificate 給 Client 之後 Client 就自己斷掉 connection ?! WTF 這太沒有頭緒了吧，後來上網搜尋 <code>ssl connection fail safari</code>，結果一路看看看就看到了這個 <a href="https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/965371" target="_blank" rel="external">HTTPS requests fail on sites which immediately close the connection if TLS 1.1 negotiation is attempted, on Ubuntu 12.04</a>，起因是 OpenSSL 1.0.1 的一個 Bug，版上建議降成 OpenSSL 1.0.0 就可以了，因為我要啟用 nginx 的 spdy 所以一定要用 OpenSSL 1.0.1 才可以，不過秉持實驗的精神只好先解除這個功能，於是我就編譯了 nginx with openssl 1.0.0k，然後結果…靠背還是一樣 Safri 不能連其他都可以！不信邪改用 0.9.8y，結果在一模一樣的設定下這個 Safari 就可以連了 = = (這哪招)，總之越來越神秘，只好先回到 nginx with openssl 1.0.1e，(就是死命要 spdy 就對了 XD)，後來在沒什麼想法的情況下只好打開 nginx 的 debug mode <code>error_log xxxxx debug;</code>，瞧瞧裡面有什麼。</p>
+        <h1 class="article-title" itemprop="name">
+            Safari 無法建立 nginx ssl_ciphers 使用 RC4 的連線
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/nginx-ssl-cipher-rc4-safari/">
+            <time datetime="2013-04-27T05:52:58.000Z" itemprop="datePublished">2013-04-27, 週六</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Mac/">Mac</a>, <a class="tag-link" href="/tags/nginx/">nginx</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Safari … 結果果然不出所料… <code>Unable to establish a secure connection</code> XDDD 搞什麼連 Safari 也連不了，這樣子要 Debug 我就可以自己來了，不然要一直麻煩同事跟我對測不好意思，一開始先用 <code>tcpdump</code> 發現 Server 送 Certificate 給 Client 之後 Client 就自己斷掉 connection ?! WTF 這太沒有頭緒了吧，後來上網搜尋 <code>ssl connection fail safari</code>，結果一路看看看就看到了這個 <a href="https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/965371" target="_blank" rel="external">HTTPS requests fail on sites which immediately close the connection if TLS 1.1 negotiation is attempted, on Ubuntu 12.04</a>，起因是 OpenSSL 1.0.1 的一個 Bug，版上建議降成 OpenSSL 1.0.0 就可以了，因為我要啟用 nginx 的 spdy 所以一定要用 OpenSSL 1.0.1 才可以，不過秉持實驗的精神只好先解除這個功能，於是我就編譯了 nginx with openssl 1.0.0k，然後結果…靠背還是一樣 Safri 不能連其他都可以！不信邪改用 0.9.8y，結果在一模一樣的設定下這個 Safari 就可以連了 = = (這哪招)，總之越來越神秘，只好先回到 nginx with openssl 1.0.1e，(就是死命要 spdy 就對了 XD)，後來在沒什麼想法的情況下只好打開 nginx 的 debug mode <code>error_log xxxxx debug;</code>，瞧瞧裡面有什麼。</p>
 <p>結果就看到</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">SSL</span> <span class="id">handshake</span> <span class="id">handler</span>: <span class="number">0</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">do_handshake</span>: <span class="number">0</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">get_error</span>: <span class="number">5</span></span><br><span class="line">[<span class="id">info</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="id">peer</span> <span class="id">closed</span> <span class="id">connection</span> <span class="id">in</span> <span class="constant">SSL</span> <span class="id">handshake</span> <span class="id">while</span> <span class="constant">SSL</span> <span class="id">handshaking</span>, <span class="id">client</span>: x.x.x.x, <span class="id">server</span>: <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">443</span>                                  </span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="id">close</span> <span class="id">http</span> <span class="id">connection</span>: <span class="number">14</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">7585#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">shutdown</span>: <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SSL handshake handler: 0</span><br><span class="line">[debug] 7585#0: *1 SSL_do_handshake: 0</span><br><span class="line">[debug] 7585#0: *1 SSL_get_error: 5</span><br><span class="line">[info] 7585#0: *1 peer closed connection in SSL handshake while SSL handshaking, client: x.x.x.x, server: 0.0.0.0:443                                  </span><br><span class="line">[debug] 7585#0: *1 close http connection: 14</span><br><span class="line">[debug] 7585#0: *1 SSL_shutdown: 1</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>啊靠，搞屁 Safari 直接斷掉 connection，這哪招，於是再用 Chrome 連看看</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">SSL</span> <span class="id">handshake</span> <span class="id">handler</span>: <span class="number">0</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">8398#0</span>: *<span class="number">1</span> <span class="id">ssl</span> <span class="id">new</span> <span class="id">session</span>: <span class="number">67979935</span>:<span class="number">32</span>:<span class="number">139</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">8398#0</span>: *<span class="number">1</span> <span class="constant">SSL_</span><span class="id">do_handshake</span>: <span class="number">1</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">8398#0</span>: *<span class="number">1</span> <span class="constant">SSL</span>: <span class="constant">TLS</span><span class="id">v1</span>.<span class="number">1</span>, <span class="id">cipher</span>: <span class="string">"ECDHE-RSA-RC4-SHA SSLv3 Kx=ECDH Au=RSA Enc=RC4(128) Mac=SHA1"</span></span><br><span class="line">[<span class="id">debug</span>] <span class="number">8398#0</span>: *<span class="number">1</span> <span class="id">reusable</span> <span class="id">connection</span>: <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SSL handshake handler: 0</span><br><span class="line">[debug] 8398#0: *1 ssl new session: 67979935:32:139</span><br><span class="line">[debug] 8398#0: *1 SSL_do_handshake: 1</span><br><span class="line">[debug] 8398#0: *1 SSL: TLSv1.1, cipher: &quot;ECDHE-RSA-RC4-SHA SSLv3 Kx=ECDH Au=RSA Enc=RC4(128) Mac=SHA1&quot;</span><br><span class="line">[debug] 8398#0: *1 reusable connection: 1</span><br></pre></td></tr></table></figure>
 <p>Bingo，看到一個關鍵的地方，在 SSL handshake 中，client 發一個簡單的 Hello 給 Sever 後，Server 也會回一個 Hello 給 Client，其中這兩個 Hello 會把自己支援的 SSL版本、加密法包在裡面給對方知道，於是這就回到 nginx 的 ssl 設定了，在 nginx 的 doc <a href="http://nginx.org/en/docs/http/configuring_https_servers.html" target="_blank" rel="external">Configuring HTTPS servers</a> 中，提到了因為要防禦 <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3389" target="_blank" rel="external">CVE-2011-3389 BEAST Attack</a>，建議把 SSL 設置如下</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ssl_protocols</span>       SSLv3 TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;</span><br><span class="line"><span class="title">ssl_ciphers</span> RC4:HIGH:!aNULL:!MD5;</span><br><span class="line"><span class="title">ssl_prefer_server_ciphers</span> <span class="built_in">on</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssl_protocols       SSLv3 TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">ssl_ciphers RC4:HIGH:!aNULL:!MD5;</span><br><span class="line">ssl_prefer_server_ciphers on;</span><br></pre></td></tr></table></figure>
 <p>這個表示優先使用 RC4 的加密，然後是高安全(超過 128bit)的加密法，不接受 MD5 digest 的方式，所以我們可以看到 Chrome 是採用了 <code>ECDHE-RSA-RC4-SHA</code> (Firefox 也是)，但是 Safari 就這樣直接斷掉 connection… 我真是搞不懂你啊！這時候只好參考一些網路網站(就是拜一拜 Google 大神了)，就看到有個網站可以列出你的瀏覽器支援的 SSL cipher 在此 <a href="https://cc.dcsec.uni-hannover.de" target="_blank" rel="external">SSL Cipher Suite Details of Your Browser</a> 用 Safari 開了一下，如下</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">Cipher Suites Supported by Your Browser (ordered by preference):</span><br><span class="line"></span><br><span class="line">SpecCipher Suite NameKey SizeDescription</span><br><span class="line">(<span class="number">00</span>,ff)EMPTY-RENEGOTIATION-INFO-SCSV0 BitUsed <span class="keyword">for</span> secure renegotation.</span><br><span class="line">(c0,<span class="number">0</span>a)ECDHE-ECDSA-AES256-SHA256 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> AES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">09</span>)ECDHE-ECDSA-AES128-SHA128 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> AES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">07</span>)ECDHE-ECDSA-RC4128-SHA128 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> RC4, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">08</span>)ECDHE-ECDSA-<span class="number">3</span>DES-EDE-SHA168 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> <span class="number">3</span>DES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">14</span>)ECDHE-RSA-AES256-SHA256 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> AES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">13</span>)ECDHE-RSA-AES128-SHA128 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> AES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">11</span>)ECDHE-RSA-RC4128-SHA128 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> RC4, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">12</span>)ECDHE-RSA-<span class="number">3</span>DES-EDE-SHA168 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> <span class="number">3</span>DES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">04</span>)ECDH-ECDSA-AES128-SHA128 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> AES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">05</span>)ECDH-ECDSA-AES256-SHA256 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> AES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">02</span>)ECDH-ECDSA-RC4128-SHA128 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> RC4, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">03</span>)ECDH-ECDSA-<span class="number">3</span>DES-EDE-SHA168 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> <span class="number">3</span>DES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">0</span>e)ECDH-RSA-AES128-SHA128 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> AES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">0</span>f)ECDH-RSA-AES256-SHA256 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> AES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">0</span>c)ECDH-RSA-RC4128-SHA128 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> RC4, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(c0,<span class="number">0</span>d)ECDH-RSA-<span class="number">3</span>DES-EDE-SHA168 BitKey <span class="string">exchange:</span> ECDH, <span class="string">encryption:</span> <span class="number">3</span>DES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(<span class="number">00</span>,<span class="number">2</span>f)RSA-AES128-SHA128 BitKey <span class="string">exchange:</span> RSA, <span class="string">encryption:</span> AES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(<span class="number">00</span>,<span class="number">05</span>)RSA-RC4128-SHA128 BitKey <span class="string">exchange:</span> RSA, <span class="string">encryption:</span> RC4, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(<span class="number">00</span>,<span class="number">04</span>)RSA-RC4128-MD5128 BitKey <span class="string">exchange:</span> RSA, <span class="string">encryption:</span> RC4, <span class="string">MAC:</span> MD5.</span><br><span class="line">(<span class="number">00</span>,<span class="number">35</span>)RSA-AES256-SHA256 BitKey <span class="string">exchange:</span> RSA, <span class="string">encryption:</span> AES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(<span class="number">00</span>,<span class="number">0</span>a)RSA-<span class="number">3</span>DES-EDE-SHA56 BitKey <span class="string">exchange:</span> RSA, <span class="string">encryption:</span> <span class="number">3</span>DES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(<span class="number">00</span>,<span class="number">33</span>)DHE-RSA-AES128-SHA128 BitKey <span class="string">exchange:</span> DH, <span class="string">encryption:</span> AES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(<span class="number">00</span>,<span class="number">39</span>)DHE-RSA-AES256-SHA256 BitKey <span class="string">exchange:</span> DH, <span class="string">encryption:</span> AES, <span class="string">MAC:</span> SHA1.</span><br><span class="line">(<span class="number">00</span>,<span class="number">16</span>)DHE-RSA-<span class="number">3</span>DES-EDE-SHA168 BitKey <span class="string">exchange:</span> DH, <span class="string">encryption:</span> <span class="number">3</span>DES, <span class="string">MAC:</span> SHA1.</span><br><span class="line"></span><br><span class="line">Further <span class="string">information:</span></span><br><span class="line"></span><br><span class="line">User-<span class="string">Agent:</span>Mozilla<span class="regexp">/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/</span><span class="number">536.29</span><span class="number">.13</span> (KHTML, like Gecko) Version<span class="regexp">/6.0.4 Safari/</span><span class="number">536.29</span><span class="number">.13</span></span><br><span class="line">Preferred SSL/TLS <span class="string">version:</span> TLSv1</span><br><span class="line">SNI <span class="string">information:</span> cc.dcsec.uni-hannover.de</span><br><span class="line">SSL stack current <span class="string">time:</span> Sat, <span class="number">27</span> Apr <span class="number">2013</span> <span class="number">08</span>:<span class="number">20</span>:<span class="number">54</span></span><br><span class="line"></span><br><span class="line">This connection uses TLSv1 with AES128-SHA and a <span class="number">128</span> Bit key <span class="keyword">for</span> encryption.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">Cipher Suites Supported by Your Browser (ordered by preference):</span><br><span class="line"></span><br><span class="line">SpecCipher Suite NameKey SizeDescription</span><br><span class="line">(00,ff)EMPTY-RENEGOTIATION-INFO-SCSV0 BitUsed for secure renegotation.</span><br><span class="line">(c0,0a)ECDHE-ECDSA-AES256-SHA256 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,09)ECDHE-ECDSA-AES128-SHA128 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,07)ECDHE-ECDSA-RC4128-SHA128 BitKey exchange: ECDH, encryption: RC4, MAC: SHA1.</span><br><span class="line">(c0,08)ECDHE-ECDSA-3DES-EDE-SHA168 BitKey exchange: ECDH, encryption: 3DES, MAC: SHA1.</span><br><span class="line">(c0,14)ECDHE-RSA-AES256-SHA256 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,13)ECDHE-RSA-AES128-SHA128 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,11)ECDHE-RSA-RC4128-SHA128 BitKey exchange: ECDH, encryption: RC4, MAC: SHA1.</span><br><span class="line">(c0,12)ECDHE-RSA-3DES-EDE-SHA168 BitKey exchange: ECDH, encryption: 3DES, MAC: SHA1.</span><br><span class="line">(c0,04)ECDH-ECDSA-AES128-SHA128 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,05)ECDH-ECDSA-AES256-SHA256 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,02)ECDH-ECDSA-RC4128-SHA128 BitKey exchange: ECDH, encryption: RC4, MAC: SHA1.</span><br><span class="line">(c0,03)ECDH-ECDSA-3DES-EDE-SHA168 BitKey exchange: ECDH, encryption: 3DES, MAC: SHA1.</span><br><span class="line">(c0,0e)ECDH-RSA-AES128-SHA128 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,0f)ECDH-RSA-AES256-SHA256 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,0c)ECDH-RSA-RC4128-SHA128 BitKey exchange: ECDH, encryption: RC4, MAC: SHA1.</span><br><span class="line">(c0,0d)ECDH-RSA-3DES-EDE-SHA168 BitKey exchange: ECDH, encryption: 3DES, MAC: SHA1.</span><br><span class="line">(00,2f)RSA-AES128-SHA128 BitKey exchange: RSA, encryption: AES, MAC: SHA1.</span><br><span class="line">(00,05)RSA-RC4128-SHA128 BitKey exchange: RSA, encryption: RC4, MAC: SHA1.</span><br><span class="line">(00,04)RSA-RC4128-MD5128 BitKey exchange: RSA, encryption: RC4, MAC: MD5.</span><br><span class="line">(00,35)RSA-AES256-SHA256 BitKey exchange: RSA, encryption: AES, MAC: SHA1.</span><br><span class="line">(00,0a)RSA-3DES-EDE-SHA56 BitKey exchange: RSA, encryption: 3DES, MAC: SHA1.</span><br><span class="line">(00,33)DHE-RSA-AES128-SHA128 BitKey exchange: DH, encryption: AES, MAC: SHA1.</span><br><span class="line">(00,39)DHE-RSA-AES256-SHA256 BitKey exchange: DH, encryption: AES, MAC: SHA1.</span><br><span class="line">(00,16)DHE-RSA-3DES-EDE-SHA168 BitKey exchange: DH, encryption: 3DES, MAC: SHA1.</span><br><span class="line"></span><br><span class="line">Further information:</span><br><span class="line"></span><br><span class="line">User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.29.13 (KHTML, like Gecko) Version/6.0.4 Safari/536.29.13</span><br><span class="line">Preferred SSL/TLS version: TLSv1</span><br><span class="line">SNI information: cc.dcsec.uni-hannover.de</span><br><span class="line">SSL stack current time: Sat, 27 Apr 2013 08:20:54</span><br><span class="line"></span><br><span class="line">This connection uses TLSv1 with AES128-SHA and a 128 Bit key for encryption.</span><br></pre></td></tr></table></figure>
 <p>干，Safari 有支援 RC4 卻不給我使用，跑去用什麼 AES128-SHA 0rz…，所以我就想說奇怪為什麼有支援但是 nginx 單純設定 RC4 卻會失敗，於是在好奇之下就改成設定了</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssl_ciphers RC4-<span class="string">SHA:</span><span class="string">HIGH:</span>!<span class="string">aNULL:</span>!MD5;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssl_ciphers RC4-SHA:HIGH:!aNULL:!MD5;</span><br></pre></td></tr></table></figure>
 <p>結果… Safari 就好了… Fxck 真的很想罵髒話，nginx 送 RC4 給 curl、Chrome、Firefox 都看的懂，你 Safari 就看不懂直接中斷連線是怎樣 = =</p>
 <p>Okay~ anyway，後來在網路也查不到什麼相關文章，不過我在網路上找到 BEAST Attack 的<a href="https://docs.google.com/viewer?url=http%3A%2F%2Fwww.phonefactor.com%2Fresources%2FCipherSuiteMitigationForBeast.pdf" target="_blank" rel="external">白皮書</a> 裡面推薦把 Web Server Cipher 設定成 <code>!aNULL:!eNULL:!EXPORT:!DSS:!DE
 S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可以正確的判讀 (因為 RC4-SHA:RC4-MD5 都明確說明了啊！)，不過基於 MD5 的 digest 似乎有 collision 的機率現在好像都不推薦使用，所以原本有個 <code>!MD5</code>，於是最後我在我們 Server 上就改成了</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssl_ciphers !<span class="string">aNULL:</span>!<span class="string">eNULL:</span>!<span class="string">EXPORT:</span>!<span class="string">DSS:</span>!<span class="string">DES:</span>!<span class="string">MD5:</span>RC4-<span class="string">SHA:</span>ALL;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssl_ciphers !aNULL:!eNULL:!EXPORT:!DSS:!DES:!MD5:RC4-SHA:ALL;</span><br></pre></td></tr></table></figure>
 <p>也就是不要 NULL， EXPORT 家族的，也不要 DSS、DES 的加密法，不要 MD5 的 digest，優先使用 RC4-SHA 跟剩下的其他加密/訊息驗證法，因為 RC4 跟 3DES 幾乎所有的 OS 都有支援，但是 3DES 效能是在太低會把 Server 拖一些下來，所以建議儘量使用 RC4 優先，這個網頁有速度的比較 <a href="http://zombe.es/post/4078724716/openssl-cipher-selection" target="_blank" rel="external">OpenSSL: Cipher Selection</a> 可以看到 RC4 是快很多的，但是在有支援 AESNI 指令集的 CPU 上用 AES 速度更快 (可用 <code>grep aes /proc/cpuinfo</code> 檢查)，所以目前使用 RC4 是安全又快速的。最後如果要檢查 HTTPS 到底是不是安全，可以使用 <a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="external">SSL Server Test</a> 來檢查。</p>
 <p>如果對 BEAST 攻擊有興趣可以看這篇 <a href="http://securitystreetknowledge.com/?p=882" target="_blank" rel="external">SSL Beast – SSL Assessments and How to Fix</a></p>
 <p>後來在測試 Mac 的 Agent 也可以連了，看起來是底層的 Framework 可能有問題。</p>
-<h4 id="後記">後記</h4><p>關於 SSL 其實有很多傳說 XDD，我還有看到人家說 OpenSSL 1.0.0 產生的憑證不能用在 Apache 上，跟我們的問題有點類似，因為我們自己內部網站用的 SSL 加一模一樣的 nginx 設定 (也就是只開 <code>RC4</code>) Safari 是完全沒問題的，這次出事的是我們對外服務的網站，但是因為憑證當初不是我申請的，所以問題已經無從追了，網路沒什麼反應也許 nginx 官網推薦的設定是真的 OK 的只是我們剛好踩到這個雷 %&gt;_&lt;%</p>
+<h4 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h4><p>關於 SSL 其實有很多傳說 XDD，我還有看到人家說 OpenSSL 1.0.0 產生的憑證不能用在 Apache 上，跟我們的問題有點類似，因為我們自己內部網站用的 SSL 加一模一樣的 nginx 設定 (也就是只開 <code>RC4</code>) Safari 是完全沒問題的，這次出事的是我們對外服務的網站，但是因為憑證當初不是我申請的，所以問題已經無從追了，網路沒什麼反應也許 nginx 官網推薦的設定是真的 OK 的只是我們剛好踩到這個雷 %&gt;_&lt;%</p>
 <p>另外也許文章一開始提到的，nginx 改用 OpenSSL 0.9.8y 可以是因為 Safari fallback 回去 SSLv3 的連線，所以就沒有使用奇奇怪怪的加密法，不然預設 Safari 也會優先使用 TLSv1。然後一用 TLSv1 配上我們的憑證也許 Safari 就傻了之類的 XD</p>
-<h4 id="後記_x2">後記 x2</h4><p>目前 SSL/TSL key 都是直接交換的方式也就是同一把 key 用久久，去年爆出 NSA 其實有在偷偷側錄 SSL/TSL 的流量，所以有個名詞突然紅了起來，就是 <code>Perfect Forward Secrecy</code>  (PFS)，他是建立在 D-H 上，也就是動態產生一組 session key 交換，這樣可以確保全部訊息沒有辦法被用同一把 key 給解開。因此參考 <a href="https://community.qualys.com/blogs/securitylabs/2013/08/05/configuring-apache-nginx-and-openssl-for-forward-secrecy" target="_blank" rel="external">Configuring Apache, Nginx, and OpenSSL for Forward Secrecy</a> 這裡，建議把設定改成下列：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ssl_protocols</span> TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;</span><br><span class="line"><span class="title">ssl_prefer_server_ciphers</span> <span class="built_in">on</span>;</span><br><span class="line"><span class="title">ssl_ciphers</span> <span class="string">"EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4-SHA !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS"</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="後記-x2"><a href="#後記-x2" class="headerlink" title="後記 x2"></a>後記 x2</h4><p>目前 SSL/TSL key 都是直接交換的方式也就是同一把 key 用久久，去年爆出 NSA 其實有在偷偷側錄 SSL/TSL 的流量，所以有個名詞突然紅了起來，就是 <code>Perfect Forward Secrecy</code>  (PFS)，他是建立在 D-H 上，也就是動態產生一組 session key 交換，這樣可以確保全部訊息沒有辦法被用同一把 key 給解開。因此參考 <a href="https://community.qualys.com/blogs/securitylabs/2013/08/05/configuring-apache-nginx-and-openssl-for-forward-secrecy" target="_blank" rel="external">Configuring Apache, Nginx, and OpenSSL for Forward Secrecy</a> 這裡，建議把設定改成下列：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">ssl_prefer_server_ciphers on;</span><br><span class="line">ssl_ciphers &quot;EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4-SHA !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS&quot;;</span><br></pre></td></tr></table></figure>
 <p>我把原文章的 RC4 改成 RC4-SHA，經過測試後，Safari 也可用！</p>
 <p>不過需要注意的是因為要打開橢圓曲線加密所以搭配 nginx 的 OpenSSL 最低需求要 1.0.1c 以上。</p>
 <hr>
@@ -155,215 +270,303 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
 <li><a href="https://techzone.ergon.ch/ciphersuite" target="_blank" rel="external">SSL Ciphersuite Configuration for External HTTPS Connections</a></li>
 </ul>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/" data-id="cik2l20xs00301r0q0oucmylt" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
-    </footer>
-  </div>
-  
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/" data-id="cimu08t3o00320f0q2d58maxp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
     
+        <a href="/post/nginx-ssl-cipher-rc4-safari/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/nginx-ssl-cipher-rc4-safari/">評論</a>
+    
+
+        </footer>
+    </div>
+    
+        
 <nav id="article-nav">
-  
-    <a href="/post/e-m5-wooden-grip/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          E-M5 木質手把
-        
-      </div>
-    </a>
-  
-  
-    <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">用 map 的功能把 nginx 變成簡單的應用程式防火牆</div>
-    </a>
-  
+    
+        <a href="/post/e-m5-wooden-grip/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    E-M5 木質手把
+                
+            </div>
+        </a>
+    
+    
+        <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">用 map 的功能把 nginx 變成簡單的應用程式防火牆</div>
+        </a>
+    
 </nav>
 
 
-  
+    
 </article>
 
 
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
-
-</section>
-      
-        <aside id="sidebar">
-  
+            
+                <aside id="sidebar">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">recents</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
-              <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
-              <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, Sun</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
-              <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, Thu</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg
-)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
-              <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg
-)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
-              <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
-              <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
-              <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, Thu</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">tag cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a><a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a><a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a><a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a><a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a><a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20px;">Linux</a><a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a><a href="/tags/NIS/" style="font-size: 10px;">NIS</a><a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a><a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a><a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a><a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a><a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a><a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a><a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a><a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a><a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a><a href="/tags/i18n/" style="font-size: 10px;">i18n</a><a href="/tags/ingress/" style="font-size: 10px;">ingress</a><a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a><a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a><a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a><a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a><a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a><a href="/tags/php/" style="font-size: 11.43px;">php</a><a href="/tags/pushover/" style="font-size: 10px;">pushover</a><a href="/tags/squid/" style="font-size: 14.29px;">squid</a><a href="/tags/svn/" style="font-size: 11.43px;">svn</a><a href="/tags/trac/" style="font-size: 12.86px;">trac</a><a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a><a href="/tags/日本/" style="font-size: 10px;">日本</a><a href="/tags/美國/" style="font-size: 11.43px;">美國</a><a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a><a href="/tags/調查局/" style="font-size: 10px;">調查局</a><a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a><a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
-    </div>
-  </div>
-
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-
-  
+        <span class="thumbnail-image thumbnail-none"></span>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Casio-TR15/">Casio TR15</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/E-M5/">E-M5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeBSD/">FreeBSD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gentoo/">Gentoo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Healthy/">Healthy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenRC/">OpenRC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SUSE/">SUSE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SaltStack/">SaltStack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime/">Sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TextMate/">TextMate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMware/">VMware</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cgroups/">cgroups</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graylog2/">graylog2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i18n/">i18n</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ingress/">ingress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcachedb/">memcachedb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moinmoin/">moinmoin</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obj-c/">obj-c</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pushover/">pushover</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trac/">trac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/喝茶/">喝茶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美國/">美國</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蝴蝶結/">蝴蝶結</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/調查局/">調查局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/迪士尼/">迪士尼</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/陶瓷/">陶瓷</a><span class="tag-list-count">1</span></li></ul>
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
+                            <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
+                            <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, 週日</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
+                            <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, 週四</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
+                            <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
+                            <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
+                            <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
+                            <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, 週四</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
     </div>
-  </div>
 
-  
-  <div id="toTop" class="fa fa-chevron-up"></div>
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a> <a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a> <a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a> <a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a> <a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a> <a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a> <a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a> <a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a> <a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a> <a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a> <a href="/tags/i18n/" style="font-size: 10px;">i18n</a> <a href="/tags/ingress/" style="font-size: 10px;">ingress</a> <a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a> <a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a> <a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a> <a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a> <a href="/tags/php/" style="font-size: 11.43px;">php</a> <a href="/tags/pushover/" style="font-size: 10px;">pushover</a> <a href="/tags/squid/" style="font-size: 14.29px;">squid</a> <a href="/tags/svn/" style="font-size: 11.43px;">svn</a> <a href="/tags/trac/" style="font-size: 12.86px;">trac</a> <a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a> <a href="/tags/美國/" style="font-size: 11.43px;">美國</a> <a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a> <a href="/tags/調查局/" style="font-size: 10px;">調查局</a> <a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a> <a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-chevron-up"></div>
 </aside>
-      
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 neoesque<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
     </div>
-    <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 neoesque<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-    </div>
-  </div>
 </footer>
+        
     
-
-<script>
-  var disqus_shortname = 'parsefloat';
-  (function(){
+    <script>
+    var disqus_shortname = 'parsefloat';
+    
+    
+    var disqus_url = 'http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/';
+    
+    (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+    })();
+    </script>
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
 
-
-<script src="/js/script.js" type="text/javascript"></script>
-
-  </div>
+    </div>
 </body>
 </html>

@@ -1,34 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-  <meta charset="utf-8">
-  
-  <title>solve dmesg appeared nouveau No connectors reported connected with modes after upgrading kernel to 3.8 or later | neoesque</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append video=VGA-1:1440x900@60 to kernel parameters. Because I use a 2-meter-long VGA line to co">
+    <meta charset="utf-8">
+    
+    <title>solve dmesg appeared nouveau No connectors reported connected with modes after upgrading kernel to 3.8 or later | neoesque</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append video=VGA-1:1440x900@60 to kernel parameters. Because I use a 2-meter-long VGA line to">
 <meta property="og:type" content="article">
 <meta property="og:title" content="solve dmesg appeared nouveau No connectors reported connected with modes after upgrading kernel to 3.8 or later">
 <meta property="og:url" content="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/index.html">
 <meta property="og:site_name" content="neoesque">
-<meta property="og:description" content="My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append video=VGA-1:1440x900@60 to kernel parameters. Because I use a 2-meter-long VGA line to co">
+<meta property="og:description" content="My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append video=VGA-1:1440x900@60 to kernel parameters. Because I use a 2-meter-long VGA line to">
+<meta property="og:updated_time" content="2015-03-14T05:42:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="solve dmesg appeared nouveau No connectors reported connected with modes after upgrading kernel to 3.8 or later">
-<meta name="twitter:description" content="My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append video=VGA-1:1440x900@60 to kernel parameters. Because I use a 2-meter-long VGA line to co">
+<meta name="twitter:description" content="My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append video=VGA-1:1440x900@60 to kernel parameters. Because I use a 2-meter-long VGA line to">
 <meta name="twitter:creator" content="@neoesque">
 <meta property="fb:admins" content="1573449527">
 <meta property="fb:app_id" content="163923413772109">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
-  
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -37,317 +48,509 @@ ga('create', 'UA-37617901-1', 'auto');
 ga('send', 'pageview');
 
 </script>
-<!-- End Google Analytics -->
+    
+    
+    
 
-
-  
 </head>
 <body>
-  <div id="container">
-    <header id="header">
-  <div id="header-main" class="header-inner">
-    <div class="outer">
-      <a href="/" id="logo"><span class="site-title">neoesque</span></a>
-      <nav id="main-nav">
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-      </div>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">neoesque</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主頁</a>
+                
+                    <a class="main-nav-link" href="/archives">歸檔</a>
+                
+                    <a class="main-nav-link" href="/categories">分類</a>
+                
+                    <a class="main-nav-link" href="/tags">標籤</a>
+                
+                    <a class="main-nav-link" href="/about">關於我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-  </div>
-  <div id="main-nav-mobile" class="header-sub header-inner">
-    <table class="menu outer">
-      <tr>
-        
-          <td><a class="main-nav-link" href="/">Home</a></td>
-        
-          <td><a class="main-nav-link" href="/archives">Archives</a></td>
-        
-          <td><a class="main-nav-link" href="/about">About</a></td>
-        
-        <td>
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-        </td>
-      </tr>
-    </table>
-  </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: 'Pages',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主頁</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">歸檔</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分類</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">標籤</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">關於我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
 </header>
 
-    <div class="outer">
-      
-      <section id="main"><article id="post-solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">neoesque</h2>
+            <h3 id="title">Linux Admin</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Taipei, Taiwan</span>
+            <a id="follow" target="_blank" href="https://github.com/neoesque/">關注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                58
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                37
+                <span>標籤</span>
+            </div>
+        </div>
         
-  
-    <h1 class="article-title" itemprop="name">
-      solve dmesg appeared nouveau No connectors reported connected with modes after upgrading kernel to 3.8 or later
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/">
-      <time datetime="2013-05-31T14:29:10.000Z" itemprop="datePublished">2013-05-31, Fri</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
-  </div>
-
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+                    
+                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    
+                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    
+                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    
+                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    
+                </tr>
+            </table>
         </div>
-      </header>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div id="toc" class="toc-article">
-          <!-- # <strong class="toc-title">contents</strong> -->
-          
-        </div>
-      
-        <p>  My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append <code>video=VGA-1:1440x900@60</code> to kernel parameters. Because I use a 2-meter-long VGA line to connect my computer and monitor, I have to enforce using VGA port as display output. And it works perfectly.</p>
+        <h1 class="article-title" itemprop="name">
+            solve dmesg appeared nouveau No connectors reported connected with modes after upgrading kernel to 3.8 or later
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/">
+            <time datetime="2013-05-31T14:29:10.000Z" itemprop="datePublished">2013-05-31, 週五</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>  My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append <code>video=VGA-1:1440x900@60</code> to kernel parameters. Because I use a 2-meter-long VGA line to connect my computer and monitor, I have to enforce using VGA port as display output. And it works perfectly.</p>
 <p>  The dmesg before kernel 3.7 says</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">Initialized</span> <span class="tag">drm</span> <span class="tag">1</span><span class="class">.1</span><span class="class">.0</span> <span class="tag">20060810</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Detected</span> <span class="tag">an</span> <span class="tag">NV50</span> <span class="tag">generation</span> <span class="tag">card</span> (<span class="number">0</span>x0a8280a2)</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Checking</span> <span class="tag">PRAMIN</span> <span class="tag">for</span> <span class="tag">VBIOS</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: ... <span class="tag">appears</span> <span class="tag">to</span> <span class="tag">be</span> <span class="tag">valid</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Using</span> <span class="tag">VBIOS</span> <span class="tag">from</span> <span class="tag">PRAMIN</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">BIT</span> <span class="tag">BIOS</span> <span class="tag">found</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Bios</span> <span class="tag">version</span> <span class="tag">70</span><span class="class">.18</span><span class="class">.2c</span><span class="class">.00</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">TMDS</span> <span class="tag">table</span> <span class="tag">version</span> <span class="tag">2</span><span class="class">.0</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">MXM</span>: <span class="tag">no</span> <span class="tag">VBIOS</span> <span class="tag">data</span>, <span class="tag">nothing</span> <span class="tag">to</span> <span class="tag">do</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">version</span> <span class="tag">4</span><span class="class">.0</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">outp</span> <span class="tag">00</span>: <span class="tag">01000302</span> <span class="tag">00020030</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">outp</span> <span class="tag">01</span>: <span class="tag">02000300</span> <span class="tag">00000000</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">outp</span> <span class="tag">02</span>: <span class="tag">02011362</span> <span class="tag">0f220010</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">outp</span> <span class="tag">03</span>: <span class="tag">01022310</span> <span class="tag">00020010</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">conn</span> <span class="tag">00</span>: <span class="tag">00001030</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">conn</span> <span class="tag">01</span>: <span class="tag">00202161</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">DCB</span> <span class="tag">conn</span> <span class="tag">02</span>: <span class="tag">00000200</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">0</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xD0B7</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">0xD40D</span>: <span class="tag">Condition</span> <span class="tag">still</span> <span class="tag">not</span> <span class="tag">met</span> <span class="tag">after</span> <span class="tag">20ms</span>, <span class="tag">skipping</span> <span class="tag">following</span> <span class="tag">opcodes</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">0xD411</span>: <span class="tag">Condition</span> <span class="tag">still</span> <span class="tag">not</span> <span class="tag">met</span> <span class="tag">after</span> <span class="tag">20ms</span>, <span class="tag">skipping</span> <span class="tag">following</span> <span class="tag">opcodes</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">1</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xD608</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">2</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xE0DA</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">3</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xE10F</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">4</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xE2C2</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Parsing</span> <span class="tag">VBIOS</span> <span class="tag">init</span> <span class="tag">table</span> <span class="tag">at</span> <span class="tag">offset</span> <span class="tag">0xE327</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">0xE327</span>: <span class="tag">Condition</span> <span class="tag">still</span> <span class="tag">not</span> <span class="tag">met</span> <span class="tag">after</span> <span class="tag">20ms</span>, <span class="tag">skipping</span> <span class="tag">following</span> <span class="tag">opcodes</span></span><br><span class="line"><span class="attr_selector">[TTM]</span> <span class="tag">Zone</span>  <span class="tag">kernel</span>: <span class="tag">Available</span> <span class="tag">graphics</span> <span class="tag">memory</span>: <span class="tag">3051544</span> <span class="tag">kiB</span></span><br><span class="line"><span class="attr_selector">[TTM]</span> <span class="tag">Zone</span>   <span class="tag">dma32</span>: <span class="tag">Available</span> <span class="tag">graphics</span> <span class="tag">memory</span>: <span class="tag">2097152</span> <span class="tag">kiB</span></span><br><span class="line"><span class="attr_selector">[TTM]</span> <span class="tag">Initializing</span> <span class="tag">pool</span> <span class="tag">allocator</span></span><br><span class="line"><span class="attr_selector">[TTM]</span> <span class="tag">Initializing</span> <span class="tag">DMA</span> <span class="tag">pool</span> <span class="tag">allocator</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">Detected</span> <span class="tag">512MiB</span> <span class="tag">VRAM</span> (DDR2)</span><br><span class="line"><span class="tag">mtrr</span>: <span class="tag">type</span> <span class="tag">mismatch</span> <span class="tag">for</span> <span class="tag">e0000000</span>,<span class="tag">10000000</span> <span class="tag">old</span>: <span class="tag">write-back</span> <span class="tag">new</span>: <span class="tag">write-combining</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">512</span> <span class="tag">MiB</span> <span class="tag">GART</span> (aperture)</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">Supports</span> <span class="tag">vblank</span> <span class="tag">timestamp</span> <span class="tag">caching</span> <span class="tag">Rev</span> <span class="tag">1</span> (<span class="number">10.10</span>.<span class="number">2010</span>).</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">No</span> <span class="tag">driver</span> <span class="tag">support</span> <span class="tag">for</span> <span class="tag">vblank</span> <span class="tag">timestamp</span> <span class="tag">query</span>.</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">3</span> <span class="tag">available</span> <span class="tag">performance</span> <span class="tag">level</span>(s)</span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">0</span>: <span class="tag">core</span> <span class="tag">135MHz</span> <span class="tag">shader</span> <span class="tag">270MHz</span> <span class="tag">memory</span> <span class="tag">135MHz</span> <span class="tag">voltage</span> <span class="tag">850mV</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">1</span>: <span class="tag">core</span> <span class="tag">405MHz</span> <span class="tag">shader</span> <span class="tag">810MHz</span> <span class="tag">memory</span> <span class="tag">405MHz</span> <span class="tag">voltage</span> <span class="tag">900mV</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">3</span>: <span class="tag">core</span> <span class="tag">589MHz</span> <span class="tag">shader</span> <span class="tag">1402MHz</span> <span class="tag">memory</span> <span class="tag">400MHz</span> <span class="tag">voltage</span> <span class="tag">1000mV</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">c</span>: <span class="tag">core</span> <span class="tag">405MHz</span> <span class="tag">shader</span> <span class="tag">810MHz</span> <span class="tag">memory</span> <span class="tag">405MHz</span> <span class="tag">voltage</span> <span class="tag">900mV</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">allocated</span> <span class="tag">1440x900</span> <span class="tag">fb</span>: <span class="tag">0x310000</span>, <span class="tag">bo</span> <span class="tag">ffff8801a78dc000</span></span><br><span class="line"><span class="tag">fbcon</span>: <span class="tag">nouveaufb</span> (fb0) <span class="tag">is</span> <span class="tag">primary</span> <span class="tag">device</span></span><br><span class="line"><span class="attr_selector">[drm]</span> <span class="tag">nouveau</span> <span class="tag">0000</span><span class="pseudo">:01</span><span class="pseudo">:00</span><span class="class">.0</span>: <span class="tag">no</span> <span class="tag">native</span> <span class="tag">mode</span>, <span class="tag">forcing</span> <span class="tag">panel</span> <span class="tag">scaling</span></span><br><span class="line"><span class="tag">Console</span>: <span class="tag">switching</span> <span class="tag">to</span> <span class="tag">colour</span> <span class="tag">frame</span> <span class="tag">buffer</span> <span class="tag">device</span> <span class="tag">180x56</span></span><br><span class="line"><span class="tag">fb0</span>: <span class="tag">nouveaufb</span> <span class="tag">frame</span> <span class="tag">buffer</span> <span class="tag">device</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">[drm] nouveau 0000:01:00.0: Detected an NV50 generation card (0x0a8280a2)</span><br><span class="line">[drm] nouveau 0000:01:00.0: Checking PRAMIN for VBIOS</span><br><span class="line">[drm] nouveau 0000:01:00.0: ... appears to be valid</span><br><span class="line">[drm] nouveau 0000:01:00.0: Using VBIOS from PRAMIN</span><br><span class="line">[drm] nouveau 0000:01:00.0: BIT BIOS found</span><br><span class="line">[drm] nouveau 0000:01:00.0: Bios version 70.18.2c.00</span><br><span class="line">[drm] nouveau 0000:01:00.0: TMDS table version 2.0</span><br><span class="line">[drm] nouveau 0000:01:00.0: MXM: no VBIOS data, nothing to do</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB version 4.0</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 00: 01000302 00020030</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 01: 02000300 00000000</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 02: 02011362 0f220010</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 03: 01022310 00020010</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB conn 00: 00001030</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB conn 01: 00202161</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB conn 02: 00000200</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 0 at offset 0xD0B7</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0xD40D: Condition still not met after 20ms, skipping following opcodes</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0xD411: Condition still not met after 20ms, skipping following opcodes</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 1 at offset 0xD608</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 2 at offset 0xE0DA</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 3 at offset 0xE10F</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 4 at offset 0xE2C2</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table at offset 0xE327</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0xE327: Condition still not met after 20ms, skipping following opcodes</span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3051544 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">[drm] nouveau 0000:01:00.0: Detected 512MiB VRAM (DDR2)</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">[drm] nouveau 0000:01:00.0: 512 MiB GART (aperture)</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">[drm] nouveau 0000:01:00.0: 3 available performance level(s)</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: allocated 1440x900 fb: 0x310000, bo ffff8801a78dc000</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br><span class="line">[drm] nouveau 0000:01:00.0: no native mode, forcing panel scaling</span><br><span class="line">Console: switching to colour frame buffer device 180x56</span><br><span class="line">fb0: nouveaufb frame buffer device</span><br></pre></td></tr></table></figure>
 <p>  The kernel 3.7 or prior version was enforced using VGA as output successfully. And the resolution is right.</p>
 <p>  But after upgrading to 3.8 or above, I found that the parameter <code>video=VGA-1:1440x900@60</code> causes a faulty screen after booting. I google it, and find some people bump into the same problem. <a href="https://bugzilla.redhat.com/show_bug.cgi?id=910945" target="_blank" rel="external">No signal to monitor after kernel modesetting fails</a> <a href="http://forums.fedoraforum.org/showthread.php?t=289189" target="_blank" rel="external">Problems with kernel-3.8 and kernel-3.9 modesetting</a></p>
 <p>  The kernel 3.8 or above says</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">nouveau  [<span class="link_label">  DEVICE</span>][<span class="link_reference">0000:01:00.0</span>] BOOT0  : 0x0a8280a2</span><br><span class="line">nouveau  [<span class="link_label">  DEVICE</span>][<span class="link_reference">0000:01:00.0</span>] Chipset: GT218 (NVA8)</span><br><span class="line">nouveau  [<span class="link_label">  DEVICE</span>][<span class="link_reference">0000:01:00.0</span>] Family : NV50</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] checking PRAMIN for image...</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] ... appears to be valid</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] using image from PRAMIN</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] BIT signature found</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] version 70.18.2c.00.04</span><br><span class="line">nouveau  [<span class="link_label">     PFB</span>][<span class="link_reference">0000:01:00.0</span>] RAM type: DDR2</span><br><span class="line">nouveau  [<span class="link_label">     PFB</span>][<span class="link_reference">0000:01:00.0</span>] RAM size: 512 MiB</span><br><span class="line">nouveau  [<span class="link_label">     PFB</span>][<span class="link_reference">0000:01:00.0</span>]    ZCOMP: 960 tags</span><br><span class="line">nouveau  [<span class="link_label">  PTHERM</span>][<span class="link_reference">0000:01:00.0</span>] FAN control: none / external</span><br><span class="line">nouveau  [<span class="link_label">  PTHERM</span>][<span class="link_reference">0000:01:00.0</span>] fan management: disabled</span><br><span class="line">nouveau  [<span class="link_label">  PTHERM</span>][<span class="link_reference">0000:01:00.0</span>] internal sensor: yes</span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3050978 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">nouveau  [     DRM] VRAM: 512 MiB</span><br><span class="line">nouveau  [     DRM] GART: 512 MiB</span><br><span class="line">nouveau  [     DRM] TMDS table version 2.0</span><br><span class="line">nouveau  [     DRM] DCB version 4.0</span><br><span class="line">nouveau  [     DRM] DCB outp 00: 01000302 00020030</span><br><span class="line">nouveau  [     DRM] DCB outp 01: 02000300 00000000</span><br><span class="line">nouveau  [     DRM] DCB outp 02: 02011362 0f220010</span><br><span class="line">nouveau  [     DRM] DCB outp 03: 01022310 00020010</span><br><span class="line">nouveau  [     DRM] DCB conn 00: 00001030</span><br><span class="line">nouveau  [     DRM] DCB conn 01: 00202161</span><br><span class="line">nouveau  [     DRM] DCB conn 02: 00000200</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">nouveau  [     DRM] 3 available performance level(s)</span><br><span class="line">nouveau  [     DRM] 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">nouveau  [     DRM] 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">nouveau  [     DRM] c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] MM: using COPY for buffer copies</span><br><span class="line">nouveau 0000:01:00.0: No connectors reported connected with modes</span><br><span class="line">[drm] Cannot find any crtc or sizes - going 1024x768</span><br><span class="line">nouveau  [     DRM] allocated 1024x768 fb: 0x70000, bo ffff8801a7c37c00</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] BOOT0  : 0x0a8280a2</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] Chipset: GT218 (NVA8)</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] Family : NV50</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] checking PRAMIN for image...</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] ... appears to be valid</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] using image from PRAMIN</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] BIT signature found</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] version 70.18.2c.00.04</span><br><span class="line">nouveau  [     PFB][0000:01:00.0] RAM type: DDR2</span><br><span class="line">nouveau  [     PFB][0000:01:00.0] RAM size: 512 MiB</span><br><span class="line">nouveau  [     PFB][0000:01:00.0]    ZCOMP: 960 tags</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] FAN control: none / external</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] fan management: disabled</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] internal sensor: yes</span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3050978 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">nouveau  [     DRM] VRAM: 512 MiB</span><br><span class="line">nouveau  [     DRM] GART: 512 MiB</span><br><span class="line">nouveau  [     DRM] TMDS table version 2.0</span><br><span class="line">nouveau  [     DRM] DCB version 4.0</span><br><span class="line">nouveau  [     DRM] DCB outp 00: 01000302 00020030</span><br><span class="line">nouveau  [     DRM] DCB outp 01: 02000300 00000000</span><br><span class="line">nouveau  [     DRM] DCB outp 02: 02011362 0f220010</span><br><span class="line">nouveau  [     DRM] DCB outp 03: 01022310 00020010</span><br><span class="line">nouveau  [     DRM] DCB conn 00: 00001030</span><br><span class="line">nouveau  [     DRM] DCB conn 01: 00202161</span><br><span class="line">nouveau  [     DRM] DCB conn 02: 00000200</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">nouveau  [     DRM] 3 available performance level(s)</span><br><span class="line">nouveau  [     DRM] 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">nouveau  [     DRM] 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">nouveau  [     DRM] c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] MM: using COPY for buffer copies</span><br><span class="line">nouveau 0000:01:00.0: No connectors reported connected with modes</span><br><span class="line">[drm] Cannot find any crtc or sizes - going 1024x768</span><br><span class="line">nouveau  [     DRM] allocated 1024x768 fb: 0x70000, bo ffff8801a7c37c00</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br></pre></td></tr></table></figure>
 <p>  The kernel 3.8 says it cannot find a connector?</p>
 <p>  I read the documents of KMS, and then I solved the problem.</p>
 <a id="more"></a>
 <p>  The document <a href="http://nouveau.freedesktop.org/wiki/KernelModeSetting/" target="_blank" rel="external">Kernel Mode-setting</a> says if you want to enforce some output, you should append “e” after the parameter. So that’s how I solved my problem. The parameter is just modified to <code>video=VGA-1:1440x900@60e</code>, and that’s all. Test your new kernel now! :)</p>
 <p>  That’s what my kernel (3.9.3) says now</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">nouveau  [<span class="link_label">  DEVICE</span>][<span class="link_reference">0000:01:00.0</span>] BOOT0  : 0x0a8280a2</span><br><span class="line">nouveau  [<span class="link_label">  DEVICE</span>][<span class="link_reference">0000:01:00.0</span>] Chipset: GT218 (NVA8)</span><br><span class="line">nouveau  [<span class="link_label">  DEVICE</span>][<span class="link_reference">0000:01:00.0</span>] Family : NV50</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] checking PRAMIN for image...</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] ... appears to be valid</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] using image from PRAMIN</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] BIT signature found</span><br><span class="line">nouveau  [<span class="link_label">   VBIOS</span>][<span class="link_reference">0000:01:00.0</span>] version 70.18.2c.00.04</span><br><span class="line">nouveau  [<span class="link_label">     PFB</span>][<span class="link_reference">0000:01:00.0</span>] RAM type: DDR2</span><br><span class="line">nouveau  [<span class="link_label">     PFB</span>][<span class="link_reference">0000:01:00.0</span>] RAM size: 512 MiB</span><br><span class="line">nouveau  [<span class="link_label">     PFB</span>][<span class="link_reference">0000:01:00.0</span>]    ZCOMP: 960 tags</span><br><span class="line">nouveau  [<span class="link_label">  PTHERM</span>][<span class="link_reference">0000:01:00.0</span>] FAN control: none / external</span><br><span class="line">nouveau  [<span class="link_label">  PTHERM</span>][<span class="link_reference">0000:01:00.0</span>] fan management: disabled</span><br><span class="line">nouveau  [<span class="link_label">  PTHERM</span>][<span class="link_reference">0000:01:00.0</span>] internal sensor: yes</span><br><span class="line">nouveau  [<span class="link_label">  PTHERM</span>][<span class="link_reference">0000:01:00.0</span>] programmed thresholds [ 90(3), 95(3), 105(5), 135(5) </span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3051030 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">nouveau  [     DRM] VRAM: 512 MiB</span><br><span class="line">nouveau  [     DRM] GART: 512 MiB</span><br><span class="line">nouveau  [     DRM] TMDS table version 2.0</span><br><span class="line">nouveau  [     DRM] DCB version 4.0</span><br><span class="line">nouveau  [     DRM] DCB outp 00: 01000302 00020030</span><br><span class="line">nouveau  [     DRM] DCB outp 01: 02000300 00000000</span><br><span class="line">nouveau  [     DRM] DCB outp 02: 02011362 0f220010</span><br><span class="line">nouveau  [     DRM] DCB outp 03: 01022310 00020010</span><br><span class="line">nouveau  [     DRM] DCB conn 00: 00001030</span><br><span class="line">nouveau  [     DRM] DCB conn 01: 00202161</span><br><span class="line">nouveau  [     DRM] DCB conn 02: 00000200</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">nouveau  [     DRM] 3 available performance level(s)</span><br><span class="line">nouveau  [     DRM] 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">nouveau  [     DRM] 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">nouveau  [     DRM] c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] MM: using COPY for buffer copies</span><br><span class="line">[drm] forcing VGA-1 connector ON</span><br><span class="line">nouveau  [     DRM] allocated 1440x900 fb: 0x70000, bo ffff8801a83f8000</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] BOOT0  : 0x0a8280a2</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] Chipset: GT218 (NVA8)</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] Family : NV50</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] checking PRAMIN for image...</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] ... appears to be valid</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] using image from PRAMIN</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] BIT signature found</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] version 70.18.2c.00.04</span><br><span class="line">nouveau  [     PFB][0000:01:00.0] RAM type: DDR2</span><br><span class="line">nouveau  [     PFB][0000:01:00.0] RAM size: 512 MiB</span><br><span class="line">nouveau  [     PFB][0000:01:00.0]    ZCOMP: 960 tags</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] FAN control: none / external</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] fan management: disabled</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] internal sensor: yes</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] programmed thresholds [ 90(3), 95(3), 105(5), 135(5) </span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3051030 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">nouveau  [     DRM] VRAM: 512 MiB</span><br><span class="line">nouveau  [     DRM] GART: 512 MiB</span><br><span class="line">nouveau  [     DRM] TMDS table version 2.0</span><br><span class="line">nouveau  [     DRM] DCB version 4.0</span><br><span class="line">nouveau  [     DRM] DCB outp 00: 01000302 00020030</span><br><span class="line">nouveau  [     DRM] DCB outp 01: 02000300 00000000</span><br><span class="line">nouveau  [     DRM] DCB outp 02: 02011362 0f220010</span><br><span class="line">nouveau  [     DRM] DCB outp 03: 01022310 00020010</span><br><span class="line">nouveau  [     DRM] DCB conn 00: 00001030</span><br><span class="line">nouveau  [     DRM] DCB conn 01: 00202161</span><br><span class="line">nouveau  [     DRM] DCB conn 02: 00000200</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">nouveau  [     DRM] 3 available performance level(s)</span><br><span class="line">nouveau  [     DRM] 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">nouveau  [     DRM] 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">nouveau  [     DRM] c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] MM: using COPY for buffer copies</span><br><span class="line">[drm] forcing VGA-1 connector ON</span><br><span class="line">nouveau  [     DRM] allocated 1440x900 fb: 0x70000, bo ffff8801a83f8000</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br></pre></td></tr></table></figure>
 <p>  As you can see the line shows “[drm] forcing VGA-1 connector ON”.</p>
 <p>  I think the problem maybe cause by the parameter check is more strict now.</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" data-id="cik2l20ww001q1r0qwjmysny3" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
-    </footer>
-  </div>
-  
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" data-id="cimu08t5h00480f0qwv2ryvab" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
     
+        <a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/">評論</a>
+    
+
+        </footer>
+    </div>
+    
+        
 <nav id="article-nav">
-  
-    <a href="/post/nice-to-meet-saltstack/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Saltstack 使用心得&amp;簡介
-        
-      </div>
-    </a>
-  
-  
-    <a href="/post/e-m5-wooden-grip/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">E-M5 木質手把</div>
-    </a>
-  
+    
+        <a href="/post/nice-to-meet-saltstack/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Saltstack 使用心得&amp;簡介
+                
+            </div>
+        </a>
+    
+    
+        <a href="/post/e-m5-wooden-grip/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">E-M5 木質手把</div>
+        </a>
+    
 </nav>
 
 
-  
+    
 </article>
 
 
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
-
-</section>
-      
-        <aside id="sidebar">
-  
+            
+                <aside id="sidebar">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">recents</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
-              <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
-              <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, Sun</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
-              <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, Thu</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg
-)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
-              <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg
-)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
-              <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
-              <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
-              <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, Thu</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">tag cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a><a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a><a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a><a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a><a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a><a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20px;">Linux</a><a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a><a href="/tags/NIS/" style="font-size: 10px;">NIS</a><a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a><a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a><a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a><a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a><a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a><a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a><a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a><a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a><a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a><a href="/tags/i18n/" style="font-size: 10px;">i18n</a><a href="/tags/ingress/" style="font-size: 10px;">ingress</a><a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a><a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a><a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a><a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a><a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a><a href="/tags/php/" style="font-size: 11.43px;">php</a><a href="/tags/pushover/" style="font-size: 10px;">pushover</a><a href="/tags/squid/" style="font-size: 14.29px;">squid</a><a href="/tags/svn/" style="font-size: 11.43px;">svn</a><a href="/tags/trac/" style="font-size: 12.86px;">trac</a><a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a><a href="/tags/日本/" style="font-size: 10px;">日本</a><a href="/tags/美國/" style="font-size: 11.43px;">美國</a><a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a><a href="/tags/調查局/" style="font-size: 10px;">調查局</a><a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a><a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
-    </div>
-  </div>
-
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-
-  
+        <span class="thumbnail-image thumbnail-none"></span>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Casio-TR15/">Casio TR15</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/E-M5/">E-M5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeBSD/">FreeBSD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gentoo/">Gentoo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Healthy/">Healthy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenRC/">OpenRC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SUSE/">SUSE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SaltStack/">SaltStack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime/">Sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TextMate/">TextMate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMware/">VMware</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cgroups/">cgroups</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graylog2/">graylog2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i18n/">i18n</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ingress/">ingress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcachedb/">memcachedb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moinmoin/">moinmoin</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obj-c/">obj-c</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pushover/">pushover</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trac/">trac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/喝茶/">喝茶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美國/">美國</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蝴蝶結/">蝴蝶結</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/調查局/">調查局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/迪士尼/">迪士尼</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/陶瓷/">陶瓷</a><span class="tag-list-count">1</span></li></ul>
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
+                            <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
+                            <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, 週日</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
+                            <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, 週四</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
+                            <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
+                            <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
+                            <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
+                            <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, 週四</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
     </div>
-  </div>
 
-  
-  <div id="toTop" class="fa fa-chevron-up"></div>
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a> <a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a> <a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a> <a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a> <a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a> <a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a> <a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a> <a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a> <a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a> <a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a> <a href="/tags/i18n/" style="font-size: 10px;">i18n</a> <a href="/tags/ingress/" style="font-size: 10px;">ingress</a> <a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a> <a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a> <a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a> <a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a> <a href="/tags/php/" style="font-size: 11.43px;">php</a> <a href="/tags/pushover/" style="font-size: 10px;">pushover</a> <a href="/tags/squid/" style="font-size: 14.29px;">squid</a> <a href="/tags/svn/" style="font-size: 11.43px;">svn</a> <a href="/tags/trac/" style="font-size: 12.86px;">trac</a> <a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a> <a href="/tags/美國/" style="font-size: 11.43px;">美國</a> <a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a> <a href="/tags/調查局/" style="font-size: 10px;">調查局</a> <a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a> <a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-chevron-up"></div>
 </aside>
-      
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 neoesque<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
     </div>
-    <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 neoesque<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-    </div>
-  </div>
 </footer>
+        
     
-
-<script>
-  var disqus_shortname = 'parsefloat';
-  (function(){
+    <script>
+    var disqus_shortname = 'parsefloat';
+    
+    
+    var disqus_url = 'http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/';
+    
+    (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+    })();
+    </script>
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
 
-
-<script src="/js/script.js" type="text/javascript"></script>
-
-  </div>
+    </div>
 </body>
 </html>

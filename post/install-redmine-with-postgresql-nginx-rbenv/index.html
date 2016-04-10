@@ -1,34 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-  <meta charset="utf-8">
-  
-  <title>安裝 Redmine - postgresql, nginx, rbenv | neoesque</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Redmine 是一套專案管理軟體，我們單位之前都用 Trac 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 p">
+    <meta charset="utf-8">
+    
+    <title>安裝 Redmine - postgresql, nginx, rbenv | neoesque</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Redmine 是一套專案管理軟體，我們單位之前都用 Trac 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安裝 Redmine - postgresql, nginx, rbenv">
 <meta property="og:url" content="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/index.html">
 <meta property="og:site_name" content="neoesque">
 <meta property="og:description" content="Redmine 是一套專案管理軟體，我們單位之前都用 Trac 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 p">
+<meta property="og:updated_time" content="2016-04-10T03:28:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安裝 Redmine - postgresql, nginx, rbenv">
 <meta name="twitter:description" content="Redmine 是一套專案管理軟體，我們單位之前都用 Trac 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 p">
 <meta name="twitter:creator" content="@neoesque">
 <meta property="fb:admins" content="1573449527">
 <meta property="fb:app_id" content="163923413772109">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
-  
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -37,178 +48,226 @@ ga('create', 'UA-37617901-1', 'auto');
 ga('send', 'pageview');
 
 </script>
-<!-- End Google Analytics -->
+    
+    
+    
 
-
-  
 </head>
 <body>
-  <div id="container">
-    <header id="header">
-  <div id="header-main" class="header-inner">
-    <div class="outer">
-      <a href="/" id="logo"><span class="site-title">neoesque</span></a>
-      <nav id="main-nav">
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-      </div>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">neoesque</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主頁</a>
+                
+                    <a class="main-nav-link" href="/archives">歸檔</a>
+                
+                    <a class="main-nav-link" href="/categories">分類</a>
+                
+                    <a class="main-nav-link" href="/tags">標籤</a>
+                
+                    <a class="main-nav-link" href="/about">關於我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-  </div>
-  <div id="main-nav-mobile" class="header-sub header-inner">
-    <table class="menu outer">
-      <tr>
-        
-          <td><a class="main-nav-link" href="/">Home</a></td>
-        
-          <td><a class="main-nav-link" href="/archives">Archives</a></td>
-        
-          <td><a class="main-nav-link" href="/about">About</a></td>
-        
-        <td>
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-        </td>
-      </tr>
-    </table>
-  </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: 'Pages',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主頁</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">歸檔</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分類</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">標籤</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">關於我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
 </header>
 
-    <div class="outer">
-      
-      <section id="main"><article id="post-install-redmine-with-postgresql-nginx-rbenv" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">neoesque</h2>
+            <h3 id="title">Linux Admin</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Taipei, Taiwan</span>
+            <a id="follow" target="_blank" href="https://github.com/neoesque/">關注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                58
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                37
+                <span>標籤</span>
+            </div>
+        </div>
         
-  
-    <h1 class="article-title" itemprop="name">
-      安裝 Redmine - postgresql, nginx, rbenv
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/install-redmine-with-postgresql-nginx-rbenv/">
-      <time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, Sun</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
-  </div>
-
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+                    
+                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    
+                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    
+                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    
+                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    
+                </tr>
+            </table>
         </div>
-      </header>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-install-redmine-with-postgresql-nginx-rbenv" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div id="toc" class="toc-article">
-          <!-- # <strong class="toc-title">contents</strong> -->
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝套件"><span class="toc-number">1.</span> <span class="toc-text">安裝套件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立_redmine_使用者帳號"><span class="toc-number">2.</span> <span class="toc-text">建立 redmine 使用者帳號</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝_Ruby"><span class="toc-number">3.</span> <span class="toc-text">安裝 Ruby</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝_Redmine"><span class="toc-number">4.</span> <span class="toc-text">安裝 Redmine</span></a></li></ol>
-        </div>
-      
-        <p><a href="http://www.redmine.org/" target="_blank" rel="external">Redmine</a> 是一套專案管理軟體，我們單位之前都用 <a href="http://trac.edgewall.org/" target="_blank" rel="external">Trac</a> 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 postgresql + nginx 的組合。至於 Ruby 因為 Ubuntu 14.04 比較舊，所以使用 rbenv 搭建 Ruby 2.2 的環境。</p>
+        <h1 class="article-title" itemprop="name">
+            安裝 Redmine - postgresql, nginx, rbenv
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/install-redmine-with-postgresql-nginx-rbenv/">
+            <time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, 週日</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><a href="http://www.redmine.org/" target="_blank" rel="external">Redmine</a> 是一套專案管理軟體，我們單位之前都用 <a href="http://trac.edgewall.org/" target="_blank" rel="external">Trac</a> 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 postgresql + nginx 的組合。至於 Ruby 因為 Ubuntu 14.04 比較舊，所以使用 rbenv 搭建 Ruby 2.2 的環境。</p>
 <a id="more"></a>
 <p>在網路找到兩篇參考文章，此文基本上就是各取所需組合起來的，請參考最下面的參考資料。</p>
-<h3 id="安裝套件">安裝套件</h3><p>首先更新 Ubuntu 全部的 pkg 確保都是最新的。</p>
-<pre><code>sudo apt-<span class="built_in">get</span> <span class="keyword">update</span>
-sudo apt-<span class="built_in">get</span> -y upgrade
-</code></pre><p>然後安裝 Ruby 跟 Passenger 安裝的相依工具</p>
-<pre><code>sudo apt-<span class="built_in">get</span> install -y build-essential zlib1g-<span class="built_in">dev</span> libssl-<span class="built_in">dev</span> libreadline-<span class="built_in">dev</span> libyaml-<span class="built_in">dev</span> libcurl4-openssl-<span class="built_in">dev</span>
-</code></pre><p>PostgreSQL 的套件</p>
-<pre><code>sudo apt-<span class="built_in">get</span> install -y postgresql postgresql-server-<span class="built_in">dev</span>-<span class="number">9.3</span>
-</code></pre><p>nginx 的</p>
-<pre><code>sudo apt-<span class="keyword">get</span> install -y nginx-extras
-</code></pre><p>ImageMagick 的</p>
-<pre><code>sudo apt-<span class="built_in">get</span> install -y imagemagick libmagick++-<span class="built_in">dev</span>
-</code></pre><p>版控工具</p>
-<pre><code>sudo apt-<span class="keyword">get</span> install subversion git
-</code></pre><h3 id="建立_redmine_使用者帳號">建立 redmine 使用者帳號</h3><p>建立一個 user 供 Redmine 服務使用</p>
-<pre><code><span class="comment">sudo</span> <span class="comment">adduser</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">disabled</span><span class="literal">-</span><span class="comment">login</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">gecos</span> <span class="comment">'Redmine'</span> <span class="comment">redmine</span>
-<span class="comment">sudo</span> <span class="comment">su</span> <span class="literal">-</span> <span class="comment">redmine</span>
-</code></pre><p>以下開始用 redmine 這個帳號操作</p>
-<h3 id="安裝_Ruby">安裝 Ruby</h3><p>這裡使用 rbenv 來建立跑 redmine 的環境</p>
-<pre><code>git clone gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/sstephenson/rbenv.git .rbenv
-git clone gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/sstephenson/<span class="keyword">ruby</span>-build.git ~/.rbenv/plugins/<span class="keyword">ruby</span>-build
-</code></pre><p>把 rbenv 加入 shell 變數</p>
-<pre><code><span class="built_in">echo</span> <span class="string">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> &gt;&gt; ~/.bash_profile
-<span class="built_in">echo</span> <span class="string">'eval "$(rbenv init -)"'</span> &gt;&gt; ~/.bash_profile
-<span class="built_in">exec</span> <span class="variable">$SHELL</span> <span class="operator">-l</span>
-</code></pre><p>接着可以準備安裝 Ruby 了</p>
-<pre><code>rbenv <span class="keyword">install</span> <span class="number">2.2</span>.<span class="number">4</span>
-</code></pre><p>安裝完畢後可以確認一下</p>
-<pre><code>rbenv <span class="keyword">global</span> <span class="number">2.2</span>.<span class="number">4</span>
-<span class="keyword">ruby</span> -<span class="keyword">v</span>
-</code></pre><p>以下的操作先回到可以用 sudo 的帳號</p>
-<p>接着先建立給 Redmine 用的 postgresql 資料庫</p>
-<pre><code>sudo -<span class="keyword">u</span> postgres createuser -P redmine
-# 輸入想要的密碼兩次
-sudo -<span class="keyword">u</span> postgres createdb -<span class="keyword">E</span> UTF-8 -O redmine -T template0 redmine
-</code></pre><h3 id="安裝_Redmine">安裝 Redmine</h3><p>Ruby 環境準備好之後就可以裝 Redmine 了</p>
-<pre><code>sudo mkdir <span class="regexp">/home/</span>redmine/redmine
-sudo chown <span class="string">redmine:</span>www-data <span class="regexp">/home/</span>redmine/redmine
-sudo -u redmine svn co <span class="string">http:</span><span class="comment">//svn.redmine.org/redmine/branches/3.2-stable /home/redmine/redmine</span>
-</code></pre><p>先設定 puma</p>
-<pre><code>curl -Lo <span class="regexp">/home/</span>redmine<span class="regexp">/redmine/</span>config<span class="regexp">/puma.rb https:/</span><span class="regexp">/gist.githubusercontent.com/</span>jbradach<span class="regexp">/6ee5842e5e2543d59adb/</span>raw<span class="regexp">/</span>
-</code></pre><p>首先需要改一下 Redmine 的設定</p>
-<pre><code>sudo -u redmine vi <span class="regexp">/home/</span>redmine<span class="regexp">/redmine/</span>config<span class="regexp">/database.yml</span>
-</code></pre><p>改成如下</p>
-<pre><code><span class="attribute">production</span>:
-  <span class="attribute">adapter</span>: postgresql
-  <span class="attribute">database</span>: redmine
-  <span class="attribute">host</span>: localhost
-  <span class="attribute">username</span>: redmine
-  <span class="attribute">password</span>: <span class="string">"********"</span>
-  <span class="attribute">encoding</span>: utf8
-</code></pre><p>關於 EMail 的部分也可以改一下</p>
-<pre><code>sudo -u redmine vi <span class="regexp">/home/</span>redmine<span class="regexp">/redmine/</span>config<span class="regexp">/configuration.yml</span>
-</code></pre><p>如下</p>
-<pre><code><span class="attribute">production</span>:
-  <span class="attribute">email_delivery</span>:
-    <span class="attribute">delivery_method</span>: :smtp
-    <span class="attribute">smtp_settings</span>:
-      <span class="attribute">address</span>: <span class="string">"localhost"</span>
-      <span class="attribute">port</span>: <span class="number">25</span>
-      <span class="attribute">domain</span>: <span class="string">"example.com"</span>
-</code></pre><p>接着是安裝 Redmine 需要的相關 Ruby package (請變成 redmine )</p>
-<pre><code><span class="built_in">echo</span> <span class="string">"gem: --no-ri --no-rdoc"</span> &gt;&gt; ~/.gemrc
-<span class="built_in">echo</span> <span class="operator">-e</span> <span class="string">"# Gemfile.local\ngem 'puma'"</span> &gt;&gt; Gemfile.local
-gem install bundler
-rbenv <span class="built_in">rehash</span>
-bundle install --without development <span class="built_in">test</span>
-</code></pre><p>產生 Token (編碼 cookie 用)，建立 db 與初始資料</p>
-<pre><code>rake generate_secret_token
-RAILS_ENV=production rake <span class="string">db:</span>migrate
-RAILS_ENV=production rake <span class="string">redmine:</span>load_default_data
-</code></pre><p>至此我們已經可以先測試了</p>
-<pre><code>ruby <span class="keyword">script</span>/rails server webrick -e production
-</code></pre><p>打開瀏覽器，填入 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a> 看看有沒有畫面出現，有的話我們可以 ctrl + c 先回來。</p>
-<p>首先我們需要啓動 redmine 的 script</p>
-<pre><code>sudo curl -Lo <span class="regexp">/etc/</span>init.d<span class="regexp">/redmine https:/</span><span class="regexp">/gist.githubusercontent.com/</span>jbradach<span class="regexp">/17e73fa6ddc365bb0242/</span>raw/
-sudo chmod +x <span class="regexp">/etc/</span>init.d/redmine
-sudo update-rc.d redmine defaults
-service redmine start
-</code></pre><p>然後 nginx 的部分也很簡單，抓一下設定即可 (可以把 default 移除)</p>
-<pre><code>sudo curl -Lo <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-available/</span>redmine <span class="string">https:</span><span class="comment">//gist.githubusercontent.com/jbradach/31ad6d9c84c3be3b5730/raw/</span>
-sudo ln -s <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-available/</span>redmine <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-enabled/</span>redmine
-sudo service nginx restart
-</code></pre><p>這時候看瀏覽器 <a href="http://localhost" target="_blank" rel="external">http://localhost</a> 應該就有 redmine 了。</p>
+<h3 id="安裝套件"><a href="#安裝套件" class="headerlink" title="安裝套件"></a>安裝套件</h3><p>首先更新 Ubuntu 全部的 pkg 確保都是最新的。<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get -y upgrade</span><br></pre></td></tr></table></figure></p>
+<p>然後安裝 Ruby 跟 Passenger 安裝的相依工具<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y build-essential zlib1g-dev libssl-dev libreadline-dev libyaml-dev libcurl4-openssl-dev</span><br></pre></td></tr></table></figure></p>
+<p>PostgreSQL 的套件<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y postgresql postgresql-server-dev-9.3</span><br></pre></td></tr></table></figure></p>
+<p>nginx 的<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y nginx-extras</span><br></pre></td></tr></table></figure></p>
+<p>ImageMagick 的<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y imagemagick libmagick++-dev</span><br></pre></td></tr></table></figure></p>
+<p>版控工具<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install subversion git</span><br></pre></td></tr></table></figure></p>
+<h3 id="建立-redmine-使用者帳號"><a href="#建立-redmine-使用者帳號" class="headerlink" title="建立 redmine 使用者帳號"></a>建立 redmine 使用者帳號</h3><p>建立一個 user 供 Redmine 服務使用<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser --disabled-login --gecos <span class="string">'Redmine'</span> redmine</span><br><span class="line">sudo su - redmine</span><br></pre></td></tr></table></figure></p>
+<p>以下開始用 redmine 這個帳號操作</p>
+<h3 id="安裝-Ruby"><a href="#安裝-Ruby" class="headerlink" title="安裝 Ruby"></a>安裝 Ruby</h3><p>這裡使用 rbenv 來建立跑 redmine 的環境<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/sstephenson/rbenv.git .rbenv</span><br><span class="line">git <span class="built_in">clone</span> git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build</span><br></pre></td></tr></table></figure></p>
+<p>把 rbenv 加入 shell 變數<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'eval "$(rbenv init -)"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line"><span class="built_in">exec</span> <span class="variable">$SHELL</span> <span class="_">-l</span></span><br></pre></td></tr></table></figure></p>
+<p>接着可以準備安裝 Ruby 了<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rbenv install 2.2.4</span><br></pre></td></tr></table></figure></p>
+<p>安裝完畢後可以確認一下<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rbenv global 2.2.4</span><br><span class="line">ruby -v</span><br></pre></td></tr></table></figure></p>
+<p>以下的操作先回到可以用 sudo 的帳號</p>
+<p>接着先建立給 Redmine 用的 postgresql 資料庫<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo -u postgres createuser -P redmine</span><br><span class="line"><span class="comment"># 輸入想要的密碼兩次</span></span><br><span class="line">sudo -u postgres createdb -E UTF-8 -O redmine -T template0 redmine</span><br></pre></td></tr></table></figure></p>
+<h3 id="安裝-Redmine"><a href="#安裝-Redmine" class="headerlink" title="安裝 Redmine"></a>安裝 Redmine</h3><p>Ruby 環境準備好之後就可以裝 Redmine 了<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /home/redmine/redmine</span><br><span class="line">sudo chown redmine:www-data /home/redmine/redmine</span><br><span class="line">sudo -u redmine svn co http://svn.redmine.org/redmine/branches/3.2-stable /home/redmine/redmine</span><br></pre></td></tr></table></figure></p>
+<p>先設定 puma<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -Lo /home/redmine/redmine/config/puma.rb https://gist.githubusercontent.com/jbradach/6ee5842e5e2543d59adb/raw/</span><br></pre></td></tr></table></figure></p>
+<p>首先需要改一下 Redmine 的設定<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u redmine vi /home/redmine/redmine/config/database.yml</span><br></pre></td></tr></table></figure></p>
+<p>改成如下<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">production:</span><br><span class="line">  adapter: postgresql</span><br><span class="line">  database: redmine</span><br><span class="line">  host: localhost</span><br><span class="line">  username: redmine</span><br><span class="line">  password: &quot;********&quot;</span><br><span class="line">  encoding: utf8</span><br></pre></td></tr></table></figure></p>
+<p>關於 EMail 的部分也可以改一下<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u redmine vi /home/redmine/redmine/config/configuration.yml</span><br></pre></td></tr></table></figure></p>
+<p>如下<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">production:</span><br><span class="line">  email_delivery:</span><br><span class="line">    delivery_method: :smtp</span><br><span class="line">    smtp_settings:</span><br><span class="line">      address: &quot;localhost&quot;</span><br><span class="line">      port: 25</span><br><span class="line">      domain: &quot;example.com&quot;</span><br></pre></td></tr></table></figure></p>
+<p>接着是安裝 Redmine 需要的相關 Ruby package (請變成 redmine )<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"gem: --no-ri --no-rdoc"</span> &gt;&gt; ~/.gemrc</span><br><span class="line"><span class="built_in">echo</span> <span class="_">-e</span> <span class="string">"# Gemfile.local\ngem 'puma'"</span> &gt;&gt; Gemfile.local</span><br><span class="line">gem install bundler</span><br><span class="line">rbenv <span class="built_in">rehash</span></span><br><span class="line">bundle install --without development <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
+<p>產生 Token (編碼 cookie 用)，建立 db 與初始資料<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rake generate_secret_token</span><br><span class="line">RAILS_ENV=production rake db:migrate</span><br><span class="line">RAILS_ENV=production rake redmine:load_default_data</span><br></pre></td></tr></table></figure></p>
+<p>至此我們已經可以先測試了<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby script/rails server webrick <span class="_">-e</span> production</span><br></pre></td></tr></table></figure></p>
+<p>打開瀏覽器，填入 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a> 看看有沒有畫面出現，有的話我們可以 ctrl + c 先回來。</p>
+<p>首先我們需要啓動 redmine 的 script<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -Lo /etc/init.d/redmine https://gist.githubusercontent.com/jbradach/17e73fa6ddc365bb0242/raw/</span><br><span class="line">sudo chmod +x /etc/init.d/redmine</span><br><span class="line">sudo update-rc.d redmine defaults</span><br><span class="line">service redmine start</span><br></pre></td></tr></table></figure></p>
+<p>然後 nginx 的部分也很簡單，抓一下設定即可 (可以把 default 移除)<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -Lo /etc/nginx/sites-available/redmine https://gist.githubusercontent.com/jbradach/31ad6d9c84c3be3b5730/raw/</span><br><span class="line">sudo ln <span class="_">-s</span> /etc/nginx/sites-available/redmine /etc/nginx/sites-enabled/redmine</span><br><span class="line">sudo service nginx restart</span><br></pre></td></tr></table></figure></p>
+<p>這時候看瀏覽器 <a href="http://localhost" target="_blank" rel="external">http://localhost</a> 應該就有 redmine 了。</p>
 <hr>
 <p>參考資料</p>
 <ul>
@@ -218,206 +277,294 @@ sudo service nginx restart
 </li>
 </ul>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/" data-id="cik2l20yg00451r0q5b9pxh6d" class="article-share-link">Share</a>
-      
-        <a href="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
-    </footer>
-  </div>
-  
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/" data-id="cimu08t2p00280f0q7rf352n0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
     
+        <a href="/post/install-redmine-with-postgresql-nginx-rbenv/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/install-redmine-with-postgresql-nginx-rbenv/">評論</a>
+    
+
+        </footer>
+    </div>
+    
+        
 <nav id="article-nav">
-  
-  
-    <a href="/post/make-tea-in-investigation-bureau/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">被調查局請去喝茶</div>
-    </a>
-  
+    
+    
+        <a href="/post/make-tea-in-investigation-bureau/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">被調查局請去喝茶</div>
+        </a>
+    
 </nav>
 
 
-  
+    
 </article>
 
 
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
-
-</section>
-      
-        <aside id="sidebar">
-  
+            
+                <aside id="sidebar">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">recents</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
-              <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
-              <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, Sun</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
-              <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, Thu</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg
-)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
-              <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg
-)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
-              <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
-              <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
-              <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, Thu</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">tag cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a><a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a><a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a><a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a><a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a><a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20px;">Linux</a><a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a><a href="/tags/NIS/" style="font-size: 10px;">NIS</a><a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a><a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a><a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a><a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a><a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a><a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a><a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a><a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a><a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a><a href="/tags/i18n/" style="font-size: 10px;">i18n</a><a href="/tags/ingress/" style="font-size: 10px;">ingress</a><a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a><a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a><a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a><a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a><a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a><a href="/tags/php/" style="font-size: 11.43px;">php</a><a href="/tags/pushover/" style="font-size: 10px;">pushover</a><a href="/tags/squid/" style="font-size: 14.29px;">squid</a><a href="/tags/svn/" style="font-size: 11.43px;">svn</a><a href="/tags/trac/" style="font-size: 12.86px;">trac</a><a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a><a href="/tags/日本/" style="font-size: 10px;">日本</a><a href="/tags/美國/" style="font-size: 11.43px;">美國</a><a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a><a href="/tags/調查局/" style="font-size: 10px;">調查局</a><a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a><a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
-    </div>
-  </div>
-
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-
-  
+        <span class="thumbnail-image thumbnail-none"></span>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Casio-TR15/">Casio TR15</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/E-M5/">E-M5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeBSD/">FreeBSD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gentoo/">Gentoo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Healthy/">Healthy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenRC/">OpenRC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SUSE/">SUSE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SaltStack/">SaltStack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime/">Sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TextMate/">TextMate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMware/">VMware</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cgroups/">cgroups</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graylog2/">graylog2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i18n/">i18n</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ingress/">ingress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcachedb/">memcachedb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moinmoin/">moinmoin</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obj-c/">obj-c</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pushover/">pushover</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trac/">trac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/喝茶/">喝茶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美國/">美國</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蝴蝶結/">蝴蝶結</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/調查局/">調查局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/迪士尼/">迪士尼</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/陶瓷/">陶瓷</a><span class="tag-list-count">1</span></li></ul>
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
+                            <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
+                            <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, 週日</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
+                            <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, 週四</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
+                            <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
+                            <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
+                            <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
+                            <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, 週四</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
     </div>
-  </div>
 
-  
-  <div id="toTop" class="fa fa-chevron-up"></div>
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a> <a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a> <a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a> <a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a> <a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a> <a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a> <a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a> <a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a> <a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a> <a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a> <a href="/tags/i18n/" style="font-size: 10px;">i18n</a> <a href="/tags/ingress/" style="font-size: 10px;">ingress</a> <a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a> <a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a> <a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a> <a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a> <a href="/tags/php/" style="font-size: 11.43px;">php</a> <a href="/tags/pushover/" style="font-size: 10px;">pushover</a> <a href="/tags/squid/" style="font-size: 14.29px;">squid</a> <a href="/tags/svn/" style="font-size: 11.43px;">svn</a> <a href="/tags/trac/" style="font-size: 12.86px;">trac</a> <a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a> <a href="/tags/美國/" style="font-size: 11.43px;">美國</a> <a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a> <a href="/tags/調查局/" style="font-size: 10px;">調查局</a> <a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a> <a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-chevron-up"></div>
 </aside>
-      
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 neoesque<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
     </div>
-    <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 neoesque<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-    </div>
-  </div>
 </footer>
+        
     
-
-<script>
-  var disqus_shortname = 'parsefloat';
-  (function(){
+    <script>
+    var disqus_shortname = 'parsefloat';
+    
+    
+    var disqus_url = 'http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/';
+    
+    (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+    })();
+    </script>
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
 
-
-<script src="/js/script.js" type="text/javascript"></script>
-
-  </div>
+    </div>
 </body>
 </html>

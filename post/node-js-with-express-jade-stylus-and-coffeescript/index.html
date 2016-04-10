@@ -1,36 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-  <meta charset="utf-8">
-  
-  <title>node.js with Express, Jade, Stylus and CoffeeScript | neoesque</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="好像不用 node.js 寫一些小東西感覺不出來他的威力 而且小郭說每次 Demo 都用 Hello World!所以決定動手寫一個小小的留言板搭配的 Framework 有 Express CoffeeScript Jade Stylus這些 Framework 功能如下Express : 是 node.js 的 Web FrameworkCoffeeScript : 是快速產生 Javascr">
+    <meta charset="utf-8">
+    
+    <title>node.js with Express, Jade, Stylus and CoffeeScript | neoesque</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="好像不用 node.js 寫一些小東西感覺不出來他的威力 而且小郭說每次 Demo 都用 Hello World!所以決定動手寫一個小小的留言板搭配的 Framework 有 Express CoffeeScript Jade Stylus這些 Framework 功能如下Express : 是 node.js 的 Web FrameworkCoffeeScript : 是快速產生 Javascr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="node.js with Express, Jade, Stylus and CoffeeScript">
 <meta property="og:url" content="http://blog.littlero.se/post/node-js-with-express-jade-stylus-and-coffeescript/index.html">
 <meta property="og:site_name" content="neoesque">
 <meta property="og:description" content="好像不用 node.js 寫一些小東西感覺不出來他的威力 而且小郭說每次 Demo 都用 Hello World!所以決定動手寫一個小小的留言板搭配的 Framework 有 Express CoffeeScript Jade Stylus這些 Framework 功能如下Express : 是 node.js 的 Web FrameworkCoffeeScript : 是快速產生 Javascr">
 <meta property="og:image" content="http://1.bp.blogspot.com/-xWqia9snGiw/Tb-kwd--FBI/AAAAAAAAA3c/JBoCMbi7fPI/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25882.46.07.png">
-<meta property="og:image" content="http://1.bp.blogspot.com/--Li416OOzx4/Tb-1uybAU6I/AAAAAAAAA3k/i0Z3C61tSsk/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25883.53.21.jpg">
+<meta property="og:updated_time" content="2015-03-14T05:41:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node.js with Express, Jade, Stylus and CoffeeScript">
 <meta name="twitter:description" content="好像不用 node.js 寫一些小東西感覺不出來他的威力 而且小郭說每次 Demo 都用 Hello World!所以決定動手寫一個小小的留言板搭配的 Framework 有 Express CoffeeScript Jade Stylus這些 Framework 功能如下Express : 是 node.js 的 Web FrameworkCoffeeScript : 是快速產生 Javascr">
+<meta name="twitter:image" content="http://1.bp.blogspot.com/-xWqia9snGiw/Tb-kwd--FBI/AAAAAAAAA3c/JBoCMbi7fPI/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25882.46.07.png">
 <meta name="twitter:creator" content="@neoesque">
 <meta property="fb:admins" content="1573449527">
 <meta property="fb:app_id" content="163923413772109">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
-  
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -39,297 +50,483 @@ ga('create', 'UA-37617901-1', 'auto');
 ga('send', 'pageview');
 
 </script>
-<!-- End Google Analytics -->
+    
+    
+    
 
-
-  
 </head>
 <body>
-  <div id="container">
-    <header id="header">
-  <div id="header-main" class="header-inner">
-    <div class="outer">
-      <a href="/" id="logo"><span class="site-title">neoesque</span></a>
-      <nav id="main-nav">
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-      </div>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">neoesque</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主頁</a>
+                
+                    <a class="main-nav-link" href="/archives">歸檔</a>
+                
+                    <a class="main-nav-link" href="/categories">分類</a>
+                
+                    <a class="main-nav-link" href="/tags">標籤</a>
+                
+                    <a class="main-nav-link" href="/about">關於我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-  </div>
-  <div id="main-nav-mobile" class="header-sub header-inner">
-    <table class="menu outer">
-      <tr>
-        
-          <td><a class="main-nav-link" href="/">Home</a></td>
-        
-          <td><a class="main-nav-link" href="/archives">Archives</a></td>
-        
-          <td><a class="main-nav-link" href="/about">About</a></td>
-        
-        <td>
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-        </td>
-      </tr>
-    </table>
-  </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: 'Pages',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主頁</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">歸檔</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分類</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">標籤</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">關於我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
 </header>
 
-    <div class="outer">
-      
-      <section id="main"><article id="post-node-js-with-express-jade-stylus-and-coffeescript" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">neoesque</h2>
+            <h3 id="title">Linux Admin</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Taipei, Taiwan</span>
+            <a id="follow" target="_blank" href="https://github.com/neoesque/">關注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                58
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                37
+                <span>標籤</span>
+            </div>
+        </div>
         
-  
-    <h1 class="article-title" itemprop="name">
-      node.js with Express, Jade, Stylus and CoffeeScript
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/node-js-with-express-jade-stylus-and-coffeescript/">
-      <time datetime="2011-05-02T16:00:00.000Z" itemprop="datePublished">2011-05-03, Tue</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
-  </div>
-
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+                    
+                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    
+                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    
+                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    
+                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    
+                </tr>
+            </table>
         </div>
-      </header>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-node-js-with-express-jade-stylus-and-coffeescript" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
     
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div id="toc" class="toc-article">
-          <!-- # <strong class="toc-title">contents</strong> -->
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Demo site 在 Cloud Foundry</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">Source Code 在 GitHub</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number"></span> <span class="toc-text">Comments</span></a>
-        </div>
-      
-        <p>好像不用 node.js 寫一些小東西感覺不出來他的威力 <span style="text-decoration:line-through">而且<a href="http://liangkuo.blogspot.com/" target="_blank" rel="external">小郭</a>說每次 Demo 都用 Hello World!</span><br><br>所以決定動手寫一個小小的留言板<br><br>搭配的 Framework 有 <a href="http://expressjs.com/" target="_blank" rel="external">Express</a> <a href="http://jashkenas.github.com/coffee-script" target="_blank" rel="external">CoffeeScript</a> <a href="http://jade-lang.com/" target="_blank" rel="external">Jade</a> <a href="http://learnboost.github.com/stylus" target="_blank" rel="external">Stylus</a><br><br>這些 Framework 功能如下<br><br><ul><li>Express : 是 node.js 的 Web Framework</li><li>CoffeeScript : 是快速產生 Javascript 的好物！</li><li>Jade : HTML 的 Template Engine</li><li>Stylus : dynamic stylesheet 簡單的語言產生 css</li></ul><br>功能有<br><br><ul><li>新增留言</li><li>修改留言</li><li>刪除留言</li></ul><br></p><h3>Demo site 在 <a href="http://nodejs-hello.cloudfoundry.com/" target="_blank" rel="external">Cloud Foundry</a></h3><br>是透過 VMware 的 Cloud Foundry 執行的<br><br><h3>Source Code 在 <a href="https://github.com/neoesque/nodejs-demo" target="_blank" rel="external">GitHub</a></h3><br>以下是說明~<br><a id="more"></a>首先請先確認你的環境已經裝好 <a href="http://nodejs.org/" target="_blank" rel="external">node.js</a>, <a href="http://npmjs.org/" target="_blank" rel="external">npm</a>, 與 <a href="http://expressjs.com/" target="_blank" rel="external">Express</a><br><br>接下來在想要的目錄輸入<br><br><script src="//gist.github.com/952892.js"></script><br>會產生如下的目錄架構<br><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-xWqia9snGiw/Tb-kwd--FBI/AAAAAAAAA3c/JBoCMbi7fPI/s6400/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25882.46.07.png" imageanchor="1" style="margin-left:1em; margin-right:1em" target="_blank" rel="external"><img border="0" height="278" width="640" src="http://1.bp.blogspot.com/-xWqia9snGiw/Tb-kwd--FBI/AAAAAAAAA3c/JBoCMbi7fPI/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25882.46.07.png"></a></div><br>大概就是這樣<br><br><script src="//gist.github.com/952922.js"></script><br>其中的 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js" target="_blank" rel="external">app.js</a></strong> 就是主程式裡面包含了 <em>routing</em> 也是 <em>controller</em><br><br>順帶一提的是 Express 沒有什麼 MVC 的架構(或者說可以自己切 XD) 感覺上他只有包含了 Controller 跟 View<br><br>因為我們的計畫跑在 VMware Cloud Foundry 上, 所以要加上 <a href="https://github.com/neoesque/nodejs-demo/blob/master/package.json" target="_blank" rel="external">package.json</a> 內容如下<br><br><script src="//gist.github.com/952939.js"></script><br>再下指令<br><br><script src="//gist.github.com/952945.js"></script><br><b>npm 1.0 之後用 npm install -d</b><br><br>npm 就會幫我們把需要的 Framework 通通裝到 node_modules 裡了<br><br>所以目前目錄結構如下<br><br><script src="//gist.github.com/952941.js"></script><br>都準備好之後終於可以開始寫程式了 XD<br><br>因為 express 在產生目錄時我們有指定 jade 跟 stylus 當 html 跟 css 的 engine 但是 CoffeeScript 還沒有指定<br><br>所以為了讓 Express 能吃到 CoffeeScript 所以我們先在 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js" target="_blank" rel="external">app.js</a></strong> 的 app.configure 裡加上一行 app.use(express.compiler({src: __dirname + ‘/public’, enable: [‘coffeescript’]}));<br><br>也就是會長這樣拉~ <em>這是 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js" target="_blank" rel="external">app.js</a></strong> 的片段而已</em><br><br><script src="//gist.github.com/952948.js"></script><br>所以這樣一來我們的環境也就是 express 就可以支援<br><ul><li><strong>.jade</strong> 都放在 ./views 底下 由 Jade 翻譯</li><li><strong>.styl</strong> 都放在 ./public/stylesheets 底下 由 Stylus 翻譯</li><li><strong>.coffee</strong> 都放在 ./public/javascripts 底下 由 CoffeeScript 翻譯</li></ul><br>另外為了讓我們的環境可以吃 npm bundle 包的內容以及準備一些環境變數我們把 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js" target="_blank" rel="external">app.js</a></strong> 開頭改成<br><br><script src="//gist.github.com/952961.js"></script><br>express 的 Controller-View 的 架構非常簡單<br><br>以下圖來說 (取自 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js#L36" target="_blank" rel="external">app.js</a></strong> 的一段)<br><br><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/--Li416OOzx4/Tb-1uybAU6I/AAAAAAAAA3k/i0Z3C61tSsk/s6400/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25883.53.21.jpg" imageanchor="1" style="margin-left:1em; margin-right:1em" target="_blank" rel="external"><img border="0" height="200" width="640" src="http://1.bp.blogspot.com/--Li416OOzx4/Tb-1uybAU6I/AAAAAAAAA3k/i0Z3C61tSsk/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25883.53.21.jpg"></a></div><br><ol><li> <a href="http://expressjs.com/guide.html#routing" target="_blank" rel="external">app.get(參數1, 參數2) </a> 的 參數1 是接收的網址 比方說 當網址是 <a href="http://xxxxx/" target="_blank" rel="external">http://xxxxx/</a> 而且方法是 Get 時就會交由這個 Controller 的 參數2 去處理 <em>( 參數2 必須是 function!)</em></li><li> <a href="http://expressjs.com/guide.html#view-rendering" target="_blank" rel="external">res.render(參數1, 參數2) </a>的 參數1 是告訴 Jade 要用哪一個 template 去 render 結果上圖表示要用 index.jade 去 render 結果</li><li> res.render(參數1, 參數2) 的 參數2 就是傳遞給 index.jade 的變數 type 必須是 JSON </li></ol><br>Controller 跟 View 的合作很簡單吧 接下來我們看一下 View 怎麼做的<br><br>首先看 <a href="https://github.com/neoesque/nodejs-demo/blob/master/views/layout.jade" target="_blank" rel="external">./views/layout.jade</a><br><br><script src="//gist.github.com/952987.js"></script><br>第一行的 !!! 5 表示要用 html5 的 doctype 輸出!<br><br>再來是 <a href="https://github.com/neoesque/nodejs-demo/blob/master/views/index.jade" target="_blank" rel="external">./views/index.jade</a><br><br><script src="//gist.github.com/952980.js"></script><br>如果剛剛 res.render 參數2 的 JSON 裡沒有 layout:false 則所有的結果都會是 layout.jade + 參數1.jade 輸出<br><br>所以以剛剛的範例來說 title: ‘Hello Cloud Foundry’ 就會被 layout.jade 的 title= title 吃走<br><br>而 articles: articles 就會被 index.jade 裡面 - each article, key in articles 的 articles 吃走<br><br>詳細的 Jade 使用方法可以參考 Jade 官網<br><br>因為要寫出類似留言板的網站所以我們要一個存檔的功能<br><br>接下來我們來新增一個 save 的 Controller 方法是 POST 收的參數有一個就是 textarea 裡的 value 啦<br><br>所以請在 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js#L58" target="_blank" rel="external">app.js</a></strong> 裡新增 一個 app.post(‘/save’, function(){}) 的 method 如下<br><br><script src="//gist.github.com/953004.js"></script><br>POST 或 GET 收進來的變數都會由 req.body.[變數] 來取得<br><br>這邊的設計上 db 裡每一筆資料都是 JSON 裡面有兩個資料 一個是文章 id (由 md5 hash) 是做刪除用的 另一個是文章內容 content<br><br>而 render 的結果是由 save.jade 處理所以 res.render 的 參數1 我們填 ‘save’<br><br>參數2 必須是個 JSON 我們傳了三個東西<br><ol><li>id : 文章 id</li><li>content : 文章內容</li><li>layout : 要不要套用 layout.jade, 這裡是 false 表示單純輸出 save.jade 的內容就好</li></ol><br>BTW, 這邊的 db 其實我是用 array 做的 可以參考<strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js#L9" target="_blank" rel="external">app.js</a></strong> 因為 VMware Cloud Foundry 目前還沒支援任何 database (之後會有 MySQL, Redis, 和 MongoDB 的支援)<br><br>再來我們看一下 <a href="https://github.com/neoesque/nodejs-demo/blob/master/views/save.jade" target="_blank" rel="external">save.jade</a> 吧<br><br><script src="//gist.github.com/953008.js"></script><br>原理很簡單 就是把整塊 div 回傳回去到網頁端的 javascript 直接整個 append 上去就好 (簡單來說我把它當 template 用 XD)<br><br>再來進階一點我們還想要有修改的功能 一樣的 Controller 只是變成判斷有沒有 文章id 如果有的話就進去 db 尋找 id 有沒有 match 有的話就修改他 沒有文章 id 表示新增文章 因此 Controller 變成這樣<br><br><script src="//gist.github.com/953009.js"></script><br>最後我們來稍微看一下 Stylus 跟 CoffeeScript 吧<br><br>首先是 <a href="https://github.com/neoesque/nodejs-demo/blob/master/public/stylesheets/style.styl" target="_blank" rel="external">./public/stylesheets/style.styl</a><br><br><script src="//gist.github.com/953012.js"></script><br>Stylus 翻譯出來就變這樣!<br><script src="//gist.github.com/953013.js"></script><br>P.S. 我有偷偷修改 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js#L20" target="_blank" rel="external">app.js</a></strong> 的 app.configure 裡面的 Stylus 加上了 compress : true 讓 translate 出來的 css 有壓縮!<br><br>至於 javascript 的處理 我們看 <a href="https://github.com/neoesque/nodejs-demo/blob/master/public/javascripts/hello.coffee" target="_blank" rel="external">./public/javascripts/hello.coffee</a><br><br><script src="//gist.github.com/953022.js"></script><br>ㄜ… 這邊要解釋起來有點囉嗦改天再寫一篇 blog 目前請各位去看 docs 吧 XD<br><br>CoffeeScript 翻譯過的結果就是這樣<br><br><script src="//gist.github.com/953023.js"></script><br>很酷 對吧!<p></p>
+        <h1 class="article-title" itemprop="name">
+            node.js with Express, Jade, Stylus and CoffeeScript
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/node-js-with-express-jade-stylus-and-coffeescript/">
+            <time datetime="2011-05-02T16:00:00.000Z" itemprop="datePublished">2011-05-03, 週二</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/nodejs/">nodejs</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>好像不用 node.js 寫一些小東西感覺不出來他的威力 <span style="text-decoration:line-through">而且<a href="http://liangkuo.blogspot.com/" target="_blank" rel="external">小郭</a>說每次 Demo 都用 Hello World!</span><br><br>所以決定動手寫一個小小的留言板<br><br>搭配的 Framework 有 <a href="http://expressjs.com/" target="_blank" rel="external">Express</a> <a href="http://jashkenas.github.com/coffee-script" target="_blank" rel="external">CoffeeScript</a> <a href="http://jade-lang.com/" target="_blank" rel="external">Jade</a> <a href="http://learnboost.github.com/stylus" target="_blank" rel="external">Stylus</a><br><br>這些 Framework 功能如下<br><br><ul><li>Express : 是 node.js 的 Web Framework</li><li>CoffeeScript : 是快速產生 Javascript 的好物！</li><li>Jade : HTML 的 Template Engine</li><li>Stylus : dynamic stylesheet 簡單的語言產生 css</li></ul><br>功能有<br><br><ul><li>新增留言</li><li>修改留言</li><li>刪除留言</li></ul><br></p><h3>Demo site 在 <a href="http://nodejs-hello.cloudfoundry.com/" target="_blank" rel="external">Cloud Foundry</a></h3><br>是透過 VMware 的 Cloud Foundry 執行的<br><br><h3>Source Code 在 <a href="https://github.com/neoesque/nodejs-demo" target="_blank" rel="external">GitHub</a></h3><br>以下是說明~<br><a id="more"></a>首先請先確認你的環境已經裝好 <a href="http://nodejs.org/" target="_blank" rel="external">node.js</a>, <a href="http://npmjs.org/" target="_blank" rel="external">npm</a>, 與 <a href="http://expressjs.com/" target="_blank" rel="external">Express</a><br><br>接下來在想要的目錄輸入<br><br><script src="//gist.github.com/952892.js"></script><br>會產生如下的目錄架構<br><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-xWqia9snGiw/Tb-kwd--FBI/AAAAAAAAA3c/JBoCMbi7fPI/s6400/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25882.46.07.png" imageanchor="1" style="margin-left:1em; margin-right:1em" target="_blank" rel="external"><img border="0" height="278" width="640" src="http://1.bp.blogspot.com/-xWqia9snGiw/Tb-kwd--FBI/AAAAAAAAA3c/JBoCMbi7fPI/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25882.46.07.png"></a></div><br>大概就是這樣<br><br><script src="//gist.github.com/952922.js"></script><br>其中的 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js" target="_blank" rel="external">app.js</a></strong> 就是主程式裡面包含了 <em>routing</em> 也是 <em>controller</em><br><br>順帶一提的是 Express 沒有什麼 MVC 的架構(或者說可以自己切 XD) 感覺上他只有包含了 Controller 跟 View<br><br>因為我們的計畫跑在 VMware Cloud Foundry 上, 所以要加上 <a href="https://github.com/neoesque/nodejs-demo/blob/master/package.json" target="_blank" rel="external">package.json</a> 內容如下<br><br><script src="//gist.github.com/952939.js"></script><br>再下指令<br><br><script src="//gist.github.com/952945.js"></script><br><b>npm 1.0 之後用 npm install -d</b><br><br>npm 就會幫我們把需要的 Framework 通通裝到 node_modules 裡了<br><br>所以目前目錄結構如下<br><br><script src="//gist.github.com/952941.js"></script><br>都準備好之後終於可以開始寫程式了 XD<br><br>因為 express 在產生目錄時我們有指定 jade 跟 stylus 當 html 跟 css 的 engine 但是 CoffeeScript 還沒有指定<br><br>所以為了讓 Express 能吃到 CoffeeScript 所以我們先在 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js" target="_blank" rel="external">app.js</a></strong> 的 app.configure 裡加上一行 app.use(express.compiler({src: __dirname + ‘/public’, enable: [‘coffeescript’]}));<br><br>也就是會長這樣拉~ <em>這是 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js" target="_blank" rel="external">app.js</a></strong> 的片段而已</em><br><br><script src="//gist.github.com/952948.js"></script><br>所以這樣一來我們的環境也就是 express 就可以支援<br><ul><li><strong>.jade</strong> 都放在 ./views 底下 由 Jade 翻譯</li><li><strong>.styl</strong> 都放在 ./public/stylesheets 底下 由 Stylus 翻譯</li><li><strong>.coffee</strong> 都放在 ./public/javascripts 底下 由 CoffeeScript 翻譯</li></ul><br>另外為了讓我們的環境可以吃 npm bundle 包的內容以及準備一些環境變數我們把 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js" target="_blank" rel="external">app.js</a></strong> 開頭改成<br><br><script src="//gist.github.com/952961.js"></script><br>express 的 Controller-View 的 架構非常簡單<br><br>以下圖來說 (取自 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js#L36" target="_blank" rel="external">app.js</a></strong> 的一段)<br><br><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/--Li416OOzx4/Tb-1uybAU6I/AAAAAAAAA3k/i0Z3C61tSsk/s6400/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25883.53.21.jpg" imageanchor="1" style="margin-left:1em; margin-right:1em" target="_blank" rel="external"><img border="0" height="200" width="640" src="http://1.bp.blogspot.com/--Li416OOzx4/Tb-1uybAU6I/AAAAAAAAA3k/i0Z3C61tSsk/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-05-03%2B%25E4%25B8%258B%25E5%258D%25883.53.21.jpg"></a></div><br><ol><li> <a href="http://expressjs.com/guide.html#routing" target="_blank" rel="external">app.get(參數1, 參數2) </a> 的 參數1 是接收的網址 比方說 當網址是 <a href="http://xxxxx/" target="_blank" rel="external">http://xxxxx/</a> 而且方法是 Get 時就會交由這個 Controller 的 參數2 去處理 <em>( 參數2 必須是 function!)</em></li><li> <a href="http://expressjs.com/guide.html#view-rendering" target="_blank" rel="external">res.render(參數1, 參數2) </a>的 參數1 是告訴 Jade 要用哪一個 template 去 render 結果上圖表示要用 index.jade 去 render 結果</li><li> res.render(參數1, 參數2) 的 參數2 就是傳遞給 index.jade 的變數 type 必須是 JSON </li></ol><br>Controller 跟 View 的合作很簡單吧 接下來我們看一下 View 怎麼做的<br><br>首先看 <a href="https://github.com/neoesque/nodejs-demo/blob/master/views/layout.jade" target="_blank" rel="external">./views/layout.jade</a><br><br><script src="//gist.github.com/952987.js"></script><br>第一行的 !!! 5 表示要用 html5 的 doctype 輸出!<br><br>再來是 <a href="https://github.com/neoesque/nodejs-demo/blob/master/views/index.jade" target="_blank" rel="external">./views/index.jade</a><br><br><script src="//gist.github.com/952980.js"></script><br>如果剛剛 res.render 參數2 的 JSON 裡沒有 layout:false 則所有的結果都會是 layout.jade + 參數1.jade 輸出<br><br>所以以剛剛的範例來說 title: ‘Hello Cloud Foundry’ 就會被 layout.jade 的 title= title 吃走<br><br>而 articles: articles 就會被 index.jade 裡面 - each article, key in articles 的 articles 吃走<br><br>詳細的 Jade 使用方法可以參考 Jade 官網<br><br>因為要寫出類似留言板的網站所以我們要一個存檔的功能<br><br>接下來我們來新增一個 save 的 Controller 方法是 POST 收的參數有一個就是 textarea 裡的 value 啦<br><br>所以請在 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js#L58" target="_blank" rel="external">app.js</a></strong> 裡新增 一個 app.post(‘/save’, function(){}) 的 method 如下<br><br><script src="//gist.github.com/953004.js"></script><br>POST 或 GET 收進來的變數都會由 req.body.[變數] 來取得<br><br>這邊的設計上 db 裡每一筆資料都是 JSON 裡面有兩個資料 一個是文章 id (由 md5 hash) 是做刪除用的 另一個是文章內容 content<br><br>而 render 的結果是由 save.jade 處理所以 res.render 的 參數1 我們填 ‘save’<br><br>參數2 必須是個 JSON 我們傳了三個東西<br><ol><li>id : 文章 id</li><li>content : 文章內容</li><li>layout : 要不要套用 layout.jade, 這裡是 false 表示單純輸出 save.jade 的內容就好</li></ol><br>BTW, 這邊的 db 其實我是用 array 做的 可以參考<strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js#L9" target="_blank" rel="external">app.js</a></strong> 因為 VMware Cloud Foundry 目前還沒支援任何 database (之後會有 MySQL, Redis, 和 MongoDB 的支援)<br><br>再來我們看一下 <a href="https://github.com/neoesque/nodejs-demo/blob/master/views/save.jade" target="_blank" rel="external">save.jade</a> 吧<br><br><script src="//gist.github.com/953008.js"></script><br>原理很簡單 就是把整塊 div 回傳回去到網頁端的 javascript 直接整個 append 上去就好 (簡單來說我把它當 template 用 XD)<br><br>再來進階一點我們還想要有修改的功能 一樣的 Controller 只是變成判斷有沒有 文章id 如果有的話就進去 db 尋找 id 有沒有 match 有的話就修改他 沒有文章 id 表示新增文章 因此 Controller 變成這樣<br><br><script src="//gist.github.com/953009.js"></script><br>最後我們來稍微看一下 Stylus 跟 CoffeeScript 吧<br><br>首先是 <a href="https://github.com/neoesque/nodejs-demo/blob/master/public/stylesheets/style.styl" target="_blank" rel="external">./public/stylesheets/style.styl</a><br><br><script src="//gist.github.com/953012.js"></script><br>Stylus 翻譯出來就變這樣!<br><script src="//gist.github.com/953013.js"></script><br>P.S. 我有偷偷修改 <strong><a href="https://github.com/neoesque/nodejs-demo/blob/master/app.js#L20" target="_blank" rel="external">app.js</a></strong> 的 app.configure 裡面的 Stylus 加上了 compress : true 讓 translate 出來的 css 有壓縮!<br><br>至於 javascript 的處理 我們看 <a href="https://github.com/neoesque/nodejs-demo/blob/master/public/javascripts/hello.coffee" target="_blank" rel="external">./public/javascripts/hello.coffee</a><br><br><script src="//gist.github.com/953022.js"></script><br>ㄜ… 這邊要解釋起來有點囉嗦改天再寫一篇 blog 目前請各位去看 docs 吧 XD<br><br>CoffeeScript 翻譯過的結果就是這樣<br><br><script src="//gist.github.com/953023.js"></script><br>很酷 對吧!<p></p>
 <p></p><h2>Comments</h2><p></p>
 <div class="comments"><br><div class="comment"><br><div class="author">Tim Wu</div><br><div class="content"><br>呵! 正在看這方面的資料, 想不到台灣有人try 這麼快.</div><br></div><br></div>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/node-js-with-express-jade-stylus-and-coffeescript/" data-id="cik2l20xl002q1r0qje83jtpr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
-    </footer>
-  </div>
-  
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/node-js-with-express-jade-stylus-and-coffeescript/" data-id="cimu08t44003c0f0q54wign0i" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+        </footer>
+    </div>
     
+        
 <nav id="article-nav">
-  
-    <a href="/post/nginx-performance-compare-with-php/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          nginx 的 performance compare with PHP
-        
-      </div>
-    </a>
-  
-  
-    <a href="/post/build-website-with-nodejs-express/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">利用 nodejs 與 express 建立基本網站</div>
-    </a>
-  
+    
+        <a href="/post/nginx-performance-compare-with-php/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    nginx 的 performance compare with PHP
+                
+            </div>
+        </a>
+    
+    
+        <a href="/post/build-website-with-nodejs-express/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">利用 nodejs 與 express 建立基本網站</div>
+        </a>
+    
 </nav>
 
 
-  
+    
 </article>
 
 
+    
 </section>
-      
-        <aside id="sidebar">
-  
+            
+                <aside id="sidebar">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">recents</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
-              <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
-              <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, Sun</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
-              <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, Thu</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg
-)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
-              <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg
-)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
-              <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
-              <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
-              <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, Thu</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">tag cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a><a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a><a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a><a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a><a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a><a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20px;">Linux</a><a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a><a href="/tags/NIS/" style="font-size: 10px;">NIS</a><a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a><a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a><a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a><a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a><a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a><a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a><a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a><a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a><a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a><a href="/tags/i18n/" style="font-size: 10px;">i18n</a><a href="/tags/ingress/" style="font-size: 10px;">ingress</a><a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a><a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a><a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a><a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a><a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a><a href="/tags/php/" style="font-size: 11.43px;">php</a><a href="/tags/pushover/" style="font-size: 10px;">pushover</a><a href="/tags/squid/" style="font-size: 14.29px;">squid</a><a href="/tags/svn/" style="font-size: 11.43px;">svn</a><a href="/tags/trac/" style="font-size: 12.86px;">trac</a><a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a><a href="/tags/日本/" style="font-size: 10px;">日本</a><a href="/tags/美國/" style="font-size: 11.43px;">美國</a><a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a><a href="/tags/調查局/" style="font-size: 10px;">調查局</a><a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a><a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
-    </div>
-  </div>
-
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-
-  
+        <span class="thumbnail-image thumbnail-none"></span>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Casio-TR15/">Casio TR15</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/E-M5/">E-M5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeBSD/">FreeBSD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gentoo/">Gentoo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Healthy/">Healthy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenRC/">OpenRC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SUSE/">SUSE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SaltStack/">SaltStack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime/">Sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TextMate/">TextMate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMware/">VMware</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cgroups/">cgroups</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graylog2/">graylog2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i18n/">i18n</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ingress/">ingress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcachedb/">memcachedb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moinmoin/">moinmoin</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obj-c/">obj-c</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pushover/">pushover</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trac/">trac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/喝茶/">喝茶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美國/">美國</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蝴蝶結/">蝴蝶結</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/調查局/">調查局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/迪士尼/">迪士尼</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/陶瓷/">陶瓷</a><span class="tag-list-count">1</span></li></ul>
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
+                            <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
+                            <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, 週日</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
+                            <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, 週四</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
+                            <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
+                            <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
+                            <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
+                            <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, 週四</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
     </div>
-  </div>
 
-  
-  <div id="toTop" class="fa fa-chevron-up"></div>
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a> <a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a> <a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a> <a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a> <a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a> <a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a> <a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a> <a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a> <a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a> <a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a> <a href="/tags/i18n/" style="font-size: 10px;">i18n</a> <a href="/tags/ingress/" style="font-size: 10px;">ingress</a> <a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a> <a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a> <a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a> <a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a> <a href="/tags/php/" style="font-size: 11.43px;">php</a> <a href="/tags/pushover/" style="font-size: 10px;">pushover</a> <a href="/tags/squid/" style="font-size: 14.29px;">squid</a> <a href="/tags/svn/" style="font-size: 11.43px;">svn</a> <a href="/tags/trac/" style="font-size: 12.86px;">trac</a> <a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a> <a href="/tags/美國/" style="font-size: 11.43px;">美國</a> <a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a> <a href="/tags/調查局/" style="font-size: 10px;">調查局</a> <a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a> <a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-chevron-up"></div>
 </aside>
-      
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 neoesque<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
     </div>
-    <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 neoesque<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-    </div>
-  </div>
 </footer>
+        
     
-
-<script>
-  var disqus_shortname = 'parsefloat';
-  (function(){
+    <script>
+    var disqus_shortname = 'parsefloat';
+    
+    
+    var disqus_url = 'http://blog.littlero.se/post/node-js-with-express-jade-stylus-and-coffeescript/';
+    
+    (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+    })();
+    </script>
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
 
-
-<script src="/js/script.js" type="text/javascript"></script>
-
-  </div>
+    </div>
 </body>
 </html>

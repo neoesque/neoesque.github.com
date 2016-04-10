@@ -1,39 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang=zh>
 <head>
-  <meta charset="utf-8">
-  
-  <title>VMware Cloud Foundry 試玩小小小之在小不過的心得 | neoesque</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="話說十天前看到了 Cloud Foundry 的網頁 可以 Request an invite account 當下馬上就申請了一個 XD他的特色是… 就是 VMware 的雲 沒了! 屬於 PaaS (Platform as a Service) 最大的特色應該算是他們強調是 Open 的 (Open Source !) 主要是社群維護 cloudfoundry.org Source Code">
+    <meta charset="utf-8">
+    
+    <title>VMware Cloud Foundry 試玩小小小之在小不過的心得 | neoesque</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="話說十天前看到了 Cloud Foundry 的網頁 可以 Request an invite account 當下馬上就申請了一個 XD他的特色是… 就是 VMware 的雲 沒了! 屬於 PaaS (Platform as a Service) 最大的特色應該算是他們強調是 Open 的 (Open Source !) 主要是社群維護 cloudfoundry.org Source Code">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VMware Cloud Foundry 試玩小小小之在小不過的心得">
 <meta property="og:url" content="http://blog.littlero.se/post/vmware-cloud-foundry/index.html">
 <meta property="og:site_name" content="neoesque">
 <meta property="og:description" content="話說十天前看到了 Cloud Foundry 的網頁 可以 Request an invite account 當下馬上就申請了一個 XD他的特色是… 就是 VMware 的雲 沒了! 屬於 PaaS (Platform as a Service) 最大的特色應該算是他們強調是 Open 的 (Open Source !) 主要是社群維護 cloudfoundry.org Source Code">
 <meta property="og:image" content="http://3.bp.blogspot.com/-_GMjblt6S_I/TbI8KmGsFuI/AAAAAAAAA2s/NPRbgUcpKv0/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258810.39.55.png">
-<meta property="og:image" content="http://4.bp.blogspot.com/-fr0NUWwN0Ac/TbJDT00Y4nI/AAAAAAAAA20/Grjhr9VVyFc/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.10.50.png">
-<meta property="og:image" content="http://4.bp.blogspot.com/-7wUzP8yDiwE/TbJEFM1nu2I/AAAAAAAAA28/PH9kA-oBEhg/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.14.09.png">
-<meta property="og:image" content="http://1.bp.blogspot.com/-ZmV8lQlhsB4/TbJFbNiU1SI/AAAAAAAAA3E/LUf3Sx1tI8c/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.19.55.png">
-<meta property="og:image" content="http://1.bp.blogspot.com/-l7TStV9cTjw/TbJG1Bk8ReI/AAAAAAAAA3M/IPNNHAxBLUQ/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.25.35.png">
+<meta property="og:updated_time" content="2015-03-14T05:43:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VMware Cloud Foundry 試玩小小小之在小不過的心得">
 <meta name="twitter:description" content="話說十天前看到了 Cloud Foundry 的網頁 可以 Request an invite account 當下馬上就申請了一個 XD他的特色是… 就是 VMware 的雲 沒了! 屬於 PaaS (Platform as a Service) 最大的特色應該算是他們強調是 Open 的 (Open Source !) 主要是社群維護 cloudfoundry.org Source Code">
+<meta name="twitter:image" content="http://3.bp.blogspot.com/-_GMjblt6S_I/TbI8KmGsFuI/AAAAAAAAA2s/NPRbgUcpKv0/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258810.39.55.png">
 <meta name="twitter:creator" content="@neoesque">
 <meta property="fb:admins" content="1573449527">
 <meta property="fb:app_id" content="163923413772109">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
-  
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -42,295 +50,481 @@ ga('create', 'UA-37617901-1', 'auto');
 ga('send', 'pageview');
 
 </script>
-<!-- End Google Analytics -->
+    
+    
+    
 
-
-  
 </head>
 <body>
-  <div id="container">
-    <header id="header">
-  <div id="header-main" class="header-inner">
-    <div class="outer">
-      <a href="/" id="logo"><span class="site-title">neoesque</span></a>
-      <nav id="main-nav">
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-      </div>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">neoesque</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主頁</a>
+                
+                    <a class="main-nav-link" href="/archives">歸檔</a>
+                
+                    <a class="main-nav-link" href="/categories">分類</a>
+                
+                    <a class="main-nav-link" href="/tags">標籤</a>
+                
+                    <a class="main-nav-link" href="/about">關於我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-  </div>
-  <div id="main-nav-mobile" class="header-sub header-inner">
-    <table class="menu outer">
-      <tr>
-        
-          <td><a class="main-nav-link" href="/">Home</a></td>
-        
-          <td><a class="main-nav-link" href="/archives">Archives</a></td>
-        
-          <td><a class="main-nav-link" href="/about">About</a></td>
-        
-        <td>
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="q" value="site:http://blog.littlero.se"></form>
-        </td>
-      </tr>
-    </table>
-  </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: 'Pages',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主頁</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">歸檔</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分類</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">標籤</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">關於我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
 </header>
 
-    <div class="outer">
-      
-      <section id="main"><article id="post-vmware-cloud-foundry" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">neoesque</h2>
+            <h3 id="title">Linux Admin</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Taipei, Taiwan</span>
+            <a id="follow" target="_blank" href="https://github.com/neoesque/">關注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                58
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                37
+                <span>標籤</span>
+            </div>
+        </div>
         
-  
-    <h1 class="article-title" itemprop="name">
-      VMware Cloud Foundry 試玩小小小之在小不過的心得
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/post/vmware-cloud-foundry/">
-      <time datetime="2011-04-22T16:00:00.000Z" itemprop="datePublished">2011-04-23, Sat</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/資訊/">資訊</a>
-  </div>
-
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+                    
+                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    
+                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    
+                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    
+                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    
+                </tr>
+            </table>
         </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div id="toc" class="toc-article">
-          <!-- # <strong class="toc-title">contents</strong> -->
-          
-        </div>
-      
-        <p>話說十天前看到了 <a href="http://cloudfoundry.com/" target="_blank" rel="external">Cloud Foundry</a> 的網頁 可以 Request an invite account 當下馬上就申請了一個 XD<br><br>他的特色是… 就是 VMware 的雲 <span style="text-decoration: line-through;">沒了!</span> 屬於 PaaS (Platform as a Service) 最大的特色應該算是他們強調是 Open 的 (Open Source !) 主要是社群維護 <a href="http://www.cloudfoundry.org/" target="_blank" rel="external">cloudfoundry.org</a> Source Code 在<a href="https://github.com/cloudfoundry" target="_blank" rel="external">這裡</a> 不過在 VMware 的平台(cloudfoundry.com)上營運要付錢 所以免費版就是下載回去自己架起來 XD (目前是 Beta 一切免費！)<br><br>目前支援 Java, Ruby, Node.js (via <a href="http://cloudfoundry.com/faq" target="_blank" rel="external">FAQ</a>)<br><br>資料庫選擇有 MongoDB、MySQL和Redis<br><br>Java 的話可以搭配 Spring 或其他 JVM 可以吃的 framework<br><br>Ruby 可以選用 Rails 或者 Sinatra (沒玩過 Sinatra 可是看起來好像很簡單耶)<br><br>Node.js 則可以原生就可以支援或者搭配 <a href="http://expressjs.com/" target="_blank" rel="external">express</a> 與 <a href="http://npmjs.org/" target="_blank" rel="external">npm</a> 的 bundle<br><br>然後九天後…也就是昨天晚上就收到通知信啦！<br><br>今天早上馬上來試玩一下~<br><br>以下是小小小小小小試玩心得~ 歡迎切磋指教 :P <br><a id="more"></a>參考 <a href="http://goo.gl/NeknL" target="_blank" rel="external">VMware 官方手冊</a><br><br>首先要裝好 rubygems<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="251" src="http://3.bp.blogspot.com/-_GMjblt6S_I/TbI8KmGsFuI/AAAAAAAAA2s/NPRbgUcpKv0/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258810.39.55.png" width="640"></div><br>(建議 Mac OS X 的用戶先更新 RubyGems) 因為 小於 RubyGems 1.3.6 都很 buggy (SnowLeopard 搭載 1.3.5) via <a href="http://goo.gl/CEsTD" target="_blank" rel="external">Gems, Eggs and Perl Modules</a> 升級指令也可以參考這裡<br><br>裝好 gem 後打<br><br><script src="//gist.github.com/941567.js"></script><br>就是這麼簡單 VMware Cloud Foundry 的控制指令 - vmc 就裝好了<br><br>首先要登入<br><br><script src="//gist.github.com/941569.js"></script><br>login 時會問 帳號 密碼<br><br>接下來介紹如何 deploy node.js 順便帶過一些基本指令 (我想 Ruby on Rails 很多人玩眾高手比我熟 - - Java Spring 我不會 XD)<br><br>首先 node.js 要搭配 npm bundle 所以先裝一下 <a href="http://npmjs.org/" target="_blank" rel="external">npm</a> 吧<br><br><script src="//gist.github.com/941571.js"></script><br>準備好 npm 後建立一個資料夾 (資料夾名稱跟計畫可以無關)<br><br><script src="//gist.github.com/941573.js"></script><br>如果是 node.js 的程式的話主程式一定要叫做 app.js (VMware Cloud Foundry 的要求 - -)<br><br>所以先編輯 app.js<br><br>內容先隨便寫吧 依照標準的 express 的 demo 就是<br><br><script src="//gist.github.com/941574.js"></script><br>然後編輯一個 package.json (給 npm 的 package 看的)<br><br>填入下列內容<br><br><script src="//gist.github.com/941575.js"></script><br>所以我們的目錄現在是長這樣…<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="124" width="640" src="http://4.bp.blogspot.com/-fr0NUWwN0Ac/TbJDT00Y4nI/AAAAAAAAA20/Grjhr9VVyFc/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.10.50.png"></div><br>接下來就是產生 bundle 啦 在同一個目錄下打<br><br><script src="//gist.github.com/941562.js"></script><br>npm 就會自己產生一堆鬼 info ~ (略…)<br><br>成功後在看看資料夾變成這樣了!<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="249" width="640" src="http://4.bp.blogspot.com/-7wUzP8yDiwE/TbJEFM1nu2I/AAAAAAAAA28/PH9kA-oBEhg/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.14.09.png"></div><br>主要就是多了 hello.js 跟 node_modules 的資料夾<br><br>這時候我們回頭改一下 app.js<br><br>在最前面加入 require.paths.unshift(‘./node_modules’)<br><br>最後面的 app.listen(3000); 改成 app.listen(process.env.VMC_APP_PORT||3000);<br><br>也就是完整的檔案如下<br><br><script src="//gist.github.com/941577.js"></script><br>這樣就全部準備完成啦 可以 deploy 到 VMware Cloud Foundry 上了<br><br>同樣在 hello 的資料夾下打 vmc push (表示要新增計畫)<br><br><script src="//gist.github.com/941579.js"></script><br>他會互動式的問一些問題 比方說計畫名稱(管理用的) deploy 的網址 偵測程式的 type (Node.js/Ruby/Java) Memory 用量 如下圖<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="213" width="640" src="http://1.bp.blogspot.com/-ZmV8lQlhsB4/TbJFbNiU1SI/AAAAAAAAA3E/LUf3Sx1tI8c/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.19.55.png"></div><br>成功後就可以到你設定的網址去看成果了!<br><br>最後 如果計畫案有修改想要更新的話一樣先打 npm bundle 之後指令是 vmc update &lt;appname&gt; (比方說 nodejs-hello)<br><br><div class="separator" style="clear: both; text-align: center;"><a class="images" href="http://1.bp.blogspot.com/-l7TStV9cTjw/TbJG1Bk8ReI/AAAAAAAAA3M/IPNNHAxBLUQ/s6400/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.25.35.png" imageanchor="1" style="margin-left:1em; margin-right:1em" target="_blank" rel="external"><img border="0" height="304" width="640" src="http://1.bp.blogspot.com/-l7TStV9cTjw/TbJG1Bk8ReI/AAAAAAAAA3M/IPNNHAxBLUQ/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.25.35.png"></a></div><br>其他的指令就打 vmc help 看吧<br>重要的大概就<br>start &lt;appname&gt;                              Start the application<br>stop  &lt;appname&gt;                             Stop the application<br>restart &lt;appname&gt;                            Restart the application<br>delete &lt;appname&gt;                             Delete the application<br>rename &lt;appname&gt; &lt;newname&gt;                   Rename the application</p>
-
-      
+        
     </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.littlero.se/post/vmware-cloud-foundry/" data-id="cik2l20w5000e1r0q82a1etsg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VMware/">VMware</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+</aside>
 
-    </footer>
-  </div>
-  
+            
+            <section id="main"><article id="post-vmware-cloud-foundry" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
     
+        <h1 class="article-title" itemprop="name">
+            VMware Cloud Foundry 試玩小小小之在小不過的心得
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/vmware-cloud-foundry/">
+            <time datetime="2011-04-22T16:00:00.000Z" itemprop="datePublished">2011-04-23, 週六</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/VMware/">VMware</a>, <a class="tag-link" href="/tags/nodejs/">nodejs</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>話說十天前看到了 <a href="http://cloudfoundry.com/" target="_blank" rel="external">Cloud Foundry</a> 的網頁 可以 Request an invite account 當下馬上就申請了一個 XD<br><br>他的特色是… 就是 VMware 的雲 <span style="text-decoration: line-through;">沒了!</span> 屬於 PaaS (Platform as a Service) 最大的特色應該算是他們強調是 Open 的 (Open Source !) 主要是社群維護 <a href="http://www.cloudfoundry.org/" target="_blank" rel="external">cloudfoundry.org</a> Source Code 在<a href="https://github.com/cloudfoundry" target="_blank" rel="external">這裡</a> 不過在 VMware 的平台(cloudfoundry.com)上營運要付錢 所以免費版就是下載回去自己架起來 XD (目前是 Beta 一切免費！)<br><br>目前支援 Java, Ruby, Node.js (via <a href="http://cloudfoundry.com/faq" target="_blank" rel="external">FAQ</a>)<br><br>資料庫選擇有 MongoDB、MySQL和Redis<br><br>Java 的話可以搭配 Spring 或其他 JVM 可以吃的 framework<br><br>Ruby 可以選用 Rails 或者 Sinatra (沒玩過 Sinatra 可是看起來好像很簡單耶)<br><br>Node.js 則可以原生就可以支援或者搭配 <a href="http://expressjs.com/" target="_blank" rel="external">express</a> 與 <a href="http://npmjs.org/" target="_blank" rel="external">npm</a> 的 bundle<br><br>然後九天後…也就是昨天晚上就收到通知信啦！<br><br>今天早上馬上來試玩一下~<br><br>以下是小小小小小小試玩心得~ 歡迎切磋指教 :P <br><a id="more"></a>參考 <a href="http://goo.gl/NeknL" target="_blank" rel="external">VMware 官方手冊</a><br><br>首先要裝好 rubygems<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="251" src="http://3.bp.blogspot.com/-_GMjblt6S_I/TbI8KmGsFuI/AAAAAAAAA2s/NPRbgUcpKv0/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258810.39.55.png" width="640"></div><br>(建議 Mac OS X 的用戶先更新 RubyGems) 因為 小於 RubyGems 1.3.6 都很 buggy (SnowLeopard 搭載 1.3.5) via <a href="http://goo.gl/CEsTD" target="_blank" rel="external">Gems, Eggs and Perl Modules</a> 升級指令也可以參考這裡<br><br>裝好 gem 後打<br><br><script src="//gist.github.com/941567.js"></script><br>就是這麼簡單 VMware Cloud Foundry 的控制指令 - vmc 就裝好了<br><br>首先要登入<br><br><script src="//gist.github.com/941569.js"></script><br>login 時會問 帳號 密碼<br><br>接下來介紹如何 deploy node.js 順便帶過一些基本指令 (我想 Ruby on Rails 很多人玩眾高手比我熟 - - Java Spring 我不會 XD)<br><br>首先 node.js 要搭配 npm bundle 所以先裝一下 <a href="http://npmjs.org/" target="_blank" rel="external">npm</a> 吧<br><br><script src="//gist.github.com/941571.js"></script><br>準備好 npm 後建立一個資料夾 (資料夾名稱跟計畫可以無關)<br><br><script src="//gist.github.com/941573.js"></script><br>如果是 node.js 的程式的話主程式一定要叫做 app.js (VMware Cloud Foundry 的要求 - -)<br><br>所以先編輯 app.js<br><br>內容先隨便寫吧 依照標準的 express 的 demo 就是<br><br><script src="//gist.github.com/941574.js"></script><br>然後編輯一個 package.json (給 npm 的 package 看的)<br><br>填入下列內容<br><br><script src="//gist.github.com/941575.js"></script><br>所以我們的目錄現在是長這樣…<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="124" width="640" src="http://4.bp.blogspot.com/-fr0NUWwN0Ac/TbJDT00Y4nI/AAAAAAAAA20/Grjhr9VVyFc/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.10.50.png"></div><br>接下來就是產生 bundle 啦 在同一個目錄下打<br><br><script src="//gist.github.com/941562.js"></script><br>npm 就會自己產生一堆鬼 info ~ (略…)<br><br>成功後在看看資料夾變成這樣了!<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="249" width="640" src="http://4.bp.blogspot.com/-7wUzP8yDiwE/TbJEFM1nu2I/AAAAAAAAA28/PH9kA-oBEhg/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.14.09.png"></div><br>主要就是多了 hello.js 跟 node_modules 的資料夾<br><br>這時候我們回頭改一下 app.js<br><br>在最前面加入 require.paths.unshift(‘./node_modules’)<br><br>最後面的 app.listen(3000); 改成 app.listen(process.env.VMC_APP_PORT||3000);<br><br>也就是完整的檔案如下<br><br><script src="//gist.github.com/941577.js"></script><br>這樣就全部準備完成啦 可以 deploy 到 VMware Cloud Foundry 上了<br><br>同樣在 hello 的資料夾下打 vmc push (表示要新增計畫)<br><br><script src="//gist.github.com/941579.js"></script><br>他會互動式的問一些問題 比方說計畫名稱(管理用的) deploy 的網址 偵測程式的 type (Node.js/Ruby/Java) Memory 用量 如下圖<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="213" width="640" src="http://1.bp.blogspot.com/-ZmV8lQlhsB4/TbJFbNiU1SI/AAAAAAAAA3E/LUf3Sx1tI8c/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.19.55.png"></div><br>成功後就可以到你設定的網址去看成果了!<br><br>最後 如果計畫案有修改想要更新的話一樣先打 npm bundle 之後指令是 vmc update &lt;appname&gt; (比方說 nodejs-hello)<br><br><div class="separator" style="clear: both; text-align: center;"><a class="images" href="http://1.bp.blogspot.com/-l7TStV9cTjw/TbJG1Bk8ReI/AAAAAAAAA3M/IPNNHAxBLUQ/s6400/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.25.35.png" imageanchor="1" style="margin-left:1em; margin-right:1em" target="_blank" rel="external"><img border="0" height="304" width="640" src="http://1.bp.blogspot.com/-l7TStV9cTjw/TbJG1Bk8ReI/AAAAAAAAA3M/IPNNHAxBLUQ/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-23%2B%25E4%25B8%258A%25E5%258D%258811.25.35.png"></a></div><br>其他的指令就打 vmc help 看吧<br>重要的大概就<br>start &lt;appname&gt;                              Start the application<br>stop  &lt;appname&gt;                             Stop the application<br>restart &lt;appname&gt;                            Restart the application<br>delete &lt;appname&gt;                             Delete the application<br>rename &lt;appname&gt; &lt;newname&gt;                   Rename the application</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/vmware-cloud-foundry/" data-id="cimu08t65005a0f0qdpevbwq5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+        </footer>
+    </div>
+    
+        
 <nav id="article-nav">
-  
-    <a href="/post/build-website-with-nodejs-express/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          利用 nodejs 與 express 建立基本網站
-        
-      </div>
-    </a>
-  
-  
-    <a href="/post/mac-os-x-dmg-convert-to-iso/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">在 Mac OS X 轉 dmg 成 iso 檔</div>
-    </a>
-  
+    
+        <a href="/post/build-website-with-nodejs-express/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    利用 nodejs 與 express 建立基本網站
+                
+            </div>
+        </a>
+    
+    
+        <a href="/post/mac-os-x-dmg-convert-to-iso/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">在 Mac OS X 轉 dmg 成 iso 檔</div>
+        </a>
+    
 </nav>
 
 
-  
+    
 </article>
 
 
+    
 </section>
-      
-        <aside id="sidebar">
-  
+            
+                <aside id="sidebar">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">recents</h3>
-    <div class="widget">
-      <ul id="recent-post" class="">
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
-              <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
-              <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, Sun</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
-              <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, Thu</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg
-)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
-              <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
-  
-    <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg
-)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
-              <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
-              <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, Sat</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
-              <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
-              <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, Thu</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">tag cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a><a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a><a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a><a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a><a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a><a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20px;">Linux</a><a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a><a href="/tags/NIS/" style="font-size: 10px;">NIS</a><a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a><a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a><a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a><a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a><a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a><a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a><a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a><a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a><a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a><a href="/tags/i18n/" style="font-size: 10px;">i18n</a><a href="/tags/ingress/" style="font-size: 10px;">ingress</a><a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a><a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a><a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a><a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a><a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a><a href="/tags/php/" style="font-size: 11.43px;">php</a><a href="/tags/pushover/" style="font-size: 10px;">pushover</a><a href="/tags/squid/" style="font-size: 14.29px;">squid</a><a href="/tags/svn/" style="font-size: 11.43px;">svn</a><a href="/tags/trac/" style="font-size: 12.86px;">trac</a><a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a><a href="/tags/日本/" style="font-size: 10px;">日本</a><a href="/tags/美國/" style="font-size: 11.43px;">美國</a><a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a><a href="/tags/調查局/" style="font-size: 10px;">調查局</a><a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a><a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
-    </div>
-  </div>
-
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
-    </div>
-  </div>
-
-  
+        <span class="thumbnail-image thumbnail-none"></span>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Casio-TR15/">Casio TR15</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/E-M5/">E-M5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FreeBSD/">FreeBSD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gentoo/">Gentoo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Healthy/">Healthy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenRC/">OpenRC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SUSE/">SUSE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SaltStack/">SaltStack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime/">Sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TextMate/">TextMate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMware/">VMware</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cgroups/">cgroups</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graylog2/">graylog2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i18n/">i18n</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ingress/">ingress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcachedb/">memcachedb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moinmoin/">moinmoin</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/obj-c/">obj-c</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pushover/">pushover</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squid/">squid</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trac/">trac</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/喝茶/">喝茶</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美國/">美國</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蝴蝶結/">蝴蝶結</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/調查局/">調查局</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/迪士尼/">迪士尼</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/陶瓷/">陶瓷</a><span class="tag-list-count">1</span></li></ul>
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/資訊/">資訊</a></p>
+                            <p class="item-title"><a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="title">安裝 Redmine - postgresql, nginx, rbenv</a></p>
+                            <p class="item-date"><time datetime="2016-01-31T12:48:05.000Z" itemprop="datePublished">2016-01-31, 週日</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/make-tea-in-investigation-bureau/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/post/make-tea-in-investigation-bureau/" class="title">被調查局請去喝茶</a></p>
+                            <p class="item-date"><time datetime="2015-11-26T14:54:44.000Z" itemprop="datePublished">2015-11-26, 週四</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="title">日本東京、箱根自助之旅</a></p>
+                            <p class="item-date"><time datetime="2015-06-06T03:36:14.000Z" itemprop="datePublished">2015-06-06, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="title">Walt Disney World Resort in Orlando, Florida</a></p>
+                            <p class="item-date"><time datetime="2015-03-14T13:02:38.000Z" itemprop="datePublished">2015-03-14, 週六</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
+                            <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
+                            <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, 週四</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
     </div>
-  </div>
 
-  
-  <div id="toTop" class="fa fa-chevron-up"></div>
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Casio-TR15/" style="font-size: 10px;">Casio TR15</a> <a href="/tags/E-M5/" style="font-size: 12.86px;">E-M5</a> <a href="/tags/FreeBSD/" style="font-size: 10px;">FreeBSD</a> <a href="/tags/Gentoo/" style="font-size: 15.71px;">Gentoo</a> <a href="/tags/Healthy/" style="font-size: 10px;">Healthy</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Mac/" style="font-size: 17.14px;">Mac</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Octopress/" style="font-size: 10px;">Octopress</a> <a href="/tags/OpenRC/" style="font-size: 10px;">OpenRC</a> <a href="/tags/SUSE/" style="font-size: 11.43px;">SUSE</a> <a href="/tags/SaltStack/" style="font-size: 11.43px;">SaltStack</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TextMate/" style="font-size: 10px;">TextMate</a> <a href="/tags/VMware/" style="font-size: 11.43px;">VMware</a> <a href="/tags/cgroups/" style="font-size: 10px;">cgroups</a> <a href="/tags/graylog2/" style="font-size: 10px;">graylog2</a> <a href="/tags/i18n/" style="font-size: 10px;">i18n</a> <a href="/tags/ingress/" style="font-size: 10px;">ingress</a> <a href="/tags/memcachedb/" style="font-size: 10px;">memcachedb</a> <a href="/tags/moinmoin/" style="font-size: 12.86px;">moinmoin</a> <a href="/tags/nginx/" style="font-size: 18.57px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 14.29px;">nodejs</a> <a href="/tags/obj-c/" style="font-size: 10px;">obj-c</a> <a href="/tags/php/" style="font-size: 11.43px;">php</a> <a href="/tags/pushover/" style="font-size: 10px;">pushover</a> <a href="/tags/squid/" style="font-size: 14.29px;">squid</a> <a href="/tags/svn/" style="font-size: 11.43px;">svn</a> <a href="/tags/trac/" style="font-size: 12.86px;">trac</a> <a href="/tags/喝茶/" style="font-size: 10px;">喝茶</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a> <a href="/tags/美國/" style="font-size: 11.43px;">美國</a> <a href="/tags/蝴蝶結/" style="font-size: 10px;">蝴蝶結</a> <a href="/tags/調查局/" style="font-size: 10px;">調查局</a> <a href="/tags/迪士尼/" style="font-size: 10px;">迪士尼</a> <a href="/tags/陶瓷/" style="font-size: 10px;">陶瓷</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-chevron-up"></div>
 </aside>
-      
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 neoesque<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
     </div>
-    <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 neoesque<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-    </div>
-  </div>
 </footer>
+        
     
-
-<script>
-  var disqus_shortname = 'parsefloat';
-  (function(){
+    <script>
+    var disqus_shortname = 'parsefloat';
+    
+    
+    var disqus_url = 'http://blog.littlero.se/post/vmware-cloud-foundry/';
+    
+    (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+    })();
+    </script>
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
 
-
-<script src="/js/script.js" type="text/javascript"></script>
-
-  </div>
+    </div>
 </body>
 </html>
