@@ -21,21 +21,22 @@
     
 
     
+        <link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml" />
+    
 
     
         <link rel="icon" href="/favicon.png" />
     
 
-    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
-    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
-        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
     
     
         <script type="text/javascript">
@@ -52,7 +53,12 @@ ga('send', 'pageview');
     
     
 
+
+    
+    <link rel="amphtml" href="./amp/index.html">
+    
 </head>
+
 <body>
     <div id="container">
         <header id="header">
@@ -179,15 +185,36 @@ ga('send', 'pageview');
             <table>
                 <tr>
                     
-                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
                     
-                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    <td>
+                        <a href="http://github.com/neoesque/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    <td>
+                        <a href="https://www.twitter.com/neoesque" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    <td>
+                        <a href="https://facebook.com/neoesque" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    <td>
+                        <a href="#" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
                     
                 </tr>
             </table>
@@ -201,7 +228,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -210,8 +236,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/install-redmine-with-postgresql-nginx-rbenv/">
@@ -220,20 +247,22 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Linux/">Linux</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -241,32 +270,32 @@ ga('send', 'pageview');
             <p><a href="http://www.redmine.org/" target="_blank" rel="external">Redmine</a> 是一套專案管理軟體，我們單位之前都用 <a href="http://trac.edgewall.org/" target="_blank" rel="external">Trac</a> 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 postgresql + nginx 的組合。至於 Ruby 因為 Ubuntu 14.04 比較舊，所以使用 rbenv 搭建 Ruby 2.2 的環境。</p>
 <a id="more"></a>
 <p>在網路找到兩篇參考文章，此文基本上就是各取所需組合起來的，請參考最下面的參考資料。</p>
-<h3 id="安裝套件"><a href="#安裝套件" class="headerlink" title="安裝套件"></a>安裝套件</h3><p>首先更新 Ubuntu 全部的 pkg 確保都是最新的。<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get -y upgrade</span><br></pre></td></tr></table></figure></p>
-<p>然後安裝 Ruby 跟 Passenger 安裝的相依工具<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y build-essential zlib1g-dev libssl-dev libreadline-dev libyaml-dev libcurl4-openssl-dev</span><br></pre></td></tr></table></figure></p>
-<p>PostgreSQL 的套件<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y postgresql postgresql-server-dev-9.3</span><br></pre></td></tr></table></figure></p>
-<p>nginx 的<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y nginx-extras</span><br></pre></td></tr></table></figure></p>
-<p>ImageMagick 的<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y imagemagick libmagick++-dev</span><br></pre></td></tr></table></figure></p>
-<p>版控工具<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install subversion git</span><br></pre></td></tr></table></figure></p>
-<h3 id="建立-redmine-使用者帳號"><a href="#建立-redmine-使用者帳號" class="headerlink" title="建立 redmine 使用者帳號"></a>建立 redmine 使用者帳號</h3><p>建立一個 user 供 Redmine 服務使用<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser --disabled-login --gecos <span class="string">'Redmine'</span> redmine</span><br><span class="line">sudo su - redmine</span><br></pre></td></tr></table></figure></p>
+<h3 id="安裝套件"><a href="#安裝套件" class="headerlink" title="安裝套件"></a>安裝套件</h3><p>首先更新 Ubuntu 全部的 pkg 確保都是最新的。<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get -y upgrade</div></pre></td></tr></table></figure></p>
+<p>然後安裝 Ruby 跟 Passenger 安裝的相依工具<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y build-essential zlib1g-dev libssl-dev libreadline-dev libyaml-dev libcurl4-openssl-dev</div></pre></td></tr></table></figure></p>
+<p>PostgreSQL 的套件<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y postgresql postgresql-server-dev-9.3</div></pre></td></tr></table></figure></p>
+<p>nginx 的<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y nginx-extras</div></pre></td></tr></table></figure></p>
+<p>ImageMagick 的<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y imagemagick libmagick++-dev</div></pre></td></tr></table></figure></p>
+<p>版控工具<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install subversion git</div></pre></td></tr></table></figure></p>
+<h3 id="建立-redmine-使用者帳號"><a href="#建立-redmine-使用者帳號" class="headerlink" title="建立 redmine 使用者帳號"></a>建立 redmine 使用者帳號</h3><p>建立一個 user 供 Redmine 服務使用<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo adduser --disabled-login --gecos <span class="string">'Redmine'</span> redmine</div><div class="line">sudo su - redmine</div></pre></td></tr></table></figure></p>
 <p>以下開始用 redmine 這個帳號操作</p>
-<h3 id="安裝-Ruby"><a href="#安裝-Ruby" class="headerlink" title="安裝 Ruby"></a>安裝 Ruby</h3><p>這裡使用 rbenv 來建立跑 redmine 的環境<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/sstephenson/rbenv.git .rbenv</span><br><span class="line">git <span class="built_in">clone</span> git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build</span><br></pre></td></tr></table></figure></p>
-<p>把 rbenv 加入 shell 變數<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'eval "$(rbenv init -)"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line"><span class="built_in">exec</span> <span class="variable">$SHELL</span> <span class="_">-l</span></span><br></pre></td></tr></table></figure></p>
-<p>接着可以準備安裝 Ruby 了<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rbenv install 2.2.4</span><br></pre></td></tr></table></figure></p>
-<p>安裝完畢後可以確認一下<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rbenv global 2.2.4</span><br><span class="line">ruby -v</span><br></pre></td></tr></table></figure></p>
+<h3 id="安裝-Ruby"><a href="#安裝-Ruby" class="headerlink" title="安裝 Ruby"></a>安裝 Ruby</h3><p>這裡使用 rbenv 來建立跑 redmine 的環境<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git://github.com/sstephenson/rbenv.git .rbenv</div><div class="line">git <span class="built_in">clone</span> git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build</div></pre></td></tr></table></figure></p>
+<p>把 rbenv 加入 shell 變數<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> &gt;&gt; ~/.bash_profile</div><div class="line"><span class="built_in">echo</span> <span class="string">'eval "$(rbenv init -)"'</span> &gt;&gt; ~/.bash_profile</div><div class="line"><span class="built_in">exec</span> <span class="variable">$SHELL</span> <span class="_">-l</span></div></pre></td></tr></table></figure></p>
+<p>接着可以準備安裝 Ruby 了<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rbenv install 2.2.4</div></pre></td></tr></table></figure></p>
+<p>安裝完畢後可以確認一下<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rbenv global 2.2.4</div><div class="line">ruby -v</div></pre></td></tr></table></figure></p>
 <p>以下的操作先回到可以用 sudo 的帳號</p>
-<p>接着先建立給 Redmine 用的 postgresql 資料庫<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo -u postgres createuser -P redmine</span><br><span class="line"><span class="comment"># 輸入想要的密碼兩次</span></span><br><span class="line">sudo -u postgres createdb -E UTF-8 -O redmine -T template0 redmine</span><br></pre></td></tr></table></figure></p>
-<h3 id="安裝-Redmine"><a href="#安裝-Redmine" class="headerlink" title="安裝 Redmine"></a>安裝 Redmine</h3><p>Ruby 環境準備好之後就可以裝 Redmine 了<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /home/redmine/redmine</span><br><span class="line">sudo chown redmine:www-data /home/redmine/redmine</span><br><span class="line">sudo -u redmine svn co http://svn.redmine.org/redmine/branches/3.2-stable /home/redmine/redmine</span><br></pre></td></tr></table></figure></p>
-<p>先設定 puma<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -Lo /home/redmine/redmine/config/puma.rb https://gist.githubusercontent.com/jbradach/6ee5842e5e2543d59adb/raw/</span><br></pre></td></tr></table></figure></p>
-<p>首先需要改一下 Redmine 的設定<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u redmine vi /home/redmine/redmine/config/database.yml</span><br></pre></td></tr></table></figure></p>
-<p>改成如下<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">production:</span><br><span class="line">  adapter: postgresql</span><br><span class="line">  database: redmine</span><br><span class="line">  host: localhost</span><br><span class="line">  username: redmine</span><br><span class="line">  password: &quot;********&quot;</span><br><span class="line">  encoding: utf8</span><br></pre></td></tr></table></figure></p>
-<p>關於 EMail 的部分也可以改一下<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u redmine vi /home/redmine/redmine/config/configuration.yml</span><br></pre></td></tr></table></figure></p>
-<p>如下<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">production:</span><br><span class="line">  email_delivery:</span><br><span class="line">    delivery_method: :smtp</span><br><span class="line">    smtp_settings:</span><br><span class="line">      address: &quot;localhost&quot;</span><br><span class="line">      port: 25</span><br><span class="line">      domain: &quot;example.com&quot;</span><br></pre></td></tr></table></figure></p>
-<p>接着是安裝 Redmine 需要的相關 Ruby package (請變成 redmine )<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"gem: --no-ri --no-rdoc"</span> &gt;&gt; ~/.gemrc</span><br><span class="line"><span class="built_in">echo</span> <span class="_">-e</span> <span class="string">"# Gemfile.local\ngem 'puma'"</span> &gt;&gt; Gemfile.local</span><br><span class="line">gem install bundler</span><br><span class="line">rbenv <span class="built_in">rehash</span></span><br><span class="line">bundle install --without development <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
-<p>產生 Token (編碼 cookie 用)，建立 db 與初始資料<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rake generate_secret_token</span><br><span class="line">RAILS_ENV=production rake db:migrate</span><br><span class="line">RAILS_ENV=production rake redmine:load_default_data</span><br></pre></td></tr></table></figure></p>
-<p>至此我們已經可以先測試了<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby script/rails server webrick <span class="_">-e</span> production</span><br></pre></td></tr></table></figure></p>
+<p>接着先建立給 Redmine 用的 postgresql 資料庫<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo -u postgres createuser -P redmine</div><div class="line"><span class="comment"># 輸入想要的密碼兩次</span></div><div class="line">sudo -u postgres createdb -E UTF-8 -O redmine -T template0 redmine</div></pre></td></tr></table></figure></p>
+<h3 id="安裝-Redmine"><a href="#安裝-Redmine" class="headerlink" title="安裝 Redmine"></a>安裝 Redmine</h3><p>Ruby 環境準備好之後就可以裝 Redmine 了<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo mkdir /home/redmine/redmine</div><div class="line">sudo chown redmine:www-data /home/redmine/redmine</div><div class="line">sudo -u redmine svn co http://svn.redmine.org/redmine/branches/3.2-stable /home/redmine/redmine</div></pre></td></tr></table></figure></p>
+<p>先設定 puma<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -Lo /home/redmine/redmine/config/puma.rb https://gist.githubusercontent.com/jbradach/6ee5842e5e2543d59adb/raw/</div></pre></td></tr></table></figure></p>
+<p>首先需要改一下 Redmine 的設定<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -u redmine vi /home/redmine/redmine/config/database.yml</div></pre></td></tr></table></figure></p>
+<p>改成如下<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">production:</div><div class="line">  adapter: postgresql</div><div class="line">  database: redmine</div><div class="line">  host: localhost</div><div class="line">  username: redmine</div><div class="line">  password: &quot;********&quot;</div><div class="line">  encoding: utf8</div></pre></td></tr></table></figure></p>
+<p>關於 EMail 的部分也可以改一下<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -u redmine vi /home/redmine/redmine/config/configuration.yml</div></pre></td></tr></table></figure></p>
+<p>如下<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">production:</div><div class="line">  email_delivery:</div><div class="line">    delivery_method: :smtp</div><div class="line">    smtp_settings:</div><div class="line">      address: &quot;localhost&quot;</div><div class="line">      port: 25</div><div class="line">      domain: &quot;example.com&quot;</div></pre></td></tr></table></figure></p>
+<p>接着是安裝 Redmine 需要的相關 Ruby package (請變成 redmine )<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"gem: --no-ri --no-rdoc"</span> &gt;&gt; ~/.gemrc</div><div class="line"><span class="built_in">echo</span> <span class="_">-e</span> <span class="string">"# Gemfile.local\ngem 'puma'"</span> &gt;&gt; Gemfile.local</div><div class="line">gem install bundler</div><div class="line">rbenv <span class="built_in">rehash</span></div><div class="line">bundle install --without development <span class="built_in">test</span></div></pre></td></tr></table></figure></p>
+<p>產生 Token (編碼 cookie 用)，建立 db 與初始資料<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rake generate_secret_token</div><div class="line">RAILS_ENV=production rake db:migrate</div><div class="line">RAILS_ENV=production rake redmine:load_default_data</div></pre></td></tr></table></figure></p>
+<p>至此我們已經可以先測試了<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby script/rails server webrick <span class="_">-e</span> production</div></pre></td></tr></table></figure></p>
 <p>打開瀏覽器，填入 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a> 看看有沒有畫面出現，有的話我們可以 ctrl + c 先回來。</p>
-<p>首先我們需要啓動 redmine 的 script<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -Lo /etc/init.d/redmine https://gist.githubusercontent.com/jbradach/17e73fa6ddc365bb0242/raw/</span><br><span class="line">sudo chmod +x /etc/init.d/redmine</span><br><span class="line">sudo update-rc.d redmine defaults</span><br><span class="line">service redmine start</span><br></pre></td></tr></table></figure></p>
-<p>然後 nginx 的部分也很簡單，抓一下設定即可 (可以把 default 移除)<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -Lo /etc/nginx/sites-available/redmine https://gist.githubusercontent.com/jbradach/31ad6d9c84c3be3b5730/raw/</span><br><span class="line">sudo ln <span class="_">-s</span> /etc/nginx/sites-available/redmine /etc/nginx/sites-enabled/redmine</span><br><span class="line">sudo service nginx restart</span><br></pre></td></tr></table></figure></p>
+<p>首先我們需要啓動 redmine 的 script<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo curl -Lo /etc/init.d/redmine https://gist.githubusercontent.com/jbradach/17e73fa6ddc365bb0242/raw/</div><div class="line">sudo chmod +x /etc/init.d/redmine</div><div class="line">sudo update-rc.d redmine defaults</div><div class="line">service redmine start</div></pre></td></tr></table></figure></p>
+<p>然後 nginx 的部分也很簡單，抓一下設定即可 (可以把 default 移除)<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo curl -Lo /etc/nginx/sites-available/redmine https://gist.githubusercontent.com/jbradach/31ad6d9c84c3be3b5730/raw/</div><div class="line">sudo ln <span class="_">-s</span> /etc/nginx/sites-available/redmine /etc/nginx/sites-enabled/redmine</div><div class="line">sudo service nginx restart</div></pre></td></tr></table></figure></p>
 <p>這時候看瀏覽器 <a href="http://localhost" target="_blank" rel="external">http://localhost</a> 應該就有 redmine 了。</p>
 <hr>
 <p>參考資料</p>
@@ -286,7 +315,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/" data-id="cimu1r81500218b0qy1shbx48" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/" data-id="civar04d2003anyr5o35m7la7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -354,7 +383,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/install-redmine-with-postgresql-nginx-rbenv/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/install-redmine-with-postgresql-nginx-rbenv/">評論</a>
+        <a href="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/">評論</a>
     
 
         </footer>
@@ -390,7 +419,7 @@ ga('send', 'pageview');
 </section>
             
                 <aside id="sidebar">
-    
+   
         
     <div class="widget-wrap">
         <h3 class="widget-title">最新文章</h3>
@@ -406,6 +435,7 @@ ga('send', 'pageview');
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -424,6 +454,7 @@ ga('send', 'pageview');
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -439,9 +470,10 @@ ga('send', 'pageview');
                             <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -457,9 +489,10 @@ ga('send', 'pageview');
                             <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -478,6 +511,7 @@ ga('send', 'pageview');
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -526,7 +560,7 @@ ga('send', 'pageview');
 
 
     
-    <div id="toTop" class="fa fa-chevron-up"></div>
+    <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
         </div>
@@ -541,25 +575,25 @@ ga('send', 'pageview');
         
     
     <script>
-    var disqus_shortname = 'parsefloat';
-    
-    
-    var disqus_url = 'http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/';
+        
+        this.page.identifier = 'install-redmine-with-postgresql-nginx-rbenv';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'parsefloat' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
-    </script>
+</script>
 
 
 
     
-        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
     
+
 
 
 <!-- Custom Scripts -->

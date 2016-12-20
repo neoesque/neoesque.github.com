@@ -48,21 +48,22 @@ Remote File Include
     
 
     
+        <link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml" />
+    
 
     
         <link rel="icon" href="/favicon.png" />
     
 
-    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
-    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
-        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
     
     
         <script type="text/javascript">
@@ -79,7 +80,12 @@ ga('send', 'pageview');
     
     
 
+
+    
+    <link rel="amphtml" href="./amp/index.html">
+    
 </head>
+
 <body>
     <div id="container">
         <header id="header">
@@ -206,15 +212,36 @@ ga('send', 'pageview');
             <table>
                 <tr>
                     
-                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
                     
-                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    <td>
+                        <a href="http://github.com/neoesque/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    <td>
+                        <a href="https://www.twitter.com/neoesque" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    <td>
+                        <a href="https://facebook.com/neoesque" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    <td>
+                        <a href="#" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
                     
                 </tr>
             </table>
@@ -228,7 +255,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -237,8 +263,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/">
@@ -247,20 +274,22 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/nginx/">nginx</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -288,11 +317,11 @@ ga('send', 'pageview');
 <p>不過有一些在更簡單的功能，像是有時候會自己想擋一些 bot，或者要判斷合法的 referrer 才給過之類的就不在這個之內了，這時候我們可以利用 <a href="http://wiki.nginx.org/HttpMapModule" target="_blank" rel="external">map</a> 來幫我們做簡單的過濾。</p>
 <a id="more"></a>
 <p>首先 <code>map</code> 只能夠放在 <code>http</code> 的 scope 內，所以我們可以在 <code>http</code> 內擺下列規則</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">map $request_method $bad_method &#123;</span><br><span class="line">  default 1;</span><br><span class="line">  ~*(get|head|post) 0;</span><br><span class="line">&#125;</span><br><span class="line">map $http_user_agent $bad_bot &#123;</span><br><span class="line">  default 0;</span><br><span class="line">  ~*^curl 1;</span><br><span class="line">  ~*^flashget 1;</span><br><span class="line">  ~*^java 1;</span><br><span class="line">  ~^$ 1;</span><br><span class="line">&#125;</span><br><span class="line">map $query_string $bad_query &#123;</span><br><span class="line">  default 0;</span><br><span class="line">  ~[a-zA-Z0-9_]=(\.\.%2F(%2F)?)+ 1;</span><br><span class="line">  ~[a-zA-Z0-9_]=%2F([a-z0-9_.]+%2F(%2F)?)+ 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">map $request_method $bad_method &#123;</div><div class="line">  default 1;</div><div class="line">  ~*(get|head|post) 0;</div><div class="line">&#125;</div><div class="line">map $http_user_agent $bad_bot &#123;</div><div class="line">  default 0;</div><div class="line">  ~*^curl 1;</div><div class="line">  ~*^flashget 1;</div><div class="line">  ~*^java 1;</div><div class="line">  ~^$ 1;</div><div class="line">&#125;</div><div class="line">map $query_string $bad_query &#123;</div><div class="line">  default 0;</div><div class="line">  ~[a-zA-Z0-9_]=(\.\.%2F(%2F)?)+ 1;</div><div class="line">  ~[a-zA-Z0-9_]=%2F([a-z0-9_.]+%2F(%2F)?)+ 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><code>map</code> 的用法很簡單，第一個參數給的是要做比較的對象通常就是 http core 可以使用的那些變數可以參考 <a href="http://wiki.nginx.org/HttpCoreModule#Variables" target="_blank" rel="external">這裡</a>，然後第二個參數就是覆寫過後的變數名稱，再來大刮號內首先給這個變數一個預設值也就是 <code>default xxx;</code>，後面就開始接比較的方法跟如果 match 到要給第二個變數什麼值，通常有三種表示法以 <code>~</code> <code>~*</code> 跟不是這兩個開頭的，以 <code>~</code> 跟 <code>~*</code> 開頭的表示要用正規表示式來比對，沒有的就表示是常規的方式比對(直接比對)，所以剛剛的範例來說可以用下面的來解釋</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># 比對 $request_method 然後比對後的值放 $bad_method</span><br><span class="line">map $request_method $bad_method &#123;</span><br><span class="line">  # 把 $bad_method 設定成 0</span><br><span class="line">  default 1;</span><br><span class="line">  # 如果 $request_method 是 GET 或 HEAD 或 POST 就把 $bad_method 設成 0</span><br><span class="line">  ~*(get|head|post) 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 比對 $http_user_agent 比對的值放 $bad_bot</span><br><span class="line">map $http_user_agent $bad_bot &#123;</span><br><span class="line">  # $bad_bot 預設是 0</span><br><span class="line">  default 0;</span><br><span class="line">  # user agent 遇到 curl / flashget / java 或者完全是空的就設成 1</span><br><span class="line">  ~*^curl 1;</span><br><span class="line">  ~*^flashget 1;</span><br><span class="line">  ~*^java 1;</span><br><span class="line">  ~^$ 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 比對 ? 後面的參數</span><br><span class="line">map $query_string $bad_query &#123;</span><br><span class="line">  default 0;</span><br><span class="line">  # 如果遇到要 access 檔案的 比方說 a=..%2Fetc%2Fpasswd 之類的 $bad_query 就設成 1</span><br><span class="line">  ~[a-zA-Z0-9_]=(\.\.%2F(%2F)?)+ 1;</span><br><span class="line">  # 這個是 a=%2Fetc%2F 之類的</span><br><span class="line">  ~[a-zA-Z0-9_]=%2F([a-z0-9_.]+%2F(%2F)?)+ 1;</span><br><span class="line">&#125;</span><br><span class="line"># 註: %2F 就是 /</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># 比對 $request_method 然後比對後的值放 $bad_method</div><div class="line">map $request_method $bad_method &#123;</div><div class="line">  # 把 $bad_method 設定成 0</div><div class="line">  default 1;</div><div class="line">  # 如果 $request_method 是 GET 或 HEAD 或 POST 就把 $bad_method 設成 0</div><div class="line">  ~*(get|head|post) 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line"># 比對 $http_user_agent 比對的值放 $bad_bot</div><div class="line">map $http_user_agent $bad_bot &#123;</div><div class="line">  # $bad_bot 預設是 0</div><div class="line">  default 0;</div><div class="line">  # user agent 遇到 curl / flashget / java 或者完全是空的就設成 1</div><div class="line">  ~*^curl 1;</div><div class="line">  ~*^flashget 1;</div><div class="line">  ~*^java 1;</div><div class="line">  ~^$ 1;</div><div class="line">&#125;</div><div class="line"></div><div class="line"># 比對 ? 後面的參數</div><div class="line">map $query_string $bad_query &#123;</div><div class="line">  default 0;</div><div class="line">  # 如果遇到要 access 檔案的 比方說 a=..%2Fetc%2Fpasswd 之類的 $bad_query 就設成 1</div><div class="line">  ~[a-zA-Z0-9_]=(\.\.%2F(%2F)?)+ 1;</div><div class="line">  # 這個是 a=%2Fetc%2F 之類的</div><div class="line">  ~[a-zA-Z0-9_]=%2F([a-z0-9_.]+%2F(%2F)?)+ 1;</div><div class="line">&#125;</div><div class="line"># 註: %2F 就是 /</div></pre></td></tr></table></figure>
 <p>然後我們要在 <code>server</code> 的 context 擺下面的設定才會生效(建議擺在最上面就可以了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if ($bad_method = 1) &#123;</span><br><span class="line">  return 444;</span><br><span class="line">&#125;</span><br><span class="line">if ($bad_bot = 1) &#123;</span><br><span class="line">  return 444;</span><br><span class="line">&#125;</span><br><span class="line">if ($bad_query = 1) &#123;</span><br><span class="line">  return 444;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">if ($bad_method = 1) &#123;</div><div class="line">  return 444;</div><div class="line">&#125;</div><div class="line">if ($bad_bot = 1) &#123;</div><div class="line">  return 444;</div><div class="line">&#125;</div><div class="line">if ($bad_query = 1) &#123;</div><div class="line">  return 444;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>這樣就會把我們不想要的 request 都過濾掉了。</p>
 
         
@@ -304,7 +333,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/" data-id="cimu1r81u002w8b0q7bbk8pfd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/" data-id="civar04dk003unyr53q5k36od" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -372,7 +401,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/nginx---using-map-as-a-simple-web-application-firewall/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/nginx---using-map-as-a-simple-web-application-firewall/">評論</a>
+        <a href="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/">評論</a>
     
 
         </footer>
@@ -417,7 +446,7 @@ ga('send', 'pageview');
 </section>
             
                 <aside id="sidebar">
-    
+   
         
     <div class="widget-wrap">
         <h3 class="widget-title">最新文章</h3>
@@ -433,6 +462,7 @@ ga('send', 'pageview');
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -451,6 +481,7 @@ ga('send', 'pageview');
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -466,9 +497,10 @@ ga('send', 'pageview');
                             <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -484,9 +516,10 @@ ga('send', 'pageview');
                             <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -505,6 +538,7 @@ ga('send', 'pageview');
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -553,7 +587,7 @@ ga('send', 'pageview');
 
 
     
-    <div id="toTop" class="fa fa-chevron-up"></div>
+    <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
         </div>
@@ -568,25 +602,25 @@ ga('send', 'pageview');
         
     
     <script>
-    var disqus_shortname = 'parsefloat';
-    
-    
-    var disqus_url = 'http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/';
+        
+        this.page.identifier = 'nginx---using-map-as-a-simple-web-application-firewall';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'parsefloat' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
-    </script>
+</script>
 
 
 
     
-        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
     
+
 
 
 <!-- Custom Scripts -->

@@ -20,21 +20,22 @@
     
 
     
+        <link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml" />
+    
 
     
         <link rel="icon" href="/favicon.png" />
     
 
-    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
-    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
-        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
     
     
         <script type="text/javascript">
@@ -51,7 +52,10 @@ ga('send', 'pageview');
     
     
 
+
+    
 </head>
+
 <body>
     <div id="container">
         <header id="header">
@@ -178,15 +182,36 @@ ga('send', 'pageview');
             <table>
                 <tr>
                     
-                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
                     
-                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    <td>
+                        <a href="http://github.com/neoesque/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    <td>
+                        <a href="https://www.twitter.com/neoesque" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    <td>
+                        <a href="https://facebook.com/neoesque" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    <td>
+                        <a href="#" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
                     
                 </tr>
             </table>
@@ -201,7 +226,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -210,8 +234,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/notices-about-nginx-rewrite-rule/">
@@ -220,20 +245,22 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/nginx/">nginx</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -241,7 +268,7 @@ ga('send', 'pageview');
 <p>這裡先講一些跟 nginx rewrite 有關的重點。</p>
 <p>首先 nginx 算是分成 <code>location</code> 跟 <code>rewrite</code>，lighttpd 是有 <code>url.rewrite</code>、<code>url.rewrite-repeat</code> 跟 <code>url.redirect</code>，其中 lighttpd 的 <code>url.rewrite</code> 就是 rewrite once 而 <code>url.rewrite-repeat</code> 則是重複一直 rewrite 的意思，這個則對應到 nginx <code>rewrite</code> 後面接的參數，也就是 <code>break</code> 跟 <code>last</code>，<code>break</code> 就是 rewrite 到此為止不要再跑 <code>rewrite</code> 了，但是 <code>last</code> 就會在重頭跑 rewrite 一次，而且 <code>last</code> 也是 <code>rewrite</code> 這個 directive 的預設值，所以如果你的 rewrite 不小心變成 loop (nginx 預設是 rewrite 10 次後就噴 500)請加上 <code>break</code>。至於 lighttpd 的 <code>url.redirect</code> 其實在 nginx 也是透過 <code>rewrite</code> 完成的，主要是加 <code>redirect</code> 跟 <code>permanent</code> 的參數，分別是回 302 跟 301。<code>rewrite</code> 的用法大約如下：</p></p>
             <p class="article-more-link">
-                <a href="/post/notices-about-nginx-rewrite-rule/#more">Read More</a>
+                <a href="/post/notices-about-nginx-rewrite-rule/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -252,7 +279,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/" data-id="cimu1r82k003h8b0qwwlzb0ux" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/" data-id="civar04e7004inyr5z3val3sh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -320,7 +347,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/notices-about-nginx-rewrite-rule/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/notices-about-nginx-rewrite-rule/">評論</a>
+        <a href="http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/notices-about-nginx-rewrite-rule/">評論</a>
     
 
         </footer>
@@ -334,7 +361,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -343,8 +369,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/linux-cgroups/">
@@ -353,20 +380,22 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Gentoo/">Gentoo</a>, <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/SUSE/">SUSE</a>, <a class="tag-link" href="/tags/cgroups/">cgroups</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -374,7 +403,7 @@ ga('send', 'pageview');
 <p>由於是從 Kernel 控制的所以幾乎什麼都可以管理，舉凡 <code>blkio</code> (管理輸入輸出的 block device ，像是硬碟、USB)、<code>cpu</code> (設定忙碌時能使用的 CPU time)、<code>cpuacct</code> (做統計用的)、<code>cpuset</code> (設定由那顆 CPU 執行運算)、<code>device</code> (限制能使用的設備)、<code>memory</code> (限制記憶體用量)、<code>net_cls</code> (似乎跟網路有關)，管理的範圍是以 Group 為主，所謂的 Group 可以是同一個使用者、同一個群組、同樣的 Process。</p>
 <p>最簡單使用 <code>cgroups</code> 的方式就是裝 <code>libcgroup</code> 來管理</p>
             <p class="article-more-link">
-                <a href="/post/linux-cgroups/#more">Read More</a>
+                <a href="/post/linux-cgroups/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -385,7 +414,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/linux-cgroups/" data-id="cimu1r81c002c8b0qc29iiynd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/linux-cgroups/" data-id="civar04d5003dnyr5hjrp2ehg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -453,7 +482,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/linux-cgroups/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/linux-cgroups/">評論</a>
+        <a href="http://blog.littlero.se/post/linux-cgroups/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/linux-cgroups/">評論</a>
     
 
         </footer>
@@ -467,7 +496,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -476,8 +504,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/clear-memcachedb-log/">
@@ -486,20 +515,22 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/memcachedb/">memcachedb</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -519,7 +550,7 @@ quit
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/clear-memcachedb-log/" data-id="cimu1r802000w8b0qljzlrcee" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/clear-memcachedb-log/" data-id="civar04bw001znyr5urbbykz1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -587,7 +618,7 @@ quit
 
             
     
-        <a href="/post/clear-memcachedb-log/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/clear-memcachedb-log/">評論</a>
+        <a href="http://blog.littlero.se/post/clear-memcachedb-log/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/clear-memcachedb-log/">評論</a>
     
 
         </footer>
@@ -601,7 +632,6 @@ quit
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -610,8 +640,9 @@ quit
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/linux-tuning-for-write-heavy-system/">
@@ -620,27 +651,29 @@ quit
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/squid/">squid</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             <p><p>在我們使用 <a href="http://www.squid-cache.org">squid</a> 的環境裡，常常遇到一個瓶頸，就是面對高 I/O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下(下圖爲 cacti 畫的日圖)：</p>
 <img src="https://lh5.googleusercontent.com/-WhfEogOVTK8/UJkTvM-bZXI/AAAAAAAAEZE/QRegjwaXFC8/s566/graph_image.png"></p>
             <p class="article-more-link">
-                <a href="/post/linux-tuning-for-write-heavy-system/#more">Read More</a>
+                <a href="/post/linux-tuning-for-write-heavy-system/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -651,7 +684,7 @@ quit
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/linux-tuning-for-write-heavy-system/" data-id="cimu1r81f002g8b0qhd34eny3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/linux-tuning-for-write-heavy-system/" data-id="civar04d7003gnyr5v6o6ksdp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -719,7 +752,7 @@ quit
 
             
     
-        <a href="/post/linux-tuning-for-write-heavy-system/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/linux-tuning-for-write-heavy-system/">評論</a>
+        <a href="http://blog.littlero.se/post/linux-tuning-for-write-heavy-system/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/linux-tuning-for-write-heavy-system/">評論</a>
     
 
         </footer>
@@ -733,7 +766,6 @@ quit
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -742,8 +774,9 @@ quit
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/colonoscopy/">
@@ -752,26 +785,28 @@ quit
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/健康/">健康</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Healthy/">Healthy</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             <p><p>每年九月一到就是年度的健康檢查，大概大家都是一片哀嚎 XD 不過其實也還好似乎年紀越大紅字越多好像是正常的，其實每年也沒什麼要注意的，我都只注意 GOT, GPT 而已，其他的向來都不會紅字，不過不幸的今年健康檢查竟然紅字出現在一個不可思議的地方…糞便潛血反應，當下的表情已經不是「囧」可以表現的了。既來之則安之，當下想的就是乖乖照大腸鏡，準備被「月工」吧 = =</p></p>
             <p class="article-more-link">
-                <a href="/post/colonoscopy/#more">Read More</a>
+                <a href="/post/colonoscopy/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -782,7 +817,7 @@ quit
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/colonoscopy/" data-id="cimu1r80a00138b0qt4qjzsgd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/colonoscopy/" data-id="civar04c5002anyr5ktl6jau9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -850,7 +885,7 @@ quit
 
             
     
-        <a href="/post/colonoscopy/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/colonoscopy/">評論</a>
+        <a href="http://blog.littlero.se/post/colonoscopy/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/colonoscopy/">評論</a>
     
 
         </footer>
@@ -864,7 +899,6 @@ quit
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -873,8 +907,9 @@ quit
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/popclip-upgrading-to-mountain-lion/">
@@ -883,26 +918,28 @@ quit
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Mac/">Mac</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             <p><p>最近把 MacBook Pro 從 OS X 10.7 (aka. Lion) 升級成 OS X 10.8 (aka. Mountain Lion) 之後，大部分的軟體都還蠻無痛升級的，其中 PopClip 在升級之後就開始秀逗秀逗，在 Safari 裡面有時 Work 有時不 Work (就是不太靈敏-偶爾會出現彈出選項，偶爾又沒有)，官方有一個解決方法是把原本的設定刪除掉讓她重新產生即可。步驟如下</p></p>
             <p class="article-more-link">
-                <a href="/post/popclip-upgrading-to-mountain-lion/#more">Read More</a>
+                <a href="/post/popclip-upgrading-to-mountain-lion/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -913,7 +950,7 @@ quit
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/popclip-upgrading-to-mountain-lion/" data-id="cimu1r82y00428b0qhmf91u7x" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/popclip-upgrading-to-mountain-lion/" data-id="civar04ej004wnyr5i9z1kpf3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -981,7 +1018,7 @@ quit
 
             
     
-        <a href="/post/popclip-upgrading-to-mountain-lion/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/popclip-upgrading-to-mountain-lion/">評論</a>
+        <a href="http://blog.littlero.se/post/popclip-upgrading-to-mountain-lion/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/popclip-upgrading-to-mountain-lion/">評論</a>
     
 
         </footer>
@@ -995,7 +1032,6 @@ quit
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -1004,8 +1040,9 @@ quit
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/nginx-cache-last-step-of-optimization/">
@@ -1014,20 +1051,22 @@ quit
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/nginx/">nginx</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -1037,7 +1076,7 @@ quit
 <pre><code>fastcgi_cache_path /dev/shm/cache/ levels=1:1 keys_zone=PHP:8m inactive=60m max_size=256m;
 </code></pre><p>然後在 <code>location ~ \.php$</code> 的 section 裡面加入<br></p>
             <p class="article-more-link">
-                <a href="/post/nginx-cache-last-step-of-optimization/#more">Read More</a>
+                <a href="/post/nginx-cache-last-step-of-optimization/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -1048,7 +1087,7 @@ quit
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/" data-id="cimu1r81s002t8b0qj5efxaly" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/" data-id="civar04dn003xnyr549aot7z6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1116,7 +1155,7 @@ quit
 
             
     
-        <a href="/post/nginx-cache-last-step-of-optimization/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/nginx-cache-last-step-of-optimization/">評論</a>
+        <a href="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/">評論</a>
     
 
         </footer>
@@ -1130,7 +1169,6 @@ quit
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -1139,8 +1177,9 @@ quit
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/squid-nginx-http1-dot-1-gzip/">
@@ -1149,20 +1188,22 @@ quit
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/nginx/">nginx</a>, <a class="tag-link" href="/tags/squid/">squid</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -1179,7 +1220,7 @@ gzip_vary on;
 broken_vary_encoding allow all
 </code></pre><p>這是因為啟用 gzip 後，HTTP Header 也會加入 <code>Vary:Accept-Encoding</code>，加了上面的設定才可以讓 squid 保存 gzip 的內容，不會很自作聰明的解壓縮在傳給 client 端，不過網路另有一說是因為 squid 不是完整的支援 HTTP1.1 的 protocol，所以在面對 gzip HTTP1.0 跟 HTTP1.1 的版本的時候就會有問題，不過我有在 nginx 加了 <code>gzip_http_version 1.0</code> 了還是一樣有問題，加了那兩行才 ok。</p></p>
             <p class="article-more-link">
-                <a href="/post/squid-nginx-http1-dot-1-gzip/#more">Read More</a>
+                <a href="/post/squid-nginx-http1-dot-1-gzip/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -1190,7 +1231,7 @@ broken_vary_encoding allow all
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/squid-nginx-http1-dot-1-gzip/" data-id="cimu1r839004g8b0qjy14fly3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/squid-nginx-http1-dot-1-gzip/" data-id="civar04et005dnyr5bkxmfyju" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1258,7 +1299,7 @@ broken_vary_encoding allow all
 
             
     
-        <a href="/post/squid-nginx-http1-dot-1-gzip/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/squid-nginx-http1-dot-1-gzip/">評論</a>
+        <a href="http://blog.littlero.se/post/squid-nginx-http1-dot-1-gzip/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/squid-nginx-http1-dot-1-gzip/">評論</a>
     
 
         </footer>
@@ -1272,7 +1313,6 @@ broken_vary_encoding allow all
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -1281,8 +1321,9 @@ broken_vary_encoding allow all
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/ifconfig-dot-me-the-web-ifconfig/">
@@ -1291,20 +1332,22 @@ broken_vary_encoding allow all
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Linux/">Linux</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -1312,9 +1355,9 @@ broken_vary_encoding allow all
             <p>前幾天公司同事在問我們的機器出去的 public ip 是多少，突然發現原來大家好像都不知道有一個方便的網站可以查，對於會 Unix 的來說網址是在好記不過了，就是跟 Unix 看 ip 的 <code>ifconfig</code> 同樣的名稱 <em><a href="http://ifconfig.me" target="_blank" rel="external">http://ifconfig.me</a></em></p>
 <p><a href="http://ifconfig.me" target="_blank" rel="external">ifconfig.me</a> 可以取得你現在 ip 資訊的網站，不過他跟一般顯示 ip 的網站不同的是他功能比較強！</p>
 <p>除了會顯示一些基本的資訊</p>
-<p><img src="https://lh3.googleusercontent.com/-5BSm9ZrTOco/T-lyYRUgngI/AAAAAAAAEHM/eG84iuti-UI/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-06-26%2520%25E4%25B8%258B%25E5%258D%25884.25.56.png" alt=""></p>
+<img src="https://lh3.googleusercontent.com/-5BSm9ZrTOco/T-lyYRUgngI/AAAAAAAAEHM/eG84iuti-UI/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-06-26%2520%25E4%25B8%258B%25E5%258D%25884.25.56.png" width="800" height="600">
 <p>他還支援了不同的網址只顯示需要的部分，比方說我們可以在 Terminal 打 <code>curl ifconfig.me/ip</code> 就會得到 <code>61.219.37.20</code> ，又或者 <code>curl ifconfig.me/port</code> 就可以知道本地端出去的 port <code>51081</code>，如果有經過 Proxy 的話 <code>curl ifconfig.me/forwarded</code> 還會顯示 <code>61.219.66.125, 172.30.4.166, 61.219.37.20</code></p>
-<p>甚至更有趣的是他也支援 XML / json ，網址分別是 <em><a href="http://ifconfig.me/all.xml" target="_blank" rel="external">http://ifconfig.me/all.xml</a></em> 與 <em><a href="http://ifconfig.me/all.json" target="_blank" rel="external">http://ifconfig.me/all.json</a></em> 詳細的內容可以看 <a href="http://ifconfig.me" target="_blank" rel="external">ifconfig.me</a></p>
+<p>甚至更有趣的是他也支援 XML / json ，網址分別是 <em><a href="http://ifconfig.me/all.xml" target="_blank" rel="external">http://ifconfig.me/all.xml</a></em> 與 <em><a href="http://ifconfig.me/all.json" target="_blank" rel="external">http://ifconfig.me/all.json</a></em> 詳細的內容可以看 [ifconfig.me](<a href="http://ifconfig.me" target="_blank" rel="external">http://ifconfig.me</a> %}</p>
 
         
         </div>
@@ -1325,7 +1368,7 @@ broken_vary_encoding allow all
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/ifconfig-dot-me-the-web-ifconfig/" data-id="cimu1r812001y8b0qc8507cx7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/ifconfig-dot-me-the-web-ifconfig/" data-id="civar04cv0030nyr5ipgclsa7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1393,7 +1436,7 @@ broken_vary_encoding allow all
 
             
     
-        <a href="/post/ifconfig-dot-me-the-web-ifconfig/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/ifconfig-dot-me-the-web-ifconfig/">評論</a>
+        <a href="http://blog.littlero.se/post/ifconfig-dot-me-the-web-ifconfig/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/ifconfig-dot-me-the-web-ifconfig/">評論</a>
     
 
         </footer>
@@ -1407,7 +1450,6 @@ broken_vary_encoding allow all
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -1416,8 +1458,9 @@ broken_vary_encoding allow all
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/fabric-machine-manager/">
@@ -1426,27 +1469,29 @@ broken_vary_encoding allow all
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Linux/">Linux</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             <p><p>Python <a href="http://docs.fabfile.org">Fabirc</a> 是一個類似 Ruby capistrano 的自動化部署跟系統管理工具，安裝指令是 <code>pip install -U fabric</code> 或者 <code>easy_install fabric</code> 都可以。fabric 的使用也非常的簡單，只要寫好一個檔名是 <em>fabfile.py</em> 的檔案，在同一個資料夾底下打 <code>fab --list</code> 就可以看到有哪些參數可以下(就是 fabfile.py 裡面的 function)。</p>
 <p>以下是一個簡單的範例 template</p></p>
             <p class="article-more-link">
-                <a href="/post/fabric-machine-manager/#more">Read More</a>
+                <a href="/post/fabric-machine-manager/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -1457,7 +1502,7 @@ broken_vary_encoding allow all
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/fabric-machine-manager/" data-id="cimu1r80y001v8b0q58a180p1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/fabric-machine-manager/" data-id="civar04cg002mnyr504smv60r" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1525,7 +1570,7 @@ broken_vary_encoding allow all
 
             
     
-        <a href="/post/fabric-machine-manager/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/fabric-machine-manager/">評論</a>
+        <a href="http://blog.littlero.se/post/fabric-machine-manager/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/fabric-machine-manager/">評論</a>
     
 
         </footer>
@@ -1541,7 +1586,7 @@ broken_vary_encoding allow all
 </section>
             
                 <aside id="sidebar">
-    
+   
         
     <div class="widget-wrap">
         <h3 class="widget-title">最新文章</h3>
@@ -1557,6 +1602,7 @@ broken_vary_encoding allow all
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -1575,6 +1621,7 @@ broken_vary_encoding allow all
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -1590,9 +1637,10 @@ broken_vary_encoding allow all
                             <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -1608,9 +1656,10 @@ broken_vary_encoding allow all
                             <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -1629,6 +1678,7 @@ broken_vary_encoding allow all
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -1677,7 +1727,7 @@ broken_vary_encoding allow all
 
 
     
-    <div id="toTop" class="fa fa-chevron-up"></div>
+    <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
         </div>
@@ -1692,23 +1742,23 @@ broken_vary_encoding allow all
         
     
     <script>
-    var disqus_shortname = 'parsefloat';
-    
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    var disqus_config = function () {
+        
+        this.page.identifier = 'undefined';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'parsefloat' + '.disqus.com/count.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
-    </script>
+</script>
 
 
 
     
-        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
     
+
 
 
 <!-- Custom Scripts -->

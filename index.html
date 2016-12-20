@@ -20,21 +20,22 @@
     
 
     
+        <link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml" />
+    
 
     
         <link rel="icon" href="/favicon.png" />
     
 
-    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
-    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
-        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
     
     
         <script type="text/javascript">
@@ -51,7 +52,10 @@ ga('send', 'pageview');
     
     
 
+
+    
 </head>
+
 <body>
     <div id="container">
         <header id="header">
@@ -178,15 +182,36 @@ ga('send', 'pageview');
             <table>
                 <tr>
                     
-                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
                     
-                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    <td>
+                        <a href="http://github.com/neoesque/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    <td>
+                        <a href="https://www.twitter.com/neoesque" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    <td>
+                        <a href="https://facebook.com/neoesque" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    <td>
+                        <a href="#" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
                     
                 </tr>
             </table>
@@ -201,7 +226,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -210,8 +234,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/install-redmine-with-postgresql-nginx-rbenv/">
@@ -220,26 +245,28 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Linux/">Linux</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             <p><p><a href="http://www.redmine.org/">Redmine</a> 是一套專案管理軟體，我們單位之前都用 <a href="http://trac.edgewall.org/">Trac</a> 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 postgresql + nginx 的組合。至於 Ruby 因為 Ubuntu 14.04 比較舊，所以使用 rbenv 搭建 Ruby 2.2 的環境。</p></p>
             <p class="article-more-link">
-                <a href="/post/install-redmine-with-postgresql-nginx-rbenv/#more">Read More</a>
+                <a href="/post/install-redmine-with-postgresql-nginx-rbenv/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -250,7 +277,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/" data-id="cimu1r81500218b0qy1shbx48" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/" data-id="civar04d2003anyr5o35m7la7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -318,7 +345,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/install-redmine-with-postgresql-nginx-rbenv/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/install-redmine-with-postgresql-nginx-rbenv/">評論</a>
+        <a href="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/install-redmine-with-postgresql-nginx-rbenv/">評論</a>
     
 
         </footer>
@@ -332,7 +359,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -341,8 +367,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/make-tea-in-investigation-bureau/">
@@ -351,21 +378,23 @@ ga('send', 'pageview');
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/喝茶/">喝茶</a>, <a class="tag-link" href="/tags/調查局/">調查局</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             <p><p>啊，沒想到這輩子有機會被馬英九政府請去喝茶，一切都是從某個禮拜四早上說起，本來當天要去臺中出差，結果當天還在公司集合時，大約九點就收到一通電話，接起來後對方表明是臺北市調查局的盧先生，希望請我去 <del>泡茶</del> 啊！不是，是做個說明，要把通知書傳真給我，因為我趕着出發，我說你要現在傳真嗎，因為我現在不方便接傳真，等等要到臺中出差，可以先跟我說案由是什麼嗎，對方就建議我把出差取消，而且說我一定要到現場才方便跟我說案子，我說如果今天就一定要過去那幹嘛一定要傳真給我，我就說那不用了，我直接過去就好，問了對方地點(臺北市基隆路上的臺北市調查局)跟聯絡方式後跟他說大約一小時後到。</p></p>
             <p class="article-more-link">
-                <a href="/post/make-tea-in-investigation-bureau/#more">Read More</a>
+                <a href="/post/make-tea-in-investigation-bureau/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -376,7 +405,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/make-tea-in-investigation-bureau/" data-id="cimu1r81p002n8b0qpy40gdse" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/make-tea-in-investigation-bureau/" data-id="civar04dd003nnyr5384jcdfc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -444,7 +473,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/make-tea-in-investigation-bureau/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/make-tea-in-investigation-bureau/">評論</a>
+        <a href="http://blog.littlero.se/post/make-tea-in-investigation-bureau/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/make-tea-in-investigation-bureau/">評論</a>
     
 
         </footer>
@@ -458,7 +487,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -467,8 +495,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/Trip-to-Japan-Tokyo-Hakone/">
@@ -477,27 +506,29 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/遊記/">遊記</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/日本/">日本</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             <p><p>第一次到日本玩，因為是跟高中死黨和他女友一起去，他很熟日本，所以我們一行四人(加我妹)就選擇自助，這次旅行的地點主要在東京 &amp; 箱根，一共六天五夜，是大多數到日本玩的旅客都會走的路線。時間是 4/1 ~ 4/6，也就是清明節假期，請兩天玩六天。</p>
-<p><img src="https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg" alt="新宿御苑櫻花美景"></p></p>
+<img src="https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg" width="800" height="600" title="新宿御苑櫻花美景"></p>
             <p class="article-more-link">
-                <a href="/post/Trip-to-Japan-Tokyo-Hakone/#more">Read More</a>
+                <a href="/post/Trip-to-Japan-Tokyo-Hakone/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -508,7 +539,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/Trip-to-Japan-Tokyo-Hakone/" data-id="cimu1r7ze00098b0qcy0e3y88" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/Trip-to-Japan-Tokyo-Hakone/" data-id="civar04al000qnyr53fxixmbb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -576,7 +607,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/Trip-to-Japan-Tokyo-Hakone/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/Trip-to-Japan-Tokyo-Hakone/">評論</a>
+        <a href="http://blog.littlero.se/post/Trip-to-Japan-Tokyo-Hakone/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/Trip-to-Japan-Tokyo-Hakone/">評論</a>
     
 
         </footer>
@@ -590,7 +621,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -599,8 +629,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/">
@@ -609,28 +640,30 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/遊記/">遊記</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/美國/">美國</a>, <a class="tag-link" href="/tags/迪士尼/">迪士尼</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             <p><p>續<a href="/post/USwest-canyon/">上篇</a>，延續美西行之後，大家各自散會後，我就一個人獨自踏上往東岸的旅程，因為我要參加的 <a href="http://susecon.com/">SUSEcon 14</a> 是在奧蘭多舉辦。</p>
 <h2 id="洛杉磯-奧蘭多"><a href="#洛杉磯-奧蘭多" class="headerlink" title="洛杉磯-奧蘭多"></a>洛杉磯-奧蘭多</h2><p>因為是美國本土的飛機，所以在不是在洛杉磯機場的國際航廈，我是坐<a href="https://zt.delta.com/">達美航空</a>，我覺得達美航空網站還不錯有繁體中文，而且他的 App 做得也很好，還有行李的運輸進度，達美在洛杉磯是第五航廈，所以跟同伴分開後我就從國際航廈走到第五航廈(中間跨了第四航廈，不過走路也不到十分鐘而已還蠻近的)，首先是要 check-in，結果走到第五航廈有點嚇到，因為沒有櫃檯是 check-in 的，只有量行李重量託運的櫃檯 = =”，繞了一下發現原來都是自助的(後來發現達美有開櫃檯 check-in，大概是中午休息時間?!)，不過這樣也好，自助就不會被問一堆英文了。</p>
-<p><img src="https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg" alt="達美 kiosk"></p></p>
+<img src="https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg" width="800" height="600" title="達美 kiosk"></p>
             <p class="article-more-link">
-                <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/#more">Read More</a>
+                <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -641,7 +674,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/Walt-Disney-World-Resort-in-Orlando-Florida/" data-id="cimu1r7zn000g8b0q9p98zkqc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/Walt-Disney-World-Resort-in-Orlando-Florida/" data-id="civar04az0014nyr5g35e6mg2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -709,7 +742,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/Walt-Disney-World-Resort-in-Orlando-Florida/">評論</a>
+        <a href="http://blog.littlero.se/post/Walt-Disney-World-Resort-in-Orlando-Florida/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/Walt-Disney-World-Resort-in-Orlando-Florida/">評論</a>
     
 
         </footer>
@@ -723,7 +756,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -732,8 +764,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/K760-Linux-fn-多媒體鍵切換/">
@@ -742,27 +775,29 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/3C/">3C</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Linux/">Linux</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             <p><p>羅技 <a href="http://support.logitech.com/product/wireless-solar-keyboard-k760-for-mac">K760</a> 鍵盤是一個一對三的藍芽鍵盤，而且是太陽能的，免換電池，使用上還蠻方便的，可是原生是適用 Mac / iOS 裝置，小弟公司電腦裝的是 Linux，其實拿來用也不錯，不過就是有個缺點就是羅技沒有針對 Linux 出鍵盤管理程式，所以沒辦法改掉多媒體鍵，在 Linux 很少用到多媒體鍵，反而是 function key 比較常用。</p>
 <p>所以在網路先找到了 <a href="http://www.trial-n-error.de/posts/2012/12/31/logitech-k810-keyboard-configurator/">K810 on Linux 的解法</a> ，這個人有 OpenSource 他的程式碼，並且搭配了 udev 的修改，這樣電腦藍芽連接到鍵盤就會自動設定了，但是 K760 的 KeyCode 跟 K810 不一樣，所以又找了一下發現 <a href="http://askubuntu.com/questions/326959/how-can-i-make-the-function-keys-the-default-on-a-logitech-k760-bluetooh-keyboar">這篇</a> 有人抓出 KeyCode 了。</p></p>
             <p class="article-more-link">
-                <a href="/post/K760-Linux-fn-多媒體鍵切換/#more">Read More</a>
+                <a href="/post/K760-Linux-fn-多媒體鍵切換/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -773,7 +808,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/K760-Linux-fn-多媒體鍵切換/" data-id="cimu1r7yv00028b0queacpky2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/K760-Linux-fn-多媒體鍵切換/" data-id="civar04at000wnyr5y3t4h0v8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -841,7 +876,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/K760-Linux-fn-多媒體鍵切換/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/K760-Linux-fn-多媒體鍵切換/">評論</a>
+        <a href="http://blog.littlero.se/post/K760-Linux-fn-多媒體鍵切換/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/K760-Linux-fn-多媒體鍵切換/">評論</a>
     
 
         </footer>
@@ -855,7 +890,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -864,8 +898,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/ingress-email-attack-notify-to-Pushover/">
@@ -874,20 +909,22 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/遊戲/">遊戲</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/ingress/">ingress</a>, <a class="tag-link" href="/tags/pushover/">pushover</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -896,7 +933,7 @@ ga('send', 'pageview');
 </a> 不過類似這種的有個缺點就是 IFTTT 是類似 polling 的，所以他是固定時間去問一次 Gmail，有時候我收到通知的時候都已經半個小時後，點都被打掉了 XD，搞屁，實在不夠及時，昨天在研究 Pushover 時突然發現他有 <a href="http://updates.pushover.net/post/24408806716/e-mail-to-pushover-gateway">E-mail gateway</a>，配合 Gmail 建立 Filter 時就可以 Forward E-mail，根本就是及時的 Push。</p>
 <p>實驗了一下發現效果不錯，至少比原本的 IFTTT 及時太多了，雖然還是有腳會被打掉之類的，不過如果對方真的要打其實也阻止不了，通常八炮連發根本擋不住，但是還是具有一些拖延對方效果就是了，而且也可以當成整理特殊點的攻擊 Log。</p></p>
             <p class="article-more-link">
-                <a href="/post/ingress-email-attack-notify-to-Pushover/#more">Read More</a>
+                <a href="/post/ingress-email-attack-notify-to-Pushover/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -907,7 +944,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/ingress-email-attack-notify-to-Pushover/" data-id="cimu1r81a00288b0q3qm5wtaq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/ingress-email-attack-notify-to-Pushover/" data-id="civar04cx0033nyr5rkfvomd2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -975,7 +1012,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/ingress-email-attack-notify-to-Pushover/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/ingress-email-attack-notify-to-Pushover/">評論</a>
+        <a href="http://blog.littlero.se/post/ingress-email-attack-notify-to-Pushover/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/ingress-email-attack-notify-to-Pushover/">評論</a>
     
 
         </footer>
@@ -989,7 +1026,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -998,8 +1034,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/USwest-canyon/">
@@ -1008,20 +1045,22 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/遊記/">遊記</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/美國/">美國</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -1029,7 +1068,7 @@ ga('send', 'pageview');
 <p>行前準備似乎差不多就網路整理的那樣，反正記住最重要的只有護照跟信用卡就可以出國了 XD，不過因為這次是峽谷行我多準備了一些藥品跟撒隆巴斯，常備藥的部份我是去<a href="https://www.google.com.tw/maps/place/%E6%9E%97%E9%9D%92%E7%A9%80%E5%AE%B6%E5%BA%AD%E9%86%AB%E5%AD%B8%E7%A7%91%E8%A8%BA%E6%89%80/@25.044966,121.545997,15z/data=!4m2!3m1!1s0x0:0xddd7e821aefd024e?sa=X&amp;ei=G9ezVKf8OaW_mwWKgIL4BQ&amp;ved=0CIkBEPwSMAo">林青榖家醫診所</a>拿，一包 500 的樣子裡面有十種藥，也可以順便跟他拿調整時差的藥(估計是安眠藥之類的)，他會說一次吃半顆就好，應該還算蠻有效果的，至少我到美國的前兩天跟回來台灣後都有吃還算調整的不錯，而且同學打呼也都聽不到 XD</p>
 <img src="https://lh4.googleusercontent.com/-LMo8qVzCJ2k/VHaMEH8elSI/AAAAAAAAM8E/32cIHHBmwjk/w640-no/PB071889.jpg" title="林青榖診所的常備藥 十種常備藥"></p>
             <p class="article-more-link">
-                <a href="/post/USwest-canyon/#more">Read More</a>
+                <a href="/post/USwest-canyon/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -1040,7 +1079,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/USwest-canyon/" data-id="cimu1r7zk000e8b0qps7gcly3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/USwest-canyon/" data-id="civar04av000znyr5gmmk35x1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1108,7 +1147,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/USwest-canyon/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/USwest-canyon/">評論</a>
+        <a href="http://blog.littlero.se/post/USwest-canyon/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/USwest-canyon/">評論</a>
     
 
         </footer>
@@ -1122,7 +1161,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -1131,8 +1169,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/NCLP-11-考試/">
@@ -1141,27 +1180,29 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Linux/">Linux</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             <p><p>今年十一月中因緣際會去奧蘭多參加了 <a href="http://susecon.com">SUSEcon14</a>，會後有提供 NCLA、NCLP 11&amp;12 的認證。因為小弟已經有 NCLA (考過 LPIC-1 就會送了)，所以本次想說順便拿個 NCLP 的認證。</p>
 <p>考試前就很不順，我考試的場次是 11:00 ~ 2:00，大約 10:40 就去報到，等啊等，等到 10:55 突然考試人員出來考場說，因為他們的資料中心發生網路問題，現在連不上考試系統，當下一囧，想說不知道要等多久…我的飛機不等人啊，幸好後來在 11:20 左右排除了。</p></p>
             <p class="article-more-link">
-                <a href="/post/NCLP-11-考試/#more">Read More</a>
+                <a href="/post/NCLP-11-考試/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -1172,7 +1213,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/NCLP-11-考試/" data-id="cimu1r7zc00088b0qu26009da" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/NCLP-11-考試/" data-id="civar04ag000nnyr5unuh1lkw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1240,7 +1281,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/NCLP-11-考試/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/NCLP-11-考試/">評論</a>
+        <a href="http://blog.littlero.se/post/NCLP-11-考試/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/NCLP-11-考試/">評論</a>
     
 
         </footer>
@@ -1254,7 +1295,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -1263,8 +1303,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/build-static-link-nginx/">
@@ -1273,20 +1314,22 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/nginx/">nginx</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -1305,7 +1348,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/build-static-link-nginx/" data-id="cimu1r7zr000k8b0q5ybyr1ko" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/build-static-link-nginx/" data-id="civar04be001fnyr5w1g5yzj6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1373,7 +1416,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/build-static-link-nginx/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/build-static-link-nginx/">評論</a>
+        <a href="http://blog.littlero.se/post/build-static-link-nginx/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/build-static-link-nginx/">評論</a>
     
 
         </footer>
@@ -1387,7 +1430,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -1396,8 +1438,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/conky/">
@@ -1406,20 +1449,22 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Linux/">Linux</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -1430,7 +1475,7 @@ ga('send', 'pageview');
 <p>參考網路設計師 <a href="http://satya164.deviantart.com/art/Conky-Google-Now-366545753">Conky Google Now</a> 這個主題</p>
 <p>小弟合併了官網其他人貢獻的設定，稍微修改了一下</p></p>
             <p class="article-more-link">
-                <a href="/post/conky/#more">Read More</a>
+                <a href="/post/conky/#more">繼續閱讀</a>
             </p>
         
         </div>
@@ -1441,7 +1486,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/conky/" data-id="cimu1r80h001e8b0qwueghtw1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/conky/" data-id="civar04c7002enyr5ar3xxwjx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1509,7 +1554,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/conky/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/conky/">評論</a>
+        <a href="http://blog.littlero.se/post/conky/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/conky/">評論</a>
     
 
         </footer>
@@ -1525,7 +1570,7 @@ ga('send', 'pageview');
 </section>
             
                 <aside id="sidebar">
-    
+   
         
     <div class="widget-wrap">
         <h3 class="widget-title">最新文章</h3>
@@ -1541,6 +1586,7 @@ ga('send', 'pageview');
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -1559,6 +1605,7 @@ ga('send', 'pageview');
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -1574,9 +1621,10 @@ ga('send', 'pageview');
                             <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -1592,9 +1640,10 @@ ga('send', 'pageview');
                             <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -1613,6 +1662,7 @@ ga('send', 'pageview');
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -1661,7 +1711,7 @@ ga('send', 'pageview');
 
 
     
-    <div id="toTop" class="fa fa-chevron-up"></div>
+    <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
         </div>
@@ -1676,23 +1726,23 @@ ga('send', 'pageview');
         
     
     <script>
-    var disqus_shortname = 'parsefloat';
-    
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    var disqus_config = function () {
+        
+        this.page.identifier = 'undefined';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'parsefloat' + '.disqus.com/count.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
-    </script>
+</script>
 
 
 
     
-        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
     
+
 
 
 <!-- Custom Scripts -->

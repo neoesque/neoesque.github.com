@@ -1,0 +1,2023 @@
+<!doctype html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+    <link rel="canonical" href="../index.html" >
+    <title>Saltstack 使用心得&amp;簡介 - Making Life Better</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
+    <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    
+    
+    
+    
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "BlogPosting",
+			"headline": "Saltstack 使用心得&amp;簡介",
+			
+			"description": "&lt;p&gt;身為一個系統管理者，當你管理的機器數量只有十來台時，你可以很輕鬆的一台一台進去管理、設定機器，但是隨著服務開始搞大了，機器數量變成數十台時，也許會需要一些工具來輔助管理，之前我都是用 &lt;a href=&#34;http://docs.fabfile.org/en/1.6/&#34;&gt;Fabric&lt;/a&gt; 來幫忙管理，不過 Fabric 有個缺點是他只是一個下指令的管理工具，當然我之前都硬幹，用 &lt;a href=&#34;http://docs.fabfile.org/en/1.6/api/core/operations.html?highlight=put#fabric.operations.put&#34;&gt;put&lt;/a&gt; 硬把他當成管理 configuration 的工具，上傳完了再下一個 reload 的指令，當然這樣也不是不行，不過似乎真的是一個很土炮的方法，但是隨著機器的數量越來越大，已經到達幾百臺的時候，就算是用 Fabric + &lt;a href=&#34;http://docs.fabfile.org/en/1.6/usage/env.html#env-parallel&#34;&gt;parallel&lt;/a&gt; 其實還是覺得很怪，一來是雖然他已經平行處理了，但是他的 output 卻變成無序的，也就是當受管理的機器有 output 他就直接顯示在管理端上，有點惱人就是，另外一個是 Fabric 需要自己寫 Group 管理，要自己定義東西，而不能透過簡單的 query 來對想要的機器下指令就好，所以最近開始想要轉型使用 configuration management tool，常見的選擇是 &lt;a href=&#34;https://puppetlabs.com/&#34;&gt;puppet&lt;/a&gt;、&lt;a href=&#34;http://www.opscode.com/chef/&#34;&gt;chef&lt;/a&gt;、&lt;a href=&#34;http://cfengine.com/&#34;&gt;CFEngine&lt;/a&gt; 之類的，不過最近有個當紅的 OpenSource 軟體出現了，那就是 &lt;a href=&#34;http://docs.saltstack.com/&#34;&gt;SaltStack&lt;/a&gt;。&lt;/p&gt;",
+			
+			"mainEntityOfPage":{
+			    "@type":"WebPage",
+			    "@id":"http://blog.littlero.se/post/nice-to-meet-saltstack/"
+			},
+			"datePublished": "2013-06-30T03:17:28.000Z",
+			"dateModified": "2015-03-14T05:41:33.000Z",
+			
+			"image": {
+				"@type": "ImageObject",
+				"url": "/amp-dist/sample/sample-substituteTitleImage.png",
+				"width" : "1024",
+				"height" : "800"
+			},
+			
+			"author": {
+			    "@type": "Person",
+			    "name": "neoesque"
+			},
+			"publisher": {
+			    "@type": "Organization",
+			    "name": "neoesque"
+			    
+			    ,
+			    "logo": {
+			      "@type": "ImageObject",
+			      "url": "http://blog.littlero.se/amp-dist/sample/logo.png",
+			      "width": 500,
+			      "height": 60
+			    }
+			    
+			}
+		}
+	</script>
+	
+	<style amp-custom>
+		
+#header:after,
+.nav ul:after {
+    content: "."
+}
+.entry-content ul,
+ol,
+ul {
+    list-style: none
+}
+.article-nav-link-wrap,
+code {
+    text-shadow: 0 1px #fff
+}
+#page-nav a,
+.article-nav-link-wrap,
+a {
+    text-decoration: none
+}
+#page-nav,
+.article-nav-caption,
+.nav {
+    text-transform: uppercase
+}
+#footer:after,
+#header:after,
+.clearfix:after,
+.nav ul:after {
+    clear: both;
+    visibility: hidden
+}
+a,
+abbr,
+acronym,
+address,
+applet,
+big,
+blockquote,
+body,
+caption,
+cite,
+code,
+dd,
+del,
+dfn,
+div,
+dl,
+dt,
+em,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+object,
+ol,
+p,
+pre,
+q,
+s,
+samp,
+small,
+span,
+strike,
+strong,
+sub,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr,
+tt,
+ul,
+var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    vertical-align: baseline
+}
+caption,
+table,
+td,
+th {
+    vertical-align: middle
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0
+}
+caption,
+td,
+th {
+    text-align: left;
+    font-weight: 400
+}
+a img {
+    border: none
+}
+button,
+input {
+    margin: 0;
+    padding: 0
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+.boxCaption p,
+code,
+pre {
+    -webkit-border-radius: 5px
+}
+body {
+    line-height: 1;
+    background: #fff;
+    color: #4f5759;
+    font: 105% Meiryo, Osaka, 'MS PGothic', sans-serif;
+    text-rendering: optimizelegibility;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+code,
+figure.highlight .code,
+pre {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+a {
+    -webkit-transition: .7s;
+    -moz-transition: .7s;
+    -o-transition: .7s;
+    -ms-transition: .7s;
+    transition: .7s
+}
+a:hover {
+    transition: .3s;
+    color: #600c21
+}
+b,
+strong {
+    font-weight: 700
+}
+em {
+    font-style: italic
+}
+del {
+    text-decoration: line-through
+}
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative
+}
+:root sub,
+:root sup {
+    vertical-align: baseline
+}
+sup {
+    top: -.5em
+}
+sub {
+    bottom: -.2em
+}
+abbr,
+acronym {
+    border-bottom: 1px dotted;
+    font-variant: normal
+}
+abbr {
+    cursor: help
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: #000;
+    text-decoration: none
+}
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+    color: #000
+}
+code,
+pre {
+    background-color: #f1eeeb;
+    padding: 1px 8px;
+    margin: 0 3px;
+    border-radius: 5px;
+    font-weight: 400
+}
+.alignleft,
+.left {
+    float: left
+}
+.alignright,
+.right {
+    float: right
+}
+.entry-content .gist {
+    background: #fbfbfa;
+    border: 1px solid #ddd;
+    margin-top: 15px;
+    padding: 7px 15px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    line-height: 1.6;
+    overflow: auto;
+    color: #666
+}
+.entry-content .gist .gist-file {
+    border: none;
+    font-family: inherit;
+    margin: 0;
+    font-size: 1em;
+    letter-spacing: 0em;
+}
+.entry-content .gist .gist-file .gist-data {
+    background: 0 0;
+    border-bottom: none
+}
+.entry-content .gist .gist-file .gist-data pre {
+    padding: 0;
+    font-family: Menlo, Consolas, Monaco, Consolas, monospace
+}
+.entry-content .gist .gist-file .gist-meta {
+    background: 0 0;
+    color: #999;
+    margin-top: 5px;
+    padding: 0;
+    font-size: 100%
+}
+.entry-content .gist .gist-file .gist-meta a,
+.entry-content .gist .gist-file .gist-meta a:visited {
+    color: #e94f76
+}
+figure.highlight {
+    background: #fbfbfa;
+    border: 1px solid #ede9e5;
+    padding: 7px 10px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    line-height: 2;
+    overflow: auto;
+    position: relative;
+    font-size: .9em;
+    margin: 2.2em 0
+}
+figure.highlight figcaption {
+    color: #999;
+    margin-bottom: 5px
+}
+figure.highlight figcaption a {
+    position: absolute;
+    right: 15px
+}
+#header,
+.blog-title a,
+.nav,
+.nav-icon {
+    position: relative
+}
+figure.highlight pre {
+    background: 0 0;
+    border: none;
+    padding: 8px;
+    margin: 0
+}
+figure.highlight table {
+    margin: 0;
+    border-spacing: 0
+}
+figure.highlight th {
+    font-weight: 400;
+    border: 0;
+    padding: 0
+}
+figure.highlight td {
+    border: 0;
+    padding: 0
+}
+figure.highlight .gutter {
+    color: #e0dad3;
+    padding-right: 10px;
+    text-align: left
+}
+figure.highlight .code {
+    border-left: 1px solid #ede9e5;
+    color: #4f5759
+}
+td.code {
+    padding: 0
+}
+.line {
+    line-height: 2em;
+    letter-spacing: .05em;
+    font-size: 95%
+}
+pre .comment,
+pre .diff .header,
+pre .doctype,
+pre .javadoc,
+pre .lisp .string,
+pre .pi,
+pre .template_comment {
+    color: #cecec1;
+    font-wight: normal
+}
+pre .addition,
+pre .css .tag,
+pre .keyword,
+pre .method,
+pre .nginx .title,
+pre .request,
+pre .status,
+pre .winutils {
+    color: #1a9ca1
+}
+pre .command,
+pre .hexcolor,
+pre .number,
+pre .phpdoc,
+pre .regexp,
+pre .string,
+pre .tag .value,
+pre .tex .formula {
+    color: #6c9a1c
+}
+pre .built_in,
+pre .chunk,
+pre .decorator,
+pre .id,
+pre .identifier,
+pre .literal,
+pre .localvars,
+pre .title,
+pre .vhdl {
+    color: #b42147
+}
+pre .attribute,
+pre .class .title,
+pre .constant,
+pre .haskell .type,
+pre .lisp .body,
+pre .parent,
+pre .smalltalk .number,
+pre .variable {
+    color: #c38700
+}
+pre .attr_selector,
+pre .cdata,
+pre .clojure .title,
+pre .diff .change,
+pre .important,
+pre .preprocessor,
+pre .preprocessor .keyword,
+pre .shebang,
+pre .special,
+pre .subst,
+pre .symbol,
+pre .symbol .string {
+    color: #816ec5
+}
+pre .deletion {
+    color: #b42147
+}
+#header {
+    display: block;
+    margin: 4em 0
+}
+#header:after {
+    display: block;
+    font-size: 0;
+    height: 0
+}
+.blog-title {
+    font-size: 120%;
+    font-weight: 700;
+    padding-bottom: .2em;
+    letter-spacing: .2em;
+    margin: 10px 0
+}
+.blog-title a {
+    left: .1em;
+    padding: .4em 0
+}
+.mobile-nav-panel {
+    display: none;
+    padding: 15px 0 0
+}
+.mobile-nav-panel .icon-reorder {
+    cursor: pointer;
+    display: inline-block;
+    width: 18px;
+    height: 17px;
+    background: url(/images/icon-reorder@2x.png) no-repeat;
+    -webkit-background-size: 18px 17px;
+    -moz-background-size: 18px 17px;
+    background-size: 18px 17px
+}
+.nav {
+    margin: 10px 0;
+    font-size: 85%;
+    float: right
+}
+.nav ul {
+    display: block;
+    margin: 0;
+    padding: 0
+}
+.nav ul:after {
+    display: block;
+    font-size: 0;
+    height: 0
+}
+.nav li {
+    float: left;
+    margin: .3em 0 .3em 2em
+}
+.nav li img {
+    vertical-align: middle
+}
+.nav a {
+    font-weight: 700;
+    color: #4f5759
+}
+.nav a:hover {
+    color: #e94f76
+}
+.nav-icon {
+    font-family: FontAwesome;
+    text-align: center;
+    font-size: 105%;
+    width: 105%;
+    height: 105%;
+    padding: 20px 8px;
+    cursor: pointer
+}
+#nav-rss-link:before {
+    content: "\f09e"
+}
+#nav-search-btn:before {
+    content: "\f002"
+}
+#search-form-wrap {
+    display: none;
+    position: absolute;
+    top: 10px;
+    width: 150px;
+    height: 30px;
+    right: 280px;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    -o-transition: .2s ease-out;
+    -ms-transition: .2s ease-out;
+    transition: .2s ease-out
+}
+#search-form-wrap.on {
+    display: block;
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    right: 55px
+}
+@media (max-width: 767px) {
+    #search-form-wrap {
+        width: 100%;
+        left: -100%
+    }
+}
+.search-form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 3px 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3)
+}
+.search-form-input {
+    border: none;
+    background: 0 0;
+    color: #4f5759;
+    letter-spacing: 1px;
+    width: 90%;
+    font: 13px Meiryo, Osaka, 'MS PGothic', sans-serif;
+    outline: 0
+}
+.search-form-input::-webkit-search-cancel-button,
+.search-form-input::-webkit-search-results-decoration {
+    -webkit-appearance: none
+}
+.search-form-submit {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -7px;
+    font: 13px FontAwesome;
+    border: none;
+    background: 0 0;
+    color: #bbb;
+    cursor: pointer
+}
+.search-form-submit:focus,
+.search-form-submit:hover {
+    color: #777
+}
+#container {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto
+}
+#main {
+    padding-left: 200px
+}
+.post {
+    margin-bottom: 5em;
+    position: relative
+}
+.post .entry-header {
+    margin-bottom: 2em
+}
+.post .entry-title {
+    font-size: 220%;
+    margin: 0
+}
+.article-devider {
+    width: 8%;
+    margin: 5em auto;
+    border: 0;
+    border-top: 5px solid #ddd
+}
+.entry-meta-header {
+    position: absolute;
+    top: .5em;
+    left: -200px;
+    width: 180px;
+    font-size: 85%
+}
+.entry-meta-header a {
+    color: #4f5759
+}
+.entry-meta-header a:hover {
+    color: #e94f76
+}
+.entry-meta-header .meta-elements {
+    display: block;
+    margin-bottom: .5em
+}
+.entry-meta-header .date {
+    font-weight: 700;
+    font-size: 150%;
+    font-family: sans-serif
+}
+.entry-meta-header .date a {
+    color: #9ba4a6
+}
+.entry-meta-header .date a:hover {
+    color: #e94f76
+}
+.entry-meta-header .commentscount {
+    font-size: 90%;
+    margin-top: 1.5em
+}
+.entry-content p {
+    letter-spacing: .6pt
+}
+.entry-content .title.link a:after {
+    content: '\f08e';
+    color: #999;
+    font: 12px FontAwesome;
+    padding-left: 10px;
+    vertical-align: super
+}
+.entry-content blockquote,
+.entry-content blockquote footer {
+    font-family: Meiryo, Osaka, 'MS PGothic', sans-serif
+}
+#page-nav,
+.entry-content dt {
+    font-weight: 700
+}
+.entry-content img,
+.entry-content video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto
+}
+.entry-content a[title*=Flickr] img {
+    height: auto
+}
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+    margin: 1em 0 .8em;
+    line-height: 1.5
+}
+.entry-content h1 {
+    font-size: 170%
+}
+.entry-content h2 {
+    font-size: 160%
+}
+.entry-content h3 {
+    font-size: 140%
+}
+.entry-content h4 {
+    font-size: 130%
+}
+.entry-content h5 {
+    font-size: 110%
+}
+.entry-content h6 {
+    font-size: 100%
+}
+.entry-content ol {
+    list-style: decimal
+}
+.entry-content dl,
+.entry-content ol,
+.entry-content ul {
+    padding: 0
+}
+.entry-content dl li,
+.entry-content ol li,
+.entry-content ul li {
+    margin: .5em;
+    line-height: 1.8em
+}
+.entry-content dl li ol,
+.entry-content dl li ul,
+.entry-content ol li ol,
+.entry-content ol li ul,
+.entry-content ul li ol,
+.entry-content ul li ul {
+    margin-bottom: 2em
+}
+.entry-content table {
+    margin: 2.2em auto;
+    width: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: .9em
+}
+.entry-content th {
+    border: 1px solid #c4c4c4;
+    background-color: #fdf7f4;
+    color: #2b2f30;
+    padding: .8em
+}
+.entry-content td {
+    border: 1px solid #ddd;
+    padding: .8em;
+    line-height: 1.5em
+}
+.entry-content blockquote {
+    margin: 2.2em;
+    padding: 1em 20px;
+    border-left: 6px solid #ddd;
+    background: #f6f6f4;
+    color: #777;
+    position: relative;
+    z-index: 1
+}
+.entry-content blockquote p {
+    margin: 0
+}
+.entry-content blockquote p:last-child {
+    margin-bottom: 0
+}
+.entry-content blockquote footer {
+    font-size: 105%
+}
+.entry-content blockquote footer cite:before {
+    content: "—";
+    padding: 0 .5em
+}
+.entry-content blockquote:before {
+    content: "”";
+    font-size: 600%;
+    line-height: 1em;
+    font-family: sans-serif;
+    color: #e3e3e3;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1
+}
+.entry-content .pullquote {
+    border-left: 0;
+    font-family: Meiryo, Osaka, 'MS PGothic', sans-serif;
+    text-align: left;
+    width: 45%;
+    margin: 10px 0 0
+}
+code,
+kbd,
+pre,
+samp {
+    font-family: Menlo, Consolas, Monaco, Consolas, monospace
+}
+.entry-content .pullquote .left {
+    margin-left: .5em;
+    margin-right: 1em
+}
+.entry-content .pullquote .right {
+    margin-right: .5em;
+    margin-left: 1em
+}
+.entry-content .caption {
+    color: #4f5759;
+    display: block;
+    font-size: .9em;
+    margin-top: .5em;
+    position: relative;
+    text-align: center
+}
+
+.entry-content pre {
+    padding: 15px;
+    background: #f5f5f5;
+    border: 0;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-background-clip: padding;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    overflow-x: auto;
+    font-size: 100%;
+    line-height: 1.3
+}
+.entry-content hr {
+    width: 20%;
+    margin: 3em auto;
+    border: 0;
+    border-top: 3px solid #d5d5d5
+}
+.entry-meta-footer {
+    font-size: 85%;
+    color: #777;
+    line-height: 1.5;
+    margin-bottom: 1.5em
+}
+.entry-meta-footer a {
+    color: #777
+}
+.entry-meta-footer a:hover {
+    color: #e94f76
+}
+.entry-meta-footer li {
+    list-style-type: none
+}
+.entry-meta-footer span {
+    line-height: 2.5em
+}
+.entry-meta-footer .category a {
+    margin-left: 5px;
+    margin-right: 5px
+}
+.entry-meta-footer .category a:first-child {
+    margin-left: 0
+}
+.entry-meta-footer .category a:last-child {
+    margin-right: 0
+}
+.entry-meta-footer .meta {
+    margin-bottom: .7em
+}
+.article-tag-list {
+    padding: 0
+}
+#article-nav {
+    clear: both;
+    
+    position: relative
+}
+#article-nav:after,
+#article-nav:before {
+    content: "";
+    display: table
+}
+#article-nav:after {
+    clear: both
+}
+@media screen and (min-width: 768px) {
+    #article-nav {
+        margin: 6em 0 50px
+    }
+    #article-nav:before {
+        width: 8px;
+        height: 8px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -4px;
+        margin-left: -4px;
+        content: "";
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background: #ddd;
+        -webkit-box-shadow: 0 1px 2px #fff;
+        box-shadow: 0 1px 2px #fff
+    }
+}
+.loadingPutAbsolute,
+.moreRead:before,
+.titleWrapper {
+    position: relative
+}
+.article-nav-link-wrap {
+    color: #999;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: 50px;
+    text-align: center;
+    display: block
+}
+.article-nav-link-wrap:hover {
+    color: #555
+}
+@media screen and (min-width: 768px) {
+    .article-nav-link-wrap {
+        width: 50%;
+        margin-top: 0
+    }
+    #article-nav-newer {
+        float: left;
+        text-align: right;
+        padding-right: 20px
+    }
+    #article-nav-older {
+        float: right;
+        text-align: left;
+        padding-left: 20px
+    }
+}
+#footer .copyright,
+#page-nav,
+.blog-title-circle,
+.entry-content h2,
+.entry-content h3,
+.entry-content p.openMap,
+.moreRead:before,
+.useFlame,
+kbd {
+    text-align: center
+}
+.article-nav-caption {
+    letter-spacing: 2px;
+    color: #ddd;
+    line-height: 1em;
+    font-weight: 700
+}
+#article-nav-newer .article-nav-caption {
+    margin-right: -2px
+}
+.article-nav-title {
+    font-size: .85em;
+    line-height: 1.6em;
+    margin-top: .5em
+}
+.archive .post {
+    margin-bottom: 0
+}
+.archive .entry-content h1 {
+    font-size: 170%
+}
+#page-nav {
+    font-size: 95%;
+    letter-spacing: .1em
+}
+#page-nav a,
+#page-nav span {
+    display: inline-block;
+    min-width: 1.2em;
+    padding: 6px 8px;
+    margin: 1px 5px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-background-clip: padding;
+    -moz-background-clip: padding;
+    background-clip: padding-box
+}
+#page-nav a {
+    color: #4f5759
+}
+#page-nav a:hover {
+    background-color: #f5f5f5
+}
+#page-nav .page-number {
+    display: inline-block
+}
+#page-nav .current {
+    background: #ccc;
+    color: #fff
+}
+#page-nav .space {
+    color: #ddd
+}
+#page-nav .next {
+    min-width: 5em
+}
+.mb-search {
+    display: none
+}
+#footer {
+    margin: 3em 0;
+    font-size: 70%;
+    display: block;
+    line-height: 1.6
+}
+#footer:after {
+    display: block;
+    font-size: 0;
+    height: 0;
+    content: "."
+}
+#footer .footer-blog-title {
+    float: left;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 120%;
+    padding-bottom: .2em;
+    letter-spacing: .2em;
+    margin: 1em 1.5em 0 0;
+    border-bottom: 3px solid #777
+}
+#footer .footer-blog-title a {
+    position: relative;
+    left: .1em;
+    padding: .4em 0;
+    color: #777
+}
+#footer .footer-blog-title:hover {
+    border-color: #e94f76
+}
+#footer .footer-blog-title:hover a {
+    color: #e94f76
+}
+#footer .copyright {
+    display: block;
+    font-size: .8em
+}
+img.responsive-img,
+video.responsive-video {
+    height: auto;
+    max-width: 100%
+}
+.circle {
+    -webkit-border-radius: 50%;
+    border-radius: 50%
+}
+.imgWspace {
+    background-color: #fff;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    padding: .5em;
+    margin: 0;
+    line-height: 0
+}
+.authorLabel {
+    display: inline-block;
+    font-size: .3em;
+    color: #fff;
+    background-color: #88b9c1;
+    -webkit-border-radius: .5em;
+    border-radius: .5em;
+    margin: 0 1em 0 0;
+    padding: .1em .6em;
+    font-weight: 400
+}
+.authorC,
+.authorP,
+.clearfix {
+    display: block
+}
+.photoby,
+kbd {
+    color: #4f5759
+}
+.site-author-desc {
+    font-size: 1.2em;
+    line-height: 2.5em;
+    margin-top: 1em
+}
+.authorCap {
+    font-size: 1.5em
+}
+.profile-link {
+    margin-top: 1.5em;
+    margin-bottom: 1em
+}
+.site-author-info {
+    margin: 20px 0 0;
+    padding: 1.2em;
+    background-color: #f3f8f9
+}
+.authorP {
+    width: 20%;
+    float: left;
+    margin: 2.5% 2.5% 2.5% 0
+}
+.authorC {
+    width: 73%;
+    float: right
+}
+* html .clearfix {
+    height: 1%
+}
+.useFlame,
+kbd {
+    display: inline-block
+}
+code,
+pre,
+samp {
+    letter-spacing: .05em;
+    font-size: .9em
+}
+kbd {
+    font-size: .85em;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: 6px 8px 3px;
+    margin: 5px;
+    vertical-align: baseline;
+    
+    background: #fff;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    -webkit-box-shadow: 0 0 10px #e8e8e8 inset, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 3px 3px #333;
+    box-shadow: 0 0 10px #e8e8e8 inset, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 3px 3px #333;
+    text-shadow: 0 1px 0 #fff;
+    line-height: 1
+}
+img.outline {
+    border: 1px solid #fff;
+    -webkit-box-shadow: 0 0 12px #ddd;
+    box-shadow: 0 0 12px #ddd
+}
+.archiveHeaderWrapper {
+    width: 100%
+}
+.archiveHeaderWrapper .archiveHeader,
+.archiveHeaderWrapper .archiveThumbCat {
+    display: inline-block;
+    vertical-align: middle
+}
+.archiveThumbCat {
+    width: 10%;
+    margin: 0 2% 0 0
+}
+.archiveHeader {
+    width: 85%
+}
+.archiveHeader h1 {
+    margin: 0 0 .2em
+}
+.qsFont {
+    font-family: sans-serif;
+    font-weight: 700
+}
+.authorReading {
+    font-size: .7em
+}
+.boxCaption,
+.boxCaptionLink {
+    position: fixed;
+    display: block;
+    width: 100%
+}
+.footer-archive-p {
+    margin: 10px 0 0
+}
+.footer-archive-h {
+    font-size: 1.6em;
+    text-align: center;
+    margin: 1em 0 .5em;
+    font-family: Meiryo, Osaka, 'MS PGothic', sans-serif;
+    font-wight: normal;
+    color: #4f5759
+}
+.footer-gallery {
+    padding: 20px 0
+}
+p.article-description {
+    margin: 0;
+    padding: 0
+}
+
+.entry-content p {
+    font-weight: 500
+}
+.entry-content p em,
+.entry-content p strong {
+    padding: 3px;
+    margin: 0 2px;
+    font-style: normal;
+    font-weight: 400;
+    color: #000
+}
+.entry-content p em {
+    background-color: #fff9c4;
+    -webkit-border-radius: 2px;
+    border-radius: 2px
+}
+.entry-content p strong {
+    background-color: #fce4ec;
+    -webkit-border-radius: 2px;
+    border-radius: 2px
+}
+.boxCaption {
+    font-size: .8em;
+    left: 0;
+    top: 0
+}
+.boxCaption p {
+    display: block;
+    padding: .5em 1em;
+    border-radius: 5px;
+    text-shadow: 0 0 5px #000;
+    filter: dropshadow(#000, 0, 0)
+}
+.boxCaptionLink {
+    left: 0;
+    bottom: 0
+}
+.boxCaptionLink a {
+    font-size: .8em;
+    padding: .5em 1em;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-weight: 700
+}
+.boxCaptionLink a:link,
+.boxCaptionLink a:visited {
+    color: #fff;
+    background-color: rgba(0, 0, 0, .5)
+}
+.boxCaptionLink a:hover {
+    color: #000;
+    background-color: rgba(255, 255, 255, .8)
+}
+.boxCaptionLink a:active {
+    color: #fff;
+    background-color: rgba(0, 0, 0, .5)
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0
+}
+.photoFrame {
+    margin: 0
+}
+.photoFrame-loadingNow {
+    width: 100%;
+    heigth: 800px
+}
+.masonry-grid-item {
+    width: 33.3%;
+    float: left;
+    margin: 0
+}
+.entry-content p.openMap {
+    margin: 0;
+    font-size: .8em
+}
+.blog-title {
+    border-bottom: none
+}
+.blog-title-circle {
+    width: 6em
+}
+.blog-title-circle a {
+    display: inline-block;
+    font-size: 1.8em;
+    width: 3.2em;
+    height: 3.2em;
+    line-height: 3em;
+    padding: .1em 0 .1em .2em;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    letter-spacing: .2em;
+    -webkit-transition: .8s;
+    -moz-transition: .8s;
+    -o-transition: .8s;
+    -ms-transition: .8s;
+    transition: .8s;
+    background-color: #fff;
+    color: #88b9c1;
+    border: 3px solid #88b9c1
+}
+.blog-title-circle a:hover {
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -o-transition: .4s;
+    -ms-transition: .4s;
+    transition: .4s;
+    background-color: #cbe0e4;
+    color: #fff;
+    border: 3px solid #cbe0e4
+}
+.titleWrapper .subBlogTitle {
+    position: absolute;
+    bottom: -1.4em;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-size: .7em;
+    color: #cbe0e4;
+    letter-spacing: 0;
+    font-family: serif
+}
+a {
+    color: #e94f76
+}
+.post .entry-title {
+    font-weight: 300;
+    line-height: 1.5em
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300;
+    color: #000
+}
+.entry-content {
+    font-size: 100%
+}
+.entry-content h2 {
+    margin: 2.2em 0 .5em;
+    padding: .8em 0;
+    border-top: 1px solid #88b9c1;
+    border-bottom: 1px solid #88b9c1;
+    color: #88b9c1
+}
+.entry-content h3 {
+    margin: 2.2em 0 .5em;
+    padding: .8em .5em;
+    border-left: 6px solid #cbe0e4;
+    border-right: 6px solid #cbe0e4;
+    background-color: #edf4f5;
+    color: #66a5b0
+}
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+    margin: 2.2em 0 .5em;
+    text-align: left;
+    color: #88b9c1
+}
+.entry-content h4 {
+    border-left: 6px solid #cbe0e4;
+    color: #66a5b0;
+    padding-left: 1.2em
+}
+.entry-content h5 {
+    border-left: 3px solid #cbe0e4;
+    padding-left: 1.2em
+}
+.attention {
+    border: 1px solid #ce8a8a
+}
+.attention h5.label,
+.attention h6.label {
+    color: #ce8a8a
+}
+.r-memo {
+    border: 1px solid #88b9c1
+}
+.r-memo h5.label,
+.r-memo h6.label {
+    color: #88b9c1
+}
+.r-download {
+    border: 1px solid #88a3c1
+}
+.r-download h5.label,
+.r-download h6.label {
+    color: #88a3c1
+}
+.attention,
+.r-download,
+.r-memo {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0;
+    margin: 2.2em 0
+}
+.attention h5.label,
+.attention h6.label,
+.r-download h5.label,
+.r-download h6.label,
+.r-memo h5.label,
+.r-memo h6.label {
+    border: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: none;
+    background: 0 0;
+    background-color: none;
+    margin: 1.2em 1.5em;
+    padding: 0
+}
+.attention h6.label,
+.r-download h6.label,
+.r-memo h6.label {
+    font-size: 1em
+}
+.attention p.label,
+.r-download p.label,
+.r-memo p.label {
+    margin: 1.5em;
+    padding: 0;
+    font-size: .85em
+}
+.entry-content p {
+    margin: 2.8em 1em;
+    line-height: 2.5em
+}
+.entry-content ol li,
+.entry-content ul li {
+    font-size: 1em;
+    position: relative;
+    margin: .2em 0 .2em .5em;
+    padding: 0 0 0 .2em
+}
+.entry-content ul li::after,
+.entry-content ul li::before {
+    display: block;
+    content: '';
+    position: absolute
+}
+.article-category:before,
+.article-tag-list-item:before {
+    font-family: FontAwesome;
+    font-size: 1em;
+    line-height: 1em;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    text-align: center
+}
+.entry-content ul li::after {
+    top: .6em;
+    left: -1em;
+    width: .6em;
+    height: .6em;
+    background-color: #dee1e2;
+    -webkit-border-radius: 100%;
+    border-radius: 100%
+}
+.entry-content ol p,
+.entry-content ul p {
+    margin: 0
+}
+.entry-content ol p:not(:first-child),
+.entry-content ul p:not(:first-child) {
+    color: #808b8e
+}
+.entry-content dl,
+.entry-content ol,
+.entry-content ul {
+    margin: 2.2em 0 2.2em 2.5em
+}
+.article-tag-list-item {
+    float: left;
+    margin-right: 10px
+}
+.article-tag-list-item:before {
+    content: "\f02b\a0"
+}
+.article-category:before {
+    content: "\f07b"
+}
+.copyright {
+    text-align: center
+}
+#footer .copyright span {
+    font-size: 15px
+}
+.copyright-tool {
+    font-size: 70%;
+    text-align: center;
+    font-family: sans-serif
+}
+
+
+
+/*media query*/
+    .mobile-nav-panel,
+    .nav ul,
+    .nav ul li,
+    .nav ul li a {
+        display: block
+    }
+    .blog-title-circle a {
+        font-size: 1.4em;
+        width: 3.2em;
+        height: 3.2em;
+        line-height: 3em
+    }
+    #container {
+        width: 93.75%;
+    }
+    .nav,
+    .nav ul li {
+        width: 100%;
+        margin: 0
+    }
+    .nav {
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 45px;
+        left: 0;
+        background-color: #4f5759
+    }
+    .nav.active {
+        height: auto;
+        overflow: visible;
+        -webkit-transition: all .2s ease-out;
+        -moz-transition: all .2s ease-out;
+        -o-transition: all .2s ease-out;
+        -ms-transition: all .2s ease-out;
+        transition: all .2s ease-out;
+        z-index: 2
+    }
+    .nav ul li a {
+        border: none;
+        padding: 1em .5em;
+        color: #fff;
+        border-bottom: 1px solid #677174;
+        text-align: left
+    }
+    #search-form-wrap {
+        display: none
+    }
+    #nav-rss-link,
+    #nav-search-btn {
+        display: none
+    }
+    #header {
+        margin: .5em 0 1em;
+        text-align: center;
+        position: static
+    }
+    .blog-title {
+        float: none
+    }
+    #main {
+        padding-left: 0;
+        margin-bottom: 3em
+    }
+    .entry-meta-header {
+        position: static;
+        margin-bottom: 1em;
+        width: auto
+    }
+    .entry-meta-header .meta-elements {
+        display: inline;
+        margin-right: 1em
+    }
+    .entry-meta-header .commentscount {
+        display: none
+    }
+    .archive .entry-content h1 {
+        font-size: 130%
+    }
+    .post {
+        font-size: 90%
+    }
+    .post .entry-title {
+        font-size: 130%
+    }
+    .post h1 {
+        font-size: 1.2em
+    }
+    .post .entry-content h2 {
+        font-size: 130%;
+        margin: 1.8em 0 .5em
+    }
+    .post .entry-content h3,
+    .post .entry-content h4 {
+        font-size: 120%;
+        margin: 1.8em 0 .5em
+    }
+    .post .entry-content h5,
+    .post .entry-content h6 {
+        margin: 1.8em 0 .5em
+    }
+    .post .entry-content p {
+        margin: 1.8em 0;
+        line-height: 1.9em;
+        letter-spacing: 0em;
+        font-size: .9em
+    }
+    .post .entry-content blockquote p {
+        margin: 1em 0
+    }
+    .post .entry-content blockquote {
+        margin: 1.8em 0;
+        padding: .5em 20px
+    }
+    .post .entry-content table {
+        font-size: .85em;
+        margin: 1.8em auto
+    }
+    .post .entry-content td,
+    .post .entry-content th {
+        padding: .6em .4em
+    }
+    .post .entry-content figure.highlight {
+        margin: 1.8em 0
+    }
+    .post .entry-content figure.highlight table {
+        margin: 0;
+        border-spacing: 0
+    }
+    .post .entry-content figure.highlight th {
+        border: 0;
+        padding: 0
+    }
+    .post .entry-content figure.highlight td {
+        border: 0;
+        padding: 0;
+        font-size: 1.1em
+    }
+    .post .entry-content figure.highlight td.code {
+        border-left: 1px solid #ede9e5
+    }
+    .post .entry-content iframe {
+        width: 100%
+    }
+    .post .entry-content p.openMap {
+        margin: 0;
+        text-align: center;
+        font-size: .8em
+    }
+    .post .entry-content .attention h5.label,
+    .post .entry-content .attention h6.label,
+    .post .entry-content .r-download h5.label,
+    .post .entry-content .r-download h6.label,
+    .post .entry-content .r-memo h5.label,
+    .post .entry-content .r-memo h6.label {
+        margin: 1em 1em 0
+    }
+    .post .entry-content .attention p.label,
+    .post .entry-content .r-download p.label,
+    .post .entry-content .r-memo p.label {
+        margin: 1em;
+        font-size: .85em
+    }
+    .post .entry-content .attention dl,
+    .post .entry-content .attention ol,
+    .post .entry-content .attention ul,
+    .post .entry-content .r-download dl,
+    .post .entry-content .r-download ol,
+    .post .entry-content .r-download ul,
+    .post .entry-content .r-memo dl,
+    .post .entry-content .r-memo ol,
+    .post .entry-content .r-memo ul {
+        margin: 1em 1em 1em 2em
+    }
+    .post .entry-content .attention ol li,
+    .post .entry-content .attention ul li,
+    .post .entry-content .r-download ol li,
+    .post .entry-content .r-download ul li,
+    .post .entry-content .r-memo ol li,
+    .post .entry-content .r-memo ul li {
+        font-size: .85em
+    }
+    .post .entry-content dl,
+    .post .entry-content ol,
+    .post .entry-content ul {
+        margin: 1.8em 0 1.8em 1em
+    }
+    .post .entry-content dl p,
+    .post .entry-content ol p,
+    .post .entry-content ul p {
+        margin: 0
+    }
+    .site-author-desc {
+        line-height: 2em
+    }
+    .pagenation a,
+    .pagenation span {
+        padding: 5px;
+        margin: 0
+    }
+    .mb-search {
+        margin-top: 3em;
+        margin-bottom: 0;
+        display: initial
+    }
+    .mb-search input {
+        background: #fff;
+        font-family: Meiryo, Osaka, 'MS PGothic', sans-serif;
+        font-size: 15px;
+        padding: 5px 10px;
+        border-bottom: 2px solid #ddd;
+        border: 0;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        color: #999
+    }
+    .mb-search input:focus {
+        color: #4f5759
+    }
+    #footer {
+        margin: 0 0 3em
+    }
+    #footer .footer-blog-title {
+        float: none;
+        margin-bottom: 1em
+    }
+    .profile-link {
+        margin-top: 1.1em
+    }
+    .shareBtnBlock-circle {
+        margin-right: .2em;
+        margin-bottom: .5em
+    }
+    .shareBtnBlock-circle a {
+        width: 2.4em;
+        height: 2.4em;
+        line-height: 2.4em;
+        font-size: 1.34em
+    }
+    .masonry-grid-item {
+        width: 33.3%
+    }
+    .shareLabelTitle,
+    .visible-ib-md,
+    .visible-ib-sm {
+        display: none
+    }
+    
+
+
+/*media query end*/
+
+
+
+.gravatar-area {
+    height: 150px;
+    width: 150px;
+    padding: 8px;
+    -webkit-box-shadow: 0 0 6px 2px rgba(79, 87, 89, .1);
+    box-shadow: 0 0 6px 2px rgba(79, 87, 89, .1);
+    margin: auto;
+    -webkit-border-radius: 50%;
+    border-radius: 50%
+}
+.copyright-tool {
+    margin-top: 2em
+}
+.copyright-title {
+    font-size: .8em
+}
+.homeLink {
+    background: #e94f76;
+    -webkit-border-radius: 3px;
+    border-radius: 3px
+}
+.homeLink a {
+    display: block;
+    padding: 1em;
+    text-align: center;
+    color: #fff
+}
+.table-align-left {
+    text-align: left
+}
+.table-align-right {
+    text-align: right
+}
+.table-align-center {
+    text-align: center
+}
+
+	</style>
+	
+  </head>
+  <body>
+  	
+  	<!-- google analytics -->
+  	
+  	<amp-analytics type="googleanalytics" id="google-analytics">
+		<script type="application/json">
+		{
+		  "vars": {
+		    "account": "UA-37617901-1"
+		  },
+		  "triggers": {
+		    "trackPageview": {
+		      "on": "visible",
+		      "request": "pageview"
+		    }
+		  }
+		}
+		</script>
+	</amp-analytics>
+	
+  	
+  	<div id="container">
+  	
+  		<!-- title -->
+	  	<header id="header">
+	
+	  		
+	  		<div class="blog-title">
+				<a href="/">
+					<amp-img src="/amp-dist/sample/logo.png" width="500" height="60" layout="responsive">
+					</amp-img>
+				</a>
+			</div>
+			
+			
+		</header>
+	  	
+	  	
+	  	<div id="main">
+	  	
+		    <article id="post-nice-to-meet-saltstack" class="post">
+		    	
+		    	<!-- datePublished -->
+				<footer class="entry-meta-header">
+					<span class="meta-elements date">
+						<time datetime="2013-6-30" itemprop="datePublished">2013-6-30</time>
+					</span>
+				</footer>
+				
+				<!-- entry title -->
+				<header class="entry-header">
+					
+					  <h1 class="article-title entry-title" itemprop="name">
+					    Saltstack 使用心得&amp;簡介
+					  </h1>
+					
+				</header>
+				
+				<!-- entry content -->
+			    <div class="entry-content ecp">
+			  		<p>身為一個系統管理者，當你管理的機器數量只有十來台時，你可以很輕鬆的一台一台進去管理、設定機器，但是隨著服務開始搞大了，機器數量變成數十台時，也許會需要一些工具來輔助管理，之前我都是用 <a href="http://docs.fabfile.org/en/1.6/" target="_blank" rel="external">Fabric</a> 來幫忙管理，不過 Fabric 有個缺點是他只是一個下指令的管理工具，當然我之前都硬幹，用 <a href="http://docs.fabfile.org/en/1.6/api/core/operations.html?highlight=put#fabric.operations.put" target="_blank" rel="external">put</a> 硬把他當成管理 configuration 的工具，上傳完了再下一個 reload 的指令，當然這樣也不是不行，不過似乎真的是一個很土炮的方法，但是隨著機器的數量越來越大，已經到達幾百臺的時候，就算是用 Fabric + <a href="http://docs.fabfile.org/en/1.6/usage/env.html#env-parallel" target="_blank" rel="external">parallel</a> 其實還是覺得很怪，一來是雖然他已經平行處理了，但是他的 output 卻變成無序的，也就是當受管理的機器有 output 他就直接顯示在管理端上，有點惱人就是，另外一個是 Fabric 需要自己寫 Group 管理，要自己定義東西，而不能透過簡單的 query 來對想要的機器下指令就好，所以最近開始想要轉型使用 configuration management tool，常見的選擇是 <a href="https://puppetlabs.com/" target="_blank" rel="external">puppet</a>、<a href="http://www.opscode.com/chef/" target="_blank" rel="external">chef</a>、<a href="http://cfengine.com/" target="_blank" rel="external">CFEngine</a> 之類的，不過最近有個當紅的 OpenSource 軟體出現了，那就是 <a href="http://docs.saltstack.com/" target="_blank" rel="external">SaltStack</a>。</p>
+<a id="more"></a>
+<p>SaltStack 在網路的形容看起來是輕量的，而且設定極其簡單，加上是 Python 寫的，基於本人跟 Python 實在很有緣，我最愛的 <a href="http://www.gentoo.org/" target="_blank" rel="external">Gentoo Linux</a> 剛好他的套件管理系統 portage 就是 Python-based，然後 Fabric 也是 Python，於是就決定使用看看(這個理由是不是很薄弱 XD)</p>
+<p>SaltStack 的架構分成 Server (叫 Master) 跟 Client (叫 Minion)，每台電腦都要安裝 salt 的程式，安裝的方法也很簡單，官網有提供一行安裝法 <code>wget -O - http://bootstrap.saltstack.org | sudo sh</code> 這樣就裝好 Salt Master 了，不過當然如果是比較大的 Distro 像是 Ubuntu、SuSE、Gentoo 還是建議用內建的套件管理程式安裝，不過如果套件管理程式還是沒有就只好搬出 Python 的 <code>easy_install salt</code> 或 <code>pip install salt</code> 這兩種方法也可以把 Master 跟 Minion 都裝到好。</p>
+<p>Master 跟 Minion 裝好之後就可以開始測試啦，現在馬上啟動 Master，指令是 <code>salt-master -l debug</code> 這樣 console 會噴大量的 debug msg 而且會先在前景執行，至於 Minion 這端我們要先設定一下 <strong>/etc/hosts</strong> 加入 Master 的 ip 然後名字叫 salt，例如 <code>echo -n &#39;\n192.168.1.1 salt\n&#39; &gt;&gt; /etc/hosts</code> 因為 Minion 預設是去找 salt 這個 name 的 Server，設定好之後就可以啟動 Minion 了 <code>salt-minion -l debug</code>，由於 Salt 是採用類似 SSH 那樣的 key 交換機制，所以理論上兩邊有連上的話在 Master 那端的電腦打 <code>salt-key</code> 應該會出現 Minion 的 ID ( 也就是機器的 hostname)，如下:</p>
+<pre><code>Accepted Keys:
+Unaccepted Keys:
+Minion-01
+Minion-02
+Rejected Keys:
+</code></pre><p>一開始加進來的 Minion 都會被擺在 Unaccepted 這裏，這時候要下 <code>salt-keys -a &#39;Minion-*&#39;</code> 就可以把 Minion- 開頭的機器變成 accepted 的了，設定成信賴後，我們就可以開始下一些簡單的 query 了，比方說在 Master 那端打 <code>salt &#39;Minion-*&#39; test.ping</code> 應該就會出現:</p>
+<pre><code>Minion-01:
+    True
+Minion-02:
+    True
+</code></pre><p>這樣就表示 Minion 有回應了，如果要對 Minion 下指令則是用 cmd.run，比方說 <code>salt &#39;Minion-*&#39; cmd.run date</code> 應該會得到這樣的回應</p>
+<pre><code>Minion-01:
+    Sun Jun 30 18:55:30 CST 2013
+Minion-02:
+    Sun Jun 30 18:55:30 CST 2013
+</code></pre><p>詳細可以下的指令 ( Salt 叫做 modules ) 請看<a href="http://docs.saltstack.com/ref/modules/all/index.html" target="_blank" rel="external">這裏</a> 本文不多做介紹。</p>
+<p>直接進入正題，如何利用 Salt 來做 Configuration 的管理呢，首先剛剛再啟動 Server 跟 Client 時，連設定都沒設定，zero-configuration 就可以直接用了，但是要比較進階一點當然還是需要小小設定一下，首先 Master 的設定檔位置在 <strong>/etc/salt/master</strong>，先做如下設定</p>
+<pre><code>file_roots:
+    base:
+        - /srv/salt
+file_ignore_regex:
+    - &apos;/\.svn($|/)&apos;
+    - &apos;/\.git($|/)&apos;
+</code></pre><p>上面的設定是說我們的檔案 ( 也就是 salt 內建的 fileserver 要以哪裏為 Base ) 都放在 <strong>/srv/salt/</strong> 裡面，然後要同步檔案時，把 <code>/.svn/</code> 跟 <code>/.git/</code> 都忽略掉。<br>因此我們建立一下目錄跟建立相關檔案 <code>install -d /srv/salt/ &amp;&amp; touch /srv/salt/top.sls</code>，最主要的檔案就是這個 <code>top.sls</code>， SLS (可能是 SaLt State) 檔案就是描述所謂的 Configuration 要如何設定，在 Salt 一個 Configuration 就是一個 State，所有指定到的機器都會遵守這個狀態，這個 <code>top.sls</code> 大概會長下面這樣</p>
+<pre><code>base:
+  &apos;*&apos;:
+    - users
+  &apos;www-*&apos;:
+    - nginx.www
+</code></pre><p>首先第一行是 base 這是固定的，然後下面就是進行 ID 的配對，這裡可以看到我設定了兩組，一個是 ‘*’ 表示每一台受控管的機器都要遵守的設定，要參照 <code>users</code> 的 state ，而這個定義在哪裡呢，就是 <strong>/srv/salt/users.sls</strong>，基本上 Salt 的檔案組合就是依照 <code>file_roots</code> 所指定的位置開始找的，然後 <code>top.sls</code> 裡面參照的 state 則可以省略 <code>.sls</code> 這個檔名，接著是所有 <code>www-</code> 開頭的機器都還要額外看 <code>nginx.www</code> 這個狀態，在 <code>top.sls</code> 裡面出現的 <code>.</code> 表示真正的位置是一個資料夾，也就是這個 <code>nginx.www</code> 狀態檔實際是描述在 <strong>/srv/salt/nginx/www.sls</strong>，先來看 users.sls 怎麼定義的好了</p>
+<pre><code>foo:
+  user.present:
+    - fullname: foo
+    - shell: /bin/bash
+    - home: /home/foo
+    - uid: 1000
+    - gid: 100
+    - groups:
+      - www
+bar:
+  user.present:
+    - fullname: bar
+    - shell: /bin/bash
+    - home: /home/bar
+    - uid: 1001
+    - gid: 100
+    - groups:
+      - wheel
+</code></pre><p>這裏表示每一台機器至少要有 foo &amp; bar 這兩個帳號，然後其他設定都要參照這個檔案的說明，應該不難懂我就不一一說明了，要看詳細的可以參考 <a href="http://docs.saltstack.com/ref/states/all/salt.states.user.html" target="_blank" rel="external">salt.states.user</a>，然後再來是 <strong>/srv/salt/nginx/www.sls</strong> 會長的如下設定</p>
+<pre><code>/home/nginx/conf/:
+  file.recurse:
+    - source: salt://nginx/www/
+    - user: root
+    - group: root
+    - dir_mode: 755
+    - file_mode: 644
+    - include_empty: True
+
+nginx:
+  service.running:
+    - enable: True
+    - reload: True
+    - watch:
+      - file: /home/nginx/conf/*
+</code></pre><p>這裏表示指定到的 minion 的 <strong>/home/nginx/conf/</strong>，要參考 Master 的 <code>salt://nginx/www/</code> 而這個的實際路徑是哪裏呢？依照之前說的一切都從 Base 開始，所以就是在 Master 的 <strong>/srv/salt/nginx/www/</strong>，也就是 Minion 的 <strong>/home/nginx/conf/</strong> 狀態改變的依據要跟隨 Master 的 <strong>/srv/salt/nginx/www/</strong> 資料夾，然後後面有個 <code>service.running</code> 那段則是表示當 <strong>/home/nginx/conf/*</strong> 有任何檔案被異動時(參照 <a href="http://docs.saltstack.com/ref/states/all/salt.states.service.html#module-salt.states.service" target="_blank" rel="external">salt.states.service</a>)， nginx 這個 Service 要被 reload (參照 <code>reload: True</code> 若無此設定則為 restart)，而 <code>enable: True</code> 則是表示開機要自動啟動，到目前為止就算是設定完 state 了，然後當然假設你的 nginx 設定檔都已經放在 <strong>/srv/salt/nginx/www/</strong> 裡面了，接下來要同步狀態要用的指令就是 <code>salt &#39;*&#39; state.highstate</code> 然後應該會出現下列的資訊</p>
+<pre><code>www-01:
+----------
+    State: - file
+    Name:      /home/nginx/conf/
+    Function:  recurse
+        Result:    True
+        Comment:   The directory /home/nginx/conf/ is in the correct     state
+        Changes:   
+----------
+    State: - service
+    Name:      nginx
+    Function:  running
+        Result:    True
+        Comment:   Service nginx is already enabled, and is in the     desired state
+        Changes:   
+----------
+    State: - user
+    Name:      foo
+    Function:  present
+        Result:    True
+        Comment:   User foo is present and up to date
+        Changes:   
+----------
+    State: - user
+    Name:      bar
+    Function:  present
+        Result:    True
+        Comment:   User bar is present and up to date
+        Changes:       
+</code></pre><p>如何，很簡單吧！因為我的狀態已經同步了，所以都沒有異動，如果有任何異動(包含新增、刪除使用者)，他都會一一列出來，更貼心的是檔案的異動甚至是列出 diff，真的是很仔細，目前為止大概就是如何利用 salt 來管理機器，用了這個之後真的就很簡單的就可以一次大量的管理一堆機器了，管理者可以花更多時間喝咖啡？</p>
+<p>下一篇會介紹一下如何客製化 grains，也就是取得機器的資訊的部份。</p>
+
+			  	</div>
+				
+		  	</article>
+		  	
+		  	<hr class="article-devider">
+		  	
+		  	<div class="homeLink">
+		  		<a href="/"><strong class="article-nav-caption">HOME</strong></a>
+		  	</div>
+		  	
+		  	<!-- article nav -->
+		  	
+			<nav id="article-nav">
+			  
+			    <a href="/post/casio-tr15/" id="article-nav-newer" class="article-nav-link-wrap">
+			      <strong class="article-nav-caption">Newer</strong>
+			      <div class="article-nav-title">
+			        
+			          自拍神器 Casio TR15 開箱
+			        
+			      </div>
+			    </a>
+			  
+			  
+			    <a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" id="article-nav-older" class="article-nav-link-wrap">
+			      <strong class="article-nav-caption">Older</strong>
+			      <div class="article-nav-title">
+			        
+			          solve dmesg appeared nouveau No connectors reported connected with modes after upgrading kernel to 3.8 or later
+			        
+			      </div>
+			    </a>
+			  
+			</nav>
+			
+			
+		</div>
+		
+		<footer id="footer">
+		
+			<div class="site-author-info">
+		
+				
+				
+				<div>
+					<h6 class="authorCap">neoesque&nbsp;
+						
+					</h6>
+					
+				</div>
+				
+			</div>
+			
+			
+			<div class="copyright-tool">
+				<div class="copyright-title">
+					<span>
+					&copy; 2016&nbsp;neoesque
+					</span>
+				</div>
+				
+			</div>
+			
+			
+		</footer>
+	</div>
+  	
+  </body>
+</html>

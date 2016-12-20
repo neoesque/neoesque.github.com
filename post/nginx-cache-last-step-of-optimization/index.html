@@ -14,7 +14,7 @@
 <meta property="og:description" content="最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx，當然除了複雜的 rewrite rule 要寫，還有就是想盡量榨出 nginx 的效能及所有功能，而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整！
 調整了很多參數之後，說實在的也不知道有什麼可以調整了，查一查網路發現：對呀！ nginx 有">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-eoc0HB1J2F8/UALL9fMD1HI/AAAAAAAAELY/K6ChB-3PwBQ/s582/graph_image.php-2.jpg">
-<meta property="og:updated_time" content="2015-03-14T05:41:23.000Z">
+<meta property="og:updated_time" content="2016-11-09T09:24:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx cache - last step of optimization">
 <meta name="twitter:description" content="最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx，當然除了複雜的 rewrite rule 要寫，還有就是想盡量榨出 nginx 的效能及所有功能，而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整！
@@ -26,21 +26,22 @@
     
 
     
+        <link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml" />
+    
 
     
         <link rel="icon" href="/favicon.png" />
     
 
-    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
-    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
-        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
     
     
         <script type="text/javascript">
@@ -57,7 +58,12 @@ ga('send', 'pageview');
     
     
 
+
+    
+    <link rel="amphtml" href="./amp/index.html">
+    
 </head>
+
 <body>
     <div id="container">
         <header id="header">
@@ -184,15 +190,36 @@ ga('send', 'pageview');
             <table>
                 <tr>
                     
-                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
                     
-                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    <td>
+                        <a href="http://github.com/neoesque/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    <td>
+                        <a href="https://www.twitter.com/neoesque" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    <td>
+                        <a href="https://facebook.com/neoesque" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    <td>
+                        <a href="#" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
                     
                 </tr>
             </table>
@@ -206,7 +233,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -215,8 +241,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/nginx-cache-last-step-of-optimization/">
@@ -225,20 +252,22 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/nginx/">nginx</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -251,14 +280,14 @@ ga('send', 'pageview');
 <pre><code>fastcgi_cache PHP;
 fastcgi_cache_valid 200 7d;
 </code></pre><p>這樣 nginx 就會利用 <code>/dev/shm/cache</code> 當作快取，由於 /dev/shm 是記憶體所以速度相當的快，而記憶體的 cache 則是在 <code>keys_zone</code> 的第二部分也就是開了 8MB，而這塊快取的名字叫做 <code>PHP</code> 之後會用到，至於 <code>inactive</code> 就是用來指定快取裡面的物件多久之後沒有用到就要被剔除掉，然後最後面的 <code>max_size</code> 則是硬碟要用多少當 cache，由於通常 /dev/shm 預設會是記憶體大小的一半所以這裡就適當的調整大小。接著在用到 fastcgi 的地方，通常就是 <code>location ~ \.php$</code> 這段，加入 <code>fastcgi_cache PHP;</code> 的設定，這樣就會讓經過 fastcgi 的 request 也收進PHP 這塊的暫存區了，但是什麼東西才要記起來呢？這個則要透過 <code>fastcgi_cache_valid</code> 來指定。</p>
-<p>來看看啟用後神奇的效果 :)</p>
-<p><img src="https://lh3.googleusercontent.com/-eoc0HB1J2F8/UALL9fMD1HI/AAAAAAAAELY/K6ChB-3PwBQ/s582/graph_image.php-2.jpg" alt=""></p>
+<p>來看看啟用後神奇的效果 : %}</p>
+<img src="https://lh3.googleusercontent.com/-eoc0HB1J2F8/UALL9fMD1HI/AAAAAAAAELY/K6ChB-3PwBQ/s582/graph_image.php-2.jpg" width="800" height="600">
 <p>可以看到啟用後… php 就不工作了(誤)，因為大部分的都在 cache 的階段就出去了，不過注意的是當 nginx 看到 header 有 <code>Pragma:no-cache</code> 就不會加進去快取了。所以這個比較適合前面提到的 php 是用來出圖或者合併 javascript 等所謂的靜態內容。當然除了 CPU 的閒置，另外 response time 也增快很多，因為不需要經過 php 的運算了。</p>
 <p>結論就是：最佳化的最後一步就是加快取什麼就都解決了 XD</p>
 <hr>
 <p>參考資料:</p>
 <ul>
-<li><a href="http://wiki.nginx.org/HttpFastcgiModule#fastcgi_cache" target="_blank" rel="external">nginx fastcgi_cache</a></li>
+<li>[nginx fastcgi_cache](<a href="http://wiki.nginx.org/HttpFastcgiModule#fastcgi_cache" target="_blank" rel="external">http://wiki.nginx.org/HttpFastcgiModule#fastcgi_cache</a> %}</li>
 </ul>
 
         
@@ -270,7 +299,7 @@ fastcgi_cache_valid 200 7d;
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/" data-id="cimu1r81s002t8b0qj5efxaly" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/" data-id="civar04dn003xnyr549aot7z6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -338,7 +367,7 @@ fastcgi_cache_valid 200 7d;
 
             
     
-        <a href="/post/nginx-cache-last-step-of-optimization/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/nginx-cache-last-step-of-optimization/">評論</a>
+        <a href="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/">評論</a>
     
 
         </footer>
@@ -383,7 +412,7 @@ fastcgi_cache_valid 200 7d;
 </section>
             
                 <aside id="sidebar">
-    
+   
         
     <div class="widget-wrap">
         <h3 class="widget-title">最新文章</h3>
@@ -399,6 +428,7 @@ fastcgi_cache_valid 200 7d;
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -417,6 +447,7 @@ fastcgi_cache_valid 200 7d;
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -432,9 +463,10 @@ fastcgi_cache_valid 200 7d;
                             <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -450,9 +482,10 @@ fastcgi_cache_valid 200 7d;
                             <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -471,6 +504,7 @@ fastcgi_cache_valid 200 7d;
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -519,7 +553,7 @@ fastcgi_cache_valid 200 7d;
 
 
     
-    <div id="toTop" class="fa fa-chevron-up"></div>
+    <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
         </div>
@@ -534,25 +568,25 @@ fastcgi_cache_valid 200 7d;
         
     
     <script>
-    var disqus_shortname = 'parsefloat';
-    
-    
-    var disqus_url = 'http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/';
+        
+        this.page.identifier = 'nginx-cache-last-step-of-optimization';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'parsefloat' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
-    </script>
+</script>
 
 
 
     
-        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
     
+
 
 
 <!-- Custom Scripts -->

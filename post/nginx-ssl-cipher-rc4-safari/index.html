@@ -21,21 +21,22 @@
     
 
     
+        <link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml" />
+    
 
     
         <link rel="icon" href="/favicon.png" />
     
 
-    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
-    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
-        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
     
     
         <script type="text/javascript">
@@ -52,7 +53,12 @@ ga('send', 'pageview');
     
     
 
+
+    
+    <link rel="amphtml" href="./amp/index.html">
+    
 </head>
+
 <body>
     <div id="container">
         <header id="header">
@@ -179,15 +185,36 @@ ga('send', 'pageview');
             <table>
                 <tr>
                     
-                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
                     
-                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    <td>
+                        <a href="http://github.com/neoesque/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    <td>
+                        <a href="https://www.twitter.com/neoesque" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    <td>
+                        <a href="https://facebook.com/neoesque" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    <td>
+                        <a href="#" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
                     
                 </tr>
             </table>
@@ -201,7 +228,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -210,8 +236,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/nginx-ssl-cipher-rc4-safari/">
@@ -220,47 +247,49 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Mac/">Mac</a>, <a class="tag-link" href="/tags/nginx/">nginx</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             
             <p>前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Safari … 結果果然不出所料… <code>Unable to establish a secure connection</code> XDDD 搞什麼連 Safari 也連不了，這樣子要 Debug 我就可以自己來了，不然要一直麻煩同事跟我對測不好意思，一開始先用 <code>tcpdump</code> 發現 Server 送 Certificate 給 Client 之後 Client 就自己斷掉 connection ?! WTF 這太沒有頭緒了吧，後來上網搜尋 <code>ssl connection fail safari</code>，結果一路看看看就看到了這個 <a href="https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/965371" target="_blank" rel="external">HTTPS requests fail on sites which immediately close the connection if TLS 1.1 negotiation is attempted, on Ubuntu 12.04</a>，起因是 OpenSSL 1.0.1 的一個 Bug，版上建議降成 OpenSSL 1.0.0 就可以了，因為我要啟用 nginx 的 spdy 所以一定要用 OpenSSL 1.0.1 才可以，不過秉持實驗的精神只好先解除這個功能，於是我就編譯了 nginx with openssl 1.0.0k，然後結果…靠背還是一樣 Safri 不能連其他都可以！不信邪改用 0.9.8y，結果在一模一樣的設定下這個 Safari 就可以連了 = = (這哪招)，總之越來越神秘，只好先回到 nginx with openssl 1.0.1e，(就是死命要 spdy 就對了 XD)，後來在沒什麼想法的情況下只好打開 nginx 的 debug mode <code>error_log xxxxx debug;</code>，瞧瞧裡面有什麼。</p>
 <p>結果就看到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SSL handshake handler: 0</span><br><span class="line">[debug] 7585#0: *1 SSL_do_handshake: 0</span><br><span class="line">[debug] 7585#0: *1 SSL_get_error: 5</span><br><span class="line">[info] 7585#0: *1 peer closed connection in SSL handshake while SSL handshaking, client: x.x.x.x, server: 0.0.0.0:443                                  </span><br><span class="line">[debug] 7585#0: *1 close http connection: 14</span><br><span class="line">[debug] 7585#0: *1 SSL_shutdown: 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SSL handshake handler: 0</div><div class="line">[debug] 7585#0: *1 SSL_do_handshake: 0</div><div class="line">[debug] 7585#0: *1 SSL_get_error: 5</div><div class="line">[info] 7585#0: *1 peer closed connection in SSL handshake while SSL handshaking, client: x.x.x.x, server: 0.0.0.0:443                                  </div><div class="line">[debug] 7585#0: *1 close http connection: 14</div><div class="line">[debug] 7585#0: *1 SSL_shutdown: 1</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>啊靠，搞屁 Safari 直接斷掉 connection，這哪招，於是再用 Chrome 連看看</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SSL handshake handler: 0</span><br><span class="line">[debug] 8398#0: *1 ssl new session: 67979935:32:139</span><br><span class="line">[debug] 8398#0: *1 SSL_do_handshake: 1</span><br><span class="line">[debug] 8398#0: *1 SSL: TLSv1.1, cipher: &quot;ECDHE-RSA-RC4-SHA SSLv3 Kx=ECDH Au=RSA Enc=RC4(128) Mac=SHA1&quot;</span><br><span class="line">[debug] 8398#0: *1 reusable connection: 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SSL handshake handler: 0</div><div class="line">[debug] 8398#0: *1 ssl new session: 67979935:32:139</div><div class="line">[debug] 8398#0: *1 SSL_do_handshake: 1</div><div class="line">[debug] 8398#0: *1 SSL: TLSv1.1, cipher: &quot;ECDHE-RSA-RC4-SHA SSLv3 Kx=ECDH Au=RSA Enc=RC4(128) Mac=SHA1&quot;</div><div class="line">[debug] 8398#0: *1 reusable connection: 1</div></pre></td></tr></table></figure>
 <p>Bingo，看到一個關鍵的地方，在 SSL handshake 中，client 發一個簡單的 Hello 給 Sever 後，Server 也會回一個 Hello 給 Client，其中這兩個 Hello 會把自己支援的 SSL版本、加密法包在裡面給對方知道，於是這就回到 nginx 的 ssl 設定了，在 nginx 的 doc <a href="http://nginx.org/en/docs/http/configuring_https_servers.html" target="_blank" rel="external">Configuring HTTPS servers</a> 中，提到了因為要防禦 <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3389" target="_blank" rel="external">CVE-2011-3389 BEAST Attack</a>，建議把 SSL 設置如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssl_protocols       SSLv3 TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">ssl_ciphers RC4:HIGH:!aNULL:!MD5;</span><br><span class="line">ssl_prefer_server_ciphers on;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssl_protocols       SSLv3 TLSv1 TLSv1.1 TLSv1.2;</div><div class="line">ssl_ciphers RC4:HIGH:!aNULL:!MD5;</div><div class="line">ssl_prefer_server_ciphers on;</div></pre></td></tr></table></figure>
 <p>這個表示優先使用 RC4 的加密，然後是高安全(超過 128bit)的加密法，不接受 MD5 digest 的方式，所以我們可以看到 Chrome 是採用了 <code>ECDHE-RSA-RC4-SHA</code> (Firefox 也是)，但是 Safari 就這樣直接斷掉 connection… 我真是搞不懂你啊！這時候只好參考一些網路網站(就是拜一拜 Google 大神了)，就看到有個網站可以列出你的瀏覽器支援的 SSL cipher 在此 <a href="https://cc.dcsec.uni-hannover.de" target="_blank" rel="external">SSL Cipher Suite Details of Your Browser</a> 用 Safari 開了一下，如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">Cipher Suites Supported by Your Browser (ordered by preference):</span><br><span class="line"></span><br><span class="line">SpecCipher Suite NameKey SizeDescription</span><br><span class="line">(00,ff)EMPTY-RENEGOTIATION-INFO-SCSV0 BitUsed for secure renegotation.</span><br><span class="line">(c0,0a)ECDHE-ECDSA-AES256-SHA256 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,09)ECDHE-ECDSA-AES128-SHA128 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,07)ECDHE-ECDSA-RC4128-SHA128 BitKey exchange: ECDH, encryption: RC4, MAC: SHA1.</span><br><span class="line">(c0,08)ECDHE-ECDSA-3DES-EDE-SHA168 BitKey exchange: ECDH, encryption: 3DES, MAC: SHA1.</span><br><span class="line">(c0,14)ECDHE-RSA-AES256-SHA256 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,13)ECDHE-RSA-AES128-SHA128 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,11)ECDHE-RSA-RC4128-SHA128 BitKey exchange: ECDH, encryption: RC4, MAC: SHA1.</span><br><span class="line">(c0,12)ECDHE-RSA-3DES-EDE-SHA168 BitKey exchange: ECDH, encryption: 3DES, MAC: SHA1.</span><br><span class="line">(c0,04)ECDH-ECDSA-AES128-SHA128 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,05)ECDH-ECDSA-AES256-SHA256 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,02)ECDH-ECDSA-RC4128-SHA128 BitKey exchange: ECDH, encryption: RC4, MAC: SHA1.</span><br><span class="line">(c0,03)ECDH-ECDSA-3DES-EDE-SHA168 BitKey exchange: ECDH, encryption: 3DES, MAC: SHA1.</span><br><span class="line">(c0,0e)ECDH-RSA-AES128-SHA128 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,0f)ECDH-RSA-AES256-SHA256 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</span><br><span class="line">(c0,0c)ECDH-RSA-RC4128-SHA128 BitKey exchange: ECDH, encryption: RC4, MAC: SHA1.</span><br><span class="line">(c0,0d)ECDH-RSA-3DES-EDE-SHA168 BitKey exchange: ECDH, encryption: 3DES, MAC: SHA1.</span><br><span class="line">(00,2f)RSA-AES128-SHA128 BitKey exchange: RSA, encryption: AES, MAC: SHA1.</span><br><span class="line">(00,05)RSA-RC4128-SHA128 BitKey exchange: RSA, encryption: RC4, MAC: SHA1.</span><br><span class="line">(00,04)RSA-RC4128-MD5128 BitKey exchange: RSA, encryption: RC4, MAC: MD5.</span><br><span class="line">(00,35)RSA-AES256-SHA256 BitKey exchange: RSA, encryption: AES, MAC: SHA1.</span><br><span class="line">(00,0a)RSA-3DES-EDE-SHA56 BitKey exchange: RSA, encryption: 3DES, MAC: SHA1.</span><br><span class="line">(00,33)DHE-RSA-AES128-SHA128 BitKey exchange: DH, encryption: AES, MAC: SHA1.</span><br><span class="line">(00,39)DHE-RSA-AES256-SHA256 BitKey exchange: DH, encryption: AES, MAC: SHA1.</span><br><span class="line">(00,16)DHE-RSA-3DES-EDE-SHA168 BitKey exchange: DH, encryption: 3DES, MAC: SHA1.</span><br><span class="line"></span><br><span class="line">Further information:</span><br><span class="line"></span><br><span class="line">User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.29.13 (KHTML, like Gecko) Version/6.0.4 Safari/536.29.13</span><br><span class="line">Preferred SSL/TLS version: TLSv1</span><br><span class="line">SNI information: cc.dcsec.uni-hannover.de</span><br><span class="line">SSL stack current time: Sat, 27 Apr 2013 08:20:54</span><br><span class="line"></span><br><span class="line">This connection uses TLSv1 with AES128-SHA and a 128 Bit key for encryption.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">Cipher Suites Supported by Your Browser (ordered by preference):</div><div class="line"></div><div class="line">SpecCipher Suite NameKey SizeDescription</div><div class="line">(00,ff)EMPTY-RENEGOTIATION-INFO-SCSV0 BitUsed for secure renegotation.</div><div class="line">(c0,0a)ECDHE-ECDSA-AES256-SHA256 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</div><div class="line">(c0,09)ECDHE-ECDSA-AES128-SHA128 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</div><div class="line">(c0,07)ECDHE-ECDSA-RC4128-SHA128 BitKey exchange: ECDH, encryption: RC4, MAC: SHA1.</div><div class="line">(c0,08)ECDHE-ECDSA-3DES-EDE-SHA168 BitKey exchange: ECDH, encryption: 3DES, MAC: SHA1.</div><div class="line">(c0,14)ECDHE-RSA-AES256-SHA256 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</div><div class="line">(c0,13)ECDHE-RSA-AES128-SHA128 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</div><div class="line">(c0,11)ECDHE-RSA-RC4128-SHA128 BitKey exchange: ECDH, encryption: RC4, MAC: SHA1.</div><div class="line">(c0,12)ECDHE-RSA-3DES-EDE-SHA168 BitKey exchange: ECDH, encryption: 3DES, MAC: SHA1.</div><div class="line">(c0,04)ECDH-ECDSA-AES128-SHA128 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</div><div class="line">(c0,05)ECDH-ECDSA-AES256-SHA256 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</div><div class="line">(c0,02)ECDH-ECDSA-RC4128-SHA128 BitKey exchange: ECDH, encryption: RC4, MAC: SHA1.</div><div class="line">(c0,03)ECDH-ECDSA-3DES-EDE-SHA168 BitKey exchange: ECDH, encryption: 3DES, MAC: SHA1.</div><div class="line">(c0,0e)ECDH-RSA-AES128-SHA128 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</div><div class="line">(c0,0f)ECDH-RSA-AES256-SHA256 BitKey exchange: ECDH, encryption: AES, MAC: SHA1.</div><div class="line">(c0,0c)ECDH-RSA-RC4128-SHA128 BitKey exchange: ECDH, encryption: RC4, MAC: SHA1.</div><div class="line">(c0,0d)ECDH-RSA-3DES-EDE-SHA168 BitKey exchange: ECDH, encryption: 3DES, MAC: SHA1.</div><div class="line">(00,2f)RSA-AES128-SHA128 BitKey exchange: RSA, encryption: AES, MAC: SHA1.</div><div class="line">(00,05)RSA-RC4128-SHA128 BitKey exchange: RSA, encryption: RC4, MAC: SHA1.</div><div class="line">(00,04)RSA-RC4128-MD5128 BitKey exchange: RSA, encryption: RC4, MAC: MD5.</div><div class="line">(00,35)RSA-AES256-SHA256 BitKey exchange: RSA, encryption: AES, MAC: SHA1.</div><div class="line">(00,0a)RSA-3DES-EDE-SHA56 BitKey exchange: RSA, encryption: 3DES, MAC: SHA1.</div><div class="line">(00,33)DHE-RSA-AES128-SHA128 BitKey exchange: DH, encryption: AES, MAC: SHA1.</div><div class="line">(00,39)DHE-RSA-AES256-SHA256 BitKey exchange: DH, encryption: AES, MAC: SHA1.</div><div class="line">(00,16)DHE-RSA-3DES-EDE-SHA168 BitKey exchange: DH, encryption: 3DES, MAC: SHA1.</div><div class="line"></div><div class="line">Further information:</div><div class="line"></div><div class="line">User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.29.13 (KHTML, like Gecko) Version/6.0.4 Safari/536.29.13</div><div class="line">Preferred SSL/TLS version: TLSv1</div><div class="line">SNI information: cc.dcsec.uni-hannover.de</div><div class="line">SSL stack current time: Sat, 27 Apr 2013 08:20:54</div><div class="line"></div><div class="line">This connection uses TLSv1 with AES128-SHA and a 128 Bit key for encryption.</div></pre></td></tr></table></figure>
 <p>干，Safari 有支援 RC4 卻不給我使用，跑去用什麼 AES128-SHA 0rz…，所以我就想說奇怪為什麼有支援但是 nginx 單純設定 RC4 卻會失敗，於是在好奇之下就改成設定了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssl_ciphers RC4-SHA:HIGH:!aNULL:!MD5;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssl_ciphers RC4-SHA:HIGH:!aNULL:!MD5;</div></pre></td></tr></table></figure>
 <p>結果… Safari 就好了… Fxck 真的很想罵髒話，nginx 送 RC4 給 curl、Chrome、Firefox 都看的懂，你 Safari 就看不懂直接中斷連線是怎樣 = =</p>
 <p>Okay~ anyway，後來在網路也查不到什麼相關文章，不過我在網路上找到 BEAST Attack 的<a href="https://docs.google.com/viewer?url=http%3A%2F%2Fwww.phonefactor.com%2Fresources%2FCipherSuiteMitigationForBeast.pdf" target="_blank" rel="external">白皮書</a> 裡面推薦把 Web Server Cipher 設定成 <code>!aNULL:!eNULL:!EXPORT:!DSS:!DE
 S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可以正確的判讀 (因為 RC4-SHA:RC4-MD5 都明確說明了啊！)，不過基於 MD5 的 digest 似乎有 collision 的機率現在好像都不推薦使用，所以原本有個 <code>!MD5</code>，於是最後我在我們 Server 上就改成了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssl_ciphers !aNULL:!eNULL:!EXPORT:!DSS:!DES:!MD5:RC4-SHA:ALL;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssl_ciphers !aNULL:!eNULL:!EXPORT:!DSS:!DES:!MD5:RC4-SHA:ALL;</div></pre></td></tr></table></figure>
 <p>也就是不要 NULL， EXPORT 家族的，也不要 DSS、DES 的加密法，不要 MD5 的 digest，優先使用 RC4-SHA 跟剩下的其他加密/訊息驗證法，因為 RC4 跟 3DES 幾乎所有的 OS 都有支援，但是 3DES 效能是在太低會把 Server 拖一些下來，所以建議儘量使用 RC4 優先，這個網頁有速度的比較 <a href="http://zombe.es/post/4078724716/openssl-cipher-selection" target="_blank" rel="external">OpenSSL: Cipher Selection</a> 可以看到 RC4 是快很多的，但是在有支援 AESNI 指令集的 CPU 上用 AES 速度更快 (可用 <code>grep aes /proc/cpuinfo</code> 檢查)，所以目前使用 RC4 是安全又快速的。最後如果要檢查 HTTPS 到底是不是安全，可以使用 <a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="external">SSL Server Test</a> 來檢查。</p>
 <p>如果對 BEAST 攻擊有興趣可以看這篇 <a href="http://securitystreetknowledge.com/?p=882" target="_blank" rel="external">SSL Beast – SSL Assessments and How to Fix</a></p>
 <p>後來在測試 Mac 的 Agent 也可以連了，看起來是底層的 Framework 可能有問題。</p>
 <h4 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h4><p>關於 SSL 其實有很多傳說 XDD，我還有看到人家說 OpenSSL 1.0.0 產生的憑證不能用在 Apache 上，跟我們的問題有點類似，因為我們自己內部網站用的 SSL 加一模一樣的 nginx 設定 (也就是只開 <code>RC4</code>) Safari 是完全沒問題的，這次出事的是我們對外服務的網站，但是因為憑證當初不是我申請的，所以問題已經無從追了，網路沒什麼反應也許 nginx 官網推薦的設定是真的 OK 的只是我們剛好踩到這個雷 %&gt;_&lt;%</p>
 <p>另外也許文章一開始提到的，nginx 改用 OpenSSL 0.9.8y 可以是因為 Safari fallback 回去 SSLv3 的連線，所以就沒有使用奇奇怪怪的加密法，不然預設 Safari 也會優先使用 TLSv1。然後一用 TLSv1 配上我們的憑證也許 Safari 就傻了之類的 XD</p>
 <h4 id="後記-x2"><a href="#後記-x2" class="headerlink" title="後記 x2"></a>後記 x2</h4><p>目前 SSL/TSL key 都是直接交換的方式也就是同一把 key 用久久，去年爆出 NSA 其實有在偷偷側錄 SSL/TSL 的流量，所以有個名詞突然紅了起來，就是 <code>Perfect Forward Secrecy</code>  (PFS)，他是建立在 D-H 上，也就是動態產生一組 session key 交換，這樣可以確保全部訊息沒有辦法被用同一把 key 給解開。因此參考 <a href="https://community.qualys.com/blogs/securitylabs/2013/08/05/configuring-apache-nginx-and-openssl-for-forward-secrecy" target="_blank" rel="external">Configuring Apache, Nginx, and OpenSSL for Forward Secrecy</a> 這裡，建議把設定改成下列：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">ssl_prefer_server_ciphers on;</span><br><span class="line">ssl_ciphers &quot;EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4-SHA !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS&quot;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</div><div class="line">ssl_prefer_server_ciphers on;</div><div class="line">ssl_ciphers &quot;EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4-SHA !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS&quot;;</div></pre></td></tr></table></figure>
 <p>我把原文章的 RC4 改成 RC4-SHA，經過測試後，Safari 也可用！</p>
 <p>不過需要注意的是因為要打開橢圓曲線加密所以搭配 nginx 的 OpenSSL 最低需求要 1.0.1c 以上。</p>
 <hr>
@@ -279,7 +308,7 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/" data-id="cimu1r81v00308b0qctx2ahje" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/" data-id="civar04dv0044nyr5q1hyf9m7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -347,7 +376,7 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
 
             
     
-        <a href="/post/nginx-ssl-cipher-rc4-safari/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/nginx-ssl-cipher-rc4-safari/">評論</a>
+        <a href="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/">評論</a>
     
 
         </footer>
@@ -392,7 +421,7 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
 </section>
             
                 <aside id="sidebar">
-    
+   
         
     <div class="widget-wrap">
         <h3 class="widget-title">最新文章</h3>
@@ -408,6 +437,7 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -426,6 +456,7 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -441,9 +472,10 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
                             <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -459,9 +491,10 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
                             <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -480,6 +513,7 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -528,7 +562,7 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
 
 
     
-    <div id="toTop" class="fa fa-chevron-up"></div>
+    <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
         </div>
@@ -543,25 +577,25 @@ S:!SSLv2:RC4-SHA:RC4-MD5:ALL</code>，經過測試這樣的順序 Safari 也可�
         
     
     <script>
-    var disqus_shortname = 'parsefloat';
-    
-    
-    var disqus_url = 'http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/';
+        
+        this.page.identifier = 'nginx-ssl-cipher-rc4-safari';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'parsefloat' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
-    </script>
+</script>
 
 
 
     
-        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
     
+
 
 
 <!-- Custom Scripts -->

@@ -21,21 +21,22 @@
     
 
     
+        <link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml" />
+    
 
     
         <link rel="icon" href="/favicon.png" />
     
 
-    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
-    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
-        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
     
     
         <script type="text/javascript">
@@ -52,7 +53,12 @@ ga('send', 'pageview');
     
     
 
+
+    
+    <link rel="amphtml" href="./amp/index.html">
+    
 </head>
+
 <body>
     <div id="container">
         <header id="header">
@@ -179,15 +185,36 @@ ga('send', 'pageview');
             <table>
                 <tr>
                     
-                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
                     
-                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    <td>
+                        <a href="http://github.com/neoesque/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    <td>
+                        <a href="https://www.twitter.com/neoesque" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    <td>
+                        <a href="https://facebook.com/neoesque" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    <td>
+                        <a href="#" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
                     
                 </tr>
             </table>
@@ -201,7 +228,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -210,8 +236,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/">
@@ -220,37 +247,39 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Linux/">Linux</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
             
             <p>  My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append <code>video=VGA-1:1440x900@60</code> to kernel parameters. Because I use a 2-meter-long VGA line to connect my computer and monitor, I have to enforce using VGA port as display output. And it works perfectly.</p>
 <p>  The dmesg before kernel 3.7 says</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">[drm] nouveau 0000:01:00.0: Detected an NV50 generation card (0x0a8280a2)</span><br><span class="line">[drm] nouveau 0000:01:00.0: Checking PRAMIN for VBIOS</span><br><span class="line">[drm] nouveau 0000:01:00.0: ... appears to be valid</span><br><span class="line">[drm] nouveau 0000:01:00.0: Using VBIOS from PRAMIN</span><br><span class="line">[drm] nouveau 0000:01:00.0: BIT BIOS found</span><br><span class="line">[drm] nouveau 0000:01:00.0: Bios version 70.18.2c.00</span><br><span class="line">[drm] nouveau 0000:01:00.0: TMDS table version 2.0</span><br><span class="line">[drm] nouveau 0000:01:00.0: MXM: no VBIOS data, nothing to do</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB version 4.0</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 00: 01000302 00020030</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 01: 02000300 00000000</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 02: 02011362 0f220010</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 03: 01022310 00020010</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB conn 00: 00001030</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB conn 01: 00202161</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB conn 02: 00000200</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 0 at offset 0xD0B7</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0xD40D: Condition still not met after 20ms, skipping following opcodes</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0xD411: Condition still not met after 20ms, skipping following opcodes</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 1 at offset 0xD608</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 2 at offset 0xE0DA</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 3 at offset 0xE10F</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 4 at offset 0xE2C2</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table at offset 0xE327</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0xE327: Condition still not met after 20ms, skipping following opcodes</span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3051544 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">[drm] nouveau 0000:01:00.0: Detected 512MiB VRAM (DDR2)</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">[drm] nouveau 0000:01:00.0: 512 MiB GART (aperture)</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">[drm] nouveau 0000:01:00.0: 3 available performance level(s)</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: allocated 1440x900 fb: 0x310000, bo ffff8801a78dc000</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br><span class="line">[drm] nouveau 0000:01:00.0: no native mode, forcing panel scaling</span><br><span class="line">Console: switching to colour frame buffer device 180x56</span><br><span class="line">fb0: nouveaufb frame buffer device</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">[drm] Initialized drm 1.1.0 20060810</div><div class="line">[drm] nouveau 0000:01:00.0: Detected an NV50 generation card (0x0a8280a2)</div><div class="line">[drm] nouveau 0000:01:00.0: Checking PRAMIN for VBIOS</div><div class="line">[drm] nouveau 0000:01:00.0: ... appears to be valid</div><div class="line">[drm] nouveau 0000:01:00.0: Using VBIOS from PRAMIN</div><div class="line">[drm] nouveau 0000:01:00.0: BIT BIOS found</div><div class="line">[drm] nouveau 0000:01:00.0: Bios version 70.18.2c.00</div><div class="line">[drm] nouveau 0000:01:00.0: TMDS table version 2.0</div><div class="line">[drm] nouveau 0000:01:00.0: MXM: no VBIOS data, nothing to do</div><div class="line">[drm] nouveau 0000:01:00.0: DCB version 4.0</div><div class="line">[drm] nouveau 0000:01:00.0: DCB outp 00: 01000302 00020030</div><div class="line">[drm] nouveau 0000:01:00.0: DCB outp 01: 02000300 00000000</div><div class="line">[drm] nouveau 0000:01:00.0: DCB outp 02: 02011362 0f220010</div><div class="line">[drm] nouveau 0000:01:00.0: DCB outp 03: 01022310 00020010</div><div class="line">[drm] nouveau 0000:01:00.0: DCB conn 00: 00001030</div><div class="line">[drm] nouveau 0000:01:00.0: DCB conn 01: 00202161</div><div class="line">[drm] nouveau 0000:01:00.0: DCB conn 02: 00000200</div><div class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 0 at offset 0xD0B7</div><div class="line">[drm] nouveau 0000:01:00.0: 0xD40D: Condition still not met after 20ms, skipping following opcodes</div><div class="line">[drm] nouveau 0000:01:00.0: 0xD411: Condition still not met after 20ms, skipping following opcodes</div><div class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 1 at offset 0xD608</div><div class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 2 at offset 0xE0DA</div><div class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 3 at offset 0xE10F</div><div class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 4 at offset 0xE2C2</div><div class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table at offset 0xE327</div><div class="line">[drm] nouveau 0000:01:00.0: 0xE327: Condition still not met after 20ms, skipping following opcodes</div><div class="line">[TTM] Zone  kernel: Available graphics memory: 3051544 kiB</div><div class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</div><div class="line">[TTM] Initializing pool allocator</div><div class="line">[TTM] Initializing DMA pool allocator</div><div class="line">[drm] nouveau 0000:01:00.0: Detected 512MiB VRAM (DDR2)</div><div class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</div><div class="line">[drm] nouveau 0000:01:00.0: 512 MiB GART (aperture)</div><div class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</div><div class="line">[drm] No driver support for vblank timestamp query.</div><div class="line">[drm] nouveau 0000:01:00.0: 3 available performance level(s)</div><div class="line">[drm] nouveau 0000:01:00.0: 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</div><div class="line">[drm] nouveau 0000:01:00.0: 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</div><div class="line">[drm] nouveau 0000:01:00.0: 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</div><div class="line">[drm] nouveau 0000:01:00.0: c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</div><div class="line">[drm] nouveau 0000:01:00.0: allocated 1440x900 fb: 0x310000, bo ffff8801a78dc000</div><div class="line">fbcon: nouveaufb (fb0) is primary device</div><div class="line">[drm] nouveau 0000:01:00.0: no native mode, forcing panel scaling</div><div class="line">Console: switching to colour frame buffer device 180x56</div><div class="line">fb0: nouveaufb frame buffer device</div></pre></td></tr></table></figure>
 <p>  The kernel 3.7 or prior version was enforced using VGA as output successfully. And the resolution is right.</p>
 <p>  But after upgrading to 3.8 or above, I found that the parameter <code>video=VGA-1:1440x900@60</code> causes a faulty screen after booting. I google it, and find some people bump into the same problem. <a href="https://bugzilla.redhat.com/show_bug.cgi?id=910945" target="_blank" rel="external">No signal to monitor after kernel modesetting fails</a> <a href="http://forums.fedoraforum.org/showthread.php?t=289189" target="_blank" rel="external">Problems with kernel-3.8 and kernel-3.9 modesetting</a></p>
 <p>  The kernel 3.8 or above says</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] BOOT0  : 0x0a8280a2</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] Chipset: GT218 (NVA8)</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] Family : NV50</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] checking PRAMIN for image...</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] ... appears to be valid</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] using image from PRAMIN</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] BIT signature found</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] version 70.18.2c.00.04</span><br><span class="line">nouveau  [     PFB][0000:01:00.0] RAM type: DDR2</span><br><span class="line">nouveau  [     PFB][0000:01:00.0] RAM size: 512 MiB</span><br><span class="line">nouveau  [     PFB][0000:01:00.0]    ZCOMP: 960 tags</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] FAN control: none / external</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] fan management: disabled</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] internal sensor: yes</span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3050978 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">nouveau  [     DRM] VRAM: 512 MiB</span><br><span class="line">nouveau  [     DRM] GART: 512 MiB</span><br><span class="line">nouveau  [     DRM] TMDS table version 2.0</span><br><span class="line">nouveau  [     DRM] DCB version 4.0</span><br><span class="line">nouveau  [     DRM] DCB outp 00: 01000302 00020030</span><br><span class="line">nouveau  [     DRM] DCB outp 01: 02000300 00000000</span><br><span class="line">nouveau  [     DRM] DCB outp 02: 02011362 0f220010</span><br><span class="line">nouveau  [     DRM] DCB outp 03: 01022310 00020010</span><br><span class="line">nouveau  [     DRM] DCB conn 00: 00001030</span><br><span class="line">nouveau  [     DRM] DCB conn 01: 00202161</span><br><span class="line">nouveau  [     DRM] DCB conn 02: 00000200</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">nouveau  [     DRM] 3 available performance level(s)</span><br><span class="line">nouveau  [     DRM] 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">nouveau  [     DRM] 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">nouveau  [     DRM] c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] MM: using COPY for buffer copies</span><br><span class="line">nouveau 0000:01:00.0: No connectors reported connected with modes</span><br><span class="line">[drm] Cannot find any crtc or sizes - going 1024x768</span><br><span class="line">nouveau  [     DRM] allocated 1024x768 fb: 0x70000, bo ffff8801a7c37c00</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">[drm] Initialized drm 1.1.0 20060810</div><div class="line">nouveau  [  DEVICE][0000:01:00.0] BOOT0  : 0x0a8280a2</div><div class="line">nouveau  [  DEVICE][0000:01:00.0] Chipset: GT218 (NVA8)</div><div class="line">nouveau  [  DEVICE][0000:01:00.0] Family : NV50</div><div class="line">nouveau  [   VBIOS][0000:01:00.0] checking PRAMIN for image...</div><div class="line">nouveau  [   VBIOS][0000:01:00.0] ... appears to be valid</div><div class="line">nouveau  [   VBIOS][0000:01:00.0] using image from PRAMIN</div><div class="line">nouveau  [   VBIOS][0000:01:00.0] BIT signature found</div><div class="line">nouveau  [   VBIOS][0000:01:00.0] version 70.18.2c.00.04</div><div class="line">nouveau  [     PFB][0000:01:00.0] RAM type: DDR2</div><div class="line">nouveau  [     PFB][0000:01:00.0] RAM size: 512 MiB</div><div class="line">nouveau  [     PFB][0000:01:00.0]    ZCOMP: 960 tags</div><div class="line">nouveau  [  PTHERM][0000:01:00.0] FAN control: none / external</div><div class="line">nouveau  [  PTHERM][0000:01:00.0] fan management: disabled</div><div class="line">nouveau  [  PTHERM][0000:01:00.0] internal sensor: yes</div><div class="line">[TTM] Zone  kernel: Available graphics memory: 3050978 kiB</div><div class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</div><div class="line">[TTM] Initializing pool allocator</div><div class="line">[TTM] Initializing DMA pool allocator</div><div class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</div><div class="line">nouveau  [     DRM] VRAM: 512 MiB</div><div class="line">nouveau  [     DRM] GART: 512 MiB</div><div class="line">nouveau  [     DRM] TMDS table version 2.0</div><div class="line">nouveau  [     DRM] DCB version 4.0</div><div class="line">nouveau  [     DRM] DCB outp 00: 01000302 00020030</div><div class="line">nouveau  [     DRM] DCB outp 01: 02000300 00000000</div><div class="line">nouveau  [     DRM] DCB outp 02: 02011362 0f220010</div><div class="line">nouveau  [     DRM] DCB outp 03: 01022310 00020010</div><div class="line">nouveau  [     DRM] DCB conn 00: 00001030</div><div class="line">nouveau  [     DRM] DCB conn 01: 00202161</div><div class="line">nouveau  [     DRM] DCB conn 02: 00000200</div><div class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</div><div class="line">[drm] No driver support for vblank timestamp query.</div><div class="line">nouveau  [     DRM] 3 available performance level(s)</div><div class="line">nouveau  [     DRM] 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</div><div class="line">nouveau  [     DRM] 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</div><div class="line">nouveau  [     DRM] 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</div><div class="line">nouveau  [     DRM] c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</div><div class="line">nouveau  [     DRM] MM: using COPY for buffer copies</div><div class="line">nouveau 0000:01:00.0: No connectors reported connected with modes</div><div class="line">[drm] Cannot find any crtc or sizes - going 1024x768</div><div class="line">nouveau  [     DRM] allocated 1024x768 fb: 0x70000, bo ffff8801a7c37c00</div><div class="line">fbcon: nouveaufb (fb0) is primary device</div></pre></td></tr></table></figure>
 <p>  The kernel 3.8 says it cannot find a connector?</p>
 <p>  I read the documents of KMS, and then I solved the problem.</p>
 <a id="more"></a>
 <p>  The document <a href="http://nouveau.freedesktop.org/wiki/KernelModeSetting/" target="_blank" rel="external">Kernel Mode-setting</a> says if you want to enforce some output, you should append “e” after the parameter. So that’s how I solved my problem. The parameter is just modified to <code>video=VGA-1:1440x900@60e</code>, and that’s all. Test your new kernel now! :)</p>
 <p>  That’s what my kernel (3.9.3) says now</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] BOOT0  : 0x0a8280a2</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] Chipset: GT218 (NVA8)</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] Family : NV50</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] checking PRAMIN for image...</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] ... appears to be valid</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] using image from PRAMIN</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] BIT signature found</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] version 70.18.2c.00.04</span><br><span class="line">nouveau  [     PFB][0000:01:00.0] RAM type: DDR2</span><br><span class="line">nouveau  [     PFB][0000:01:00.0] RAM size: 512 MiB</span><br><span class="line">nouveau  [     PFB][0000:01:00.0]    ZCOMP: 960 tags</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] FAN control: none / external</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] fan management: disabled</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] internal sensor: yes</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] programmed thresholds [ 90(3), 95(3), 105(5), 135(5) </span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3051030 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">nouveau  [     DRM] VRAM: 512 MiB</span><br><span class="line">nouveau  [     DRM] GART: 512 MiB</span><br><span class="line">nouveau  [     DRM] TMDS table version 2.0</span><br><span class="line">nouveau  [     DRM] DCB version 4.0</span><br><span class="line">nouveau  [     DRM] DCB outp 00: 01000302 00020030</span><br><span class="line">nouveau  [     DRM] DCB outp 01: 02000300 00000000</span><br><span class="line">nouveau  [     DRM] DCB outp 02: 02011362 0f220010</span><br><span class="line">nouveau  [     DRM] DCB outp 03: 01022310 00020010</span><br><span class="line">nouveau  [     DRM] DCB conn 00: 00001030</span><br><span class="line">nouveau  [     DRM] DCB conn 01: 00202161</span><br><span class="line">nouveau  [     DRM] DCB conn 02: 00000200</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">nouveau  [     DRM] 3 available performance level(s)</span><br><span class="line">nouveau  [     DRM] 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">nouveau  [     DRM] 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">nouveau  [     DRM] c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] MM: using COPY for buffer copies</span><br><span class="line">[drm] forcing VGA-1 connector ON</span><br><span class="line">nouveau  [     DRM] allocated 1440x900 fb: 0x70000, bo ffff8801a83f8000</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">[drm] Initialized drm 1.1.0 20060810</div><div class="line">nouveau  [  DEVICE][0000:01:00.0] BOOT0  : 0x0a8280a2</div><div class="line">nouveau  [  DEVICE][0000:01:00.0] Chipset: GT218 (NVA8)</div><div class="line">nouveau  [  DEVICE][0000:01:00.0] Family : NV50</div><div class="line">nouveau  [   VBIOS][0000:01:00.0] checking PRAMIN for image...</div><div class="line">nouveau  [   VBIOS][0000:01:00.0] ... appears to be valid</div><div class="line">nouveau  [   VBIOS][0000:01:00.0] using image from PRAMIN</div><div class="line">nouveau  [   VBIOS][0000:01:00.0] BIT signature found</div><div class="line">nouveau  [   VBIOS][0000:01:00.0] version 70.18.2c.00.04</div><div class="line">nouveau  [     PFB][0000:01:00.0] RAM type: DDR2</div><div class="line">nouveau  [     PFB][0000:01:00.0] RAM size: 512 MiB</div><div class="line">nouveau  [     PFB][0000:01:00.0]    ZCOMP: 960 tags</div><div class="line">nouveau  [  PTHERM][0000:01:00.0] FAN control: none / external</div><div class="line">nouveau  [  PTHERM][0000:01:00.0] fan management: disabled</div><div class="line">nouveau  [  PTHERM][0000:01:00.0] internal sensor: yes</div><div class="line">nouveau  [  PTHERM][0000:01:00.0] programmed thresholds [ 90(3), 95(3), 105(5), 135(5) </div><div class="line">[TTM] Zone  kernel: Available graphics memory: 3051030 kiB</div><div class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</div><div class="line">[TTM] Initializing pool allocator</div><div class="line">[TTM] Initializing DMA pool allocator</div><div class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</div><div class="line">nouveau  [     DRM] VRAM: 512 MiB</div><div class="line">nouveau  [     DRM] GART: 512 MiB</div><div class="line">nouveau  [     DRM] TMDS table version 2.0</div><div class="line">nouveau  [     DRM] DCB version 4.0</div><div class="line">nouveau  [     DRM] DCB outp 00: 01000302 00020030</div><div class="line">nouveau  [     DRM] DCB outp 01: 02000300 00000000</div><div class="line">nouveau  [     DRM] DCB outp 02: 02011362 0f220010</div><div class="line">nouveau  [     DRM] DCB outp 03: 01022310 00020010</div><div class="line">nouveau  [     DRM] DCB conn 00: 00001030</div><div class="line">nouveau  [     DRM] DCB conn 01: 00202161</div><div class="line">nouveau  [     DRM] DCB conn 02: 00000200</div><div class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</div><div class="line">[drm] No driver support for vblank timestamp query.</div><div class="line">nouveau  [     DRM] 3 available performance level(s)</div><div class="line">nouveau  [     DRM] 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</div><div class="line">nouveau  [     DRM] 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</div><div class="line">nouveau  [     DRM] 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</div><div class="line">nouveau  [     DRM] c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</div><div class="line">nouveau  [     DRM] MM: using COPY for buffer copies</div><div class="line">[drm] forcing VGA-1 connector ON</div><div class="line">nouveau  [     DRM] allocated 1440x900 fb: 0x70000, bo ffff8801a83f8000</div><div class="line">fbcon: nouveaufb (fb0) is primary device</div></pre></td></tr></table></figure>
 <p>  As you can see the line shows “[drm] forcing VGA-1 connector ON”.</p>
 <p>  I think the problem maybe cause by the parameter check is more strict now.</p>
 
@@ -263,7 +292,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" data-id="cimu1r83500498b0q10vuanxj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" data-id="civar04eo0056nyr59sl0b4ok" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -331,7 +360,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/">評論</a>
+        <a href="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/">評論</a>
     
 
         </footer>
@@ -376,7 +405,7 @@ ga('send', 'pageview');
 </section>
             
                 <aside id="sidebar">
-    
+   
         
     <div class="widget-wrap">
         <h3 class="widget-title">最新文章</h3>
@@ -392,6 +421,7 @@ ga('send', 'pageview');
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -410,6 +440,7 @@ ga('send', 'pageview');
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -425,9 +456,10 @@ ga('send', 'pageview');
                             <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -443,9 +475,10 @@ ga('send', 'pageview');
                             <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -464,6 +497,7 @@ ga('send', 'pageview');
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -512,7 +546,7 @@ ga('send', 'pageview');
 
 
     
-    <div id="toTop" class="fa fa-chevron-up"></div>
+    <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
         </div>
@@ -527,25 +561,25 @@ ga('send', 'pageview');
         
     
     <script>
-    var disqus_shortname = 'parsefloat';
-    
-    
-    var disqus_url = 'http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/';
+        
+        this.page.identifier = 'solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'parsefloat' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
-    </script>
+</script>
 
 
 
     
-        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
     
+
 
 
 <!-- Custom Scripts -->

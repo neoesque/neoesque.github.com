@@ -16,7 +16,7 @@
 
 部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 電子郵件驗證 中說的，要可以被 驗證和識別，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 Doma">
 <meta property="og:image" content="https://lh5.googleusercontent.com/-A6MtopadkXk/T47U_sZ8eqI/AAAAAAAAD7Y/TdkEhjis8jE/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-18%2520%25E4%25B8%258B%25E5%258D%258810.51.09.png">
-<meta property="og:updated_time" content="2015-03-14T05:42:03.000Z">
+<meta property="og:updated_time" content="2016-11-09T09:25:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="設定 SPF 跟 DomainKeys 在 postfix 和 tinydns">
 <meta name="twitter:description" content="Will be replaced with the ToC{:toc}
@@ -29,21 +29,22 @@
     
 
     
+        <link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml" />
+    
 
     
         <link rel="icon" href="/favicon.png" />
     
 
-    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
-    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
-        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
     
     
         <script type="text/javascript">
@@ -60,7 +61,12 @@ ga('send', 'pageview');
     
     
 
+
+    
+    <link rel="amphtml" href="./amp/index.html">
+    
 </head>
+
 <body>
     <div id="container">
         <header id="header">
@@ -187,15 +193,36 @@ ga('send', 'pageview');
             <table>
                 <tr>
                     
-                    <td><a href="http://github.com/neoesque/" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
                     
-                    <td><a href="https://www.twitter.com/neoesque" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+                    <td>
+                        <a href="http://github.com/neoesque/" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="https://facebook.com/neoesque" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+                    <td>
+                        <a href="https://www.twitter.com/neoesque" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+                    <td>
+                        <a href="https://facebook.com/neoesque" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
                     
-                    <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+                    <td>
+                        <a href="#" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
                     
                 </tr>
             </table>
@@ -209,7 +236,6 @@ ga('send', 'pageview');
     <div class="article-inner">
         
         
-        
             <header class="article-header">
                 
     
@@ -218,8 +244,9 @@ ga('send', 'pageview');
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/post/postfix-spf-domainkeys-tinydns/">
@@ -228,20 +255,22 @@ ga('send', 'pageview');
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/資訊/">資訊</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Linux/">Linux</a>
     </div>
 
-                </div>
+                    </div>
+                
             </header>
+        
         
         <div class="article-entry" itemprop="articleBody">
         
@@ -249,7 +278,7 @@ ga('send', 'pageview');
             <ul>
 <li>Will be replaced with the ToC<br>{:toc}</li>
 </ul>
-<p>部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 <a href="https://support.google.com/mail/bin/answer.py?hl=zh-TW&amp;answer=180707" target="_blank" rel="external">電子郵件驗證</a> 中說的，要可以被 <a href="http://support.google.com/mail/bin/answer.py?hl=zh-Hant&amp;answer=81126#authentication" target="_blank" rel="external">驗證和識別</a>，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 DomainKeys，不過有了 DKIM 後原本單純 DomainKeys 就被廢棄了(當然目前還是可以用的)。我們單位用的 mail server 是 Postfix 而 DNS 則是 tinydns (djbdns)</p>
+<p>部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 <a href="https://support.google.com/mail/bin/answer.py?hl=zh-TW&amp;answer=180707" target="_blank" rel="external">電子郵件驗證</a> 中說的，要可以被 <a href="http://support.google.com/mail/bin/answer.py?hl=zh-Hant&amp;answer=81126#authentication" target="_blank" rel="external">驗證和識別</a>，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 DomainKeys，不過有了 DKIM 後原本單純 DomainKeys 就被廢棄了(當然目前還是可以用的)。我們單位用的 mail server 是 Postfix 而 DNS 則是 tinydns (djbdns %}</p>
 <h3 id="設定-SPF"><a href="#設定-SPF" class="headerlink" title="設定 SPF"></a>設定 SPF</h3><p>SPF 只是簡單的 DNS TXT 發佈而已，可以利用 <a href="http://spfwizard.com" target="_blank" rel="external">easySPF</a> 製作。於是在 tinydns 的設定檔加入下列資訊：</p>
 <pre><code>&apos;foo.bar:v=spf1 ip4\07211.22.33.44/32 ~all:600
 </code></pre><p>這裡用 <code>foo.bar</code> 當作 domain，而 <code>11.22.33.44</code> 則是 Server 寄信出來的 public ip，這樣子就完成啦~</p>
@@ -287,7 +316,7 @@ tBdRZfTB0jprUosjt+QHmY8t8bPFEK83XmRrSTEh94MJOjbXwN7AhGcCAwEAAQ==
 </code></pre><p>事實上官方文件說從 2.2 之後不需要這個檔案， opendkim 會自動判斷 header 的 From 只要等於 Domain 就會自動 sign，可是我實驗的結果沒有成功 = =，所以還是加上去了。</p>
 <ul>
 <li>Selector：這個是驗證時候要用的 subdomain，就隨便定一個名稱吧。</li>
-<li>Socket：由於 opendkim 是一個 daemon，這是他要 listen 的 socket (unix domain socket 也是 ok 的)</li>
+<li>Socket：由於 opendkim 是一個 daemon，這是他要 listen 的 socket (unix domain socket 也是 ok 的 %}</li>
 <li>Syslog：要不要使用 syslog 來記錄，會被歸類在 mail facility。</li>
 <li>UserID：daemon 的 UID</li>
 </ul>
@@ -319,7 +348,7 @@ This is test message!
 .
 QUIT
 </code></pre><p>然後到 GMail 收信，看信件的 Header 應該會有：<em>spf=pass</em> 跟 <em>dkim=pass</em> 的字樣就表示成功了！而 Yahoo 也是一樣會有 pass 的字樣哦~</p>
-<p><img src="https://lh5.googleusercontent.com/-A6MtopadkXk/T47U_sZ8eqI/AAAAAAAAD7Y/TdkEhjis8jE/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-18%2520%25E4%25B8%258B%25E5%258D%258810.51.09.png" alt=""></p>
+<img src="https://lh5.googleusercontent.com/-A6MtopadkXk/T47U_sZ8eqI/AAAAAAAAD7Y/TdkEhjis8jE/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-18%2520%25E4%25B8%258B%25E5%258D%258810.51.09.png" width="800" height="600">
 
         
         </div>
@@ -330,7 +359,7 @@ QUIT
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/" data-id="cimu1r82w003y8b0qb0nncqxd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/" data-id="civar04el004znyr5xkc0lhxm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -398,7 +427,7 @@ QUIT
 
             
     
-        <a href="/post/postfix-spf-domainkeys-tinydns/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/post/postfix-spf-domainkeys-tinydns/">評論</a>
+        <a href="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/">評論</a>
     
 
         </footer>
@@ -443,7 +472,7 @@ QUIT
 </section>
             
                 <aside id="sidebar">
-    
+   
         
     <div class="widget-wrap">
         <h3 class="widget-title">最新文章</h3>
@@ -459,6 +488,7 @@ QUIT
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -477,6 +507,7 @@ QUIT
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -492,9 +523,10 @@ QUIT
                             <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -510,9 +542,10 @@ QUIT
                             <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
     
     
-        <span style="background-image:url(https://lh5.googleusercontent.com/-HkzyWauFHds/VHk8i-AVlEI/AAAAAAAAOE8/RHSOuyf_sKk/w640-no/PB163199.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -531,6 +564,7 @@ QUIT
         <span class="thumbnail-image thumbnail-none"></span>
     
 </a>
+
                         </div>
                         
                         <div class="item-inner">
@@ -579,7 +613,7 @@ QUIT
 
 
     
-    <div id="toTop" class="fa fa-chevron-up"></div>
+    <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
         </div>
@@ -594,25 +628,25 @@ QUIT
         
     
     <script>
-    var disqus_shortname = 'parsefloat';
-    
-    
-    var disqus_url = 'http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/';
+        
+        this.page.identifier = 'postfix-spf-domainkeys-tinydns';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'parsefloat' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
-    </script>
+</script>
 
 
 
     
-        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
     
+
 
 
 <!-- Custom Scripts -->
