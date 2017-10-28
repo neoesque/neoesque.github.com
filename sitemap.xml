@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.littlero.se/post/USwest-canyon/</loc>
+    
+    <lastmod>2016-12-20T14:31:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.littlero.se/post/colonoscopy/</loc>
+    
+    <lastmod>2016-12-20T14:24:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.littlero.se/post/conky/</loc>
+    
+    <lastmod>2016-12-20T14:24:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.littlero.se/post/e-m5-12mm-25mm/</loc>
+    
+    <lastmod>2016-12-20T14:24:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.littlero.se/post/e-m5-wooden-grip/</loc>
+    
+    <lastmod>2016-12-20T14:23:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.littlero.se/post/e-m5-grip-base/</loc>
+    
+    <lastmod>2016-12-20T14:22:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.littlero.se/post/ingress-email-attack-notify-to-Pushover/</loc>
+    
+    <lastmod>2016-12-20T14:21:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.littlero.se/post/install-graylog2/</loc>
+    
+    <lastmod>2016-12-20T14:20:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.littlero.se/post/linux-tuning-for-write-heavy-system/</loc>
+    
+    <lastmod>2016-12-20T14:20:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.littlero.se/post/transfer-textmate-2-to-sublime-text-2/</loc>
     
     <lastmod>2016-11-09T09:25:45.000Z</lastmod>
@@ -40,13 +103,6 @@
     <loc>http://blog.littlero.se/post/Walt-Disney-World-Resort-in-Orlando-Florida/</loc>
     
     <lastmod>2016-11-09T09:20:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.littlero.se/post/USwest-canyon/</loc>
-    
-    <lastmod>2016-11-09T09:19:44.000Z</lastmod>
     
   </url>
   
@@ -268,30 +324,9 @@
   </url>
   
   <url>
-    <loc>http://blog.littlero.se/post/linux-tuning-for-write-heavy-system/</loc>
-    
-    <lastmod>2015-03-14T05:40:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.littlero.se/post/linux-cgroups/</loc>
     
     <lastmod>2015-03-14T05:40:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.littlero.se/post/install-graylog2/</loc>
-    
-    <lastmod>2015-03-14T05:40:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.littlero.se/post/ingress-email-attack-notify-to-Pushover/</loc>
-    
-    <lastmod>2015-03-14T05:40:16.000Z</lastmod>
     
   </url>
   
@@ -310,20 +345,6 @@
   </url>
   
   <url>
-    <loc>http://blog.littlero.se/post/e-m5-wooden-grip/</loc>
-    
-    <lastmod>2015-03-14T05:39:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.littlero.se/post/e-m5-grip-base/</loc>
-    
-    <lastmod>2015-03-14T05:39:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.littlero.se/post/casio-tr15/</loc>
     
     <lastmod>2015-03-14T05:39:40.000Z</lastmod>
@@ -331,30 +352,9 @@
   </url>
   
   <url>
-    <loc>http://blog.littlero.se/post/e-m5-12mm-25mm/</loc>
-    
-    <lastmod>2015-03-14T05:39:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.littlero.se/post/conky/</loc>
-    
-    <lastmod>2015-03-14T05:39:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.littlero.se/post/compile-objective-c-on-gentoo/</loc>
     
     <lastmod>2015-03-14T05:39:05.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.littlero.se/post/colonoscopy/</loc>
-    
-    <lastmod>2015-03-14T05:38:53.000Z</lastmod>
     
   </url>
   

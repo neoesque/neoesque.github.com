@@ -9,37 +9,6 @@ body:after {
 body:after {
   clear: both;
 }
-.heimu {
-  background-color: #252525 !important;
-  color: #252525 !important;
-}
-.toc-article {
-  background: color-code;
-  margin: 2em 0 0 0.5em;
-  padding: 1em;
-}
-.toc-article strong {
-  padding: 0.3em 0;
-}
-#toc {
-  line-height: 1em;
-  font-size: 0.8em;
-  float: right;
-}
-#toc .toc {
-  padding: 0;
-}
-#toc .toc li {
-  list-style-type: none;
-}
-#toc .toc-child {
-  padding-left: 1.5em;
-}
-@media only print {
-  .print-invisible * {
-    display: none !important;
-  }
-}
 html,
 body,
 div,
@@ -149,7 +118,7 @@ body,
 body {
   color: #565a5f;
   background: #f5f8f9;
-  font: 16px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
+  font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 a {
@@ -163,7 +132,7 @@ code {
   margin: 0 2px;
   color: #e96900;
   padding: 3px 5px;
-  font-size: 0.8em;
+  font-size: 0.9em;
   border-radius: 2px;
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
   background-color: #f8f8f8;
@@ -495,9 +464,9 @@ code {
 }
 .nav-icon {
   text-align: center;
-  font-size: 16px;
-  width: 16px;
-  height: 16px;
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
   position: relative;
   cursor: pointer;
   height: 40px !important;
@@ -597,7 +566,7 @@ code {
   line-height: 1.6em;
   outline: none !important;
   background: none !important;
-  font: 16px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
+  font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
   border: 1px solid #eceff2 !important;
 }
 .search-form-input:focus,
@@ -703,7 +672,7 @@ code {
   font-weight: 600;
 }
 #profile .inner .base-info #location {
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 5px;
   color: #9a9ea3;
 }
@@ -748,11 +717,11 @@ code {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-size: 22px;
+  font-size: 20px;
 }
 #profile .inner .article-info .article-info-block span {
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   text-transform: uppercase;
 }
 #profile .inner .article-info .article-info-block:first-child {
@@ -763,7 +732,7 @@ code {
 }
 #profile .inner .social-links > table td {
   text-align: center;
-  font-size: 26px;
+  font-size: 24px;
 }
 #profile .inner .social-links > table td a {
   position: relative;
@@ -914,6 +883,11 @@ a.article-title:hover {
 .article-entry:after {
   clear: both;
 }
+.article-entry p {
+  text-align: justify;
+  font-size: 1.16em;
+  letter-spacing: 0.1em;
+}
 .article-entry p,
 .article-entry table {
   line-height: 1.6em;
@@ -974,7 +948,7 @@ a.article-title:hover {
   padding: 10px 0;
 }
 .article-entry blockquote {
-  position: relative;
+  position: static;
   font-family: Georgia, "Times New Roman", "Microsoft Yahei", serif;
   font-size: 1.1em;
   margin: 0 -20px;
@@ -990,10 +964,10 @@ a.article-title:hover {
   font-size: 32px;
   font-family: FontAwesome;
   text-align: center;
-  position: absolute;
+  position: static;
 }
 .article-entry blockquote footer {
-  font-size: 16px;
+  font-size: 14px;
   margin: 1.6em 0;
   font-family: "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
 }
@@ -1373,6 +1347,15 @@ ol.toc {
   -ms-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out;
 }
+.article.rtl .article-title,
+.article.rtl .article-entry p {
+  direction: rtl;
+}
+.article.rtl .article-meta > div {
+  float: right;
+  margin-left: 10px;
+  margin-right: 0;
+}
 .lg-outer .lg-thumb-item {
   border-radius: 0 !important;
 }
@@ -1525,7 +1508,7 @@ ol.toc {
 .layout-wrap-inner.list-categories ul li,
 .layout-wrap-inner.list-categories ul .category-list-child {
   padding: 10px 0;
-  font-size: 16px;
+  font-size: 14px;
   border-bottom: 1px solid border-color;
 }
 .layout-wrap-inner.list-categories ul li a,
@@ -1696,7 +1679,7 @@ ol.toc {
   padding: 20px 0;
   border-top: 1px solid #eceff2;
   color: #565a5f;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
 }
 #footer .outer {
@@ -1815,7 +1798,7 @@ ol.toc {
 .widget ul .category-list-child,
 .widget ol .category-list-child {
   padding: 10px 0;
-  font-size: 16px;
+  font-size: 14px;
   border-bottom: 1px solid border-color;
 }
 .widget ul li a,
@@ -2119,9 +2102,9 @@ ol.toc {
   display: block;
   overflow-x: auto;
   padding: 15px 20px;
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
-  line-height: 25.6px;
+  line-height: 22.400000000000002px;
 }
 .highlight table {
   margin: 0;

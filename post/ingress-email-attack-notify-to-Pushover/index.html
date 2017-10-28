@@ -6,11 +6,13 @@
     <title>用 Pushover 收 Ingress 成就點攻擊通知 | neoesque</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Ingress 及時的攻擊通知 over Pushover">
+<meta name="keywords" content="ingress,pushover">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用 Pushover 收 Ingress 成就點攻擊通知">
 <meta property="og:url" content="http://blog.littlero.se/post/ingress-email-attack-notify-to-Pushover/index.html">
 <meta property="og:site_name" content="neoesque">
 <meta property="og:description" content="Ingress 及時的攻擊通知 over Pushover">
+<meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://lh3.googleusercontent.com/YoX0bNlxU8WQ43p7BkpK8slGEbnDZjY6gOv1DDOfqdU=w800-no">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-gyit_8RTc-Y/VKzTw7ppWjI/AAAAAAAAPx0/4aQ6fWi5RCU/w800-no/Screenshot%2B2015-01-07%2B14.27.35.png">
 <meta property="og:image" content="https://lh4.googleusercontent.com/-j5wQYTyHDlg/VKzTw8EsBQI/AAAAAAAAPx4/fRRdK-yUTTQ/w1734-h916-no/Screenshot%2B2015-01-07%2B14.27.59.png">
@@ -20,7 +22,7 @@
 <meta property="og:image" content="https://lh6.googleusercontent.com/-POsLw3z9-2A/VKza5C_kE7I/AAAAAAAAPzA/2c6RN9V7_-c/w800-no/Screenshot%2B2015-01-07%2B15.04.17.png">
 <meta property="og:image" content="https://lh4.googleusercontent.com/-S0yo3hreTC4/VKza_i1ic7I/AAAAAAAAPzM/HBIDqrg9-L0/w800-no/Screenshot%2B2015-01-07%2B15.04.25.png">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-jHoYlRw1Xjw/VKzobV-ZbeI/AAAAAAAAP0o/zJVFsLFgJoo/s800/Screenshot%25202015-01-07%252015.11.54.png">
-<meta property="og:updated_time" content="2015-03-14T05:40:16.000Z">
+<meta property="og:updated_time" content="2016-12-20T14:21:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用 Pushover 收 Ingress 成就點攻擊通知">
 <meta name="twitter:description" content="Ingress 及時的攻擊通知 over Pushover">
@@ -64,9 +66,6 @@ ga('send', 'pageview');
     
 
 
-    
-    <link rel="amphtml" href="./amp/index.html">
-    
 </head>
 
 <body>
@@ -284,27 +283,27 @@ ga('send', 'pageview');
 <a id="more"></a>
 <p>這類通知的程式還蠻多的，iOS 有 <a href="http://www.prowlapp.com/" target="_blank" rel="external">Prowl</a>， Android 有 <a href="http://www.notifymyandroid.com/" target="_blank" rel="external">Notify My Android</a>，不過上述兩個就是沒有一個是跨平台的，還有另一套新秀 <a href="https://www.pushbullet.com/" target="_blank" rel="external">PushBullet</a> 也不錯，不過他沒有 E-mail GW，所以這些都不符合我的需求，因為我裝置亂七八糟的，iOS (iPhone 5s)+ Android (平板 SH-06F)，所以最後決定還是用 Pushover 實作。</p>
 <p><a href="https://pushover.net/" target="_blank" rel="external">Pushover</a> 的收費是只收 client 一次性費用，也就是 iOS、Android、電腦，各收 client 的錢，一個月有 7500 筆通知可用，超過可另外加購，基本上 7500則通知/月 非常夠了，一次性的終身費用各兩三美元(我是全買了大概也才 300 新台幣)非常划算，申請完賬號後回到<a href="https://pushover.net/" target="_blank" rel="external">首頁</a>應該會看到如下的 User key</p>
-<img src="https://lh3.googleusercontent.com/YoX0bNlxU8WQ43p7BkpK8slGEbnDZjY6gOv1DDOfqdU=w800-no" title="User key Pushover User key">
+<img src="https://lh3.googleusercontent.com/YoX0bNlxU8WQ43p7BkpK8slGEbnDZjY6gOv1DDOfqdU=w800-no" width="800" height="600" title="Pushover User key">
 <p>下面有顯示一個 E-mail，我們先記起來等等會用到。再來是要新增一個 Application，基本上不新增也可以，只是全部的通知會顯示為 Pushover E-mail Gateway，為了分類還是建議創一個 App，所以我們到 <a href="https://pushover.net/apps" target="_blank" rel="external">Pushover-Powered Applications &amp; Plugins
 </a> 這頁，會看到如下的頁面</p>
-<img src="https://lh3.googleusercontent.com/-gyit_8RTc-Y/VKzTw7ppWjI/AAAAAAAAPx0/4aQ6fWi5RCU/w800-no/Screenshot%2B2015-01-07%2B14.27.35.png" title="Pushover Apps Pushover Apps">
+<img src="https://lh3.googleusercontent.com/-gyit_8RTc-Y/VKzTw7ppWjI/AAAAAAAAPx0/4aQ6fWi5RCU/w800-no/Screenshot%2B2015-01-07%2B14.27.35.png" width="800" height="600" title="Pushover Apps">
 <p>因為我已經有三個 Apps 了，如果第一次進去應該會是空空的，我們先點 <strong>Create a New Application</strong> 會看到下面頁面</p>
-<img src="https://lh4.googleusercontent.com/-j5wQYTyHDlg/VKzTw8EsBQI/AAAAAAAAPx4/fRRdK-yUTTQ/w1734-h916-no/Screenshot%2B2015-01-07%2B14.27.59.png" title="Pushover new app Pushover new app">
+<img src="https://lh4.googleusercontent.com/-j5wQYTyHDlg/VKzTw8EsBQI/AAAAAAAAPx4/fRRdK-yUTTQ/w1734-h916-no/Screenshot%2B2015-01-07%2B14.27.59.png" width="800" height="600" title="Pushover new app">
 <p>填一填按下 <strong>Create Application</strong> 送出就好了！回到剛剛的<a href="https://pushover.net/apps" target="_blank" rel="external">列表頁</a>應該會看到剛剛創立的 App 名字，點進去會看到 App Key，如圖</p>
-<img src="https://lh5.googleusercontent.com/-g8xknRBYYb4/VKzTymxGUgI/AAAAAAAAPyQ/X3F5WjNhIRU/w800-no/Screenshot%2B2015-01-07%2B14.28.19.png" title="Pushover App Key Pushover App Key">
+<img src="https://lh5.googleusercontent.com/-g8xknRBYYb4/VKzTymxGUgI/AAAAAAAAPyQ/X3F5WjNhIRU/w800-no/Screenshot%2B2015-01-07%2B14.28.19.png" width="800" height="600" title="Pushover App Key">
 <p>一樣把這把 Key 記起來，目前已經完成一半了！我們需要的就是 User Key + App Key，基本上寄信就是把你要的信 FW 到 user_key+a=app_key@api.pushover.net 就好了！</p>
 <p>我們回到 <a href="https://mail.google.com/mail/u/0/#settings/fwdandpop" target="_blank" rel="external">Gmail 的 FW 設定頁</a>，點 <strong>Add a forwarding address</strong>，新增剛剛組出來的 E-mail，比方說可能會是 <em>abcdefghijklmnopqrstuvwxyz1234+a=567890abcdefghijklmnopqrstuvwx@api.pushover.net</em> 就填進去，按下 <strong>Next</strong></p>
-<img src="https://lh3.googleusercontent.com/-SVbsTIHr3qw/VKzTy0zVfyI/AAAAAAAAPyM/VqTdJKj59UE/w800-no/Screenshot%2B2015-01-07%2B14.30.25.png">
+<img src="https://lh3.googleusercontent.com/-SVbsTIHr3qw/VKzTy0zVfyI/AAAAAAAAPyM/VqTdJKj59UE/w800-no/Screenshot%2B2015-01-07%2B14.30.25.png" width="800" height="600">
 <p>會提示說需要寄一封確認信，請到剛剛填的 E-mail 收信，這時候請轉移到隨便一個 Pushover 的 client，比方說我用 iOS 當例子：</p>
-<img src="https://lh4.googleusercontent.com/-1h40jkgP6LM/VKzTz5z1B_I/AAAAAAAAPyc/EthH_OZtnAI/w319-no/IMG_3706.png">
+<img src="https://lh4.googleusercontent.com/-1h40jkgP6LM/VKzTz5z1B_I/AAAAAAAAPyc/EthH_OZtnAI/w319-no/IMG_3706.png" width="800" height="600">
 <p>會看到裡面有個 <strong>confirm the request</strong>，直接點下去就好了，到這裡已經完成 80% 了，最後一步就是建立 filter &amp; FW</p>
 <p>到 <a href="https://mail.google.com/mail/u/0/#settings/filters" target="_blank" rel="external">Gmail Settings - Filter</a> 點 <strong>create a new filter</strong>，在 Has the words 填入 <em>Ingress Damage Report (Portal_name_1 OR Portal_name_2 OR …)</em></p>
-<img src="https://lh6.googleusercontent.com/-POsLw3z9-2A/VKza5C_kE7I/AAAAAAAAPzA/2c6RN9V7_-c/w800-no/Screenshot%2B2015-01-07%2B15.04.17.png"> 
+<img src="https://lh6.googleusercontent.com/-POsLw3z9-2A/VKza5C_kE7I/AAAAAAAAPzA/2c6RN9V7_-c/w800-no/Screenshot%2B2015-01-07%2B15.04.17.png" width="800" height="600"> 
 <p>點 <strong>Continue</strong></p>
-<img src="https://lh4.googleusercontent.com/-S0yo3hreTC4/VKza_i1ic7I/AAAAAAAAPzM/HBIDqrg9-L0/w800-no/Screenshot%2B2015-01-07%2B15.04.25.png">
+<img src="https://lh4.googleusercontent.com/-S0yo3hreTC4/VKza_i1ic7I/AAAAAAAAPzM/HBIDqrg9-L0/w800-no/Screenshot%2B2015-01-07%2B15.04.25.png" width="800" height="600">
 <p>這裡可以順便分 label 不然就是直接勾 <strong>Forward it to</strong> 選你的 pushover mail 就大功告成了。</p>
 <p>然後等你設定的 Portal 被人打就會收到如下的戰報了：</p>
-<img src="https://lh3.googleusercontent.com/-jHoYlRw1Xjw/VKzobV-ZbeI/AAAAAAAAP0o/zJVFsLFgJoo/s800/Screenshot%25202015-01-07%252015.11.54.png">
+<img src="https://lh3.googleusercontent.com/-jHoYlRw1Xjw/VKzobV-ZbeI/AAAAAAAAP0o/zJVFsLFgJoo/s800/Screenshot%25202015-01-07%252015.11.54.png" width="800" height="600">
 <p>看吧！寫這篇部落格時，收了戰報還是來不及反應被夷平了 QQ</p>
 
         
@@ -316,7 +315,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/ingress-email-attack-notify-to-Pushover/" data-id="civar04cx0033nyr5rkfvomd2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/ingress-email-attack-notify-to-Pushover/" data-id="cizdtlpgn003qtfr5ifyadac1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -416,19 +415,18 @@ ga('send', 'pageview');
 
 
     
-    <section id="comments">
     
-        
+        <section id="comments">
     <div id="disqus_thread">
         <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-
+</section>
     
-    </section>
 
 </section>
             
-                <aside id="sidebar">
+                
+<aside id="sidebar">
    
         
     <div class="widget-wrap">
@@ -572,12 +570,13 @@ ga('send', 'pageview');
     
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
+
             
         </div>
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2016 neoesque<br>
+            &copy; 2017 neoesque<br>
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
         </div>
     </div>
@@ -601,6 +600,8 @@ ga('send', 'pageview');
 
 
 
+
+    
     
     
 

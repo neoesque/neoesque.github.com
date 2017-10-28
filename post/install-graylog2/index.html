@@ -6,13 +6,15 @@
     <title>install graylog2 | neoesque</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Graylog2 是一個開源的 log 收容器，主要有兩個部份集合而成 server 與 web interface，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 mongodb，而搜尋引擎則由 elasticsearch 提供。另外">
+<meta name="keywords" content="Linux,graylog2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="install graylog2">
 <meta property="og:url" content="http://blog.littlero.se/post/install-graylog2/index.html">
 <meta property="og:site_name" content="neoesque">
 <meta property="og:description" content="Graylog2 是一個開源的 log 收容器，主要有兩個部份集合而成 server 與 web interface，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 mongodb，而搜尋引擎則由 elasticsearch 提供。另外">
+<meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://lh4.googleusercontent.com/-HxbTnQ713EE/UuKP3HTDr_I/AAAAAAAAH0Y/5PqTkSwGYOY/w758-h379-no/Screenshot+2014-01-25+00.04.08.png">
-<meta property="og:updated_time" content="2015-03-14T05:40:20.000Z">
+<meta property="og:updated_time" content="2016-12-20T14:20:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="install graylog2">
 <meta name="twitter:description" content="Graylog2 是一個開源的 log 收容器，主要有兩個部份集合而成 server 與 web interface，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 mongodb，而搜尋引擎則由 elasticsearch 提供。另外">
@@ -56,9 +58,6 @@ ga('send', 'pageview');
     
 
 
-    
-    <link rel="amphtml" href="./amp/index.html">
-    
 </head>
 
 <body>
@@ -269,7 +268,7 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <img src="https://lh4.googleusercontent.com/-HxbTnQ713EE/UuKP3HTDr_I/AAAAAAAAH0Y/5PqTkSwGYOY/w758-h379-no/Screenshot+2014-01-25+00.04.08.png">
+            <img src="https://lh4.googleusercontent.com/-HxbTnQ713EE/UuKP3HTDr_I/AAAAAAAAH0Y/5PqTkSwGYOY/w758-h379-no/Screenshot+2014-01-25+00.04.08.png" width="800" height="600">
 <p><a href="http://graylog2.org/" target="_blank" rel="external">Graylog2</a> 是一個開源的 log 收容器，主要有兩個部份集合而成 <code>server</code> 與 <code>web interface</code>，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP/UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 <a href="http://www.mongodb.org/" target="_blank" rel="external">mongodb</a>，而搜尋引擎則由 <a href="http://www.elasticsearch.org/" target="_blank" rel="external">elasticsearch</a> 提供。另外的 web interface 也是 Java 寫成的(早期好像是 Ruby on Rails)，主要的功能就是提供一個漂亮的搜尋與分析的界面。</p>
 <p>所以要使用 Graylog2 需要安裝五個元件</p>
 <table>
@@ -346,7 +345,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/install-graylog2/" data-id="civar04cz0037nyr55rfxkezz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/install-graylog2/" data-id="cizdtlpfm002otfr5cavap77v" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -446,19 +445,18 @@ ga('send', 'pageview');
 
 
     
-    <section id="comments">
     
-        
+        <section id="comments">
     <div id="disqus_thread">
         <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-
+</section>
     
-    </section>
 
 </section>
             
-                <aside id="sidebar">
+                
+<aside id="sidebar">
    
         
     <div class="widget-wrap">
@@ -602,12 +600,13 @@ ga('send', 'pageview');
     
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
+
             
         </div>
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2016 neoesque<br>
+            &copy; 2017 neoesque<br>
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
         </div>
     </div>
@@ -631,6 +630,8 @@ ga('send', 'pageview');
 
 
 
+
+    
     
     
 

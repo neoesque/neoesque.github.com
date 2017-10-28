@@ -5,20 +5,19 @@
     
     <title>nginx cache - last step of optimization | neoesque</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx，當然除了複雜的 rewrite rule 要寫，還有就是想盡量榨出 nginx 的效能及所有功能，而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整！
-調整了很多參數之後，說實在的也不知道有什麼可以調整了，查一查網路發現：對呀！ nginx 有">
+    <meta name="description" content="最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx，當然除了複雜的 rewrite rule 要寫，還有就是想盡量榨出 nginx 的效能及所有功能，而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整！ 調整了很多參數之後，說實在的也不知道有什麼可以調整了，查一查網路發現：對呀！ nginx 有">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx cache - last step of optimization">
 <meta property="og:url" content="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/index.html">
 <meta property="og:site_name" content="neoesque">
-<meta property="og:description" content="最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx，當然除了複雜的 rewrite rule 要寫，還有就是想盡量榨出 nginx 的效能及所有功能，而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整！
-調整了很多參數之後，說實在的也不知道有什麼可以調整了，查一查網路發現：對呀！ nginx 有">
+<meta property="og:description" content="最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx，當然除了複雜的 rewrite rule 要寫，還有就是想盡量榨出 nginx 的效能及所有功能，而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整！ 調整了很多參數之後，說實在的也不知道有什麼可以調整了，查一查網路發現：對呀！ nginx 有">
+<meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-eoc0HB1J2F8/UALL9fMD1HI/AAAAAAAAELY/K6ChB-3PwBQ/s582/graph_image.php-2.jpg">
 <meta property="og:updated_time" content="2016-11-09T09:24:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx cache - last step of optimization">
-<meta name="twitter:description" content="最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx，當然除了複雜的 rewrite rule 要寫，還有就是想盡量榨出 nginx 的效能及所有功能，而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整！
-調整了很多參數之後，說實在的也不知道有什麼可以調整了，查一查網路發現：對呀！ nginx 有">
+<meta name="twitter:description" content="最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx，當然除了複雜的 rewrite rule 要寫，還有就是想盡量榨出 nginx 的效能及所有功能，而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整！ 調整了很多參數之後，說實在的也不知道有什麼可以調整了，查一查網路發現：對呀！ nginx 有">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/-eoc0HB1J2F8/UALL9fMD1HI/AAAAAAAAELY/K6ChB-3PwBQ/s582/graph_image.php-2.jpg">
 <meta name="twitter:creator" content="@neoesque">
 <meta property="fb:admins" content="1573449527">
@@ -59,9 +58,6 @@ ga('send', 'pageview');
     
 
 
-    
-    <link rel="amphtml" href="./amp/index.html">
-    
 </head>
 
 <body>
@@ -299,7 +295,7 @@ fastcgi_cache_valid 200 7d;
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/" data-id="civar04dn003xnyr549aot7z6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/nginx-cache-last-step-of-optimization/" data-id="cizdtlpg7003gtfr50hidwkl2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -399,19 +395,18 @@ fastcgi_cache_valid 200 7d;
 
 
     
-    <section id="comments">
     
-        
+        <section id="comments">
     <div id="disqus_thread">
         <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-
+</section>
     
-    </section>
 
 </section>
             
-                <aside id="sidebar">
+                
+<aside id="sidebar">
    
         
     <div class="widget-wrap">
@@ -555,12 +550,13 @@ fastcgi_cache_valid 200 7d;
     
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
+
             
         </div>
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2016 neoesque<br>
+            &copy; 2017 neoesque<br>
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
         </div>
     </div>
@@ -584,6 +580,8 @@ fastcgi_cache_valid 200 7d;
 
 
 
+
+    
     
     
 

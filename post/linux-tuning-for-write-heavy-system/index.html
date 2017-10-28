@@ -6,14 +6,16 @@
     <title>高寫入系統 Linux 效能調教 | neoesque</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="在我們使用 squid 的環境裡，常常遇到一個瓶頸，就是面對高 I/O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下(下圖爲 cacti 畫的日圖)：">
+<meta name="keywords" content="Linux,squid">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高寫入系統 Linux 效能調教">
 <meta property="og:url" content="http://blog.littlero.se/post/linux-tuning-for-write-heavy-system/index.html">
 <meta property="og:site_name" content="neoesque">
 <meta property="og:description" content="在我們使用 squid 的環境裡，常常遇到一個瓶頸，就是面對高 I/O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下(下圖爲 cacti 畫的日圖)：">
+<meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://lh5.googleusercontent.com/-WhfEogOVTK8/UJkTvM-bZXI/AAAAAAAAEZE/QRegjwaXFC8/s566/graph_image.png">
 <meta property="og:image" content="https://lh4.googleusercontent.com/-oCMaEmuOPGE/UJkTvGOylhI/AAAAAAAAEZI/C_Zla2Tuwzc/s566/graph_image2.png">
-<meta property="og:updated_time" content="2015-03-14T05:40:36.000Z">
+<meta property="og:updated_time" content="2016-12-20T14:20:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高寫入系統 Linux 效能調教">
 <meta name="twitter:description" content="在我們使用 squid 的環境裡，常常遇到一個瓶頸，就是面對高 I/O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下(下圖爲 cacti 畫的日圖)：">
@@ -57,9 +59,6 @@ ga('send', 'pageview');
     
 
 
-    
-    <link rel="amphtml" href="./amp/index.html">
-    
 </head>
 
 <body>
@@ -271,10 +270,10 @@ ga('send', 'pageview');
         
             
             <p>在我們使用 <a href="http://www.squid-cache.org" target="_blank" rel="external">squid</a> 的環境裡，常常遇到一個瓶頸，就是面對高 I/O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下(下圖爲 cacti 畫的日圖)：</p>
-<img src="https://lh5.googleusercontent.com/-WhfEogOVTK8/UJkTvM-bZXI/AAAAAAAAEZE/QRegjwaXFC8/s566/graph_image.png">
+<img src="https://lh5.googleusercontent.com/-WhfEogOVTK8/UJkTvM-bZXI/AAAAAAAAEZE/QRegjwaXFC8/s566/graph_image.png" width="800" height="600">
 <a id="more"></a>
 <p>可以看到在深夜時段(也就是大量 request 圖片)時 I/O wait 整個就咬死 CPU，因爲在大量的 request 進來時 squid 會有同時的磁碟寫入跟讀取，不過我們的系統是 IBM 的 blade server 配有 ServerRAID 8k 的卡，上面有 256MB 的 Read/Write Cache/Buffer，所以總覺的讀寫性能應該可以不錯才對，可是偏偏就是在晚上很容易拖慢系統的速度。後來找到了幾個可能的參數調一調之後，現在系統的線圖如下(此爲周圖)：</p>
-<img src="https://lh4.googleusercontent.com/-oCMaEmuOPGE/UJkTvGOylhI/AAAAAAAAEZI/C_Zla2Tuwzc/s566/graph_image2.png">
+<img src="https://lh4.googleusercontent.com/-oCMaEmuOPGE/UJkTvGOylhI/AAAAAAAAEZI/C_Zla2Tuwzc/s566/graph_image2.png" width="800" height="600">
 <p>可以看到在中間過後(也就是修改後)，整體系統的 I/O waiting 就降低了，這中間的修改其實是動了下列的 Linux kernel 參數：</p>
 <p>主要都是在 <code>/etc/sysctl.conf</code> 這個檔案 新增/修改 以下參數 (影響的資料夾在 <code>/proc/sys/vm/</code>)</p>
 <ul>
@@ -299,7 +298,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/linux-tuning-for-write-heavy-system/" data-id="civar04d7003gnyr5v6o6ksdp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/linux-tuning-for-write-heavy-system/" data-id="cizdtlpfv002ztfr5rr70lamt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -399,19 +398,18 @@ ga('send', 'pageview');
 
 
     
-    <section id="comments">
     
-        
+        <section id="comments">
     <div id="disqus_thread">
         <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-
+</section>
     
-    </section>
 
 </section>
             
-                <aside id="sidebar">
+                
+<aside id="sidebar">
    
         
     <div class="widget-wrap">
@@ -555,12 +553,13 @@ ga('send', 'pageview');
     
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
+
             
         </div>
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2016 neoesque<br>
+            &copy; 2017 neoesque<br>
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
         </div>
     </div>
@@ -584,6 +583,8 @@ ga('send', 'pageview');
 
 
 
+
+    
     
     
 

@@ -6,11 +6,13 @@
     <title>讓 php 回 304 Not Modified | neoesque</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="在 Google Page Speed 的要點裡 有提到 減少要求 request 的數量這樣的話會有兩種作法deploy 時合併成一支大的 .js透過 php 把要求的 js 合併一次傳送出去但是前者失去了彈性，假設我們有十種不同的元件( js 檔)，因為不是每次都需要這十種元件的功能，所以不可能每次都 loading 這十隻，如果要選擇性的 loading 就要把全部的組合都合併出來，這樣的排">
+<meta name="keywords" content="php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="讓 php 回 304 Not Modified">
 <meta property="og:url" content="http://blog.littlero.se/post/php-304-not-modified/index.html">
 <meta property="og:site_name" content="neoesque">
 <meta property="og:description" content="在 Google Page Speed 的要點裡 有提到 減少要求 request 的數量這樣的話會有兩種作法deploy 時合併成一支大的 .js透過 php 把要求的 js 合併一次傳送出去但是前者失去了彈性，假設我們有十種不同的元件( js 檔)，因為不是每次都需要這十種元件的功能，所以不可能每次都 loading 這十隻，如果要選擇性的 loading 就要把全部的組合都合併出來，這樣的排">
+<meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="http://3.bp.blogspot.com/-_uoJgH66ctA/TZ_MbuifuxI/AAAAAAAAA2o/Oy9bGVFVw8A/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2011-04-09+%25E4%25B8%258A%25E5%258D%258811.02.06.png">
 <meta property="og:image" content="http://4.bp.blogspot.com/-w0ZRtO8Lps4/TZ_MbDT7CPI/AAAAAAAAA2k/eEm2lSwezbM/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2011-04-09+%25E4%25B8%258A%25E5%258D%258811.01.41.png">
 <meta property="og:updated_time" content="2015-03-14T05:41:57.000Z">
@@ -57,9 +59,6 @@ ga('send', 'pageview');
     
 
 
-    
-    <link rel="amphtml" href="./amp/index.html">
-    
 </head>
 
 <body>
@@ -281,7 +280,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/php-304-not-modified/" data-id="civar04eh004snyr5iqqfmht1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/php-304-not-modified/" data-id="cizdtlpi6004wtfr5myseyud0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -379,7 +378,8 @@ ga('send', 'pageview');
     
 </section>
             
-                <aside id="sidebar">
+                
+<aside id="sidebar">
    
         
     <div class="widget-wrap">
@@ -523,12 +523,13 @@ ga('send', 'pageview');
     
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
+
             
         </div>
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2016 neoesque<br>
+            &copy; 2017 neoesque<br>
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
         </div>
     </div>
@@ -552,6 +553,8 @@ ga('send', 'pageview');
 
 
 
+
+    
     
     
 

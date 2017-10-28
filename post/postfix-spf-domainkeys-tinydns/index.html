@@ -5,23 +5,19 @@
     
     <title>設定 SPF 跟 DomainKeys 在 postfix 和 tinydns | neoesque</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Will be replaced with the ToC{:toc}
-
-部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 電子郵件驗證 中說的，要可以被 驗證和識別，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 Doma">
+    <meta name="description" content="Will be replaced with the ToC{:toc}  部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 電子郵件驗證 中說的，要可以被 驗證和識別，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 Doma">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="設定 SPF 跟 DomainKeys 在 postfix 和 tinydns">
 <meta property="og:url" content="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/index.html">
 <meta property="og:site_name" content="neoesque">
-<meta property="og:description" content="Will be replaced with the ToC{:toc}
-
-部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 電子郵件驗證 中說的，要可以被 驗證和識別，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 Doma">
+<meta property="og:description" content="Will be replaced with the ToC{:toc}  部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 電子郵件驗證 中說的，要可以被 驗證和識別，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 Doma">
+<meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://lh5.googleusercontent.com/-A6MtopadkXk/T47U_sZ8eqI/AAAAAAAAD7Y/TdkEhjis8jE/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-18%2520%25E4%25B8%258B%25E5%258D%258810.51.09.png">
 <meta property="og:updated_time" content="2016-11-09T09:25:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="設定 SPF 跟 DomainKeys 在 postfix 和 tinydns">
-<meta name="twitter:description" content="Will be replaced with the ToC{:toc}
-
-部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 電子郵件驗證 中說的，要可以被 驗證和識別，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 Doma">
+<meta name="twitter:description" content="Will be replaced with the ToC{:toc}  部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 電子郵件驗證 中說的，要可以被 驗證和識別，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 Doma">
 <meta name="twitter:image" content="https://lh5.googleusercontent.com/-A6MtopadkXk/T47U_sZ8eqI/AAAAAAAAD7Y/TdkEhjis8jE/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-18%2520%25E4%25B8%258B%25E5%258D%258810.51.09.png">
 <meta name="twitter:creator" content="@neoesque">
 <meta property="fb:admins" content="1573449527">
@@ -62,9 +58,6 @@ ga('send', 'pageview');
     
 
 
-    
-    <link rel="amphtml" href="./amp/index.html">
-    
 </head>
 
 <body>
@@ -359,7 +352,7 @@ QUIT
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/" data-id="civar04el004znyr5xkc0lhxm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/" data-id="cizdtlpi9004ztfr5k153r65m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -459,19 +452,18 @@ QUIT
 
 
     
-    <section id="comments">
     
-        
+        <section id="comments">
     <div id="disqus_thread">
         <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-
+</section>
     
-    </section>
 
 </section>
             
-                <aside id="sidebar">
+                
+<aside id="sidebar">
    
         
     <div class="widget-wrap">
@@ -615,12 +607,13 @@ QUIT
     
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
+
             
         </div>
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2016 neoesque<br>
+            &copy; 2017 neoesque<br>
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
         </div>
     </div>
@@ -644,6 +637,8 @@ QUIT
 
 
 
+
+    
     
     
 
