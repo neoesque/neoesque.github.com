@@ -264,7 +264,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p>一 講完了 trac 與 moinmoin 之後<br /><br />二 這篇要講的是有關 svn<br /><br />敝單位有使用 LDAP 當做帳號管理<br /><br />所以要走 ssh+svn 的話首先要建立 LDAP 的認證機制<br /><br />因為是用 SLES 所以設定也不難 用 yast 建立就好了<br /></p>
+            <p><p>一 講完了 trac 與 moinmoin 之後<br><br>二 這篇要講的是有關 svn<br><br>敝單位有使用 LDAP 當做帳號管理<br><br>所以要走 ssh+svn 的話首先要建立 LDAP 的認證機制<br><br>因為是用 SLES 所以設定也不難 用 yast 建立就好了<br></p>
             <p class="article-more-link">
                 <a href="/post/trac-moinmoin-wiki-svn-2/#more">繼續閱讀</a>
             </p>
@@ -277,7 +277,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/trac-moinmoin-wiki-svn-2/" data-id="cizdtlpjh005utfr51dq01ekl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/trac-moinmoin-wiki-svn-2/" data-id="cj9bgrrp8004r0g0q28irl86a" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -393,7 +393,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p>最近在搬移 <a href="http://trac.edgewall.org/">trac</a>, <a href="http://moinmo.in/">moinmoin wiki</a> 與 svn server 這篇文章記錄一下過程<br /><br />原本的舊 server 是跑 apache<br /><br />由於新的 server 是 VM 所以我覺得選用比較 light weight 的 nginx 似乎比較好<br /><br />首先先講解在新的 server 重新建立環境<br /><br /><h3>1. nginx 的安裝</h3><br />首先到 <a href="http://nginx.org/en/download.html">nginx 下載頁</a> 下載 (BTW 今天剛好釋出 1.0 萬歲~)<br /></p>
+            <p><p>最近在搬移 <a href="http://trac.edgewall.org/" target="_blank" rel="external">trac</a>, <a href="http://moinmo.in/" target="_blank" rel="external">moinmoin wiki</a> 與 svn server 這篇文章記錄一下過程<br><br>原本的舊 server 是跑 apache<br><br>由於新的 server 是 VM 所以我覺得選用比較 light weight 的 nginx 似乎比較好<br><br>首先先講解在新的 server 重新建立環境<br><br></p><h3>1. nginx 的安裝</h3><br>首先到 <a href="http://nginx.org/en/download.html" target="_blank" rel="external">nginx 下載頁</a> 下載 (BTW 今天剛好釋出 1.0 萬歲~)<br></p>
             <p class="article-more-link">
                 <a href="/post/trac-moinmoin-wiki-svn-1/#more">繼續閱讀</a>
             </p>
@@ -406,7 +406,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/trac-moinmoin-wiki-svn-1/" data-id="cizdtlpir005htfr50n5zeqow" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/trac-moinmoin-wiki-svn-1/" data-id="cj9bgrrp6004o0g0qqz9pfmqo" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -522,7 +522,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p>在 Google Page Speed 的要點裡 有提到 <a href="http://code.google.com/intl/zh-TW/speed/page-speed/docs/rtt.html#CombineExternalJS" target="_blank">減少要求 request 的數量</a><br />這樣的話會有兩種作法<br /><br /><ol><li>deploy 時合併成一支大的 .js</li><li>透過 php 把要求的 js 合併一次傳送出去</li></ol><br />但是前者失去了彈性，假設我們有十種不同的元件( js 檔)，因為不是每次都需要這十種元件的功能，所以不可能每次都 loading 這十隻，如果要選擇性的 loading 就要把全部的組合都合併出來，這樣的排列組合未免也太恐怖了。<br /><br />因此實務上會寫一支 php (姑且稱之 combo loader)，透過傳遞不同的 js 元件需求，這隻 combo loader 可以輕鬆的組合出想要的元件。並且可以把合併的結果 cache 起來，下次遇到一樣的需求就不必再重新組合了。<br /><br />因此程式碼大概會長這樣。<br /></p>
+            <p><p>在 Google Page Speed 的要點裡 有提到 <a href="http://code.google.com/intl/zh-TW/speed/page-speed/docs/rtt.html#CombineExternalJS" target="_blank">減少要求 request 的數量</a><br>這樣的話會有兩種作法<br><br><ol><li>deploy 時合併成一支大的 .js</li><li>透過 php 把要求的 js 合併一次傳送出去</li></ol><br>但是前者失去了彈性，假設我們有十種不同的元件( js 檔)，因為不是每次都需要這十種元件的功能，所以不可能每次都 loading 這十隻，如果要選擇性的 loading 就要把全部的組合都合併出來，這樣的排列組合未免也太恐怖了。<br><br>因此實務上會寫一支 php (姑且稱之 combo loader)，透過傳遞不同的 js 元件需求，這隻 combo loader 可以輕鬆的組合出想要的元件。並且可以把合併的結果 cache 起來，下次遇到一樣的需求就不必再重新組合了。<br><br>因此程式碼大概會長這樣。<br></p>
             <p class="article-more-link">
                 <a href="/post/php-304-not-modified/#more">繼續閱讀</a>
             </p>
@@ -535,7 +535,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/php-304-not-modified/" data-id="cizdtlpi6004wtfr5myseyud0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/php-304-not-modified/" data-id="cj9bgrrol003w0g0q9y1c1kda" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -651,7 +651,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p>最近敝單位在更新一些機器，長官決定採用 SLES (SUSE Linux Enterprise Sever)<br /><br />不過我最熟悉的其實是 Gentoo 對於其他 distro 像 SLES, Ubuntu 之類的都不熟<br /><br />所以大概花了一整個禮拜在研究 SLES (目前最新的是 SLES 11 service pack 1)<br /><br />其實最大的問題在於軟體 (software) 的處理不同<br /><br />Gentoo 的 portage system 實在太強大，從版本控制到 USE 控制哪些小功能要編入<br /><br />而 SLES 因為是 rpm based 的系統，而且 Enterprise Server 版似乎又很保守，一堆套件不是舊就是根本沒有 囧mm<br /><br />所以只能自己找 repository 了<br /><br />以下是新增 repository 的方法<br /><br /><code class="prettyprint"> </code></p>
+            <p><p>最近敝單位在更新一些機器，長官決定採用 SLES (SUSE Linux Enterprise Sever)<br><br>不過我最熟悉的其實是 Gentoo 對於其他 distro 像 SLES, Ubuntu 之類的都不熟<br><br>所以大概花了一整個禮拜在研究 SLES (目前最新的是 SLES 11 service pack 1)<br><br>其實最大的問題在於軟體 (software) 的處理不同<br><br>Gentoo 的 portage system 實在太強大，從版本控制到 USE 控制哪些小功能要編入<br><br>而 SLES 因為是 rpm based 的系統，而且 Enterprise Server 版似乎又很保守，一堆套件不是舊就是根本沒有 囧mm<br><br>所以只能自己找 repository 了<br><br>以下是新增 repository 的方法<br><br><code class="prettyprint"> </code></p>
             <p class="article-more-link">
                 <a href="/post/add-sles-11-sp1-repository/#more">繼續閱讀</a>
             </p>
@@ -664,7 +664,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/add-sles-11-sp1-repository/" data-id="cizdtlpe5000stfr5pu3kjk5b" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/add-sles-11-sp1-repository/" data-id="cj9bgrrmf00070g0qfjs2gqt0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -780,7 +780,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p>要讓比方說 Safari, MailPlane 或 CSSEdit 吃 Webkit 的核心的話其中一種方法是從終端機打開<br />如以下設定<br /><br />export DYLD_FRAMEWORK_PATH=/Applications/WebKit.app/Contents/Frameworks/10.6/<br />export WEBKIT_UNSET_DYLD_FRAMEWORK_PATH=YES<br />open /Applications/blahblah.app<br /><br />即可<br />可是要從終端機太麻煩了對吧~<br />Mac OS X 提供更方便的方式讓全系統都套用<br /></p>
+            <p><p>要讓比方說 Safari, MailPlane 或 CSSEdit 吃 Webkit 的核心的話其中一種方法是從終端機打開<br>如以下設定<br><br>export DYLD_FRAMEWORK_PATH=/Applications/WebKit.app/Contents/Frameworks/10.6/<br>export WEBKIT_UNSET_DYLD_FRAMEWORK_PATH=YES<br>open /Applications/blahblah.app<br><br>即可<br>可是要從終端機太麻煩了對吧~<br>Mac OS X 提供更方便的方式讓全系統都套用<br></p>
             <p class="article-more-link">
                 <a href="/post/Mac-OS-all-applications-using-webkit-core/#more">繼續閱讀</a>
             </p>
@@ -793,7 +793,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/Mac-OS-all-applications-using-webkit-core/" data-id="cizdtlpdz000ltfr5mof73g3n" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/Mac-OS-all-applications-using-webkit-core/" data-id="cj9bgrrm900030g0qky36eezr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -909,7 +909,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p>由於 XHTML 1.1 或 XHTML 1.0 strict 不支援 target="_blank" 這種語法<br /><br />所以要繞過一大圈採用另一種方法 = ="<br /><br />要利用 rel 這個 attribute 跟 javascript 達到 (汗... w3c 幹麼搞得那麼麻煩 QQ<br /></p>
+            <p>由於 XHTML 1.1 或 XHTML 1.0 strict 不支援 target="_blank" 這種語法<br><br>所以要繞過一大圈採用另一種方法 = ="<br><br>要利用 rel 這個 attribute 跟 javascript 達到 (汗... w3c 幹麼搞得那麼麻煩 QQ<br></p>
             <p class="article-more-link">
                 <a href="/post/open-link-with-new-window-in-xhtml/#more">繼續閱讀</a>
             </p>
@@ -922,7 +922,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/open-link-with-new-window-in-xhtml/" data-id="cizdtlphs004itfr5l3im2r5l" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/open-link-with-new-window-in-xhtml/" data-id="cj9bgrrof003m0g0q2h0s633z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1028,7 +1028,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p>摘錄自 O’REILLY 的 C++ 風格與藝術<br /><br />程式寫越多註解的編排就越感重要<br /><br />尤其是程式的註解有比較大的有比較小的<br /><br />C++ 風格與藝術 這本書提供了一些不錯的編排方式<br /><br />為了以後方便起見  就先打在上面以後複製比較方便XD<br /></p>
+            <p><p>摘錄自 O’REILLY 的 C++ 風格與藝術<br><br>程式寫越多註解的編排就越感重要<br><br>尤其是程式的註解有比較大的有比較小的<br><br>C++ 風格與藝術 這本書提供了一些不錯的編排方式<br><br>為了以後方便起見  就先打在上面以後複製比較方便XD<br></p>
             <p class="article-more-link">
                 <a href="/post/comment-styles/#more">繼續閱讀</a>
             </p>
@@ -1041,7 +1041,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/comment-styles/" data-id="cizdtlpf2001ytfr5z5lzchfl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/comment-styles/" data-id="cj9bgrrn200140g0qpw93j0nl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1147,7 +1147,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p><h2>前言</h2><br />所謂 “工欲善其事必先利其器” ，在 8051 程式開發上，當然也有許多 compiler 選擇，最常見的不外乎 <a href="http://www.keil.com/c51/">Keil C</a> ，但是由於 Keil C 是商業軟體要賣錢的，因此對於學生的我們似乎不是那麼適用，另外一個也是相當知名但非商業軟體的要算是 <a href="http://sdcc.sourceforge.net/">SDCC</a> 了，由於 SDCC 本身只有 compiler 並沒有 IDE ，所以在編譯程式上顯得格外麻煩。前幾天在想 <a href="http://www.bloodshed.net/devcpp.html">Dec-C++</a> 可不可以跟 SDCC 整，網路搜尋似乎是有這種 plugin 的，可是我找不到了，而且 Dev-C++ 也很久沒開發了，因此想說換找另一個目前當紅的 IDE – <a href="http://www.codeblocks.org/">Code::Blocks</a> (以下用 CodeBlocks 稱乎) ，果然 CodeBlocks 有跟 SDCC 整在一起，這樣方便多了，以下將逐步介紹如何利用 CodeBlocks + SDCC 編譯出 8051 可以用的 Hex file。<br /></p>
+            <p><p></p><h2>前言</h2><br>所謂 “工欲善其事必先利其器” ，在 8051 程式開發上，當然也有許多 compiler 選擇，最常見的不外乎 <a href="http://www.keil.com/c51/" target="_blank" rel="external">Keil C</a> ，但是由於 Keil C 是商業軟體要賣錢的，因此對於學生的我們似乎不是那麼適用，另外一個也是相當知名但非商業軟體的要算是 <a href="http://sdcc.sourceforge.net/" target="_blank" rel="external">SDCC</a> 了，由於 SDCC 本身只有 compiler 並沒有 IDE ，所以在編譯程式上顯得格外麻煩。前幾天在想 <a href="http://www.bloodshed.net/devcpp.html" target="_blank" rel="external">Dec-C++</a> 可不可以跟 SDCC 整，網路搜尋似乎是有這種 plugin 的，可是我找不到了，而且 Dev-C++ 也很久沒開發了，因此想說換找另一個目前當紅的 IDE – <a href="http://www.codeblocks.org/" target="_blank" rel="external">Code::Blocks</a> (以下用 CodeBlocks 稱乎) ，果然 CodeBlocks 有跟 SDCC 整在一起，這樣方便多了，以下將逐步介紹如何利用 CodeBlocks + SDCC 編譯出 8051 可以用的 Hex file。<br></p>
             <p class="article-more-link">
                 <a href="/post/code-blocks-sdcc/#more">繼續閱讀</a>
             </p>
@@ -1160,7 +1160,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/code-blocks-sdcc/" data-id="cizdtlpeu001otfr50u9bwqbe" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/code-blocks-sdcc/" data-id="cj9bgrrmx000w0g0qsv3dbmw7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1292,7 +1292,7 @@ ga('send', 'pageview');
                             <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
     
 </a>
 
@@ -1311,7 +1311,7 @@ ga('send', 'pageview');
                             <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://lh6.googleusercontent.com/-Xli8KROQCBE/VHk_LX58L6I/AAAAAAAAOO0/Nl4d3JuNvCE/w640-no/PB173351.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
     
 </a>
 

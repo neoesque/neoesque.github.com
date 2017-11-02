@@ -264,7 +264,7 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p><a href="http://communities.vmware.com/docs/DOC-9852">vGhetto</a> 是一個由社群主導的專案，主要的目的當然是簡化管理 VMware 的工作，不用使用最原始的 <code>vmrun</code> 這個指令或者 Perl SDK 做管理，整個專案放在 SourceForge，到 <a href="http://vghetto.sourceforge.net">專案頁面</a> 下載，抓下來的目錄長這樣 (或者直接用 <code>svn co https://vghetto.svn.sourceforge.net/svnroot/vghetto vghetto</code> 也可以)</p>
+            <p><p><a href="http://communities.vmware.com/docs/DOC-9852" target="_blank" rel="external">vGhetto</a> 是一個由社群主導的專案，主要的目的當然是簡化管理 VMware 的工作，不用使用最原始的 <code>vmrun</code> 這個指令或者 Perl SDK 做管理，整個專案放在 SourceForge，到 <a href="http://vghetto.sourceforge.net" target="_blank" rel="external">專案頁面</a> 下載，抓下來的目錄長這樣 (或者直接用 <code>svn co https://vghetto.svn.sourceforge.net/svnroot/vghetto vghetto</code> 也可以)</p>
 <pre><code>.
 ./INSTALL
 ./TODO
@@ -289,7 +289,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/use-vghetto-manage-vmware-vcenter/" data-id="cizdtlpjn005ytfr5l4ipjlzb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/use-vghetto-manage-vmware-vcenter/" data-id="cj9bgrrpb004y0g0qtanvsjxc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -412,8 +412,8 @@ ga('send', 'pageview');
             <p><ul>
 <li>Will be replaced with the ToC<br>{:toc}</li>
 </ul>
-<p>部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 <a href="https://support.google.com/mail/bin/answer.py?hl=zh-TW&amp;answer=180707">電子郵件驗證</a> 中說的，要可以被 <a href="http://support.google.com/mail/bin/answer.py?hl=zh-Hant&amp;answer=81126#authentication">驗證和識別</a>，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 DomainKeys，不過有了 DKIM 後原本單純 DomainKeys 就被廢棄了(當然目前還是可以用的)。我們單位用的 mail server 是 Postfix 而 DNS 則是 tinydns (djbdns %}</p>
-<h3 id="設定-SPF"><a href="#設定-SPF" class="headerlink" title="設定 SPF"></a>設定 SPF</h3><p>SPF 只是簡單的 DNS TXT 發佈而已，可以利用 <a href="http://spfwizard.com">easySPF</a> 製作。於是在 tinydns 的設定檔加入下列資訊：</p>
+<p>部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 <a href="https://support.google.com/mail/bin/answer.py?hl=zh-TW&amp;answer=180707" target="_blank" rel="external">電子郵件驗證</a> 中說的，要可以被 <a href="http://support.google.com/mail/bin/answer.py?hl=zh-Hant&amp;answer=81126#authentication" target="_blank" rel="external">驗證和識別</a>，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 DomainKeys，不過有了 DKIM 後原本單純 DomainKeys 就被廢棄了(當然目前還是可以用的)。我們單位用的 mail server 是 Postfix 而 DNS 則是 tinydns (djbdns %}</p>
+<h3 id="設定-SPF"><a href="#設定-SPF" class="headerlink" title="設定 SPF"></a>設定 SPF</h3><p>SPF 只是簡單的 DNS TXT 發佈而已，可以利用 <a href="http://spfwizard.com" target="_blank" rel="external">easySPF</a> 製作。於是在 tinydns 的設定檔加入下列資訊：</p>
 <pre><code>&apos;foo.bar:v=spf1 ip4\07211.22.33.44/32 ~all:600
 </code></pre><p>這裡用 <code>foo.bar</code> 當作 domain，而 <code>11.22.33.44</code> 則是 Server 寄信出來的 public ip，這樣子就完成啦~</p>
 <p>我們用 <code>dig TXT foo.bar @8.8.8.8 +tcp</code> 可以觀察到</p>
@@ -432,7 +432,7 @@ foo.bar.        600     IN    TXT    &quot;v=spf1 ip4:11.22.33.44/32 ~all&quot;
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/" data-id="cizdtlpi9004ztfr5k153r65m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/" data-id="cj9bgrroo00430g0qo8v9p1mf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -585,7 +585,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/no-syn-slash-ack-after-receive-syn-packet/" data-id="cizdtlph60042tfr5wueswo44" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/no-syn-slash-ack-after-receive-syn-packet/" data-id="cj9bgrro9003b0g0qanbdxqf5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -705,7 +705,7 @@ net.ipv4.tcp_sack = 0
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><h3 id="When-I-met-Octopress"><a href="#When-I-met-Octopress" class="headerlink" title="When I met Octopress"></a>When I met Octopress</h3><p><a href="http://octopress.org">Octopress</a> 是一個之前(應該是兩年前吧 XD)很流行的 Static Blog Generators 的產物，Based的語言是 Ruby，底層依賴 <a href="https://github.com/mojombo/jekyll">Jekyll</a>，由於 Jekyll 支援很多其他有的沒的，像是 Markdown Engine 支援很多種(包含了 <a href="http://maruku.rubyforge.org">Maruku</a> 或者 <a href="http://kramdown.rubyforge.org">Kramdown</a> )，另外也有 Syntax Highlight (可以使用 <a href="http://pygments.org">Pygment</a> 或者 <a href="http://coderay.rubychan.de">Coderay</a>)，加上 Octopress 作者自己的延伸讓 Octopress 常見的功能(甚至是不會用到的功能XD)都有提供了。</p>
+            <p><h3 id="When-I-met-Octopress"><a href="#When-I-met-Octopress" class="headerlink" title="When I met Octopress"></a>When I met Octopress</h3><p><a href="http://octopress.org" target="_blank" rel="external">Octopress</a> 是一個之前(應該是兩年前吧 XD)很流行的 Static Blog Generators 的產物，Based的語言是 Ruby，底層依賴 <a href="https://github.com/mojombo/jekyll" target="_blank" rel="external">Jekyll</a>，由於 Jekyll 支援很多其他有的沒的，像是 Markdown Engine 支援很多種(包含了 <a href="http://maruku.rubyforge.org" target="_blank" rel="external">Maruku</a> 或者 <a href="http://kramdown.rubyforge.org" target="_blank" rel="external">Kramdown</a> )，另外也有 Syntax Highlight (可以使用 <a href="http://pygments.org" target="_blank" rel="external">Pygment</a> 或者 <a href="http://coderay.rubychan.de" target="_blank" rel="external">Coderay</a>)，加上 Octopress 作者自己的延伸讓 Octopress 常見的功能(甚至是不會用到的功能XD)都有提供了。</p>
 <p>之前公司的學弟就使用 Markdown 在寫工作日誌，其實滿不明所以然</p>
             <p class="article-more-link">
                 <a href="/post/why-i-choose-octopress/#more">繼續閱讀</a>
@@ -719,7 +719,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/why-i-choose-octopress/" data-id="cizdtlpjs0061tfr5d7ky1ido" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/why-i-choose-octopress/" data-id="cj9bgrrpi00580g0qyqosib90" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -855,7 +855,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/transfer-textmate-2-to-sublime-text-2/" data-id="cizdtlpj1005otfr52y7npgaj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/transfer-textmate-2-to-sublime-text-2/" data-id="cj9bgrrpa004v0g0qwawrcvw9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -975,7 +975,7 @@ net.ipv4.tcp_sack = 0
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p>其實說初體驗好像太誇張 XD<br /><br />大學時候有碰過一次  不過覺得好難玩(跟 Gentoo 比的話) (¬_¬) 所以就沒有繼續碰<br /><br />最近因為想評估 FreeBSD 一下所以就想說來試一下<br /><br />安裝非常簡單 都是選單互動的 比 Gentoo 簡單很多 XD<br /></p>
+            <p><p>其實說初體驗好像太誇張 XD<br><br>大學時候有碰過一次  不過覺得好難玩(跟 Gentoo 比的話) (¬_¬) 所以就沒有繼續碰<br><br>最近因為想評估 FreeBSD 一下所以就想說來試一下<br><br>安裝非常簡單 都是選單互動的 比 Gentoo 簡單很多 XD<br></p>
             <p class="article-more-link">
                 <a href="/post/freebsd-first-sight/#more">繼續閱讀</a>
             </p>
@@ -988,7 +988,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/freebsd-first-sight/" data-id="cizdtlpfg002etfr5iramfcf6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/freebsd-first-sight/" data-id="cj9bgrrne001t0g0qbymoqoc0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1104,7 +1104,7 @@ net.ipv4.tcp_sack = 0
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p><br />一切都是因為手賤 XD<br /><br />因為我們的 Server 要設定大一點的 ulimit<br /><br />傳統的 Linux (或者說 Gentoo 在舊的 baselayout ) 都是使用 /etc/security/limits.conf 來設 ulimit<br /><br />於是當然就照以前的印象做拉~<br /><br />結果重開機後…<br /><br /><script src="//gist.github.com/1778443.js"></script><br />然後所有的 service 就都起不來了 什麼鬼 / 口 \<br /><br />而且一開始還沒有想到是這個在搞鬼 以為是 PAM 或者 OpenRC 錯了<br /><br />一直在想是不是 emerge 的 USE flag 錯了還怎樣<br /></p>
+            <p><p><br>一切都是因為手賤 XD<br><br>因為我們的 Server 要設定大一點的 ulimit<br><br>傳統的 Linux (或者說 Gentoo 在舊的 baselayout ) 都是使用 /etc/security/limits.conf 來設 ulimit<br><br>於是當然就照以前的印象做拉~<br><br>結果重開機後…<br><br><script src="//gist.github.com/1778443.js"></script><br>然後所有的 service 就都起不來了 什麼鬼 / 口 \<br><br>而且一開始還沒有想到是這個在搞鬼 以為是 PAM 或者 OpenRC 錯了<br><br>一直在想是不是 emerge 的 USE flag 錯了還怎樣<br></p>
             <p class="article-more-link">
                 <a href="/post/open-rc-ulimit/#more">繼續閱讀</a>
             </p>
@@ -1117,7 +1117,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/open-rc-ulimit/" data-id="cizdtlphi004btfr530ipqyar" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/open-rc-ulimit/" data-id="cj9bgrroh003p0g0qvxidlsn7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1233,7 +1233,7 @@ net.ipv4.tcp_sack = 0
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p>雖然不是什麼大不了的事情<br /><br />不過看了總是很不順眼 XD<br /><br />就是每次開 Console Log 都會噴一堆<br /><br /><pre>sandboxd: ([]) WebProcess() deny file-read-data /Library/Caches/com.nvidia.OpenGL<br />sandboxd: ([]) WebProcess() deny file-write-create /Library/Caches/com.nvidia.OpenGL/<br /></pre><br />之類的 deny 訊息，如下圖<br /><br /><div class="separator" style="clear: both; text-align: center;"><img border="0" height="247" width="640" src="http://2.bp.blogspot.com/-KgSJHGoTXfM/TudwWeh_3lI/AAAAAAAAC7A/nnW32mD6ktw/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-12-13%2B%25E4%25B8%258B%25E5%258D%25889.59.03.jpg" /></div><br />這看了很讓人不順眼阿！<br /></p>
+            <p><p>雖然不是什麼大不了的事情<br><br>不過看了總是很不順眼 XD<br><br>就是每次開 Console Log 都會噴一堆<br><br><pre>sandboxd: ([]) WebProcess() deny file-read-data /Library/Caches/com.nvidia.OpenGL<br>sandboxd: ([]) WebProcess() deny file-write-create /Library/Caches/com.nvidia.OpenGL/<br></pre><br>之類的 deny 訊息，如下圖<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="247" width="640" src="http://2.bp.blogspot.com/-KgSJHGoTXfM/TudwWeh_3lI/AAAAAAAAC7A/nnW32mD6ktw/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-12-13%2B%25E4%25B8%258B%25E5%258D%25889.59.03.jpg"></div><br>這看了很讓人不順眼阿！<br></p>
             <p class="article-more-link">
                 <a href="/post/solve-os-x-lion-log-sanboxd-deny-messages/#more">繼續閱讀</a>
             </p>
@@ -1246,7 +1246,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/solve-os-x-lion-log-sanboxd-deny-messages/" data-id="cizdtlpih0056tfr5q85gdftt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/solve-os-x-lion-log-sanboxd-deny-messages/" data-id="cj9bgrroy004e0g0q12sua6t5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1362,7 +1362,7 @@ net.ipv4.tcp_sack = 0
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p><div class="separator" style="clear: both; text-align: center;"><img border="0" height="480" width="640" src="https://lh5.googleusercontent.com/-MXoANhK5dwM/TtDOmv66d2I/AAAAAAAACuk/JbxOy5C6Zb4/s640/P1050618.jpg" /></div><br />這是女朋友在 Youtube 看到的~ 實在很勾錐~<br /><br /><div class="video-container"><iframe src="//www.youtube.com/embed/qZbuX4gRY50" frameborder="0" allowfullscreen></iframe></div><br /><br />陶瓷蝴蝶結 跟其他 杯子 盤子 都很可愛~<br /><br />不過電視上沒有寫聯絡方式<br /><br />於是就找啊找的人肉了一番 XD<br /><br />終於找到她們的部落格跟名字 <a href="http://www.wretch.cc/blog/pottery2010">小陶器</a> 設計師是鏡子跟金金<br /><br />她們專門在做可愛的陶瓷創作<br /><br />像是 陶瓷蝴蝶結<br /><br /><div class="separator" style="clear: both; text-align: center;"><img border="0" height="480" width="640" src="https://lh3.googleusercontent.com/-4mIgJr16C5Q/TtI_lO0ED2I/AAAAAAAACwY/IaD9H24Cf94/s640/P1050651.jpg" /></div></p>
+            <p><p><div class="separator" style="clear: both; text-align: center;"><img border="0" height="480" width="640" src="https://lh5.googleusercontent.com/-MXoANhK5dwM/TtDOmv66d2I/AAAAAAAACuk/JbxOy5C6Zb4/s640/P1050618.jpg"></div><br>這是女朋友在 Youtube 看到的~ 實在很勾錐~<br><br><div class="video-container"><iframe src="//www.youtube.com/embed/qZbuX4gRY50" frameborder="0" allowfullscreen></iframe></div><br><br>陶瓷蝴蝶結 跟其他 杯子 盤子 都很可愛~<br><br>不過電視上沒有寫聯絡方式<br><br>於是就找啊找的人肉了一番 XD<br><br>終於找到她們的部落格跟名字 <a href="http://www.wretch.cc/blog/pottery2010" target="_blank" rel="external">小陶器</a> 設計師是鏡子跟金金<br><br>她們專門在做可愛的陶瓷創作<br><br>像是 陶瓷蝴蝶結<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="480" width="640" src="https://lh3.googleusercontent.com/-4mIgJr16C5Q/TtI_lO0ED2I/AAAAAAAACwY/IaD9H24Cf94/s640/P1050651.jpg"></div></p>
             <p class="article-more-link">
                 <a href="/post/ceramic-bow/#more">繼續閱讀</a>
             </p>
@@ -1375,7 +1375,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/ceramic-bow/" data-id="cizdtlpen001etfr5crd305ya" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/ceramic-bow/" data-id="cj9bgrrms000o0g0qj3c6whxh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1491,7 +1491,7 @@ net.ipv4.tcp_sack = 0
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p>最近被 cache server 整的很慘 XD<br /><br />先是以為我們用的 squid 效能不行 (後來證明是我頭腦的問題 XD)<br /><br />改用了 nginx, varnish 甚至是 apache traffic server 結果出圖都還是不太順利<br /><br />結果才發現是 SLB 說 cache server 的 80 port 一直 up and down<br /><br />後來更慘 SLB 產生 Mac Flapping<br /><br />後來把 Linux kernel 的 Netfilter 關掉<br /><br />然後在 /etc/sysctl.conf 把 tcp 的 buffer 加大後<br /><br />情況就舒緩許多 於是還是換回 squid 2.7.9<br /><br />在穩定後 想研究一下其他網站的 cache  solution 是什麼<br /></p>
+            <p><p>最近被 cache server 整的很慘 XD<br><br>先是以為我們用的 squid 效能不行 (後來證明是我頭腦的問題 XD)<br><br>改用了 nginx, varnish 甚至是 apache traffic server 結果出圖都還是不太順利<br><br>結果才發現是 SLB 說 cache server 的 80 port 一直 up and down<br><br>後來更慘 SLB 產生 Mac Flapping<br><br>後來把 Linux kernel 的 Netfilter 關掉<br><br>然後在 /etc/sysctl.conf 把 tcp 的 buffer 加大後<br><br>情況就舒緩許多 於是還是換回 squid 2.7.9<br><br>在穩定後 想研究一下其他網站的 cache  solution 是什麼<br></p>
             <p class="article-more-link">
                 <a href="/post/wikipedia-cache-structure/#more">繼續閱讀</a>
             </p>
@@ -1504,7 +1504,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/wikipedia-cache-structure/" data-id="cizdtlpjw0065tfr5dqcsc08p" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/wikipedia-cache-structure/" data-id="cj9bgrrpj005b0g0qkxi54ua2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1636,7 +1636,7 @@ net.ipv4.tcp_sack = 0
                             <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg)" alt="日本東京、箱根自助之旅" class="thumbnail-image"></span>
     
 </a>
 
@@ -1655,7 +1655,7 @@ net.ipv4.tcp_sack = 0
                             <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://lh6.googleusercontent.com/-Xli8KROQCBE/VHk_LX58L6I/AAAAAAAAOO0/Nl4d3JuNvCE/w640-no/PB173351.jpg)" alt="Walt Disney World Resort in Orlando, Florida" class="thumbnail-image"></span>
     
 </a>
 

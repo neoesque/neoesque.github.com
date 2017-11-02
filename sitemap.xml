@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.littlero.se/post/conky/</loc>
+    
+    <lastmod>2017-11-02T15:08:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.littlero.se/post/Walt-Disney-World-Resort-in-Orlando-Florida/</loc>
+    
+    <lastmod>2017-11-02T15:07:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.littlero.se/post/USwest-canyon/</loc>
     
-    <lastmod>2016-12-20T14:31:11.000Z</lastmod>
+    <lastmod>2017-11-02T15:07:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.littlero.se/post/Trip-to-Japan-Tokyo-Hakone/</loc>
+    
+    <lastmod>2017-11-02T15:05:01.000Z</lastmod>
     
   </url>
   
@@ -12,13 +33,6 @@
     <loc>http://blog.littlero.se/post/colonoscopy/</loc>
     
     <lastmod>2016-12-20T14:24:39.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.littlero.se/post/conky/</loc>
-    
-    <lastmod>2016-12-20T14:24:14.000Z</lastmod>
     
   </url>
   
@@ -96,20 +110,6 @@
     <loc>http://blog.littlero.se/post/ifconfig-dot-me-the-web-ifconfig/</loc>
     
     <lastmod>2016-11-09T09:24:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.littlero.se/post/Walt-Disney-World-Resort-in-Orlando-Florida/</loc>
-    
-    <lastmod>2016-11-09T09:20:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.littlero.se/post/Trip-to-Japan-Tokyo-Hakone/</loc>
-    
-    <lastmod>2016-11-09T09:16:18.000Z</lastmod>
     
   </url>
   

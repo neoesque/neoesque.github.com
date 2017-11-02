@@ -318,7 +318,7 @@ code {
 .article-entry dl,
 .widget dl {
   margin: 0 20px;
-  line-height: 1.6em;
+  line-height: 2em;
 }
 .article-entry ul ul,
 .widget ul ul,
@@ -563,7 +563,7 @@ code {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: auto !important;
-  line-height: 1.6em;
+  line-height: 2em;
   outline: none !important;
   background: none !important;
   font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
@@ -873,7 +873,8 @@ a.article-title:hover {
 .article-entry {
   color: #565a5f;
   padding: 0 20px;
-  line-height: 1.6em;
+  line-height: 2em;
+  letter-spacing: 0.1em;
 }
 .article-entry:before,
 .article-entry:after {
@@ -886,12 +887,11 @@ a.article-title:hover {
 .article-entry p {
   text-align: justify;
   font-size: 1.16em;
-  letter-spacing: 0.1em;
 }
 .article-entry p,
 .article-entry table {
-  line-height: 1.6em;
-  margin: 1.6em 0;
+  line-height: 2em;
+  margin: 2em 0;
 }
 .article-entry h1,
 .article-entry h2,
@@ -920,8 +920,8 @@ a.article-title:hover {
 .article-entry ul,
 .article-entry ol,
 .article-entry dl {
-  margin-top: 1.6em;
-  margin-bottom: 1.6em;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 .article-entry img,
 .article-entry video {
@@ -968,7 +968,7 @@ a.article-title:hover {
 }
 .article-entry blockquote footer {
   font-size: 14px;
-  margin: 1.6em 0;
+  margin: 2em 0;
   font-family: "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
 }
 .article-entry blockquote footer cite:before {
@@ -1030,9 +1030,9 @@ a.article-title:hover {
 }
 .article-footer {
   font-size: 0.85em;
-  line-height: 1.6em;
+  line-height: 2em;
   border-top: 1px solid #eceff2;
-  padding-top: 1.6em;
+  padding-top: 2em;
   margin: 0 20px 20px;
 }
 .article-footer:before,
@@ -1144,7 +1144,7 @@ a.article-title:hover {
   font-size: 0.85em;
   margin-top: 0.5em;
   color: #565a5f;
-  line-height: 1.6em;
+  line-height: 2em;
 }
 .article-share-box {
   position: absolute;
@@ -1239,7 +1239,7 @@ a.article-title:hover {
   background: #000;
   position: relative;
   text-align: center;
-  margin: 1.6em 0;
+  margin: 2em 0;
 }
 .article-gallery .gallery-item {
   display: none;
@@ -1693,7 +1693,7 @@ ol.toc {
   text-decoration: underline;
 }
 #footer-info {
-  line-height: 1.6em;
+  line-height: 2em;
   font-size: 0.85em;
 }
 @media screen and (min-width: 1200px) {
@@ -1713,7 +1713,7 @@ ol.toc {
   }
 }
 .widget {
-  line-height: 1.6em;
+  line-height: 2em;
   word-wrap: break-word;
   font-size: 0.9em;
 }
@@ -2104,7 +2104,7 @@ ol.toc {
   padding: 15px 20px;
   font-size: 14px;
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
-  line-height: 22.400000000000002px;
+  line-height: 28px;
 }
 .highlight table {
   margin: 0;
