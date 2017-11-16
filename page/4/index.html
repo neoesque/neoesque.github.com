@@ -37,6 +37,8 @@
     <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
     
     
         <script type="text/javascript">
@@ -169,7 +171,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                58
+                59
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -222,6 +224,140 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-fabric-machine-manager" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/fabric-machine-manager/">fabric - Machine Manager</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/fabric-machine-manager/">
+            <time datetime="2012-04-30T02:13:00.000Z" itemprop="datePublished">2012-04-30, 週一</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>Python <a href="http://docs.fabfile.org" target="_blank" rel="external">Fabirc</a> 是一個類似 Ruby capistrano 的自動化部署跟系統管理工具，安裝指令是 <code>pip install -U fabric</code> 或者 <code>easy_install fabric</code> 都可以。fabric 的使用也非常的簡單，只要寫好一個檔名是 <em>fabfile.py</em> 的檔案，在同一個資料夾底下打 <code>fab --list</code> 就可以看到有哪些參數可以下(就是 fabfile.py 裡面的 function)。</p>
+<p>以下是一個簡單的範例 template</p></p>
+            <p class="article-more-link">
+                <a href="/post/fabric-machine-manager/#more">繼續閱讀</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/fabric-machine-manager/" data-id="cja15uxxy001lyq0qbptmkyh8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://blog.littlero.se/post/fabric-machine-manager/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/fabric-machine-manager/">評論</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-use-vghetto-manage-vmware-vcenter" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -289,7 +425,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/use-vghetto-manage-vmware-vcenter/" data-id="cj9bgrrpb004y0g0qtanvsjxc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/use-vghetto-manage-vmware-vcenter/" data-id="cja15uy05004syq0q3t002ii8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -432,7 +568,7 @@ foo.bar.        600     IN    TXT    &quot;v=spf1 ip4:11.22.33.44/32 ~all&quot;
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/" data-id="cj9bgrroo00430g0qo8v9p1mf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/" data-id="cja15uy02004oyq0qn84tp48y" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -585,7 +721,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/no-syn-slash-ack-after-receive-syn-packet/" data-id="cj9bgrro9003b0g0qanbdxqf5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/no-syn-slash-ack-after-receive-syn-packet/" data-id="cja15uxys0032yq0qhgvt2vj7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -719,7 +855,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/why-i-choose-octopress/" data-id="cj9bgrrpi00580g0qyqosib90" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/why-i-choose-octopress/" data-id="cja15uy0d0059yq0qvt6sejt6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -855,7 +991,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/transfer-textmate-2-to-sublime-text-2/" data-id="cj9bgrrpa004v0g0qwawrcvw9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/transfer-textmate-2-to-sublime-text-2/" data-id="cja15uy0c0056yq0qqwjmw5im" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -988,7 +1124,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/freebsd-first-sight/" data-id="cj9bgrrne001t0g0qbymoqoc0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/freebsd-first-sight/" data-id="cja15uxxx001iyq0qrgk359at" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1117,7 +1253,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/open-rc-ulimit/" data-id="cj9bgrroh003p0g0qvxidlsn7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/open-rc-ulimit/" data-id="cja15uxyy003fyq0qanhuyu44" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1246,7 +1382,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/solve-os-x-lion-log-sanboxd-deny-messages/" data-id="cj9bgrroy004e0g0q12sua6t5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/solve-os-x-lion-log-sanboxd-deny-messages/" data-id="cja15uxzo0044yq0qmy06ptxc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1375,136 +1511,7 @@ net.ipv4.tcp_sack = 0
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/ceramic-bow/" data-id="cj9bgrrms000o0g0qj3c6whxh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-wikipedia-cache-structure" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/post/wikipedia-cache-structure/">Wikipedia cache 架構</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/post/wikipedia-cache-structure/">
-            <time datetime="2011-10-16T16:00:00.000Z" itemprop="datePublished">2011-10-17, 週一</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/資訊/">資訊</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/squid/">squid</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>最近被 cache server 整的很慘 XD<br><br>先是以為我們用的 squid 效能不行 (後來證明是我頭腦的問題 XD)<br><br>改用了 nginx, varnish 甚至是 apache traffic server 結果出圖都還是不太順利<br><br>結果才發現是 SLB 說 cache server 的 80 port 一直 up and down<br><br>後來更慘 SLB 產生 Mac Flapping<br><br>後來把 Linux kernel 的 Netfilter 關掉<br><br>然後在 /etc/sysctl.conf 把 tcp 的 buffer 加大後<br><br>情況就舒緩許多 於是還是換回 squid 2.7.9<br><br>在穩定後 想研究一下其他網站的 cache  solution 是什麼<br></p>
-            <p class="article-more-link">
-                <a href="/post/wikipedia-cache-structure/#more">繼續閱讀</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://blog.littlero.se/post/wikipedia-cache-structure/" data-id="cj9bgrrpj005b0g0qkxi54ua2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/ceramic-bow/" data-id="cja15uxxt0017yq0qa6srcrh2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1595,6 +1602,25 @@ net.ipv4.tcp_sack = 0
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/post/mexico-visa-2017-11/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/mexico-visa-2017-11/" class="title">墨西哥簽證 2017/11</a></p>
+                            <p class="item-date"><time datetime="2017-11-15T14:29:41.000Z" itemprop="datePublished">2017-11-15, 週三</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
     
     
@@ -1668,25 +1694,6 @@ net.ipv4.tcp_sack = 0
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
-                            <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
-                            <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, 週四</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1705,7 +1712,7 @@ net.ipv4.tcp_sack = 0
     <div class="widget-wrap">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -1757,6 +1764,16 @@ net.ipv4.tcp_sack = 0
 
 
 
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
     
     
     

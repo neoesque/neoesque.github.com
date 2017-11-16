@@ -37,6 +37,8 @@
     <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
     
     
         <script type="text/javascript">
@@ -169,7 +171,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                58
+                59
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -222,6 +224,135 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-mac-os-x-dmg-convert-to-iso" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/mac-os-x-dmg-convert-to-iso/">在 Mac OS X 轉 dmg 成 iso 檔</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/mac-os-x-dmg-convert-to-iso/">
+            <time datetime="2011-04-14T16:00:00.000Z" itemprop="datePublished">2011-04-15, 週五</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Mac/">Mac</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>dmg (Disk iMaGe) 可以說是 Mac OS X 最常見的磁碟影像檔<br><br>但是在其他的作業系統似乎 iso 更常見<br><br>而 Mac 本身就提供了 iso 轉檔的功能 指令如下</p>
+            <p class="article-more-link">
+                <a href="/post/mac-os-x-dmg-convert-to-iso/#more">繼續閱讀</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/mac-os-x-dmg-convert-to-iso/" data-id="cja15uxye0028yq0qrtek5ra1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-trac-moinmoin-wiki-svn-2" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -277,7 +408,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/trac-moinmoin-wiki-svn-2/" data-id="cj9bgrrp8004r0g0q28irl86a" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/trac-moinmoin-wiki-svn-2/" data-id="cja15uxzt004ayq0qxjtmvikk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -406,7 +537,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/trac-moinmoin-wiki-svn-1/" data-id="cj9bgrrp6004o0g0qqz9pfmqo" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/trac-moinmoin-wiki-svn-1/" data-id="cja15uxzy004hyq0q54949gp3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -535,7 +666,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/php-304-not-modified/" data-id="cj9bgrrol003w0g0q9y1c1kda" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/php-304-not-modified/" data-id="cja15uxz3003myq0qpgvm4jhd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -664,7 +795,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/add-sles-11-sp1-repository/" data-id="cj9bgrrmf00070g0qfjs2gqt0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/add-sles-11-sp1-repository/" data-id="cja15uxx3000ayq0q28lyimel" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -793,7 +924,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/Mac-OS-all-applications-using-webkit-core/" data-id="cj9bgrrm900030g0qky36eezr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/Mac-OS-all-applications-using-webkit-core/" data-id="cja15uxwr0002yq0qajiv74a3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -922,7 +1053,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/open-link-with-new-window-in-xhtml/" data-id="cj9bgrrof003m0g0q2h0s633z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/open-link-with-new-window-in-xhtml/" data-id="cja15uxzj0040yq0qigb1x5yg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1041,7 +1172,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/comment-styles/" data-id="cj9bgrrn200140g0qpw93j0nl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/comment-styles/" data-id="cja15uxxj000vyq0qezwiwetm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1160,7 +1291,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/code-blocks-sdcc/" data-id="cj9bgrrmx000w0g0qsv3dbmw7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/code-blocks-sdcc/" data-id="cja15uxxu001ayq0qio6hl7s0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1251,6 +1382,25 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/post/mexico-visa-2017-11/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/mexico-visa-2017-11/" class="title">墨西哥簽證 2017/11</a></p>
+                            <p class="item-date"><time datetime="2017-11-15T14:29:41.000Z" itemprop="datePublished">2017-11-15, 週三</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
     
     
@@ -1324,25 +1474,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
-                            <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
-                            <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, 週四</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1361,7 +1492,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -1413,6 +1544,16 @@ ga('send', 'pageview');
 
 
 
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
     
     
     

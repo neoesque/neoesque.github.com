@@ -37,6 +37,8 @@
     <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
     
     
         <script type="text/javascript">
@@ -169,7 +171,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                58
+                59
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -222,6 +224,144 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-conky" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/conky/">Conky</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/conky/">
+            <time datetime="2014-02-27T09:52:09.000Z" itemprop="datePublished">2014-02-27, 週四</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p><a href="http://conky.sourceforge.net/" target="_blank" rel="external">Conky</a> 是一款類似 Mac OS X <a href="http://projects.tynsoe.org/en/geektool/" target="_blank" rel="external">GeekTool</a> 的桌面小工具 (其實 Conky 比較早出生，不過我比較晚發現 XD)。</p>
+<p>他們都可以透過一些內建的 Function 或者寫 shell script 來顯示電腦的狀態(或者想印在桌面的狀態)，例如我現在的桌面是這樣的</p>
+<img src="https://lh5.googleusercontent.com/-xr-ly4Xre5s/Uw8NTDx7SNI/AAAAAAAAISA/UkVyIMyWF_E/w1516-h852-no/2014-02-27%2B18%3A01%3A13%2B%E7%9A%84%E8%9E%A2%E5%B9%95%E6%93%B7%E5%9C%96.png" width="800" height="600">
+<p>大致上就是顯示天氣，網路速度、流量，CPU、記憶體、硬碟等使用率，然後還有 CPU 溫度跟風扇的資訊，最下面有 parse RSS (Gentoo Security) 的部分</p>
+<p>參考網路設計師 <a href="http://satya164.deviantart.com/art/Conky-Google-Now-366545753" target="_blank" rel="external">Conky Google Now</a> 這個主題</p>
+<p>小弟合併了官網其他人貢獻的設定，稍微修改了一下</p></p>
+            <p class="article-more-link">
+                <a href="/post/conky/#more">繼續閱讀</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/conky/" data-id="cja15uxxq0014yq0qkoavqlkf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://blog.littlero.se/post/conky/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/conky/">評論</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-install-graylog2" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -310,7 +450,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/install-graylog2/" data-id="cj9bgrrni001z0g0qk26y6w04" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/install-graylog2/" data-id="cja15uxyf002byq0qg0y3zedj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -443,7 +583,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/saltstack-custom-grains/" data-id="cj9bgrrot00470g0qtnek7dwc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/saltstack-custom-grains/" data-id="cja15uxzv004eyq0qgw4beawc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -578,7 +718,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/casio-tr15/" data-id="cj9bgrrmu000q0g0qbhax5frm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/casio-tr15/" data-id="cja15uxxo0012yq0qkzeil6lh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -711,7 +851,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/nice-to-meet-saltstack/" data-id="cj9bgrro600350g0qyjxvxm9e" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/nice-to-meet-saltstack/" data-id="cja15uxyw003cyq0qn0fd4ln0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -852,7 +992,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" data-id="cj9bgrrov004a0g0q84cvvhwg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" data-id="cja15uy07004vyq0qnvcitjo2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -994,7 +1134,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/e-m5-wooden-grip/" data-id="cj9bgrrna001m0g0q2er8lzsr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/e-m5-wooden-grip/" data-id="cja15uxy7001yyq0q7167tm4f" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1129,7 +1269,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/" data-id="cj9bgrro400310g0qvh6n569m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/nginx-ssl-cipher-rc4-safari/" data-id="cja15uxyv0039yq0qvdt40gri" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1282,7 +1422,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/" data-id="cj9bgrrnx002n0g0q0poc0znn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/" data-id="cja15uxyk002lyq0qxs1db25b" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1417,7 +1557,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/e-m5-grip-base/" data-id="cj9bgrrn8001j0g0qkcqt4pyl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/e-m5-grip-base/" data-id="cja15uxy6001vyq0qbfjzd0hd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1495,141 +1635,6 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-e-m5-12mm-25mm" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/post/e-m5-12mm-25mm/">E-M5 12mm 25mm</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/post/e-m5-12mm-25mm/">
-            <time datetime="2013-03-24T03:05:58.000Z" itemprop="datePublished">2013-03-24, 週日</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/3C/">3C</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/E-M5/">E-M5</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>三年前原本買了 <a href="http://www.four-thirds.org/en/microft/body.html#c=Panasonic&amp;i_dmc-gf2_panasonic" target="_blank" rel="external">GF2</a> + <a href="http://www.four-thirds.org/en/microft/single.html#i_014mm_f025_panasonic" target="_blank" rel="external">LUMIX G 14mm F2.5 ASPH</a> 要給我妹，結果他竟然嫌棄說 14mm 沒辦法變焦… 0rz… 這實在是，結果後來還是買了一般的小 DC 給她 = =+，然後去年入手了 <a href="http://www.four-thirds.org/en/microft/single.html#i_025mm_f014_panasonic" target="_blank" rel="external">LEICA DG SUMMILUX 25mm F1.4 ASPH</a> </p>
-<img src="http://farm9.staticflickr.com/8237/8584909748_bde84d9f1b_z.jpg" width="800" height="600">
-<p>大光圈的加持真的不是蓋的等效 50mm 也相當的好取景，但是最近對焦距離 30cm 真的稍遠不過他本來就被定位在人像鏡所以其實還好，整體來說還是超級棒的一顆鏡頭，只是去參觀室內的展覽(像是小叮噹誕生前百年特展)難免又被我妹嫌棄說為什麼拍照都要站這麼遠 XDDD，以下是 GF2 搭 25mm 拍出來的照片。</p></p>
-            <p class="article-more-link">
-                <a href="/post/e-m5-12mm-25mm/#more">繼續閱讀</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://blog.littlero.se/post/e-m5-12mm-25mm/" data-id="cj9bgrrn7001g0g0qugchjphn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://blog.littlero.se/post/e-m5-12mm-25mm/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.littlero.se/post/e-m5-12mm-25mm/">評論</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/">&laquo; 上一頁</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">下一頁 &raquo;</a>
     </nav>
@@ -1643,6 +1648,25 @@ ga('send', 'pageview');
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/post/mexico-visa-2017-11/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/mexico-visa-2017-11/" class="title">墨西哥簽證 2017/11</a></p>
+                            <p class="item-date"><time datetime="2017-11-15T14:29:41.000Z" itemprop="datePublished">2017-11-15, 週三</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1720,25 +1744,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
-                            <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
-                            <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, 週四</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1757,7 +1762,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -1809,6 +1814,16 @@ ga('send', 'pageview');
 
 
 
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
     
     
     

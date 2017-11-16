@@ -37,6 +37,8 @@
     <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
     
     
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
     
     
         <script type="text/javascript">
@@ -169,7 +171,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                58
+                59
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -222,6 +224,135 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-wikipedia-cache-structure" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/post/wikipedia-cache-structure/">Wikipedia cache 架構</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/post/wikipedia-cache-structure/">
+            <time datetime="2011-10-16T16:00:00.000Z" itemprop="datePublished">2011-10-17, 週一</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/資訊/">資訊</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/squid/">squid</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>最近被 cache server 整的很慘 XD<br><br>先是以為我們用的 squid 效能不行 (後來證明是我頭腦的問題 XD)<br><br>改用了 nginx, varnish 甚至是 apache traffic server 結果出圖都還是不太順利<br><br>結果才發現是 SLB 說 cache server 的 80 port 一直 up and down<br><br>後來更慘 SLB 產生 Mac Flapping<br><br>後來把 Linux kernel 的 Netfilter 關掉<br><br>然後在 /etc/sysctl.conf 把 tcp 的 buffer 加大後<br><br>情況就舒緩許多 於是還是換回 squid 2.7.9<br><br>在穩定後 想研究一下其他網站的 cache  solution 是什麼<br></p>
+            <p class="article-more-link">
+                <a href="/post/wikipedia-cache-structure/#more">繼續閱讀</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://blog.littlero.se/post/wikipedia-cache-structure/" data-id="cja15uy09004zyq0q94nc8tf9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-squid-refresh-pattern" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -277,7 +408,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/squid-refresh-pattern/" data-id="cj9bgrrp3004k0g0qajd5voyz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/squid-refresh-pattern/" data-id="cja15uy0b0052yq0q7xoy4470" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -406,7 +537,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/os-x-application-i18n/" data-id="cj9bgrrok003t0g0qzf15mhxh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/os-x-application-i18n/" data-id="cja15uxz0003jyq0q37jnw0gk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -535,7 +666,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/compile-objective-c-on-gentoo/" data-id="cj9bgrrn5001c0g0qsdr66hf2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/compile-objective-c-on-gentoo/" data-id="cja15uxxl000zyq0qfwcftgrl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -664,7 +795,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/unix-bt-downloader-aria2/" data-id="cj9bgrrpd00510g0qrujnv9ls" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/unix-bt-downloader-aria2/" data-id="cja15uy00004lyq0qjw20ep85" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -793,7 +924,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/moinmoin-wiki-trac-nis/" data-id="cj9bgrrnz002r0g0qe7z463b9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/moinmoin-wiki-trac-nis/" data-id="cja15uxyj002iyq0qzbj1pbv9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -922,7 +1053,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/nginx-performance-compare-with-php/" data-id="cj9bgrro3002y0g0qwzvhgayd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/nginx-performance-compare-with-php/" data-id="cja15uxyp002wyq0qujhw9eql" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1051,7 +1182,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/node-js-with-express-jade-stylus-and-coffeescript/" data-id="cj9bgrrob003f0g0qcn6fcqcu" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/node-js-with-express-jade-stylus-and-coffeescript/" data-id="cja15uxzd003tyq0q5671zevw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1180,7 +1311,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/build-website-with-nodejs-express/" data-id="cj9bgrrml000d0g0qjr43grjk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/build-website-with-nodejs-express/" data-id="cja15uxx7000eyq0qvdw56s3e" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1309,136 +1440,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://blog.littlero.se/post/vmware-cloud-foundry/" data-id="cj9bgrrpg00540g0qydmjv5s9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-mac-os-x-dmg-convert-to-iso" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/post/mac-os-x-dmg-convert-to-iso/">在 Mac OS X 轉 dmg 成 iso 檔</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/post/mac-os-x-dmg-convert-to-iso/">
-            <time datetime="2011-04-14T16:00:00.000Z" itemprop="datePublished">2011-04-15, 週五</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/資訊/">資訊</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Mac/">Mac</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>dmg (Disk iMaGe) 可以說是 Mac OS X 最常見的磁碟影像檔<br><br>但是在其他的作業系統似乎 iso 更常見<br><br>而 Mac 本身就提供了 iso 轉檔的功能 指令如下</p>
-            <p class="article-more-link">
-                <a href="/post/mac-os-x-dmg-convert-to-iso/#more">繼續閱讀</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://blog.littlero.se/post/mac-os-x-dmg-convert-to-iso/" data-id="cj9bgrrnv002k0g0qtuclo3c6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.littlero.se/post/vmware-cloud-foundry/" data-id="cja15uy0f005dyq0q0o4vtcbx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1529,6 +1531,25 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/post/mexico-visa-2017-11/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/遊記/">遊記</a></p>
+                            <p class="item-title"><a href="/post/mexico-visa-2017-11/" class="title">墨西哥簽證 2017/11</a></p>
+                            <p class="item-date"><time datetime="2017-11-15T14:29:41.000Z" itemprop="datePublished">2017-11-15, 週三</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="thumbnail">
     
     
@@ -1602,25 +1623,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/3C/">3C</a></p>
-                            <p class="item-title"><a href="/post/K760-Linux-fn-多媒體鍵切換/" class="title">K760 Linux fn/多媒體鍵切換</a></p>
-                            <p class="item-date"><time datetime="2015-03-12T07:38:17.000Z" itemprop="datePublished">2015-03-12, 週四</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1639,7 +1641,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3C/">3C</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/健康/">健康</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敗家/">敗家</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/資訊/">資訊</a><span class="category-list-count">44</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊戲/">遊戲</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遊記/">遊記</a><span class="category-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -1691,6 +1693,16 @@ ga('send', 'pageview');
 
 
 
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
     
     
     
