@@ -874,7 +874,7 @@ a.article-title:hover {
   color: #565a5f;
   padding: 0 20px;
   line-height: 1.55em;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.15em;
 }
 .article-entry:before,
 .article-entry:after {
