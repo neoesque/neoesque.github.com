@@ -782,9 +782,7 @@ pre .javascript .function {
   float: left;
 }
 .page-post-detail .post-body .group-picture-column {
-  float: none;
   margin-top: 10px;
-  width: auto !important;
 }
 .page-post-detail .post-body .group-picture-column img {
   margin: 0 auto;
@@ -1910,7 +1908,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff6299;
+  background: #cfe5dd;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3030,8 +3028,8 @@ ul.breadcrumb li+li:last-child {
     text-align: justify;
   }
 }
-@media only screen and (max-width: 768px) {
-  body {
-    font-size: 16px;
+@media (min-width: 38em) {
+  html {
+    font-size: 20px;
   }
 }
