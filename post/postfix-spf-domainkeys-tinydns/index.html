@@ -158,19 +158,19 @@
 
 
 
-  <meta name="description" content="Will be replaced with the ToC{:toc}  部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 電子郵件驗證 中說的，要可以被 驗證和識別，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 Doma">
+  <meta name="description" content="部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 電子郵件驗證 中說的，要可以被 驗證和識別，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 DomainKeys，不過有了 DKIM 後原本單純 DomainKeys 就被廢棄">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="設定 SPF 跟 DomainKeys 在 postfix 和 tinydns">
 <meta property="og:url" content="https://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/index.html">
 <meta property="og:site_name" content="neoesque">
-<meta property="og:description" content="Will be replaced with the ToC{:toc}  部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 電子郵件驗證 中說的，要可以被 驗證和識別，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 Doma">
+<meta property="og:description" content="部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 電子郵件驗證 中說的，要可以被 驗證和識別，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 DomainKeys，不過有了 DKIM 後原本單純 DomainKeys 就被廢棄">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://lh5.googleusercontent.com/-A6MtopadkXk/T47U_sZ8eqI/AAAAAAAAD7Y/TdkEhjis8jE/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-18%2520%25E4%25B8%258B%25E5%258D%258810.51.09.png">
-<meta property="og:updated_time" content="2016-11-09T09:25:25.000Z">
+<meta property="og:updated_time" content="2018-06-21T14:59:52.267Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="設定 SPF 跟 DomainKeys 在 postfix 和 tinydns">
-<meta name="twitter:description" content="Will be replaced with the ToC{:toc}  部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 電子郵件驗證 中說的，要可以被 驗證和識別，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 Doma">
+<meta name="twitter:description" content="部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 電子郵件驗證 中說的，要可以被 驗證和識別，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 DomainKeys，不過有了 DKIM 後原本單純 DomainKeys 就被廢棄">
 <meta name="twitter:image" content="https://lh5.googleusercontent.com/-A6MtopadkXk/T47U_sZ8eqI/AAAAAAAAD7Y/TdkEhjis8jE/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%25202012-04-18%2520%25E4%25B8%258B%25E5%258D%258810.51.09.png">
 
 
@@ -515,7 +515,7 @@
                 
                   <span class="post-meta-item-text">文章字數：</span>
                 
-                <span title="文章字數">3.7k</span>
+                <span title="文章字數">3.6k</span>
               
 
               
@@ -549,10 +549,7 @@
       
 
       
-        <ul>
-<li>Will be replaced with the ToC<br>{:toc}</li>
-</ul>
-<p>部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 <a href="https://support.google.com/mail/bin/answer.py?hl=zh-TW&amp;answer=180707" target="_blank" rel="external">電子郵件驗證</a> 中說的，要可以被 <a href="http://support.google.com/mail/bin/answer.py?hl=zh-Hant&amp;answer=81126#authentication" target="_blank" rel="external">驗證和識別</a>，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 DomainKeys，不過有了 DKIM 後原本單純 DomainKeys 就被廢棄了(當然目前還是可以用的)。我們單位用的 mail server 是 Postfix 而 DNS 則是 tinydns (djbdns %}</p>
+        <p>部門最近有架 Mail Server 的需求，要架 Mail Server 首先要搞定不讓自己寄出去的信被當作 Spam，參考 Google 的 <a href="https://support.google.com/mail/bin/answer.py?hl=zh-TW&amp;answer=180707" target="_blank" rel="external">電子郵件驗證</a> 中說的，要可以被 <a href="http://support.google.com/mail/bin/answer.py?hl=zh-Hant&amp;answer=81126#authentication" target="_blank" rel="external">驗證和識別</a>，通常就是 Domain 要發佈 SPF 跟簽署 DKIM(DomainKeys Identified Mail) 或最古老的 DomainKeys，不過有了 DKIM 後原本單純 DomainKeys 就被廢棄了(當然目前還是可以用的)。我們單位用的 mail server 是 Postfix 而 DNS 則是 tinydns (djbdns %}</p>
 <h3 id="設定-SPF"><a href="#設定-SPF" class="headerlink" title="設定 SPF"></a>設定 SPF</h3><p>SPF 只是簡單的 DNS TXT 發佈而已，可以利用 <a href="http://spfwizard.com" target="_blank" rel="external">easySPF</a> 製作。於是在 tinydns 的設定檔加入下列資訊：</p>
 <pre><code>&apos;foo.bar:v=spf1 ip4\07211.22.33.44/32 ~all:600
 </code></pre><p>這裡用 <code>foo.bar</code> 當作 domain，而 <code>11.22.33.44</code> 則是 Server 寄信出來的 public ip，這樣子就完成啦~</p>
