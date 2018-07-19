@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.littlero.se/post/Trip-To-Japan-Osaka-Kyoto-2018/</loc>
+    
+    <lastmod>2018-07-19T14:22:52.990Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.littlero.se/post/USwest-canyon/</loc>
+    
+    <lastmod>2018-07-02T15:24:00.705Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.littlero.se/post/postfix-spf-domainkeys-tinydns/</loc>
     
     <lastmod>2018-06-21T14:59:52.267Z</lastmod>
@@ -40,13 +54,6 @@
     <loc>https://blog.littlero.se/categories/index.html</loc>
     
     <lastmod>2018-06-07T14:09:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.littlero.se/post/USwest-canyon/</loc>
-    
-    <lastmod>2018-06-02T08:26:54.000Z</lastmod>
     
   </url>
   
@@ -450,14 +457,14 @@
   </url>
   
   <url>
-    <loc>https://blog.littlero.se/post/code-blocks-sdcc/</loc>
+    <loc>https://blog.littlero.se/post/comment-styles/</loc>
     
     <lastmod>2013-01-03T07:20:22.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.littlero.se/post/comment-styles/</loc>
+    <loc>https://blog.littlero.se/post/code-blocks-sdcc/</loc>
     
     <lastmod>2013-01-03T07:20:22.000Z</lastmod>
     
