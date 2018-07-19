@@ -1908,7 +1908,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #32ff9c;
+  background: #81ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3027,4 +3027,17 @@ ul.breadcrumb li+li:last-child {
   .post-body {
     text-align: justify;
   }
+}
+.google-maps {
+  position: relative;
+  padding-bottom: 75%;
+  height: 0;
+  overflow: hidden;
+}
+.google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
 }
