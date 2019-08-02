@@ -4,185 +4,79 @@
 
 
 
-
-
-
-
-
-
-
-  
-
-
 <html class="theme-next pisces use-motion" lang="zh-TW">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
 
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
 
-
-
-
-
-  
-  
-    
-    
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
 
 
-
-
-  
-  
-  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-
-  
-    
-
-    
-  
-
-  
-
-  
-    
-
-    
-  
-
-  
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Roboto Slab:300,300italic,400,400italic,700,700italicLobster Two:300,300italic,400,400italic,700,700italicRoboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '6.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
     fancybox: true,
-    fastclick: false,
+    mediumzoom: false,
     lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    pangu: false,
     algolia: {
       applicationID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '複製',
+      copy_success: '複製成功',
+      copy_failure: '複製失敗'
     }
   };
 </script>
 
-
-  
-
-
-
-
-  <meta name="description" content="最近在搬移 trac, moinmoin wiki 與 svn server 這篇文章記錄一下過程原本的舊 server 是跑 apache由於新的 server 是 VM 所以我覺得選用比較 light weight 的 nginx 似乎比較好首先先講解在新的 server 重新建立環境1. nginx 的安裝首先到 nginx 下載頁 下載 (BTW 今天剛好釋出 1.0 萬歲~)">
+  <meta name="description" content="最近在搬移 trac, moinmoin wiki 與 svn server 這篇文章記錄一下過程原本的舊 server 是跑 apache由於新的 server 是 VM 所以我覺得選用比較 light weight 的 nginx 似乎比較好首先先講解在新的 server 重新建立環境1. nginx 的安裝首先到 nginx 下載頁 下載 (BTW 今天剛好釋出 1.0 萬歲)">
 <meta name="keywords" content="moinmoin,trac,svn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="trac, moinmoin wiki 與 svn 搬移與安裝的三兩事(一)">
 <meta property="og:url" content="https://blog.littlero.se/post/trac-moinmoin-wiki-svn-1/index.html">
 <meta property="og:site_name" content="neoesque">
-<meta property="og:description" content="最近在搬移 trac, moinmoin wiki 與 svn server 這篇文章記錄一下過程原本的舊 server 是跑 apache由於新的 server 是 VM 所以我覺得選用比較 light weight 的 nginx 似乎比較好首先先講解在新的 server 重新建立環境1. nginx 的安裝首先到 nginx 下載頁 下載 (BTW 今天剛好釋出 1.0 萬歲~)">
+<meta property="og:description" content="最近在搬移 trac, moinmoin wiki 與 svn server 這篇文章記錄一下過程原本的舊 server 是跑 apache由於新的 server 是 VM 所以我覺得選用比較 light weight 的 nginx 似乎比較好首先先講解在新的 server 重新建立環境1. nginx 的安裝首先到 nginx 下載頁 下載 (BTW 今天剛好釋出 1.0 萬歲)">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:updated_time" content="2015-03-14T05:42:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="trac, moinmoin wiki 與 svn 搬移與安裝的三兩事(一)">
-<meta name="twitter:description" content="最近在搬移 trac, moinmoin wiki 與 svn server 這篇文章記錄一下過程原本的舊 server 是跑 apache由於新的 server 是 VM 所以我覺得選用比較 light weight 的 nginx 似乎比較好首先先講解在新的 server 重新建立環境1. nginx 的安裝首先到 nginx 下載頁 下載 (BTW 今天剛好釋出 1.0 萬歲~)">
+<meta name="twitter:description" content="最近在搬移 trac, moinmoin wiki 與 svn server 這篇文章記錄一下過程原本的舊 server 是跑 apache由於新的 server 是 VM 所以我覺得選用比較 light weight 的 nginx 似乎比較好首先先講解在新的 server 重新建立環境1. nginx 的安裝首先到 nginx 下載頁 下載 (BTW 今天剛好釋出 1.0 萬歲)">
+  <link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  <link rel="canonical" href="https://blog.littlero.se/post/trac-moinmoin-wiki-svn-1/">
 
 
-
-  <link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml" />
-
-
-
-
-  <link rel="canonical" href="https://blog.littlero.se/post/trac-moinmoin-wiki-svn-1/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
+<script id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -190,36 +84,8 @@
 
   <title>trac, moinmoin wiki 與 svn 搬移與安裝的三兩事(一) | neoesque</title>
   
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '163923413772109',
-      xfbml      : true,
-      version    : 'v2.10'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/zh_TW/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
 
 
-
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-37617901-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-37617901-1');
-</script>
 
 
 
@@ -227,29 +93,27 @@
 
 
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -257,18 +121,12 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
 
-  
-  
-    
-  
-
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+  <div class="site-meta">
 
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
@@ -277,11 +135,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
         <h1 class="site-subtitle" itemprop="description">Making Life Better</h1>
       
-    
   </div>
 
   <div class="site-nav-toggle">
@@ -296,58 +151,58 @@
 
 
 <nav class="site-nav">
-  
     <ul id="menu" class="menu">
-      
         
         
         
           
           <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首頁</a>
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首頁</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />標籤</a>
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>標籤</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分類</a>
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分類</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />歸檔</a>
-  </li>
+      
+    
 
-      
-      
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>歸檔</a>
+
+  </li>
         <li class="menu-item menu-item-search">
+          <a href="javascript:;" class="popup-trigger">
           
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜尋</a>
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜尋</a>
         </li>
       
     </ul>
-  
-
-  
-
-  
     <div class="site-search">
       
   <div class="popup search-popup local-search-popup">
@@ -368,16 +223,8 @@
 </div>
 
 
-
     </div>
-  
 </nav>
-
-
-
-  
-
-
 
 </div>
     </header>
@@ -388,25 +235,13 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
             
 
-          
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
-
-  
-
-  
-  
-  
-
-  
-    <div class="reading-progress-bar"></div>
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -424,26 +259,18 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="neoesque">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">trac, moinmoin wiki 與 svn 搬移與安裝的三兩事(一)
+
               
             
           </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -456,16 +283,23 @@
               
 
               <time title="創建時間：2011-04-12, 週二 00:00:00" itemprop="dateCreated datePublished" datetime="2011-04-12T00:00:00+08:00">2011-04-12, 週二</time>
-            
-
-            
-          </span>
-
+            </span>
           
-            <span class="post-category" >
             
-              <span class="post-meta-divider">|</span>
+
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2015-03-14, 週六 13:42:26" itemprop="dateModified" datetime="2015-03-14T13:42:26+08:00">2015-03-14, 週六</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -482,78 +316,52 @@
           
 
           
-
+            
+  
+  
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">文章字數：</span>
+              
+              <span title="文章字數">2.7k</span>
+            </span>
           
-          
-
-          
-
-          
-            <div class="post-symbolscount">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">文章字數：</span>
-                
-                <span title="文章字數">2.8k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-                
-                <span title="所需閱讀時間">7 分鐘</span>
-              
-            </div>
-          
-
+              <span title="所需閱讀時間">7 分鐘</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
-      
+        <p>最近在搬移 <a href="http://trac.edgewall.org/" target="_blank" rel="noopener">trac</a>, <a href="http://moinmo.in/" target="_blank" rel="noopener">moinmoin wiki</a> 與 svn server 這篇文章記錄一下過程<br><br>原本的舊 server 是跑 apache<br><br>由於新的 server 是 VM 所以我覺得選用比較 light weight 的 nginx 似乎比較好<br><br>首先先講解在新的 server 重新建立環境<br><br></p><h3>1. nginx 的安裝</h3><br>首先到 <a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">nginx 下載頁</a> 下載 (BTW 今天剛好釋出 1.0 萬歲<del>)<br><a id="more"></a>然後依序解壓縮並且 compile 與安裝到指定位置 (敝單位 自己安裝的程式習慣裝在 /home 下面)<br><br><script src="//gist.github.com/941603.js"></script><br>這樣 nginx 就會裝好在 /home/nginx 底下了<br><br>設定檔會在 /home/nginx/conf/nginx.conf 這裡<br><br><h3>2. uWSGI 安裝</h3><br>因為 trac 跟 moinmoin 都是 python 所以要找一個適合他們的 cgi 給 nginx 接而 <a href="http://projects.unbit.it/uwsgi/" target="_blank" rel="noopener">uWSGI</a> 似乎是不錯的選擇而且 nginx 也有原生的 uwsgi module<br><br>所以一樣依照下列步驟裝起來</del><br><br><script src="//gist.github.com/941604.js"></script><br>make 完之後就會在同一個目錄下產生出 uwsgi 的執行檔在手動複製到想要的地方即可<br><br><script src="//gist.github.com/941606.js"></script><br><h3>3. subversion 安裝</h3><br>基本上用套件管理程式裝一下就好了 敝單位目前都採用 SLES11sp1 所以指令如下<br><br><script src="//gist.github.com/941607.js"></script><br><h3>4. trac 的安裝</h3><br>trac 要安裝可以參考<a href="http://trac.edgewall.org/wiki/TracInstall" target="_blank" rel="noopener">這裡</a><br><br>大概就是用 easy_install 就全部搞定了<del><br><br><script src="//gist.github.com/941608.js"></script><br><h3>5. moinmoin wiki 的安裝</h3><br>首先到 <a href="http://static.moinmo.in/files/moin-1.9.3.tar.gz" target="_blank" rel="noopener">http://static.moinmo.in/files/moin-1.9.3.tar.gz</a> 抓 source 在用 python install 即可<br><br><script src="//gist.github.com/941609.js"></script><br>這樣 moinmoin 應該會被裝在 /usr/local/lib64/python2.6/site-packages/moin-1.9.2-py2.6.egg 之類的路徑 (SLES11sp1 是 x64 的)<br><br>五個都準備好了之後就開始來搬移啦<br><br>首先摘要一下搬移的方法<br><br><h3>1. trac</h3><br>基本上 trac 要搬移是最簡單的 把原本的目錄直接搬移過來就好了 (假設原本 trac 的 db 是用 sqlite 不然的話要連資料庫的檔案都一起搬) 所以指令大概如下<br><br>在 /home/www<br><br><script src="//gist.github.com/941610.js"></script><br>這樣 trac 整個目錄就會被抓過來本地端了 (假設 trac 底下只有一個計畫案叫 xuite 的資料夾)<br><br><h3>2. moinmoin wiki</h3><br>moinmoin wiki 要搬移跟 trac 一樣簡單 基本上只要抓 moinmoin wiki 的 data 那個資料夾就夠了!<br><br>在 /home/moin 底下<br><br><script src="//gist.github.com/941611.js"></script><br>這樣 data 整個目錄就會被抓過來本地端了<br><br><h3>3. svn 備份 </h3><br>svn 的搬移顯然不能直接複製目錄 參考<a href="http://www.petefreitag.com/item/665.cfm" target="_blank" rel="noopener">這篇文章</a><br><br>先在舊的 server dump 出資料<br><br><script src="//gist.github.com/941613.js"></script><br>然後再新的 server 抓 dump 的檔案回來後 倒回去<br><br><script src="//gist.github.com/941616.js"></script><br>稍微把權限給設定一下  首先先建立 nginx 的使用者(與群組[非必要])  修復一下權限<br><br><script src="//gist.github.com/941617.js"></script><br>這麼一來檔案也都準備好了 開始準備建立 server 吧!<br><br>稍微整理一下  假設我們的資料目錄分別是<br><br>1. trac 的在 /home/www/trac/xuite<br><br>2. wiki 的在 /home/moin/data<br><br>3. svn 的在 /home/svn<br><br>然後程式的部份<br><br>1. nginx 在 /home/nginx<br><br>2. trac 跟 moinmoin wiki 的 egg 應該會被裝在 /usr/local/lib64/python2.6/site-packages/<br><br>前面提過 trac 跟 wiki 要用 uwsgi 跑起來 所以首先我們來設定 uwsgi 吧<br><br><h3>trac on uwsgi</h3><br>首先要先讓 trac generate 出 uwsgi 可以吃的設定檔所以先移動到 /home/www/trac<br><br><script src="//gist.github.com/941618.js"></script><br>這個指令會 generate 出各種 cgi 的設定檔 ( /home/www/trac/xuite/cgi-bin ) 與一些 static file ( js,css, etc. ) (/home/www/trac/xuite/htdocs ) 提供伺服器做網址與資料夾的 alias 用<br><br>於是 uwsgi 可以用的檔案就會產生在 /home/www/trac/xuite/cgi-bin/trac.wsgi<br><br>有了這個檔案我們就可以 run uwsgi 了<br><br><script src="//gist.github.com/941620.js"></script><br>注意! 要用 nginx 這個使用者 run 程式<br><br><h3>moinmoin on uwsgi</h3><br>在 run moinmoin 之前有一些設定檔要設定首先<br><br><script src="//gist.github.com/941622.js"></script><br>然後修改 /usr/local/lib64/python2.6/site-packages/moin-1.9.2-py2.6.egg/share/moin/moin.wsgi 裡的一部分 修改處如下<br><br><script src="//gist.github.com/941623.js"></script><br>然後 /usr/local/lib64/python2.6/site-packages/moin-1.9.2-py2.6.egg/share/moin/wikiconfig.py 也要做客製化的修改<br><br>改完這兩個檔案後接下來就可以準備跑 uwsgi 了<br><br>moinmoin 本身已經有 wsgi 的設定所以直接執行吧!<br><br><script src="//gist.github.com/941629.js"></script><br>如果需要 uwsgi 的最佳化可以自行查詢 <a href="http://projects.unbit.it/uwsgi/wiki/Doc" target="_blank" rel="noopener">uWSGI  docs</a> <br><br>所以目前我們有兩個 server 分別 listen 在 /tmp/trac.sock 與 /tmp/moin.sock<br><br>接下來就是如何把 nginx 對應到這兩個 sock 上<br><br>基本上在 nginx 的 server { } 那一段裡設定如下<br><br><script src="//gist.github.com/941630.js"></script><br>location ^</del> /trac/xuite 與 location ^~ /xwiki 那兩段是把 網址分別像 <a href="http://xxxx/trac/xuite" target="_blank" rel="noopener">http://xxxx/trac/xuite</a> 與 <a href="http://xxxx/xwiki" target="_blank" rel="noopener">http://xxxx/xwiki</a> 送往對應的 sock 去處理 (因為要保留與舊的網址相容)<br><br>設定裡都有一個 uwsgi_param SCRIPT_NAME 與 uwsgi_modifier1 30 是因為網址前面有 prefix 提醒 nginx 要記得加 prefix<br><br>而 location ^~ /trac/xuite/chrome 與 location ^~ /xwiki/moin_static192 則是把 static files 做 alias 加速處理 不要送給 uwsgi 浪費資源並且加上 expires 的 header 節省網路傳輸資源<br><br>都設定好之後就起動 nginx 吧<del><br><br><script src="//gist.github.com/941633.js"></script><br>然後測試網址 <a href="http://xxxx/trac/xuite" target="_blank" rel="noopener">http://xxxx/trac/xuite</a> 與 <a href="http://xxxx/xwiki" target="_blank" rel="noopener">http://xxxx/xwiki</a> 應該就可以看到對應的 trac 與 moinmoin wiki 的畫面了</del><p></p>
 
-      
-        <p>最近在搬移 <a href="http://trac.edgewall.org/" target="_blank" rel="external">trac</a>, <a href="http://moinmo.in/" target="_blank" rel="external">moinmoin wiki</a> 與 svn server 這篇文章記錄一下過程<br><br>原本的舊 server 是跑 apache<br><br>由於新的 server 是 VM 所以我覺得選用比較 light weight 的 nginx 似乎比較好<br><br>首先先講解在新的 server 重新建立環境<br><br></p><h3>1. nginx 的安裝</h3><br>首先到 <a href="http://nginx.org/en/download.html" target="_blank" rel="external">nginx 下載頁</a> 下載 (BTW 今天剛好釋出 1.0 萬歲~)<br><a id="more"></a>然後依序解壓縮並且 compile 與安裝到指定位置 (敝單位 自己安裝的程式習慣裝在 /home 下面)<br><br><script src="//gist.github.com/941603.js"></script><br>這樣 nginx 就會裝好在 /home/nginx 底下了<br><br>設定檔會在 /home/nginx/conf/nginx.conf 這裡<br><br><h3>2. uWSGI 安裝</h3><br>因為 trac 跟 moinmoin 都是 python 所以要找一個適合他們的 cgi 給 nginx 接而 <a href="http://projects.unbit.it/uwsgi/" target="_blank" rel="external">uWSGI</a> 似乎是不錯的選擇而且 nginx 也有原生的 uwsgi module<br><br>所以一樣依照下列步驟裝起來~<br><br><script src="//gist.github.com/941604.js"></script><br>make 完之後就會在同一個目錄下產生出 uwsgi 的執行檔在手動複製到想要的地方即可<br><br><script src="//gist.github.com/941606.js"></script><br><h3>3. subversion 安裝</h3><br>基本上用套件管理程式裝一下就好了 敝單位目前都採用 SLES11sp1 所以指令如下<br><br><script src="//gist.github.com/941607.js"></script><br><h3>4. trac 的安裝</h3><br>trac 要安裝可以參考<a href="http://trac.edgewall.org/wiki/TracInstall" target="_blank" rel="external">這裡</a><br><br>大概就是用 easy_install 就全部搞定了~<br><br><script src="//gist.github.com/941608.js"></script><br><h3>5. moinmoin wiki 的安裝</h3><br>首先到 <a href="http://static.moinmo.in/files/moin-1.9.3.tar.gz" target="_blank" rel="external">http://static.moinmo.in/files/moin-1.9.3.tar.gz</a> 抓 source 在用 python install 即可<br><br><script src="//gist.github.com/941609.js"></script><br>這樣 moinmoin 應該會被裝在 /usr/local/lib64/python2.6/site-packages/moin-1.9.2-py2.6.egg 之類的路徑 (SLES11sp1 是 x64 的)<br><br>五個都準備好了之後就開始來搬移啦<br><br>首先摘要一下搬移的方法<br><br><h3>1. trac</h3><br>基本上 trac 要搬移是最簡單的 把原本的目錄直接搬移過來就好了 (假設原本 trac 的 db 是用 sqlite 不然的話要連資料庫的檔案都一起搬) 所以指令大概如下<br><br>在 /home/www<br><br><script src="//gist.github.com/941610.js"></script><br>這樣 trac 整個目錄就會被抓過來本地端了 (假設 trac 底下只有一個計畫案叫 xuite 的資料夾)<br><br><h3>2. moinmoin wiki</h3><br>moinmoin wiki 要搬移跟 trac 一樣簡單 基本上只要抓 moinmoin wiki 的 data 那個資料夾就夠了!<br><br>在 /home/moin 底下<br><br><script src="//gist.github.com/941611.js"></script><br>這樣 data 整個目錄就會被抓過來本地端了<br><br><h3>3. svn 備份 </h3><br>svn 的搬移顯然不能直接複製目錄 參考<a href="http://www.petefreitag.com/item/665.cfm" target="_blank" rel="external">這篇文章</a><br><br>先在舊的 server dump 出資料<br><br><script src="//gist.github.com/941613.js"></script><br>然後再新的 server 抓 dump 的檔案回來後 倒回去<br><br><script src="//gist.github.com/941616.js"></script><br>稍微把權限給設定一下  首先先建立 nginx 的使用者(與群組[非必要])  修復一下權限<br><br><script src="//gist.github.com/941617.js"></script><br>這麼一來檔案也都準備好了 開始準備建立 server 吧!<br><br>稍微整理一下  假設我們的資料目錄分別是<br><br>1. trac 的在 /home/www/trac/xuite<br><br>2. wiki 的在 /home/moin/data<br><br>3. svn 的在 /home/svn<br><br>然後程式的部份<br><br>1. nginx 在 /home/nginx<br><br>2. trac 跟 moinmoin wiki 的 egg 應該會被裝在 /usr/local/lib64/python2.6/site-packages/<br><br>前面提過 trac 跟 wiki 要用 uwsgi 跑起來 所以首先我們來設定 uwsgi 吧<br><br><h3>trac on uwsgi</h3><br>首先要先讓 trac generate 出 uwsgi 可以吃的設定檔所以先移動到 /home/www/trac<br><br><script src="//gist.github.com/941618.js"></script><br>這個指令會 generate 出各種 cgi 的設定檔 ( /home/www/trac/xuite/cgi-bin ) 與一些 static file ( js,css, etc. ) (/home/www/trac/xuite/htdocs ) 提供伺服器做網址與資料夾的 alias 用<br><br>於是 uwsgi 可以用的檔案就會產生在 /home/www/trac/xuite/cgi-bin/trac.wsgi<br><br>有了這個檔案我們就可以 run uwsgi 了<br><br><script src="//gist.github.com/941620.js"></script><br>注意! 要用 nginx 這個使用者 run 程式<br><br><h3>moinmoin on uwsgi</h3><br>在 run moinmoin 之前有一些設定檔要設定首先<br><br><script src="//gist.github.com/941622.js"></script><br>然後修改 /usr/local/lib64/python2.6/site-packages/moin-1.9.2-py2.6.egg/share/moin/moin.wsgi 裡的一部分 修改處如下<br><br><script src="//gist.github.com/941623.js"></script><br>然後 /usr/local/lib64/python2.6/site-packages/moin-1.9.2-py2.6.egg/share/moin/wikiconfig.py 也要做客製化的修改<br><br>改完這兩個檔案後接下來就可以準備跑 uwsgi 了<br><br>moinmoin 本身已經有 wsgi 的設定所以直接執行吧!<br><br><script src="//gist.github.com/941629.js"></script><br>如果需要 uwsgi 的最佳化可以自行查詢 <a href="http://projects.unbit.it/uwsgi/wiki/Doc" target="_blank" rel="external">uWSGI  docs</a> <br><br>所以目前我們有兩個 server 分別 listen 在 /tmp/trac.sock 與 /tmp/moin.sock<br><br>接下來就是如何把 nginx 對應到這兩個 sock 上<br><br>基本上在 nginx 的 server { } 那一段裡設定如下<br><br><script src="//gist.github.com/941630.js"></script><br>location ^~ /trac/xuite 與 location ^~ /xwiki 那兩段是把 網址分別像 <a href="http://xxxx/trac/xuite" target="_blank" rel="external">http://xxxx/trac/xuite</a> 與 <a href="http://xxxx/xwiki" target="_blank" rel="external">http://xxxx/xwiki</a> 送往對應的 sock 去處理 (因為要保留與舊的網址相容)<br><br>設定裡都有一個 uwsgi_param SCRIPT_NAME 與 uwsgi_modifier1 30 是因為網址前面有 prefix 提醒 nginx 要記得加 prefix<br><br>而 location ^~ /trac/xuite/chrome 與 location ^~ /xwiki/moin_static192 則是把 static files 做 alias 加速處理 不要送給 uwsgi 浪費資源並且加上 expires 的 header 節省網路傳輸資源<br><br>都設定好之後就起動 nginx 吧~<br><br><script src="//gist.github.com/941633.js"></script><br>然後測試網址 <a href="http://xxxx/trac/xuite" target="_blank" rel="external">http://xxxx/trac/xuite</a> 與 <a href="http://xxxx/xwiki" target="_blank" rel="external">http://xxxx/xwiki</a> 應該就可以看到對應的 trac 與 moinmoin wiki 的畫面了~<p></p>
-
-      
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
           
+        
+        <div class="post-tags">
             <a href="/tags/moinmoin/" rel="tag"># moinmoin</a>
           
             <a href="/tags/trac/" rel="tag"># trac</a>
@@ -561,16 +369,8 @@
             <a href="/tags/svn/" rel="tag"># svn</a>
           
         </div>
-      
-
-      
-      
-      
-
-      
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-            
               <a href="/post/php-304-not-modified/" rel="next" title="讓 php 回 304 Not Modified">
                 <i class="fa fa-chevron-left"></i> 讓 php 回 304 Not Modified
               </a>
@@ -580,17 +380,12 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
               <a href="/post/trac-moinmoin-wiki-svn-2/" rel="prev" title="trac, moinmoin wiki 與 svn 搬移與安裝的三兩事(二)">
                 trac, moinmoin wiki 與 svn 搬移與安裝的三兩事(二) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
         </div>
-      
-
-      
-      
     </footer>
   </div>
   
@@ -598,11 +393,6 @@
   
   </article>
 
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
@@ -610,7 +400,6 @@
           
 
         </div>
-        
           
   
   <div class="sidebar-toggle">
@@ -622,12 +411,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
-
-      
-
-      
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目錄
@@ -638,286 +422,265 @@
         </ul>
       
 
-      <section class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
+
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="neoesque" />
-            
-              <p class="site-author-name" itemprop="name">neoesque</p>
-              <p class="site-description motion-element" itemprop="description">neoesque's Linux Blog</p>
-          </div>
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.png"
+      alt="neoesque">
+  <p class="site-author-name" itemprop="name">neoesque</p>
+  <div class="site-description motion-element" itemprop="description">neoesque's Linux Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分類</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">標籤</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/neoesque/" title="GitHub &rarr; https://github.com/neoesque/" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.twitter.com/neoesque" title="Twitter &rarr; https://www.twitter.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://facebook.com/neoesque" title="FB Page &rarr; https://facebook.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://youtube.com/neoesque" title="YouTube &rarr; https://youtube.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://instagram.com/neoesque/" title="Instagram &rarr; https://instagram.com/neoesque/" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+    
+  </div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">62</span>
-                    <span class="site-state-item-name">文章</span>
-                  </a>
-                </div>
-              
 
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">分類</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">40</span>
-                    <span class="site-state-item-name">標籤</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/neoesque/" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.twitter.com/neoesque" target="_blank" title="Twitter" rel="external nofollow"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://facebook.com/neoesque" target="_blank" title="FB Page" rel="external nofollow"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://youtube.com/neoesque" target="_blank" title="YouTube" rel="external nofollow"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://instagram.com/neoesque/" target="_blank" title="Instagram" rel="external nofollow"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                  
-                </span>
-              
-            </div>
-          
-
-          
-          
-
-          
-          
-
-          
-            
-          
-          
 
         </div>
-      </section>
-
-      
+      </div>
       <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
 
             
-              
+            
+            
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">1. nginx 的安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">2. uWSGI 安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">3. subversion 安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">4. trac 的安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">5. moinmoin wiki 的安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">1. trac</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">2. moinmoin wiki</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">3. svn 備份 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">trac on uwsgi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">10.</span> <span class="nav-text">moinmoin on uwsgi</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">1. nginx 的安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">2. uWSGI 安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">3. subversion 安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">4. trac 的安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">5. moinmoin wiki 的安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">1. trac</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">2. moinmoin wiki</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">8.</span> <span class="nav-text">3. svn 備份 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">9.</span> <span class="nav-text">trac on uwsgi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">10.</span> <span class="nav-text">moinmoin on uwsgi</span></a></li></ol></div>
             
 
           </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
         </div>
+      <!--/noindex-->
       
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2008 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2008 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">neoesque</span>
-
-  
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    
     <span title="總字數">152k</span>
-  
-
-  
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    
-    <span title="所需總閱讀時間">6:20</span>
-  
+    <span title="所需總閱讀時間">6:19</span>
 </div>
-
-
-  
-
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 強力驅動</div>
-
-
-
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動</div>
   <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a></div>
-
-
-
+  <div class="theme-info">主題 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a></div>
 
         
 
@@ -931,485 +694,95 @@
         
       </div>
     </footer>
-
-    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
 
     
 
   </div>
 
   
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://parsefloat.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
   }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
-
-
-
-  
-
-  
-    <script id="dsq-count-scr" src="https://parsefloat.disqus.com/count.js" async></script>
-  
-
-  
-
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>

@@ -4,159 +4,61 @@
 
 
 
-
-
-
-
-
-
-
-  
-
-
 <html class="theme-next pisces use-motion" lang="zh-TW">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
 
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
 
-
-
-
-
-  
-  
-    
-    
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
 
 
-
-
-  
-  
-  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-
-  
-    
-
-    
-  
-
-  
-
-  
-    
-
-    
-  
-
-  
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Roboto Slab:300,300italic,400,400italic,700,700italicLobster Two:300,300italic,400,400italic,700,700italicRoboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '6.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
     fancybox: true,
-    fastclick: false,
+    mediumzoom: false,
     lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    pangu: false,
     algolia: {
       applicationID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '複製',
+      copy_success: '複製成功',
+      copy_failure: '複製失敗'
     }
   };
 </script>
-
-
-  
-
-
-
 
   <meta name="description" content="neoesque&apos;s Linux Blog">
 <meta property="og:type" content="website">
@@ -168,19 +70,11 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="neoesque">
 <meta name="twitter:description" content="neoesque&apos;s Linux Blog">
+  <link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml">
+  <link rel="canonical" href="https://blog.littlero.se/">
 
 
-
-  <link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml" />
-
-
-
-
-  <link rel="canonical" href="https://blog.littlero.se/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
+<script id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -188,36 +82,8 @@
 
   <title>neoesque</title>
   
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '163923413772109',
-      xfbml      : true,
-      version    : 'v2.10'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/zh_TW/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
 
 
-
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-37617901-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-37617901-1');
-</script>
 
 
 
@@ -225,29 +91,27 @@
 
 
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -255,19 +119,12 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+  <div class="site-meta">
 
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
@@ -276,11 +133,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
         <h1 class="site-subtitle" itemprop="description">Making Life Better</h1>
       
-    
   </div>
 
   <div class="site-nav-toggle">
@@ -295,58 +149,58 @@
 
 
 <nav class="site-nav">
-  
     <ul id="menu" class="menu">
-      
         
         
         
           
           <li class="menu-item menu-item-home menu-item-active">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首頁</a>
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首頁</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />標籤</a>
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>標籤</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分類</a>
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分類</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />歸檔</a>
-  </li>
+      
+    
 
-      
-      
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>歸檔</a>
+
+  </li>
         <li class="menu-item menu-item-search">
+          <a href="javascript:;" class="popup-trigger">
           
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜尋</a>
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜尋</a>
         </li>
       
     </ul>
-  
-
-  
-
-  
     <div class="site-search">
       
   <div class="popup search-popup local-search-popup">
@@ -367,16 +221,8 @@
 </div>
 
 
-
     </div>
-  
 </nav>
-
-
-
-  
-
-
 
 </div>
     </header>
@@ -387,23 +233,12 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
             
 
-          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -421,30 +256,20 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="neoesque">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/Trip-To-Taidong-2018-summer/" itemprop="url">
-                  2018 臺東之旅
-                </a>
+                
+                <a href="/post/Trip-To-Taidong-2018-summer/" class="post-title-link" itemprop="url">2018 臺東之旅</a>
               
             
           </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -457,16 +282,23 @@
               
 
               <time title="創建時間：2018-07-31, 週二 22:18:35" itemprop="dateCreated datePublished" datetime="2018-07-31T22:18:35+08:00">2018-07-31, 週二</time>
-            
-
-            
-          </span>
-
+            </span>
           
-            <span class="post-category" >
             
-              <span class="post-meta-divider">|</span>
+
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2018-08-05, 週日 22:31:29" itemprop="dateModified" datetime="2018-08-05T22:31:29+08:00">2018-08-05, 週日</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -484,129 +316,95 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/post/Trip-To-Taidong-2018-summer/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="post/Trip-To-Taidong-2018-summer/" itemprop="commentCount"></span>
-                </a>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-comment-o"></i>
+    </span>
+    
+      <span class="post-meta-item-text">評論數：</span>
+    
+  
+    <a href="/post/Trip-To-Taidong-2018-summer/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/Trip-To-Taidong-2018-summer/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
               </span>
-            
+              
+                <span class="post-meta-item-text">文章字數：</span>
+              
+              <span title="文章字數">3.4k</span>
+            </span>
           
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">文章字數：</span>
-                
-                <span title="文章字數">3.3k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-                
-                <span title="所需閱讀時間">8 分鐘</span>
-              
-            </div>
-          
-
+              <span title="所需閱讀時間">9 分鐘</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
           <p>受到在臺東工作的女友弟弟邀約，暑期正值臺東熱氣球節，安排了三天兩夜的臺東之旅。跨度從臺東最北邊的新景點 - 金剛大道，玩到臺東南端的多良車站。海線跑完跑山線又從山線繞去跑海線。看著臺東的大海實在美不勝收，唯一要靠北的就是實在太熱了 XD</p>
 <img src="https://lh3.googleusercontent.com/DvVOU2fVtof8QiG61LZLoQl6UGn2I_37_3siEACzcigcY3KXGeS9WArp3aOnuHS8DlCBO_rB9fjv7MytfEg=w1024-no-tmp.jpg" title="熱氣球節">
+
 <table>
 <thead>
 <tr>
-<th style="text-align:center">日期</th>
-<th style="text-align:center">景點</th>
+<th align="center">日期</th>
+<th align="center">景點</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">07/28(六)</td>
-<td style="text-align:center">侯記卑南豬血湯、成功豆花、三仙臺、都歷海灘、湯蒸火鍋</td>
+<tbody><tr>
+<td align="center">07/28(六)</td>
+<td align="center">侯記卑南豬血湯、成功豆花、三仙臺、都歷海灘、湯蒸火鍋</td>
 </tr>
 <tr>
-<td style="text-align:center">07/29(日)</td>
-<td style="text-align:center">鹿野高臺、小星星早餐店、伯朗大道（金城武樹）、忠勇自行車道（金剛大道）<br>富山護漁區、老東台米苔目、鐵花村、寶桑豆花店、星星部落景觀咖啡</td>
+<td align="center">07/29(日)</td>
+<td align="center">鹿野高臺、小星星早餐店、伯朗大道（金城武樹）、忠勇自行車道（金剛大道）<br>富山護漁區、老東台米苔目、鐵花村、寶桑豆花店、星星部落景觀咖啡</td>
 </tr>
 <tr>
-<td style="text-align:center">07/30(一)</td>
-<td style="text-align:center">朵特絲早餐店、臺東森林公園、綠房子午餐、櫻木平交道（太麻里車站）、多良車站</td>
+<td align="center">07/30(一)</td>
+<td align="center">朵特絲早餐店、臺東森林公園、綠房子午餐、櫻木平交道（太麻里車站）、多良車站</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/Trip-To-Taidong-2018-summer/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/post/Trip-To-Taidong-2018-summer/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -614,17 +412,8 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -642,30 +431,20 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="neoesque">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/Trip-To-Japan-Osaka-Kyoto-2018/" itemprop="url">
-                  京都、大阪之旅
-                </a>
+                
+                <a href="/post/Trip-To-Japan-Osaka-Kyoto-2018/" class="post-title-link" itemprop="url">京都、大阪之旅</a>
               
             
           </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -678,16 +457,23 @@
               
 
               <time title="創建時間：2018-06-07, 週四 00:00:00" itemprop="dateCreated datePublished" datetime="2018-06-07T00:00:00+08:00">2018-06-07, 週四</time>
-            
-
-            
-          </span>
-
+            </span>
           
-            <span class="post-category" >
             
-              <span class="post-meta-divider">|</span>
+
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2018-08-05, 週日 22:32:53" itemprop="dateModified" datetime="2018-08-05T22:32:53+08:00">2018-08-05, 週日</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -705,126 +491,92 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/post/Trip-To-Japan-Osaka-Kyoto-2018/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="post/Trip-To-Japan-Osaka-Kyoto-2018/" itemprop="commentCount"></span>
-                </a>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-comment-o"></i>
+    </span>
+    
+      <span class="post-meta-item-text">評論數：</span>
+    
+  
+    <a href="/post/Trip-To-Japan-Osaka-Kyoto-2018/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/Trip-To-Japan-Osaka-Kyoto-2018/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
               </span>
-            
+              
+                <span class="post-meta-item-text">文章字數：</span>
+              
+              <span title="文章字數">8.8k</span>
+            </span>
           
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">文章字數：</span>
-                
-                <span title="文章字數">8.6k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-                
-                <span title="所需閱讀時間">22 分鐘</span>
-              
-            </div>
-          
-
+              <span title="所需閱讀時間">22 分鐘</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
           <p>日本櫻花第二彈！！此行跟女友去的，目的除了賞櫻之外還有一個很重要的行程就是女友要去地主神社還願，這次行程安排在 04/05 ~ 04/10，有跨到清明節假期（因為我三月剛去南美，假已經快沒了 囧\），從高雄飛關西空港，去程搭虎航，回程搭 Peach，主要停留城市有三天京都跟兩天大阪。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">日期</th>
-<th style="text-align:center">城市</th>
+<th align="center">日期</th>
+<th align="center">城市</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">04/05 ~ 04/08</td>
-<td style="text-align:center">京都</td>
+<tbody><tr>
+<td align="center">04/05 ~ 04/08</td>
+<td align="center">京都</td>
 </tr>
 <tr>
-<td style="text-align:center">04/08 ~ 04/10</td>
-<td style="text-align:center">大阪</td>
+<td align="center">04/08 ~ 04/10</td>
+<td align="center">大阪</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <img src="https://lh3.googleusercontent.com/FaG5ugJUarGHV7TeN0qsie7K4E9MvF6A4dwfaDPAskH7OoF0giw5QLdoBmSeiRQVOqsSMPc8HUZeckWBvu0=w1024-no-tmp.jpg" title="清水寺-夜">
-<p><strong>窮游行程<a href="http://plan.qyer.com/calendar/V2UJYVFuBzJTYlI4Cm4NPA/?fromjournalview=1" target="_blank" rel="external">在此</a></strong></p>
+
+<p><strong>窮游行程<a href="http://plan.qyer.com/calendar/V2UJYVFuBzJTYlI4Cm4NPA/?fromjournalview=1" target="_blank" rel="noopener">在此</a></strong></p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/Trip-To-Japan-Osaka-Kyoto-2018/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/post/Trip-To-Japan-Osaka-Kyoto-2018/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -832,17 +584,8 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -860,30 +603,20 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="neoesque">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/mexico-visa-2017-11/" itemprop="url">
-                  墨西哥簽證 2017/11
-                </a>
+                
+                <a href="/post/mexico-visa-2017-11/" class="post-title-link" itemprop="url">墨西哥簽證 2017/11</a>
               
             
           </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -896,16 +629,23 @@
               
 
               <time title="創建時間：2017-11-15, 週三 22:29:41" itemprop="dateCreated datePublished" datetime="2017-11-15T22:29:41+08:00">2017-11-15, 週三</time>
-            
-
-            
-          </span>
-
+            </span>
           
-            <span class="post-category" >
             
-              <span class="post-meta-divider">|</span>
+
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2017-11-25, 週六 19:42:40" itemprop="dateModified" datetime="2017-11-25T19:42:40+08:00">2017-11-25, 週六</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -923,109 +663,76 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/post/mexico-visa-2017-11/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="post/mexico-visa-2017-11/" itemprop="commentCount"></span>
-                </a>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-comment-o"></i>
+    </span>
+    
+      <span class="post-meta-item-text">評論數：</span>
+    
+  
+    <a href="/post/mexico-visa-2017-11/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/mexico-visa-2017-11/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
               </span>
-            
+              
+                <span class="post-meta-item-text">文章字數：</span>
+              
+              <span title="文章字數">1.8k</span>
+            </span>
           
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">文章字數：</span>
-                
-                <span title="文章字數">1.7k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-                
-                <span title="所需閱讀時間">4 分鐘</span>
-              
-            </div>
-          
-
+              <span title="所需閱讀時間">4 分鐘</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
           <p>明年(2018)年要去秘魯，在今年六月時就先搶到超便宜的機票，從首爾到利馬只要一萬六不到！飛機是坐墨西哥航空，在墨西哥中轉，然後墨西哥規定即便是轉機也要簽證（翻白眼），原本想說簽證不就是簽證嗎…結果沒想到墨西哥臺灣文化辦事處的評價…</p>
-<p><img src="https://lh3.googleusercontent.com/ktGnRcGH6pV-9okjOgJgv71Ab4fCCwATaiS1Gn_D9oJ7qhFIout3RsTVnNp0Km9crGb98qQvBMgxrNmSHSA=w800-h600-rw-no" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/ktGnRcGH6pV-9okjOgJgv71Ab4fCCwATaiS1Gn_D9oJ7qhFIout3RsTVnNp0Km9crGb98qQvBMgxrNmSHSA=w800-h600-rw-no" alt></p>
 <p>摁 白眼翻到後腦勺了…</p>
 <p>於是乎參考了網路的資料之後，加上我們同學已經有人辦成功，今天就換我去打魔王了～</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/mexico-visa-2017-11/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/post/mexico-visa-2017-11/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -1033,17 +740,8 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -1061,30 +759,20 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="neoesque">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/non-prosecution-of-ddos-ministry-of-education-Taiwan/" itemprop="url">
-                  推文分享 DDoS 教育部網址不起訴處分過程
-                </a>
+                
+                <a href="/post/non-prosecution-of-ddos-ministry-of-education-Taiwan/" class="post-title-link" itemprop="url">推文分享 DDoS 教育部網址不起訴處分過程</a>
               
             
           </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -1097,116 +785,93 @@
               
 
               <time title="創建時間：2017-10-28, 週六 22:57:41" itemprop="dateCreated datePublished" datetime="2017-10-28T22:57:41+08:00">2017-10-28, 週六</time>
-            
-
-            
-          </span>
-
-          
-
+            </span>
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+
+            
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                  <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <a href="/post/non-prosecution-of-ddos-ministry-of-education-Taiwan/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="post/non-prosecution-of-ddos-ministry-of-education-Taiwan/" itemprop="commentCount"></span>
-                </a>
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2018-06-07, 週四 22:27:51" itemprop="dateModified" datetime="2018-06-07T22:27:51+08:00">2018-06-07, 週四</time>
               </span>
             
           
 
           
+            
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-comment-o"></i>
+    </span>
+    
+      <span class="post-meta-item-text">評論數：</span>
+    
+  
+    <a href="/post/non-prosecution-of-ddos-ministry-of-education-Taiwan/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/non-prosecution-of-ddos-ministry-of-education-Taiwan/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">文章字數：</span>
+              
+              <span title="文章字數">5.9k</span>
+            </span>
           
-
-          
-
-          
-            <div class="post-symbolscount">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">文章字數：</span>
-                
-                <span title="文章字數">5.9k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-                
-                <span title="所需閱讀時間">15 分鐘</span>
-              
-            </div>
-          
-
+              <span title="所需閱讀時間">15 分鐘</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
           <p>承 <a href="http://blog.littlero.se/post/make-tea-in-investigation-bureau/">被調查局請去喝茶</a> ，在過了快半年多之後，我都以為沒事然後快忘記他的時候，就收到了人生第一張刑事傳票。這張傳票是從高雄地方法院檢察署發的(很奇怪對吧！後面會說原因)，傳票上會有被傳人地址、姓名、案號跟案由、應報到日期與處所，還有最重要的是他會說你是被告 XD (或證人)。</p>
 <p>這篇文章是紀念性質，主要是說一下如何找律師資源跟學習到的法律知識，最後是感謝我的家人跟朋友的關心。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/non-prosecution-of-ddos-ministry-of-education-Taiwan/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/post/non-prosecution-of-ddos-ministry-of-education-Taiwan/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -1214,17 +879,8 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -1242,30 +898,20 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="neoesque">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/install-redmine-with-postgresql-nginx-rbenv/" itemprop="url">
-                  安裝 Redmine - postgresql, nginx, rbenv
-                </a>
+                
+                <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" class="post-title-link" itemprop="url">安裝 Redmine - postgresql, nginx, rbenv</a>
               
             
           </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -1278,16 +924,23 @@
               
 
               <time title="創建時間：2016-01-31, 週日 20:48:05" itemprop="dateCreated datePublished" datetime="2016-01-31T20:48:05+08:00">2016-01-31, 週日</time>
-            
-
-            
-          </span>
-
+            </span>
           
-            <span class="post-category" >
             
-              <span class="post-meta-divider">|</span>
+
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2016-04-10, 週日 11:28:18" itemprop="dateModified" datetime="2016-04-10T11:28:18+08:00">2016-04-10, 週日</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -1305,106 +958,73 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/post/install-redmine-with-postgresql-nginx-rbenv/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="post/install-redmine-with-postgresql-nginx-rbenv/" itemprop="commentCount"></span>
-                </a>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-comment-o"></i>
+    </span>
+    
+      <span class="post-meta-item-text">評論數：</span>
+    
+  
+    <a href="/post/install-redmine-with-postgresql-nginx-rbenv/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/install-redmine-with-postgresql-nginx-rbenv/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
               </span>
-            
+              
+                <span class="post-meta-item-text">文章字數：</span>
+              
+              <span title="文章字數">3.5k</span>
+            </span>
           
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">文章字數：</span>
-                
-                <span title="文章字數">3.6k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-                
-                <span title="所需閱讀時間">9 分鐘</span>
-              
-            </div>
-          
-
+              <span title="所需閱讀時間">9 分鐘</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          <p><a href="http://www.redmine.org/" target="_blank" rel="external">Redmine</a> 是一套專案管理軟體，我們單位之前都用 <a href="http://trac.edgewall.org/" target="_blank" rel="external">Trac</a> 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 postgresql + nginx 的組合。至於 Ruby 因為 Ubuntu 14.04 比較舊，所以使用 rbenv 搭建 Ruby 2.2 的環境。</p>
+          <p><a href="http://www.redmine.org/" target="_blank" rel="noopener">Redmine</a> 是一套專案管理軟體，我們單位之前都用 <a href="http://trac.edgewall.org/" target="_blank" rel="noopener">Trac</a> 不過 Trac 更新速度慢功能也沒什麼在增加，所以最近換單位要重建基礎服務後，學長決定把 Trac 改到 Redmine。Redmine 是用 RoR 的技術寫的，所以主要就是需要 Ruby，DB 的部分則是 mysql, postgresql 都可以。前端的部分可以用 Apache 也可以用 nginx。本片主要介紹我比較習慣的 postgresql + nginx 的組合。至於 Ruby 因為 Ubuntu 14.04 比較舊，所以使用 rbenv 搭建 Ruby 2.2 的環境。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/install-redmine-with-postgresql-nginx-rbenv/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/post/install-redmine-with-postgresql-nginx-rbenv/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -1412,17 +1032,8 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -1440,30 +1051,20 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="neoesque">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/make-tea-in-investigation-bureau/" itemprop="url">
-                  被調查局請去喝茶
-                </a>
+                
+                <a href="/post/make-tea-in-investigation-bureau/" class="post-title-link" itemprop="url">被調查局請去喝茶</a>
               
             
           </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -1476,115 +1077,92 @@
               
 
               <time title="創建時間：2015-11-26, 週四 22:54:44" itemprop="dateCreated datePublished" datetime="2015-11-26T22:54:44+08:00">2015-11-26, 週四</time>
-            
-
-            
-          </span>
-
-          
-
+            </span>
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+
+            
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                  <i class="fa fa-calendar-check-o"></i>
                 </span>
-                <a href="/post/make-tea-in-investigation-bureau/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="post/make-tea-in-investigation-bureau/" itemprop="commentCount"></span>
-                </a>
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2015-12-17, 週四 12:37:55" itemprop="dateModified" datetime="2015-12-17T12:37:55+08:00">2015-12-17, 週四</time>
               </span>
             
           
 
           
+            
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-comment-o"></i>
+    </span>
+    
+      <span class="post-meta-item-text">評論數：</span>
+    
+  
+    <a href="/post/make-tea-in-investigation-bureau/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/make-tea-in-investigation-bureau/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">文章字數：</span>
+              
+              <span title="文章字數">2.2k</span>
+            </span>
           
-
-          
-
-          
-            <div class="post-symbolscount">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">文章字數：</span>
-                
-                <span title="文章字數">2.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-                
-                <span title="所需閱讀時間">6 分鐘</span>
-              
-            </div>
-          
-
+              <span title="所需閱讀時間">6 分鐘</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
           <p>啊，沒想到這輩子有機會被馬英九政府請去喝茶，一切都是從某個禮拜四早上說起，本來當天要去臺中出差，結果當天還在公司集合時，大約九點就收到一通電話，接起來後對方表明是臺北市調查局的盧先生，希望請我去 <del>泡茶</del> 啊！不是，是做個說明，要把通知書傳真給我，因為我趕着出發，我說你要現在傳真嗎，因為我現在不方便接傳真，等等要到臺中出差，可以先跟我說案由是什麼嗎，對方就建議我把出差取消，而且說我一定要到現場才方便跟我說案子，我說如果今天就一定要過去那幹嘛一定要傳真給我，我就說那不用了，我直接過去就好，問了對方地點(臺北市基隆路上的臺北市調查局)跟聯絡方式後跟他說大約一小時後到。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/make-tea-in-investigation-bureau/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/post/make-tea-in-investigation-bureau/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -1592,17 +1170,8 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -1620,30 +1189,20 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="neoesque">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/Trip-to-Japan-Tokyo-Hakone/" itemprop="url">
-                  日本東京、箱根自助之旅
-                </a>
+                
+                <a href="/post/Trip-to-Japan-Tokyo-Hakone/" class="post-title-link" itemprop="url">日本東京、箱根自助之旅</a>
               
             
           </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -1656,16 +1215,23 @@
               
 
               <time title="創建時間：2015-06-06, 週六 11:36:14" itemprop="dateCreated datePublished" datetime="2015-06-06T11:36:14+08:00">2015-06-06, 週六</time>
-            
-
-            
-          </span>
-
+            </span>
           
-            <span class="post-category" >
             
-              <span class="post-meta-divider">|</span>
+
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2017-11-02, 週四 23:05:01" itemprop="dateModified" datetime="2017-11-02T23:05:01+08:00">2017-11-02, 週四</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -1683,107 +1249,74 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/post/Trip-to-Japan-Tokyo-Hakone/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="post/Trip-to-Japan-Tokyo-Hakone/" itemprop="commentCount"></span>
-                </a>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-comment-o"></i>
+    </span>
+    
+      <span class="post-meta-item-text">評論數：</span>
+    
+  
+    <a href="/post/Trip-to-Japan-Tokyo-Hakone/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/Trip-to-Japan-Tokyo-Hakone/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
               </span>
-            
+              
+                <span class="post-meta-item-text">文章字數：</span>
+              
+              <span title="文章字數">11k</span>
+            </span>
           
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">文章字數：</span>
-                
-                <span title="文章字數">11k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-                
-                <span title="所需閱讀時間">28 分鐘</span>
-              
-            </div>
-          
-
+              <span title="所需閱讀時間">29 分鐘</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
           <p>第一次到日本玩，因為是跟高中死黨和他女友一起去，他很熟日本，所以我們一行四人(加我妹)就選擇自助，這次旅行的地點主要在東京 &amp; 箱根，一共六天五夜，是大多數到日本玩的旅客都會走的路線。時間是 4/1 ~ 4/6，也就是清明節假期，請兩天玩六天。</p>
 <img src="https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg" width="800" height="600" title="新宿御苑櫻花美景">
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/Trip-to-Japan-Tokyo-Hakone/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/post/Trip-to-Japan-Tokyo-Hakone/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -1791,17 +1324,8 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -1819,30 +1343,20 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="neoesque">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" itemprop="url">
-                  Walt Disney World Resort in Orlando, Florida
-                </a>
+                
+                <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/" class="post-title-link" itemprop="url">Walt Disney World Resort in Orlando, Florida</a>
               
             
           </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -1855,16 +1369,23 @@
               
 
               <time title="創建時間：2015-03-14, 週六 21:02:38" itemprop="dateCreated datePublished" datetime="2015-03-14T21:02:38+08:00">2015-03-14, 週六</time>
-            
-
-            
-          </span>
-
+            </span>
           
-            <span class="post-category" >
             
-              <span class="post-meta-divider">|</span>
+
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2018-06-20, 週三 21:33:28" itemprop="dateModified" datetime="2018-06-20T21:33:28+08:00">2018-06-20, 週三</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -1882,109 +1403,73 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="post/Walt-Disney-World-Resort-in-Orlando-Florida/" itemprop="commentCount"></span>
-                </a>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-comment-o"></i>
+    </span>
+    
+      <span class="post-meta-item-text">評論數：</span>
+    
+  
+    <a href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/Walt-Disney-World-Resort-in-Orlando-Florida/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
               </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
               
-
+                <span class="post-meta-item-text">文章字數：</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">文章字數：</span>
-                
-                <span title="文章字數">7.7k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-                
-                <span title="所需閱讀時間">19 分鐘</span>
-              
-            </div>
+              <span title="文章字數">7.8k</span>
+            </span>
           
-
-          
-              <div class="post-description">2014-11-15 ~ 2014-11-16 美東迪士尼之旅</div>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              
+              <span title="所需閱讀時間">19 分鐘</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          <p>續<a href="/post/USwest-canyon/">上篇</a>，延續美西行之後，大家各自散會後，我就一個人獨自踏上往東岸的旅程，因為我要參加的 <a href="http://susecon.com/" target="_blank" rel="external">SUSEcon 14</a> 是在奧蘭多舉辦。</p>
-<img src="https://lh3.googleusercontent.com/AXyqSu06JEs__upRMa0D8IsHlVMMvLZvNXWRZ5UWC6-1VFU1jeU8y6xZmW1sG8MTEVoXWxM9x-Hi4AVttw=w1024-no-tmp.jpg" title="迪士尼遊行">
+          2014-11-15 ~ 2014-11-16 美東迪士尼之旅
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/post/Walt-Disney-World-Resort-in-Orlando-Florida/">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -1992,17 +1477,8 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -2020,30 +1496,20 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="neoesque">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/K760-Linux-fn-多媒體鍵切換/" itemprop="url">
-                  K760 Linux fn/多媒體鍵切換
-                </a>
+                
+                <a href="/post/K760-Linux-fn-多媒體鍵切換/" class="post-title-link" itemprop="url">K760 Linux fn/多媒體鍵切換</a>
               
             
           </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -2056,16 +1522,23 @@
               
 
               <time title="創建時間：2015-03-12, 週四 15:38:17" itemprop="dateCreated datePublished" datetime="2015-03-12T15:38:17+08:00">2015-03-12, 週四</time>
-            
-
-            
-          </span>
-
+            </span>
           
-            <span class="post-category" >
             
-              <span class="post-meta-divider">|</span>
+
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2015-03-14, 週六 13:44:37" itemprop="dateModified" datetime="2015-03-14T13:44:37+08:00">2015-03-14, 週六</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -2083,107 +1556,74 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/post/K760-Linux-fn-多媒體鍵切換/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="post/K760-Linux-fn-多媒體鍵切換/" itemprop="commentCount"></span>
-                </a>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-comment-o"></i>
+    </span>
+    
+      <span class="post-meta-item-text">評論數：</span>
+    
+  
+    <a href="/post/K760-Linux-fn-多媒體鍵切換/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/K760-Linux-fn-多媒體鍵切換/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
               </span>
-            
+              
+                <span class="post-meta-item-text">文章字數：</span>
+              
+              <span title="文章字數">803</span>
+            </span>
           
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
               
-
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">文章字數：</span>
-                
-                <span title="文章字數">802</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-                
-                <span title="所需閱讀時間">2 分鐘</span>
-              
-            </div>
-          
-
+              <span title="所需閱讀時間">2 分鐘</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          <p>羅技 <a href="http://support.logitech.com/product/wireless-solar-keyboard-k760-for-mac" target="_blank" rel="external">K760</a> 鍵盤是一個一對三的藍芽鍵盤，而且是太陽能的，免換電池，使用上還蠻方便的，可是原生是適用 Mac / iOS 裝置，小弟公司電腦裝的是 Linux，其實拿來用也不錯，不過就是有個缺點就是羅技沒有針對 Linux 出鍵盤管理程式，所以沒辦法改掉多媒體鍵，在 Linux 很少用到多媒體鍵，反而是 function key 比較常用。</p>
-<p>所以在網路先找到了 <a href="http://www.trial-n-error.de/posts/2012/12/31/logitech-k810-keyboard-configurator/" target="_blank" rel="external">K810 on Linux 的解法</a> ，這個人有 OpenSource 他的程式碼，並且搭配了 udev 的修改，這樣電腦藍芽連接到鍵盤就會自動設定了，但是 K760 的 KeyCode 跟 K810 不一樣，所以又找了一下發現 <a href="http://askubuntu.com/questions/326959/how-can-i-make-the-function-keys-the-default-on-a-logitech-k760-bluetooh-keyboar" target="_blank" rel="external">這篇</a> 有人抓出 KeyCode 了。</p>
+          <p>羅技 <a href="http://support.logitech.com/product/wireless-solar-keyboard-k760-for-mac" target="_blank" rel="noopener">K760</a> 鍵盤是一個一對三的藍芽鍵盤，而且是太陽能的，免換電池，使用上還蠻方便的，可是原生是適用 Mac / iOS 裝置，小弟公司電腦裝的是 Linux，其實拿來用也不錯，不過就是有個缺點就是羅技沒有針對 Linux 出鍵盤管理程式，所以沒辦法改掉多媒體鍵，在 Linux 很少用到多媒體鍵，反而是 function key 比較常用。</p>
+<p>所以在網路先找到了 <a href="http://www.trial-n-error.de/posts/2012/12/31/logitech-k810-keyboard-configurator/" target="_blank" rel="noopener">K810 on Linux 的解法</a> ，這個人有 OpenSource 他的程式碼，並且搭配了 udev 的修改，這樣電腦藍芽連接到鍵盤就會自動設定了，但是 K760 的 KeyCode 跟 K810 不一樣，所以又找了一下發現 <a href="http://askubuntu.com/questions/326959/how-can-i-make-the-function-keys-the-default-on-a-logitech-k760-bluetooh-keyboar" target="_blank" rel="noopener">這篇</a> 有人抓出 KeyCode 了。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/K760-Linux-fn-多媒體鍵切換/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/post/K760-Linux-fn-多媒體鍵切換/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
@@ -2191,17 +1631,8 @@
   
   </article>
 
-
     
       
-
-  
-
-  
-  
-  
-
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -2219,30 +1650,20 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="neoesque">
     </span>
-
-    
       <header class="post-header">
 
         
-        
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/post/ingress-email-attack-notify-to-Pushover/" itemprop="url">
-                  用 Pushover 收 Ingress 成就點攻擊通知
-                </a>
+                
+                <a href="/post/ingress-email-attack-notify-to-Pushover/" class="post-title-link" itemprop="url">用 Pushover 收 Ingress 成就點攻擊通知</a>
               
             
           </h2>
         
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
@@ -2255,16 +1676,23 @@
               
 
               <time title="創建時間：2015-01-07, 週三 13:53:43" itemprop="dateCreated datePublished" datetime="2015-01-07T13:53:43+08:00">2015-01-07, 週三</time>
-            
-
-            
-          </span>
-
+            </span>
           
-            <span class="post-category" >
             
-              <span class="post-meta-divider">|</span>
+
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2016-12-20, 週二 22:21:56" itemprop="dateModified" datetime="2016-12-20T22:21:56+08:00">2016-12-20, 週二</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -2282,118 +1710,79 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/post/ingress-email-attack-notify-to-Pushover/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="post/ingress-email-attack-notify-to-Pushover/" itemprop="commentCount"></span>
-                </a>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-comment-o"></i>
+    </span>
+    
+      <span class="post-meta-item-text">評論數：</span>
+    
+  
+    <a href="/post/ingress-email-attack-notify-to-Pushover/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/ingress-email-attack-notify-to-Pushover/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
               </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
               
-
+                <span class="post-meta-item-text">文章字數：</span>
               
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">文章字數：</span>
-                
-                <span title="文章字數">2.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-                
-                <span title="所需閱讀時間">5 分鐘</span>
-              
-            </div>
+              <span title="文章字數">2.1k</span>
+            </span>
           
-
-          
-              <div class="post-description">Ingress 及時的攻擊通知 over Pushover</div>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              
+              <span title="所需閱讀時間">5 分鐘</span>
+            </span>
           
 
         </div>
       </header>
-    
 
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          <p><a href="https://www.ingress.com/" target="_blank" rel="external">Ingress</a> 是 Google 在 2012 推出的虛擬實境(Virtual Reality)的遊戲，基本上就是一個打打殺殺的遊戲，遊戲裡面分兩個陣營 Resistance (藍軍)跟 Enlightened (綠軍)，在台灣好死不死剛好跟兩大政治陣營顏色一樣，看起來全世界是藍大於綠，但是台灣台北剛好綠大於藍，不知道是不是大家選的顏色剛好也有政治傾向(笑)，不過遊戲歸遊戲，其實裡面的人倒是不大會聊政治，遊戲內有自己的通訊功能，但是很爛，所以大家還是會用第三方軟體溝通，通常大家都直接用 Hangout，不過也有少部份地區聽說是用 Line 之類的。</p>
-<p>這遊戲有內建的被攻擊通知，可是他完全不能過濾你想收哪些通知，反正腳被攻擊或者 MOD 掉了就是直接無差別通知，不過有時候只想收特定 Portal 的攻擊通知，這時候該怎麼辦呢？原本我都用 IFTTT 這個 <a href="https://ifttt.com/recipes/203777-notify-when-guardian-portal-is-under-attack-ingress" target="_blank" rel="external">Notify when guardian portal is under attack #ingress
-</a> 不過類似這種的有個缺點就是 IFTTT 是類似 polling 的，所以他是固定時間去問一次 Gmail，有時候我收到通知的時候都已經半個小時後，點都被打掉了 XD，搞屁，實在不夠及時，昨天在研究 Pushover 時突然發現他有 <a href="http://updates.pushover.net/post/24408806716/e-mail-to-pushover-gateway" target="_blank" rel="external">E-mail gateway</a>，配合 Gmail 建立 Filter 時就可以 Forward E-mail，根本就是及時的 Push。</p>
-<p>實驗了一下發現效果不錯，至少比原本的 IFTTT 及時太多了，雖然還是有腳會被打掉之類的，不過如果對方真的要打其實也阻止不了，通常八炮連發根本擋不住，但是還是具有一些拖延對方效果就是了，而且也可以當成整理特殊點的攻擊 Log。</p>
+          Ingress 及時的攻擊通知 over Pushover
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/post/ingress-email-attack-notify-to-Pushover/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/post/ingress-email-attack-notify-to-Pushover/">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-
     
 
     <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
         <div class="post-eof"></div>
-      
     </footer>
   </div>
   
   
   
   </article>
-
 
     
   </section>
@@ -2404,12 +1793,10 @@
   </nav>
 
 
-
           </div>
           
 
         </div>
-        
           
   
   <div class="sidebar-toggle">
@@ -2421,277 +1808,250 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
+
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="neoesque" />
-            
-              <p class="site-author-name" itemprop="name">neoesque</p>
-              <p class="site-description motion-element" itemprop="description">neoesque's Linux Blog</p>
-          </div>
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.png"
+      alt="neoesque">
+  <p class="site-author-name" itemprop="name">neoesque</p>
+  <div class="site-description motion-element" itemprop="description">neoesque's Linux Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分類</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">標籤</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/neoesque/" title="GitHub &rarr; https://github.com/neoesque/" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://www.twitter.com/neoesque" title="Twitter &rarr; https://www.twitter.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://facebook.com/neoesque" title="FB Page &rarr; https://facebook.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://youtube.com/neoesque" title="YouTube &rarr; https://youtube.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://instagram.com/neoesque/" title="Instagram &rarr; https://instagram.com/neoesque/" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+    
+  </div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">62</span>
-                    <span class="site-state-item-name">文章</span>
-                  </a>
-                </div>
-              
 
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">分類</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">40</span>
-                    <span class="site-state-item-name">標籤</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/neoesque/" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.twitter.com/neoesque" target="_blank" title="Twitter" rel="external nofollow"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://facebook.com/neoesque" target="_blank" title="FB Page" rel="external nofollow"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://youtube.com/neoesque" target="_blank" title="YouTube" rel="external nofollow"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://instagram.com/neoesque/" target="_blank" title="Instagram" rel="external nofollow"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                  
-                </span>
-              
-            </div>
-          
-
-          
-          
-
-          
-          
-
-          
-            
-          
-          
 
         </div>
-      </section>
-
-      
-
-      
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
-      
+      </div>
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2008 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2008 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">neoesque</span>
-
-  
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    
     <span title="總字數">152k</span>
-  
-
-  
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    
-    <span title="所需總閱讀時間">6:20</span>
-  
+    <span title="所需總閱讀時間">6:19</span>
 </div>
-
-
-  
-
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 強力驅動</div>
-
-
-
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動</div>
   <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a></div>
-
-
-
+  <div class="theme-info">主題 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a></div>
 
         
 
@@ -2705,481 +2065,91 @@
         
       </div>
     </footer>
-
-    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
 
     
 
   </div>
 
   
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+  
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://parsefloat.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
   }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
-
-
-
-  
-
-  
-    <script id="dsq-count-scr" src="https://parsefloat.disqus.com/count.js" async></script>
-  
-
-  
-
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>
