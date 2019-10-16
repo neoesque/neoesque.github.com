@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.littlero.se/categories/index.html</loc>
+    
+    <lastmod>2019-10-16T16:14:41.537Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.littlero.se/post/mexico-visa-2017-11/</loc>
     
     <lastmod>2019-10-16T16:11:59.270Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>https://blog.littlero.se/tags/index.html</loc>
     
     <lastmod>2018-06-07T14:09:26.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.littlero.se/categories/index.html</loc>
-    
-    <lastmod>2018-06-07T14:09:11.000Z</lastmod>
     
   </url>
   

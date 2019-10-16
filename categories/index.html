@@ -67,7 +67,7 @@
 <meta property="og:site_name" content="neoesque">
 <meta property="og:description" content="neoesque&apos;s Linux Blog">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2018-06-07T14:09:11.000Z">
+<meta property="og:updated_time" content="2019-10-16T16:14:41.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分類">
 <meta name="twitter:description" content="neoesque&apos;s Linux Blog">
@@ -330,16 +330,6 @@
 
           </div>
           
-    
-    
-  <div class="comments" id="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-    </div>
-  </div>
-  
-  
-
 
         </div>
           
@@ -697,38 +687,6 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
-</script>
-<script>
-  var disqus_config = function() {
-    this.page.url = "https://blog.littlero.se/categories/index.html";
-    this.page.identifier = "categories/index.html";
-    this.page.title = '分類';};
-  function loadComments() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://parsefloat.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', '' + +new Date());
-    (d.head || d.body).appendChild(s);
-  }
-    $(function() {
-      var offsetTop = $('#comments').offset().top - $(window).height();
-      if (offsetTop <= 0) {
-        // load directly when there's no a scrollbar
-        window.addEventListener('load', loadComments, false);
-      } else {
-        $(window).on('scroll.disqus_scroll', function() {
-          // offsetTop may changes because of manually resizing browser window or lazy loading images.
-          var offsetTop = $('#comments').offset().top - $(window).height();
-          var scrollTop = $(window).scrollTop();
-
-          // pre-load comments a bit? (margin or anything else)
-          if (offsetTop - scrollTop < 60) {
-            $(window).off('.disqus_scroll');
-            loadComments();
-          }
-        });
-      }
-    });
-  
 </script>
 
 
