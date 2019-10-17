@@ -518,9 +518,9 @@
       
         <tags>
             
-            <tag> nginx </tag>
-            
             <tag> Mac </tag>
+            
+            <tag> nginx </tag>
             
         </tags>
       
@@ -647,11 +647,11 @@
             
             <tag> Linux </tag>
             
-            <tag> SUSE </tag>
-            
             <tag> Gentoo </tag>
             
             <tag> cgroups </tag>
+            
+            <tag> SUSE </tag>
             
         </tags>
       
