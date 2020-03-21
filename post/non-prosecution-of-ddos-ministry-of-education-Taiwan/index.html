@@ -1,88 +1,54 @@
 <!DOCTYPE html>
-
-
-
-
-
-<html class="theme-next pisces use-motion" lang="zh-TW">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+<link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: true,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    search: {
-      root: '/',
-      path: 'search.xml'
-    },
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '複製',
-      copy_success: '複製成功',
-      copy_failure: '複製失敗'
-    }
-  };
-</script>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.littlero.se","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
   <meta name="description" content="承 被調查局請去喝茶 ，在過了快半年多之後，我都以為沒事然後快忘記他的時候，就收到了人生第一張刑事傳票。這張傳票是從高雄地方法院檢察署發的(很奇怪對吧！後面會說原因)，傳票上會有被傳人地址、姓名、案號跟案由、應報到日期與處所，還有最重要的是他會說你是被告 XD (或證人)。 這篇文章是紀念性質，主要是說一下如何找律師資源跟學習到的法律知識，最後是感謝我的家人跟朋友的關心。">
-<meta name="keywords" content="法律">
 <meta property="og:type" content="article">
 <meta property="og:title" content="推文分享 DDoS 教育部網址不起訴處分過程">
 <meta property="og:url" content="https://blog.littlero.se/post/non-prosecution-of-ddos-ministry-of-education-Taiwan/index.html">
 <meta property="og:site_name" content="neoesque">
 <meta property="og:description" content="承 被調查局請去喝茶 ，在過了快半年多之後，我都以為沒事然後快忘記他的時候，就收到了人生第一張刑事傳票。這張傳票是從高雄地方法院檢察署發的(很奇怪對吧！後面會說原因)，傳票上會有被傳人地址、姓名、案號跟案由、應報到日期與處所，還有最重要的是他會說你是被告 XD (或證人)。 這篇文章是紀念性質，主要是說一下如何找律師資源跟學習到的法律知識，最後是感謝我的家人跟朋友的關心。">
-<meta property="og:locale" content="zh-TW">
+<meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://lh3.googleusercontent.com/D7xsk-EHmX4eKM9mS7j6jkRbe0OpSaHZI0ybRiWgY97aAzqAc7SVKARyPJrwN6HJbITDiYZAF-S0mGyCqf8=w1024-no-tmp.jpg">
 <meta property="og:image" content="https://lh3.googleusercontent.com/r50gYi0-0FwHHNTBoYgyNiR-7UQcbeRhTVfYLy3RN2HYC2pLE2hO80Vb8Gmz4oFH-qQVeJUB9GN3TWcEKWc=w1024-no-tmp.jpg">
 <meta property="og:image" content="https://lh3.googleusercontent.com/Nwkxmoe6-QuDLp5wE0-PlR3jMtezxrybQW9ce9K5MrtzJFT2E4-pDUyZHh56SlPlsEWIEA0-_lb8X13NTGE=w1024-no-tmp.jpg">
-<meta property="og:updated_time" content="2018-06-07T14:27:51.000Z">
+<meta property="article:published_time" content="2017-10-28T14:57:41.000Z">
+<meta property="article:modified_time" content="2018-06-07T14:27:51.000Z">
+<meta property="article:author" content="neoesque">
+<meta property="article:tag" content="法律">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推文分享 DDoS 教育部網址不起訴處分過程">
-<meta name="twitter:description" content="承 被調查局請去喝茶 ，在過了快半年多之後，我都以為沒事然後快忘記他的時候，就收到了人生第一張刑事傳票。這張傳票是從高雄地方法院檢察署發的(很奇怪對吧！後面會說原因)，傳票上會有被傳人地址、姓名、案號跟案由、應報到日期與處所，還有最重要的是他會說你是被告 XD (或證人)。 這篇文章是紀念性質，主要是說一下如何找律師資源跟學習到的法律知識，最後是感謝我的家人跟朋友的關心。">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/D7xsk-EHmX4eKM9mS7j6jkRbe0OpSaHZI0ybRiWgY97aAzqAc7SVKARyPJrwN6HJbITDiYZAF-S0mGyCqf8=w1024-no-tmp.jpg">
-  <link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml">
-  <link rel="canonical" href="https://blog.littlero.se/post/non-prosecution-of-ddos-ministry-of-education-Taiwan/">
+
+<link rel="canonical" href="https://blog.littlero.se/post/non-prosecution-of-ddos-ministry-of-education-Taiwan/">
 
 
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome : false,
+    isPost : true
   };
 </script>
 
@@ -94,11 +60,8 @@
 
 
 
-
-
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -107,9 +70,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -121,228 +83,179 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
   <div class="site-meta">
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">neoesque</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <h1 class="site-subtitle" itemprop="description">Making Life Better</h1>
-      
+        <p class="site-subtitle">Making Life Better</p>
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切換導航欄">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
-
 
 
 <nav class="site-nav">
-    <ul id="menu" class="menu">
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-      
-    
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首頁</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首頁</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-      
-    
+        <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>標籤</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>標籤</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-      
-    
+        <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分類</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分類</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-      
-    
+        <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>歸檔</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>歸檔</a>
 
   </li>
-        <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
-          
-            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜尋</a>
-        </li>
-      
-    </ul>
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜尋..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
 
-
-    </div>
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
 
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+
+          <div class="content">
             
 
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://blog.littlero.se/post/non-prosecution-of-ddos-ministry-of-education-Taiwan/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="neoesque">
       <meta itemprop="description" content="neoesque's Linux Blog">
-      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="neoesque">
     </span>
       <header class="post-header">
-
-        
-          <h2 class="post-title" itemprop="name headline">推文分享 DDoS 教育部網址不起訴處分過程
-
-              
-            
-          </h2>
-        
+        <h1 class="post-title" itemprop="name headline">
+          推文分享 DDoS 教育部網址不起訴處分過程
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">發表於</span>
 
               <time title="創建時間：2017-10-28, 週六 22:57:41" itemprop="dateCreated datePublished" datetime="2017-10-28T22:57:41+08:00">2017-10-28, 週六</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新於</span>
-                
+                <span class="post-meta-item-text">更新於</span>
                 <time title="修改時間：2018-06-07, 週四 22:27:51" itemprop="dateModified" datetime="2018-06-07T22:27:51+08:00">2018-06-07, 週四</time>
               </span>
-            
-          
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
     
-      <span class="post-meta-item-text">評論數：</span>
-    
-  
-    <a href="/post/non-prosecution-of-ddos-ministry-of-education-Taiwan/#comments" itemprop="discussionUrl">
+    <a title="disqus" href="/post/non-prosecution-of-ddos-ministry-of-education-Taiwan/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/non-prosecution-of-ddos-ministry-of-education-Taiwan/" itemprop="commentCount"></span>
     </a>
   </span>
   
-  
-          <br>
-            <span class="post-meta-item">
+  <br>
+            <span class="post-meta-item" title="文章字數">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
-              
                 <span class="post-meta-item-text">文章字數：</span>
-              
-              <span title="文章字數">5.9k</span>
+              <span>5.7k</span>
             </span>
-          
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
-              
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              
-              <span title="所需閱讀時間">15 分鐘</span>
+              <span>14 分鐘</span>
             </span>
-          
 
         </div>
       </header>
@@ -363,7 +276,7 @@
 <p>當天(2016/08/09)下班時接到我媽的電話，開頭就是一陣罵問說你又怎麼了 blahblah…，然後就在 line 傳了照片給我看(感謝科技，不然我覺得我媽可能說不清楚那張傳票的內容 XD)，看了一下罪名後發現原來是 2015 年被調查局約談的事，看起來是被調查局告了，但是時間緊迫啊！開偵查庭時間竟然是兩天後，這時候不得不說臺灣政府根本存心搞人 = = 也太扯了，兩天前才通知，如果我出國沒收到不就 gg (但實際上可以一次未到沒關係，後面會說)。</p>
 <h2 id="知己知彼百戰百勝"><a href="#知己知彼百戰百勝" class="headerlink" title="知己知彼百戰百勝"></a>知己知彼百戰百勝</h2><h3 id="鍾亞達律師"><a href="#鍾亞達律師" class="headerlink" title="鍾亞達律師"></a>鍾亞達律師</h3><p>這時候第一件是是冷靜，先來個之前學過的 <a href="https://zhuanlan.zhihu.com/p/26872149" target="_blank" rel="noopener">美國海豹部隊呼吸法</a> ，okay…冷靜後就是開始找解決方案，因為基本上兩天後就要開庭，我什麼都沒準備啊啊啊啊，所以先來找律師吧。摁…首先打開 Google （誤）大海撈針啊，怎麼可能知道哪家律師事務所比較好 XD，這時候我突然想起被調查局抓走回來之後我有請我一個後來走法律專業的大學同學推薦一個律師 <a href="https://www.facebook.com/yatta828" target="_blank" rel="noopener">鍾亞達</a>。於是我立刻播了電話給鐘律師，聊了一下之後，他很阿莎力的叫我隔天一早趕快去找他。</p>
 <p>然後 08/10 一早我就直奔他服務的律師事務所了，稍微幫他複習了一下 2015 年去調查局的情況之後他稍微幫我分析了一下，首先就是我那天根本不該去，<strong>調查局用電話非書面收到根本可以不用理他</strong>，基本上雖然電話通知也是合理的，但是因為沒有強制力，所以那天根本不該受他的威脅去，但是都已經去了，事已至此，他建議的第一步是：跟檢察官請假，什麼！<strong>出庭還可以請假？！是的這是可以請假的，但是以一次為限</strong>（正常的情況下可請一次，再一次沒去的話檢察官有機會發佈通緝令），鐘律師說因為目前什麼都沒準備，去了也不知道會問什麼，所以與其直接去面對檢察官，不如先請假把出庭時間延後，再慢慢思考怎麼應對，於是他叫我先<strong>打電話跟書記官請假</strong>（書記官的聯絡方式在傳票上都會有寫）<strong>之後寫書狀傳真過去</strong>，然後叫我順便問問書記官有沒有其他資訊可以提供，例如可以問看看本案有幾位被告啦之類的，因為對於這種公共議題，鍾律師說其實是可以訴諸媒體的，畢竟教育部黑箱課綱一案，在民進黨政府時代就直接整個翻盤，整個社會氛圍也確實覺得國民黨政府時期的教育部是不對的，因此他覺得如果被告很多，就聯合起來辦記者會就搞定了 XD 可惜理想很豐滿，現實很骨感。我詢問書記官之後雖然書記官很大方的跟我說了資訊，但是被告只有兩位，也就是除了我之外只有另一位（也太衰），但是書記官人還不錯（網路寫這個基本上是看書記官爽不爽跟你說，他沒有義務要交代的這麼清楚），把另一個被告的名字也跟我說，然後說這位也是高雄人，至此我終於瞭解難怪這個案子為何會辦在高雄了。以下是鐘律師幫我擬的書狀。(一般來說找律師擬書狀就要收幾千元不等的服務費，但其實這是固定格式，從法院的網站也有得下載，例如 <a href="http://www.tyc.moj.gov.tw/ct.asp?xItem=452193&ctNode=20335&mp=012" target="_blank" rel="noopener">桃園地方法院檢察署請假書狀</a>，所以其實自己賺也可以)</p>
-<img src="https://lh3.googleusercontent.com/r50gYi0-0FwHHNTBoYgyNiR-7UQcbeRhTVfYLy3RN2HYC2pLE2hO80Vb8Gmz4oFH-qQVeJUB9GN3TWcEKWc=w1024-no-tmp.jpg" alt>
+<img src="https://lh3.googleusercontent.com/r50gYi0-0FwHHNTBoYgyNiR-7UQcbeRhTVfYLy3RN2HYC2pLE2hO80Vb8Gmz4oFH-qQVeJUB9GN3TWcEKWc=w1024-no-tmp.jpg" alt="">
 
 <p>再來鐘律師說第二部分是考慮<strong>請求轉移管轄</strong>，因為被告（就是我）的居住地在臺北市，然後教育部也在臺北市，因此基本是符合轉移管轄的要件的（兩個要件其一是犯罪發生、結果地都是同一地點，其二是被告、告訴人都在同一地點）。但是基本上我大中華民國法律沒有規定請求一定會成功，只是人民的權利，但是不是檢察官的義務，基本上也是看見檢察官高不高興，鐘律師判斷一般機率都不高，因為轉移管轄權需要另外分卷宗、分案號，對他們來說很麻煩。因此我考慮了一下就之後再說吧，反正回高雄是小事。</p>
 <p>然後鍾律師就幫我分析了一下刑法第 360 條【無故以電腦程式或其他電磁方式干擾他人電腦或其相關設備，致生損害於公眾或他人者，處三年以下有期徒刑、拘役或科或併科十萬元以下罰金。】可能的偵辦方向主要就是第一句的以電腦程式或其他電磁方式干擾，所以基本上如果我真的沒有做，或者他們查不到 IP 就無法起訴我了。</p>
@@ -391,7 +304,7 @@
 <p>一開始檢察官主要問另一個原告都是針對他有攻擊事實的一部分，現場檢察官有準備他們 Server 的連線記錄(可能是 Firewall log)，印了一本超厚的像字典一樣的書，問原告這個 IP 是不是他的，然後也直接承認了 O_o，然後問一些攻擊手法，因為檢察官不是念資訊的，真的要完整解釋手法也很困難，而且貌似調查局的調查官的報告沒有太詳細，檢察官還誤解一部分資訊，大概審了接近一個小時後才輪到我，一開始檢察官說抱歉讓我特地從臺北下來（咦，這麼謙虛的檢察官），然後就隨便問了我一些問題而已，大致上跟黃律師猜的差不多，就是為何要PO，那則推還在嗎，為何刪除，最後就是問我認不認罪，結果我說這個要看到底我的攻擊是不是成立（模糊 XD），然後隔壁的原告弟弟還幫我說話，叫我不要認罪，一陣混亂之後檢察官就要宣判了，他判原告弟弟下次出庭帶有功於社會的一些文件證明過來，就判他緩起訴，然後叫我下次不用來了。然後我們兩個就一起走出庭了。</p>
 <p>後來跟那個弟弟邊走到捷運邊聊天，才發現原來他是84年次的，是個中輟生，現在正在自己創業，平常會輔導高中高職資訊社（雄中、雄工…etc），果然英雄出少年，比我小十歲已經在創業了（汗…)，這次事件純粹是好玩，他說他 11/26 那天調查局(<a href="http://www.setn.com/News.aspx?NewsID=108843" target="_blank" rel="noopener">新聞</a>)跟一群警察七點多衝進他家，他奶奶嚇死了，叫他起床，結果第一次他以為奶奶在開玩笑繼續睡覺 XD 結果沒想到他奶奶還是一直叫，後來才發現是真的，然後他家機房的電腦就全部被沒收了，後來調查結束後整個 Format 還給他，但是他也不敢用，怕硬碟被調查局塞東西了 XD 就趕快賣掉重組一臺比較省事，不過他沒想到會有另一個我被拖下水，哈哈哈哈。總之後來換了一下名片，加了 Facebook 好友。就當這次事件是多認識朋友吧。</p>
 <p>後來我幾乎又忘記這件事之後約半年，在 2017/05/27 ，我就收到不起訴處分拉～ </p>
-<img src="https://lh3.googleusercontent.com/Nwkxmoe6-QuDLp5wE0-PlR3jMtezxrybQW9ce9K5MrtzJFT2E4-pDUyZHh56SlPlsEWIEA0-_lb8X13NTGE=w1024-no-tmp.jpg" alt>
+<img src="https://lh3.googleusercontent.com/Nwkxmoe6-QuDLp5wE0-PlR3jMtezxrybQW9ce9K5MrtzJFT2E4-pDUyZHh56SlPlsEWIEA0-_lb8X13NTGE=w1024-no-tmp.jpg" alt="">
 
 <p>再度撒花，這個案子總算是告一段落了。親自走一趟，學了不少法律知識 XD</p>
 
@@ -401,36 +314,31 @@
     
     
 
-    <footer class="post-footer">
-          
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B3%95%E5%BE%8B/" rel="tag"># 法律</a>
+          </div>
+
         
-        <div class="post-tags">
-            <a href="/tags/法律/" rel="tag"># 法律</a>
-          
-        </div>
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-              <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" rel="next" title="安裝 Redmine - postgresql, nginx, rbenv">
-                <i class="fa fa-chevron-left"></i> 安裝 Redmine - postgresql, nginx, rbenv
-              </a>
-            
-          </div>
 
-          <span class="post-nav-divider"></span>
 
-          <div class="post-nav-prev post-nav-item">
-              <a href="/post/mexico-visa-2017-11/" rel="prev" title="墨西哥簽證 2017/11">
-                墨西哥簽證 2017/11 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-    </footer>
-  </div>
-  
-  
-  
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/install-redmine-with-postgresql-nginx-rbenv/" rel="prev" title="安裝 Redmine - postgresql, nginx, rbenv">
+      <i class="fa fa-chevron-left"></i> 安裝 Redmine - postgresql, nginx, rbenv
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/mexico-visa-2017-11/" rel="next" title="墨西哥簽證 2017/11">
+      墨西哥簽證 2017/11 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
   </div>
 
@@ -438,268 +346,113 @@
           </div>
           
     
-    
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
-  
 
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目錄
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            本站概要
-          </li>
-        </ul>
-      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#知己知彼百戰百勝"><span class="nav-number">1.</span> <span class="nav-text">知己知彼百戰百勝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#鍾亞達律師"><span class="nav-number">1.1.</span> <span class="nav-text">鍾亞達律師</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#財團法人法律輔助基金會"><span class="nav-number">1.2.</span> <span class="nav-text">財團法人法律輔助基金會</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#評律網"><span class="nav-number">1.3.</span> <span class="nav-text">評律網</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#裁判書查詢"><span class="nav-number">1.4.</span> <span class="nav-text">裁判書查詢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#黃帝穎律師"><span class="nav-number">1.5.</span> <span class="nav-text">黃帝穎律師</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上戰場"><span class="nav-number">2.</span> <span class="nav-text">上戰場</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.png"
-      alt="neoesque">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="neoesque"
+      src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">neoesque</p>
-  <div class="site-description motion-element" itemprop="description">neoesque's Linux Blog</div>
+  <div class="site-description" itemprop="description">neoesque's Linux Blog</div>
 </div>
-  <nav class="site-state motion-element">
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
         <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">分類</span>
-        </a>
+        <span class="site-state-item-name">分類</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
         <span class="site-state-item-count">40</span>
-        <span class="site-state-item-name">標籤</span>
-        </a>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
-    
   </nav>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
+</div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/neoesque/" title="GitHub &rarr; https://github.com/neoesque/" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/neoesque/" title="GitHub → https://github.com/neoesque/" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://www.twitter.com/neoesque" title="Twitter &rarr; https://www.twitter.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+        <a href="https://www.twitter.com/neoesque" title="Twitter → https://www.twitter.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://facebook.com/neoesque" title="FB Page &rarr; https://facebook.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+        <a href="https://facebook.com/neoesque" title="FB Page → https://facebook.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://youtube.com/neoesque" title="YouTube &rarr; https://youtube.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+        <a href="https://youtube.com/neoesque" title="YouTube → https://youtube.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://instagram.com/neoesque/" title="Instagram &rarr; https://instagram.com/neoesque/" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+        <a href="https://instagram.com/neoesque/" title="Instagram → https://instagram.com/neoesque/" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
       </span>
-    
   </div>
 
 
 
-        </div>
       </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#知己知彼百戰百勝"><span class="nav-number">1.</span> <span class="nav-text">知己知彼百戰百勝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#鍾亞達律師"><span class="nav-number">1.1.</span> <span class="nav-text">鍾亞達律師</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#財團法人法律輔助基金會"><span class="nav-number">1.2.</span> <span class="nav-text">財團法人法律輔助基金會</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#評律網"><span class="nav-number">1.3.</span> <span class="nav-text">評律網</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#裁判書查詢"><span class="nav-number">1.4.</span> <span class="nav-text">裁判書查詢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#黃帝穎律師"><span class="nav-number">1.5.</span> <span class="nav-text">黃帝穎律師</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上戰場"><span class="nav-number">2.</span> <span class="nav-text">上戰場</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
     </div>
   </aside>
@@ -709,10 +462,15 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2008 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+        
+
+<div class="copyright">
+  
+  &copy; 2008 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">neoesque</span>
@@ -720,16 +478,18 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">152k</span>
+    <span title="總字數">136k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">6:19</span>
+    <span title="所需總閱讀時間">5:40</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
+  </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主題 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a></div>
+  <div class="theme-info">主題 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
 
         
 
@@ -740,46 +500,28 @@
 
 
 
-        
       </div>
     </footer>
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-          <span id="scrollpercent"><span>0</span>%</span>
-        
-      </div>
-
-    
-
   </div>
 
   
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-  <script src="/js/utils.js?v=7.3.0"></script>
-  <script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/utils.js"></script>
 
-  
-  <script src="/js/affix.js?v=7.3.0"></script>
-  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/motion.js"></script>
 
 
-  
-  <script src="/js/scrollspy.js?v=7.3.0"></script>
-<script src="/js/post-details.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
+<script src="/js/next-boot.js"></script>
 
-  <script src="/js/next-boot.js?v=7.3.0"></script>
 
-  
-
-  
-
-  
 
 
   
@@ -787,6 +529,8 @@
 
 
 
+  
+<script src="/js/local-search.js"></script>
 
 
 
@@ -800,27 +544,10 @@
 
 
 
+  
 
+  
 
-
-
-
-
-  <script src="/js/local-search.js?v=7.3.0"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -835,35 +562,22 @@
   var disqus_config = function() {
     this.page.url = "https://blog.littlero.se/post/non-prosecution-of-ddos-ministry-of-education-Taiwan/";
     this.page.identifier = "post/non-prosecution-of-ddos-ministry-of-education-Taiwan/";
-    this.page.title = '推文分享 DDoS 教育部網址不起訴處分過程';};
-  function loadComments() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://parsefloat.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', '' + +new Date());
-    (d.head || d.body).appendChild(s);
-  }
-    $(function() {
-      var offsetTop = $('#comments').offset().top - $(window).height();
-      if (offsetTop <= 0) {
-        // load directly when there's no a scrollbar
-        window.addEventListener('load', loadComments, false);
-      } else {
-        $(window).on('scroll.disqus_scroll', function() {
-          // offsetTop may changes because of manually resizing browser window or lazy loading images.
-          var offsetTop = $('#comments').offset().top - $(window).height();
-          var scrollTop = $(window).scrollTop();
-
-          // pre-load comments a bit? (margin or anything else)
-          if (offsetTop - scrollTop < 60) {
-            $(window).off('.disqus_scroll');
-            loadComments();
-          }
-        });
-      }
-    });
-  
+    this.page.title = "推文分享 DDoS 教育部網址不起訴處分過程";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://parsefloat.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
-
 
 </body>
 </html>
