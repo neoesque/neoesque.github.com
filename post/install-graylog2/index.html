@@ -20,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.littlero.se","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.littlero.se","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Graylog2 是一個開源的 log 收容器，主要有兩個部份集合而成 server 與 web interface，兩個都是由 Java 寫的，Server 的部份可以收容 syslog over TCP&#x2F;UDP, 同時他也有自己的格式 GRLF (Graylog Extended Log Format)，背後的儲存是搭配 mongodb，而搜尋引擎則由 elasticsearch 提供。另">
@@ -53,6 +53,15 @@
 
   <title>Graylog2 安裝 | neoesque</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37617901-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-37617901-1');
+      }
+    </script>
 
 
 
@@ -477,19 +486,19 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/neoesque/" title="GitHub → https://github.com/neoesque/" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/neoesque/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;neoesque&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://www.twitter.com/neoesque" title="Twitter → https://www.twitter.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+        <a href="https://www.twitter.com/neoesque" title="Twitter → https:&#x2F;&#x2F;www.twitter.com&#x2F;neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://facebook.com/neoesque" title="FB Page → https://facebook.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+        <a href="https://facebook.com/neoesque" title="FB Page → https:&#x2F;&#x2F;facebook.com&#x2F;neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://youtube.com/neoesque" title="YouTube → https://youtube.com/neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+        <a href="https://youtube.com/neoesque" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://instagram.com/neoesque/" title="Instagram → https://instagram.com/neoesque/" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+        <a href="https://instagram.com/neoesque/" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;neoesque&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
       </span>
   </div>
 
@@ -528,10 +537,10 @@
     </span>
     <span title="所需總閱讀時間">5:48</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主題 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  <div class="theme-info">主題 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
 
         
