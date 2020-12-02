@@ -20,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.littlero.se","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.littlero.se","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="要讓比方說 Safari, MailPlane 或 CSSEdit 吃 Webkit 的核心的話其中一種方法是從終端機打開如以下設定export DYLD_FRAMEWORK_PATH&#x3D;&#x2F;Applications&#x2F;WebKit.app&#x2F;Contents&#x2F;Frameworks&#x2F;10.6&#x2F;export WEBKIT_UNSET_DYLD_FRAMEWORK_PATH&#x3D;YESopen &#x2F;Applicat">
@@ -32,7 +32,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://grab.by/10oy">
 <meta property="article:published_time" content="2009-12-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2015-03-14T05:40:44.000Z">
+<meta property="article:modified_time" content="2020-12-02T02:11:49.497Z">
 <meta property="article:author" content="neoesque">
 <meta property="article:tag" content="Mac">
 <meta name="twitter:card" content="summary">
@@ -94,7 +94,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -231,7 +231,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2015-03-14, 週六 13:40:44" itemprop="dateModified" datetime="2015-03-14T13:40:44+08:00">2015-03-14, 週六</time>
+                <time title="修改時間：2020-12-02, 週三 10:11:49" itemprop="dateModified" datetime="2020-12-02T10:11:49+08:00">2020-12-02, 週三</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -251,7 +251,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>510</span>
+              <span>509</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -270,7 +270,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>要讓比方說 Safari, MailPlane 或 CSSEdit 吃 Webkit 的核心的話其中一種方法是從終端機打開<br />如以下設定<br /><br />export DYLD_FRAMEWORK_PATH=/Applications/WebKit.app/Contents/Frameworks/10.6/<br />export WEBKIT_UNSET_DYLD_FRAMEWORK_PATH=YES<br />open /Applications/blahblah.app<br /><br />即可<br />可是要從終端機太麻煩了對吧<del><br />Mac OS X 提供更方便的方式讓全系統都套用<br /><a id="more"></a><br />首先先新增 ~/.MacOSX 的資料夾<br />然後建立 environment.plist 的檔案並編輯他新增兩筆以下資料(直接新增 child 即可)<br /><br />“WEBKIT_UNSET_DYLD_FRAMEWORK_PATH” = YES;<br />“DYLD_FRAMEWORK_PATH” = “/Applications/WebKit.app/Contents/Frameworks/10.6/“;<br /><br /><img src="http://grab.by/10oy" alt=""><br /><br />登出在登入後打開 Safari 的關於 Safari 看看有沒有出現 版本 4.0.4 (6531.21.10, r51708) 後面的 r 表示 webkit core 的 release<br /><br />這樣就成功了</del></p>
+        <p>要讓比方說 Safari, MailPlane 或 CSSEdit 吃 Webkit 的核心的話其中一種方法是從終端機打開<br />如以下設定<br /><br />export DYLD_FRAMEWORK_PATH=/Applications/WebKit.app/Contents/Frameworks/10.6/<br />export WEBKIT_UNSET_DYLD_FRAMEWORK_PATH=YES<br />open /Applications/blahblah.app<br /><br />即可<br />可是要從終端機太麻煩了對吧<br />Mac OS X 提供更方便的方式讓全系統都套用<br /><a id="more"></a><br />首先先新增 <del>/.MacOSX 的資料夾<br />然後建立 environment.plist 的檔案並編輯他新增兩筆以下資料(直接新增 child 即可)<br /><br />“WEBKIT_UNSET_DYLD_FRAMEWORK_PATH” = YES;<br />“DYLD_FRAMEWORK_PATH” = “/Applications/WebKit.app/Contents/Frameworks/10.6/“;<br /><br /><img src="http://grab.by/10oy" alt=""><br /><br />登出在登入後打開 Safari 的關於 Safari 看看有沒有出現 版本 4.0.4 (6531.21.10, r51708) 後面的 r 表示 webkit core 的 release<br /><br />這樣就成功了</del></p>
 
     </div>
 
@@ -464,12 +464,8 @@
   <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>
