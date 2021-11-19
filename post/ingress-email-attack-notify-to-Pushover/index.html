@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -272,14 +272,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>1.9k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>5 分鐘</span>
+              <span>6 分鐘</span>
             </span>
             <div class="post-description">Ingress 及時的攻擊通知 over Pushover</div>
 
@@ -292,45 +292,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a href="https://www.ingress.com/" target="_blank" rel="noopener">Ingress</a> 是 Google 在 2012 推出的虛擬實境(Virtual Reality)的遊戲，基本上就是一個打打殺殺的遊戲，遊戲裡面分兩個陣營 Resistance (藍軍)跟 Enlightened (綠軍)，在台灣好死不死剛好跟兩大政治陣營顏色一樣，看起來全世界是藍大於綠，但是台灣台北剛好綠大於藍，不知道是不是大家選的顏色剛好也有政治傾向(笑)，不過遊戲歸遊戲，其實裡面的人倒是不大會聊政治，遊戲內有自己的通訊功能，但是很爛，所以大家還是會用第三方軟體溝通，通常大家都直接用 Hangout，不過也有少部份地區聽說是用 Line 之類的。</p>
-<p>這遊戲有內建的被攻擊通知，可是他完全不能過濾你想收哪些通知，反正腳被攻擊或者 MOD 掉了就是直接無差別通知，不過有時候只想收特定 Portal 的攻擊通知，這時候該怎麼辦呢？原本我都用 IFTTT 這個 <a href="https://ifttt.com/recipes/203777-notify-when-guardian-portal-is-under-attack-ingress" target="_blank" rel="noopener">Notify when guardian portal is under attack #ingress
-</a> 不過類似這種的有個缺點就是 IFTTT 是類似 polling 的，所以他是固定時間去問一次 Gmail，有時候我收到通知的時候都已經半個小時後，點都被打掉了 XD，搞屁，實在不夠及時，昨天在研究 Pushover 時突然發現他有 <a href="http://updates.pushover.net/post/24408806716/e-mail-to-pushover-gateway" target="_blank" rel="noopener">E-mail gateway</a>，配合 Gmail 建立 Filter 時就可以 Forward E-mail，根本就是及時的 Push。</p>
-<p>實驗了一下發現效果不錯，至少比原本的 IFTTT 及時太多了，雖然還是有腳會被打掉之類的，不過如果對方真的要打其實也阻止不了，通常八炮連發根本擋不住，但是還是具有一些拖延對方效果就是了，而且也可以當成整理特殊點的攻擊 Log。</p>
-<a id="more"></a>
+        <p><a target="_blank" rel="noopener" href="https://www.ingress.com/">Ingress</a> 是 Google 在 2012 推出的虛擬實境<h-hws hidden=""> </h-hws>(Virtual Reality)<h-hws hidden=""> </h-hws>的遊戲<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>基本上就是一個打打殺殺的遊戲<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>遊戲裡面分兩個陣營 Resistance (藍軍)<h-hws hidden=""> </h-hws>跟 Enlightened (綠軍)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>在台灣好死不死剛好跟兩大政治陣營顏色一樣<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>看起來全世界是藍大於綠<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是台灣台北剛好綠大於藍<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不知道是不是大家選的顏色剛好也有政治傾向<h-hws hidden=""> </h-hws>(笑)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過遊戲歸遊戲<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>其實裡面的人倒是不大會聊政治<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>遊戲內有自己的通訊功能<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是很爛<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以大家還是會用第三方軟體溝通<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>通常大家都直接用 Hangout<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過也有少部份地區聽說是用 Line 之類的<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>這遊戲有內建的被攻擊通知<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>可是他完全不能過濾你想收哪些通知<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>反正腳被攻擊或者 MOD 掉了就是直接無差別通知<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過有時候只想收特定 Portal 的攻擊通知<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這時候該怎麼辦呢<h-char unicode="ff1f" class="biaodian cjk bd-end bd-jiya"><h-inner>？</h-inner></h-char>原本我都用 IFTTT 這個 <a target="_blank" rel="noopener" href="https://ifttt.com/recipes/203777-notify-when-guardian-portal-is-under-attack-ingress">Notify when guardian portal is under attack #ingress
+</a> 不過類似這種的有個缺點就是 IFTTT 是類似 polling 的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以他是固定時間去問一次 Gmail<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>有時候我收到通知的時候都已經半個小時後<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>點都被打掉了 XD<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>搞屁<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>實在不夠及時<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>昨天在研究 Pushover 時突然發現他有 <a target="_blank" rel="noopener" href="http://updates.pushover.net/post/24408806716/e-mail-to-pushover-gateway">E-mail gateway</a><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>配合 Gmail 建立 Filter 時就可以 Forward E-mail<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>根本就是及時的 Push<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>實驗了一下發現效果不錯<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>至少比原本的 IFTTT 及時太多了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>雖然還是有腳會被打掉之類的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過如果對方真的要打其實也阻止不了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>通常八炮連發根本擋不住<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是還是具有一些拖延對方效果就是了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而且也可以當成整理特殊點的攻擊 Log<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<span id="more"></span>
 
-<p>這類通知的程式還蠻多的，iOS 有 <a href="http://www.prowlapp.com/" target="_blank" rel="noopener">Prowl</a>， Android 有 <a href="http://www.notifymyandroid.com/" target="_blank" rel="noopener">Notify My Android</a>，不過上述兩個就是沒有一個是跨平台的，還有另一套新秀 <a href="https://www.pushbullet.com/" target="_blank" rel="noopener">PushBullet</a> 也不錯，不過他沒有 E-mail GW，所以這些都不符合我的需求，因為我裝置亂七八糟的，iOS (iPhone 5s)+ Android (平板 SH-06F)，所以最後決定還是用 Pushover 實作。</p>
-<p><a href="https://pushover.net/" target="_blank" rel="noopener">Pushover</a> 的收費是只收 client 一次性費用，也就是 iOS、Android、電腦，各收 client 的錢，一個月有 7500 筆通知可用，超過可另外加購，基本上 7500則通知/月 非常夠了，一次性的終身費用各兩三美元(我是全買了大概也才 300 新台幣)非常划算，申請完賬號後回到<a href="https://pushover.net/" target="_blank" rel="noopener">首頁</a>應該會看到如下的 User key</p>
+<p>這類通知的程式還蠻多的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>iOS 有 <a target="_blank" rel="noopener" href="http://www.prowlapp.com/">Prowl</a><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char> Android 有 <a target="_blank" rel="noopener" href="http://www.notifymyandroid.com/">Notify My Android</a><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過上述兩個就是沒有一個是跨平台的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>還有另一套新秀 <a target="_blank" rel="noopener" href="https://www.pushbullet.com/">PushBullet</a> 也不錯<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過他沒有 E-mail GW<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以這些都不符合我的需求<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因為我裝置亂七八糟的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>iOS (iPhone 5s)+ Android (平板 SH-06F)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以最後決定還是用 Pushover 實作<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p><a target="_blank" rel="noopener" href="https://pushover.net/">Pushover</a> 的收費是只收 client 一次性費用<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>也就是 iOS<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>Android<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>電腦<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>各收 client 的錢<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>一個月有 7500 筆通知可用<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>超過可另外加購<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>基本上 7500<h-hws hidden=""> </h-hws>則通知/月 非常夠了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>一次性的終身費用各兩三美元<h-hws hidden=""> </h-hws>(我是全買了大概也才 300 新台幣)<h-hws hidden=""> </h-hws>非常划算<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>申請完賬號後回到<a target="_blank" rel="noopener" href="https://pushover.net/">首頁</a>應該會看到如下的 User key</p>
 <img src="https://lh3.googleusercontent.com/YoX0bNlxU8WQ43p7BkpK8slGEbnDZjY6gOv1DDOfqdU=w800-no" class="" width="800" height="600" title="Pushover User key">
 
-<p>下面有顯示一個 E-mail，我們先記起來等等會用到。再來是要新增一個 Application，基本上不新增也可以，只是全部的通知會顯示為 Pushover E-mail Gateway，為了分類還是建議創一個 App，所以我們到 <a href="https://pushover.net/apps" target="_blank" rel="noopener">Pushover-Powered Applications &amp; Plugins
-</a> 這頁，會看到如下的頁面</p>
+<p>下面有顯示一個 E-mail<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>我們先記起來等等會用到<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>再來是要新增一個 Application<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>基本上不新增也可以<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>只是全部的通知會顯示為 Pushover E-mail Gateway<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>為了分類還是建議創一個 App<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以我們到 <a target="_blank" rel="noopener" href="https://pushover.net/apps">Pushover-Powered Applications &amp; Plugins
+</a> 這頁<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>會看到如下的頁面</p>
 <img src="https://lh3.googleusercontent.com/-gyit_8RTc-Y/VKzTw7ppWjI/AAAAAAAAPx0/4aQ6fWi5RCU/w800-no/Screenshot%2B2015-01-07%2B14.27.35.png" class="" width="800" height="600" title="Pushover Apps">
 
-<p>因為我已經有三個 Apps 了，如果第一次進去應該會是空空的，我們先點 <strong>Create a New Application</strong> 會看到下面頁面</p>
+<p>因為我已經有三個 Apps 了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>如果第一次進去應該會是空空的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>我們先點 <strong>Create a New Application</strong> 會看到下面頁面</p>
 <img src="https://lh4.googleusercontent.com/-j5wQYTyHDlg/VKzTw8EsBQI/AAAAAAAAPx4/fRRdK-yUTTQ/w1734-h916-no/Screenshot%2B2015-01-07%2B14.27.59.png" class="" width="800" height="600" title="Pushover new app">
 
-<p>填一填按下 <strong>Create Application</strong> 送出就好了！回到剛剛的<a href="https://pushover.net/apps" target="_blank" rel="noopener">列表頁</a>應該會看到剛剛創立的 App 名字，點進去會看到 App Key，如圖</p>
+<p>填一填按下 <strong>Create Application</strong> 送出就好了<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char>回到剛剛的<a target="_blank" rel="noopener" href="https://pushover.net/apps">列表頁</a>應該會看到剛剛創立的 App 名字<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>點進去會看到 App Key<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>如圖</p>
 <img src="https://lh5.googleusercontent.com/-g8xknRBYYb4/VKzTymxGUgI/AAAAAAAAPyQ/X3F5WjNhIRU/w800-no/Screenshot%2B2015-01-07%2B14.28.19.png" class="" width="800" height="600" title="Pushover App Key">
 
-<p>一樣把這把 Key 記起來，目前已經完成一半了！我們需要的就是 User Key + App Key，基本上寄信就是把你要的信 FW 到 user_key+a=app_key@api.pushover.net 就好了！</p>
-<p>我們回到 <a href="https://mail.google.com/mail/u/0/#settings/fwdandpop" target="_blank" rel="noopener">Gmail 的 FW 設定頁</a>，點 <strong>Add a forwarding address</strong>，新增剛剛組出來的 E-mail，比方說可能會是 <em>abcdefghijklmnopqrstuvwxyz1234+a=567890abcdefghijklmnopqrstuvwx@api.pushover.net</em> 就填進去，按下 <strong>Next</strong></p>
+<p>一樣把這把 Key 記起來<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>目前已經完成一半了<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char>我們需要的就是 User Key + App Key<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>基本上寄信就是把你要的信 FW 到 user_key+a=<a href="mailto:app_key@api.pushover.net">app_key@api.pushover.net</a> 就好了<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char></p>
+<p>我們回到 <a target="_blank" rel="noopener" href="https://mail.google.com/mail/u/0/#settings/fwdandpop">Gmail 的 FW 設定頁</a><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>點 <strong>Add a forwarding address</strong><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>新增剛剛組出來的 E-mail<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>比方說可能會是 <em>abcdefghijklmnopqrstuvwxyz1234+a=<a href="mailto:567890abcdefghijklmnopqrstuvwx@api.pushover.net">567890abcdefghijklmnopqrstuvwx@api<h-char class="punct">.</h-char>pushover<h-char class="punct">.</h-char>net</a></em> 就填進去<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>按下 <strong>Next</strong></p>
 <img src="https://lh3.googleusercontent.com/-SVbsTIHr3qw/VKzTy0zVfyI/AAAAAAAAPyM/VqTdJKj59UE/w800-no/Screenshot%2B2015-01-07%2B14.30.25.png" class="" width="800" height="600">
 
-<p>會提示說需要寄一封確認信，請到剛剛填的 E-mail 收信，這時候請轉移到隨便一個 Pushover 的 client，比方說我用 iOS 當例子：</p>
+<p>會提示說需要寄一封確認信<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>請到剛剛填的 E-mail 收信<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這時候請轉移到隨便一個 Pushover 的 client<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>比方說我用 iOS 當例子<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
 <img src="https://lh4.googleusercontent.com/-1h40jkgP6LM/VKzTz5z1B_I/AAAAAAAAPyc/EthH_OZtnAI/w319-no/IMG_3706.png" class="" width="800" height="600">
 
-<p>會看到裡面有個 <strong>confirm the request</strong>，直接點下去就好了，到這裡已經完成 80% 了，最後一步就是建立 filter &amp; FW</p>
-<p>到 <a href="https://mail.google.com/mail/u/0/#settings/filters" target="_blank" rel="noopener">Gmail Settings - Filter</a> 點 <strong>create a new filter</strong>，在 Has the words 填入 <em>Ingress Damage Report (Portal_name_1 OR Portal_name_2 OR …)</em></p>
+<p>會看到裡面有個 <strong>confirm the request</strong><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>直接點下去就好了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>到這裡已經完成 80% 了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>最後一步就是建立 filter &amp; FW</p>
+<p>到 <a target="_blank" rel="noopener" href="https://mail.google.com/mail/u/0/#settings/filters">Gmail Settings - Filter</a> 點 <strong>create a new filter</strong><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>在 Has the words 填入 <em>Ingress Damage Report <h-char class="punct">(</h-char>Portal<h-char class="punct">_</h-char>name<h-char class="punct">_</h-char>1 OR Portal<h-char class="punct">_</h-char>name<h-char class="punct">_</h-char>2 OR …<h-char class="punct">)</h-char></em></p>
 <img src="https://lh6.googleusercontent.com/-POsLw3z9-2A/VKza5C_kE7I/AAAAAAAAPzA/2c6RN9V7_-c/w800-no/Screenshot%2B2015-01-07%2B15.04.17.png" class="" width="800" height="600"> 
 
 <p>點 <strong>Continue</strong></p>
 <img src="https://lh4.googleusercontent.com/-S0yo3hreTC4/VKza_i1ic7I/AAAAAAAAPzM/HBIDqrg9-L0/w800-no/Screenshot%2B2015-01-07%2B15.04.25.png" class="" width="800" height="600">
 
-<p>這裡可以順便分 label 不然就是直接勾 <strong>Forward it to</strong> 選你的 pushover mail 就大功告成了。</p>
-<p>然後等你設定的 Portal 被人打就會收到如下的戰報了：</p>
+<p>這裡可以順便分 label 不然就是直接勾 <strong>Forward it to</strong> 選你的 pushover mail 就大功告成了<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>然後等你設定的 Portal 被人打就會收到如下的戰報了<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
 <img src="https://lh3.googleusercontent.com/-jHoYlRw1Xjw/VKzobV-ZbeI/AAAAAAAAP0o/zJVFsLFgJoo/s800/Screenshot%25202015-01-07%252015.11.54.png" class="" width="800" height="600">
 
-<p>看吧！寫這篇部落格時，收了戰報還是來不及反應被夷平了 QQ</p>
+<p>看吧<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char>寫這篇部落格時<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>收了戰報還是來不及反應被夷平了 QQ</p>
 
     </div>
 
@@ -438,7 +438,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -493,7 +493,7 @@
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -502,12 +502,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

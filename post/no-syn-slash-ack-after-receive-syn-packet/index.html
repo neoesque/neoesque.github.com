@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -280,26 +280,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這是最近管發生的怪現象，就是公司某個單位一直跟我們說他們的 Server 要連我們的 Server，結果我們這邊時好時壞，… 什麼?! 我們這邊時好時壞? 從沒有聽過用戶說我們的 Server 連不上阿，於是就跟他們一起 Debug，開了 <code>tcpdump</code> 來看，發現我們這邊的確有時候收到 SYN 結果就不回 SYN/ACK kernel 直接 drop 封包 XD 這是什麼鬼，kernel 也太不聽話了，不過我們這邊 kernel 沒有打開 iptables 也沒有什麼 drop 封包的規則，於是就 Google 了一下，原來有人跟我們遇到一樣的狀況 <a href="http://serverfault.com/questions/235965/why-would-a-server-not-send-a-syn-ack-packet-in-response-to-a-syn-packet" target="_blank" rel="noopener">Why would a server not send a SYN/ACK packet in response to a SYN packet</a></p>
-<p>簡單的來說跟我們一模一樣，隨機的不回 SYN ，根據那篇文章說的，解法有下列兩種：</p>
+        <p>這是最近管發生的怪現象<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>就是公司某個單位一直跟我們說他們的 Server 要連我們的 Server<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>結果我們這邊時好時壞<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>… 什麼?! 我們這邊時好時壞? 從沒有聽過用戶說我們的 Server 連不上阿<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>於是就跟他們一起 Debug<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>開了 <code>tcpdump</code> 來看<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>發現我們這邊的確有時候收到 SYN 結果就不回 SYN/ACK kernel 直接 drop 封包 XD 這是什麼鬼<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>kernel 也太不聽話了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過我們這邊 kernel 沒有打開 iptables 也沒有什麼 drop 封包的規則<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>於是就 Google 了一下<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>原來有人跟我們遇到一樣的狀況 <a target="_blank" rel="noopener" href="http://serverfault.com/questions/235965/why-would-a-server-not-send-a-syn-ack-packet-in-response-to-a-syn-packet">Why would a server not send a SYN/ACK packet in response to a SYN packet</a></p>
+<p>簡單的來說跟我們一模一樣<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>隨機的不回 SYN<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>根據那篇文章說的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>解法有下列兩種<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
 <ul>
 <li>關掉 client 的 tcp window scaling</li>
 </ul>
-<p>不過這個顯然不是什麼好的方法，因為我們不能限制 client 阿</p>
+<p>不過這個顯然不是什麼好的方法<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因為我們不能限制 client 阿</p>
 <ul>
 <li>關掉 server 的 tcp window scaling 跟 tcp timestamps</li>
 </ul>
-<p>看起來是因為 client 送的 tcp window size 不被 server 接受所以就 drop 掉，可是為什麼是 SYN 就被 drop 實在是不可得知。不過我們的 Server 後來加了以下設定後的確就好了：</p>
+<p>看起來是因為 client 送的 tcp window size 不被 server 接受所以就 drop 掉<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>可是為什麼是 SYN 就被 drop 實在是不可得知<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>不過我們的 Server 後來加了以下設定後的確就好了<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
 <pre><code>net.ipv4.tcp_tw_reuse = 0
 net.ipv4.tcp_tw_recycle = 0
 net.ipv4.tcp_window_scaling = 0
 net.ipv4.tcp_timestamps = 0
-net.ipv4.tcp_sack = 0</code></pre><hr>
+net.ipv4.tcp_sack&nbsp;=&nbsp;0
+</code></pre>
+<hr>
 <p>參考資料:</p>
 <ul>
-<li><a href="https://wiki.archlinux.org/index.php/Sysctl" target="_blank" rel="noopener">sysctl</a></li>
-<li><a href="http://www.ecr6.ohio-state.edu/window-scaling.html" target="_blank" rel="noopener">Handling TCP Window Scaling</a></li>
-<li><a href="http://www.frozentux.net/ipsysctl-tutorial/ipsysctl-tutorial.html" target="_blank" rel="noopener">Ipsysctl tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Sysctl">sysctl</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ecr6.ohio-state.edu/window-scaling.html">Handling TCP Window Scaling</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.frozentux.net/ipsysctl-tutorial/ipsysctl-tutorial.html">Ipsysctl tutorial</a></li>
 </ul>
 
     </div>
@@ -407,7 +409,7 @@ net.ipv4.tcp_sack = 0</code></pre><hr>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -462,7 +464,7 @@ net.ipv4.tcp_sack = 0</code></pre><hr>
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -471,12 +473,12 @@ net.ipv4.tcp_sack = 0</code></pre><hr>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -281,11 +281,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>因為敝公司系統的環境有 OpenSUSE 跟 SUSE Linux Enterprise Sever SP2/SP3 混合，所以要更新 nginx 時往往要生出三個版本，實在有點搞人，不過其實也可以不要理會 libcrypt 版本不合的訊息啦，可是還是覺得編譯一個萬用的版本比較方便維護。</p>
-<p>nginx 一共需要用到 libpthread, libcrypt, libpcre, libssl, libcrypto, libz, libdl，其中可以另外設定的有 OpenSSL, PCRE, Zlib 這三種，可以提供 libcrypt, libpcre, libssl, libcrypto, libz, libdl，然後 pthread 的就靠系統提供的 static 的 .a 了，所以要生出編譯的指令如下：</p>
+        <p>因為敝公司系統的環境有 OpenSUSE 跟 SUSE Linux Enterprise Sever SP2/SP3 混合<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以要更新 nginx 時往往要生出三個版本<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>實在有點搞人<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過其實也可以不要理會 libcrypt 版本不合的訊息啦<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>可是還是覺得編譯一個萬用的版本比較方便維護<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>nginx 一共需要用到 libpthread, libcrypt, libpcre, libssl, libcrypto, libz, libdl<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>其中可以另外設定的有 OpenSSL, PCRE, Zlib 這三種<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>可以提供 libcrypt, libpcre, libssl, libcrypto, libz, libdl<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>然後 pthread 的就靠系統提供的 static 的 .a 了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以要生出編譯的指令如下<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
 <script src="//gist.github.com/27c86d8318500a239858.js"></script>
 
-<p>備註：假設 我們自己 Download 的 openssl, pcre, zlib 的原始碼都放在 /usr/src 底下</p>
+<p>備註<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char>假設 我們自己 Download 的 openssl, pcre, zlib 的原始碼都放在 /usr/src 底下</p>
 
     </div>
 
@@ -393,7 +393,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -448,7 +448,7 @@
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -457,12 +457,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

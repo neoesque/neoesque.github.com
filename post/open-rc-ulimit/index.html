@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -270,7 +270,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><br />一切都是因為手賤 XD<br /><br />因為我們的 Server 要設定大一點的 ulimit<br /><br />傳統的 Linux (或者說 Gentoo 在舊的 baselayout ) 都是使用 /etc/security/limits.conf 來設 ulimit<br /><br />於是當然就照以前的印象做拉~<br /><br />結果重開機後…<br /><br /><script src="//gist.github.com/1778443.js"></script><br />然後所有的 service 就都起不來了 什麼鬼 / 口 &lt;br /&gt;<br />而且一開始還沒有想到是這個在搞鬼 以為是 PAM 或者 OpenRC 錯了<br /><br />一直在想是不是 emerge 的 USE flag 錯了還怎樣<br /><a id="more"></a><br />然後找網站也沒有什麼相關訊息<br /><br />有人說把 OpenRC 的 PAM support 關掉就好 (不能這樣解吧 XD)<br /><br />倒是 Gentoo 的官方論壇有人提到他把 /etc/security/limits.conf 的 * 之類的刪除就好了<br /><br />於是就找了一下…<br /><br />結果神奇的發現 /etc/rc.conf 裡面有個 #rc_ulimit=’-u 30’<br /><br />然後改在這裡就好了 比方說 rc_ulimit=’-n 20000’ 就等於原本的 * soft nofile 20000</p>
+        <p><br>一切都是因為手賤 XD<br><br>因為我們的 Server 要設定大一點的 ulimit<br><br>傳統的 Linux (或者說 Gentoo 在舊的 baselayout ) 都是使用 /etc/security/limits.conf 來設 ulimit<br><br>於是當然就照以前的印象做拉~<br><br>結果重開機後…<br><br><script src="//gist.github.com/1778443.js"></script><br>然後所有的 service 就都起不來了 什麼鬼 / 口 &lt;br /&gt;<br>而且一開始還沒有想到是這個在搞鬼 以為是 PAM 或者 OpenRC 錯了<br><br>一直在想是不是 emerge 的 USE flag 錯了還怎樣<br><span id="more"></span><br>然後找網站也沒有什麼相關訊息<br><br>有人說把 OpenRC 的 PAM support 關掉就好 (不能這樣解吧 XD)<br><br>倒是 Gentoo 的官方論壇有人提到他把 /etc/security/limits.conf 的 * 之類的刪除就好了<br><br>於是就找了一下…<br><br>結果神奇的發現 /etc/rc.conf 裡面有個 #rc_ulimit=<h-char unicode="2019" class="biaodian cjk bd-close bd-end punct">’</h-char>-u 30<h-char unicode="2019" class="biaodian cjk bd-close bd-end punct">’</h-char><br><br>然後改在這裡就好了 比方說 rc_ulimit=<h-char unicode="2019" class="biaodian cjk bd-close bd-end punct">’</h-char>-n 20000<h-char unicode="2019" class="biaodian cjk bd-close bd-end punct">’</h-char> 就等於原本的 * soft nofile 20000</p>
 
     </div>
 
@@ -372,7 +372,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -427,7 +427,7 @@
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -436,12 +436,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

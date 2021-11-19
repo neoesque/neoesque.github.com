@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -196,6 +196,125 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://blog.littlero.se/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="neoesque">
+      <meta itemprop="description" content="neoesque's Linux Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="neoesque">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" class="post-title-link" itemprop="url">solve dmesg appeared nouveau No connectors reported connected with modes after upgrading kernel to 3.8 or later</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2013-05-31, 週五 22:29:10" itemprop="dateCreated datePublished" datetime="2013-05-31T22:29:10+08:00">2013-05-31, 週五</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2015-03-14, 週六 13:42:09" itemprop="dateModified" datetime="2015-03-14T13:42:09+08:00">2015-03-14, 週六</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B3%87%E8%A8%8A/" itemprop="url" rel="index"><span itemprop="name">資訊</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>7.5k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>19 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>  My Linux box installed a nVidia GeForce GT210 (a.k.a. Chipset GT218) graphic card. Before kernel 3.7, I append <code>video=VGA-1:1440x900@60</code> to kernel parameters. Because I use a 2-meter-long VGA line to connect my computer and monitor, I have to enforce using VGA port as display output. And it works perfectly.</p>
+<p>  The dmesg before kernel 3.7 says</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">[drm] nouveau 0000:01:00.0: Detected an NV50 generation card (0x0a8280a2)</span><br><span class="line">[drm] nouveau 0000:01:00.0: Checking PRAMIN for VBIOS</span><br><span class="line">[drm] nouveau 0000:01:00.0: ... appears to be valid</span><br><span class="line">[drm] nouveau 0000:01:00.0: Using VBIOS from PRAMIN</span><br><span class="line">[drm] nouveau 0000:01:00.0: BIT BIOS found</span><br><span class="line">[drm] nouveau 0000:01:00.0: Bios version 70.18.2c.00</span><br><span class="line">[drm] nouveau 0000:01:00.0: TMDS table version 2.0</span><br><span class="line">[drm] nouveau 0000:01:00.0: MXM: no VBIOS data, nothing to do</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB version 4.0</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 00: 01000302 00020030</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 01: 02000300 00000000</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 02: 02011362 0f220010</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB outp 03: 01022310 00020010</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB conn 00: 00001030</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB conn 01: 00202161</span><br><span class="line">[drm] nouveau 0000:01:00.0: DCB conn 02: 00000200</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 0 at offset 0xD0B7</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0xD40D: Condition still not met after 20ms, skipping following opcodes</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0xD411: Condition still not met after 20ms, skipping following opcodes</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 1 at offset 0xD608</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 2 at offset 0xE0DA</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 3 at offset 0xE10F</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table 4 at offset 0xE2C2</span><br><span class="line">[drm] nouveau 0000:01:00.0: Parsing VBIOS init table at offset 0xE327</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0xE327: Condition still not met after 20ms, skipping following opcodes</span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3051544 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">[drm] nouveau 0000:01:00.0: Detected 512MiB VRAM (DDR2)</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">[drm] nouveau 0000:01:00.0: 512 MiB GART (aperture)</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">[drm] nouveau 0000:01:00.0: 3 available performance level(s)</span><br><span class="line">[drm] nouveau 0000:01:00.0: 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">[drm] nouveau 0000:01:00.0: allocated 1440x900 fb: 0x310000, bo ffff8801a78dc000</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br><span class="line">[drm] nouveau 0000:01:00.0: no native mode, forcing panel scaling</span><br><span class="line">Console: switching to colour frame buffer device 180x56</span><br><span class="line">fb0: nouveaufb frame buffer device</span><br></pre></td></tr></tbody></table></figure>
+
+<p>  The kernel 3.7 or prior version was enforced using VGA as output successfully. And the resolution is right.</p>
+<p>  But after upgrading to 3.8 or above, I found that the parameter <code>video=VGA-1:1440x900@60</code> causes a faulty screen after booting. I google it, and find some people bump into the same problem. <a target="_blank" rel="noopener" href="https://bugzilla.redhat.com/show_bug.cgi?id=910945">No signal to monitor after kernel modesetting fails</a> <a target="_blank" rel="noopener" href="http://forums.fedoraforum.org/showthread.php?t=289189">Problems with kernel-3.8 and kernel-3.9 modesetting</a></p>
+<p>  The kernel 3.8 or above says</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[drm] Initialized drm 1.1.0 20060810</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] BOOT0  : 0x0a8280a2</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] Chipset: GT218 (NVA8)</span><br><span class="line">nouveau  [  DEVICE][0000:01:00.0] Family : NV50</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] checking PRAMIN for image...</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] ... appears to be valid</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] using image from PRAMIN</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] BIT signature found</span><br><span class="line">nouveau  [   VBIOS][0000:01:00.0] version 70.18.2c.00.04</span><br><span class="line">nouveau  [     PFB][0000:01:00.0] RAM type: DDR2</span><br><span class="line">nouveau  [     PFB][0000:01:00.0] RAM size: 512 MiB</span><br><span class="line">nouveau  [     PFB][0000:01:00.0]    ZCOMP: 960 tags</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] FAN control: none / external</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] fan management: disabled</span><br><span class="line">nouveau  [  PTHERM][0000:01:00.0] internal sensor: yes</span><br><span class="line">[TTM] Zone  kernel: Available graphics memory: 3050978 kiB</span><br><span class="line">[TTM] Zone   dma32: Available graphics memory: 2097152 kiB</span><br><span class="line">[TTM] Initializing pool allocator</span><br><span class="line">[TTM] Initializing DMA pool allocator</span><br><span class="line">mtrr: type mismatch for e0000000,10000000 old: write-back new: write-combining</span><br><span class="line">nouveau  [     DRM] VRAM: 512 MiB</span><br><span class="line">nouveau  [     DRM] GART: 512 MiB</span><br><span class="line">nouveau  [     DRM] TMDS table version 2.0</span><br><span class="line">nouveau  [     DRM] DCB version 4.0</span><br><span class="line">nouveau  [     DRM] DCB outp 00: 01000302 00020030</span><br><span class="line">nouveau  [     DRM] DCB outp 01: 02000300 00000000</span><br><span class="line">nouveau  [     DRM] DCB outp 02: 02011362 0f220010</span><br><span class="line">nouveau  [     DRM] DCB outp 03: 01022310 00020010</span><br><span class="line">nouveau  [     DRM] DCB conn 00: 00001030</span><br><span class="line">nouveau  [     DRM] DCB conn 01: 00202161</span><br><span class="line">nouveau  [     DRM] DCB conn 02: 00000200</span><br><span class="line">[drm] Supports vblank timestamp caching Rev 1 (10.10.2010).</span><br><span class="line">[drm] No driver support for vblank timestamp query.</span><br><span class="line">nouveau  [     DRM] 3 available performance level(s)</span><br><span class="line">nouveau  [     DRM] 0: core 135MHz shader 270MHz memory 135MHz voltage 850mV</span><br><span class="line">nouveau  [     DRM] 1: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] 3: core 589MHz shader 1402MHz memory 400MHz voltage 1000mV</span><br><span class="line">nouveau  [     DRM] c: core 405MHz shader 810MHz memory 405MHz voltage 900mV</span><br><span class="line">nouveau  [     DRM] MM: using COPY for buffer copies</span><br><span class="line">nouveau 0000:01:00.0: No connectors reported connected with modes</span><br><span class="line">[drm] Cannot find any crtc or sizes - going 1024x768</span><br><span class="line">nouveau  [     DRM] allocated 1024x768 fb: 0x70000, bo ffff8801a7c37c00</span><br><span class="line">fbcon: nouveaufb (fb0) is primary device</span><br></pre></td></tr></tbody></table></figure>
+
+<p>  The kernel 3.8 says it cannot find a connector?</p>
+<p>  I read the documents of KMS, and then I solved the problem.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/solve-dmesg-appeared-nouveau-no-connectors-reported-connected-with-modes-after-upgrading-kernel-to-3.8-or-3.9/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://blog.littlero.se/post/e-m5-wooden-grip/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -280,17 +399,17 @@
       
           <img src="https://farm8.staticflickr.com/7294/8740341439_0a08f31ecd_b.jpg" class="" width="800" height="600">
 
-<p>再次從 <a href="https://www.facebook.com/hoson.design" target="_blank" rel="noopener">HOSON</a> 團隊拿到了一個測試手把。</p>
-<p>不同的是這次手柄是木質的 ！</p>
+<p>再次從 <a target="_blank" rel="noopener" href="https://www.facebook.com/hoson.design">HOSON</a> 團隊拿到了一個測試手把<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>不同的是這次手柄是木質的 <h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char></p>
 <p>E-M5 的主人們不用再羡慕只有 E-P5 有限量版的木質手柄了 :P</p>
 <img src="https://farm8.staticflickr.com/7290/8740342185_0b1787e605_b.jpg" class="" width="800" height="600">
 
 <p>借用一下 E-P5 木質手柄的圖</p>
 <img src="http://i1266.photobucket.com/albums/jj524/picrumors/e-p5_premium_silver_zpse32957a1.jpg" class="" width="800" height="600">
 
-<p>因為選用的木頭不同所以顏色是不一樣的，E-P5 是加拿大楓木，而版友所選的是質地經過測試很堅固的柚木。</p>
-<p>設計團隊測試了柚木跟槐木，發現槐木還是軟了一點，他們更看過紫檀木，不過後來因為成本過高就作罷了。</p>
-<p>註: 柚木在 <a href="https://zh.wikipedia.org/zh-tw/%E6%9F%9A%E6%9C%A8" target="_blank" rel="noopener">wiki</a> 裡面記載 「機械性質極強、乾燥性良好，收縮率小、木質強韌、耐久性高、對菌類及蟲害抵抗力強 … 木理通直、質地堅硬、細緻，材面含油脂之觸感，乾燥性良好，耐久性高，為所有木材中膨脹收縮最少者一，尺寸安定性佳。材面木紋美觀優雅、且加工容易、為世界上高級木材之一。」</p>
+<p>因為選用的木頭不同所以顏色是不一樣的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>E-P5 是加拿大楓木<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而版友所選的是質地經過測試很堅固的柚木<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>設計團隊測試了柚木跟槐木<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>發現槐木還是軟了一點<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>他們更看過紫檀木<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過後來因為成本過高就作罷了<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>註: 柚木在 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E6%9F%9A%E6%9C%A8">wiki</a> 裡面記載 <h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>機械性質極強<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>乾燥性良好<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>收縮率小<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>木質強韌<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>耐久性高<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>對菌類及蟲害抵抗力強 … 木理通直<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>質地堅硬<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>細緻<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>材面含油脂之觸感<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>乾燥性良好<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>耐久性高<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>為所有木材中膨脹收縮最少者一<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>尺寸安定性佳<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>材面木紋美觀優雅<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>且加工容易<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>為世界上高級木材之一<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-consecutive"><h-inner>。</h-inner></h-char><h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya bd-consecutive end-portion" prev="bd-end bd-cop"><h-inner>」</h-inner></h-char></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/e-m5-wooden-grip/#more" rel="contents">
@@ -380,7 +499,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>6.2k</span>
+              <span>6.1k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -399,9 +518,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx，結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼，因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭，麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行，測了很久也找不太到癥結點，後來靈機一動，何不試看看 Safari … 結果果然不出所料… <code>Unable to establish a secure connection</code> XDDD 搞什麼連 Safari 也連不了，這樣子要 Debug 我就可以自己來了，不然要一直麻煩同事跟我對測不好意思，一開始先用 <code>tcpdump</code> 發現 Server 送 Certificate 給 Client 之後 Client 就自己斷掉 connection ?! WTF 這太沒有頭緒了吧，後來上網搜尋 <code>ssl connection fail safari</code>，結果一路看看看就看到了這個 <a href="https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/965371" target="_blank" rel="noopener">HTTPS requests fail on sites which immediately close the connection if TLS 1.1 negotiation is attempted, on Ubuntu 12.04</a>，起因是 OpenSSL 1.0.1 的一個 Bug，版上建議降成 OpenSSL 1.0.0 就可以了，因為我要啟用 nginx 的 spdy 所以一定要用 OpenSSL 1.0.1 才可以，不過秉持實驗的精神只好先解除這個功能，於是我就編譯了 nginx with openssl 1.0.0k，然後結果…靠背還是一樣 Safri 不能連其他都可以！不信邪改用 0.9.8y，結果在一模一樣的設定下這個 Safari 就可以連了 = = (這哪招)，總之越來越神秘，只好先回到 nginx with openssl 1.0.1e，(就是死命要 spdy 就對了 XD)，後來在沒什麼想法的情況下只好打開 nginx 的 debug mode <code>error_log xxxxx debug;</code>，瞧瞧裡面有什麼。</p>
+          <p>前幾天幫部門把原本提供 HTTPS 的 squid 換成 nginx<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>結果馬上被反應 Mac 上面的 Agent 不能連線但是又不知道為什麼<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因為其他的瀏覽器 Chrome Firefox 不管作業系統 Windows Linux Mac 上的都可以連真的很弔詭<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>麻煩同事用跟 Agent 一樣的 Framework 重寫一個簡單的版本也不行<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>測了很久也找不太到癥結點<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>後來靈機一動<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>何不試看看 Safari … 結果果然不出所料… <code>Unable to establish a secure connection</code> XDDD 搞什麼連 Safari 也連不了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這樣子要 Debug 我就可以自己來了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不然要一直麻煩同事跟我對測不好意思<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>一開始先用 <code>tcpdump</code> 發現 Server 送 Certificate 給 Client 之後 Client 就自己斷掉 connection ?! WTF 這太沒有頭緒了吧<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>後來上網搜尋<h-hws hidden=""> </h-hws><code>ssl connection fail safari</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>結果一路看看看就看到了這個 <a target="_blank" rel="noopener" href="https://bugs.launchpad.net/ubuntu/+source/openssl/+bug/965371">HTTPS requests fail on sites which immediately close the connection if TLS 1.1 negotiation is attempted, on Ubuntu 12.04</a><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>起因是 OpenSSL 1.0.1 的一個 Bug<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>版上建議降成 OpenSSL 1.0.0 就可以了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因為我要啟用 nginx 的 spdy 所以一定要用 OpenSSL 1.0.1 才可以<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過秉持實驗的精神只好先解除這個功能<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>於是我就編譯了 nginx with openssl 1.0.0k<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>然後結果…靠背還是一樣 Safri 不能連其他都可以<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char>不信邪改用 0.9.8y<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>結果在一模一樣的設定下這個 Safari 就可以連了 = = (這哪招)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>總之越來越神秘<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>只好先回到 nginx with openssl 1.0.1e<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>(就是死命要 spdy 就對了 XD)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>後來在沒什麼想法的情況下只好打開 nginx 的 debug mode<code>error_log xxxxx debug;</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>瞧瞧裡面有什麼<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
 <p>結果就看到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SSL handshake handler: 0</span><br><span class="line">[debug] 7585#0: *1 SSL_do_handshake: 0</span><br><span class="line">[debug] 7585#0: *1 SSL_get_error: 5</span><br><span class="line">[info] 7585#0: *1 peer closed connection in SSL handshake while SSL handshaking, client: x.x.x.x, server: 0.0.0.0:443                                  </span><br><span class="line">[debug] 7585#0: *1 close http connection: 14</span><br><span class="line">[debug] 7585#0: *1 SSL_shutdown: 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SSL handshake handler: 0</span><br><span class="line">[debug] 7585#0: *1 SSL_do_handshake: 0</span><br><span class="line">[debug] 7585#0: *1 SSL_get_error: 5</span><br><span class="line">[info] 7585#0: *1 peer closed connection in SSL handshake while SSL handshaking, client: x.x.x.x, server: 0.0.0.0:443                                  </span><br><span class="line">[debug] 7585#0: *1 close http connection: 14</span><br><span class="line">[debug] 7585#0: *1 SSL_shutdown: 1</span><br></pre></td></tr></tbody></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/nginx-ssl-cipher-rc4-safari/#more" rel="contents">
@@ -510,27 +629,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>要幫 nginx 增加安全性的話，大概首推 <a href="http://www.modsecurity.org/projects/modsecurity/nginx/" target="_blank" rel="noopener">modsecurity</a> 這個模組了，不過目前他只有支援 nginx 1.2 穩定版，尚未支援 1.3 開發版，基本上具有下列功能</p>
+          <p>要幫 nginx 增加安全性的話<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>大概首推 <a target="_blank" rel="noopener" href="http://www.modsecurity.org/projects/modsecurity/nginx/">modsecurity</a> 這個模組了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過目前他只有支援 nginx 1.2 穩定版<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>尚未支援 1.3 開發版<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>基本上具有下列功能</p>
 <ol>
-<li>超過 16000 規則防範下列攻擊<ul>
+<li>超過 16000 規則防範下列攻擊</li>
+</ol>
+<ul>
 <li>SQL injection</li>
 <li>Cross-site Scripting (XSS)</li>
 <li>Local File Include</li>
 <li>Remote File Include</li>
 </ul>
-</li>
-<li>可客製化規則，保護下列的應用<ul>
+<ol start="2">
+<li>可客製化規則<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>保護下列的應用</li>
+</ol>
+<ul>
 <li>WordPress</li>
 <li>cPanel</li>
 <li>osCommerce</li>
 <li>Joomla</li>
 </ul>
-</li>
+<ol start="3">
 <li>包含了 OWASP Core Rule Set</li>
 <li>IP 聲望偵測</li>
 <li>Malware Detection</li>
 </ol>
-<p>不過有一些在更簡單的功能，像是有時候會自己想擋一些 bot，或者要判斷合法的 referrer 才給過之類的就不在這個之內了，這時候我們可以利用 <a href="http://wiki.nginx.org/HttpMapModule" target="_blank" rel="noopener">map</a> 來幫我們做簡單的過濾。</p>
+<p>不過有一些在更簡單的功能<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>像是有時候會自己想擋一些 bot<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>或者要判斷合法的 referrer 才給過之類的就不在這個之內了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這時候我們可以利用 <a target="_blank" rel="noopener" href="http://wiki.nginx.org/HttpMapModule">map</a> 來幫我們做簡單的過濾<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/nginx---using-map-as-a-simple-web-application-firewall/#more" rel="contents">
@@ -639,10 +762,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>E-M5 的手感雖然有做出手把的弧形但是因為實在是太淺了，所以還是稍微差了一點，像我是手小的都覺得 E-M5 不好握的話，手大的應該就更難了，原廠賣的<a href="http://olympusomd.com/zh-TW/omd/e-m5/accessory/#&panel1-2" target="_blank" rel="noopener">手把</a>是跟電池底座一起賣的要九張小朋友多一點的價格，真的是見鬼了，而且不喜歡加個電池底座多一個累贅，不過現在救星來了！ <a href="https://www.facebook.com/hoson.design" target="_blank" rel="noopener">HOSON</a> 團隊帶來了一個鋁鎂合金手把 MA-1</p>
+          <p>E-M5 的手感雖然有做出手把的弧形但是因為實在是太淺了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以還是稍微差了一點<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>像我是手小的都覺得 E-M5 不好握的話<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>手大的應該就更難了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>原廠賣的<a target="_blank" rel="noopener" href="http://olympusomd.com/zh-TW/omd/e-m5/accessory/#&amp;panel1-2">手把</a>是跟電池底座一起賣的要九張小朋友多一點的價格<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>真的是見鬼了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而且不喜歡加個電池底座多一個累贅<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過現在救星來了<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char> <a target="_blank" rel="noopener" href="https://www.facebook.com/hoson.design">HOSON</a> 團隊帶來了一個鋁鎂合金手把 MA-1</p>
 <img src="https://lh3.googleusercontent.com/-sHbJAFUfvyI/UWlS2uiztyI/AAAAAAAAFkg/zheRttROHWI/s640/P4131010.JPG" class="" width="800" height="600">
 
-<p>沒錯！他叫做阿魯把，是把不是八，剛看到時覺得挺妙的，作者補充說是阿嚕咪(aluminum)的手把啦~ 而且設計製造都是在台灣，純正的 MIT！</p>
+<p>沒錯<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char>他叫做阿魯把<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>是把不是八<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>剛看到時覺得挺妙的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>作者補充說是阿嚕咪<h-hws hidden=""> </h-hws>(aluminum)<h-hws hidden=""> </h-hws>的手把啦~ 而且設計製造都是在台灣<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>純正的 MIT<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/e-m5-grip-base/#more" rel="contents">
@@ -751,10 +874,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>三年前原本買了 <a href="http://www.four-thirds.org/en/microft/body.html#c=Panasonic&i_dmc-gf2_panasonic" target="_blank" rel="noopener">GF2</a> + <a href="http://www.four-thirds.org/en/microft/single.html#i_014mm_f025_panasonic" target="_blank" rel="noopener">LUMIX G 14mm F2.5 ASPH</a> 要給我妹，結果他竟然嫌棄說 14mm 沒辦法變焦… 0rz… 這實在是，結果後來還是買了一般的小 DC 給她 = =+，然後去年入手了 <a href="http://www.four-thirds.org/en/microft/single.html#i_025mm_f014_panasonic" target="_blank" rel="noopener">LEICA DG SUMMILUX 25mm F1.4 ASPH</a> </p>
+          <p>三年前原本買了 <a target="_blank" rel="noopener" href="http://www.four-thirds.org/en/microft/body.html#c=Panasonic&amp;i_dmc-gf2_panasonic">GF2</a> + <a target="_blank" rel="noopener" href="http://www.four-thirds.org/en/microft/single.html#i_014mm_f025_panasonic">LUMIX G 14mm F2.5 ASPH</a> 要給我妹<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>結果他竟然嫌棄說 14mm 沒辦法變焦… 0rz… 這實在是<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>結果後來還是買了一般的小 DC 給她 = =+<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>然後去年入手了 <a target="_blank" rel="noopener" href="http://www.four-thirds.org/en/microft/single.html#i_025mm_f014_panasonic">LEICA DG SUMMILUX 25mm F1.4 ASPH</a> </p>
 <img src="http://farm9.staticflickr.com/8237/8584909748_bde84d9f1b_z.jpg" class="" width="800" height="600">
 
-<p>大光圈的加持真的不是蓋的等效 50mm 也相當的好取景，但是最近對焦距離 30cm 真的稍遠不過他本來就被定位在人像鏡所以其實還好，整體來說還是超級棒的一顆鏡頭，只是去參觀室內的展覽(像是小叮噹誕生前百年特展)難免又被我妹嫌棄說為什麼拍照都要站這麼遠 XDDD，以下是 GF2 搭 25mm 拍出來的照片。</p>
+<p>大光圈的加持真的不是蓋的等效 50mm 也相當的好取景<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是最近對焦距離 30cm 真的稍遠不過他本來就被定位在人像鏡所以其實還好<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>整體來說還是超級棒的一顆鏡頭<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>只是去參觀室內的展覽<h-hws hidden=""> </h-hws>(像是小叮噹誕生前百年特展)<h-hws hidden=""> </h-hws>難免又被我妹嫌棄說為什麼拍照都要站這麼遠 XDDD<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>以下是 GF2 搭 25mm 拍出來的照片<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/e-m5-12mm-25mm/#more" rel="contents">
@@ -844,14 +967,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>3.2k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>8 分鐘</span>
+              <span>7 分鐘</span>
             </span>
 
         </div>
@@ -863,9 +986,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>這篇是記錄一些 lighttpd 轉 nginx rewrite rule 的實作與一些注意事項，最後會講一些 squid 轉 nginx 的技巧。</p>
-<p>這裡先講一些跟 nginx rewrite 有關的重點。</p>
-<p>首先 nginx 算是分成 <code>location</code> 跟 <code>rewrite</code>，lighttpd 是有 <code>url.rewrite</code>、<code>url.rewrite-repeat</code> 跟 <code>url.redirect</code>，其中 lighttpd 的 <code>url.rewrite</code> 就是 rewrite once 而 <code>url.rewrite-repeat</code> 則是重複一直 rewrite 的意思，這個則對應到 nginx <code>rewrite</code> 後面接的參數，也就是 <code>break</code> 跟 <code>last</code>，<code>break</code> 就是 rewrite 到此為止不要再跑 <code>rewrite</code> 了，但是 <code>last</code> 就會在重頭跑 rewrite 一次，而且 <code>last</code> 也是 <code>rewrite</code> 這個 directive 的預設值，所以如果你的 rewrite 不小心變成 loop (nginx 預設是 rewrite 10 次後就噴 500)請加上 <code>break</code>。至於 lighttpd 的 <code>url.redirect</code> 其實在 nginx 也是透過 <code>rewrite</code> 完成的，主要是加 <code>redirect</code> 跟 <code>permanent</code> 的參數，分別是回 302 跟 301。<code>rewrite</code> 的用法大約如下：</p>
+          <p>這篇是記錄一些 lighttpd 轉 nginx rewrite rule 的實作與一些注意事項<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>最後會講一些 squid 轉 nginx 的技巧<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>這裡先講一些跟 nginx rewrite 有關的重點<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>首先 nginx 算是分成 <code>location</code> 跟<h-hws hidden=""> </h-hws><code>rewrite</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>lighttpd 是有<h-hws hidden=""> </h-hws><code>url.rewrite</code><h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char><code>url.rewrite-repeat</code> 跟<h-hws hidden=""> </h-hws><code>url.redirect</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>其中 lighttpd 的 <code>url.rewrite</code> 就是 rewrite once 而 <code>url.rewrite-repeat</code> 則是重複一直 rewrite 的意思<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這個則對應到 nginx <code>rewrite</code> 後面接的參數<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>也就是 <code>break</code> 跟<h-hws hidden=""> </h-hws><code>last</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char><code>break</code> 就是 rewrite 到此為止不要再跑 <code>rewrite</code> 了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是 <code>last</code> 就會在重頭跑 rewrite 一次<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而且 <code>last</code> 也是 <code>rewrite</code> 這個 directive 的預設值<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以如果你的 rewrite 不小心變成 loop (nginx 預設是 rewrite 10 次後就噴 500)<h-hws hidden=""> </h-hws>請加上<h-hws hidden=""> </h-hws><code>break</code><h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>至於 lighttpd 的 <code>url.redirect</code> 其實在 nginx 也是透過 <code>rewrite</code> 完成的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>主要是加 <code>redirect</code> 跟 <code>permanent</code> 的參數<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>分別是回 302 跟 301<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char><code>rewrite</code> 的用法大約如下<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/notices-about-nginx-rewrite-rule/#more" rel="contents">
@@ -955,7 +1078,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>2.5k</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -974,8 +1097,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="http://en.wikipedia.org/wiki/Cgroups" target="_blank" rel="noopener">cgroups</a> 是 Linux 的一個特色，全名是 control groups，最簡單的概念就是控制資源的分配包含了隔離、記錄的功能，最早是由 Google 的工程師開發的，並且在 2.6.24 正式進了 Kernel，後來也陸續加了不少功能，而且在 3.3 之後又加了網路優先權(priority)功能。後來的 LXC (<a href="http://en.wikipedia.org/wiki/LXC" target="_blank" rel="noopener">LinuX Containers</a>) 就是用了 cgroups 的功能來的。</p>
-<p>由於是從 Kernel 控制的所以幾乎什麼都可以管理，舉凡 <code>blkio</code> (管理輸入輸出的 block device ，像是硬碟、USB)、<code>cpu</code> (設定忙碌時能使用的 CPU time)、<code>cpuacct</code> (做統計用的)、<code>cpuset</code> (設定由那顆 CPU 執行運算)、<code>device</code> (限制能使用的設備)、<code>memory</code> (限制記憶體用量)、<code>net_cls</code> (似乎跟網路有關)，管理的範圍是以 Group 為主，所謂的 Group 可以是同一個使用者、同一個群組、同樣的 Process。</p>
+          <p><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Cgroups">cgroups</a> 是 Linux 的一個特色<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>全名是 control groups<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>最簡單的概念就是控制資源的分配包含了隔離<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>記錄的功能<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>最早是由 Google 的工程師開發的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>並且在 2.6.24 正式進了 Kernel<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>後來也陸續加了不少功能<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而且在 3.3 之後又加了網路優先權<h-hws hidden=""> </h-hws>(priority)<h-hws hidden=""> </h-hws>功能<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>後來的 LXC (<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/LXC">LinuX Containers</a>) 就是用了 cgroups 的功能來的<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>由於是從 Kernel 控制的所以幾乎什麼都可以管理<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>舉凡 <code>blkio</code> (管理輸入輸出的 block device<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>像是硬碟<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>USB)<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char><code>cpu</code> (設定忙碌時能使用的 CPU time)<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char><code>cpuacct</code> (做統計用的)<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char><code>cpuset</code> (設定由那顆 CPU 執行運算)<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char><code>device</code> (限制能使用的設備)<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char><code>memory</code> (限制記憶體用量)<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char><code>net_cls</code> (似乎跟網路有關)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>管理的範圍是以 Group 為主<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所謂的 Group 可以是同一個使用者<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>同一個群組<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>同樣的 Process<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
 <p>最簡單使用 <code>cgroups</code> 的方式就是裝 <code>libcgroup</code> 來管理
           <!--noindex-->
             <div class="post-button">
@@ -1066,7 +1189,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>574</span>
+              <span>594</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -1085,10 +1208,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><code>memcachedb</code> 用的是 BerkeleyDB 每 10M 會輸出一次 log file，所以久而久之你的資料夾會充滿一堆 <code>log.xxxxxxxxxx</code> x 是數字，依序編列，在正常的 Production 環境大概不出三天就會比原本的 DB 還多了一倍的大小，如果沒有要還原的需求的話是不需要這些 log 的，清除的方法有兩個，一個是手動刪，一個是透過 memcachedb 清。</p>
-<p>手動刪的話基本上就是用 find 就可以了，<code>find /home/memcachedb_data/ -iname &#39;log*&#39; | awk &#39;{if (NR &gt; 50) print}&#39; | xargs -i -t rm -f {}</code>，如果是要透過 memecachedb 清則可以透過 telnet 或 netcat，指令是 <code>db_archive</code>。不過如果每次都要手動下未免也太累了，所以我們可以放在 crontab 裡自動化，要放在 crontab 裡面一定要搭配 netcat ，因爲 telnet 不支援檔案重導符號 &lt; ，只要隨便開一個檔案填入下列內容</p>
+          <p><code>memcachedb</code> 用的是 BerkeleyDB 每 10M 會輸出一次 log file<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以久而久之你的資料夾會充滿一堆 <code>log.xxxxxxxxxx</code> x 是數字<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>依序編列<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>在正常的 Production 環境大概不出三天就會比原本的 DB 還多了一倍的大小<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>如果沒有要還原的需求的話是不需要這些 log 的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>清除的方法有兩個<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>一個是手動刪<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>一個是透過 memcachedb 清<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>手動刪的話基本上就是用 find 就可以了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-consecutive"><h-inner>，</h-inner></h-char><code>find /home/memcachedb_data/ -iname 'log*' | awk '{if (NR &gt; 50) print}' | xargs -i -t rm -f {}</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-consecutive end-portion bd-hangable" prev="bd-end bd-cop"><h-inner>，</h-inner></h-char>如果是要透過 memecachedb 清則可以透過 telnet 或 netcat<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>指令是<h-hws hidden=""> </h-hws><code>db_archive</code><h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>不過如果每次都要手動下未免也太累了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以我們可以放在 crontab 裡自動化<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>要放在 crontab 裡面一定要搭配 netcat<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因爲 telnet 不支援檔案重導符號 &lt;<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>只要隨便開一個檔案填入下列內容</p>
 <pre><code>db_archive
-quit</code></pre><p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netcat localhost 5566 &lt; /root/cmd/memcachedb_rotate_logs</code> 即可每小時自動清一次，其中 5566 就是 memcachedb 開的 port。</p>
+quit
+</code></pre>
+<p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netcat localhost 5566 &lt; /root/cmd/memcachedb_rotate_logs</code> 即可每小時自動清一次<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>其中 5566 就是 memcachedb 開的 port<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
 
       
     </div>
@@ -1190,120 +1315,11 @@ quit</code></pre><p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netc
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在我們使用 <a href="http://www.squid-cache.org" target="_blank" rel="noopener">squid</a> 的環境裡，常常遇到一個瓶頸，就是面對高 I/O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下(下圖爲 cacti 畫的日圖)：</p>
+          <p>在我們使用 <a target="_blank" rel="noopener" href="http://www.squid-cache.org/">squid</a> 的環境裡<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>常常遇到一個瓶頸<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>就是面對高 I/O 的環境底下<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>整個系統的效能表現會變的特別差<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>如果看系統的 CPU 線圖會如下<h-hws hidden=""> </h-hws>(下圖爲 cacti 畫的日圖)<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
 <img src="https://lh5.googleusercontent.com/-WhfEogOVTK8/UJkTvM-bZXI/AAAAAAAAEZE/QRegjwaXFC8/s566/graph_image.png" class="" width="800" height="600">
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/linux-tuning-for-write-heavy-system/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://blog.littlero.se/post/colonoscopy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="neoesque">
-      <meta itemprop="description" content="neoesque's Linux Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="neoesque">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/post/colonoscopy/" class="post-title-link" itemprop="url">大腸鏡檢查 - 輝雄診所</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2012-11-05, 週一 20:57:00" itemprop="dateCreated datePublished" datetime="2012-11-05T20:57:00+08:00">2012-11-05, 週一</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2016-12-20, 週二 22:24:39" itemprop="dateModified" datetime="2016-12-20T22:24:39+08:00">2016-12-20, 週二</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%81%A5%E5%BA%B7/" itemprop="url" rel="index"><span itemprop="name">健康</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/post/colonoscopy/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/colonoscopy/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">文章字數：</span>
-              <span>3k</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>8 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>每年九月一到就是年度的健康檢查，大概大家都是一片哀嚎 XD 不過其實也還好似乎年紀越大紅字越多好像是正常的，其實每年也沒什麼要注意的，我都只注意 GOT, GPT 而已，其他的向來都不會紅字，不過不幸的今年健康檢查竟然紅字出現在一個不可思議的地方…糞便潛血反應，當下的表情已經不是「囧」可以表現的了。既來之則安之，當下想的就是乖乖照大腸鏡，準備被「月工」吧 = =</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/colonoscopy/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -1395,7 +1411,7 @@ quit</code></pre><p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netc
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -1450,7 +1466,7 @@ quit</code></pre><p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netc
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1459,12 +1475,12 @@ quit</code></pre><p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netc
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

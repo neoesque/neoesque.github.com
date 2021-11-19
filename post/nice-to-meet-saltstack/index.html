@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -262,7 +262,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>4.2k</span>
+              <span>4.3k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -281,37 +281,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>身為一個系統管理者，當你管理的機器數量只有十來台時，你可以很輕鬆的一台一台進去管理、設定機器，但是隨著服務開始搞大了，機器數量變成數十台時，也許會需要一些工具來輔助管理，之前我都是用 <a href="http://docs.fabfile.org/en/1.6/" target="_blank" rel="noopener">Fabric</a> 來幫忙管理，不過 Fabric 有個缺點是他只是一個下指令的管理工具，當然我之前都硬幹，用 <a href="http://docs.fabfile.org/en/1.6/api/core/operations.html?highlight=put#fabric.operations.put" target="_blank" rel="noopener">put</a> 硬把他當成管理 configuration 的工具，上傳完了再下一個 reload 的指令，當然這樣也不是不行，不過似乎真的是一個很土炮的方法，但是隨著機器的數量越來越大，已經到達幾百臺的時候，就算是用 Fabric + <a href="http://docs.fabfile.org/en/1.6/usage/env.html#env-parallel" target="_blank" rel="noopener">parallel</a> 其實還是覺得很怪，一來是雖然他已經平行處理了，但是他的 output 卻變成無序的，也就是當受管理的機器有 output 他就直接顯示在管理端上，有點惱人就是，另外一個是 Fabric 需要自己寫 Group 管理，要自己定義東西，而不能透過簡單的 query 來對想要的機器下指令就好，所以最近開始想要轉型使用 configuration management tool，常見的選擇是 <a href="https://puppetlabs.com/" target="_blank" rel="noopener">puppet</a>、<a href="http://www.opscode.com/chef/" target="_blank" rel="noopener">chef</a>、<a href="http://cfengine.com/" target="_blank" rel="noopener">CFEngine</a> 之類的，不過最近有個當紅的 OpenSource 軟體出現了，那就是 <a href="http://docs.saltstack.com/" target="_blank" rel="noopener">SaltStack</a>。</p>
-<a id="more"></a>
+        <p>身為一個系統管理者<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>當你管理的機器數量只有十來台時<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>你可以很輕鬆的一台一台進去管理<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>設定機器<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是隨著服務開始搞大了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>機器數量變成數十台時<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>也許會需要一些工具來輔助管理<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>之前我都是用 <a target="_blank" rel="noopener" href="http://docs.fabfile.org/en/1.6/">Fabric</a> 來幫忙管理<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過 Fabric 有個缺點是他只是一個下指令的管理工具<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>當然我之前都硬幹<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>用 <a target="_blank" rel="noopener" href="http://docs.fabfile.org/en/1.6/api/core/operations.html?highlight=put#fabric.operations.put">put</a> 硬把他當成管理 configuration 的工具<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>上傳完了再下一個 reload 的指令<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>當然這樣也不是不行<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過似乎真的是一個很土炮的方法<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是隨著機器的數量越來越大<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>已經到達幾百臺的時候<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>就算是用 Fabric + <a target="_blank" rel="noopener" href="http://docs.fabfile.org/en/1.6/usage/env.html#env-parallel">parallel</a> 其實還是覺得很怪<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>一來是雖然他已經平行處理了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是他的 output 卻變成無序的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>也就是當受管理的機器有 output 他就直接顯示在管理端上<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>有點惱人就是<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>另外一個是 Fabric 需要自己寫 Group 管理<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>要自己定義東西<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而不能透過簡單的 query 來對想要的機器下指令就好<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以最近開始想要轉型使用 configuration management tool<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>常見的選擇是 <a target="_blank" rel="noopener" href="https://puppetlabs.com/">puppet</a><h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char><a target="_blank" rel="noopener" href="http://www.opscode.com/chef/">chef</a><h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char><a target="_blank" rel="noopener" href="http://cfengine.com/">CFEngine</a> 之類的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過最近有個當紅的 OpenSource 軟體出現了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>那就是 <a target="_blank" rel="noopener" href="http://docs.saltstack.com/">SaltStack</a><h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<span id="more"></span>
 
-<p>SaltStack 在網路的形容看起來是輕量的，而且設定極其簡單，加上是 Python 寫的，基於本人跟 Python 實在很有緣，我最愛的 <a href="http://www.gentoo.org/" target="_blank" rel="noopener">Gentoo Linux</a> 剛好他的套件管理系統 portage 就是 Python-based，然後 Fabric 也是 Python，於是就決定使用看看(這個理由是不是很薄弱 XD)</p>
-<p>SaltStack 的架構分成 Server (叫 Master) 跟 Client (叫 Minion)，每台電腦都要安裝 salt 的程式，安裝的方法也很簡單，官網有提供一行安裝法 <code>wget -O - http://bootstrap.saltstack.org | sudo sh</code> 這樣就裝好 Salt Master 了，不過當然如果是比較大的 Distro 像是 Ubuntu、SuSE、Gentoo 還是建議用內建的套件管理程式安裝，不過如果套件管理程式還是沒有就只好搬出 Python 的 <code>easy_install salt</code> 或 <code>pip install salt</code> 這兩種方法也可以把 Master 跟 Minion 都裝到好。</p>
-<p>Master 跟 Minion 裝好之後就可以開始測試啦，現在馬上啟動 Master，指令是 <code>salt-master -l debug</code> 這樣 console 會噴大量的 debug msg 而且會先在前景執行，至於 Minion 這端我們要先設定一下 <strong>/etc/hosts</strong> 加入 Master 的 ip 然後名字叫 salt，例如 <code>echo -n &#39;\n192.168.1.1 salt\n&#39; &gt;&gt; /etc/hosts</code> 因為 Minion 預設是去找 salt 這個 name 的 Server，設定好之後就可以啟動 Minion 了 <code>salt-minion -l debug</code>，由於 Salt 是採用類似 SSH 那樣的 key 交換機制，所以理論上兩邊有連上的話在 Master 那端的電腦打 <code>salt-key</code> 應該會出現 Minion 的 ID ( 也就是機器的 hostname)，如下:</p>
+<p>SaltStack 在網路的形容看起來是輕量的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而且設定極其簡單<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>加上是 Python 寫的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>基於本人跟 Python 實在很有緣<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>我最愛的 <a target="_blank" rel="noopener" href="http://www.gentoo.org/">Gentoo Linux</a> 剛好他的套件管理系統 portage 就是 Python-based<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>然後 Fabric 也是 Python<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>於是就決定使用看看<h-hws hidden=""> </h-hws>(這個理由是不是很薄弱 XD)</p>
+<p>SaltStack 的架構分成 Server (叫 Master) 跟 Client (叫 Minion)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>每台電腦都要安裝 salt 的程式<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>安裝的方法也很簡單<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>官網有提供一行安裝法 <code>wget -O - http://bootstrap.saltstack.org | sudo sh</code> 這樣就裝好 Salt Master 了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過當然如果是比較大的 Distro 像是 Ubuntu<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>SuSE<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>Gentoo 還是建議用內建的套件管理程式安裝<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過如果套件管理程式還是沒有就只好搬出 Python 的 <code>easy_install salt</code> 或 <code>pip install salt</code> 這兩種方法也可以把 Master 跟 Minion 都裝到好<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>Master 跟 Minion 裝好之後就可以開始測試啦<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>現在馬上啟動 Master<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>指令是 <code>salt-master -l debug</code> 這樣 console 會噴大量的 debug msg 而且會先在前景執行<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>至於 Minion 這端我們要先設定一下 <strong>/etc/hosts</strong> 加入 Master 的 ip 然後名字叫 salt<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>例如 <code>echo -n '\n192.168.1.1 salt\n' &gt;&gt; /etc/hosts</code> 因為 Minion 預設是去找 salt 這個 name 的 Server<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>設定好之後就可以啟動 Minion 了<h-hws hidden=""> </h-hws><code>salt-minion -l debug</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>由於 Salt 是採用類似 SSH 那樣的 key 交換機制<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以理論上兩邊有連上的話在 Master 那端的電腦打 <code>salt-key</code> 應該會出現 Minion 的 ID ( 也就是機器的 hostname)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>如下:</p>
 <pre><code>Accepted Keys:
 Unaccepted Keys:
 Minion-01
 Minion-02
-Rejected Keys:</code></pre><p>一開始加進來的 Minion 都會被擺在 Unaccepted 這裏，這時候要下 <code>salt-keys -a &#39;Minion-*&#39;</code> 就可以把 Minion- 開頭的機器變成 accepted 的了，設定成信賴後，我們就可以開始下一些簡單的 query 了，比方說在 Master 那端打 <code>salt &#39;Minion-*&#39; test.ping</code> 應該就會出現:</p>
+Rejected Keys:
+</code></pre>
+<p>一開始加進來的 Minion 都會被擺在 Unaccepted 這裏<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這時候要下 <code>salt-keys -a 'Minion-*'</code> 就可以把 Minion- 開頭的機器變成 accepted 的了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>設定成信賴後<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>我們就可以開始下一些簡單的 query 了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>比方說在 Master 那端打 <code>salt 'Minion-*' test.ping</code> 應該就會出現:</p>
 <pre><code>Minion-01:
     True
 Minion-02:
-    True</code></pre><p>這樣就表示 Minion 有回應了，如果要對 Minion 下指令則是用 cmd.run，比方說 <code>salt &#39;Minion-*&#39; cmd.run date</code> 應該會得到這樣的回應</p>
+    True
+</code></pre>
+<p>這樣就表示 Minion 有回應了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>如果要對 Minion 下指令則是用 cmd.run<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>比方說 <code>salt 'Minion-*' cmd.run date</code> 應該會得到這樣的回應</p>
 <pre><code>Minion-01:
     Sun Jun 30 18:55:30 CST 2013
 Minion-02:
-    Sun Jun 30 18:55:30 CST 2013</code></pre><p>詳細可以下的指令 ( Salt 叫做 modules ) 請看<a href="http://docs.saltstack.com/ref/modules/all/index.html" target="_blank" rel="noopener">這裏</a> 本文不多做介紹。</p>
-<p>直接進入正題，如何利用 Salt 來做 Configuration 的管理呢，首先剛剛再啟動 Server 跟 Client 時，連設定都沒設定，zero-configuration 就可以直接用了，但是要比較進階一點當然還是需要小小設定一下，首先 Master 的設定檔位置在 <strong>/etc/salt/master</strong>，先做如下設定</p>
+    Sun Jun 30 18:55:30 CST 2013
+</code></pre>
+<p>詳細可以下的指令 ( Salt 叫做 modules ) 請看<a target="_blank" rel="noopener" href="http://docs.saltstack.com/ref/modules/all/index.html">這裏</a> 本文不多做介紹<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>直接進入正題<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>如何利用 Salt 來做 Configuration 的管理呢<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>首先剛剛再啟動 Server 跟 Client 時<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>連設定都沒設定<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>zero-configuration 就可以直接用了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是要比較進階一點當然還是需要小小設定一下<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>首先 Master 的設定檔位置在 __/etc/salt/master__<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>先做如下設定</p>
 <pre><code>file_roots:
     base:
         - /srv/salt
 file_ignore_regex:
-    - &apos;/\.svn($|/)&apos;
-    - &apos;/\.git($|/)&apos;</code></pre><p>上面的設定是說我們的檔案 ( 也就是 salt 內建的 fileserver 要以哪裏為 Base ) 都放在 <strong>/srv/salt/</strong> 裡面，然後要同步檔案時，把 <code>/.svn/</code> 跟 <code>/.git/</code> 都忽略掉。<br>因此我們建立一下目錄跟建立相關檔案 <code>install -d /srv/salt/ &amp;&amp; touch /srv/salt/top.sls</code>，最主要的檔案就是這個 <code>top.sls</code>， SLS (可能是 SaLt State) 檔案就是描述所謂的 Configuration 要如何設定，在 Salt 一個 Configuration 就是一個 State，所有指定到的機器都會遵守這個狀態，這個 <code>top.sls</code> 大概會長下面這樣</p>
+    - '/\.svn($|/)'
+    - '/\.git($|/)'
+</code></pre>
+<p>上面的設定是說我們的檔案 ( 也就是 salt 內建的 fileserver 要以哪裏為 Base ) 都放在 <strong>/srv/salt/</strong> 裡面<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>然後要同步檔案時<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>把 <code>/.svn/</code> 跟 <code>/.git/</code> 都忽略掉<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char><br>因此我們建立一下目錄跟建立相關檔案<h-hws hidden=""> </h-hws><code>install -d /srv/salt/ &amp;&amp; touch /srv/salt/top.sls</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>最主要的檔案就是這個<h-hws hidden=""> </h-hws><code>top.sls</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char> SLS (可能是 SaLt State) 檔案就是描述所謂的 Configuration 要如何設定<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>在 Salt 一個 Configuration 就是一個 State<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所有指定到的機器都會遵守這個狀態<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這個 <code>top.sls</code> 大概會長下面這樣</p>
 <pre><code>base:
-  &apos;*&apos;:
+  '*':
     - users
-  &apos;www-*&apos;:
-    - nginx.www</code></pre><p>首先第一行是 base 這是固定的，然後下面就是進行 ID 的配對，這裡可以看到我設定了兩組，一個是 ‘*’ 表示每一台受控管的機器都要遵守的設定，要參照 <code>users</code> 的 state ，而這個定義在哪裡呢，就是 <strong>/srv/salt/users.sls</strong>，基本上 Salt 的檔案組合就是依照 <code>file_roots</code> 所指定的位置開始找的，然後 <code>top.sls</code> 裡面參照的 state 則可以省略 <code>.sls</code> 這個檔名，接著是所有 <code>www-</code> 開頭的機器都還要額外看 <code>nginx.www</code> 這個狀態，在 <code>top.sls</code> 裡面出現的 <code>.</code> 表示真正的位置是一個資料夾，也就是這個 <code>nginx.www</code> 狀態檔實際是描述在 <strong>/srv/salt/nginx/<a href="http://www.sls" target="_blank" rel="noopener">www.sls</a></strong>，先來看 users.sls 怎麼定義的好了</p>
+  'www-*':
+    - nginx.www
+</code></pre>
+<p>首先第一行是 base 這是固定的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>然後下面就是進行 ID 的配對<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這裡可以看到我設定了兩組<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>一個是 <h-char unicode="2018" class="biaodian cjk bd-open punct">‘</h-char>*<h-char unicode="2019" class="biaodian cjk bd-close bd-end punct">’</h-char> 表示每一台受控管的機器都要遵守的設定<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>要參照 <code>users</code> 的 state<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而這個定義在哪裡呢<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>就是 __/srv/salt/users.sls__<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>基本上 Salt 的檔案組合就是依照 <code>file_roots</code> 所指定的位置開始找的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>然後 <code>top.sls</code> 裡面參照的 state 則可以省略 <code>.sls</code> 這個檔名<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>接著是所有 <code>www-</code> 開頭的機器都還要額外看 <code>nginx.www</code> 這個狀態<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>在 <code>top.sls</code> 裡面出現的 <code>.</code> 表示真正的位置是一個資料夾<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>也就是這個 <code>nginx.www</code> 狀態檔實際是描述在 __/srv/salt/nginx/<a target="_blank" rel="noopener" href="http://www.sls__,先來看/">www.sls__<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>先來看</a> users.sls 怎麼定義的好了</p>
 <pre><code>foo:
   user.present:
     - fullname: foo
@@ -329,7 +339,9 @@ bar:
     - uid: 1001
     - gid: 100
     - groups:
-      - wheel</code></pre><p>這裏表示每一台機器至少要有 foo &amp; bar 這兩個帳號，然後其他設定都要參照這個檔案的說明，應該不難懂我就不一一說明了，要看詳細的可以參考 <a href="http://docs.saltstack.com/ref/states/all/salt.states.user.html" target="_blank" rel="noopener">salt.states.user</a>，然後再來是 <strong>/srv/salt/nginx/<a href="http://www.sls" target="_blank" rel="noopener">www.sls</a></strong> 會長的如下設定</p>
+      - wheel
+</code></pre>
+<p>這裏表示每一台機器至少要有 foo &amp; bar 這兩個帳號<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>然後其他設定都要參照這個檔案的說明<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>應該不難懂我就不一一說明了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>要看詳細的可以參考 <a target="_blank" rel="noopener" href="http://docs.saltstack.com/ref/states/all/salt.states.user.html">salt.states.user</a><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>然後再來是 <strong>/srv/salt/nginx/<a target="_blank" rel="noopener" href="http://www.sls/">www.sls</a></strong> 會長的如下設定</p>
 <pre><code>/home/nginx/conf/:
   file.recurse:
     - source: salt://nginx/www/
@@ -344,7 +356,9 @@ nginx:
     - enable: True
     - reload: True
     - watch:
-      - file: /home/nginx/conf/*</code></pre><p>這裏表示指定到的 minion 的 <strong>/home/nginx/conf/</strong>，要參考 Master 的 <code>salt://nginx/www/</code> 而這個的實際路徑是哪裏呢？依照之前說的一切都從 Base 開始，所以就是在 Master 的 <strong>/srv/salt/nginx/www/</strong>，也就是 Minion 的 <strong>/home/nginx/conf/</strong> 狀態改變的依據要跟隨 Master 的 <strong>/srv/salt/nginx/www/</strong> 資料夾，然後後面有個 <code>service.running</code> 那段則是表示當 <strong>/home/nginx/conf/*</strong> 有任何檔案被異動時(參照 <a href="http://docs.saltstack.com/ref/states/all/salt.states.service.html#module-salt.states.service" target="_blank" rel="noopener">salt.states.service</a>)， nginx 這個 Service 要被 reload (參照 <code>reload: True</code> 若無此設定則為 restart)，而 <code>enable: True</code> 則是表示開機要自動啟動，到目前為止就算是設定完 state 了，然後當然假設你的 nginx 設定檔都已經放在 <strong>/srv/salt/nginx/www/</strong> 裡面了，接下來要同步狀態要用的指令就是 <code>salt &#39;*&#39; state.highstate</code> 然後應該會出現下列的資訊</p>
+      - file: /home/nginx/conf/*
+</code></pre>
+<p>這裏表示指定到的 minion 的 __/home/nginx/conf/__<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>要參考 Master 的 <code>salt://nginx/www/</code> 而這個的實際路徑是哪裏呢<h-char unicode="ff1f" class="biaodian cjk bd-end bd-jiya"><h-inner>？</h-inner></h-char>依照之前說的一切都從 Base 開始<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以就是在 Master 的 __/srv/salt/nginx/www/__<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>也就是 Minion 的 <strong>/home/nginx/conf/</strong> 狀態改變的依據要跟隨 Master 的 <strong>/srv/salt/nginx/www/</strong> 資料夾<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>然後後面有個 <code>service.running</code> 那段則是表示當 <strong>/home/nginx/conf/*</strong> 有任何檔案被異動時<h-hws hidden=""> </h-hws>(參照 <a target="_blank" rel="noopener" href="http://docs.saltstack.com/ref/states/all/salt.states.service.html#module-salt.states.service">salt.states.service</a>)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char> nginx 這個 Service 要被 reload (參照 <code>reload: True</code> 若無此設定則為 restart)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而 <code>enable: True</code> 則是表示開機要自動啟動<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>到目前為止就算是設定完 state 了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>然後當然假設你的 nginx 設定檔都已經放在 <strong>/srv/salt/nginx/www/</strong> 裡面了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>接下來要同步狀態要用的指令就是 <code>salt '*' state.highstate</code> 然後應該會出現下列的資訊</p>
 <pre><code>www-01:
 ----------
     State: - file
@@ -373,8 +387,10 @@ nginx:
     Function:  present
         Result:    True
         Comment:   User bar is present and up to date
-        Changes:       </code></pre><p>如何，很簡單吧！因為我的狀態已經同步了，所以都沒有異動，如果有任何異動(包含新增、刪除使用者)，他都會一一列出來，更貼心的是檔案的異動甚至是列出 diff，真的是很仔細，目前為止大概就是如何利用 salt 來管理機器，用了這個之後真的就很簡單的就可以一次大量的管理一堆機器了，管理者可以花更多時間喝咖啡？</p>
-<p>下一篇會介紹一下如何客製化 grains，也就是取得機器的資訊的部份。</p>
+        Changes:       
+</code></pre>
+<p>如何<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>很簡單吧<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char>因為我的狀態已經同步了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以都沒有異動<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>如果有任何異動<h-hws hidden=""> </h-hws>(包含新增<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>刪除使用者)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>他都會一一列出來<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>更貼心的是檔案的異動甚至是列出 diff<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>真的是很仔細<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>目前為止大概就是如何利用 salt 來管理機器<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>用了這個之後真的就很簡單的就可以一次大量的管理一堆機器了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>管理者可以花更多時間喝咖啡<h-char unicode="ff1f" class="biaodian cjk bd-end bd-jiya"><h-inner>？</h-inner></h-char></p>
+<p>下一篇會介紹一下如何客製化 grains<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>也就是取得機器的資訊的部份<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
 
     </div>
 
@@ -482,7 +498,7 @@ nginx:
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -537,7 +553,7 @@ nginx:
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -546,12 +562,12 @@ nginx:
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

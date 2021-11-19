@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -270,7 +270,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> 可以說是今年蠻具有話題性的 server side 技術<br /><br />在官方網頁上可以看到大大的 Evented I/O for V8 JavaScript<br /><br />簡單來說她利用了 V8 Javascript Engine 的高速性能 加上了 non-blocking I/O 造就了特殊的程式樂趣<br /><br />沒想到 javascript 除了 client 端 也可以寫 server 端的程式<br /><br />原生的 node.js 就可以產生 server<br /><br />不過當然搭配一些 framework 會讓我們寫程式更輕鬆啦<del><br /><br />目前跟 node.js 搭配的 framework 有三種<br /><br />1. <a href="http://expressjs.com/" target="_blank" rel="noopener">Express</a><br />主要提供 view helper 跟 routing<br />2. <a href="http://jade-lang.com/" target="_blank" rel="noopener">Jade</a><br />是一個 html 的 template engine 可以減少很多寫 html 的工<br />3. <a href="http://learnboost.github.com/stylus/" target="_blank" rel="noopener">Stylus</a><br />類似 ruby 的 Sass 可以用來快速產生 css<br /><a id="more"></a>首先用 npm 裝好這三種<br /><br /><script src="//gist.github.com/941555.js"></script><br />然後隨便開一個資料夾吧</del><br /><br />就叫做 express_demo 然後進去<br /><br /><script src="//gist.github.com/941556.js"></script><br />接下來利用 express 幫我們快速產生基本架構!<br /><br /><script src="//gist.github.com/941559.js?file=[filename]"></script><br />(-t 表示指定 html template engine; -c 是 css style)<br /><br />如下圖<br /><div class="separator" style="clear: both; text-align: center;"><img border="0" height="214" width="640" src="http://1.bp.blogspot.com/-NPi7nIJ7ufc/TbQ1-xP7mdI/AAAAAAAAA3U/fjfMX3tXib8/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-24%2B%25E4%25B8%258B%25E5%258D%258810.38.31.png" /></div><br />基本上 view 就都在 views/ 這個資料夾裡了 目前看到有 index.jade 與 layout.jade<br /><br />現在直接打 node app.js 基本上就會 run 起一個基本的 express 的應用程式了!<br /><br />不過假設我們想要 deploy 到 Cloud Foundry 一樣先編輯一個 package.json 如下<br /><br /><script src="//gist.github.com/941553.js"></script><br />然後再下<br /><br /><script src="//gist.github.com/941562.js"></script><br /><b>npm 1.0 之後要改用 npm install -d</b><br /><br />一樣會噴一堆 info 不過基本上就是把 express, jade, stylus 跟其相依的 libs 都放進去 node_modules 裡<br /><br />這時候一樣改 app.js 在最前面加入 require.paths.unshift(‘./node_modules’);<br /><br />然後原本的 app.listen(3000); 改成 app.listen(process.env.VMC_APP_PORT||3000);<br /><br />這樣就可以準備發包到 Cloud Foundry 啦~<br /><br />我們來改一下 views/index.jade 好了<br /><br />改成如下<br /><br /><script src="//gist.github.com/941563.js"></script><br />存檔後發佈上去 Cloud Foundry (vmc update &lt;name&gt;)<br /><br />範例網址在 <a href="http://nodejs-hello.cloudfoundry.com/" target="_blank" rel="noopener">這裡</a><br /><br />如果要進階一點的話就是在 views 裡加額外的 .jade 頁面<br /><br />然後再 app.js 裡增加 routing 規則 app.get(‘/about’, function(req, res){ res.render(‘about’ …. blahblah<br /><br />這邊的 render(‘about’) 就會自動對應到 views 裡的 about.jade 了!<br /><br />然後 stylus 要改的話則是到 publics/stylesheets/style.styl 修改!<br /><br />BTW, 原本的 jade 是用 !!! 會產生 XHTML 我們建議改用 HTML5 所以請至 views/layout.jade 把第一行的 !!! 改成 !!! 5 這樣 Jade 就會產生 HTML 5 了</p>
+        <p><a target="_blank" rel="noopener" href="http://nodejs.org/">Node.js</a> 可以說是今年蠻具有話題性的 server side 技術<br><br>在官方網頁上可以看到大大的 Evented I/O for V8 JavaScript<br><br>簡單來說她利用了 V8 Javascript Engine 的高速性能 加上了 non-blocking I/O 造就了特殊的程式樂趣<br><br>沒想到 javascript 除了 client 端 也可以寫 server 端的程式<br><br>原生的 node.js 就可以產生 server<br><br>不過當然搭配一些 framework 會讓我們寫程式更輕鬆啦<del><br><br>目前跟 node.js 搭配的 framework 有三種<br><br>1. <a target="_blank" rel="noopener" href="http://expressjs.com/">Express</a><br>主要提供 view helper 跟 routing<br>2. <a target="_blank" rel="noopener" href="http://jade-lang.com/">Jade</a><br>是一個 html 的 template engine 可以減少很多寫 html 的工<br>3. <a target="_blank" rel="noopener" href="http://learnboost.github.com/stylus/">Stylus</a><br>類似 ruby 的 Sass 可以用來快速產生 css<br><span id="more"></span>首先用 npm 裝好這三種<br><br><script src="//gist.github.com/941555.js"></script><br>然後隨便開一個資料夾吧</del><br><br>就叫做 express_demo 然後進去<br><br><script src="//gist.github.com/941556.js"></script><br>接下來利用 express 幫我們快速產生基本架構!<br><br><script src="//gist.github.com/941559.js?file=[filename]"></script><br>(-t 表示指定 html template engine; -c 是 css style)<br><br>如下圖<br></p><div class="separator" style="clear: both; text-align: center;"><img border="0" height="214" width="640" src="http://1.bp.blogspot.com/-NPi7nIJ7ufc/TbQ1-xP7mdI/AAAAAAAAA3U/fjfMX3tXib8/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-04-24%2B%25E4%25B8%258B%25E5%258D%258810.38.31.png"></div><br>基本上 view 就都在 views/ 這個資料夾裡了 目前看到有 index.jade 與 layout.jade<br><br>現在直接打 node app.js 基本上就會 run 起一個基本的 express 的應用程式了!<br><br>不過假設我們想要 deploy 到 Cloud Foundry 一樣先編輯一個 package.json 如下<br><br><script src="//gist.github.com/941553.js"></script><br>然後再下<br><br><script src="//gist.github.com/941562.js"></script><br><b>npm 1.0 之後要改用 npm install -d</b><br><br>一樣會噴一堆 info 不過基本上就是把 express, jade, stylus 跟其相依的 libs 都放進去 node_modules 裡<br><br>這時候一樣改 app.js 在最前面加入 require.paths.unshift(<h-char unicode="2018" class="biaodian cjk bd-open punct">‘</h-char>./node_modules<h-char unicode="2019" class="biaodian cjk bd-close bd-end punct">’</h-char>);<br><br>然後原本的 app.listen(3000); 改成 app.listen(process.env.VMC_APP_PORT||3000);<br><br>這樣就可以準備發包到 Cloud Foundry 啦~<br><br>我們來改一下 views/index.jade 好了<br><br>改成如下<br><br><script src="//gist.github.com/941563.js"></script><br>存檔後發佈上去 Cloud Foundry (vmc update &lt;name&gt;)<br><br>範例網址在 <a target="_blank" rel="noopener" href="http://nodejs-hello.cloudfoundry.com/">這裡</a><br><br>如果要進階一點的話就是在 views 裡加額外的 .jade 頁面<br><br>然後再 app.js 裡增加 routing 規則 app.get(<h-char unicode="2018" class="biaodian cjk bd-open punct">‘</h-char>/about<h-char unicode="2019" class="biaodian cjk bd-close bd-end punct">’</h-char>, function(req, res){ res.render(<h-char unicode="2018" class="biaodian cjk bd-open punct">‘</h-char>about<h-char unicode="2019" class="biaodian cjk bd-close bd-end punct">’</h-char> …. blahblah<br><br>這邊的 render(<h-char unicode="2018" class="biaodian cjk bd-open punct">‘</h-char>about<h-char unicode="2019" class="biaodian cjk bd-close bd-end punct">’</h-char>) 就會自動對應到 views 裡的 about.jade 了!<br><br>然後 stylus 要改的話則是到 publics/stylesheets/style.styl 修改!<br><br>BTW, 原本的 jade 是用 !!! 會產生 XHTML 我們建議改用 HTML5 所以請至 views/layout.jade 把第一行的 !!! 改成 !!! 5 這樣 Jade 就會產生 HTML 5 了<p></p>
 
     </div>
 
@@ -370,7 +370,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -425,7 +425,7 @@
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -434,12 +434,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

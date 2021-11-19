@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -281,7 +281,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a href="http://communities.vmware.com/docs/DOC-9852" target="_blank" rel="noopener">vGhetto</a> 是一個由社群主導的專案，主要的目的當然是簡化管理 VMware 的工作，不用使用最原始的 <code>vmrun</code> 這個指令或者 Perl SDK 做管理，整個專案放在 SourceForge，到 <a href="http://vghetto.sourceforge.net" target="_blank" rel="noopener">專案頁面</a> 下載，抓下來的目錄長這樣 (或者直接用 <code>svn co https://vghetto.svn.sourceforge.net/svnroot/vghetto vghetto</code> 也可以)</p>
+        <p><a target="_blank" rel="noopener" href="http://communities.vmware.com/docs/DOC-9852">vGhetto</a> 是一個由社群主導的專案<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>主要的目的當然是簡化管理 VMware 的工作<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不用使用最原始的 <code>vmrun</code> 這個指令或者 Perl SDK 做管理<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>整個專案放在 SourceForge<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>到 <a target="_blank" rel="noopener" href="http://vghetto.sourceforge.net/">專案頁面</a> 下載<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>抓下來的目錄長這樣 (或者直接用 <code>svn co https://vghetto.svn.sourceforge.net/svnroot/vghetto vghetto</code> 也可以)</p>
 <pre><code>.
 ./INSTALL
 ./TODO
@@ -292,21 +292,37 @@
 ./other/
 ./scripts/
 ./vGhetto.pl*
-./wbin/</code></pre><p>其中的 scripts 資料夾就是放置管理用 script 的地方，裡面是一堆 .pl 的 perl 檔案<a id="more"></a>，不過也有用 php 寫的，在使用這些 perl 檔案之前要先安裝 VMware vSphere SDK for Perl，使用 Gentoo 的可以在 <em>layman</em> 增加 <code>vmware</code> 這個 repository</p>
-<pre><code>layman -a vmware</code></pre><p>設定之後就可以裝 SDK 了，接著再下</p>
-<pre><code>emerge app-emulation/vmware-vsphere-cli</code></pre><p>裝完 scripts 裡面的指令就都可以使用了。我們先用一個簡單的來試看看。</p>
-<pre><code>./listVMByFolder.pl --server VI_SERVER --user VI_USERNAME --password VI_PASSWORD</code></pre><p>(VI_SERVER, VI_USERNAME, VI_PASSWORD 請自行代換或者填成 shell variable)</p>
-<p>成功的話應該會列出這台 Server 底下的所有 VM (註：Server 可以是 ESX 或者 vCenter)</p>
+./wbin/
+</code></pre>
+<p>其中的 scripts 資料夾就是放置管理用 script 的地方<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>裡面是一堆 .pl 的 perl 檔案<span id="more"></span><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過也有用 php 寫的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>在使用這些 perl 檔案之前要先安裝 VMware vSphere SDK for Perl<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>使用 Gentoo 的可以在 <em>layman</em> 增加 <code>vmware</code> 這個 repository</p>
+<pre><code>layman -a vmware
+</code></pre>
+<p>設定之後就可以裝 SDK 了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>接著再下</p>
+<pre><code>emerge app-emulation/vmware-vsphere-cli
+</code></pre>
+<p>裝完 scripts 裡面的指令就都可以使用了<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>我們先用一個簡單的來試看看<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<pre><code>./listVMByFolder.pl --server VI_SERVER --user VI_USERNAME --password VI_PASSWORD
+</code></pre>
+<p>(VI_SERVER, VI_USERNAME, VI_PASSWORD 請自行代換或者填成 shell variable)</p>
+<p>成功的話應該會列出這台 Server 底下的所有 VM (註<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char>Server 可以是 ESX 或者 vCenter)</p>
 <p>不過我一開始執行結果會出現下列訊息</p>
-<pre><code>Error: Server version unavailable at &apos;https://VI_SERVER/sdk/vimService.wsdl&apos;</code></pre><p>由於 <code>vmrun</code> 的指令都是基於 https，因此原因可能有兩個：</p>
+<pre><code>Error: Server version unavailable at 'https://VI_SERVER/sdk/vimService.wsdl'
+</code></pre>
+<p>由於 <code>vmrun</code> 的指令都是基於 https<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因此原因可能有兩個<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
 <ul>
 <li>openssl 的 libs 沒有裝</li>
 <li>https 的 certificate 是 self-signed (所以預設不被接受)</li>
 </ul>
-<p>前者裝上 openssl 即可(Gentoo 預設應該都有裝了)，後者要在 shell variable 加上不要驗證 https 的 certificate，請使用下列指令：</p>
-<pre><code>export PERL_LWP_SSL_VERIFY_HOSTNAME=0</code></pre><p>不過主要是利用這個可以簡單的對 VM 下指令(<code>vmrun</code> 當然也可以啦)，下面是範例：</p>
-<pre><code>./guestOpsManagement.pl --server VI_SERVER --username VI_USERNAME --vm Name_of_VirtualMachine --operation Operation_to_perform --guestusername Username_for_guestOS --working_dir /tmp --program_path program_to_start --program_args Arguments_to_program</code></pre><p>可惜 operaion 的種類真的不多，只有下列</p>
-<pre><code>validate | ps | startprog | kill | ls | mkdir | rmdir | rm | mv | mvdir | copyfromguest | copytoguest | env</code></pre><h3 id="小秘訣"><a href="#小秘訣" class="headerlink" title="小秘訣"></a>小秘訣</h3><p>因為每次都要打帳號密碼實在太麻煩，因此 VMware 貼心的準備了 session 的連接方法(因為本來就是對 Https 操作)，有個程式叫做 <em>save_session.pl</em> 可以幫我們存起來，以後就用這個 Session 就可以直接下指令了，Gentoo 這個指令放在 _/opt/vmware/vsphere/cli/apps/session/save_session.pl_，因此我們用下列指令就可以存了，<code>/opt/vmware/vsphere/cli/apps/session/save_session.pl --savessionfile PATH_of_SESSION --server VI_SERVER</code>，會提示打帳號密碼，存起來的 Session 以後就可以用 shell variable 的 VI_SESSIONFILE 代表，以後就不用在打帳密了。</p>
+<p>前者裝上 openssl 即可<h-hws hidden=""> </h-hws>(Gentoo 預設應該都有裝了)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>後者要在 shell variable 加上不要驗證 https 的 certificate<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>請使用下列指令<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
+<pre><code>export PERL_LWP_SSL_VERIFY_HOSTNAME=0
+</code></pre>
+<p>不過主要是利用這個可以簡單的對 VM 下指令<h-hws hidden=""> </h-hws>(<code>vmrun</code> 當然也可以啦)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>下面是範例<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
+<pre><code>./guestOpsManagement.pl --server VI_SERVER --username VI_USERNAME --vm Name_of_VirtualMachine --operation Operation_to_perform --guestusername Username_for_guestOS --working_dir /tmp --program_path program_to_start --program_args Arguments_to_program
+</code></pre>
+<p>可惜 operaion 的種類真的不多<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>只有下列</p>
+<pre><code>validate | ps | startprog | kill | ls | mkdir | rmdir | rm | mv | mvdir | copyfromguest | copytoguest | env
+</code></pre>
+<h3 id="小秘訣"><a href="#小秘訣" class="headerlink" title="小秘訣"></a>小秘訣</h3><p>因為每次都要打帳號密碼實在太麻煩<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因此 VMware 貼心的準備了 session 的連接方法<h-hws hidden=""> </h-hws>(因為本來就是對 Https 操作)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>有個程式叫做 <em>save<h-char class="punct">_</h-char>session<h-char class="punct">.</h-char>pl</em> 可以幫我們存起來<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>以後就用這個 Session 就可以直接下指令了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>Gentoo 這個指令放在 _/opt/vmware/vsphere/cli/apps/session/save_session.pl_<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因此我們用下列指令就可以存了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-consecutive"><h-inner>，</h-inner></h-char><code>/opt/vmware/vsphere/cli/apps/session/save_session.pl --savessionfile PATH_of_SESSION --server VI_SERVER</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-consecutive end-portion bd-hangable" prev="bd-end bd-cop"><h-inner>，</h-inner></h-char>會提示打帳號密碼<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>存起來的 Session 以後就可以用 shell variable 的 VI_SESSIONFILE 代表<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>以後就不用在打帳密了<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
 
     </div>
 
@@ -399,7 +415,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#小秘訣"><span class="nav-number">1.</span> <span class="nav-text">小秘訣</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%A7%98%E8%A8%A3"><span class="nav-number">1.</span> <span class="nav-text">小秘訣</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -415,7 +431,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -470,7 +486,7 @@
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -479,12 +495,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

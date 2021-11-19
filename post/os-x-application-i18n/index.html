@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -269,7 +269,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><br />剛剛不小心砍掉家目錄的「應用程式」資料夾<br /><br />結果去 Finder 重建 Applications 目錄後 Finder 還是顯示 Applications 而不是「應用程式」<br /><br />覺得很奇怪，查了一下發現是 OS X 的多語系在搞怪<br /><br />OS X 的 Finder 有一個功能就是可以配合系統的語系顯示目錄的名稱<br /><br />系統面上 OS X 提供了一層抽象層，區隔出「真正的檔案名稱」與「Finder 顯示的名稱」<br /><br />比方說 Applications 在 Finder 會顯示成「應用程式」或者 Library 會顯示成 「資源庫」<br /><br />以下是在 OS X 做多語系的方法<br /><a id="more"></a><h3>應用程式名稱多語系化</h3><br />應用程式要多語系要在 Info.plist 裡先加入 LSHasLocalizedDisplayName，type 是 boolean，value 是 true<br /><br />然後在 Resources 裡的多語系資料夾 ( 比方說 zh_TW.lproj ) 的 InfoPlist.strings 加入一個 key name 是 CFBundleDisplayName，裡面填想要的名稱就可以了<br /><br /><h3>資料夾名稱多語系化</h3><br />想要多語系化資料夾，只要在資料夾底下建立 .localized 的子目錄，裡面加入兩個字母的語言縮寫跟 .strings 為附檔名的文字檔即可<br /><br />比方說底下包含了日文、德文跟英文的多語系化<br /><br /><script src="//gist.github.com/1216622.js"></script><br />每個 .strings 檔案裡包含了原始的名稱跟多語系化的名稱比方說要對應 Foo 資料夾到「系統」<br /><br /><script src="//gist.github.com/1216638.js"></script><br />所以要恢復 Applications 變成「應用程式」只要在 ~/Applications/ 底下建立 .localized 的子目錄(或者檔案)即可恢復 (不用在深入建立資料夾因為 OS X 有預設內建一些對應的名稱在 /System/Library/CoreServices/SystemFolderLocalizations )</p>
+        <p><br>剛剛不小心砍掉家目錄的<h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>應用程式<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char>資料夾<br><br>結果去 Finder 重建 Applications 目錄後 Finder 還是顯示 Applications 而不是<h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>應用程式<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char><br><br>覺得很奇怪<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>查了一下發現是 OS X 的多語系在搞怪<br><br>OS X 的 Finder 有一個功能就是可以配合系統的語系顯示目錄的名稱<br><br>系統面上 OS X 提供了一層抽象層<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>區隔出<h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>真正的檔案名稱<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char>與<h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>Finder 顯示的名稱<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char><br><br>比方說 Applications 在 Finder 會顯示成<h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>應用程式<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char>或者 Library 會顯示成 <h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>資源庫<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char><br><br>以下是在 OS X 做多語系的方法<br><span id="more"></span></p><h3>應用程式名稱多語系化</h3><br>應用程式要多語系要在 Info.plist 裡先加入 LSHasLocalizedDisplayName<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>type 是 boolean<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>value 是 true<br><br>然後在 Resources 裡的多語系資料夾 ( 比方說 zh_TW.lproj ) 的 InfoPlist.strings 加入一個 key name 是 CFBundleDisplayName<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>裡面填想要的名稱就可以了<br><br><h3>資料夾名稱多語系化</h3><br>想要多語系化資料夾<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>只要在資料夾底下建立 .localized 的子目錄<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>裡面加入兩個字母的語言縮寫跟 .strings 為附檔名的文字檔即可<br><br>比方說底下包含了日文<h-char unicode="3001" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>、</h-inner></h-char>德文跟英文的多語系化<br><br><script src="//gist.github.com/1216622.js"></script><br>每個 .strings 檔案裡包含了原始的名稱跟多語系化的名稱比方說要對應 Foo 資料夾到<h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>系統<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char><br><br><script src="//gist.github.com/1216638.js"></script><br>所以要恢復 Applications 變成<h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>應用程式<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char>只要在 ~/Applications/ 底下建立 .localized 的子目錄<h-hws hidden=""> </h-hws>(或者檔案)<h-hws hidden=""> </h-hws>即可恢復 (不用在深入建立資料夾因為 OS X 有預設內建一些對應的名稱在 /System/Library/CoreServices/SystemFolderLocalizations )<p></p>
 
     </div>
 
@@ -355,7 +355,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text">應用程式名稱多語系化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text">資料夾名稱多語系化</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">應用程式名稱多語系化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">資料夾名稱多語系化</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -371,7 +371,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -426,7 +426,7 @@
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -435,12 +435,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

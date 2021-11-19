@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -196,6 +196,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://blog.littlero.se/post/transfer-textmate-2-to-sublime-text-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="neoesque">
+      <meta itemprop="description" content="neoesque's Linux Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="neoesque">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/post/transfer-textmate-2-to-sublime-text-2/" class="post-title-link" itemprop="url">從 TextMate 2 跳到 Sublime Text 2</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2012-04-08, 週日 12:44:00" itemprop="dateCreated datePublished" datetime="2012-04-08T12:44:00+08:00">2012-04-08, 週日</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2016-11-09, 週三 17:25:45" itemprop="dateModified" datetime="2016-11-09T17:25:45+08:00">2016-11-09, 週三</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B3%87%E8%A8%8A/" itemprop="url" rel="index"><span itemprop="name">資訊</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/post/transfer-textmate-2-to-sublime-text-2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/transfer-textmate-2-to-sublime-text-2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>6 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>原本都是使用 TextMate 後來實在受不了不能好好支援 cjk 的輸入<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>加上 TextMate 已經過了好久都沒有更新<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>原本說好在 Mac OS X 10.5 出來的時候就要改用 CoreText 改寫<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>結果也跳票了<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>不然實在是離不開 TextMate 的 snippet<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>不過雖然 TextMate 在前一陣子推出 TextMate 2 beta 但是很多功能還是沒有完整<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而且不時還會當機<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以前陣子原本就想說找個替代品<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>一路搜尋下來就發現了 Sublime Text 2 (beta)<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>可以說 TextMate 該有的他都有<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而且支援了更多的功能<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>加上跨 Windows, Linux, OS X 所以可以預料到未來應該會有更多人力加入寫 Sublime Text 2 packages 的行列<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/transfer-textmate-2-to-sublime-text-2/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://blog.littlero.se/post/freebsd-first-sight/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -266,7 +378,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>其實說初體驗好像太誇張 XD<br /><br />大學時候有碰過一次  不過覺得好難玩(跟 Gentoo 比的話) (¬_¬) 所以就沒有繼續碰<br /><br />最近因為想評估 FreeBSD 一下所以就想說來試一下<br /><br />安裝非常簡單 都是選單互動的 比 Gentoo 簡單很多 XD<br />
+          <p>其實說初體驗好像太誇張 XD<br><br>大學時候有碰過一次  不過覺得好難玩<h-hws hidden=""> </h-hws>(跟 Gentoo 比的話) (¬_¬) 所以就沒有繼續碰<br><br>最近因為想評估 FreeBSD 一下所以就想說來試一下<br><br>安裝非常簡單 都是選單互動的 比 Gentoo 簡單很多 XD<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/freebsd-first-sight/#more" rel="contents">
@@ -363,7 +475,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><br />一切都是因為手賤 XD<br /><br />因為我們的 Server 要設定大一點的 ulimit<br /><br />傳統的 Linux (或者說 Gentoo 在舊的 baselayout ) 都是使用 /etc/security/limits.conf 來設 ulimit<br /><br />於是當然就照以前的印象做拉~<br /><br />結果重開機後…<br /><br /><script src="//gist.github.com/1778443.js"></script><br />然後所有的 service 就都起不來了 什麼鬼 / 口 &lt;br /&gt;<br />而且一開始還沒有想到是這個在搞鬼 以為是 PAM 或者 OpenRC 錯了<br /><br />一直在想是不是 emerge 的 USE flag 錯了還怎樣<br />
+          <p><br>一切都是因為手賤 XD<br><br>因為我們的 Server 要設定大一點的 ulimit<br><br>傳統的 Linux (或者說 Gentoo 在舊的 baselayout ) 都是使用 /etc/security/limits.conf 來設 ulimit<br><br>於是當然就照以前的印象做拉~<br><br>結果重開機後…<br><br><script src="//gist.github.com/1778443.js"></script><br>然後所有的 service 就都起不來了 什麼鬼 / 口 &lt;br /&gt;<br>而且一開始還沒有想到是這個在搞鬼 以為是 PAM 或者 OpenRC 錯了<br><br>一直在想是不是 emerge 的 USE flag 錯了還怎樣<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/open-rc-ulimit/#more" rel="contents">
@@ -460,7 +572,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>雖然不是什麼大不了的事情<br /><br />不過看了總是很不順眼 XD<br /><br />就是每次開 Console Log 都會噴一堆<br /><br /><pre>sandboxd: ([]) WebProcess() deny file-read-data /Library/Caches/com.nvidia.OpenGL<br />sandboxd: ([]) WebProcess() deny file-write-create /Library/Caches/com.nvidia.OpenGL/<br /></pre><br />之類的 deny 訊息，如下圖<br /><br /><div class="separator" style="clear: both; text-align: center;"><img border="0" height="247" width="640" src="http://2.bp.blogspot.com/-KgSJHGoTXfM/TudwWeh_3lI/AAAAAAAAC7A/nnW32mD6ktw/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-12-13%2B%25E4%25B8%258B%25E5%258D%25889.59.03.jpg" /></div><br />這看了很讓人不順眼阿！<br />
+          <p>雖然不是什麼大不了的事情<br><br>不過看了總是很不順眼 XD<br><br>就是每次開 Console Log 都會噴一堆<br><br></p><pre>sandboxd: ([]) WebProcess() deny file-read-data /Library/Caches/com.nvidia.OpenGL<br>sandboxd: ([]) WebProcess() deny file-write-create /Library/Caches/com.nvidia.OpenGL/<br></pre><br>之類的 deny 訊息<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>如下圖<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="247" width="640" src="http://2.bp.blogspot.com/-KgSJHGoTXfM/TudwWeh_3lI/AAAAAAAAC7A/nnW32mD6ktw/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7%2B2011-12-13%2B%25E4%25B8%258B%25E5%258D%25889.59.03.jpg"></div><br>這看了很讓人不順眼阿<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char><br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/solve-os-x-lion-log-sanboxd-deny-messages/#more" rel="contents">
@@ -557,7 +669,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <div class="separator" style="clear: both; text-align: center;"><img border="0" height="480" width="640" src="https://lh5.googleusercontent.com/-MXoANhK5dwM/TtDOmv66d2I/AAAAAAAACuk/JbxOy5C6Zb4/s640/P1050618.jpg" /></div><br />這是女朋友在 Youtube 看到的~ 實在很勾錐~<br /><br /><div class="video-container"><iframe src="https://www.youtube.com/embed/qZbuX4gRY50" frameborder="0" loading="lazy" allowfullscreen></iframe></div><br /><br />陶瓷蝴蝶結 跟其他 杯子 盤子 都很可愛~<br /><br />不過電視上沒有寫聯絡方式<br /><br />於是就找啊找的人肉了一番 XD<br /><br />終於找到她們的部落格跟名字 <a href="http://www.wretch.cc/blog/pottery2010" target="_blank" rel="noopener">小陶器</a> 設計師是鏡子跟金金<br /><br />她們專門在做可愛的陶瓷創作<br /><br />像是 陶瓷蝴蝶結<br /><br /><div class="separator" style="clear: both; text-align: center;"><img border="0" height="480" width="640" src="https://lh3.googleusercontent.com/-4mIgJr16C5Q/TtI_lO0ED2I/AAAAAAAACwY/IaD9H24Cf94/s640/P1050651.jpg" /></div>
+          <div class="separator" style="clear: both; text-align: center;"><img border="0" height="480" width="640" src="https://lh5.googleusercontent.com/-MXoANhK5dwM/TtDOmv66d2I/AAAAAAAACuk/JbxOy5C6Zb4/s640/P1050618.jpg"></div><br>這是女朋友在 Youtube 看到的~ 實在很勾錐~<br><br><div class="video-container"><iframe src="https://www.youtube.com/embed/qZbuX4gRY50" frameborder="0" loading="lazy" allowfullscreen=""></iframe></div><br><br>陶瓷蝴蝶結 跟其他 杯子 盤子 都很可愛~<br><br>不過電視上沒有寫聯絡方式<br><br>於是就找啊找的人肉了一番 XD<br><br>終於找到她們的部落格跟名字 <a target="_blank" rel="noopener" href="http://www.wretch.cc/blog/pottery2010">小陶器</a> 設計師是鏡子跟金金<br><br>她們專門在做可愛的陶瓷創作<br><br>像是 陶瓷蝴蝶結<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="480" width="640" src="https://lh3.googleusercontent.com/-4mIgJr16C5Q/TtI_lO0ED2I/AAAAAAAACwY/IaD9H24Cf94/s640/P1050651.jpg"></div>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/ceramic-bow/#more" rel="contents">
@@ -654,7 +766,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>最近被 cache server 整的很慘 XD<br /><br />先是以為我們用的 squid 效能不行 (後來證明是我頭腦的問題 XD)<br /><br />改用了 nginx, varnish 甚至是 apache traffic server 結果出圖都還是不太順利<br /><br />結果才發現是 SLB 說 cache server 的 80 port 一直 up and down<br /><br />後來更慘 SLB 產生 Mac Flapping<br /><br />後來把 Linux kernel 的 Netfilter 關掉<br /><br />然後在 /etc/sysctl.conf 把 tcp 的 buffer 加大後<br /><br />情況就舒緩許多 於是還是換回 squid 2.7.9<br /><br />在穩定後 想研究一下其他網站的 cache  solution 是什麼<br />
+          <p>最近被 cache server 整的很慘 XD<br><br>先是以為我們用的 squid 效能不行 (後來證明是我頭腦的問題 XD)<br><br>改用了 nginx, varnish 甚至是 apache traffic server 結果出圖都還是不太順利<br><br>結果才發現是 SLB 說 cache server 的 80 port 一直 up and down<br><br>後來更慘 SLB 產生 Mac Flapping<br><br>後來把 Linux kernel 的 Netfilter 關掉<br><br>然後在 /etc/sysctl.conf 把 tcp 的 buffer 加大後<br><br>情況就舒緩許多 於是還是換回 squid 2.7.9<br><br>在穩定後 想研究一下其他網站的 cache  solution 是什麼<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/wikipedia-cache-structure/#more" rel="contents">
@@ -751,7 +863,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在 squid 裡面最重要也是最難懂得設定大概就是 refresh_pattern 了<br /><br />其語法如下<br /><code>refresh_pattern [-i] regex min percent max [options]</code> <br />regex 表示要 cache 住的對象 是比對 uri<br /><br />-i 表示不分大小寫<br /><br />而 min, percent, max 則是調整 cache object 要待在 squid 裡的時間參數以 分 當單位<br /><br />而最重要的莫過於後面的 option 了 因為我們的 squid 是當 reverse proxy 所以可以加上一堆 違反 http 規則的選項
+          <p>在 squid 裡面最重要也是最難懂得設定大概就是 refresh_pattern 了<br><br>其語法如下<br><code>refresh_pattern [-i] regex min percent max [options]</code> <br>regex 表示要 cache 住的對象 是比對 uri<br><br>-i 表示不分大小寫<br><br>而 min, percent, max 則是調整 cache object 要待在 squid 裡的時間參數以 分 當單位<br><br>而最重要的莫過於後面的 option 了 因為我們的 squid 是當 reverse proxy 所以可以加上一堆 違反 http 規則的選項
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/squid-refresh-pattern/#more" rel="contents">
@@ -848,7 +960,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><br />剛剛不小心砍掉家目錄的「應用程式」資料夾<br /><br />結果去 Finder 重建 Applications 目錄後 Finder 還是顯示 Applications 而不是「應用程式」<br /><br />覺得很奇怪，查了一下發現是 OS X 的多語系在搞怪<br /><br />OS X 的 Finder 有一個功能就是可以配合系統的語系顯示目錄的名稱<br /><br />系統面上 OS X 提供了一層抽象層，區隔出「真正的檔案名稱」與「Finder 顯示的名稱」<br /><br />比方說 Applications 在 Finder 會顯示成「應用程式」或者 Library 會顯示成 「資源庫」<br /><br />以下是在 OS X 做多語系的方法<br />
+          <p><br>剛剛不小心砍掉家目錄的<h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>應用程式<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char>資料夾<br><br>結果去 Finder 重建 Applications 目錄後 Finder 還是顯示 Applications 而不是<h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>應用程式<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char><br><br>覺得很奇怪<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>查了一下發現是 OS X 的多語系在搞怪<br><br>OS X 的 Finder 有一個功能就是可以配合系統的語系顯示目錄的名稱<br><br>系統面上 OS X 提供了一層抽象層<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>區隔出<h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>真正的檔案名稱<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char>與<h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>Finder 顯示的名稱<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char><br><br>比方說 Applications 在 Finder 會顯示成<h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>應用程式<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char>或者 Library 會顯示成 <h-char unicode="300c" class="biaodian cjk bd-open bd-jiya"><h-inner>「</h-inner></h-char>資源庫<h-char unicode="300d" class="biaodian cjk bd-close bd-end bd-jiya"><h-inner>」</h-inner></h-char><br><br>以下是在 OS X 做多語系的方法<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/os-x-application-i18n/#more" rel="contents">
@@ -945,7 +1057,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>要寫 Objective-C 的程式理所當然的要在 Mac OS X 上 XD<br /><br />不過有時候想學而手邊沒有 Mac 的話也可以在 Linux / Windows 開發<br /><br />這一切都要感謝 <a href='http://en.wikipedia.org/wiki/GNUstep' target="_blank" rel="noopener">GNUStep</a> 的計畫<br /><br />在 Gentoo 上如果只是要開發 non-GUI 的程式只要安裝 gnustep-base/gnustep-base 即可<br /><br />會連帶安裝 gnustep-base/gnustep-make<br /><br />都裝好後我們就可以開始寫啦!<br />
+          <p>要寫 Objective-C 的程式理所當然的要在 Mac OS X 上 XD<br><br>不過有時候想學而手邊沒有 Mac 的話也可以在 Linux / Windows 開發<br><br>這一切都要感謝 <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/GNUstep">GNUStep</a> 的計畫<br><br>在 Gentoo 上如果只是要開發 non-GUI 的程式只要安裝 gnustep-base/gnustep-base 即可<br><br>會連帶安裝 gnustep-base/gnustep-make<br><br>都裝好後我們就可以開始寫啦!<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/compile-objective-c-on-gentoo/#more" rel="contents">
@@ -1042,107 +1154,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>之前我在 Gentoo 上因為 portage 都要下載原始碼做編譯安裝的動作<br /><br />所以為了加快下載會另外安裝 <a href="http://axel.alioth.debian.org/" target="_blank" rel="noopener">axel</a><br /><br />但是今天我發現有更多功能的程式可以用(顯然違背 Unix 哲學 do one thing and do it well)<br /><br />不過不管哪個 反正好用的程式一定要多推廣的 XD<br /><br />就是 <a href="http://aria2.sourceforge.net/" target="_blank" rel="noopener">aria2</a><br /><br />他具有以下特色<br />
+          <p>之前我在 Gentoo 上因為 portage 都要下載原始碼做編譯安裝的動作<br><br>所以為了加快下載會另外安裝 <a target="_blank" rel="noopener" href="http://axel.alioth.debian.org/">axel</a><br><br>但是今天我發現有更多功能的程式可以用<h-hws hidden=""> </h-hws>(顯然違背 Unix 哲學 do one thing and do it well)<br><br>不過不管哪個 反正好用的程式一定要多推廣的 XD<br><br>就是 <a target="_blank" rel="noopener" href="http://aria2.sourceforge.net/">aria2</a><br><br>他具有以下特色<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/unix-bt-downloader-aria2/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://blog.littlero.se/post/moinmoin-wiki-trac-nis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="neoesque">
-      <meta itemprop="description" content="neoesque's Linux Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="neoesque">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/post/moinmoin-wiki-trac-nis/" class="post-title-link" itemprop="url">moinmoin wiki 跟 trac 改吃 NIS</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2011-05-14, 週六 00:00:00" itemprop="dateCreated datePublished" datetime="2011-05-14T00:00:00+08:00">2011-05-14, 週六</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2015-03-14, 週六 13:40:51" itemprop="dateModified" datetime="2015-03-14T13:40:51+08:00">2015-03-14, 週六</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%B3%87%E8%A8%8A/" itemprop="url" rel="index"><span itemprop="name">資訊</span></a>
-                </span>
-            </span>
-
-          
-  
-  <br>
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">文章字數：</span>
-              <span>581</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>1 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近敝單位正在將原本用 OpenLDAP 的認證方式轉成 Windows AD<br /><br />因為接下來還會進一步導入 <a href='http://www.vmware.com/tw/products/view/' target="_blank" rel="noopener">VMware View</a><br /><br />View 限制要吃 Windows AD 的帳號 所以學長說就都改用 Windows AD 吧 反正 Windows AD 可以把 帳號密碼跟群組用 NIS 的方式吐給 Unix 吃<br /><br />ssh 登入吃 NIS 非常方便 敝單位現在都用 SLES11 所以用 yast 新增一下就好了!<br /><br />這樣 svn 就不會有問題了<br /><br />然後原本敝單位還有採用 trac 來做 ticket 追蹤與 moinmoin wiki 當做大家的筆記<br /><br />以下是如何設定這兩個讓他們可以吃到 NIS 的帳號<br />
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/moinmoin-wiki-trac-nis/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -1234,7 +1249,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -1289,7 +1304,7 @@
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1298,12 +1313,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

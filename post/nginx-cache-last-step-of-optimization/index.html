@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -282,23 +282,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx，當然除了複雜的 rewrite rule 要寫，還有就是想盡量榨出 nginx 的效能及所有功能，而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整！</p>
-<p>調整了很多參數之後，說實在的也不知道有什麼可以調整了，查一查網路發現：對呀！ nginx 有 cache 的模組可以用阿，因為這次轉換的機器有 php 的部分，而且大部分是出圖跟利用 php 來做 javascript 模組的合併(就是所謂的 combo loader)，這些幾乎都是做一次就不會在更改結果的，所以就查了一下 nginx 的 fastcgi cache 的設定：</p>
+        <p>最近在把敝單位的 Web Server 從原本的 lighttpd 轉換成 nginx<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>當然除了複雜的 rewrite rule 要寫<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>還有就是想盡量榨出 nginx 的效能及所有功能<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而 nginx 除了很多參數可以調整之外當然也有更多內建的功能有點類似現在的 All-in-One 小巧但是功能完整<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char></p>
+<p>調整了很多參數之後<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>說實在的也不知道有什麼可以調整了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>查一查網路發現<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char>對呀<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char> nginx 有 cache 的模組可以用阿<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因為這次轉換的機器有 php 的部分<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而且大部分是出圖跟利用 php 來做 javascript 模組的合併<h-hws hidden=""> </h-hws>(就是所謂的 combo loader)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這些幾乎都是做一次就不會在更改結果的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以就查了一下 nginx 的 fastcgi cache 的設定<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
 <p>在 <code>http</code> 的 section 加入</p>
-<pre><code>fastcgi_cache_path /dev/shm/cache/ levels=1:1 keys_zone=PHP:8m inactive=60m max_size=256m;</code></pre><p>然後在 <code>location ~ \.php$</code> 的 section 裡面加入</p>
-<a id="more"></a>
+<pre><code>fastcgi_cache_path /dev/shm/cache/ levels=1:1 keys_zone=PHP:8m inactive=60m max_size=256m;
+</code></pre>
+<p>然後在 <code>location ~ \.php$</code> 的 section 裡面加入</p>
+<span id="more"></span>
 
 <pre><code>fastcgi_cache PHP;
-fastcgi_cache_valid 200 7d;</code></pre><p>這樣 nginx 就會利用 <code>/dev/shm/cache</code> 當作快取，由於 /dev/shm 是記憶體所以速度相當的快，而記憶體的 cache 則是在 <code>keys_zone</code> 的第二部分也就是開了 8MB，而這塊快取的名字叫做 <code>PHP</code> 之後會用到，至於 <code>inactive</code> 就是用來指定快取裡面的物件多久之後沒有用到就要被剔除掉，然後最後面的 <code>max_size</code> 則是硬碟要用多少當 cache，由於通常 /dev/shm 預設會是記憶體大小的一半所以這裡就適當的調整大小。接著在用到 fastcgi 的地方，通常就是 <code>location ~ \.php$</code> 這段，加入 <code>fastcgi_cache PHP;</code> 的設定，這樣就會讓經過 fastcgi 的 request 也收進PHP 這塊的暫存區了，但是什麼東西才要記起來呢？這個則要透過 <code>fastcgi_cache_valid</code> 來指定。</p>
+fastcgi_cache_valid 200 7d;
+</code></pre>
+<p>這樣 nginx 就會利用 <code>/dev/shm/cache</code> 當作快取<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>由於 /dev/shm 是記憶體所以速度相當的快<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而記憶體的 cache 則是在 <code>keys_zone</code> 的第二部分也就是開了 8MB<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而這塊快取的名字叫做 <code>PHP</code> 之後會用到<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>至於 <code>inactive</code> 就是用來指定快取裡面的物件多久之後沒有用到就要被剔除掉<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>然後最後面的 <code>max_size</code> 則是硬碟要用多少當 cache<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>由於通常 /dev/shm 預設會是記憶體大小的一半所以這裡就適當的調整大小<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>接著在用到 fastcgi 的地方<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>通常就是 <code>location ~ \.php$</code> 這段<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>加入 <code>fastcgi_cache PHP;</code> 的設定<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這樣就會讓經過 fastcgi 的 request 也收進<h-hws hidden=""> </h-hws>PHP 這塊的暫存區了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是什麼東西才要記起來呢<h-char unicode="ff1f" class="biaodian cjk bd-end bd-jiya"><h-inner>？</h-inner></h-char>這個則要透過 <code>fastcgi_cache_valid</code> 來指定<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
 <p>來看看啟用後神奇的效果 : %}</p>
 <img src="https://lh3.googleusercontent.com/-eoc0HB1J2F8/UALL9fMD1HI/AAAAAAAAELY/K6ChB-3PwBQ/s582/graph_image.php-2.jpg" class="" width="800" height="600">
 
-<p>可以看到啟用後… php 就不工作了(誤)，因為大部分的都在 cache 的階段就出去了，不過注意的是當 nginx 看到 header 有 <code>Pragma:no-cache</code> 就不會加進去快取了。所以這個比較適合前面提到的 php 是用來出圖或者合併 javascript 等所謂的靜態內容。當然除了 CPU 的閒置，另外 response time 也增快很多，因為不需要經過 php 的運算了。</p>
-<p>結論就是：最佳化的最後一步就是加快取什麼就都解決了 XD</p>
+<p>可以看到啟用後… php 就不工作了<h-hws hidden=""> </h-hws>(誤)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因為大部分的都在 cache 的階段就出去了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過注意的是當 nginx 看到 header 有 <code>Pragma:no-cache</code> 就不會加進去快取了<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>所以這個比較適合前面提到的 php 是用來出圖或者合併 javascript 等所謂的靜態內容<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>當然除了 CPU 的閒置<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>另外 response time 也增快很多<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因為不需要經過 php 的運算了<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>結論就是<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char>最佳化的最後一步就是加快取什麼就都解決了 XD</p>
 <hr>
 <p>參考資料:</p>
 <ul>
-<li>[nginx fastcgi_cache](<a href="http://wiki.nginx.org/HttpFastcgiModule#fastcgi_cache" target="_blank" rel="noopener">http://wiki.nginx.org/HttpFastcgiModule#fastcgi_cache</a> %}</li>
+<li>[nginx fastcgi_cache](<a target="_blank" rel="noopener" href="http://wiki.nginx.org/HttpFastcgiModule#fastcgi_cache">http://wiki.nginx.org/HttpFastcgiModule#fastcgi_cache</a> %}</li>
 </ul>
 
     </div>
@@ -406,7 +410,7 @@ fastcgi_cache_valid 200 7d;</code></pre><p>這樣 nginx 就會利用 <code>/dev/
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -461,7 +465,7 @@ fastcgi_cache_valid 200 7d;</code></pre><p>這樣 nginx 就會利用 <code>/dev/
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -470,12 +474,12 @@ fastcgi_cache_valid 200 7d;</code></pre><p>這樣 nginx 就會利用 <code>/dev/
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

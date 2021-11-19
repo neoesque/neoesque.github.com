@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -23,12 +23,12 @@
     var CONFIG = {"hostname":"blog.littlero.se","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在我們使用 squid 的環境裡，常常遇到一個瓶頸，就是面對高 I&#x2F;O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下(下圖爲 cacti 畫的日圖)：">
+  <meta name="description" content="在我們使用 squid 的環境裡，常常遇到一個瓶頸，就是面對高 I&#x2F;O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下 (下圖爲 cacti 畫的日圖)：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高寫入系統 Linux 效能調教">
 <meta property="og:url" content="https://blog.littlero.se/post/linux-tuning-for-write-heavy-system/index.html">
 <meta property="og:site_name" content="neoesque">
-<meta property="og:description" content="在我們使用 squid 的環境裡，常常遇到一個瓶頸，就是面對高 I&#x2F;O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下(下圖爲 cacti 畫的日圖)：">
+<meta property="og:description" content="在我們使用 squid 的環境裡，常常遇到一個瓶頸，就是面對高 I&#x2F;O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下 (下圖爲 cacti 畫的日圖)：">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://lh5.googleusercontent.com/-WhfEogOVTK8/UJkTvM-bZXI/AAAAAAAAEZE/QRegjwaXFC8/s566/graph_image.png">
 <meta property="og:image" content="https://lh4.googleusercontent.com/-oCMaEmuOPGE/UJkTvGOylhI/AAAAAAAAEZI/C_Zla2Tuwzc/s566/graph_image2.png">
@@ -284,27 +284,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在我們使用 <a href="http://www.squid-cache.org" target="_blank" rel="noopener">squid</a> 的環境裡，常常遇到一個瓶頸，就是面對高 I/O 的環境底下，整個系統的效能表現會變的特別差，如果看系統的 CPU 線圖會如下(下圖爲 cacti 畫的日圖)：</p>
+        <p>在我們使用 <a target="_blank" rel="noopener" href="http://www.squid-cache.org/">squid</a> 的環境裡<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>常常遇到一個瓶頸<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>就是面對高 I/O 的環境底下<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>整個系統的效能表現會變的特別差<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>如果看系統的 CPU 線圖會如下<h-hws hidden=""> </h-hws>(下圖爲 cacti 畫的日圖)<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
 <img src="https://lh5.googleusercontent.com/-WhfEogOVTK8/UJkTvM-bZXI/AAAAAAAAEZE/QRegjwaXFC8/s566/graph_image.png" class="" width="800" height="600">
 
-<a id="more"></a>
+<span id="more"></span>
 
-<p>可以看到在深夜時段(也就是大量 request 圖片)時 I/O wait 整個就咬死 CPU，因爲在大量的 request 進來時 squid 會有同時的磁碟寫入跟讀取，不過我們的系統是 IBM 的 blade server 配有 ServerRAID 8k 的卡，上面有 256MB 的 Read/Write Cache/Buffer，所以總覺的讀寫性能應該可以不錯才對，可是偏偏就是在晚上很容易拖慢系統的速度。後來找到了幾個可能的參數調一調之後，現在系統的線圖如下(此爲周圖)：</p>
+<p>可以看到在深夜時段<h-hws hidden=""> </h-hws>(也就是大量 request 圖片)<h-hws hidden=""> </h-hws>時 I/O wait 整個就咬死 CPU<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因爲在大量的 request 進來時 squid 會有同時的磁碟寫入跟讀取<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過我們的系統是 IBM 的 blade server 配有 ServerRAID 8k 的卡<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>上面有 256MB 的 Read/Write Cache/Buffer<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以總覺的讀寫性能應該可以不錯才對<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>可是偏偏就是在晚上很容易拖慢系統的速度<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>後來找到了幾個可能的參數調一調之後<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>現在系統的線圖如下<h-hws hidden=""> </h-hws>(此爲周圖)<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
 <img src="https://lh4.googleusercontent.com/-oCMaEmuOPGE/UJkTvGOylhI/AAAAAAAAEZI/C_Zla2Tuwzc/s566/graph_image2.png" class="" width="800" height="600">
 
-<p>可以看到在中間過後(也就是修改後)，整體系統的 I/O waiting 就降低了，這中間的修改其實是動了下列的 Linux kernel 參數：</p>
+<p>可以看到在中間過後<h-hws hidden=""> </h-hws>(也就是修改後)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>整體系統的 I/O waiting 就降低了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這中間的修改其實是動了下列的 Linux kernel 參數<h-char unicode="ff1a" class="biaodian cjk bd-end bd-jiya"><h-inner>：</h-inner></h-char></p>
 <p>主要都是在 <code>/etc/sysctl.conf</code> 這個檔案 新增/修改 以下參數 (影響的資料夾在 <code>/proc/sys/vm/</code>)</p>
 <ul>
-<li><code>vm.dirty_background_ratio = 1</code> 這個參數主要是降低 Linux 寫檔案(dirty page)的 buffer 大小，如果是寫入的量很大的系統建議降低此值，因爲這樣會讓寫入更連續而且一致，而不會分批次每次都寫入大量的資料，Linux 原本預設的值太大了，這個值的算法是 <code>MemFree + Cached - Mapped</code> (指令 <code>cat /proc/meminfo</code> 可以看到) 假設我們算出來系統有 3G 而這個值爲 10 時表示 10% 則相當於超過 300MB 的 dirty page 才開始回寫硬碟，我猜是因爲這樣讓 Linux 的 I/O 變的很慢，因爲這個值也大於 RAID 卡的記憶體了，而且邊寫入又一直有 dirty page 一直進來，所以建議把這個值降低，我是直接設定成 1 也就是 1% 約 30M 就開始寫；相對於百分比，Linux 後來的 2.6.29 kernel 加入了 <code>vm.dirty_background_bytes</code> 是以 bytes 來計算</li>
-<li><code>vm.dirty_ratio = 2</code> 相對於 <code>vm.dirty_background_ratioad</code> 是所謂的”背景”寫入，實際上是透過 Linux 裏面的一隻叫 <code>pdflush kernel thread</code> 來回寫，<code>vm.dirty_ratio</code> 是如果 dirty page 真的超過多少就強制回寫，而不是透過背景慢慢回寫，所以 <code>vm.dirty_ratio</code> 更硬性，而<code>vm.dirty_background_ratio</code> 則相對較於軟性，也因爲這個特性當然 <code>vm.dirty_background_ratio</code> 是不會超過 <code>vm.dirty_ratio</code> 的，預設上(或者設定錯誤時) <code>vm.dirty_background_ratio</code> = <code>vm.dirty_ratio</code> /2 ,所以如果 <code>vm.dirty_background_ratio = 1</code> 則我們可以設定 <code>vm.dirty_ratio = 2</code>，同樣的 2.6.29 之後也有一個 <code>vm.dirty_bytes</code></li>
-<li><code>vm.dirty_writeback_centisecs = 100</code> 單位是百分之一秒，這個就是多久要觸發回寫，預設也蠻大的好像有 500，也就是 5 秒才寫一次，建議在高寫入的系統設定短一點，我設定成 100 也就是每秒寫入一次(反正是先寫回 raid 卡的 cache)，這樣以來可以讓寫入更均勻。</li>
-<li><code>vm.dirty_expire_centisecs = 1000</code> 單位也是百分之一秒，這個是表示 dirty page 過了多久之後下次 <code>pdflush kernel thread</code> 醒來時就會被寫回硬碟，預設是 3000 也就是 30 秒，一樣可以設低一點讓寫入均勻化，不過太低會一直寫，也不宜太低。</li>
+<li><code>vm.dirty_background_ratio = 1</code> 這個參數主要是降低 Linux 寫檔案<h-hws hidden=""> </h-hws>(dirty page)<h-hws hidden=""> </h-hws>的 buffer 大小<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>如果是寫入的量很大的系統建議降低此值<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因爲這樣會讓寫入更連續而且一致<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而不會分批次每次都寫入大量的資料<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>Linux 原本預設的值太大了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這個值的算法是 <code>MemFree + Cached - Mapped</code> (指令 <code>cat /proc/meminfo</code> 可以看到) 假設我們算出來系統有 3G 而這個值爲 10 時表示 10% 則相當於超過 300MB 的 dirty page 才開始回寫硬碟<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>我猜是因爲這樣讓 Linux 的 I/O 變的很慢<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因爲這個值也大於 RAID 卡的記憶體了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而且邊寫入又一直有 dirty page 一直進來<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以建議把這個值降低<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>我是直接設定成 1 也就是 1% 約 30M 就開始寫<h-char unicode="ff1b" class="biaodian cjk bd-end bd-jiya"><h-inner>；</h-inner></h-char>相對於百分比<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>Linux 後來的 2.6.29 kernel 加入了 <code>vm.dirty_background_bytes</code> 是以 bytes 來計算</li>
+<li><code>vm.dirty_ratio = 2</code> 相對於 <code>vm.dirty_background_ratioad</code> 是所謂的<h-char unicode="201d" class="biaodian cjk bd-close bd-end punct">”</h-char><h-hws hidden="" class="quote-outer"> </h-hws>背景<h-char unicode="201d" class="biaodian cjk bd-close bd-end punct">”</h-char><h-hws hidden="" class="quote-outer"> </h-hws>寫入<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>實際上是透過 Linux 裏面的一隻叫 <code>pdflush kernel thread</code> 來回寫<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char><code>vm.dirty_ratio</code> 是如果 dirty page 真的超過多少就強制回寫<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而不是透過背景慢慢回寫<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以 <code>vm.dirty_ratio</code> 更硬性<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而<h-hws hidden=""> </h-hws><code>vm.dirty_background_ratio</code> 則相對較於軟性<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>也因爲這個特性當然 <code>vm.dirty_background_ratio</code> 是不會超過 <code>vm.dirty_ratio</code> 的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>預設上<h-hws hidden=""> </h-hws>(或者設定錯誤時) <code>vm.dirty_background_ratio</code> = <code>vm.dirty_ratio</code> /2 ,<h-hws hidden=""> </h-hws>所以如果 <code>vm.dirty_background_ratio = 1</code> 則我們可以設定<h-hws hidden=""> </h-hws><code>vm.dirty_ratio = 2</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>同樣的 2.6.29 之後也有一個 <code>vm.dirty_bytes</code></li>
+<li><code>vm.dirty_writeback_centisecs = 100</code> 單位是百分之一秒<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這個就是多久要觸發回寫<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>預設也蠻大的好像有 500<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>也就是 5 秒才寫一次<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>建議在高寫入的系統設定短一點<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>我設定成 100 也就是每秒寫入一次<h-hws hidden=""> </h-hws>(反正是先寫回 raid 卡的 cache)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這樣以來可以讓寫入更均勻<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></li>
+<li><code>vm.dirty_expire_centisecs = 1000</code> 單位也是百分之一秒<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這個是表示 dirty page 過了多久之後下次 <code>pdflush kernel thread</code> 醒來時就會被寫回硬碟<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>預設是 3000 也就是 30 秒<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>一樣可以設低一點讓寫入均勻化<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過太低會一直寫<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>也不宜太低<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></li>
 </ul>
 <hr>
 <p>參考資料:</p>
 <ul>
-<li><a href="http://loda.hala01.com/2012/10/androidlinux-kernel-記憶體管理-入門筆記/" target="_blank" rel="noopener">Android/Linux Kernel 記憶體管理-入門筆記</a></li>
-<li><a href="http://www.westnet.com/~gsmith/content/linux-pdflush.htm" target="_blank" rel="noopener">The Linux Page Cache and pdflush</a></li>
+<li><a target="_blank" rel="noopener" href="http://loda.hala01.com/2012/10/androidlinux-kernel-%E8%A8%98%E6%86%B6%E9%AB%94%E7%AE%A1%E7%90%86-%E5%85%A5%E9%96%80%E7%AD%86%E8%A8%98/">Android/Linux Kernel 記憶體管理-入門筆記</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.westnet.com/~gsmith/content/linux-pdflush.htm">The Linux Page Cache and pdflush</a></li>
 </ul>
 
     </div>
@@ -413,7 +413,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -468,7 +468,7 @@
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -477,12 +477,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

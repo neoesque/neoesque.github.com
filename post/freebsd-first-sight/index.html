@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -23,12 +23,12 @@
     var CONFIG = {"hostname":"blog.littlero.se","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="其實說初體驗好像太誇張 XD大學時候有碰過一次  不過覺得好難玩(跟 Gentoo 比的話) (¬_¬) 所以就沒有繼續碰最近因為想評估 FreeBSD 一下所以就想說來試一下安裝非常簡單 都是選單互動的 比 Gentoo 簡單很多 XD">
+  <meta name="description" content="其實說初體驗好像太誇張 XD大學時候有碰過一次  不過覺得好難玩 (跟 Gentoo 比的話) (¬_¬) 所以就沒有繼續碰最近因為想評估 FreeBSD 一下所以就想說來試一下安裝非常簡單 都是選單互動的 比 Gentoo 簡單很多 XD">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FreeBSD 初體驗">
 <meta property="og:url" content="https://blog.littlero.se/post/freebsd-first-sight/index.html">
 <meta property="og:site_name" content="neoesque">
-<meta property="og:description" content="其實說初體驗好像太誇張 XD大學時候有碰過一次  不過覺得好難玩(跟 Gentoo 比的話) (¬_¬) 所以就沒有繼續碰最近因為想評估 FreeBSD 一下所以就想說來試一下安裝非常簡單 都是選單互動的 比 Gentoo 簡單很多 XD">
+<meta property="og:description" content="其實說初體驗好像太誇張 XD大學時候有碰過一次  不過覺得好難玩 (跟 Gentoo 比的話) (¬_¬) 所以就沒有繼續碰最近因為想評估 FreeBSD 一下所以就想說來試一下安裝非常簡單 都是選單互動的 比 Gentoo 簡單很多 XD">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2012-02-11T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-12-02T02:14:55.806Z">
@@ -268,13 +268,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>其實說初體驗好像太誇張 XD<br /><br />大學時候有碰過一次  不過覺得好難玩(跟 Gentoo 比的話) (¬_¬) 所以就沒有繼續碰<br /><br />最近因為想評估 FreeBSD 一下所以就想說來試一下<br /><br />安裝非常簡單 都是選單互動的 比 Gentoo 簡單很多 XD<br /><a id="more"></a><br />BSD 系列的其中一大特色就是他的 ports 系統啦<br /><br />最傳統的使用法是移動進去他的目錄然後打 make install clean<br /><br />比方說要裝 vim 就要打 <br /><br /><script src="//gist.github.com/1805904.js"></script><br />不過這實在太麻煩了還要移動目錄 看起來 FreeBSD 目前有幾個不錯的 manager<br /><ul><li>portmanager</li><li>portupgrade</li></ul><br />我選了 portmanager 因為有人說他效能比較好 他是用 C 寫的 相較於 portupgrade 是用 Ruby 寫的當然比較好 XD<br /><br />所以來裝一下吧<br /><br /><script src="//gist.github.com/1805917.js"></script><br />使用方法很簡單 <i>portmanager CATEGORY/PORT -ui</i> 即可 i 表示要 interactive 選 options<br /><br />比方說裝 vim 就變成 <i>portmanager editors/vim -ui</i><br /><br />不過在此之前讓我們來調整一下 ports 編譯時候相關設定<br /><br />先編輯 /etc/make.conf (可能會沒有那就建立他吧)<br /><br /><script src="//gist.github.com/1805935.js"></script><br />CFLAGS 就是編譯時最佳化的參數啦<br />而 FORCE_MAKE_JOBS=yes MAKE_JOBS_NUMBER=9 則是 make 時要同時作多少個 jobs<br /><br />要順便加上全域的 WITHOUT_X11=yes 也行<br /><br />再來是我覺得 ports 很奇怪的地方<br /><br />ports 在編譯時可以選不同的額外套件 (Gentoo 叫 USE)<br /><br />不過有的時候是另外寫 options 這個檔案 (在同資料夾下) 有的時候卻只有在 Makefile 才可以看到 = =<br /><br />像 vim 就是只有寫在 Makefile 這時候要編譯只能在 make 時加上 WITHOUT_X11=yes 之類的<br /><br />但是像 svn 他有寫 options 就可以在他的資料夾下打 make config 會跳出互動選單選額外套件 (或者 portmanager 有加 -i 也是會呼叫 make config)<br /><br />BTW, make config 會把設定存在 /var/db/ports/portname/options<br /><br />對於像 vim 這類的 portmanager 有另外的解決方法 首先 <i>cp /usr/local/etc/portmanager/{pm-020.conf.SAMPLE,pm-020.conf}</i><br /><br />然後編輯 /usr/local/etc/portmanager/pm-020.conf 加入類似以下的設定<br /><br /><script src="//gist.github.com/1805967.js"></script><br />這表示編譯 vim 時要加入 perl python ruby 的支援但是把圖形界面排除<br /><br />而 zsh 則是加入 pcre 的支援<br /><br />這樣一來 ports 的基本使用好像大致完善了<br /><br />如果要升級 ports tree 請使用 <i>portsnap fetch update</i><br /><br />然後檢查狀態 <i>portmanager -s</i><br /><br />如果要升級就 <i>portmanager -u</i><br /><br />要搜尋 ports 有三種方法<br /><ol><li><i>whereis vim</i> - 適用於知道完整的套件名字</li><li><i>echo /usr/ports/<em>/</em>vim*</i></li><li><i>cd /usr/ports &amp;&amp; make search name=vim</i></li></ol><br />其中第三種方法 make search 需要 /usr/ports 已經有 index file<br /><br />index file 從哪裡來 你可以自己建立 <i>make index</i> (不過要好久 = =<br /><br />我們抓別人的就好了 <i>make fetchindex</i>  XD<br /><br />1M 多的檔案~快多了!<br /><br /><h4>後記</h4>關於 static route 只要在 /etc/rc.conf 作如下的設定<br /><br /><script src="//gist.github.com/1806010.js"></script></p>
+        <p>其實說初體驗好像太誇張 XD<br><br>大學時候有碰過一次  不過覺得好難玩<h-hws hidden=""> </h-hws>(跟 Gentoo 比的話) (¬_¬) 所以就沒有繼續碰<br><br>最近因為想評估 FreeBSD 一下所以就想說來試一下<br><br>安裝非常簡單 都是選單互動的 比 Gentoo 簡單很多 XD<br><span id="more"></span><br>BSD 系列的其中一大特色就是他的 ports 系統啦<br><br>最傳統的使用法是移動進去他的目錄然後打 make install clean<br><br>比方說要裝 vim 就要打 <br><br><script src="//gist.github.com/1805904.js"></script><br>不過這實在太麻煩了還要移動目錄 看起來 FreeBSD 目前有幾個不錯的 manager<br></p><ul><li>portmanager</li><li>portupgrade</li></ul><br>我選了 portmanager 因為有人說他效能比較好 他是用 C 寫的 相較於 portupgrade 是用 Ruby 寫的當然比較好 XD<br><br>所以來裝一下吧<br><br><script src="//gist.github.com/1805917.js"></script><br>使用方法很簡單 <i>portmanager CATEGORY/PORT -ui</i> 即可 i 表示要 interactive 選 options<br><br>比方說裝 vim 就變成 <i>portmanager editors/vim -ui</i><br><br>不過在此之前讓我們來調整一下 ports 編譯時候相關設定<br><br>先編輯 /etc/make.conf (可能會沒有那就建立他吧)<br><br><script src="//gist.github.com/1805935.js"></script><br>CFLAGS 就是編譯時最佳化的參數啦<br>而 FORCE_MAKE_JOBS=yes MAKE_JOBS_NUMBER=9 則是 make 時要同時作多少個 jobs<br><br>要順便加上全域的 WITHOUT_X11=yes 也行<br><br>再來是我覺得 ports 很奇怪的地方<br><br>ports 在編譯時可以選不同的額外套件 (Gentoo 叫 USE)<br><br>不過有的時候是另外寫 options 這個檔案 (在同資料夾下) 有的時候卻只有在 Makefile 才可以看到 = =<br><br>像 vim 就是只有寫在 Makefile 這時候要編譯只能在 make 時加上 WITHOUT_X11=yes 之類的<br><br>但是像 svn 他有寫 options 就可以在他的資料夾下打 make config 會跳出互動選單選額外套件 (或者 portmanager 有加 -i 也是會呼叫 make config)<br><br>BTW, make config 會把設定存在 /var/db/ports/portname/options<br><br>對於像 vim 這類的 portmanager 有另外的解決方法 首先 <i>cp /usr/local/etc/portmanager/{pm-020.conf.SAMPLE,pm-020.conf}</i><br><br>然後編輯 /usr/local/etc/portmanager/pm-020.conf 加入類似以下的設定<br><br><script src="//gist.github.com/1805967.js"></script><br>這表示編譯 vim 時要加入 perl python ruby 的支援但是把圖形界面排除<br><br>而 zsh 則是加入 pcre 的支援<br><br>這樣一來 ports 的基本使用好像大致完善了<br><br>如果要升級 ports tree 請使用 <i>portsnap fetch update</i><br><br>然後檢查狀態 <i>portmanager -s</i><br><br>如果要升級就 <i>portmanager -u</i><br><br>要搜尋 ports 有三種方法<br><ol><li><i>whereis vim</i> - 適用於知道完整的套件名字</li><li><i>echo /usr/ports/*/<em>vim</em></i></li><li><i>cd /usr/ports &amp;&amp; make search name=vim</i></li></ol><br>其中第三種方法 make search 需要 /usr/ports 已經有 index file<br><br>index file 從哪裡來 你可以自己建立 <i>make index</i> (不過要好久 = =<br><br>我們抓別人的就好了 <i>make fetchindex</i>  XD<br><br>1M 多的檔案~快多了!<br><br><h4>後記</h4>關於 static route 只要在 /etc/rc.conf 作如下的設定<br><br><script src="//gist.github.com/1806010.js"></script><p></p>
 <h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Hookah</div>
-<div class='content'>
-FreeBSD 讚啦！</div>
+<div class="comments">
+<div class="comment">
+<div class="author">Hookah</div>
+<div class="content">
+FreeBSD 讚啦<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char></div>
 </div>
 </div>
 
@@ -361,7 +361,7 @@ FreeBSD 讚啦！</div>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text">後記</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text">Comments</span></a></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">後記</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number"></span> <span class="nav-text">Comments</span></a></div>
       </div>
       <!--/noindex-->
 
@@ -377,7 +377,7 @@ FreeBSD 讚啦！</div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -432,7 +432,7 @@ FreeBSD 讚啦！</div>
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -441,12 +441,12 @@ FreeBSD 讚啦！</div>
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

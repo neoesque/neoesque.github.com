@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -261,7 +261,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>574</span>
+              <span>594</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -280,10 +280,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><code>memcachedb</code> 用的是 BerkeleyDB 每 10M 會輸出一次 log file，所以久而久之你的資料夾會充滿一堆 <code>log.xxxxxxxxxx</code> x 是數字，依序編列，在正常的 Production 環境大概不出三天就會比原本的 DB 還多了一倍的大小，如果沒有要還原的需求的話是不需要這些 log 的，清除的方法有兩個，一個是手動刪，一個是透過 memcachedb 清。</p>
-<p>手動刪的話基本上就是用 find 就可以了，<code>find /home/memcachedb_data/ -iname &#39;log*&#39; | awk &#39;{if (NR &gt; 50) print}&#39; | xargs -i -t rm -f {}</code>，如果是要透過 memecachedb 清則可以透過 telnet 或 netcat，指令是 <code>db_archive</code>。不過如果每次都要手動下未免也太累了，所以我們可以放在 crontab 裡自動化，要放在 crontab 裡面一定要搭配 netcat ，因爲 telnet 不支援檔案重導符號 &lt; ，只要隨便開一個檔案填入下列內容</p>
+        <p><code>memcachedb</code> 用的是 BerkeleyDB 每 10M 會輸出一次 log file<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以久而久之你的資料夾會充滿一堆 <code>log.xxxxxxxxxx</code> x 是數字<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>依序編列<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>在正常的 Production 環境大概不出三天就會比原本的 DB 還多了一倍的大小<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>如果沒有要還原的需求的話是不需要這些 log 的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>清除的方法有兩個<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>一個是手動刪<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>一個是透過 memcachedb 清<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<p>手動刪的話基本上就是用 find 就可以了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-consecutive"><h-inner>，</h-inner></h-char><code>find /home/memcachedb_data/ -iname 'log*' | awk '{if (NR &gt; 50) print}' | xargs -i -t rm -f {}</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-consecutive end-portion bd-hangable" prev="bd-end bd-cop"><h-inner>，</h-inner></h-char>如果是要透過 memecachedb 清則可以透過 telnet 或 netcat<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>指令是<h-hws hidden=""> </h-hws><code>db_archive</code><h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>不過如果每次都要手動下未免也太累了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以我們可以放在 crontab 裡自動化<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>要放在 crontab 裡面一定要搭配 netcat<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因爲 telnet 不支援檔案重導符號 &lt;<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>只要隨便開一個檔案填入下列內容</p>
 <pre><code>db_archive
-quit</code></pre><p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netcat localhost 5566 &lt; /root/cmd/memcachedb_rotate_logs</code> 即可每小時自動清一次，其中 5566 就是 memcachedb 開的 port。</p>
+quit
+</code></pre>
+<p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netcat localhost 5566 &lt; /root/cmd/memcachedb_rotate_logs</code> 即可每小時自動清一次<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>其中 5566 就是 memcachedb 開的 port<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
 
     </div>
 
@@ -390,7 +392,7 @@ quit</code></pre><p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netc
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -445,7 +447,7 @@ quit</code></pre><p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netc
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -454,12 +456,12 @@ quit</code></pre><p>然後在 crontab 裏面增加 <code>0 * * * * /usr/bin/netc
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

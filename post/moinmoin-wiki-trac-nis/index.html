@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -270,7 +270,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近敝單位正在將原本用 OpenLDAP 的認證方式轉成 Windows AD<br /><br />因為接下來還會進一步導入 <a href='http://www.vmware.com/tw/products/view/' target="_blank" rel="noopener">VMware View</a><br /><br />View 限制要吃 Windows AD 的帳號 所以學長說就都改用 Windows AD 吧 反正 Windows AD 可以把 帳號密碼跟群組用 NIS 的方式吐給 Unix 吃<br /><br />ssh 登入吃 NIS 非常方便 敝單位現在都用 SLES11 所以用 yast 新增一下就好了!<br /><br />這樣 svn 就不會有問題了<br /><br />然後原本敝單位還有採用 trac 來做 ticket 追蹤與 moinmoin wiki 當做大家的筆記<br /><br />以下是如何設定這兩個讓他們可以吃到 NIS 的帳號<br /><a id="more"></a><br />首先是先改 moinmoin<br /><br />看到 <em>python lib 的路徑/site-packages/moin-1.9.2-py2.6.egg/share/moin/wikiconfig.py</em><br /><br />把原本 LDAPAuth 的部份改成如下<br /><br /><script src="//gist.github.com/971678.js"></script><br />接下來是 trac<br /><br />trac 的 LDAP 似乎有很多 plugin 不過都大同小異<br /><br />我們只要把 [ldap] 的部份改成如下即可<br /><br /><script src="//gist.github.com/971679.js"></script><br />這樣就可以用 Windows AD 的帳號密碼登入了！<br /><br />同場加映 把 cacti 也改吃 NIS<br /><br />看之前我上司的文章就好 XD<br /><br /><a href="http://blog.xuite.net/misgarlic/weblogic/45065527" target="_blank" rel="noopener">cacti authentication with LDAP</a><br /><br />後記<br /><br />如果 Windows 的帳號有 “使用者必須在下次登入時變更密碼” 的帳戶選項  那個使用者將會登入不了!(Both trac and moinmoin) (不過在 ssh 登入卻可以 = = 也太怪了)</p>
+        <p>最近敝單位正在將原本用 OpenLDAP 的認證方式轉成 Windows AD<br><br>因為接下來還會進一步導入 <a target="_blank" rel="noopener" href="http://www.vmware.com/tw/products/view/">VMware View</a><br><br>View 限制要吃 Windows AD 的帳號 所以學長說就都改用 Windows AD 吧 反正 Windows AD 可以把 帳號密碼跟群組用 NIS 的方式吐給 Unix 吃<br><br>ssh 登入吃 NIS 非常方便 敝單位現在都用 SLES11 所以用 yast 新增一下就好了!<br><br>這樣 svn 就不會有問題了<br><br>然後原本敝單位還有採用 trac 來做 ticket 追蹤與 moinmoin wiki 當做大家的筆記<br><br>以下是如何設定這兩個讓他們可以吃到 NIS 的帳號<br><span id="more"></span><br>首先是先改 moinmoin<br><br>看到 <em>python lib 的路徑<h-char class="punct">/</h-char>site<h-char class="punct">-</h-char>packages<h-char class="punct">/</h-char>moin<h-char class="punct">-</h-char>1<h-char class="punct">.</h-char>9<h-char class="punct">.</h-char>2<h-char class="punct">-</h-char>py2<h-char class="punct">.</h-char>6<h-char class="punct">.</h-char>egg<h-char class="punct">/</h-char>share<h-char class="punct">/</h-char>moin<h-char class="punct">/</h-char>wikiconfig<h-char class="punct">.</h-char>py</em><br><br>把原本 LDAPAuth 的部份改成如下<br><br><script src="//gist.github.com/971678.js"></script><br>接下來是 trac<br><br>trac 的 LDAP 似乎有很多 plugin 不過都大同小異<br><br>我們只要把 [ldap] 的部份改成如下即可<br><br><script src="//gist.github.com/971679.js"></script><br>這樣就可以用 Windows AD 的帳號密碼登入了<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char><br><br>同場加映 把 cacti 也改吃 NIS<br><br>看之前我上司的文章就好 XD<br><br><a target="_blank" rel="noopener" href="http://blog.xuite.net/misgarlic/weblogic/45065527">cacti authentication with LDAP</a><br><br>後記<br><br>如果 Windows 的帳號有 <h-char unicode="201c" class="biaodian cjk bd-open punct">“</h-char>使用者必須在下次登入時變更密碼<h-char unicode="201d" class="biaodian cjk bd-close bd-end punct">”</h-char> 的帳戶選項  那個使用者將會登入不了!(Both trac and moinmoin) (不過在 ssh 登入卻可以 = = 也太怪了)</p>
 
     </div>
 
@@ -372,7 +372,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -427,7 +427,7 @@
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -436,12 +436,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

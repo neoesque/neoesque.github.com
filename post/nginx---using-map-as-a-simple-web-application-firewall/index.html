@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -23,12 +23,12 @@
     var CONFIG = {"hostname":"blog.littlero.se","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="要幫 nginx 增加安全性的話，大概首推 modsecurity 這個模組了，不過目前他只有支援 nginx 1.2 穩定版，尚未支援 1.3 開發版，基本上具有下列功能  超過 16000 規則防範下列攻擊 SQL injection Cross-site Scripting (XSS) Local File Include Remote File Include   可客製化規則，保護下列的">
+  <meta name="description" content="要幫 nginx 增加安全性的話，大概首推 modsecurity 這個模組了，不過目前他只有支援 nginx 1.2 穩定版，尚未支援 1.3 開發版，基本上具有下列功能  超過 16000 規則防範下列攻擊   SQL injection Cross-site Scripting (XSS) Local File Include Remote File Include   可客製化規則，保護下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用 map 的功能把 nginx 變成簡單的應用程式防火牆">
 <meta property="og:url" content="https://blog.littlero.se/post/nginx---using-map-as-a-simple-web-application-firewall/index.html">
 <meta property="og:site_name" content="neoesque">
-<meta property="og:description" content="要幫 nginx 增加安全性的話，大概首推 modsecurity 這個模組了，不過目前他只有支援 nginx 1.2 穩定版，尚未支援 1.3 開發版，基本上具有下列功能  超過 16000 規則防範下列攻擊 SQL injection Cross-site Scripting (XSS) Local File Include Remote File Include   可客製化規則，保護下列的">
+<meta property="og:description" content="要幫 nginx 增加安全性的話，大概首推 modsecurity 這個模組了，不過目前他只有支援 nginx 1.2 穩定版，尚未支援 1.3 開發版，基本上具有下列功能  超過 16000 規則防範下列攻擊   SQL injection Cross-site Scripting (XSS) Local File Include Remote File Include   可客製化規則，保護下">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2013-04-14T03:44:22.000Z">
 <meta property="article:modified_time" content="2015-03-14T05:41:20.000Z">
@@ -280,39 +280,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>要幫 nginx 增加安全性的話，大概首推 <a href="http://www.modsecurity.org/projects/modsecurity/nginx/" target="_blank" rel="noopener">modsecurity</a> 這個模組了，不過目前他只有支援 nginx 1.2 穩定版，尚未支援 1.3 開發版，基本上具有下列功能</p>
+        <p>要幫 nginx 增加安全性的話<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>大概首推 <a target="_blank" rel="noopener" href="http://www.modsecurity.org/projects/modsecurity/nginx/">modsecurity</a> 這個模組了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過目前他只有支援 nginx 1.2 穩定版<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>尚未支援 1.3 開發版<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>基本上具有下列功能</p>
 <ol>
-<li>超過 16000 規則防範下列攻擊<ul>
+<li>超過 16000 規則防範下列攻擊</li>
+</ol>
+<ul>
 <li>SQL injection</li>
 <li>Cross-site Scripting (XSS)</li>
 <li>Local File Include</li>
 <li>Remote File Include</li>
 </ul>
-</li>
-<li>可客製化規則，保護下列的應用<ul>
+<ol start="2">
+<li>可客製化規則<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>保護下列的應用</li>
+</ol>
+<ul>
 <li>WordPress</li>
 <li>cPanel</li>
 <li>osCommerce</li>
 <li>Joomla</li>
 </ul>
-</li>
+<ol start="3">
 <li>包含了 OWASP Core Rule Set</li>
 <li>IP 聲望偵測</li>
 <li>Malware Detection</li>
 </ol>
-<p>不過有一些在更簡單的功能，像是有時候會自己想擋一些 bot，或者要判斷合法的 referrer 才給過之類的就不在這個之內了，這時候我們可以利用 <a href="http://wiki.nginx.org/HttpMapModule" target="_blank" rel="noopener">map</a> 來幫我們做簡單的過濾。</p>
-<a id="more"></a>
+<p>不過有一些在更簡單的功能<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>像是有時候會自己想擋一些 bot<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>或者要判斷合法的 referrer 才給過之類的就不在這個之內了<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這時候我們可以利用 <a target="_blank" rel="noopener" href="http://wiki.nginx.org/HttpMapModule">map</a> 來幫我們做簡單的過濾<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<span id="more"></span>
 
-<p>首先 <code>map</code> 只能夠放在 <code>http</code> 的 scope 內，所以我們可以在 <code>http</code> 內擺下列規則</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">map $request_method $bad_method &#123;</span><br><span class="line">  default 1;</span><br><span class="line">  ~*(get|head|post) 0;</span><br><span class="line">&#125;</span><br><span class="line">map $http_user_agent $bad_bot &#123;</span><br><span class="line">  default 0;</span><br><span class="line">  ~*^curl 1;</span><br><span class="line">  ~*^flashget 1;</span><br><span class="line">  ~*^java 1;</span><br><span class="line">  ~^$ 1;</span><br><span class="line">&#125;</span><br><span class="line">map $query_string $bad_query &#123;</span><br><span class="line">  default 0;</span><br><span class="line">  ~[a-zA-Z0-9_]&#x3D;(\.\.%2F(%2F)?)+ 1;</span><br><span class="line">  ~[a-zA-Z0-9_]&#x3D;%2F([a-z0-9_.]+%2F(%2F)?)+ 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先 <code>map</code> 只能夠放在 <code>http</code> 的 scope 內<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以我們可以在 <code>http</code> 內擺下列規則</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">map $request_method $bad_method {</span><br><span class="line">  default 1;</span><br><span class="line">  ~*(get|head|post) 0;</span><br><span class="line">}</span><br><span class="line">map $http_user_agent $bad_bot {</span><br><span class="line">  default 0;</span><br><span class="line">  ~*^curl 1;</span><br><span class="line">  ~*^flashget 1;</span><br><span class="line">  ~*^java 1;</span><br><span class="line">  ~^$ 1;</span><br><span class="line">}</span><br><span class="line">map $query_string $bad_query {</span><br><span class="line">  default 0;</span><br><span class="line">  ~[a-zA-Z0-9_]=(\.\.%2F(%2F)?)+ 1;</span><br><span class="line">  ~[a-zA-Z0-9_]=%2F([a-z0-9_.]+%2F(%2F)?)+ 1;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<p><code>map</code> 的用法很簡單，第一個參數給的是要做比較的對象通常就是 http core 可以使用的那些變數可以參考 <a href="http://wiki.nginx.org/HttpCoreModule#Variables" target="_blank" rel="noopener">這裡</a>，然後第二個參數就是覆寫過後的變數名稱，再來大刮號內首先給這個變數一個預設值也就是 <code>default xxx;</code>，後面就開始接比較的方法跟如果 match 到要給第二個變數什麼值，通常有三種表示法以 <code>~</code> <code>~*</code> 跟不是這兩個開頭的，以 <code>~</code> 跟 <code>~*</code> 開頭的表示要用正規表示式來比對，沒有的就表示是常規的方式比對(直接比對)，所以剛剛的範例來說可以用下面的來解釋</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># 比對 $request_method 然後比對後的值放 $bad_method</span><br><span class="line">map $request_method $bad_method &#123;</span><br><span class="line">  # 把 $bad_method 設定成 0</span><br><span class="line">  default 1;</span><br><span class="line">  # 如果 $request_method 是 GET 或 HEAD 或 POST 就把 $bad_method 設成 0</span><br><span class="line">  ~*(get|head|post) 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 比對 $http_user_agent 比對的值放 $bad_bot</span><br><span class="line">map $http_user_agent $bad_bot &#123;</span><br><span class="line">  # $bad_bot 預設是 0</span><br><span class="line">  default 0;</span><br><span class="line">  # user agent 遇到 curl &#x2F; flashget &#x2F; java 或者完全是空的就設成 1</span><br><span class="line">  ~*^curl 1;</span><br><span class="line">  ~*^flashget 1;</span><br><span class="line">  ~*^java 1;</span><br><span class="line">  ~^$ 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 比對 ? 後面的參數</span><br><span class="line">map $query_string $bad_query &#123;</span><br><span class="line">  default 0;</span><br><span class="line">  # 如果遇到要 access 檔案的 比方說 a&#x3D;..%2Fetc%2Fpasswd 之類的 $bad_query 就設成 1</span><br><span class="line">  ~[a-zA-Z0-9_]&#x3D;(\.\.%2F(%2F)?)+ 1;</span><br><span class="line">  # 這個是 a&#x3D;%2Fetc%2F 之類的</span><br><span class="line">  ~[a-zA-Z0-9_]&#x3D;%2F([a-z0-9_.]+%2F(%2F)?)+ 1;</span><br><span class="line">&#125;</span><br><span class="line"># 註: %2F 就是 &#x2F;</span><br></pre></td></tr></table></figure>
+<p><code>map</code> 的用法很簡單<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>第一個參數給的是要做比較的對象通常就是 http core 可以使用的那些變數可以參考 <a target="_blank" rel="noopener" href="http://wiki.nginx.org/HttpCoreModule#Variables">這裡</a><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>然後第二個參數就是覆寫過後的變數名稱<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>再來大刮號內首先給這個變數一個預設值也就是<h-hws hidden=""> </h-hws><code>default xxx;</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>後面就開始接比較的方法跟如果 match 到要給第二個變數什麼值<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>通常有三種表示法以 <code>~</code> <code>~*</code> 跟不是這兩個開頭的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>以 <code>~</code> 跟 <code>~*</code> 開頭的表示要用正規表示式來比對<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>沒有的就表示是常規的方式比對<h-hws hidden=""> </h-hws>(直接比對)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以剛剛的範例來說可以用下面的來解釋</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># 比對 $request_method 然後比對後的值放 $bad_method</span><br><span class="line">map $request_method $bad_method {</span><br><span class="line">  # 把 $bad_method 設定成 0</span><br><span class="line">  default 1;</span><br><span class="line">  # 如果 $request_method 是 GET 或 HEAD 或 POST 就把 $bad_method 設成 0</span><br><span class="line">  ~*(get|head|post) 0;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"># 比對 $http_user_agent 比對的值放 $bad_bot</span><br><span class="line">map $http_user_agent $bad_bot {</span><br><span class="line">  # $bad_bot 預設是 0</span><br><span class="line">  default 0;</span><br><span class="line">  # user agent 遇到 curl / flashget / java 或者完全是空的就設成 1</span><br><span class="line">  ~*^curl 1;</span><br><span class="line">  ~*^flashget 1;</span><br><span class="line">  ~*^java 1;</span><br><span class="line">  ~^$ 1;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"># 比對 ? 後面的參數</span><br><span class="line">map $query_string $bad_query {</span><br><span class="line">  default 0;</span><br><span class="line">  # 如果遇到要 access 檔案的 比方說 a=..%2Fetc%2Fpasswd 之類的 $bad_query 就設成 1</span><br><span class="line">  ~[a-zA-Z0-9_]=(\.\.%2F(%2F)?)+ 1;</span><br><span class="line">  # 這個是 a=%2Fetc%2F 之類的</span><br><span class="line">  ~[a-zA-Z0-9_]=%2F([a-z0-9_.]+%2F(%2F)?)+ 1;</span><br><span class="line">}</span><br><span class="line"># 註: %2F 就是 /</span><br></pre></td></tr></tbody></table></figure>
 
-<p>然後我們要在 <code>server</code> 的 context 擺下面的設定才會生效(建議擺在最上面就可以了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if ($bad_method &#x3D; 1) &#123;</span><br><span class="line">  return 444;</span><br><span class="line">&#125;</span><br><span class="line">if ($bad_bot &#x3D; 1) &#123;</span><br><span class="line">  return 444;</span><br><span class="line">&#125;</span><br><span class="line">if ($bad_query &#x3D; 1) &#123;</span><br><span class="line">  return 444;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然後我們要在 <code>server</code> 的 context 擺下面的設定才會生效<h-hws hidden=""> </h-hws>(建議擺在最上面就可以了</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if ($bad_method = 1) {</span><br><span class="line">  return 444;</span><br><span class="line">}</span><br><span class="line">if ($bad_bot = 1) {</span><br><span class="line">  return 444;</span><br><span class="line">}</span><br><span class="line">if ($bad_query = 1) {</span><br><span class="line">  return 444;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<p>這樣就會把我們不想要的 request 都過濾掉了。</p>
+<p>這樣就會把我們不想要的 request 都過濾掉了<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
 
     </div>
 
@@ -419,7 +423,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -474,7 +478,7 @@
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -483,12 +487,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -23,12 +23,12 @@
     var CONFIG = {"hostname":"blog.littlero.se","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在 Google Page Speed 的要點裡 有提到 減少要求 request 的數量這樣的話會有兩種作法deploy 時合併成一支大的 .js透過 php 把要求的 js 合併一次傳送出去但是前者失去了彈性，假設我們有十種不同的元件( js 檔)，因為不是每次都需要這十種元件的功能，所以不可能每次都 loading 這十隻，如果要選擇性的 loading 就要把全部的組合都合併出來，這樣的排">
+  <meta name="description" content="在 Google Page Speed 的要點裡 有提到 減少要求 request 的數量這樣的話會有兩種作法deploy 時合併成一支大的 .js透過 php 把要求的 js 合併一次傳送出去但是前者失去了彈性，假設我們有十種不同的元件 ( js 檔)，因為不是每次都需要這十種元件的功能，所以不可能每次都 loading 這十隻，如果要選擇性的 loading 就要把全部的組合都合併出來，這樣的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="讓 php 回 304 Not Modified">
 <meta property="og:url" content="https://blog.littlero.se/post/php-304-not-modified/index.html">
 <meta property="og:site_name" content="neoesque">
-<meta property="og:description" content="在 Google Page Speed 的要點裡 有提到 減少要求 request 的數量這樣的話會有兩種作法deploy 時合併成一支大的 .js透過 php 把要求的 js 合併一次傳送出去但是前者失去了彈性，假設我們有十種不同的元件( js 檔)，因為不是每次都需要這十種元件的功能，所以不可能每次都 loading 這十隻，如果要選擇性的 loading 就要把全部的組合都合併出來，這樣的排">
+<meta property="og:description" content="在 Google Page Speed 的要點裡 有提到 減少要求 request 的數量這樣的話會有兩種作法deploy 時合併成一支大的 .js透過 php 把要求的 js 合併一次傳送出去但是前者失去了彈性，假設我們有十種不同的元件 ( js 檔)，因為不是每次都需要這十種元件的功能，所以不可能每次都 loading 這十隻，如果要選擇性的 loading 就要把全部的組合都合併出來，這樣的">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://3.bp.blogspot.com/-_uoJgH66ctA/TZ_MbuifuxI/AAAAAAAAA2o/Oy9bGVFVw8A/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2011-04-09+%25E4%25B8%258A%25E5%258D%258811.02.06.png">
 <meta property="og:image" content="http://4.bp.blogspot.com/-w0ZRtO8Lps4/TZ_MbDT7CPI/AAAAAAAAA2k/eEm2lSwezbM/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2011-04-09+%25E4%25B8%258A%25E5%258D%258811.01.41.png">
@@ -271,7 +271,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在 Google Page Speed 的要點裡 有提到 <a href="http://code.google.com/intl/zh-TW/speed/page-speed/docs/rtt.html#CombineExternalJS" target="_blank">減少要求 request 的數量</a><br />這樣的話會有兩種作法<br /><br /><ol><li>deploy 時合併成一支大的 .js</li><li>透過 php 把要求的 js 合併一次傳送出去</li></ol><br />但是前者失去了彈性，假設我們有十種不同的元件( js 檔)，因為不是每次都需要這十種元件的功能，所以不可能每次都 loading 這十隻，如果要選擇性的 loading 就要把全部的組合都合併出來，這樣的排列組合未免也太恐怖了。<br /><br />因此實務上會寫一支 php (姑且稱之 combo loader)，透過傳遞不同的 js 元件需求，這隻 combo loader 可以輕鬆的組合出想要的元件。並且可以把合併的結果 cache 起來，下次遇到一樣的需求就不必再重新組合了。<br /><br />因此程式碼大概會長這樣。<br /><a id="more"></a><script src="//gist.github.com/941646.js"></script><br />但是這樣做每次要資料都還是會回應 200 OK 而不能像 js 或 css 回應 304 Not Modified<br /><br />所以我們還要在動一些手腳<br /><br />把回應的 header 加 Expires 跟 Last-Modified 因此大概變成如下<br /><br /><script src="//gist.github.com/941647.js"></script><br />這樣下次有同樣的 request 近來 php 就會先檢查 HTTP_IF_MODIFIED_SINCE 然後透過比對修改的時間決定要回 304 還是重新出檔案了!<br /><br />當然 request 可能會長成這樣<br /><br /><script src="//gist.github.com/941650.js"></script><br />或者防止瀏覽器的 cache 也可以像這樣 loading<br /><br /><script src="//gist.github.com/941651.js"></script><br />最後差異如下<br /><br /><div class="separator" style="clear: both; text-align: center;"><img border="0" height="43" src="http://3.bp.blogspot.com/-_uoJgH66ctA/TZ_MbuifuxI/AAAAAAAAA2o/Oy9bGVFVw8A/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2011-04-09+%25E4%25B8%258A%25E5%258D%258811.02.06.png" width="640" /></div><br /><div class="separator" style="clear: both; text-align: center;"><img border="0" height="63" src="http://4.bp.blogspot.com/-w0ZRtO8Lps4/TZ_MbDT7CPI/AAAAAAAAA2k/eEm2lSwezbM/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2011-04-09+%25E4%25B8%258A%25E5%258D%258811.01.41.png" width="640" /></div><br />從 132KB 降到 180B ~</p>
+        <p>在 Google Page Speed 的要點裡 有提到 <a href="http://code.google.com/intl/zh-TW/speed/page-speed/docs/rtt.html#CombineExternalJS" target="_blank">減少要求 request 的數量</a><br>這樣的話會有兩種作法<br><br></p><ol><li>deploy 時合併成一支大的 .js</li><li>透過 php 把要求的 js 合併一次傳送出去</li></ol><br>但是前者失去了彈性<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>假設我們有十種不同的元件<h-hws hidden=""> </h-hws>( js 檔)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因為不是每次都需要這十種元件的功能<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以不可能每次都 loading 這十隻<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>如果要選擇性的 loading 就要把全部的組合都合併出來<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這樣的排列組合未免也太恐怖了<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char><br><br>因此實務上會寫一支 php (姑且稱之 combo loader)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>透過傳遞不同的 js 元件需求<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>這隻 combo loader 可以輕鬆的組合出想要的元件<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char>並且可以把合併的結果 cache 起來<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>下次遇到一樣的需求就不必再重新組合了<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char><br><br>因此程式碼大概會長這樣<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char><br><span id="more"></span><script src="//gist.github.com/941646.js"></script><br>但是這樣做每次要資料都還是會回應 200 OK 而不能像 js 或 css 回應 304 Not Modified<br><br>所以我們還要在動一些手腳<br><br>把回應的 header 加 Expires 跟 Last-Modified 因此大概變成如下<br><br><script src="//gist.github.com/941647.js"></script><br>這樣下次有同樣的 request 近來 php 就會先檢查 HTTP_IF_MODIFIED_SINCE 然後透過比對修改的時間決定要回 304 還是重新出檔案了!<br><br>當然 request 可能會長成這樣<br><br><script src="//gist.github.com/941650.js"></script><br>或者防止瀏覽器的 cache 也可以像這樣 loading<br><br><script src="//gist.github.com/941651.js"></script><br>最後差異如下<br><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="43" src="http://3.bp.blogspot.com/-_uoJgH66ctA/TZ_MbuifuxI/AAAAAAAAA2o/Oy9bGVFVw8A/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2011-04-09+%25E4%25B8%258A%25E5%258D%258811.02.06.png" width="640"></div><br><div class="separator" style="clear: both; text-align: center;"><img border="0" height="63" src="http://4.bp.blogspot.com/-w0ZRtO8Lps4/TZ_MbDT7CPI/AAAAAAAAA2k/eEm2lSwezbM/s640/%25E8%259E%25A2%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2011-04-09+%25E4%25B8%258A%25E5%258D%258811.01.41.png" width="640"></div><br>從 132KB 降到 180B ~<p></p>
 
     </div>
 
@@ -371,7 +371,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -426,7 +426,7 @@
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -435,12 +435,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

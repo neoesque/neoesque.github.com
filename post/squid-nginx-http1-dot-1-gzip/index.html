@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -282,30 +282,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在 nginx 中要啟用 gzip 非常簡單，只要在 http 的段落裡面加入</p>
+        <p>在 nginx 中要啟用 gzip 非常簡單<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>只要在 http 的段落裡面加入</p>
 <pre><code>gzip  on;
 gzip_http_version 1.0;
 gzip_comp_level 9;
 gzip_proxied any;
 gzip_min_length 1400;
 gzip_types text/css application/x-javascript text/javascript;
-gzip_vary on;</code></pre><p>但是加了之後，因為我們前端還有先過 squid，結果發現怎麼有的 css 檔就是沒有被 gzip，但是有些 js 檔卻又有，在網路查到原來是還要在 squid.conf 加入</p>
+gzip_vary on;
+</code></pre>
+<p>但是加了之後<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因為我們前端還有先過 squid<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>結果發現怎麼有的 css 檔就是沒有被 gzip<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是有些 js 檔卻又有<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>在網路查到原來是還要在 squid.conf 加入</p>
 <pre><code>cache_vary on
-broken_vary_encoding allow all</code></pre><p>這是因為啟用 gzip 後，HTTP Header 也會加入 <code>Vary:Accept-Encoding</code>，加了上面的設定才可以讓 squid 保存 gzip 的內容，不會很自作聰明的解壓縮在傳給 client 端，不過網路另有一說是因為 squid 不是完整的支援 HTTP1.1 的 protocol，所以在面對 gzip HTTP1.0 跟 HTTP1.1 的版本的時候就會有問題，不過我有在 nginx 加了 <code>gzip_http_version 1.0</code> 了還是一樣有問題，加了那兩行才 ok。</p>
-<a id="more"></a>
+broken_vary_encoding allow all
+</code></pre>
+<p>這是因為啟用 gzip 後<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>HTTP Header 也會加入<h-hws hidden=""> </h-hws><code>Vary:Accept-Encoding</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>加了上面的設定才可以讓 squid 保存 gzip 的內容<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不會很自作聰明的解壓縮在傳給 client 端<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過網路另有一說是因為 squid 不是完整的支援 HTTP1.1 的 protocol<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以在面對 gzip HTTP1.0 跟 HTTP1.1 的版本的時候就會有問題<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過我有在 nginx 加了 <code>gzip_http_version 1.0</code> 了還是一樣有問題<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>加了那兩行才 ok<h-char unicode="3002" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>。</h-inner></h-char></p>
+<span id="more"></span>
 
-<p>另外一個問題是在 nginx 裡面預設是有支援 Connection:Keep-Alive ，但是經過 squid 之後每次 Header 都只有直接出 <code>Connection:Close</code>，在網路好像沒什麼相關的討論，後來突然想到會不會也是因為 squid 沒有完整支援 HTTP1.1 的 protocol 害得，後來查了 squid 的 Document 發現可以手動打開 HTTP1.1 的方法(不過不是完全支援)，打開的方式如下</p>
+<p>另外一個問題是在 nginx 裡面預設是有支援 Connection:Keep-Alive<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是經過 squid 之後每次 Header 都只有直接出<h-hws hidden=""> </h-hws><code>Connection:Close</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>在網路好像沒什麼相關的討論<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>後來突然想到會不會也是因為 squid 沒有完整支援 HTTP1.1 的 protocol 害得<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>後來查了 squid 的 Document 發現可以手動打開 HTTP1.1 的方法<h-hws hidden=""> </h-hws>(不過不是完全支援)<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>打開的方式如下</p>
 <pre><code>http_port 80 accel vhost http11
-cache_peer 127.0.0.1 parent 80 0 originserver proxy-only no-digest no-query http11</code></pre><p>對於 <code>http_port http11</code> 來說就是對 Client 端啟用支援 HTTP1.1，我們可以在加入後看到 Header 的部分都會回傳 <code>HTTP/1.1 200 OK</code> 而原本沒有 <code>http11</code> 的話則預設就是 <code>HTTP/1.0 200 OK</code>，後者 <code>cache_peer http11</code> 則是對後端 Server 啟用 HTTP1.1 ，我們可以在 nginx 的 access_log 看到 <code>GET /xxxx/xxxx.jpg HTTP/1.1</code> 而如果沒有 <code>http11</code> 的話則會是 <code>GET /xxxx/xxxx.jpg HTTP/1.0</code>，在加了 <code>cache_peer http11</code> 之後我們也要把剛剛 nginx gzip 用 1.0 的方式改一下所以把剛剛 nginx 的設定改成</p>
-<pre><code>gzip_http_version 1.1;</code></pre><p>改成 HTTP1.1 的方式回給 Client 之後，由於 1.1 的 protocol 規範，預設是啟用 Persistent Connections 的除非 Header 出現 <code>Connection:Close</code> 才表示關閉長連接，但是在 HTTP1.0 當中預設是關閉的，除非出現 <code>Connection： keep-alive</code> 才表示啟用，在打開 HTTP1.1 之後目前還沒有什麼問題，雖然也不知道到底 Persistent Connections 有沒有生效 = =”</p>
-<p>最後在 squid 啟用 HTTP1.1 會跟 POST 的方法打架，因為HTTP1.1 規定 POST 之後不得有任何符號，但是有些瀏覽器會自己補上去 CRCL，結果就是 squid 會回看不懂，不過由於這次的 Server 沒有要收 POST ，所以還是給她大力的開下去！如果真的要避掉 POST 出錯可以在 <code>squid.conf</code> 加入</p>
-<pre><code>ignore_expect_100 on</code></pre><hr>
+cache_peer 127.0.0.1 parent 80 0 originserver proxy-only no-digest no-query http11
+</code></pre>
+<p>對於 <code>http_port http11</code> 來說就是對 Client 端啟用支援 HTTP1.1<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>我們可以在加入後看到 Header 的部分都會回傳 <code>HTTP/1.1 200 OK</code> 而原本沒有 <code>http11</code> 的話則預設就是<h-hws hidden=""> </h-hws><code>HTTP/1.0 200 OK</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>後者 <code>cache_peer http11</code> 則是對後端 Server 啟用 HTTP1.1<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>我們可以在 nginx 的 access_log 看到 <code>GET /xxxx/xxxx.jpg HTTP/1.1</code> 而如果沒有 <code>http11</code> 的話則會是<h-hws hidden=""> </h-hws><code>GET /xxxx/xxxx.jpg HTTP/1.0</code><h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>在加了 <code>cache_peer http11</code> 之後我們也要把剛剛 nginx gzip 用 1.0 的方式改一下所以把剛剛 nginx 的設定改成</p>
+<pre><code>gzip_http_version 1.1;
+</code></pre>
+<p>改成 HTTP1.1 的方式回給 Client 之後<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>由於 1.1 的 protocol 規範<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>預設是啟用 Persistent Connections 的除非 Header 出現 <code>Connection:Close</code> 才表示關閉長連接<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是在 HTTP1.0 當中預設是關閉的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>除非出現 <code>Connection<h-char unicode="ff1a" class="biaodian cjk bd-end">：</h-char> keep-alive</code> 才表示啟用<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>在打開 HTTP1.1 之後目前還沒有什麼問題<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>雖然也不知道到底 Persistent Connections 有沒有生效 = =<h-char unicode="201d" class="biaodian cjk bd-close bd-end punct">”</h-char></p>
+<p>最後在 squid 啟用 HTTP1.1 會跟 POST 的方法打架<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>因為<h-hws hidden=""> </h-hws>HTTP1.1 規定 POST 之後不得有任何符號<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>但是有些瀏覽器會自己補上去 CRCL<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>結果就是 squid 會回看不懂<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不過由於這次的 Server 沒有要收 POST<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以還是給她大力的開下去<h-char unicode="ff01" class="biaodian cjk bd-end bd-jiya"><h-inner>！</h-inner></h-char>如果真的要避掉 POST 出錯可以在 <code>squid.conf</code> 加入</p>
+<pre><code>ignore_expect_100 on
+</code></pre>
+<hr>
 <p>參考資料:</p>
 <ul>
-<li><a href="http://blog.xuite.net/happyman/tips/14490890" target="_blank" rel="noopener">broken_vary_encoding</a></li>
-<li><a href="http://www.freesoft.org/CIE/RFC/2068/248.htm" target="_blank" rel="noopener">Compatibility with HTTP/1.0 Persistent Connections</a></li>
-<li><a href="http://blog.xuite.net/starsand/programming/35922253-Squid+TCP_MISS+%2F+417" target="_blank" rel="noopener">Squid TCP_MISS / 417</a></li>
-<li><a href="http://www.squid-cache.org/Doc/config/ignore_expect_100" target="_blank" rel="noopener">ignore expect 100</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.xuite.net/happyman/tips/14490890">broken_vary_encoding</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.freesoft.org/CIE/RFC/2068/248.htm">Compatibility with HTTP/1.0 Persistent Connections</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.xuite.net/starsand/programming/35922253-Squid+TCP_MISS+%2F+417">Squid TCP_MISS / 417</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.squid-cache.org/Doc/config/ignore_expect_100">ignore expect 100</a></li>
 </ul>
 
     </div>
@@ -415,7 +425,7 @@ cache_peer 127.0.0.1 parent 80 0 originserver proxy-only no-digest no-query http
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -470,7 +480,7 @@ cache_peer 127.0.0.1 parent 80 0 originserver proxy-only no-digest no-query http
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -479,12 +489,12 @@ cache_peer 127.0.0.1 parent 80 0 originserver proxy-only no-digest no-query http
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>

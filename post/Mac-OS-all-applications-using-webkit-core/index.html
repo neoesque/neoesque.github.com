@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -270,7 +270,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>要讓比方說 Safari, MailPlane 或 CSSEdit 吃 Webkit 的核心的話其中一種方法是從終端機打開<br />如以下設定<br /><br />export DYLD_FRAMEWORK_PATH=/Applications/WebKit.app/Contents/Frameworks/10.6/<br />export WEBKIT_UNSET_DYLD_FRAMEWORK_PATH=YES<br />open /Applications/blahblah.app<br /><br />即可<br />可是要從終端機太麻煩了對吧<br />Mac OS X 提供更方便的方式讓全系統都套用<br /><a id="more"></a><br />首先先新增 <del>/.MacOSX 的資料夾<br />然後建立 environment.plist 的檔案並編輯他新增兩筆以下資料(直接新增 child 即可)<br /><br />“WEBKIT_UNSET_DYLD_FRAMEWORK_PATH” = YES;<br />“DYLD_FRAMEWORK_PATH” = “/Applications/WebKit.app/Contents/Frameworks/10.6/“;<br /><br /><img src="http://grab.by/10oy" alt=""><br /><br />登出在登入後打開 Safari 的關於 Safari 看看有沒有出現 版本 4.0.4 (6531.21.10, r51708) 後面的 r 表示 webkit core 的 release<br /><br />這樣就成功了</del></p>
+        <p>要讓比方說 Safari, MailPlane 或 CSSEdit 吃 Webkit 的核心的話其中一種方法是從終端機打開<br>如以下設定<br><br>export DYLD_FRAMEWORK_PATH=/Applications/WebKit.app/Contents/Frameworks/10.6/<br>export WEBKIT_UNSET_DYLD_FRAMEWORK_PATH=YES<br>open /Applications/blahblah.app<br><br>即可<br>可是要從終端機太麻煩了對吧<br>Mac OS X 提供更方便的方式讓全系統都套用<br><span id="more"></span><br>首先先新增 <del>/.MacOSX 的資料夾<br>然後建立 environment.plist 的檔案並編輯他新增兩筆以下資料<h-hws hidden=""> </h-hws>(直接新增 child 即可)<br><br><h-char unicode="201c" class="biaodian cjk bd-open punct">“</h-char>WEBKIT_UNSET_DYLD_FRAMEWORK_PATH<h-char unicode="201d" class="biaodian cjk bd-close bd-end punct">”</h-char> = YES;<br><h-char unicode="201c" class="biaodian cjk bd-open punct">“</h-char>DYLD_FRAMEWORK_PATH<h-char unicode="201d" class="biaodian cjk bd-close bd-end punct">”</h-char> = <h-char unicode="201c" class="biaodian cjk bd-open punct">“</h-char>/Applications/WebKit.app/Contents/Frameworks/10.6/<h-char unicode="201c" class="biaodian cjk bd-open punct">“</h-char>;<br><br><img src="http://grab.by/10oy" alt=""><br><br>登出在登入後打開 Safari 的關於 Safari 看看有沒有出現 版本 4.0.4 (6531.21.10, r51708) 後面的 r 表示 webkit core 的 release<br><br>這樣就成功了</del></p>
 
     </div>
 
@@ -370,7 +370,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -425,7 +425,7 @@
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -434,12 +434,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">139k</span>
+    <span title="總字數">141k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:48</span>
+    <span title="所需總閱讀時間">5:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>
