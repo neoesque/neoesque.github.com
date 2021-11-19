@@ -529,13 +529,6 @@
   </url>
   
   <url>
-    <loc>https://blog.littlero.se/tags/memcachedb/</loc>
-    <lastmod>2021-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.littlero.se/tags/Casio-TR15/</loc>
     <lastmod>2021-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -551,6 +544,13 @@
   
   <url>
     <loc>https://blog.littlero.se/tags/%E9%99%B6%E7%93%B7/</loc>
+    <lastmod>2021-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.littlero.se/tags/memcachedb/</loc>
     <lastmod>2021-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -578,13 +578,6 @@
   </url>
   
   <url>
-    <loc>https://blog.littlero.se/tags/E-M5/</loc>
-    <lastmod>2021-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.littlero.se/tags/%E6%B3%95%E5%BE%8B/</loc>
     <lastmod>2021-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -592,7 +585,7 @@
   </url>
   
   <url>
-    <loc>https://blog.littlero.se/tags/FreeBSD/</loc>
+    <loc>https://blog.littlero.se/tags/E-M5/</loc>
     <lastmod>2021-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -613,7 +606,7 @@
   </url>
   
   <url>
-    <loc>https://blog.littlero.se/tags/cgroups/</loc>
+    <loc>https://blog.littlero.se/tags/FreeBSD/</loc>
     <lastmod>2021-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -621,6 +614,13 @@
   
   <url>
     <loc>https://blog.littlero.se/tags/graylog2/</loc>
+    <lastmod>2021-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.littlero.se/tags/cgroups/</loc>
     <lastmod>2021-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -676,20 +676,6 @@
   </url>
   
   <url>
-    <loc>https://blog.littlero.se/tags/JavaScript/</loc>
-    <lastmod>2021-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.littlero.se/tags/i18n/</loc>
-    <lastmod>2021-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.littlero.se/tags/php/</loc>
     <lastmod>2021-11-19</lastmod>
     <changefreq>daily</changefreq>
@@ -704,7 +690,28 @@
   </url>
   
   <url>
+    <loc>https://blog.littlero.se/tags/i18n/</loc>
+    <lastmod>2021-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.littlero.se/tags/JavaScript/</loc>
+    <lastmod>2021-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.littlero.se/tags/%E4%BA%BA%E7%94%9F/</loc>
+    <lastmod>2021-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.littlero.se/tags/VMware/</loc>
     <lastmod>2021-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -732,28 +739,7 @@
   </url>
   
   <url>
-    <loc>https://blog.littlero.se/tags/VMware/</loc>
-    <lastmod>2021-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.littlero.se/tags/Octopress/</loc>
-    <lastmod>2021-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.littlero.se/tags/%E7%BE%8E%E5%9C%8B/</loc>
-    <lastmod>2021-11-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.littlero.se/tags/%E8%BF%AA%E5%A3%AB%E5%B0%BC/</loc>
     <lastmod>2021-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -768,6 +754,20 @@
   
   <url>
     <loc>https://blog.littlero.se/tags/%E8%87%BA%E6%9D%B1/</loc>
+    <lastmod>2021-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.littlero.se/tags/%E7%BE%8E%E5%9C%8B/</loc>
+    <lastmod>2021-11-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.littlero.se/tags/%E8%BF%AA%E5%A3%AB%E5%B0%BC/</loc>
     <lastmod>2021-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
