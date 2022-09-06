@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.littlero.se","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="最近單位的開發區換了 Oracle 的架構，從單台改成 RAC，不知道為什麼 Jboss 原本不需要 keep alive 現在需要才可以維持 connection，不然 server.log 會噴 IJ030027: Destroying connection that is not valid, due to the following exception: oracle.jdbc.drive">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jboss Oracle datasource setting">
+<meta property="og:url" content="https://blog.littlero.se/post/Jboss-Oracle-datasource-setting/index.html">
+<meta property="og:site_name" content="neoesque">
+<meta property="og:description" content="最近單位的開發區換了 Oracle 的架構，從單台改成 RAC，不知道為什麼 Jboss 原本不需要 keep alive 現在需要才可以維持 connection，不然 server.log 會噴 IJ030027: Destroying connection that is not valid, due to the following exception: oracle.jdbc.drive">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-09-06T08:34:44.000Z">
+<meta property="article:modified_time" content="2022-09-06T13:58:06.745Z">
+<meta property="article:author" content="neoesque">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.littlero.se/post/Jboss-Oracle-datasource-setting/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>Jboss Oracle datasource setting | neoesque</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37617901-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-37617901-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="neoesque" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">neoesque</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Making Life Better</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://blog.littlero.se/post/Jboss-Oracle-datasource-setting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="neoesque">
+      <meta itemprop="description" content="neoesque's Linux Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="neoesque">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Jboss Oracle datasource setting
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2022-09-06, 週二 16:34:44 / 修改時間：21:58:06" itemprop="dateCreated datePublished" datetime="2022-09-06T16:34:44+08:00">2022-09-06, 週二</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B3%87%E8%A8%8A/" itemprop="url" rel="index"><span itemprop="name">資訊</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/post/Jboss-Oracle-datasource-setting/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/Jboss-Oracle-datasource-setting/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>7 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近單位的開發區換了 Oracle 的架構<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>從單台改成 RAC<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不知道為什麼 Jboss 原本不需要 keep alive 現在需要才可以維持 connection<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>不然 server.log 會噴</p>
+<pre><code>IJ030027: Destroying connection that is not valid, due to the following exception: oracle.jdbc.driver.T4CConnection@一串<h-hws hidden=""> </h-hws>ID: java.sql.SQLException: pingDatabase failed status=-1
+</code></pre>
+<p>由於我們的 Production 也不需要加<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>所以一時有點沒頭緒<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>後來在網路翻閱了一下 RedHat 官方跟 Oracle 的文件<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>目前設定如下<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>安定使用中</p>
+<span id="more"></span>
+
+<p>先前測試了一下 ENABLE=BROKEN 加在 connection-url 是沒有作用的<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>原來是要另外加參數餵給 Jboss</p>
+<p>關鍵在加上 JDBC 的參數</p>
+<figure class="highlight xml"><figcaption><span>datasource</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">connection-property</span> <span class="attr">name</span>=<span class="string">"oracle.net.keepAlive"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">connection-property</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>另外 Oracle 的 validation RedHat 官方手冊是這樣建議的</p>
+<figure class="highlight xml"><figcaption><span>datasource</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">validation</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">valid-connection-checker</span> <span class="attr">class-name</span>=<span class="string">"org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">validate-on-match</span>&gt;</span>true<span class="tag">&lt;/<span class="name">validate-on-match</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">background-validation</span>&gt;</span>false<span class="tag">&lt;/<span class="name">background-validation</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">stale-connection-checker</span> <span class="attr">class-name</span>=<span class="string">"org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">exception-sorter</span> <span class="attr">class-name</span>=<span class="string">"org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">validation</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>因此整塊的設定如下</p>
+<figure class="highlight xml"><figcaption><span>datasource</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">datasource</span> <span class="attr">jndi-name</span>=<span class="string">"java:jboss/MYPOOL"</span> <span class="attr">pool-name</span>=<span class="string">"MYPOOL"</span> <span class="attr">enabled</span>=<span class="string">"true"</span> <span class="attr">use-java-context</span>=<span class="string">"true"</span> <span class="attr">statistics-enabled</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">connection-url</span>&gt;</span>jdbc:oracle:thin:@...<span class="tag">&lt;/<span class="name">connection-url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">connection-property</span> <span class="attr">name</span>=<span class="string">"oracle.net.keepAlive"</span>&gt;</span></span><br><span class="line">    true</span><br><span class="line">  <span class="tag">&lt;/<span class="name">connection-property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">connection-property</span> <span class="attr">name</span>=<span class="string">"oracle.jdbc.TcpNoDelay"</span>&gt;</span></span><br><span class="line">    true</span><br><span class="line">  <span class="tag">&lt;/<span class="name">connection-property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">driver</span>&gt;</span>oracle<span class="tag">&lt;/<span class="name">driver</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">pool</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">min-pool-size</span>&gt;</span>1<span class="tag">&lt;/<span class="name">min-pool-size</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">initial-pool-size</span>&gt;</span>1<span class="tag">&lt;/<span class="name">initial-pool-size</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">max-pool-size</span>&gt;</span>50<span class="tag">&lt;/<span class="name">max-pool-size</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">prefill</span>&gt;</span>true<span class="tag">&lt;/<span class="name">prefill</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">use-strict-min</span>&gt;</span>true<span class="tag">&lt;/<span class="name">use-strict-min</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">pool</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">security</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user-name</span>&gt;</span>myUser<span class="tag">&lt;/<span class="name">user-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">password</span>&gt;</span>myPassword<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">security</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">validation</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">valid-connection-checker</span> <span class="attr">class-name</span>=<span class="string">"org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">validate-on-match</span>&gt;</span>true<span class="tag">&lt;/<span class="name">validate-on-match</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">background-validation</span>&gt;</span>false<span class="tag">&lt;/<span class="name">background-validation</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">stale-connection-checker</span> <span class="attr">class-name</span>=<span class="string">"org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exception-sorter</span> <span class="attr">class-name</span>=<span class="string">"org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">validation</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">datasource</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>參考資料</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html/administration_and_configuration_guide/sect-database_connection_validation">Database Connection Validation</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/database/oracle/oracle-database/21/jajdb/oracle/jdbc/OracleConnection.html">Oracle Database JDBC Java API Reference</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/dispute-with-musictravel/" rel="prev" title="旅行社飛機團票成本（真善美旅行社糾紛）">
+      <i class="fa fa-chevron-left"></i> 旅行社飛機團票成本（真善美旅行社糾紛）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="neoesque"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">neoesque</p>
+  <div class="site-description" itemprop="description">neoesque's Linux Blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/neoesque/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;neoesque&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.twitter.com/neoesque" title="Twitter → https:&#x2F;&#x2F;www.twitter.com&#x2F;neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://facebook.com/neoesque" title="FB Page → https:&#x2F;&#x2F;facebook.com&#x2F;neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/neoesque" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;neoesque" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/neoesque/" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;neoesque&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2008 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">neoesque</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="總字數">144k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">6:01</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主題 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://parsefloat.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://blog.littlero.se/post/Jboss-Oracle-datasource-setting/";
+    this.page.identifier = "post/Jboss-Oracle-datasource-setting/";
+    this.page.title = "Jboss Oracle datasource setting";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://parsefloat.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -196,6 +196,103 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://blog.littlero.se/post/add-sles-11-sp1-repository/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="neoesque">
+      <meta itemprop="description" content="neoesque's Linux Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="neoesque">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/post/add-sles-11-sp1-repository/" class="post-title-link" itemprop="url">在 SLES 11 SP1 追加 repository</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2011-04-02, 週六 00:00:00" itemprop="dateCreated datePublished" datetime="2011-04-02T00:00:00+08:00">2011-04-02, 週六</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2015-03-14, 週六 13:37:57" itemprop="dateModified" datetime="2015-03-14T13:37:57+08:00">2015-03-14, 週六</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B3%87%E8%A8%8A/" itemprop="url" rel="index"><span itemprop="name">資訊</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>527</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近敝單位在更新一些機器<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>長官決定採用 SLES (SUSE Linux Enterprise Sever)<br><br>不過我最熟悉的其實是 Gentoo 對於其他 distro 像 SLES, Ubuntu 之類的都不熟<br><br>所以大概花了一整個禮拜在研究 SLES (目前最新的是 SLES 11 service pack 1)<br><br>其實最大的問題在於軟體 (software) 的處理不同<br><br>Gentoo 的 portage system 實在太強大<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>從版本控制到 USE 控制哪些小功能要編入<br><br>而 SLES 因為是 rpm based 的系統<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>而且 Enterprise Server 版似乎又很保守<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>一堆套件不是舊就是根本沒有 囧<h-hws hidden=""> </h-hws>mm<br><br>所以只能自己找 repository 了<br><br>以下是新增 repository 的方法<br><br><code class="prettyprint"> </code>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/add-sles-11-sp1-repository/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://blog.littlero.se/post/Mac-OS-all-applications-using-webkit-core/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -634,7 +731,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -689,7 +786,7 @@
 <div class="copyright">
   
   &copy; 2008 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -698,12 +795,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">142k</span>
+    <span title="總字數">144k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">5:54</span>
+    <span title="所需總閱讀時間">6:01</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動
   </div>
