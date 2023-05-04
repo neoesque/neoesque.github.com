@@ -1,0 +1,113 @@
+title: 自拍神器 Casio TR15 開箱
+date: 2013-07-02 21:47:42
+tags: ["Casio TR15"]
+categories: ["3C"]
+---
+
+{% img http://farm4.staticflickr.com/3802/9193251238_d0c9f9b0d7_c.jpg %}
+
+注意這款號稱「自拍神器」系列的相機也已經大概半年多了吧，大概是半年前小弟的女友跟小弟提起的，不過可怕的神器連價格也很可怕，此款的前兩代 TR150 台灣官方售價是一萬一，但是因為出貨速度緩慢，市場缺貨缺得要死，市場上大陸的水貨竟然叫價到接近 3 萬，實在是不知道台灣卡西歐在做什麼，製造速度有這麼慢嗎？這種水貨商實在讓人覺得坑殺小朋友不眨眼，尤其是在 Facebook 卡西歐的官方粉絲頁更有一些電信商趾高氣昂，更氣的是還買了一台兩百多萬的賓士！讓我都想去開通訊行坑殺高中生&俗稱的水水(管他是不是正妹，這台拍下去保證各個都是正咩) XD
+
+其實我後來也就忘記這件事了，因為女友也叫我不要買，因為實在背離原價太多了，一直到六月中，再逛 Mobile01 時，突然看到消費相機版的卡西歐有人 po 了一篇文章說 TR200 的下一代 TR350 (大陸的稱呼) 已經在六月初上市了，然後台灣也會上國際版的，代號是 [TR15](http://chiconydcd.tw/casio/products/preview/110.html)，於是就上了 Facebook 的卡西歐粉絲頁看了一下，果然會上！！但是！他媽的卡西歐是搶劫嗎，TR15 的售價竟然是兩萬四，竟然比 TR150 貴了一倍多 = =，不過功能也多一些些就是了(他媽的再罵一次 Casio 以為你是萊卡嗎！)，電容式觸碰螢幕，螢幕解析度也提升到 92 萬畫素，然後有 Wifi ，在傳輸照片或者是自拍控制都相當方便，核心處理引擎也變成兩顆，不管是開機速度或者拍照處理速度都比之前的更快，但主要的規格都差不多還是維持 1/2.3 寸的 1210 萬畫素、光圈 2.8、超廣角的等效焦距 21mm。
+
+<!--more-->
+
+後來從粉絲團有人推文得知原來台灣代理商-群光電子，早在六月中就有少量鋪貨到他們的經銷商那裡可以打電話問或者預約排隊，所以索性我就依照群光的官網一間一間打，第一間：賣完了哦，現在有預約的已經登記了一百多個了...（內心 OS： 干 那我登記個屁）。後來又打了問第二間到第四間都差不多的迴應，就說之前官方就有少量(1~2臺)進貨，但是都賣出去了，價格是 33k (厲害了吧，官方售價是 24k 然後代理商可以賣 33k 還被允許，你他媽的卡西歐跟群光都沒在管的)，說要預約的話前面也很多人在排隊，而且後面的公司貨也都依照這個價格賣... 0rz... (內心的 OS：奸商！你們這群奸商！ 不過其實水貨商才可怕，叫到 35k 了，到底是可以賺多大？）
+
+後來又得知 PCHome 會有預售的活動，而且是依照 TR15 台灣官方的定價 24k 賣，所以後來無聊就想說每天早上十點都來搶看看，這次 TR15 一共有三個顏色， PCHome 預購每天每個顏色都放出 2 臺左右(干！我還是搞不懂台灣卡西歐在干嘛 = =)，小弟一開始第一天沒搶到，第二天還是沒有，後來從第一二天學到經驗，就是一定要先登入 PCHome 購物，然後要點 ATM 或 iBon 付費，因為這兩個都是先結帳才付款，如果選信用卡光是填卡號跟過個認證就輸了，接著是要把寄送的地址那一頁用 AutoFill 先設定好，這樣一點完 ATM 那頁進去後自動填完就可以直接送出，運氣好的話就買到了 :P，所以後來很幸運的在第三天搶到一台白色的，搶到當下超爽的 A_A，不過第四天運氣不好，進去之後點太慢沒搶到 > < 不然本來想說可以賣掉，補一下自己要留著這台的價錢(放心我本來只打算賣 28k XD 應該不算奸商吧)，不過沒差至少女友的禮物有著落了 XD，很快的 6/27 訂，今天 7/2 就收到了，以下是熱騰騰的開箱文。
+
+<a href="http://www.flickr.com/photos/neoesque/9190455023/" title="Flickr 上 neoesque 的 P7021251"><img src="http://farm8.staticflickr.com/7443/9190455023_6ae691dd82_c.jpg" width="800" height="600" alt="P7021251"></a>
+熱騰騰的公司貨！群光直送！
+
+<a href="http://www.flickr.com/photos/neoesque/9190454321/" title="Flickr 上 neoesque 的 P7021254"><img src="http://farm8.staticflickr.com/7454/9190454321_b36d5c0168_c.jpg" width="800" height="600" alt="P7021254"></a>
+預購內容物是相機+送的相機袋，不過老實說送的就是送的，這品質頗差 0rz...
+
+<a href="http://www.flickr.com/photos/neoesque/9190450169/" title="Flickr 上 neoesque 的 P7021257"><img src="http://farm4.staticflickr.com/3693/9190450169_8476f5317d_c.jpg" width="800" height="600" alt="P7021257"></a>
+拿出來~
+
+由於到處都有條碼，其實我分不出哪些是唯一的，所以通通馬賽克~
+
+<a href="http://www.flickr.com/photos/neoesque/9190451075/" title="Flickr 上 neoesque 的 P7021258"><img src="http://farm8.staticflickr.com/7386/9190451075_542314e9cd_c.jpg" width="800" height="600" alt="P7021258"></a>
+很素的包裝，但是看起來乾淨清爽，我喜歡
+
+<a href="http://www.flickr.com/photos/neoesque/9190449741/" title="Flickr 上 neoesque 的 P7021260"><img src="http://farm8.staticflickr.com/7305/9190449741_ecf2f6cb65_c.jpg" width="800" height="600" alt="P7021260"></a>
+換另一個角度看 ˙﹃˙
+
+<a href="http://www.flickr.com/photos/neoesque/9193245744/" title="Flickr 上 neoesque 的 P7021261"><img src="http://farm8.staticflickr.com/7366/9193245744_2bdf67760e_c.jpg" width="800" height="600" alt="P7021261"></a>
+把內盒拉出來！
+
+<a href="http://www.flickr.com/photos/neoesque/9193251238/" title="Flickr 上 neoesque 的 P7021262"><img src="http://farm4.staticflickr.com/3802/9193251238_d0c9f9b0d7_c.jpg" width="800" height="600" alt="P7021262"></a>
+僵~僵~ 白色的！這次的鋼琴烤漆真的很美，而且很幸運的小弟拿到的沒有刮痕(也可能是白的看不到 XD)，網路有人預購黑機(黑機只有第一天才有 > <)，有明顯的刮痕 0rz...
+
+<a href="http://www.flickr.com/photos/neoesque/9193250594/" title="Flickr 上 neoesque 的 P7021263"><img src="http://farm4.staticflickr.com/3716/9193250594_b6d58a7acc_c.jpg" width="800" height="600" alt="P7021263"></a>
+馬上再反面檢查一下 (有灰塵就是了，拿球吹一下就好)，左下方是開機鍵(充電的話按一下會變成磁碟機模式，電腦會出現 microSD 卡)，中間那顆是快門鍵
+
+<a href="http://www.flickr.com/photos/neoesque/9193245054/" title="Flickr 上 neoesque 的 P7021264"><img src="http://farm8.staticflickr.com/7324/9193245054_e2f65c32e4_c.jpg" width="800" height="600" alt="P7021264"></a>
+台灣保卡，因為是 PCHome 買的，所以購買證明要另外從 PCHome 的網頁印出來
+
+<a href="http://www.flickr.com/photos/neoesque/9238321875/" title="Flickr 上 neoesque 的 P7081364"><img src="http://farm4.staticflickr.com/3684/9238321875_6ae2bd8d1c_c.jpg" width="800" height="600" alt="P7081364"></a>
+印出來的購買證明
+
+<a href="http://www.flickr.com/photos/neoesque/9190446987/" title="Flickr 上 neoesque 的 P7021265"><img src="http://farm8.staticflickr.com/7292/9190446987_3884c504d5_c.jpg" width="800" height="600" alt="P7021265"></a>
+保卡下面盒子裝的內容物，一共有電池、台灣插頭、大陸插頭、USB 轉 microUSB 的線、插頭轉 USB 的轉接座、吊繩、說明書
+
+<a href="http://www.flickr.com/photos/neoesque/9190452999/" title="Flickr 上 neoesque 的 P7021267"><img src="http://farm8.staticflickr.com/7338/9190452999_956dce8f8f_c.jpg" width="800" height="600" alt="P7021267"></a>
+立刻拆開電池跟背蓋準備充電了！ (電池蓋打開的方式是側邊有個按鈕按下去就可以把蓋子往外推了) BTW，這電池小的跟什麼一樣 = = 感覺就很不持久啊啊啊啊 0rz...
+
+<a href="http://www.flickr.com/photos/neoesque/9190451371/" title="Flickr 上 neoesque 的 P7021268"><img src="http://farm3.staticflickr.com/2834/9190451371_15d4f13a03_c.jpg" width="800" height="600" alt="P7021268"></a>
+這次的 TR15 是吃 microSD，因為小弟手邊剛好有用不到的金士頓 microSD 8G，就直接裝上去啦！
+
+<a href="http://www.flickr.com/photos/neoesque/9190450791/" title="Flickr 上 neoesque 的 P7021269"><img src="http://farm8.staticflickr.com/7356/9190450791_986797d5c9_c.jpg" width="800" height="600" alt="P7021269"></a>
+接電腦充電！
+
+<a href="http://www.flickr.com/photos/neoesque/9193243762/" title="Flickr 上 neoesque 的 P7021270"><img src="http://farm8.staticflickr.com/7336/9193243762_67131b6f96_c.jpg" width="800" height="600" alt="P7021270"></a>
+Casio 不愧是日本商，小弟拿手邊的日本手機 [N-02A](http://www.eprice.com.tw/mobile/talk/103/4063961/1/rv/nec-docomo-n-02a-review/) 擺一起，根本就一模一樣的設計理念啊！日本的東西真的很容易一眼就看出來 = =
+
+後來小弟充了快兩個小時才充完電，感覺還蠻久的，不知道是不是電池本來是沒電的，因為充電中沒辦法打開電源 0rz...，我一按電源鍵就變成隨身碟模式，有點懶得翻說明書不清楚是不是原本就這樣設計，來說一說把玩了一小時的使用感想好了，操作速度方面沒話說，電容式螢幕真的非常靈敏，然後整體的反應也相當流暢，選單用起來很直覺，該有的說明都有，一看就知道在幹嗎，不過選單實在做的很不吸引人，會讓人以為這是什麼古老的界面，但是操作沒有什麼障礙，跟 iPhone 的 App 搭配起來也很完美。
+
+<a href="http://www.flickr.com/photos/neoesque/9238328665/" title="Flickr 上 neoesque 的 P7081372"><img src="http://farm6.staticflickr.com/5510/9238328665_edf8e30646_c.jpg" width="800" height="600" alt="P7081372"></a>
+操作界面，雖然每個項目都很大，但是解析度有點慘就是了 一 一"
+
+<a href="http://www.flickr.com/photos/neoesque/9238327405/" title="Flickr 上 neoesque 的 P7081373"><img src="http://farm6.staticflickr.com/5453/9238327405_dae38b558c_c.jpg" width="800" height="600" alt="P7081373"></a>
+控制Menu，中文字體解析度還是很糟
+
+<a href="http://www.flickr.com/photos/neoesque/9238325997/" title="Flickr 上 neoesque 的 P7081374"><img src="http://farm6.staticflickr.com/5549/9238325997_61c6a35657_c.jpg" width="800" height="600" alt="P7081374"></a>
+
+<a href="http://www.flickr.com/photos/neoesque/9241103964/" title="Flickr 上 neoesque 的 P7081375"><img src="http://farm6.staticflickr.com/5506/9241103964_6c292e2785_c.jpg" width="600" height="800" alt="P7081375"></a>
+美白 12 個 Level，預設在 6
+
+接下來就是介紹一下這次的主打 Wifi 功能啦
+
+照相時點一下上方手機的圖案就會出現下面這個畫面
+
+<a href="http://www.flickr.com/photos/neoesque/9241100984/" title="Flickr 上 neoesque 的 P7081376"><img src="http://farm6.staticflickr.com/5445/9241100984_e38669d3ab_c.jpg" width="800" height="600" alt="P7081376"></a>
+裡面說明了 Wifi 放出來的名字跟密碼，其中密碼可以在選單自己設定，不然就是一組預設的數字
+
+<a href="http://www.flickr.com/photos/neoesque/9241100560/" title="Flickr 上 neoesque 的 P7081377"><img src="http://farm4.staticflickr.com/3719/9241100560_8f677e8703_c.jpg" width="800" height="600" alt="P7081377"></a>
+馬上開手機連了，連上後 TR15 的畫面就會切換，提醒你開起 App，記得先下載如下的 Casio App
+
+<a href="http://www.flickr.com/photos/neoesque/9193803312/" title="Flickr 上 neoesque 的 IMG_1647"><img src="http://farm6.staticflickr.com/5497/9193803312_ed9b24ff9b_c.jpg" width="533" height="800" alt="IMG_1647"></a>
+iPhone 的 App
+
+<a href="http://www.flickr.com/photos/neoesque/9241100510/" title="Flickr 上 neoesque 的 P7081378"><img src="http://farm3.staticflickr.com/2863/9241100510_1fb4d863fe_c.jpg" width="800" height="600" alt="P7081378"></a>
+然後手機就會顯示 TR15 鏡頭的畫面了，可以看到可以拉遠拉近(數位變焦)，然後有快門按鍵，還有切換錄影或者照相
+
+整體反應也是很快的，Wifi 的功能都沒什麼遲滯
+
+再來是下載照片的部份，下載到手機的速度非常快，基本上已經超越我平常在用的 Toshiba FlashAir 了，這方面沒什麼大問題，真的很方便，而且放出 Wifi 速度也很快，我用過的 FlashAir 有時候都會找不到 Wifi 0rz...
+
+最後說一下照出來的效果好了，簡單來說兩個字「模糊」，哇靠這台相機簡直就是像單眼的 ISO 開很高然後狂抹啊！我的皮膚都被磨亮了 XD 下面這張是 TR15 照的小弟自拍照(因為女友是不露臉的！)，首度亮相！表情很詭異，小弟是在是不怎麼上相 0rz...
+
+小弟都只放 800 x 600 大小的，因為其實原圖就是抹得很多而已，應該也不會有人想看這台的原圖 XD
+
+{% img http://farm8.staticflickr.com/7410/9191328839_3ccc327426_c.jpg %}
+
+小弟的皮膚就像上了密粉一樣，而且小弟臉上的痣乍看都不見了啦，這個真的很扯耶 XD 加上小弟本來就蠻白的，現在還白到發亮！我都懷疑到底是他對焦沒對好還是真的抹很大...
+
+下面在貼一張小弟的 E-M5 + 12mm (等效 24mm 所以比 TR15 的 21mm 稍微的沒有那麼廣角) 的自拍照當對照 > //// < 這張是用 Olympus 的人像模式下去拍的
+
+{% img http://farm4.staticflickr.com/3787/9191325161_c8cd3a2b0e_c.jpg %}
+
+12mm 這顆的顏色實在淡很多而且很冷色系，不過微單眼照起來還是跟消費性相機有很明顯的不一樣，這張比較明顯的反應了真實的顏色，而且也比較立體(可能是比較銳利加上光圈 2.0 散景比較模糊的關係)，TR15 抹到沒什麼立體感可言，我還只開 Level 6 耶(美白最高 12 階)
+
+縱觀來說 TR15 主打的就是自拍，如果就自拍來說，它的確是會有女生都喜歡的那種能力 XD 只能說他的定位定的很巧妙，不過我倒是很好奇他的榮景能保持多久，因為照理說如果自拍神機真的賣的這麼好，理論上其他數位相機廠應該也會爭先恐後的跳進來才對，可是目前依然只有卡西歐在做，真的是滿匪夷所思的。

@@ -1,0 +1,803 @@
+title: "日本東京、箱根自助之旅"
+date: 2015-06-06 11:36:14
+tags: ["日本"]
+toc: true
+categories: ["遊記"]
+thumbnail: https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg
+---
+
+第一次到日本玩，因為是跟高中死黨和他女友一起去，他很熟日本，所以我們一行四人(加我妹)就選擇自助，這次旅行的地點主要在東京 & 箱根，一共六天五夜，是大多數到日本玩的旅客都會走的路線。時間是 4/1 ~ 4/6，也就是清明節假期，請兩天玩六天。
+
+{% img https://lh3.googleusercontent.com/-3pkdtm05CFA/VSXZBM-3kxI/AAAAAAAASRM/gPvyTfkEg-4/s1024/P4025340.jpg 800 600 新宿御苑櫻花美景 %}
+
+<!--more-->
+
+## 機票 & 交通
+旅行在去年 2014 年九月就開始規劃了，因為日本旅行四月是旺季，有機會卡到櫻花季，所以一定要及早規劃，機票的部分是委託旅行社買 JAL 日本航空的機票，因為 JAL 每人的[托運行李是兩個](http://www.tw.jal.com/twl/cms/contents/local/jal_news_000530.html)，23 公斤/件，也就是總重可達 46 公斤，如果有要到日本搬家電的真的是不錯的選擇，我同學這次就是要搬家電，所以就選擇 JAL。
+
+我們從高雄出發到成田機場，來回一個人一萬四，雖然是六天五夜，不過實際上大概只有玩五天，因為第一天 4/1 搭班次 JL812 從高雄飛是 9:25，抵達日本是 13:50，加上到旅館可能也四五點了，然後最後一天 4/6 搭班次 JL811 是傍晚 18:25 的飛機，回到高雄是 21:45。日本航空來回我們都是坐到 [波音 767](https://zh.wikipedia.org/zh-tw/%E6%B3%A2%E9%9F%B3767)。
+
+JAL 的飛機餐有哈根達斯 =w=
+{% img https://lh6.googleusercontent.com/-b93xSWHq9Ys/VSXmDlw1AhI/AAAAAAAASRM/QVfZYOWplog/w1024-no/P4015123.jpg 800 600 "JAL 飛機餐" %}
+
+另外飲料同學強力推薦點梅酒蘇打 (梅酒ソダ - うめしゅソダ)
+{% img https://lh6.googleusercontent.com/-4xObD4Zws_g/VSXmDkkLxwI/AAAAAAAASRM/iedaCmN4Uso/h480-no/P4015124.jpg 800 600 "" %}
+
+在飛機上還看到圓形的彩虹！！
+{% img https://lh6.googleusercontent.com/-tDjz-XaAiFM/VSXmGYIbwuI/AAAAAAAASRM/IXKfE3eI3BY/h480-no/P4015133.jpg 800 600 "" %}
+
+另外在日本境內的交通方式很簡單，在東日本就是買 Suica (西瓜卡) 就好了，雖然日本鐵路有 JR & 數家私人鐵路公司也有自己的 PASMO，但是現在 Suica 都通吃就是，Suica 在出機場往車站走就會看到販賣機了。
+
+另外我們此行會到箱根，交通是坐網路鼎鼎有名的[小田急浪漫特快](http://www.odakyu.jp/tc/romancecar/)，基本上如果只是要坐一般座位也不需要搶就是，不過如果是要坐它的展望席，則要在一個月前搶(比方說買 7/7 就要在 6/6 淩晨搶)，[訂票頁面](https://www.web-odakyu.com/e-romancecar)，展望席分前後，當然是前展望席是最好的，原本我沒搶到展望席(因為我記錯時間了 QQ)，不過後來我每天晚上有事沒事就 Reload 一下訂票頁，後來很幸運的在一個禮拜後的晚上被我搶到 3 前展望席 + 1 後展望席，而且前展望席還是第一排！幸運到有剩，本來想說我去坐後展望席就好，結果我後來跑去跟同學擠 XDD，至於回新宿，因為我們會去御殿場所以基本上就是坐小田急的高速巴士回去，在小田急遊客中心可以預約座位，後面會提到。買到票只是先保留，記得要付錢！日本人還真不錯，付錢的時間我記得好像是一個禮拜，不像臺鐵兩天內就要付款完。
+
+浪漫號展望席就是直接一整片的大玻璃窗可以看到美景，直接感覺自己就是列車駕駛 XDD
+
+{% youtube g2eIu9IoFRw %}
+
+## 住宿
+我們行程規劃是 4/1 - 4/2 住新宿，然後 4/3 去箱根玩，4/4 - 4/5 在住新宿，在新宿的四晚我們都住同一間 [格蘭貝爾 (Granbell Hotel)](http://www.booking.com/hotel/jp/shinjuku-granbell.html) ，就在新宿火車站附近，從東口出來走路約十分鐘，距離還 OK，床都是席夢思的，而且是 2014 年新開幕的所以房間都很新，這家可說英文，缺點就是比較貴一些，一間雙人房 4033 / 天。
+然後去箱根當然就是要泡溫泉啦，我們選擇的是老牌子[一之湯](http://www.ichinoyu.co.jp)，它在箱根很多地方都有設旅館，我們訂的是[新館(塔ノ沢一の湯新館)](http://www.ichinoyu.co.jp/shinkan/index.html)，一泊二食，每個人 4016/天，實在是有夠貴 = =，這家也可以說英文，不過新館交通實在有點不方便，距離車站還要走一下下山路，如果要到箱根的遊客建議定強羅的飯店比較方便(但強羅的一之湯只有日文)，強羅幾乎可以說是箱根的交通中心。
+
+## 4/1 東京
+### NEX 成田機場 - 新宿車站
+一到成田機場後很順利的就出關啦，移民官完全不說話的，進入日本需要壓指紋，移民官會跟你比動作，壓完之後就OK了，出了機場就可以直接看到 JR 的旅客服務中心了，在這裡可以買到 NEX 的車票到東京市內，票價現在在促銷來回 4000 日幣/人，超級便宜。基本上說英文是可以通的，不過注意的是只有去市區的票會先打座位，到時候要回機場時要在新宿(出發地)再打車位。
+
+{% img https://lh6.googleusercontent.com/-7M4nhxDRI7A/VSXmG3LoYZI/AAAAAAAASRM/juQGFWorfCg/w1024-no/P4015139.jpg 800 600 "" %}
+
+繼續往車站走的方向也可以順便買到在東日本遊玩必備的西瓜卡。
+
+{% img https://lh4.googleusercontent.com/-eirEV_BfDFs/VSXmPm8d6PI/AAAAAAAASRM/J0of92Rx9Uw/h480-no/P4015154.jpg 800 600 "" %}
+
+從成田機場到新宿要 1 小時 20 分左右。
+
+{% img https://lh6.googleusercontent.com/-Avy-fWxK1tA/VSXmQP60CJI/AAAAAAAASRM/5kMumhCj2wQ/w1024-no/P4015155.jpg 800 600 "" %}
+
+其實去年本來沒有打算要看到櫻花的，不過我們運氣真的太好了，剛好搭上櫻花滿開～坐 NEX 的時候一路上都有櫻花看，日本真的處處是櫻花誒 \*0\*
+
+{% img https://lh6.googleusercontent.com/-_RpgeHVA81E/VSXYdjbWTWI/AAAAAAAASRM/E5YaxWYQW7E/w1024-no/P4015160.jpg 800 600 "" %}
+
+NEX 列車有中日韓英語言，不過臺灣人本來就看得懂漢字 XD 其實沒中文也不是問題。
+
+{% img https://lh6.googleusercontent.com/-pnsWyoOoIv0/VSXYdkO1T4I/AAAAAAAASRM/1YRB3KEILOc/w1024-no/P4015166.jpg 800 600 "" %}
+
+帥氣的 NEX 車頭。
+
+{% img https://lh6.googleusercontent.com/-tAKwjZcH8qg/VSXYezJEoGI/AAAAAAAASRM/zln2mbq8nPI/w1024-no/P4015168.jpg 800 600 "" %}
+
+NEX for Narita Express 成田快車
+
+{% img https://lh6.googleusercontent.com/-xpHxi1DJtjM/VSXYfTP3uWI/AAAAAAAASRM/gieq8l9zOy4/w1024-no/P4015169.jpg 800 600 "" %}
+
+### 小田急旅客中心 箱根周遊券
+因為我們要到箱根玩，在日本箱根地區的旅遊交通主要都是小田急企業提供的，然後他們在新宿車站就直接有小田急旅遊服務中心，所以出新宿車站之後在靠小田急百貨那側就可以找到了，這裡會有可以說中文的大陸人(是的，此次旅遊凡事會說中文的店員/服務員都是大陸人)，所以直接說需求，他就會依照需求建議你買什麼票。
+
+{% img https://lh6.googleusercontent.com/-Ud7yVw5PXHU/VSXYgEAPblI/AAAAAAAASRM/TlCXc1o_u5o/w1024-no/P4015170.jpg 800 600 "" %}
+
+我們預計 4/3 一早去箱根周遊，然後 4/4 早上去小王子博物館，接着下午去御殿場的 Outlet。因此我們買了[箱根周遊券](http://www.odakyu.jp/tc/deels/freepass/hakone/)，基本上就是箱根的交通工具都可以搭乘，包含盧之湖的海盜船、空中纜車、登山纜車、登山巴士、小田急高速巴士，都不限次數搭乘，票有兩天跟三天，我們只玩兩天，票價日幣 6000。其實箱根的券有兩種另一種是[富士箱根周遊券](http://www.odakyu.jp/tc/deels/freepass/fujihakone/)，本來看官網我們以為要買富士箱根周遊券，因為我們要做小田急高速巴士回新宿，不過買票時那個服務生說買箱根周遊券也可以免費坐，只是要先預約(怕沒座位)。然後因為御殿場回新宿的高速巴士會跟箱根(或 Outlet)過來的交通車有兩個會合點：東明御殿場(東明高速公路口)與御殿場火車站，巴士從火車站發車所以如果要從御殿場車站上車要比較早一點 19:05，如果是高速公路口則晚五分鐘 19:10，所以我們從 Outlet 坐交通車坐到東明御殿場的巴士站再換車時間會比較充裕一些(不過也才多五分鐘就是)。
+
+{% img https://lh5.googleusercontent.com/s96BC477rFB84dCKGMljx51iU4xmjcmWabZPRVilgxAU=w1024-no 800 600 "" %}
+
+至於前面提到一個月前就買好的浪漫號車票不需要換票，直接用周遊券過就可以進入車站內，到時候如果真的要驗票直接拿印出來的購票證明就可以了，不過其實在車上也沒有列車長來看就是。
+
+買完票之後就是直接殺去旅館 checkin 啦，格蘭貝爾從新宿東口出來比較近，新宿車站實在是大到誇張，JR 加私營鐵路加捷運一共有十來個月臺，出口分北中南，東口、西口在北邊，中央東口跟東南口、南口、新南口，總之是個只能乖乖跟着 Google Maps 走的車站 XD
+
+{% img https://lh6.googleusercontent.com/-Pa5XHTS4qUY/VSXYgflZBCI/AAAAAAAASRM/ocpK4r2flpY/h480-no/P4015171.jpg 800 600 "歌舞伎町的哥吉拉" %}
+
+### 格蘭貝爾飯店
+
+嗯。基本上就是小到不行...有夠窄，不過大致上來說是乾淨明亮的空間。
+
+{% img https://lh6.googleusercontent.com/-dq8IhQg50C4/VSXYhtFIfjI/AAAAAAAASRM/bMfcCgAmUrA/w1024-no/P4015175.jpg 800 600 "格蘭貝爾房內" %}
+
+日本免不了的是都有免治馬桶，不過這個真的是我做過最高級的了，除了加熱的坐墊，還有排氣(臭味?!)、吹乾屁屁、起身幾秒後自動沖水的功能，完全全自動，簡直驚訝。
+
+{% img https://lh4.googleusercontent.com/-JpVqXPaYHAs/VSXYhPjQNhI/AAAAAAAASRM/g0odwoW-ob0/h480-no/P4015174.jpg 800 600 "浴室" %}
+
+### 山頭火
+因為今天晚上同學已經在一個禮拜前透過日本友人已經預約了新宿有名的燒肉六歌仙，所以我們晚餐想說先隨便填填肚子就好，山頭火在臺灣也有，不過沒吃過 XDD，這裡發生一件小插曲，就是拍日本人店內千萬不要拍到他們的臉！我不小心被老闆制止了 Orz...，總之來日本記得大部分的室內拍照 OK 別拍到臉就好
+
+一樣貼心的有中文菜單
+
+{% img https://lh6.googleusercontent.com/-U62Ts_qvgmc/VSXYiklDWDI/AAAAAAAASRM/mE48CnE6y7w/w1024-no/P4015179.jpg 800 600 "山頭火中文菜單" %}
+
+開動！叉燒超級好吃的 T口T
+
+{% img https://lh6.googleusercontent.com/-BsmYd82QlnA/VSXYi6RBSBI/AAAAAAAASRM/pEgnOO5tKsM/w1024-no/P4015182.jpg 800 600 "" %}
+
+### BicCamera
+
+吃飽後回到車站附近跟同學想說先去 Bic 一下，此行還有一個目的就是買 Marumi 的 CPL (偏光鏡)，為什麼要到日本買呢，因為 Marumi 是日本品牌在日本買便宜非常非常多！另外一個就是因為價位便宜可以直接攻頂 /0_0\，我要買的是 [MARUMI EXUS CPL 46mm](http://www.biccamera.com/bc/disp/CSfGoodsPage_001.jsp?GOODS_NO=1978596) 這個在臺灣賣 3150 跟一個 [62mm](http://www.biccamera.com/bc/disp/CSfGoodsPage_001.jsp?GOODS_NO=1978598) 這個售價是 4590，換句話說在臺灣買的話我至少要花八千啊啊啊～但是在日本原本價錢就低，加上日幣便宜、BicCamera 的 8% 免稅 + 7% off 折價券，根本是 3C 敗家天堂 QQ，可惜我 m43 頂級鏡頭都不小心湊齊了...不然來日本買至少省兩三萬有 XD 直接說最後的入手價好了：兩片 CPL 合計日幣 17344，換成臺幣大概只有 4600，直接省了 40% 以上啊，可怕誒！對了BicCamera 都有會說中文的大陸人，語言基本上也不是問題，不過其實也沒有要說什麼就是，我一開始也是找一個店員拿圖片給他，問 これはどこですが  然後他就會帶你去了，結賬時才知道有會說中文的人。
+
+{% img https://lh6.googleusercontent.com/-wNdAKhXCrDo/VSXY1KP807I/AAAAAAAASRM/vgNg-_rJPWk/w1024-no/P4015261.jpg 800 600 "Marumi EXUS C.P.L." %}
+
+### 目黑川夜櫻
+
+因為第一天到日本也不算早了，所以晚上只有排一個看夜櫻的行程，目黑川在中目黑站，直接搭東京 Metro 日比谷(Hibiya) Line 就可以到了。下車站後依照 Google Maps 就可以走到目黑川了，一到就會看到一整排依河而生的櫻花，美！
+
+{% img https://lh4.googleusercontent.com/-8U-874vq-sE/VSXYq3fMlgI/AAAAAAAASRM/8fO8U-DEjFE/w1024-no/P4015217.jpg 800 600 "目黑川夜櫻" %}
+
+{% img https://lh4.googleusercontent.com/-XFLEMTUHnA8/VT7xwxS_l-I/AAAAAAAASxY/h6npiV3oOIQ/w1024-no/DSC03926.jpg 800 600 "目黑川夜櫻2" %}
+
+出賣一下我妹 XD
+
+{% img https://lh4.googleusercontent.com/-Uuz0a5AY0-w/VSXYoWQf_ZI/AAAAAAAASRM/Mp4WMfw9wkI/w1024-no/P4015208.jpg 800 600 "" %}
+
+目黑川這裡拍夜櫻其實有點難，因為他沒有打燈，只有燈籠跟靠周邊的環境光，其實還蠻暗的，那附近算是住宿區，因此要不就是拉高 ISO，要不就是放大光圈放慢快門，前者畫質下降，後者景深會變小，如果可以帶腳架也許是不錯的選擇，不過去日本玩帶腳架是有點誇張了，總之蠻考驗拍照的功力，夜櫻也可以考慮去千鳥淵，同學隔天還去那邊賞夜櫻。
+
+### 六歌仙
+
+{% img https://lh6.googleusercontent.com/-N1_I30E35vc/VSXY0WGzK-I/AAAAAAAASRM/yl7UDIfEYWU/h400-no/P4015256.jpg 800 600 "六歌仙入口" %}
+
+[六歌仙](http://www.rokkasen.co.jp/) 超多人推薦必吃的店，同學在一個禮拜多前就請日本友人打電話來預約，結果還是只有排到 21:45 分的，店內就有時間板子，沒預約的話現場要等到到 23:00，生意真的是很好。
+
+{% img https://lh6.googleusercontent.com/-DowsjRfZYkw/VSXYsoviR2I/AAAAAAAASRM/7EDXxySUNQY/w1024-no/P4015230.jpg 800 600 "" %}
+
+我們四人被安排在一個小包箱，然後我忘記拍菜單了 XDD，可以跟他要中文的菜單，點菜別擔心，直接報號碼跟份數給服務生就好。
+
+{% img https://lh4.googleusercontent.com/-yOVCMPAiMzE/VSXYtoPpdjI/AAAAAAAASRM/6B6Bib0Q75E/h400-no/P4015231.jpg 800 600 "" %}
+
+我們點基本款吃到飽[雪之宴](http://www.rokkasen.co.jp/cn/contents/tabe.html)，每個人日幣 6800，真的是要價不菲，可是真的是超級超級好吃的，CP 值超高啊！
+
+一開始他會先上幾個基本盤
+
+{% img https://lh6.googleusercontent.com/-HPt967CDc-I/VSXYt4XdG8I/AAAAAAAASRM/R2oxrsWPFjg/w1024-no/P4015234.jpg 800 600 "" %}
+
+{% img https://lh4.googleusercontent.com/-IRGVkAzAZMA/VSXYu0z5ywI/AAAAAAAASRM/y3Ew-zb3gaA/w1024-no/P4015235.jpg 800 600 "" %}
+
+{% img https://lh6.googleusercontent.com/-mm1DpEKT-Ak/VSXYwG1l5fI/AAAAAAAASRM/yCQlGubzZIY/w1024-no/P4015238.jpg 800 600 "" %}
+
+{% img https://lh6.googleusercontent.com/-iPGJ7QTT-fI/VSXYxpesjKI/AAAAAAAASRM/kltngxmQ-2c/w1024-no/P4015243.jpg 800 600 "" %}
+
+{% img https://lh6.googleusercontent.com/-opS6hv2Zsgs/VSXYyH1EJ5I/AAAAAAAASRM/nAm0R1zmoXU/h400-no/P4015245.jpg 800 600 "" %}
+
+超好吃der～  T口T  在臺灣還沒吃到這麼好吃的燒肉
+
+{% img https://lh4.googleusercontent.com/-ZC5H7gUtonM/VSXYvbPMpHI/AAAAAAAASRM/ld1p7SoCRaQ/w1024-no/P4015237.jpg 800 600 "" %}
+
+{% img https://lh4.googleusercontent.com/-RKCpRkoN5U8/VSXYzkUk66I/AAAAAAAASRM/TXCN0lMZtw4/w1024-no/P4015253.jpg 800 600 "" %}
+
+也是有海鮮的
+
+{% img https://lh4.googleusercontent.com/-PWDNAsrA-Fc/VSXYwsCSPsI/AAAAAAAASRM/YWnpfsr3h18/w1024-no/P4015240.jpg 800 600 "" %}
+
+河豚... 第一次吃 😨 心態上會覺得蠻可怕的
+
+{% img https://lh4.googleusercontent.com/-t80QDrPQqAg/VSXYyVkofeI/AAAAAAAASRM/LJAzWzDCkp0/w1024-no/P4015248.jpg 800 600 "" %}
+
+干貝
+
+{% img https://lh6.googleusercontent.com/-gbj9CzY8aOk/VSXYy_JzHgI/AAAAAAAASRM/PO_jTtWx5Kk/w1024-no/P4015249.jpg 800 600 "" %}
+
+## 4/2 東京賞櫻 - 新宿御苑、上野公園、淺草寺、晴空塔
+### 新宿御苑
+第二天，很幸運的是個好天氣加上前後這幾天是櫻花滿開的日子！原本行前我跟同學是想把看櫻花放在最後一天，今年不知道為什麼滿開日比較晚在四月初，不過看氣象預報 4/3 之後都是下雨天，聽說日本氣象廳一向都很準，所以行前決定第二天就殺去看櫻花，最後一天變成採購。
+
+{% img https://lh6.googleusercontent.com/-gWR8vS5nBpo/VSXY2nanOgI/AAAAAAAASRM/aXEsJ20dKd0/h400-no/P4025266.jpg 800 600 "新宿御苑正門" %}
+
+新宿御苑進去要收費，每個人 200 日幣。
+
+裡面也是有新人在拍婚紗的
+
+{% img https://lh4.googleusercontent.com/-XK9thdsEsTw/VT7x0Nl7KjI/AAAAAAAASxY/tqoTvCYgj9E/w1024-no/DSC03984.jpg 800 600 "" %}
+
+一堆櫻花樹滿開真的很壯觀
+
+{% img https://lh4.googleusercontent.com/-gLC_S8C0PqE/VSXZAv5GBWI/AAAAAAAASRM/GJpCG9x3Cdg/w1024-no/P4025337.jpg 800 600 "" %}
+
+{% img https://lh6.googleusercontent.com/-K2BjiuuIg2k/VSXZBxHHqzI/AAAAAAAASRM/6lG5ncxEpUo/w1024-no/P4025343.jpg 800 600 "" %}
+
+{% img https://lh4.googleusercontent.com/-7ZNNIep4bHE/VSXZD_RKx8I/AAAAAAAASRM/AM1pQ0CMPK8/h400-no/P4025348.jpg 800 600 "" %}
+
+{% img https://lh4.googleusercontent.com/-P_kT0vJP-DQ/VSXY9UD65tI/AAAAAAAASRM/AmtL6hfNL4M/w1024-no/P4025302.jpg 800 600 "" %}
+
+### 上野公園 & 宇奈とと
+在新宿御苑待了大概一個早上，中午決定到上野公園附近吃有名的宇奈とと，是鰻魚飯專賣店，這樣一碗日幣 1000。
+
+{% img https://lh6.googleusercontent.com/-xHv5YUbDzv4/VSXZJQm02NI/AAAAAAAASRM/YOm2Jmg9iaw/w1024-no/P4025365.jpg 800 600 "" %}
+
+同學還點了一杯啤酒，頗有日本人的味道?
+
+{% img https://lh5.googleusercontent.com/ULZ_j4HdlOExPNyoU7S5yRK57vvH2rAJDnXx6PGlvomb=w1024-no 800 600 "" %}
+
+吃完飯後我們就去上野公園了。這裡的櫻花更密！
+
+{% img https://lh4.googleusercontent.com/-1w4hbaHmAWQ/VSXZS602zII/AAAAAAAASRM/Cho0Izgz1VI/w1024-no/P4025393.jpg 800 600 "" %}
+
+{% img https://lh6.googleusercontent.com/-zdHkg8ZTCkA/VSXZUlkFh0I/AAAAAAAASRM/FalclsP_6as/w1024-no/P4025398.jpg 800 600 "" %}
+
+櫻桃小丸子會看到的情節，一群上班族在櫻花樹下喝酒作樂
+
+{% img https://lh6.googleusercontent.com/-aYbeZsWR73M/VSXZMnVuZcI/AAAAAAAASRM/puRy5CACZx0/w1024-no/P4025374.jpg 800 600 "" %}
+
+上野公園內也有星巴克，可以喝個咖啡休息一下在離開
+
+{% img https://lh6.googleusercontent.com/-dKirTBDHKa8/VSXZXOU4VZI/AAAAAAAASRM/hywzZVx3Jew/w1024-no/P4025408.jpg 800 600 "" %}
+
+離開上野公園也可以到阿美橫丁逛逛，就是一個類似西門町的地方，有賣衣服的、鞋子之類的，也有 RedWing 的店不過不見得比較便宜 XD，可以來逛看看。
+
+{% img https://lh6.googleusercontent.com/-eu193LK1y88/VSXZZkJiHXI/AAAAAAAASRM/x9tnZjw0UvU/w1024-no/P4025428.jpg 800 600 "" %}
+
+### うさぎや兔屋銅鑼燒
+
+隨後我們來到了也是在上野的兔屋銅鑼燒，也是非常有名的老店。
+
+{% img https://lh6.googleusercontent.com/-fn-fI6xuiH8/VSXZajdeqSI/AAAAAAAASRM/DqB9yoOsMQY/w1024-no/P4025435.jpg 800 600 "" %}
+
+紅豆銅鑼燒😍
+
+{% img https://lh4.googleusercontent.com/-Yqhyxx5UtPA/VT7yACaEuXI/AAAAAAAASxY/EJr_rduYK1A/w1024-no/DSC04097.jpg 800 600 "" %}
+
+### 淺草寺
+離開上野後我跟我同學就在分開走晚上的行程，他要去千鳥淵看夜櫻，我跟我妹則是往晴空塔 Skytree 的方向前進，基本上跟着 Google Maps 一切就都沒問題了... 除了...搞錯月臺，我跟我妹以為月臺都互通的，所以看到車站就直接衝進去，結果竟然沒互通 XDD，所以只好去找站務員跟他說我走錯月臺了，講英文的可通，就領了一張如下的紙，到正確的月臺給另一個站務員就好了，他們一定很常遇到，哪有月臺不互通的啊 XDD
+
+{% img https://lh4.googleusercontent.com/-qXOVt2BT6Sw/VSXZbUzHoGI/AAAAAAAASRM/bMc2GXQzAvo/w1024-no/P4025438.jpg 800 600 "" %}
+
+總之還是順利的到達了淺草捷運站了
+
+{% img https://lh6.googleusercontent.com/-VnonyfjATd8/VSXZbsI44BI/AAAAAAAASRM/8Lhxv7jBPig/w1024-no/P4025439.jpg 800 600 "" %}
+
+雷門！
+{% img https://lh4.googleusercontent.com/-RXjz1EYS4b8/VSXZc-pc4YI/AAAAAAAASRM/lcX8t5nMJOY/w1024-no/P4025443.jpg 800 600 "再度出賣我妹" %}
+
+淺草寺也都是櫻花
+
+{% img https://lh6.googleusercontent.com/-7pWi0lQK73c/VSXZfzG9EqI/AAAAAAAASRM/dYxM_DbnF3g/w1024-no/P4025453.jpg 800 600 "" %}
+
+最後面的本堂(觀音堂)
+
+{% img https://lh6.googleusercontent.com/-he0erriBsYU/VSXZlpA-X6I/AAAAAAAASRM/FyY0XGLaz3o/w1024-no/P4025479.jpg 800 600 "淺草寺本堂" %}
+
+本堂旁邊有外國小女孩穿和服與大家拍照
+
+{% img https://lh6.googleusercontent.com/-pdS_HpzeVYE/VSXZmg-ux3I/AAAAAAAASRM/3lBlsVhP1G0/h400-no/P4025482.jpg 800 600 "" %}
+
+本堂旁邊的五重塔
+
+{% img https://lh4.googleusercontent.com/-n-5wrTe8yDI/VSXZlAjwtrI/AAAAAAAASRM/wqmdr7duovg/h400-no/P4025472.jpg 800 600 "淺草寺五重塔" %}
+
+### 葵丸進
+
+逛完淺草寺跟附近的商家(附近有些藥妝店可逛)後大約就是晚餐時間了，想說吃完飯在去晴空塔，同學推薦這家[葵丸進](http://www.aoi-marushin.co.jp/top.html)
+
+{% img https://lh4.googleusercontent.com/-UyE8BmhVKE0/VSXZr4xy5nI/AAAAAAAASRM/IwZGxyIMfOo/w1024-no/P4025500.jpg 800 600 "葵丸進" %}
+
+一樣有中文菜單 @@"
+
+{% img https://lh4.googleusercontent.com/-w6Svzoulncc/VSXZo2zL0II/AAAAAAAASRM/pBM08Yi1B00/w1024-no/P4025492.jpg 800 600 "" %}
+
+我妹點的蝦天丼，日幣1800
+
+{% img https://lh6.googleusercontent.com/-EIQ0iZdsuuM/VSXZrU2ejzI/AAAAAAAASRM/GnOJLv4JEog/w1024-no/P4025497.jpg 800 600 "蝦天丼" %}
+
+我點的特上丼，日幣2580
+
+{% img https://lh4.googleusercontent.com/-rjpCsKagdTA/VSXZrO_peHI/AAAAAAAASRM/GZMGt8ldHiE/w1024-no/P4025496.jpg 800 600 "特上丼" %}
+
+因為上來前就已經淋醬汁了，實在有點鹹，而且軟軟的，味道是很美味不錯，不過不是脆脆的就覺得怪怪的，可能臺灣的天婦羅比較不道地 XD，總之也是好吃的一餐！
+
+### Skytree
+吃完飯後坐地鐵就可以來到晴空塔啦，本來是我妹想要上去，不過...排隊買票的人超多的 = = 早知道就要先預約了 0rz... 所以其實最後也沒上去，要去看夜景的記得[先預約買票](http://www.tokyo-skytree.jp/cn_t/reservation/)，都在裡面逛街 XDD 不過裡面就很好逛了，日本百貨公司都九點就關了，我們也沒什麼時間逛
+
+{% img https://lh6.googleusercontent.com/-xMJtk6EV6jk/VSXZtim3VgI/AAAAAAAASRM/79j38ySGYv4/h400-no/P4025507.jpg 800 600 "" %}
+
+裡面有龍貓專賣店跟拉拉熊
+
+{% img https://lh4.googleusercontent.com/-ZOJr70vhANg/VSXZwOSp5fI/AAAAAAAASRM/zXs2CmFSeUU/h400-no/P4025515.jpg 800 600 "" %}
+
+那是會動的龍貓
+
+{% youtube Y9wmF7QszRg %}
+
+{% img https://lh4.googleusercontent.com/-8nzubkuuFHI/VSXZxMNdzVI/AAAAAAAASRM/_He0PlzkQp4/h400-no/P4025520.jpg 800 600 "" %}
+
+還有免不了的櫻花 XDD 櫻花季來日本不看到櫻花實在太難了
+
+{% img https://lh4.googleusercontent.com/-gojw7x_ci2s/VSXZyXouZ6I/AAAAAAAASRM/hPsw_EJ8gyc/h400-no/P4025522.jpg 800 600 "" %}
+
+逛完之後就繼續坐着地鐵回到新宿了，從東口走到格蘭貝爾會經過一個小神社 - 花園神社，裡面種着白櫻花，結束日本行第二天～
+
+{% img https://lh4.googleusercontent.com/-5G_wY4IgV98/VSXZyiB504I/AAAAAAAASRM/hgb33IGTZEM/w1024-no/P4025524.jpg 800 600 "" %}
+
+## 4/3 箱根
+
+隔天一早我們就準備出發到箱根拉～今天的早餐也是經過什麼吃什麼，我們經過了 [First Kitchen](http://first-kitchen.co.jp/) 聽說是一家日本小有名氣的速食店，價格也很平民，所以當然要來朝聖一下。
+
+{% img https://lh3.googleusercontent.com/-gf5sFL533Ps/VSXZ19_u7zI/AAAAAAAASRM/VtG2qZMwVUg/s1024/P4035531.jpg 800 600 "我跟我妹的早餐" %}
+
+{% img https://lh3.googleusercontent.com/-TySn9sYEoV8/VSXZ3UDLO-I/AAAAAAAASRM/DfUiwIfGitI/s1024/P4035535.jpg 800 600 "還算有誠意的漢堡大小" %}
+
+### 小田急浪漫號
+吃完之後一樣回到新宿車站，小田急浪漫號的搭乘位置在小田急百貨那側，不過基本上跟着指標都還算好認就是，進入車站直接用第一天買的 __箱根周遊券__ 磁卡票就可以進去了。
+
+{% img https://lh3.googleusercontent.com/-pmUHKpQ4qJo/VSXZ3mjt3vI/AAAAAAAASRM/QKczo7symeE/s1024/P4035543.jpg 800 600 "小田急浪漫號特急 VSE" %}
+
+{% img https://lh3.googleusercontent.com/-jwUf1hLzBKI/VSXZ5TOaS5I/AAAAAAAASRM/3AgMpqTfdQ8/s1024/P4035548.jpg 800 600 "告示牌" %}
+
+{% img https://lh3.googleusercontent.com/-Ww5wzRkxqr4/VSXZ5k1nIXI/AAAAAAAASRM/XGtz1nnJ6QU/s1024/P4035549.jpg 800 600 "寬敞的車廂" %}
+
+{% img https://lh3.googleusercontent.com/-ZPqLRcHgl0Q/VSXZ7LP_e_I/AAAAAAAASRM/9G0taAr3o0A/s1024-Ic42/P4035560.jpg 800 600 "所到之處還是櫻花！" %}
+
+車上最中間應該是 6 車廂號吧，也是有販賣處的
+
+{% img https://lh3.googleusercontent.com/-lI7SdAwPh08/VSXZ7XW2wvI/AAAAAAAASRM/epzQjkUT3wI/s512-Ic42/P4035564.jpg 800 600 "小田急浪漫號販賣處" %}
+
+第一排的 view 真的不是普通驚人
+
+{% img https://lh3.googleusercontent.com/-djCGMm0O6x0/VT7yGz7rVvI/AAAAAAAASxY/N9hXleWJ6FQ/s1024-Ic42/DSC04257.jpg 800 600 "不知道哪個車站" %}
+
+過了一個多小時總算是到箱根啦～～～
+
+{% img https://lh3.googleusercontent.com/-8TJYDjFx2Wg/VSXZ8pCw8OI/AAAAAAAASRM/a5mzBb1w-6A/s1024-Ic42/P4035569.jpg 800 600 "箱根湯本車站" %}
+
+### 箱根湯本咖啡廳
+
+據說到了箱根車站必吃的就是這一家，箱根咖啡
+
+{% img https://lh3.googleusercontent.com/-oA3WUQW23VQ/VSXZ-JsP4sI/AAAAAAAASRM/zP51ZKicCOE/s512-Ic42/P4035574.jpg 800 600 "箱根咖啡" %}
+
+必點的就是這個啦，箱根布丁
+
+{% img https://lh3.googleusercontent.com/-uOsqUzzt4DE/VSXZ9omuLCI/AAAAAAAASRM/-w4jST3UvRU/s1024-Ic42/P4035572.jpg 800 600 "箱根布丁" %}
+
+當然咖啡廳不止布丁，也是有賣一些其他有的沒的，像是炸雞、麵包之類的，我跟我妹點了一份炸雞跟兩個布丁，合計日幣 960。
+
+{% img https://lh3.googleusercontent.com/-MWXoUlLZjFI/VSXZ9NWyzZI/AAAAAAAASRM/JAJ1pc5mBQ8/s1024-Ic42/P4035570.jpg 800 600 "午餐" %}
+
+### 箱根的玩法
+
+箱根周遊券，顧名思義，就是箱根這裡的旅行可以繞成一個圓，順時針或逆時針都可以。
+
+{% img http://www.hakonenavi.jp/chinese/freepass/images/img01.jpg 800 600 "箱根周遊路線圖" %}
+
+如果是逆時針，依序做的交通工具就是  箱根湯本 -(登山電車)- 強羅站 -(登山纜車)- 早雲山 -(空中纜車)- 桃源台 -(海賊船)- 箱根町 -(登山巴士)- 箱根湯本。
+
+如果是順時鐘，則是 箱根湯本 -(登山巴士)- 箱根町 -(海賊船)- 桃源台 -(空中纜車)- 早雲山 -(登山纜車)- 強羅站 -(登山電車)- 箱根湯本。
+
+然後所有的交通工具都不需要付費，直接用周遊券即可通行。
+
+### 箱根神社
+
+很悲劇的是昨天還是大晴天，今天是大雨...不過其實行前就知道了，只是不知道這麼慘，坐浪漫號一路上氣候就越來越差，到了箱根可能是下午熱對流，雨勢漸漸變大。
+
+我們本來的打算是走順時鐘的路線，所以要先去做登山巴士到箱根町，登山巴士的站牌就在箱根湯本車站出來的對面。不會等太久就有一班車(時刻表都有時間)。
+
+車程大約二三十分鐘就到了我們的目的地 - 箱根町，這裡有箱根神社可以參訪，所以我們就先去了，不過雨真的是很大！ Orz... 本來走到一半大家就想放棄了 = =
+
+箱根神社第一鳥居，距離神社還有幾百公尺而已，但是雨實在太大了，幾百公尺也是極為艱難
+
+{% img https://lh3.googleusercontent.com/-q4kyLtf3Xw4/VSXZ-0970RI/AAAAAAAASRM/jmULdZDlokU/s1024-Ic42/P4035576.jpg 800 600 "箱根神社第一鳥居" %}
+
+途中我們還走進去某間商店避雨 Q_Q"，店家那位媽媽人很好，可惜不會說英文 = ="，本來要問距離裡面還有多遠，然後開始拿着地圖雞同鴨講就是，哈哈哈
+
+{% img https://lh3.googleusercontent.com/-URe_-up7Mcc/VSXZ_6L3jJI/AAAAAAAASRM/ZMxuYasd3U4/s1024-Ic42/P4035578.jpg 800 600 "箱根神社第二鳥居" %}
+
+走着走着，總算是看到神社的旗幟了
+
+{% img https://lh3.googleusercontent.com/-7WC-bfdg3GQ/VSXaAM1SW0I/AAAAAAAASRM/sScpGJ0DbqY/s512-Ic42/P4035579.jpg 800 600 "神社旗子" %}
+
+旁邊就是盧之湖，這天氣真的很悲劇，霧超大，一看就覺得不妙的那種...
+
+{% img https://lh3.googleusercontent.com/-Boy685aCr9c/VSXaAdYDJ_I/AAAAAAAASRM/rx6jM1FXKhQ/s1024-Ic42/P4035580.jpg 800 600 "霧超大盧之湖" %}
+
+終於到神社了 T口T，褲子、鞋子已經差不多全濕了
+
+{% img https://lh3.googleusercontent.com/-srjt2Rhjp0I/VSXaBOmOZrI/AAAAAAAASRM/0nDEG2J4GyU/s512-Ic42/P4035581.jpg 800 600 "箱根神社入口" %}
+
+水手舍那裡剛好遇到臺灣團 XD
+
+{% img https://lh3.googleusercontent.com/-e7M1dlAhRsM/VSXaCWX9BbI/AAAAAAAASRM/5SsI07G4x0g/s1024-Ic42/P4035584.jpg 800 600 "水手舍" %}
+
+接着走過參道(要爬大約三到四層樓的階梯上去)就是本殿啦... 廣場正在修補
+
+{% img https://lh3.googleusercontent.com/-9p7B_FL-nPA/VSXaDyU5tVI/AAAAAAAASRM/DdrGXU0msTc/s1024-Ic42/P4035587.jpg 800 600 "本殿前廣場" %}
+
+看看這個雨勢，真的是超級大
+
+{% img https://lh3.googleusercontent.com/-qTIXTNSCw4w/VSXaENsJGrI/AAAAAAAASRM/UA_aHs4mgI8/s1024-Ic42/P4035588.jpg 800 600 "箱根神社本殿" %}
+
+九頭龍神社
+
+{% img https://lh3.googleusercontent.com/-qOB6fa4buls/VSXaEnD1BDI/AAAAAAAASRM/keuvCouYUKU/s512-Ic42/P4035589.jpg 800 600 "箱根神社九頭龍神社" %}
+
+真的有九頭龍
+
+{% img https://lh3.googleusercontent.com/-KuF_1JhyIK4/VSXaFXY_J8I/AAAAAAAASRM/jrZQHKf01e0/s1024-Ic42/P4035590.jpg 800 600 "九頭龍噴泉" %}
+
+關於箱根神社，可以參考 [日本見聞錄 - 箱根神社](http://www.zipangguide.net/travel/sight/kanagawa/hakone_temple.html) 這個網頁的敘述。
+
+經過一番努力，走回接駁車的地方，想必船也沒開，本來想說看看能不能做巴士繞過盧之湖，結果一上車說上面的交通工具 (空中纜車) 也沒有營業 嗚嗚嗚，看來真的只能回飯店了
+
+{% img https://lh3.googleusercontent.com/-IHQTX5ig6Ow/VSXZ_dkhORI/AAAAAAAASRM/c-u1LskHNDE/s1024-Ic42/P4035577.jpg 800 600 "盧之湖海盜船乘船處" %}
+
+只好默默的看了一眼海盜船乘船處就坐回程的登山巴士回到箱根湯本 T口T/ 改天有機會再來箱根了。
+
+### 一之湯新館
+
+[一之湯新館](http://www.e-japannavi.com/hotel/kanagawa/ichinoyu_shinkan/) 位置在塔之澤站，可由箱根湯本站乘箱根登山鐵道至塔之澤站下車，沿山路步行約 8 分鐘。結果我們不知道我們做登山巴士到塔之澤站，還靠 Google Maps 找了一下，他在外面的路上完全沒有告示牌 = =...
+
+建議訂房直接到 [官網訂](http://www.ichinoyu.co.jp/shinkan/index.html) 就好，新館的好處是比較好搶，英文也可以通，不過真的要說交通方便建議還是訂強羅站的，因為箱根的交通中心是強羅。不過一之湯強羅就不能說英文了，也比較搶手的樣子。
+
+坐登山巴士到塔之澤，走了一下山路還是到了
+
+{% img https://lh3.googleusercontent.com/-Ncv6KSjDfZQ/VSXaFm15owI/AAAAAAAASRM/XLYuYYdY3PU/s1024-Ic42/P4035592.jpg 800 600 "一之湯新館" %}
+
+房間真的很大，我們定的是一泊二食的方案，所以房型好像沒得選，不過房間超大，很不錯
+
+{% img https://lh3.googleusercontent.com/-1_lhzSMY65I/VSXaF8X25RI/AAAAAAAASRM/ydKH4ksVcIo/s1024-Ic42/P4035593.jpg 800 600 "一之湯新館房間" %}
+
+{% img https://lh3.googleusercontent.com/-z_TgnpGdt_k/VSXaHRPS5DI/AAAAAAAASRM/ng9BiPdccmQ/s1024-Ic42/P4035597.jpg 800 600 "日式暖桌" %}
+
+{% img https://lh3.googleusercontent.com/--_61BIFZa3I/VSXaHorLPLI/AAAAAAAASRM/xtTPMAyBXLM/s1024-Ic42/P4035599.jpg 800 600 "戶外溫泉" %}
+
+房間的溫泉我留給我妹泡，我自己去泡大衆池 😳 ，不過其實因為時間太早了，大衆池都沒人 XDD
+
+和服初體驗！  
+
+{% img https://lh3.googleusercontent.com/-H83V3bcH-u0/VSXaKGHqALI/AAAAAAAASRM/sTC23uYegR0/s512-Ic42/P4035613.jpg 800 600 "第一次穿和服" %}
+
+泡完溫泉大約五點多我們就準備下去用餐啦，結果我們本來還想點生魚片，結果一問那個服務生才說生魚片是需要先預定的 = =... ，我們沒有先預定所以就沒得吃了，哎呀此行真的不少意外。
+
+{% img https://lh3.googleusercontent.com/-pQUthfnsZwg/VSXaK4lBSqI/AAAAAAAASRM/UOPUmNnXMe0/s1024-Ic42/P4035616.jpg 800 600 "晚餐懷石料理" %}
+
+{% img https://lh3.googleusercontent.com/-4mGhCQJx7ho/VSXaOCTzyTI/AAAAAAAASRM/y7S-5F1aFug/s1024-Ic42/P4045627.jpg 800 600 "懷石料理 2" %}
+
+在店員的推薦下點了兩瓶櫻花酒，然後同學說很難喝！！
+
+{% img https://lh3.googleusercontent.com/-vbfnKasHSaQ/VT7yLqH0MXI/AAAAAAAASxY/cJxXNp-FCuk/s512-Ic42/DSC04289.jpg 800 600 "櫻花酒" %}
+
+溫泉蛋
+
+{% img https://lh3.googleusercontent.com/-4Htuc3lqC9E/VT7yN5C43iI/AAAAAAAASxY/yKicEogZoXI/s1024-Ic42/DSC04298.jpg 800 600 "" %}
+
+飯後還有附上一球冰淇淋。
+
+房間外就有一株盛開的櫻花，晚上注意到戶外的溫泉池上面都有櫻花花瓣，美
+
+{% img https://lh3.googleusercontent.com/-EFSOuz85rAo/VT7yOGMUiqI/AAAAAAAASxY/TSVKNBH2pfU/s1024-Ic42/DSC04300.jpg 800 600 "一之湯櫻花" %}
+
+## 4/4 箱根 - 小王子博物館、御殿場 Outlet、回新宿
+### 小王子博物館
+
+今天的行程上午是我指定的 XD，亞洲唯一的小王子博物館就在箱根拉，怎麼可以不來，今天的行程規劃很簡單，上午小王子博物館，下午就去御殿場 Outlet。
+
+箱根除了小王子博物館，臨近的地點還有玻璃之森，也是很漂亮的地方，不過可惜我們時間不夠，無法塞這些行程，箱根如果認真玩可能要排兩天整才玩的玩，他的地位有點類似臺北陽明山 XDD
+
+從我們住的一之湯塔之澤要到小王子博物館，首先要坐登山電車到強羅站在換登山巴士。
+
+塔之澤是個無人車站，很幽靜的車站
+
+{% img https://lh3.googleusercontent.com/-9a3GIF-1oy4/VSXaPkzVegI/AAAAAAAASRM/y1I7D4kRC84/s1024-Ic42/P4045634.jpg 800 600 "塔之澤車站" %}
+
+{% img https://lh3.googleusercontent.com/-k3WRYPGeRSw/VSXaQFOd5NI/AAAAAAAASRM/weZJl9-azXw/s1024-Ic42/P4045637.jpg 800 600 "" %}
+
+等沒多久，電車又準時出現拉。日本的交通工具真的準時的可怕。
+
+{% img https://lh3.googleusercontent.com/-Zras2phfVOE/VSXaRxS3DcI/AAAAAAAASRM/iKOcOvEJPD0/s1024-Ic42/P4045646.jpg 800 600 "" %}
+
+箱根的登山電車跟阿里山小火車一樣，是採用之字形的建設，所以火車會來回來回，其實是約爬越高，並不是倒退走，我妹一開始還問我怎麼倒回去了 XDD
+
+到了強羅，站外不遠處就是轉登山巴士的地方啦，全部的站牌都有寫往哪個景點去，很好找，再不然那裡也都有站一個服務生在服務，如果不懂的可以直接問，日本觀光業真的是很貼心啊，連站牌都有專人服務。等待車子的途中有一列電車要往箱根湯本開，我拿了相機要照相，司機還很開心的微笑 say hello XDD
+
+{% img https://lh3.googleusercontent.com/-uOBinx_4u-Y/VSXaSZBNzlI/AAAAAAAASRM/GUq7tc2e-0E/s1024-Ic42/P4045647.jpg 800 600 "可愛的司機" %}
+
+乘坐指定的登山巴士之後就到了小王子博物館啦～～～～
+
+{% img https://lh3.googleusercontent.com/-tGUDyU0KqRU/VSXaTHEXK2I/AAAAAAAASRM/BJxMThYCFUg/s1024-Ic42/P4045650.jpg 800 600 "小王子博物館大門" %}
+
+廣場就有小王子的星球 B612
+
+{% img https://lh3.googleusercontent.com/-_BSTGX4kUeA/VSXaU64eqvI/AAAAAAAASRM/obPjzvSbVNk/s512-Ic42/P4045655.jpg 800 600 "B612" %}
+
+{% img https://lh3.googleusercontent.com/-ceOPwdhYPBg/VSXaV_-CSPI/AAAAAAAASRM/ExRQFfUgvqU/s1024-Ic42/P4045661.jpg 800 600 "售票處裝飾" %}
+
+{% img https://lh3.googleusercontent.com/-SFqjJjMrFRk/VSXaX6RT21I/AAAAAAAASRM/D22FHulmHu0/s1024-Ic42/P4045667.jpg 800 600 "" %}
+
+{% img https://lh3.googleusercontent.com/-Ge6dPnQKPY0/VT7yYmeP8eI/AAAAAAAASxY/36snugk-8qI/s512-Ic42/DSC04332.jpg 800 600 "歐風建築" %}
+
+{% img https://lh3.googleusercontent.com/-rj7kDYn7eFg/VT7ybc0_l8I/AAAAAAAASxY/0_TSoEorQ1c/s512-Ic42/DSC04337.jpg 800 600 "發現小王子" %}
+
+裡面也有展示廳，不過內部禁止拍攝就是，大部分是作者生平的介紹，最後有全世界小王子譯本的收藏。
+
+{% img https://lh3.googleusercontent.com/-Qn5ScxGboXU/VSXaZTUu7MI/AAAAAAAASRM/MMQm1A_BZY4/s1024-Ic42/P4045673.jpg 800 600 "展示廳入口" %}
+
+你看到蛇吞象還是帽子？
+
+{% img https://lh3.googleusercontent.com/-B47ET3PjrIY/VSXaZ8IQ7uI/AAAAAAAASRM/_6Mbxrk43QY/s1024-Ic42/P4045674.jpg 800 600 "" %}
+
+{% img https://lh3.googleusercontent.com/-NYCZbdgLEns/VSXaarIvw_I/AAAAAAAASRM/Kzp_aO9xh2k/s512-Ic42/P4045675.jpg 800 600 "" %}
+
+{% img https://lh3.googleusercontent.com/-a69m-7JNols/VSXaa_Leh-I/AAAAAAAASRM/B1rt5OyPeH4/s512-Ic42/P4045676.jpg 800 600 "國王" %}
+
+{% img https://lh3.googleusercontent.com/-dNEGpHsyvas/VSXabSVxLFI/AAAAAAAASRM/HujGYVYNeZM/s512-Ic42/P4045677.jpg 800 600 "商人" %}
+
+{% img https://lh3.googleusercontent.com/-Rlq2dnnEa6o/VSXab161rXI/AAAAAAAASRM/ZeqGvZ5YVfk/s512-Ic42/P4045678.jpg 800 600 "點燈人" %}
+
+{% img https://lh3.googleusercontent.com/-713iXFM-xwY/VSXacu5QQJI/AAAAAAAASRM/q4VcXUibYWY/s640-Ic42/P4045680.jpg 800 600 "地理學家" %}
+
+最深處有間玫瑰教堂，可以做手工書籤，有專人教你怎麼做
+
+{% img https://lh3.googleusercontent.com/-BI3CiX9L07k/VSXacHXrl-I/AAAAAAAASRM/9WAlc76ZeK4/s512-Ic42/P4045679.jpg 800 600 "教堂" %}
+
+{% img https://lh3.googleusercontent.com/-CG0iiywRw3c/VSXaeY3h0nI/AAAAAAAASRM/btjLloZUUfk/s1024-Ic42/P4045684.jpg 800 600 "製作ing" %}
+
+{% img https://lh3.googleusercontent.com/-O6ws9mKgb9A/VSXafE18JqI/AAAAAAAASRM/yXH28_o-EFg/s512-Ic42/P4045686.jpg 800 600 "" %}
+
+完成！！
+
+{% img https://lh3.googleusercontent.com/-8EUHEKQ4aP0/VSXafhlyFxI/AAAAAAAASRM/HDfbWIYC3uc/s640-Ic42/P4045688.jpg 800 600 "我的書籤" %}
+
+發現教堂裡面的小玫瑰
+
+{% img https://lh3.googleusercontent.com/-4YfIvvhRg_0/VSXaf7cHhZI/AAAAAAAASRM/pgYOk6A-3dU/s1024-Ic42/P4045689.jpg 800 600 "教堂小玫瑰" %}
+
+在小王子博物館撿到野生日本小女孩一枚(誤)，超可愛的啦～而且不怕生
+
+{% img https://lh3.googleusercontent.com/-oYnvHgS_tcs/VSXagu8pQQI/AAAAAAAASRM/ODZUlEnOgZs/s512-Ic42/P4045692.jpg 800 600 "日本妹(?)" %}
+
+館內有一家咖啡廳，不過我們預計是要到 Outlet 吃，所以就沒在這裡停留了。
+
+{% img https://lh3.googleusercontent.com/-c6Vvyn7u2YA/VSXaiZB-OeI/AAAAAAAASRM/EyS0YnevYEc/s1024-Ic42/P4045701.jpg 800 600 "" %}
+
+最後面就是可怕的紀念品區，我差點失心瘋了XDD，每一樣都想帶回家啊 T口T 最後挑了日本小王子譯本、一個小王子陶瓷裝飾(放桌上那種)、紙膠帶跟一本筆記本。
+
+### 御殿場 Outlet
+
+在小王子博物館要到 Outlet 有兩個方式，一個是到小王子博物館外面就有的站牌坐紫線的登山巴士(也就是從強羅站到小王子的那臺)到御殿場，不過這個有個問題是這線的登山巴士一小時才一班，我們沒有先抓好時間結果剛好錯過 = ="，另一個方法是往前走一些些，我記得是仙鄉樓前站(大約差 70m 而已)，那裡有小田急箱根高速巴士可以坐，我們很順利的不久後就來了一臺，這個巴士比較大型，車上還有插座可以充電！然後這個因為只是來回 御殿場 - 箱根 的所以不需要跟來往 御殿場 - 新宿 那個一樣要先預約，我們上車後根本沒人。
+
+不過箱根高速巴士只有到御殿場火車站，坐到火車站後要再轉車，我們一開始坐到那裡找不到接駁車，後來詢問路人才知道坐哪班車，也就順利的到御殿場了。
+
+御殿場在天氣好的時候可以看到富士山，不過延續昨天的壞天氣，今天都陰天陰天的，所以沒看到富士山。這個 Outlet 不算大。分東側西側，日本品牌的折扣比較多，如果是美國、歐洲牌子其實算起來沒有在美國買便宜，但是日本品牌真的是超級便宜，我在這裡買了 BANDAI 的玩具海賊船兩艄、羅的模型，一雙鞋，一個紳士帽，同行的就我買最多 XDD，這裡的店有的貨幾乎都被陸客掃光了，同學有點小失望，一些店有可以說中文的店員，不過購物其實即便是英文也是 OK 的。
+
+前面有提到，從御殿場回新宿需要先預約座位，我們約了 19:10 的，所以算好時間我們就離開御殿場，坐接駁車回到東明御殿場站，等待回新宿的高速巴士。
+
+### 新宿 - Manneken 比利時鬆餅、元祖壽司
+
+回到新宿後我們發現一家就在車站出口大排長龍的鬆餅店，所以基於人類的好奇心，我們也就排了 XDD
+
+{% img https://lh3.googleusercontent.com/-_9uGsfhM4Ww/VSXajBgHJxI/AAAAAAAASRM/3AFSmisLwwE/s1024-Ic42/P4045703.jpg 800 600 "Manneken 鬆餅店" %}
+
+{% img https://lh3.googleusercontent.com/-ZTCzrO7PfM8/VSXarvC23xI/AAAAAAAASRM/aNP6WEwnlFE/s1024-Ic42/P4045725.jpg 800 600 "巧克力、抹茶、草莓鬆餅" %}
+
+這樣三個合計 474 元日幣，合臺幣才 120 左右真的是很便宜誒。
+
+不過這個其實是買來當晚上的點心的。今天的晚餐是要吃同學推薦的元祖壽司。
+
+{% img https://lh3.googleusercontent.com/-wkBBPwY2xW4/VSXajaAiCfI/AAAAAAAASRM/vZPx8_3uoE0/s1024-Ic42/P4045704.jpg 800 600 "元祖壽司 新宿西口店" %}
+
+備有玄米&煎茶兩種可以泡
+
+{% img https://lh3.googleusercontent.com/-SV2FEq68_qQ/VSXakl-riaI/AAAAAAAASRM/-FmJhoHDV1o/s512-Ic42/P4045707.jpg 800 600 "煎茶" %}
+
+{% img https://lh3.googleusercontent.com/-acxrcrgDcTk/VSXalFgRzaI/AAAAAAAASRM/2dqTS8OpIZM/s512-Ic42/P4045708.jpg 800 600 "" %}
+
+接下來就直接上圖啦～ 因為我也忘記哪些是哪些了 T口T
+
+{% img https://lh3.googleusercontent.com/-RQBPHJppZ2k/VSXamRvYJjI/AAAAAAAASRM/dRDO4r8fvOw/s640-Ic42/P4045711.jpg 800 600 "" %}
+
+{% img https://lh3.googleusercontent.com/-vaxUbACHdsE/VSXapDG0D3I/AAAAAAAASRM/wVKUUGmGiNc/s640-Ic42/P4045718.jpg 800 600 "" %}
+
+{% img https://lh3.googleusercontent.com/-5xN1SS-1VQE/VSXan0aWu7I/AAAAAAAASRM/rBUaajP4Iec/s640-Ic42/P4045717.jpg 800 600 "我們坐在剛好看不到師傅的地方" %}
+
+{% img https://lh3.googleusercontent.com/-COHwUu7cxJs/VSXapCRBGhI/AAAAAAAASRM/AZIGchcghUI/s640-Ic42/P4045719.jpg 800 600 "海膽" %}
+
+{% img https://lh3.googleusercontent.com/-x9soU5gCtJw/VSXapXqb9PI/AAAAAAAASRM/3BlXTgHM-ys/s640-Ic42/P4045720.jpg 800 600 "" %}
+
+{% img https://lh3.googleusercontent.com/-R0ZUc2Yz1y0/VSXaqR4PxrI/AAAAAAAASRM/-I0OO7u8uTE/s640-Ic42/P4045721.jpg 800 600 "" %}
+
+{% img https://lh3.googleusercontent.com/-ql644DD3Wlg/VSXann0GBgI/AAAAAAAASRM/GcvOogbgADY/s640-Ic42/P4045716.jpg 800 600 "" %}
+
+如果需要菜單上的也可以直接點。
+
+我跟我妹吃了11盤 ( 125元 x6 + 200 x3 + 250 x1 + 600 x1 )，總計日幣 2376，兩個人吃超級飽的也好吃！同學點了15、16盤的樣子。
+
+這家店偶爾也會看到外國人進來，然後也有日本上班族，不過日本人好像都只拿最便宜的然後就吃他個好幾盤。 #小小觀察
+
+曬個當天在 Outlet 的戰利品。
+
+{% img https://lh3.googleusercontent.com/-jwWrz600GRA/VSXaq8ta8kI/AAAAAAAASRM/CWmhQ1q1ZmM/s1024-Ic42/P4045723.jpg 800 600 "" %}
+
+## 4/5 東京迪士尼海洋樂園
+
+從新宿要到迪士尼樂園只要跟着 Google Maps 的指引轉車就沒問題啦，到了迪士尼站之後要轉他們內部自己的電車系統，一樣是要錢的 Q_Q，除非是買他們的套票。不然像我同學是從臺灣這邊旅行社代購的比較便宜的票就不能免費乘坐了，所以我們一樣是刷 Suica 進去，因為要到海洋有點距離，如果是陸地樂園就不需要坐他們的環狀電車了。
+
+這是我去的第三座迪士尼，香港、奧蘭多、日本！
+
+我們去玩的時候剛好是復活節～
+
+{% img https://lh3.googleusercontent.com/-YM4CRTJ-8sM/VSXasx0W0CI/AAAAAAAASRM/tC4boHPvLz4/s1024-Ic42/P4055730.jpg 800 600 "" %}
+
+{% img https://lh3.googleusercontent.com/-bwTNGyjew_Q/VSXatRqhImI/AAAAAAAASRM/gxTnXXSIPu8/s1024-Ic42/P4055732.jpg 800 600 "環狀電車" %}
+
+{% img https://lh3.googleusercontent.com/-IvhTT1GRBc8/VSXauRrdEBI/AAAAAAAASRM/mevU1RiLxLU/s1024-Ic42/P4055734.jpg 800 600 "車上的拉環也好可愛" %}
+
+也是有穿的很華麗的小公主來玩的...
+
+{% img https://lh3.googleusercontent.com/-v0zZlWFAuko/VSXavfO1KFI/AAAAAAAASRM/MzEuJWjNPls/s512-Ic42/P4055737.jpg 800 600 "#偷拍" %}
+
+終～終～終～於到啦～
+
+{% img https://lh3.googleusercontent.com/-8temW3m1fP0/VSXav1qWmyI/AAAAAAAASRM/eaFezfVupyU/s1024-Ic42/P4055739.jpg 800 600 "廣場" %}
+
+處處都是復活節
+
+{% img https://lh3.googleusercontent.com/-wlIeoT7Mgik/VSXawhf3PVI/AAAAAAAASRM/BxkU3TTleWY/s1024-Ic42/P4055742.jpg 800 600 "" %}
+
+海洋的中心是一個人造港，也是水上遊行表演的地方
+
+{% img https://lh3.googleusercontent.com/-z1Q9t3OGvko/VSXaytbBOuI/AAAAAAAASRM/T-BFL_J7wDA/s1024-Ic42/P4055746.jpg 800 600 "中央港口區" %}
+
+不過由於我們比較晚出門，結果到海洋已經開了，本來我們是想做最有名的遊樂設施 - [玩具總動員瘋狂遊戲屋](http://www.tokyodisneyresort.jp/tc/attraction/detail/str_id_aw_toy/)，不過人實在是太多了，我們一入園就去竟然直接本日的 Fastpass 都沒有了 = =，不愧是最有名的遊樂設施
+
+{% img https://lh3.googleusercontent.com/-gwcdX6XqGrg/VSXa2VZ5xRI/AAAAAAAASRM/e_bL5HpV4hc/s512-Ic42/P4055754.jpg 800 600 "玩具總動員" %}
+
+所以我們就趕緊先去換另一個 FastPass - [地心探險之旅](http://www.tokyodisneyresort.jp/tc/attraction/detail/str_id_aw_tot/)。不過因為這個實在太熱門了，抽到的時間是下午一點的。
+
+{% img https://lh3.googleusercontent.com/-8W-SB-XefyA/VSXbAytLqNI/AAAAAAAASRM/6mnRIToKF4A/s1024-Ic42/P4055780.jpg 800 600 "Journey of the Center of the Earth" %}
+
+### 驚魂古塔
+
+搶到後我們緊接着就先去排第一個遊樂設施 - [驚魂古塔](http://www.tokyodisneyresort.jp/tc/attraction/detail/str_id_aw_tot/) ，他就是一個在黑暗的高空中上升又落下的遊樂設施，不過我們排這個實在排太久了，我們排了兩個多小時有...排到一半我們又可以去抽下一個 Fastpass 了 = =，討論了一下決定下一個是印第安納瓊斯，我就自己拿着我們四個人的票出發了。
+
+{% img https://lh3.googleusercontent.com/-SUVdlO-OJbY/VSXa1Wm7AoI/AAAAAAAASRM/OiFGJe0_Cmg/s512-Ic42/P4055750.jpg 800 600 "巨大的驚魂古塔" %}
+
+{% img https://lh3.googleusercontent.com/-DrzbQDeeL58/VSXa0c8UP5I/AAAAAAAASRM/hQ-Xfw4JE78/s512-Ic42/P4055749.jpg 800 600 "排隊中還可以看看可愛的日本妹?" %}
+
+我們那天是禮拜日去的，結果一堆日本學生妹都穿制服去玩。倒是外國遊客比例比日本人低蠻多的。
+
+第二張 Fastpass - [印第安納瓊斯](http://www.tokyodisneyresort.jp/tc/attraction/detail/str_id_ld_indiana/) 已經是五點了 = ="
+
+{% img https://lh3.googleusercontent.com/-KZP428Cb-fE/VSXa2zHDYHI/AAAAAAAASRM/g_rVE3gDlcE/s640-Ic42/P4055757.jpg 800 600 "" %}
+
+{% img https://lh3.googleusercontent.com/-UWbxYQJb5Vk/VSXa3ZvgLeI/AAAAAAAASRM/_CoPRDDfwCA/s512-Ic42/P4055758.jpg 800 600 "穿越人群繼續看日本妹?" %}
+
+{% img https://lh3.googleusercontent.com/-MpVhlLaUfKo/VSXbN4J_ElI/AAAAAAAASRM/fw_J2G0tOeQ/s1024-Ic42/P4055823.jpg 800 600 "Fastpass" %}
+
+由於驚魂古塔在距離入口處約一半的地方，然後印第安納瓊斯在最後面，來回至少也花了半個小時，我以為我同學他們會快到了，我全程都用衝的，結果我回來之後他們才前進了五步吧 XDD 這真的很扯，以後到迪士尼真的不能排假日(不過這次真的是不得已的，因為考量到後面都會下雨，所以才調換時間)，回程看到古堡前面的廣場有些復活節裝飾，反正閑着也是閑着，我就問我妹要不要去拍照，反正隊伍繼續給我同學排。
+
+{% img https://lh3.googleusercontent.com/-9fb_blXYVm4/VSXa5Mb66GI/AAAAAAAASRM/sC2BgwXnXso/s1024-Ic42/P4055764.jpg 800 600 "復活節車" %}
+
+{% img https://lh3.googleusercontent.com/-6KH72cVAEMQ/VSXa8D6PklI/AAAAAAAASRM/q7D0T8YO_5I/s1024-Ic42/P4055770.jpg 800 600 "" %}
+
+{% img https://lh3.googleusercontent.com/-nceOPOiApJI/VSXa-a5eEHI/AAAAAAAASRM/dchbjgyGxF4/s1024-Ic42/P4055775.jpg 800 600 "" %}
+
+最後總算是順利坐到驚魂古塔了，就是一個在黑暗中上上下下的東西，哈哈，坐完驚魂古塔，算算時間也差不多可以坐地心探險，我們就先去坐了。
+
+然後午餐基本上就是看到什麼吃什麼。
+
+好吃的烤雞腿，一隻 500 日幣
+
+{% img https://lh3.googleusercontent.com/-PqGBUs-rxiU/VSXbBtwkhqI/AAAAAAAASRM/L7D8Cuqex4Y/s1024-Ic42/P4055783.jpg 800 600 "烤雞腿" %}
+
+{% img https://lh3.googleusercontent.com/-QMXP1btTAqc/VSXbEAX_f5I/AAAAAAAASRM/JpbeggujAV4/s512-Ic42/P4055791.jpg 800 600 "普通的長條形肉包 XD" %}
+
+{% img https://lh3.googleusercontent.com/-98Eir1FWfLQ/VSXbDARAAnI/AAAAAAAASRM/T8KvlpKciuQ/s1024-Ic42/P4055788.jpg 800 600 "阿拉丁區" %}
+
+### 中午遊行
+
+下午時間我們先暫時回到中央廣場區要看下午的遊行
+
+{% img https://lh3.googleusercontent.com/-ymYL7Y_vQIs/VSXbHWCg0sI/AAAAAAAASRM/2QxTXFSM5uo/s1024-Ic42/P4055799.jpg 800 600 "" %}
+
+我不知道為什麼那個男的要對我笑...我只是想拍他女友的大玩偶啊，這樣怎麼玩遊戲啊啊啊啊
+
+{% img https://lh3.googleusercontent.com/-CC9kHCFsH5w/VSXbJa5OdCI/AAAAAAAASRM/TwwDATQoNPI/s640-Ic42/P4055806.jpg 800 600 "" %}
+
+{% img https://lh3.googleusercontent.com/-3kXDU-UbGQ4/VSXbJ3VFkGI/AAAAAAAASRM/aaUdiMmLGUw/s1024-Ic42/P4055807.jpg 800 600 "" %}
+
+然後從上圖可以看出來當天是下雨的...所以復活節特別遊行也沒有了 T口T... 換成一般表演 = =
+
+{% youtube z0tzlL6N4u8 %}
+
+看完之後我們一樣就先隨意亂逛，然後在裡面的餐廳吃個下午茶
+
+{% img https://lh3.googleusercontent.com/-T6KBAMyWBbc/VSXbKwLMKuI/AAAAAAAASRM/QL-nkX96H18/s1024-Ic42/P4055814.jpg 800 600 "" %}
+
+吃完距離坐印第安納瓊斯還有一些時間，所以我跟我同學就先暫時分道揚鑣了。我妹說這次都還沒找玩偶拍照，所以就決定去找迪士尼海洋明星 - 達菲 拍照嘍。地點在 [漁村迎賓小屋](http://www.tokyodisneyresort.jp/tc/greeting/detail/str_id_aw_greeting/)
+
+{% img https://lh3.googleusercontent.com/-nxtokaHp1cQ/VSXbMfiu6wI/AAAAAAAASRM/1EwyHFVVzd8/s1024-Ic42/P4055819.jpg 800 600 "" %}
+
+這裡預估時間還蠻準的，我們進入時說約一小時，還真的一小時就排到了，因為工作人園真的很嚴格把關，進入之前會先問你是要自己拍還是用他們的，我說用我們自己的，他就不會安排工作人員拍了，然後還發生一件小插曲，因為我不知道只能拍一張，結果我拍完第一張橫的還拍了一張直的，不過動作很快 XDD 所以有拍成功，但是工作人員這時候說不行哦，只能拍一張而已 = =，不過也沒有要求我把照片刪掉啦，人還不錯。
+
+### 印第安納瓊斯 & 憤怒雙神
+
+時間過得很快，也快到下午五點，就準備到 [印第安納瓊斯](http://www.tokyodisneyresort.jp/tc/attraction/detail/str_id_ld_indiana/) 集合了
+
+{% img https://lh3.googleusercontent.com/-MwVvK-ROats/VSXbO4272aI/AAAAAAAASRM/Q5DXHiJ3xb4/s1024-Ic42/P4055824.jpg 800 600 "" %}
+
+然後印第安納瓊斯旁邊有另一個也可以抽 Fastpass 的遊樂設施 - [忿怒雙神](http://www.tokyodisneyresort.jp/tc/attraction/detail/str_id_ld_raging/)，所以我們就順便換了一下，這個人好像比較不多，我們換到六點左右的。原本我妹還在考慮要不要，因為這個是雲霄飛車，特色是他有兩個 360 度的環，會被倒吊，所以會怕，不過後來還是拖她去坐 XD
+
+### 晚上遊行
+
+都坐完之後就天黑了，晚上的迪士尼呈現另一種美
+
+{% img https://lh3.googleusercontent.com/-UIZbRKmGQuo/VSXbSi6ahnI/AAAAAAAASRM/Z-SPVeAGY8I/s1024-Ic42/P4055837.jpg 800 600 "城堡與火山" %}
+
+{% img https://lh3.googleusercontent.com/-h_duCYbC-6c/VSXbTjdAW7I/AAAAAAAASRM/FH574FBoWjA/s1024-Ic42/P4055842.jpg 800 600 "港口與火山" %}
+
+火山偶爾會噴發
+
+{% img https://lh3.googleusercontent.com/-9D0Cvnt5ukU/VSXbU20y5kI/AAAAAAAASRM/UAhmWwcBgbk/s1024-Ic42/P4055848.jpg 800 600 "" %}
+
+晚上時間一樣回到廣場看晚場遊行 & 煙火
+
+{% img https://lh3.googleusercontent.com/-EsDngnSMU7s/VSXbYPKs9jI/AAAAAAAASRM/tPX1YoKR1Hs/s1024-Ic42/P4055862.jpg 800 600 "" %}
+
+{% img https://lh3.googleusercontent.com/-_hnJYZBaL10/VT7zCO2aQdI/AAAAAAAASxY/47eIEb0-tzs/s1024-Ic42/DSC04491.jpg 800 600 "" %}
+
+{% img https://lh3.googleusercontent.com/-xqfNDJ_xZUE/VT7zEvKJphI/AAAAAAAASxY/Ni-wZFiGZZQ/s1024-Ic42/DSC04496.jpg 800 600 "" %}
+
+其實本來我是有錄影的...不過除了一些意外，影片都不見了，只剩下最後 30 秒 XDD
+
+{% youtube iWKrE7D-VBI %}
+
+整個在搞笑，不過晚上表演很精彩就是，可惜了中午那場，這次來除了櫻花也留下不少遺憾，哈哈
+
+由於在迪士尼沒吃晚餐，晚餐我們回到東京車站吃斑鳩，也是很有名的拉麵店，要吃什麼先去販賣機點，付完錢拿到單子後就可以入場了。
+
+{% img https://lh3.googleusercontent.com/-DL_zxIqxfds/VSXbZ2peoQI/AAAAAAAASRM/Ckm1UptSBrU/s512-Ic42/P4055874.jpg 800 600 "東京車站 斑鳩" %}
+
+一碗 1000 元日幣，這個價位很平易近人。
+
+{% img https://lh3.googleusercontent.com/-1gZeAUZI4S8/VSXbaDhi-_I/AAAAAAAASRM/dC0Yg6PozmI/s1024-Ic42/P4055875.jpg 800 600 "" %}
+
+照慣例，曬一下在迪士尼的戰利品
+
+{% img https://lh3.googleusercontent.com/-SwOXpkGW524/VSXbasRRDiI/AAAAAAAASRM/2dn4goXkuiw/s640-Ic42/P4055877.jpg 800 600 "" %}
+
+## 4/6 築地市場、東京車站
+
+### 築地市場
+
+很快的來到了最後一天了，今天一早跟我同學決定衝築地市場吃生魚片，我們挑了一家他每次來都會吃的店，不過這家店跟他以前來已經不一樣了，多聘了幾個中國大媽，講話嘮叨死了 = =，就不想吃某個還一直被推薦，最後只好還是點了 XDD (耳根子很軟的人)，早知道來這裡說英文
+
+{% img https://lh3.googleusercontent.com/-mrNDgiZj0Ow/VSXbbOKd0NI/AAAAAAAASRM/OCIgU9UDmSY/s1024-Ic42/P4065878.jpg 800 600 "" %}
+
+大媽推薦的海鮮丼 - 日幣 2500 元
+
+{% img https://lh3.googleusercontent.com/-S5pZEHr8XLQ/VSXbbnxLykI/AAAAAAAASRM/NZawuuVE17Y/s1024-Ic42/P4065879.jpg 800 600 "海鮮丼" %}
+
+我妹點的
+
+{% img https://lh3.googleusercontent.com/-zQM2bWnjsSA/VSXbcbFO8UI/AAAAAAAASRM/qTJa0hRB7LI/s1024-Ic42/P4065880.jpg 800 600 "" %}
+
+同學喜歡吃海膽，點了一個海膽丼
+
+{% img https://lh3.googleusercontent.com/-Tzz56nCjYlc/VT70Swo9qNI/AAAAAAAASxY/9ieYIr3zFxk/s1024-Ic42/DSC04512.jpg 800 600 "一堆海膽..." %}
+
+吃完早餐後心滿意足，我們還稍微晃了一下築地市場，基本上就是傳統的魚市場，根本不像觀光客該來的，我們在逛的時候還聽到外國人用英文說這裡好沒有日本味，事實上也是真的，這裡根本就是日本國外吧 ，到處都外國人。逛完後，我同學今天排定要回新宿採購電器，所以我就跟他再度分道揚鑣，我跟我妹要去東京車站逛逛。
+
+{% img https://lh3.googleusercontent.com/-OfTypj_4ETs/VSXbfw2M5jI/AAAAAAAASRM/tclmwF8p7QI/s1024-Ic42/P4065887.jpg 800 600 "東京車站拉拉熊店面" %}
+
+也有皮卡丘，不過真的沒在賣什麼
+
+{% img https://lh3.googleusercontent.com/-OwI-tvLDz8o/VSXbgsI4UaI/AAAAAAAASRM/D6m6AxHxiKA/s1024-Ic42/P4065889.jpg 800 600 "" %}
+
+東京車站
+
+{% img https://lh3.googleusercontent.com/-AOYbk5_-ptw/VSXbh38pcqI/AAAAAAAASRM/5Py__cXac0A/s1024-Ic42/P4065896.jpg 800 600 "東京車站" %}
+
+其實本來出來是想走到皇居的，不過今天天氣大好 = =，實在有點熱...就懶得走了XDD，我妹說想去日本郵局找明信片，於是跟我妹到車站附近的郵局剛好他跟一家百貨公司相通的因此想說買完後直接在百貨公司喝咖啡度過最後悠哉的日本時光，順便把日幣花光好了
+
+在東京中央郵便局旁的 JP Tower
+
+{% img https://lh3.googleusercontent.com/-3knnKH_sbH8/VSXbjMr3oWI/AAAAAAAASRM/jqWhImiPSWI/s1024-Ic42/P4065898.jpg 800 600 "JP Tower" %}
+
+不便宜的咖啡...早知道去星巴克，還可以買到特大杯的
+
+{% img https://lh3.googleusercontent.com/-BT4Sw4Sg4JY/VSXbjWQFe7I/AAAAAAAASRM/e9Kuo2kMENU/s1024-Ic42/P4065899.jpg 800 600 "Mary's Cafe" %}
+
+時間算算差不多了，就準備回新宿跟同學回合了。
+
+回到新宿車站 NEX 坐車處
+
+{% img https://lh3.googleusercontent.com/-nX39OXIlzDY/VSXbk_opasI/AAAAAAAASRM/vhQZh7b_9rw/s1024-Ic42/P4065902.jpg 800 600 "" %}
+
+在等車時看到很妙的雙層火車
+
+{% img https://lh3.googleusercontent.com/-QLkFIK5QHMY/VSXbmA7WzNI/AAAAAAAASRM/V15C-WWXYy8/s1024-Ic42/P4065904.jpg 800 600 "" %}
+
+Byebye 新宿，Byebye 日本，下次一定要再來把遺憾補完，哈哈
+
+{% img https://lh3.googleusercontent.com/-wPLvqj-vZ4g/VSXblZoxqbI/AAAAAAAASRM/FfeG6p2WOvE/s1024-Ic42/P4065903.jpg 800 600 "" %}
+
+

@@ -1,9 +1,0 @@
----
-layout: post
-title: "OS X 路徑多語系"
-date: 2011-09-14
-comments: false
-tags: ["i18n","Mac"]
----
-
-<br />剛剛不小心砍掉家目錄的「應用程式」資料夾<br /><br />結果去 Finder 重建 Applications 目錄後 Finder 還是顯示 Applications 而不是「應用程式」<br /><br />覺得很奇怪，查了一下發現是 OS X 的多語系在搞怪<br /><br />OS X 的 Finder 有一個功能就是可以配合系統的語系顯示目錄的名稱<br /><br />系統面上 OS X 提供了一層抽象層，區隔出「真正的檔案名稱」與「Finder 顯示的名稱」<br /><br />比方說 Applications 在 Finder 會顯示成「應用程式」或者 Library 會顯示成 「資源庫」<br /><br />以下是在 OS X 做多語系的方法<br /><!--more--><h3>應用程式名稱多語系化</h3><br />應用程式要多語系要在 Info.plist 裡先加入 LSHasLocalizedDisplayName，type 是 boolean，value 是 true<br /><br />然後在 Resources 裡的多語系資料夾 ( 比方說 zh_TW.lproj ) 的 InfoPlist.strings 加入一個 key name 是 CFBundleDisplayName，裡面填想要的名稱就可以了<br /><br /><h3>資料夾名稱多語系化</h3><br />想要多語系化資料夾，只要在資料夾底下建立 .localized 的子目錄，裡面加入兩個字母的語言縮寫跟 .strings 為附檔名的文字檔即可<br /><br />比方說底下包含了日文、德文跟英文的多語系化<br /><br /><div id="gist1216622"><script type="text/javascript">$(function (){gist('https://gist.github.com/1216622.json');});</script></div><br />每個 .strings 檔案裡包含了原始的名稱跟多語系化的名稱比方說要對應 Foo 資料夾到「系統」<br /><br /><div id="gist1216638"><script type="text/javascript">$(function (){gist('https://gist.github.com/1216638.json');});</script></div><br />所以要恢復 Applications 變成「應用程式」只要在 ~/Applications/ 底下建立 .localized 的子目錄(或者檔案)即可恢復 (不用在深入建立資料夾因為 OS X 有預設內建一些對應的名稱在 /System/Library/CoreServices/SystemFolderLocalizations )

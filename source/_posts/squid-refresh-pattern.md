@@ -1,0 +1,19 @@
+---
+layout: post
+title: "squid refresh_pattern"
+date: 2011-10-15
+comments: false
+tags: ["squid"]
+categories: ["資訊"]
+---
+
+在 squid 裡面最重要也是最難懂得設定大概就是 refresh_pattern 了<br /><br />其語法如下<br />`refresh_pattern [-i] regex min percent max [options]` <br />regex 表示要 cache 住的對象 是比對 uri<br /><br />-i 表示不分大小寫<br /><br />而 min, percent, max 則是調整 cache object 要待在 squid 裡的時間參數以 分 當單位<br /><br />而最重要的莫過於後面的 option 了 因為我們的 squid 是當 reverse proxy 所以可以加上一堆 違反 http 規則的選項<!--more-->原本公司的 squid 有兩台的 in-bound 還是很高 表示還是一直往後端要圖 看了 log 之後發現...<br />
+
+	5820428 TCP_REFRESH_HIT/304
+	4468379 TCP_MISS/200
+	4390710 TCP_MISS/404
+	3865158 TCP_REFRESH_HIT/200
+	2184838 TCP_REFRESH_MISS/404
+	... 以下略
+
+<br />這 TCP_REFRESH_HIT 也高的太可怕了<br /><br />查了 squid 的說明<br /><br />TCP_REFRESH_HIT 是表示 client 端的 header 有 Programa: no-cache<br /><br />所以 squid 遵循 http 規範只好往後端的 original server 再要一次圖<br /><br />比較原圖跟 cache 後發現一樣 所以送 304 Not Modified<br /><br />但是這樣一來還是會往後端要<br /><br />所以解決的方法就是加上違反 http 協定的 options 忽略 client no-cache 的要求不管怎樣還是從 cache 出<br /><br />由於我們是 reverse proxy 所以是無傷大雅的<br /><br />所以加上 override-expire override-lastmod reload-into-ims ignore-reload ignore-no-cache ignore-private ignore-stale-while-revalidate ignore-auth<br /><br />reload squid config 後在觀察 發現 in-bound 果然大幅下降 而 log 也顯示 TCP_IMS_HIT / TCP_HIT / TCP_MEM_HIT 大量上升<br /><br />流量的表現如下圖<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-63lbO3pkwRI/TpkE0C-X94I/AAAAAAAAB_U/rTEWldminQk/s6400/graph_image.php.jpg" imageanchor="1" style="margin-left:1em; margin-right:1em"><img border="0" height="155" width="640" src="http://3.bp.blogspot.com/-63lbO3pkwRI/TpkE0C-X94I/AAAAAAAAB_U/rTEWldminQk/s640/graph_image.php.jpg" /></a></div>

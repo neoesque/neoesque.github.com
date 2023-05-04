@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Open RC ulimit"
+date: 2012-02-09
+comments: false
+tags: ["Gentoo", "Linux", "OpenRC"]
+categories: ["資訊"]
+---
+
+<br />一切都是因為手賤 XD<br /><br />因為我們的 Server 要設定大一點的 ulimit<br /><br />傳統的 Linux (或者說 Gentoo 在舊的 baselayout ) 都是使用 /etc/security/limits.conf 來設 ulimit<br /><br />於是當然就照以前的印象做拉~<br /><br />結果重開機後...<br /><br />{% gist 1778443 %}<br />然後所有的 service 就都起不來了 什麼鬼 / 口 \<br /><br />而且一開始還沒有想到是這個在搞鬼 以為是 PAM 或者 OpenRC 錯了<br /><br />一直在想是不是 emerge 的 USE flag 錯了還怎樣<br /><!--more--><br />然後找網站也沒有什麼相關訊息<br /><br />有人說把 OpenRC 的 PAM support 關掉就好 (不能這樣解吧 XD)<br /><br />倒是 Gentoo 的官方論壇有人提到他把 /etc/security/limits.conf 的 \* 之類的刪除就好了<br /><br />於是就找了一下...<br /><br />結果神奇的發現 /etc/rc.conf 裡面有個 #rc_ulimit='-u 30'<br /><br />然後改在這裡就好了 比方說 rc_ulimit='-n 20000' 就等於原本的 \* soft nofile 20000

@@ -1,0 +1,706 @@
+title: 美西峽谷行
+date: 2015-01-03 21:12:33
+tags: ["美國"]
+description: 2014-11-07 ~ 2014-11-14 美西一週峽谷之旅
+toc: true
+categories: ["遊記"]
+thumbnail: https://lh6.googleusercontent.com/-ZEslDJBomSw/VHaNJqBKqoI/AAAAAAAANKU/kPi5ZBtuels/w800-no/PB102292.jpg
+---
+
+故事的開始是 2014 年 6 月時，跟大學同學約了 11 月要到美西玩，從台灣出發 6 人，美國當地還有唸書+工作的同學 3 人，一共九人，反正是跟著玩 XD 就直接答應了，當時六月直接上長榮的網站剛好有特惠機票可以買，桃園﹣洛杉磯不到三萬 (29xxx)就搞定了，旅遊時間是 11/7 (五) ~ 11/14 (五) 離開美西，11/7 禮拜五當天請了一個下午，回家整理一下，集合地點在松山機場外的客運站，我們坐客運到桃園機場。客運每 20 ~ 30 分鐘一班，還算蠻多班次的。
+
+<img src="https://lh3.googleusercontent.com/VfaNc4l66so2aERVHusYaGnZxAa8Fmdct5E1Reue3dz2TaPsF2vqcLSp7d1q5DDcc0NzjmYmSrvDCvqgDQ=w1024-no-tmp.jpg" alt="大峽谷">
+
+<!--more-->
+
+# 行前準備
+
+差不多就網路整理的那樣，反正記住最重要的只有護照跟信用卡就可以出國了 XD，不過因為這次是峽谷行我多準備了一些藥品跟撒隆巴斯，常備藥的部份我是去[林青榖家醫診所](https://www.google.com.tw/maps/place/%E6%9E%97%E9%9D%92%E7%A9%80%E5%AE%B6%E5%BA%AD%E9%86%AB%E5%AD%B8%E7%A7%91%E8%A8%BA%E6%89%80/@25.044966,121.545997,15z/data=!4m2!3m1!1s0x0:0xddd7e821aefd024e?sa=X&ei=G9ezVKf8OaW_mwWKgIL4BQ&ved=0CIkBEPwSMAo)拿，一包 500 的樣子裡面有十種藥，也可以順便跟他拿調整時差的藥(估計是安眠藥之類的)，他會說一次吃半顆就好，應該還算蠻有效果的，至少我到美國的前兩天跟回來台灣後都有吃還算調整的不錯，而且同學打呼也都聽不到 XD
+
+{% img https://lh4.googleusercontent.com/-LMo8qVzCJ2k/VHaMEH8elSI/AAAAAAAAM8E/32cIHHBmwjk/w640-no/PB071889.jpg 800 600 "林青榖診所的常備藥" "十種常備藥" %}
+
+# 起飛
+
+我們搭的班機是 23:55 的飛機，原本同學說飛往美國因為會檢查的比較嚴格，所以最好是兩個小時前到機場，我們九點半到機場，進去後根本就沒多檢查什麼，跟原本的一模一樣，再加上自助通關(可以到桃園機場辦，我是先在台北辦好)，我們大概花了一小時就進入免稅區了。
+
+{% img https://lh6.googleusercontent.com/-tZnwZXZbg_g/VHaMIeLzKRI/AAAAAAAAM9A/CcaH5bte1a8/w800-no/PB071899.jpg 800 600  "候機室" "候機室" %}
+
+本次搭的飛機是[波音 777-300ER](http://zh.wikipedia.org/wiki/%E6%B3%A2%E9%9F%B3777#777-300ER)，可惜沒搭到 Hello Kitty 的，那個引擎真的是巨大的有點誇張，飛行途中也很吵就是了 = = ，飛行大概一個半小時之後就會被叫起來吃第一餐飛機餐，左宗棠雞的樣子不過不知道為什麼是不辣的 XD，還有另外兩種選擇，忘了是牛肉跟什麼，長榮的飛機餐還不錯吃，吃完第一餐後就關燈休息，由於飛行時間約 12 小時，而且到達洛杉磯當地是晚上 7 點半，第二餐好像是隔了八九個小時之後了，這餐有粥，還有魚鬆可以配，超級感動好吃的 XD，不過我沒照相,看起來就是一般的粥，飛機上的飲料一般就是牛奶、啤酒、蘋果汁之類的，我喝過番茄汁，覺得還是不要點比較好 XD
+
+{% img https://lh5.googleusercontent.com/-aJtz9V4C7Ug/VHaMF520m2I/AAAAAAAAM8U/kLqZz4xm0q0/w800-no/PB071895.jpg 800 600  "長榮波音777-300ER" "長榮波音777-300ER" %}
+
+{% img https://lh4.googleusercontent.com/-DylcPQwcCcI/VHlVU2EBomI/AAAAAAAAObs/_UtCXxAs7mo/w800-no/DSC00727.JPG 800 600  "第一餐飛機餐" "飛機餐" %}
+
+第一次坐這麼長途飛行的班機，同學耳提面命，一定要帶拖鞋去換啊！不然飛機上腳會水腫，我乖乖照做，隔壁的同學沒帶拖鞋換，飛機飛了一陣子之後還真的覺得腳變大了，靴子很卡，所以記得一定要帶拖鞋去換，我是拖了一咖登機箱，夾角拖放裡面，安全檢查完進去免稅區之後就可以先換起來。
+
+# 抵達洛杉磯
+
+第一次到[洛杉磯機場](http://zh.wikipedia.org/zh-tw/%E6%B4%9B%E6%9D%89%E7%A3%AF%E5%9C%8B%E9%9A%9B%E6%A9%9F%E5%A0%B4)，第一眼就是實在是很大啊，國際航廈也很新，因為是自助旅行，所以抵達後跟在美國工作的同學會合就先直奔租車的地方，本次旅行是跟 Hertz 租，出航廈後就會看到接駁車了。不過這次租車還蠻扯的，一開始是發現我們同學的名字沒在姓名牆(他會列出今天租車的顧客名字車位是幾號)，不知道是不是因為我們沒先付錢，所以我們只好去櫃檯問，結果到了櫃檯，那個先生竟然開始推銷我們其他車種，說我們如果九人的話租兩台轎車太小了，一開始推薦我們租金破千的，嚇死人﹣馬上拒絕，後來推薦我們 Jeep SUV，確認車種之後又推銷我們車險，這種東西好像加減保比較好，所以我們有保車險，後來發現幸好車子真的有換，不然我看要容下我們幾個的行李箱還真的有點困難，連 SUV 的後車廂都差不多塞而已。結果光是租車就搞了兩個小時，我們離開 Hertz 已經十一點多了 = =。
+
+# 巴斯托
+
+當天的行程預計是開到洛杉磯與拉斯維加斯的中點處﹣[巴斯托(Barstow)](http://zh.wikipedia.org/zh-tw/%E5%B7%B4%E6%96%AF%E6%89%98_%28%E5%8A%A0%E5%88%A9%E7%A6%8F%E5%B0%BC%E4%BA%9E%E5%B7%9E%29)過夜，車程大約兩個小時，所以我們抵達時已經一點多了，實在是有點累，不過也許是時差的關係，精神是還好，我們第一天住的飯店是 [California INN](http://www.innbarstow.com/barstow-california-hotel/)，由於已經半夜衣著也是台北的穿著對美國來說這樣穿實在是有夠冷，大家一到時就哎哎叫，趕緊躲進去建築裡面，基本上內裝還算乾淨，而且一到就馬上洗澡準備睡覺，沒拍內裝，不過還算是 OK 的小飯店。
+
+{% img https://lh6.googleusercontent.com/-rvul61MfOLY/VHaMKL_8j1I/AAAAAAAAM9Y/L2VcaLZU5Rw/w800-no/PB091908.jpg 800 600  "California INN" "California INN" %}
+
+外圍就是沙漠...
+
+{% img https://lh4.googleusercontent.com/-JlOPJfx5RJ0/VHaMKLzK6YI/AAAAAAAAM9s/QeFwPgKcQmc/w800-no/PB091909.jpg 800 600  %}
+
+這家的早餐還提供蠻多種類的，自助烤麵包，也有蘋果，還不錯。
+
+{% img https://lh4.googleusercontent.com/-_4xK5MVAFbc/VHlVfAjGV-I/AAAAAAAAOcU/7McIlyb80Bk/w800-no/DSC00748.JPG 800 600  %}
+
+隔天一早出發時因為隔壁就是加油站，所以決定先加滿油再出發，美國這裡都是自助的只是每家加油站的方法好像不太一樣，在美國的同學只熟悉一兩種，遇到不會的就要研究一番。
+
+{% img https://lh3.googleusercontent.com/-JYuhAjXV450/VHaMMksTKSI/AAAAAAAAM-I/RvBu7eNa7mc/w800-no/PB091920.jpg 800 600  %}
+
+再來因為是長途旅行，所以需要載水上車隨時可以補給，所以我們就找了一家路過的超市，美國的超市跟台灣看起來差不多，不過就是食物區蠻可怕的，每種都堆得跟山一樣 XD，而且蔬菜都擺的很整齊，不像台灣菜會先分裝好。
+
+{% img https://lh4.googleusercontent.com/-CS-JrWr3V44/VHaMS9UfGXI/AAAAAAAAM_g/vHOEj5WZlvA/w800-no/PB091971.jpg 800 600  %}
+
+{% img https://lh4.googleusercontent.com/-1c_hSp99dLs/VHaMOgQwNsI/AAAAAAAAM-k/Ej1Zsha91yo/w800-no/PB091959.jpg 800 600  %}
+
+肉類也是很壯觀
+
+{% img https://lh3.googleusercontent.com/-bGakE-ByGXI/VHaMQDlxPmI/AAAAAAAAM-0/IaVGBu9hZ2M/w800-no/PB091962.jpg 800 600  %}
+
+{% img https://lh5.googleusercontent.com/-C0xrPuoq2UQ/VHaMPoDd07I/AAAAAAAAM-s/iQVSs2RkEyY/w800-no/PB091961.jpg 800 600  %}
+
+買完之後就繼續驅車往內陸開啦~沿路大部份都是沙漠，不過偶爾也是會有經過很大的湖，景色很漂亮。
+
+{% img https://lh3.googleusercontent.com/-jSxnuC7WVOc/VHaMUm9rb_I/AAAAAAAAM_4/cVNwxi7n_sg/w800-no/PB091975.jpg 800 600  %}
+
+# 胡佛水壩
+
+往內陸開的同時會經過 [Hoover Dam 胡佛水壩](http://zh.wikipedia.org/wiki/%E8%83%A1%E4%BD%9B%E6%B0%B4%E5%A3%A9)，所以我們也稍作停留。
+
+{% img https://lh5.googleusercontent.com/-UJ5M8AWYQQo/VHaMYZeiOhI/AAAAAAAANAo/GYN9ZoShlro/w800-no/PB091993.jpg 800 600  %}
+
+胡佛水壩跨於科羅拉多河上，建於 1931 年只花了 5 年就完成了，是美國最大的水壩，名字得自當時的美國總統胡佛。且胡佛水壩剛好是州的邊界橫跨兩個時區，所以可以看到兩個大時鐘在不同的水塔上，表示跨時區了，過了這裡時間要撥快一小時。
+
+{% img https://lh6.googleusercontent.com/-LT1ncP7WR9Y/VHaMeW6LQrI/AAAAAAAANCE/l_Sfis_cjRc/w800-no/PB092022.jpg 800 600  %}
+
+{% img https://lh4.googleusercontent.com/-vwGydMch3-U/VHaMb2-DiRI/AAAAAAAANBc/tTCzcKhekR4/w800-no/PB092013.jpg 800 600  %}
+
+{% img https://lh6.googleusercontent.com/-Frq4UsQbCcg/VHaMdbiHIEI/AAAAAAAANB0/LIng1Ohs_zs/w800-no/PB092020.jpg 800 600  %}
+
+# 大峽谷
+
+接著就是 400 km 的長征了，要從胡佛水壩開到[大峽谷](http://zh.wikipedia.org/wiki/%E5%A4%A7%E5%B3%BD%E8%B0%B7%E5%9C%8B%E5%AE%B6%E5%85%AC%E5%9C%92)。我們抵達大峽谷時已經快八點了，還沒進峽谷之前就先在峽谷外的牛排館吃飯了，抵達牛排館時外面是 1 度...白天我們在胡佛水壩應該還有十幾二十度啊！！！ 大家一開車門第一件事就是哇哇叫 XDDD，美國的國家公園似乎都是白天收費，晚上進去就不用錢，我們當晚就住在大峽谷裡面的 [Moswik Lodge](http://www.grandcanyonlodges.com/lodging/maswik-lodge/)，我們這次是逛大峽谷的南緣(South Rim)。
+
+{% img https://lh6.googleusercontent.com/-6s-p2sKtapQ/VHaM20sp-zI/AAAAAAAANHI/S2DhvY3GAko/w800-no/PB102193.jpg 800 600  %}
+
+房間也算很大，我們還加了一床，一房五個人住還 OK
+
+{% img https://lh3.googleusercontent.com/-pbdwcQpUcRs/VHaMxdsILsI/AAAAAAAANGE/hbvha6HqiRY/w800-no/PB102183.jpg 800 600  %}
+
+浴室的水龍頭也在外面這樣可以加速盥洗
+
+{% img https://lh6.googleusercontent.com/-aSVSKoyJ1Og/VHaMy6_xZrI/AAAAAAAANGg/PAorWscnGaQ/w800-no/PB102186.jpg 800 600  %}
+
+東西放好之後我們決定先去看星星，下圖是半夜長曝，因為月光實在太亮了，長曝後效果不錯，大峽谷一覽無遺，天空也有星星，EM5 的防手震在沒有腳架的情況下，4s~8s 還可以接受(咦 不小心工商廣告了)。拍的當下其實因為沒看過大峽谷，拍完一看就覺得實在是了不得的峽谷...
+
+{% img https://lh3.googleusercontent.com/-Y6lAe1WuvdE/VHaMqZaMXfI/AAAAAAAANEo/IWO3iaMyxEs/w800-no/PB092107.jpg 800 600  "長曝" "長曝" %}
+
+其實也不是什麼天文專家，星星看起來都差不多 囧\ 大概跟台灣在完全無光害地區看到的是一樣吧。
+
+{% img https://lh3.googleusercontent.com/-ArP2BNtkAtQ/VHaMqQdQj8I/AAAAAAAANEc/k5MhKVAhvAs/w800-no/PB092113.jpg 800 600  %}
+
+大峽谷第二天一早我們決定先去看日出然後早上走 Hermit Rest Route，大峽谷南緣有兩個 Route 可以走，分別是： Hermit Rest Route(Red)、Kaibab/Rim Route(Orange)，其實還有一個 Village Route(Blue) 不過這應該是來往各旅館的，不算 tour route，這裡有[接送巴士](http://www.nps.gov/grca/planyourvisit/shuttle-buses.htm)的資訊，照片因為去了太多點根本分不出來誰是誰了 = =，直接上圖
+
+一早的大峽谷日出
+
+{% img https://lh5.googleusercontent.com/-D8Bv9FWgkt8/VHaMsTpqAaI/AAAAAAAANFA/7SGHxBXsbFg/w800-no/PB092126.jpg 800 600  "大峽谷日出" "大峽谷日出" %}
+
+三種 Route 示意圖
+
+{% img https://lh4.googleusercontent.com/-fNvArCy3jgY/VHaNitr8P7I/AAAAAAAANO8/886TutFdqB8/w800-no/PB102372.jpg 800 600  %}
+
+{% img https://lh4.googleusercontent.com/-ebVnAbrq6CQ/VHaM7-_veYI/AAAAAAAANH4/WUkTm1NF5KQ/w800-no/PB102213.jpg 800 600  %}
+
+所到之處都是大、很大、實在太大了，就是遼闊的很可怕，那個峽谷看過去都看不到終點。而且天氣真的很好，很舒服。
+
+{% img https://lh5.googleusercontent.com/-JD03TclIoww/VHaM_PxPDbI/AAAAAAAANIk/yVpUrVIhwbY/w800-no/PB102237.jpg 800 600  %}
+
+在某些點可以看到切割大峽谷的科羅拉多河。
+
+{% img https://lh3.googleusercontent.com/-jkpKydczx84/VHaNBpsba3I/AAAAAAAANJA/GaX0_ArAtQ8/w800-no/PB102242.jpg 800 600  %}
+
+{% youtube ne4j4CrhMyg %}
+
+這些 Route 基本上都是坐巴士，然後到定點就下去走走的，巴士停的地方都不會離景點太遠，上午都是走馬看花，不過下午橘線時我們就有下去走 Trail - [South Kaibab Trail](http://en.wikipedia.org/wiki/South_Kaibab_Trail)，這條路徑可以一直走一直走，走到科羅拉多河，不過那個當然就是要紮營花個兩三天之類的，我們沒有這麼瘋狂，我們只有走到 0.75 mile 的地方，叫 Ooh-ahh Point，雖然只有 0.75 mile 可是因為是山路，有些地方女同學哎哎叫的 XD，有的坡度還蠻抖的，不過其實大部份都還算好走啦，沒什麼危險性才對。
+
+{% img https://lh4.googleusercontent.com/-pQ6c9A0V6mw/VHaNd4vdHjI/AAAAAAAANN8/QcfnmkW_YZ0/w500-no/PB102350.jpg 800 600  %}
+
+進入之前有告示牌，寫一些警告事項，大概就是日曬要隨時注意補水，小心落石。再來就是直接衝了！
+
+一開始就是挑戰 XD
+
+{% img https://lh4.googleusercontent.com/-5Qsjh1uqDy8/VHaNETDpeFI/AAAAAAAANJs/Co0I-P2RO2w/w800-no/PB102274.jpg 800 600  "Kaibab Trail 入口" "Kaibab Trail 入口" %}
+
+路其實真的還算寬啦,只是一邊是山壁，一邊是懸崖，還是挺可怕的
+
+{% img https://lh5.googleusercontent.com/-jPJOR9bku7Q/VHaNKMwL2wI/AAAAAAAANKg/lI2ima8Kv30/w800-no/PB102301.jpg 800 600  %}
+
+沿路風景很漂亮
+
+{% img https://lh6.googleusercontent.com/-ZEslDJBomSw/VHaNJqBKqoI/AAAAAAAANKU/kPi5ZBtuels/w800-no/PB102292.jpg 800 600  %}
+
+走啊走，花了一個多小時終於到了 Ooh-Aah Point！真的會讓人發出 (⊙o⊙)哦~( ⊙ o ⊙ )啊！的風景
+
+{% img https://lh6.googleusercontent.com/-M6jonDQ1zMY/VHaNb2M9syI/AAAAAAAANNc/EOZyDi1liY0/w800-no/PB102342.jpg 800 600  %}
+
+{% img https://lh3.googleusercontent.com/-kCcSp5W57JA/VHaNaQ2IiTI/AAAAAAAANNI/pDL_eRyxxbA/w800-no/PB102339.jpg 800 600  %}
+
+阿斗啊真的都超猛的 = =，我自己看都很挫了 0rz...，他們直接坐在懸崖上
+
+{% img https://lh3.googleusercontent.com/-sNQaTvs7uXo/VHaNc9x6VKI/AAAAAAAANNs/InGMdxkelDs/w800-no/PB102348.jpg 800 600  %}
+
+Kaibab Trail 走回程也是累了 XD，上來後直接搭接駁車到 Mather Point 看日落，這裡也是最推薦的日落點，美麗的紫橘色彩霞
+
+{% img https://lh3.googleusercontent.com/-Ullge9Bm4oE/VHaNhj2_1zI/AAAAAAAANOs/P8qhzlXaE0A/w800-no/PB102368.jpg 800 600  %}
+
+# Page City - 佩吉市
+
+看完日落後，我們就[驅車](https://www.google.com.tw/maps/dir/Page,+AZ,+United+States/Mather+Point,+Rim+Trail,+Grand+Canyon+Village,+AZ,+United+States/@36.3834276,-111.9937597,9z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x8734135bfdcd758f:0x6e982f5153384e39!2m2!1d-111.4558333!2d36.9147222!1m5!1m1!1s0x87331092861740c1:0x543a485ed4aa62af!2m2!1d-112.107526!2d36.061722) 前往 [Page City](http://zh.wikipedia.org/wiki/%E4%BD%A9%E5%90%89%E5%B8%82) 了，路程 210 km，這裡發生一件事情是友人的車帶頭，結果他們的導航是舊版的，不知道 89 號道路已經封閉(發生[坍方](http://en.wikipedia.org/wiki/U.S._Route_89_in_Arizona#Related_route)，我們的那台一直叫我們走 89T，我查 Google Map 也叫我走 89T ，不過當下並沒有多想也就順著 89A 繼續走，直到我們到 89A 與 89 的交界時發現 89 完全封閉，走不了 0rz... 只好在回頭，損失了約一個多小時吧，結果我們到 Page City 時又晚上十點多了 XD，每天都在累，我們在 Page City 住這家 [LuLu's Sleep Ezze Motel](http://www.lulussleepezzemotel.com/)，房間算小而美，吹風機要去中間的辦公室拿
+
+{% img https://lh4.googleusercontent.com/--8cUoUS01cQ/VHaNkaOF3rI/AAAAAAAANPQ/LsRwdgpw2eA/w800-no/PB102378.jpg 800 600  %}
+
+{% img https://lh6.googleusercontent.com/-GixrO8IpPO4/VHaNm3TdjUI/AAAAAAAANP0/Pswn4x4ba4A/w800-no/PB102382.jpg 800 600  %}
+
+{% img https://lh5.googleusercontent.com/-mjukJPHjfII/VHaNlQQu2uI/AAAAAAAANPg/bnaLQFpDLPc/w800-no/PB102380.jpg 800 600  %}
+
+Page City 感覺就是一個悠哉的城鎮啊...美國的郊區小鎮看起來也很有特色，跟台灣的郊郊區還是不一樣。
+
+{% img https://lh3.googleusercontent.com/-slSQNDio4Bg/VHaNomFLGPI/AAAAAAAANQI/FM0yrTKhgVQ/w800-no/PB102386.jpg 800 600  %}
+
+隔天一早我們就出發前往 [馬蹄灣 Horseshoe Bend](http://zh.wikipedia.org/wiki/%E8%B9%84%E9%93%81%E6%B9%BE)，然後再去[羚羊峽谷](http://zh.wikipedia.org/wiki/%E7%BE%9A%E7%BE%8A%E5%B3%BD%E8%B0%B7)。
+
+一樣先找吃的順便補給水。
+
+{% img https://lh5.googleusercontent.com/-MltQNeJUqCg/VHaNoyukuSI/AAAAAAAANQY/J6UdchDF0sM/w800-no/PB102389.jpg 800 600  %}
+
+隨便買個什麼捲的來吃
+
+{% img https://lh5.googleusercontent.com/-JzfG3_pAxtA/VHaNqp_pzeI/AAAAAAAANQg/4rSjDJZG-Ks/w800-no/PB102391.jpg 800 600  %}
+
+# 馬蹄灣
+
+馬蹄灣的入口是一片沙漠，不過那裡有停車場，還算好認的入口
+
+{% img https://lh6.googleusercontent.com/-7FOLT3v6htA/VHaNrKcsjyI/AAAAAAAANQ8/1MxOXoPj678/w800-no/PB102395.jpg 800 600  %}
+
+走路走約 15 ~ 20 分鐘後就會看到大大的馬蹄灣了，首先是同學示範馬蹄灣有多可怕，真的超級大的 = =，又大又可怕
+
+{% img https://lh3.googleusercontent.com/-0nmc7gEV36w/VHaNr2raLFI/AAAAAAAANQw/Sup8kQxPDlM/w800-no/PB102408.jpg 800 600  %}
+
+不過因為我們是一早就去，所以太陽照在馬蹄灣剛好有陰影，相片照起來不美就是。走在馬蹄灣上感覺隨時風一吹就掉下去 = =
+
+{% img https://lh3.googleusercontent.com/-ZtO5_iDrMQY/VHaNtsKr-YI/AAAAAAAANY0/xF4xKmhgrt4/w800-no/PB102436.jpg 800 600  %}
+
+{% youtube CY8O6mj2qu0 %}
+
+# 羚羊峽谷
+
+逛完馬蹄灣就繼續開去羚羊峽谷了，我們這次玩的是[下羚羊峽谷 - Lower Antelope Canyon](http://zh.wikipedia.org/wiki/%E7%BE%9A%E7%BE%8A%E5%B3%BD%E8%B0%B7#.E4.B8.8B.E7.BE.9A.E7.BE.8A.E5.B3.BD.E8.B0.B7)，因為網路都寫說下羚羊人比較少，因為要爬金屬樓梯，上上下下難度較高也比較危險，過去沒有導遊時曾經因為上游暴洪結果峽谷內的旅客不知道而死過人，不過進去後發現人還是有點多就是，我們途中開錯開去上羚羊峽谷，那邊停車場確實人多很多，羚羊峽谷地點在有三根煙囪的工廠附近。
+
+{% img https://lh5.googleusercontent.com/-xjOq5bAPR2U/VHlWf9QYN8I/AAAAAAAAOfE/SxwfYNr62KQ/w800-no/DSC01483.JPG 800 600  %}
+
+下羚羊峽谷有兩家 TOUR，我們參加的是 KEN's Tours
+
+{% img https://lh6.googleusercontent.com/-lPAic8hl38s/VHaNuS2HmHI/AAAAAAAANRY/jUe5nP1LSig/w800-no/PB112441.jpg 800 600  %}
+
+收費每人 US12 + US 8 permit = 20 元，全程大約一小時左右吧。
+
+{% img https://lh5.googleusercontent.com/-EagxA6TBGcE/VHaNu8_gRoI/AAAAAAAANRc/OCQeWlOjdr4/w800-no/PB112442.jpg 800 600  %}
+
+入口就很陡
+
+{% img https://lh6.googleusercontent.com/-cqNzLA1m830/VHaNy0hpVsI/AAAAAAAANSA/Ul9vXKS0fJM/w800-no/PB112452.jpg 800 600  %}
+
+羚羊峽谷是河水沖刷+風蝕而成，岩壁的曲線優美，在太陽光的反射下呈現橘黃色的線條
+
+{% img https://lh4.googleusercontent.com/-nbE_QHapMa8/VHaN0uneniI/AAAAAAAANSg/AmX4jyU4Bm0/w500-no/PB112465.jpg 800 600  %}
+
+不過來這裡就是要玩一些白平衡，導遊通常會建議改成 Incandescent (白熾燈
+)或 Fluorescent (螢光燈)。會呈現出藍紫色，有人喜歡橘色有人喜歡紫色，不過不管怎樣真的都很漂亮。
+
+{% img https://lh4.googleusercontent.com/-LStRwHGUU90/VHaN1OIqq5I/AAAAAAAANSY/q3lUNwfrlVE/w500-no/PB112466.jpg 800 600  %}
+
+{% img https://lh3.googleusercontent.com/-uWdEjCEHWck/VHaOCN_hiDI/AAAAAAAANVE/J4WPURvAR7U/w800-no/PB112518.jpg 800 600  %}
+
+底下這張是導遊拿我的相機往上拍的，也可以說是只有當地人才知道的特殊攝影點吧，真的很美！不像地球啊
+
+{% img https://lh6.googleusercontent.com/--OKbzMntQ2g/VHaOCjK6j5I/AAAAAAAANU8/Ov67fiTkIKg/w800-no/PB112519.jpg 800 600  %}
+
+還拍了另一種白平衡，各有味道
+
+{% img https://lh4.googleusercontent.com/-4l8o6HOdxtI/VHaOEOZWiEI/AAAAAAAANVc/7piXw7HN40M/w800-no/PB112520.jpg 800 600  %}
+
+然後出口超小的真的只能讓一個人出來，偷拍同學出來
+
+{% img https://lh5.googleusercontent.com/-cOmkbkPFNN0/VHaOKmO_pbI/AAAAAAAANWc/MgsEgfJX3WA/w500-no/PB112556.jpg 800 600  %}
+
+導遊還會說幾個中文，像是照相時說「一二三」或「白平衡」，他說是遊客教他的
+
+{% img https://lh4.googleusercontent.com/-D7J7vH7ujEA/VHaN9KyEcKI/AAAAAAAANUA/w-cRa0g0sSQ/w500-no/PB112502.jpg 800 600  %}
+
+最後記得離開時要給導遊小費 :) 因為我們忘記給時同學說導遊拉下臉，然後韓國跟法國遊客都有給，我們事後才又跑去給 > <"
+
+# 布萊斯峽谷
+
+離開下羚羊峽谷，[沿著 89 號道路開](https://www.google.com.tw/maps/dir/%E7%BE%8E%E5%9C%8B%E7%8C%B6%E4%BB%96%E5%B8%83%E8%90%8A%E6%96%AF%E5%B3%BD%E8%B0%B7%E5%9F%8E%E5%B8%83%E8%90%8A%E6%96%AF%E5%B3%BD%E8%B0%B7%E5%9C%8B%E5%AE%B6%E5%85%AC%E5%9C%92/Navajo+Tribal+Park+Parking+lot,+LeChee,+AZ+86046%E7%BE%8E%E5%9C%8B/@37.3298014,-112.3852096,9z/data=!4m13!4m12!1m5!1m1!1s0x87356bc602c3eb2d:0x6be9d8fbbeac6d06!2m2!1d-112.18709!2d37.593038!1m5!1m1!1s0x87341396b76f100f:0x3a9c3703212c9e27!2m2!1d-111.407461!2d36.897057)，旅途的第三天下午目標是開到 [布萊斯國家公園](http://zh.wikipedia.org/wiki/%E5%B8%83%E8%90%8A%E6%96%AF%E5%B3%BD%E8%B0%B7%E5%9C%8B%E5%AE%B6%E5%85%AC%E5%9C%92)，途中我們就在 Google 推薦找了一個墨西哥料理 [Escobar's Mexican Restaurant
+](https://plus.google.com/105142487475227614532/about)，真的還不錯吃。可這份量實在太大了 = = 根本吃不完
+
+{% img https://lh4.googleusercontent.com/-goVHkFTvzkA/VHaOOfWFV4I/AAAAAAAANXI/cvcfckVjojU/w800-no/PB112573.jpg 800 600  %}
+
+路上風景也很優美。
+
+{% img https://lh6.googleusercontent.com/-CMrwup6QOhU/VHaONG9QqaI/AAAAAAAANW4/O-LdrzQZ1iw/w800-no/PB112570.jpg 800 600  %}
+
+繼續往裡面開，往布萊斯峽谷的公路上已經開始出現跟大峽谷不同的岩柱。藍天真的很美！
+
+{% img https://lh4.googleusercontent.com/-bQBBiy114f4/VHaOQIS-ePI/AAAAAAAANXg/dckca5i0DCc/w800-no/PB112581.jpg 800 600  %}
+
+布萊斯峽谷是臨近的峽谷中(Grand Canyon 大峽谷國家公園、Zion 錫安國家公園)海拔最高的，約在 2400m ~ 2700m，抵達時約四五點已經感受到很冷了...
+
+{% img https://lh5.googleusercontent.com/-tuO0maSDYNM/VHaOXjXl75I/AAAAAAAANYw/F2LgqT2bbGk/w800-no/PB112619.jpg 800 600  %}
+
+真的是各種奇怪
+
+{% img https://lh4.googleusercontent.com/-wSfulBQbcIA/VHaOW6KLB-I/AAAAAAAANYk/LiIrqAJQ1Ro/w800-no/PB112620.jpg 800 600  %}
+
+白白的就是霜
+
+{% img https://lh6.googleusercontent.com/-WmgC30gQ3eg/VHaOckz6rqI/AAAAAAAANZg/A6LZGil44js/w800-no/PB112647.jpg  800 600 %}
+
+{% youtube wXHlPlRirgk %}
+
+一樣在布萊斯峽谷看了夕陽，真的很美
+
+{% img https://lh5.googleusercontent.com/-NwUOC0rRhGU/VHaOeADz6XI/AAAAAAAANZw/CkJERwK3iEE/w800-no/PB112654.jpg 800 600  %}
+
+看完夕陽我們就趕緊先衝去旅館，當晚我們住的是 [BEST WESTERN PLUS Bryce Canyon Grand Hotel
+](http://book.bestwestern.com/bestwestern/US/UT/Bryce-Canyon-City-hotels/BEST-WESTERN-PLUS-Bryce-Canyon-Grand-Hotel/Hotel-Overview.do?propertyCode=45082)，飯店房間超大。東西放好後就出門，晚上一樣是要出去看星星。
+
+{% img https://lh4.googleusercontent.com/-ovPS8EArVb8/VHaOhkRGVOI/AAAAAAAANao/sW3yJZHg2bA/w500-no/PB112661.jpg 800 600  %}
+
+同學冷到受不了，直接拿飯店的毛巾當圍巾，可見有多冷！
+
+{% img https://lh5.googleusercontent.com/-ReT1p_3liA8/VHaOiDf37oI/AAAAAAAANa8/VlUAU_suVN8/w500-no/PB112662.jpg 800 600  %}
+
+不過附近的餐廳可能很少，只有一家 [Ruby's Inn](http://www.rubysinn.com/) 有一家 Buffet，我們去的時候人已經暴多，於是就決定先去看星星，回來再看看有沒有的吃。
+
+借同學拍的銀河，很美，可是真的他媽的超冷超冷超冷...到最後剩下我跟另一位有相機的在外面，其他人都受不了躲回車上了，我開了兩個暖暖包還是直發抖 = =...
+
+{% img https://lh6.googleusercontent.com/-c6R1u6U7A_U/VHlWrFEo9rI/AAAAAAAAOfs/ld8T-viFCSY/w800-no/DSC01792.JPG 800 600  %}
+
+看完八點多回到 Ruby's Inn 內的 Buffet 已經有位置我們就去吃了，在裡面又遇到一個會說一些中文的服務生帥哥，他說是他同學有些華人教他的，美國人真的很喜歡學簡單中文欸 XDDD
+
+隔天起來發現車體結霜，我們的水都結冰了 XDDD，看預報當晚凌晨最低溫是負 6 度 0rz...
+
+{% img https://lh6.googleusercontent.com/-Z0i2eB7eU9s/VHaOljz-AgI/AAAAAAAANbE/vax3fBwh7I8/w800-no/PB112678.jpg  800 600 %}
+
+早餐就吃飯店提供的，也是自助的，還蠻豐盛：麵包、牛奶、優格、水果、熱可可，喝到熱可可超感動的，很不錯吃。這天我們也是去走了一個布萊斯峽谷的 Trail - [Navajo Loop](http://www.nps.gov/brca/planyourvisit/navajotrail.htm)，全長 2.16 km，高度差 167 m，海拔約 2279m ~ 2438m。
+
+{% img https://lh6.googleusercontent.com/-AlqUhbsA2ns/VHaOtlJmRNI/AAAAAAAANcg/v7Cv7eDDPF0/w500-no/PB122711.jpg  800 600 %}
+
+走在峽谷內真的覺得人超渺小
+
+{% img https://lh4.googleusercontent.com/-x4XpEPIPaow/VHaO6eVDoxI/AAAAAAAANe4/XY8ftay0kjk/w500-no/PB122758.jpg  800 600 %}
+
+天氣好到走到最後覺得太熱了 = =
+
+{% img https://lh5.googleusercontent.com/-6rPCdeyugqc/VHaO68FoazI/AAAAAAAANes/8Ykm8z1bUl0/w500-no/PB122761.jpg 800 600  %}
+
+景點：雷神索爾的錘子
+
+{% img https://lh5.googleusercontent.com/-cKehOTUuglI/VHaO9SQKYDI/AAAAAAAANfA/jfKQfqb7xMU/w800-no/PB122770.jpg 800 600  %}
+
+Trail 不小心走太久我們竟然走完整條，本來是沒打算要走完的，看牌子寫剩沒幾 mile 拼了命也要完成，結果超遠的 = =，不過後半段還蠻精彩的確實是值得走的。
+
+# 錫安國家公園
+
+晃完布萊斯峽谷，繼續還是[沿著 89 號](https://www.google.com.tw/maps/dir/Zion+National+Park,+Springdale,+UT,+USA/%E7%BE%8E%E5%9C%8B%E7%8C%B6%E4%BB%96%E5%B8%83%E8%90%8A%E6%96%AF%E5%B3%BD%E8%B0%B7%E5%9F%8E%E5%B8%83%E8%90%8A%E6%96%AF%E5%B3%BD%E8%B0%B7%E5%9C%8B%E5%AE%B6%E5%85%AC%E5%9C%92/@37.5059869,-112.8330603,10z/data=!4m13!4m12!1m5!1m1!1s0x80caead08844f8d9:0x7c2e3a15aa3656f5!2m2!1d-113.026298!2d37.298168!1m5!1m1!1s0x87356bc602c3eb2d:0x6be9d8fbbeac6d06!2m2!1d-112.18709!2d37.593038)目標是到[錫安國家公園](http://zh.wikipedia.org/wiki/%E9%8C%AB%E5%AE%89%E5%9C%8B%E5%AE%B6%E5%85%AC%E5%9C%92)，不過錫安國家公園只是路過，我們當晚要衝去住拉斯維加斯，只是因為回程會路過，就繞進去看風景。開往錫安國家公園會經過一些 Trail，我們挑了一條 [Canyon Overlook Trail](http://www.utah.com/hike/canyon-overlook-trail) 走，算是簡單型路線，不過中間有段鏤空鐵橋，女同學會害怕就在那裡等我們。
+
+{% img https://lh6.googleusercontent.com/-ZIi6097vpgc/VHaPBsumRNI/AAAAAAAANf4/wrCEywkc5h4/w800-no/PB122779.jpg 800 600  %}
+
+鐵橋
+
+{% img https://lh5.googleusercontent.com/-N1FqHfLWLfk/VHaPAH53DsI/AAAAAAAANfo/PBBmgqMaVzY/w800-no/PB122782.jpg 800 600  %}
+
+到了終點就是...一個大峽谷 XD 遼闊到真的不知道怎麼形容，美國的峽谷都超大的啊
+
+{% img https://lh5.googleusercontent.com/-AbVOvfj5dMA/VHaPCwIg0dI/AAAAAAAANgg/rGPBT0aEt5o/w800-no/PB122787.jpg 800 600  %}
+
+渺小的人類
+
+{% img https://lh6.googleusercontent.com/-LFADe9ICtPo/VHlW-YAvY5I/AAAAAAAAOgM/deFjUEmwUpU/w800-no/DSC01931.JPG 800 600  %}
+
+走完 Trail 差不多一兩點又要找午餐了，於是我們就到錫安國家公園內的一家泰式料理 [Thai Sapa](http://www.yelp.com/biz/thai-sapa-springdale) ，還算好吃
+
+{% img https://lh6.googleusercontent.com/-7Uw8NAC60zU/VHaPIROrq3I/AAAAAAAANg4/ZzPztGipLi4/w800-no/PB122814.jpg 800 600  %}
+
+吃飽後我們就沿著其附近的一條 [Zion Canyon Scenic Drive](http://www.tripadvisor.com/Attraction_Review-g143057-d146518-Reviews-Zion_Canyon_Scenic_Drive-Zion_National_Park_Utah.html) 開，沿途風景是我覺得這次峽谷行最美的。
+
+{% img https://lh6.googleusercontent.com/-T21f4ZH9hfQ/VHaPKT_rMrI/AAAAAAAANhQ/_Vgpy7l7H-8/w500-no/PB122823.jpg 800 600  %}
+
+{% img https://lh6.googleusercontent.com/-KZIFe8wKVh8/VHaPLSA7XlI/AAAAAAAANhY/am1eApDJSJk/w800-no/PB122824.jpg 800 600  %}
+
+路上就有鹿!
+
+{% img https://lh6.googleusercontent.com/-GgdmBxHv0Uk/VHaPPCTsDzI/AAAAAAAANiA/U97gAKcypL8/w800-no/PB122836.jpg 800 600  %}
+
+有山有水有小橋
+
+{% img https://lh5.googleusercontent.com/-d7iTb4CkwTA/VHaPR0d0KdI/AAAAAAAANiU/OJ8hMetQXHQ/w800-no/PB122850.jpg 800 600  %}
+
+# 拉斯維加斯
+
+晃完之後差不多就要開往 Las Vegas 了，沿著 [15 號開](https://www.google.com.tw/maps/dir/Las+Vegas,+NV,+United+States/Zion+Canyon+Scenic+Drive,+Springdale,+UT,+United+States/@36.7062062,-115.2396613,8z/data=!3m1!4b1!4m11!4m10!1m5!1m1!1s0x80beb782a4f57dd1:0x3accd5e6d5b379a3!2m2!1d-115.1398296!2d36.1699412!1m3!2m2!1d-112.9624766!2d37.2542079) 路程 263 公里，當晚大約七點到我們要住的飯店 [Marriott's Grand Chateau
+](http://www.tripadvisor.com/Hotel_Review-g45963-d567617-Reviews-Marriott_s_Grand_Chateau-Las_Vegas_Nevada.html)，我們訂了一個公寓式的房間一共三房兩廳，還有廚房跟洗、乾衣機，房間很大，大概算是這次旅行訂最好的(也是第二貴的)。一樣放完行李後我們就出去晃大街了。拉斯維加斯真的好繁榮，整片都是大飯店。
+
+{% img https://lh6.googleusercontent.com/-FYRwg6_sgNc/VHaPZkc64WI/AAAAAAAANjg/CcwcgJkEofI/w800-no/PB122871.jpg 800 600  %}
+
+路邊就有免費的 Show，我們在這裡看了水舞(位於 Bellagio 飯店)跟火山爆發(位於 Mirage 飯店)的 show
+
+{% youtube mX_7bw2uaqQ %}
+
+{% youtube UnkQ3WGP88g %}
+
+還路過了很奢華的威尼斯人
+
+{% img https://lh6.googleusercontent.com/-E1D_9FxcXLc/VHaPeWU9j_I/AAAAAAAANko/DJtzFV3DHAc/w500-no/PB122895.jpg 800 600  %}
+
+這是室內欸！
+
+{% img https://lh5.googleusercontent.com/-eK-tRe-gDrQ/VHaPeV76TrI/AAAAAAAANks/2v0joOm1VGw/w800-no/PB122900.jpg 800 600  %}
+
+有種無言的感覺就是，奢華的飯店
+
+隔天白天在拉斯維加斯的行程就是逛街，我們去的是 [North Premium Outlet](http://www.premiumoutlets.com/outlets/outlet.asp?id=58)，可以先去他的官網加會員，去現場領 coupon，依照廠牌折扣不盡相同，像 Timberland 就是超過 100 美金打九折之類的，很划算，等於扣掉稅金。大家的戰利品。
+
+{% img https://lh4.googleusercontent.com/-7EraGb6APkw/VHlXYr2sF4I/AAAAAAAAOhI/e-p4dD6jHXY/w800-no/DSC02059.JPG 800 600  %}
+
+隔天我們換一家飯店住，住的是 [New York New York](http://www.nynyhotelcasino.com/ %}
+
+{% img https://lh3.googleusercontent.com/-f-j0bptJIYc/VHaPirsLS9I/AAAAAAAANlY/8u0yIzcuh-o/w800-no/PB132912.jpg 800 600  %}
+
+飯店外有自由女神像跟雲霄飛車，飯店內都聽得到人在尖叫 XD
+
+{% img https://lh5.googleusercontent.com/-6YhrQ86VrUQ/VHaPjR_8iGI/AAAAAAAANlo/EwzYz9Z_z0w/w500-no/PB132914.jpg  800 600 %}
+
+當晚的活動是看 KA show，下面是 KA show 場內，偷拍的，裡面不得拍照。我們看的 KA show 最後面是播動畫當下覺得莫名其妙，因為我問我妹他說他前年去都完全沒動畫，後來同學上網查發現原來是在 2013 年底發生意外死了一個表演者，所以最後面結尾才改動畫。不過整場 KA show 還是超精彩的！
+
+{% img https://lh5.googleusercontent.com/-ioekXGwAHag/VHaPl_dQKcI/AAAAAAAANmI/Amf0a2yJu_U/w800-no/PB132920.jpg  800 600 %}
+
+# 洛杉磯
+
+隔天一早就是準備回出發地 ﹣ [洛杉磯](http://zh.wikipedia.org/zh-tw/%E6%B4%9B%E6%9D%89%E7%9F%B6)啦，[沿著 15 號公路走](https://www.google.com.tw/maps/dir/Los+Angeles,+CA,+United+States/New+York-New+York+Hotel+%26+Casino,+3790+South+Las+Vegas+Boulevard,+Las+Vegas,+NV+89109,+United+States/@35.0539738,-119.2066286,7z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x80c2c75ddc27da13:0xe22fdf6f254608f4!2m2!1d-118.2436849!2d34.0522342!1m5!1m1!1s0x80c8c5ccc25c8967:0xedac8aad053f7cee!2m2!1d-115.174556!2d36.102372) 共 430 公里又是長征，一早的早餐是麥當勞，不過這可是在美國第一次吃麥當勞，早餐有我最愛的比司吉！！
+
+{% img https://lh5.googleusercontent.com/-K2EUzU4uXEQ/VHaPnbeq5GI/AAAAAAAANmg/-Vvt7XwC1Pg/w800-no/PB142928.jpg  800 600 %}
+
+比司吉實在太美味了
+
+{% img https://lh4.googleusercontent.com/-pVNjaz5xsOU/VHaPn6szD3I/AAAAAAAANmo/BKdaoW8tVlA/w800-no/PB142929.jpg  800 600 %}
+
+不過當天回洛杉磯似乎天氣很差，空氣感覺不好，突然感覺到回到大城市了。
+
+{% img https://lh4.googleusercontent.com/-A1imkQJ7Fc8/VHaPon7c5tI/AAAAAAAANms/DnJ7t-dY44Y/w800-no/PB142930.jpg  800 600 %}
+
+午餐就在中國城內叫[凱旋宮](http://www.chineseinla.com/restaurant/task_view/id_13159.html)的餐廳吃了
+
+{% img https://lh5.googleusercontent.com/-Bzg2k1_H5ZI/VHaPpVvaQqI/AAAAAAAANm4/XIFl8qfANLY/w800-no/PB142932.jpg  800 600 %}
+
+發現貼在牆邊的海報，費玉清要在洛杉磯開演唱會
+
+{% img https://lh4.googleusercontent.com/-q4JkAFS7Ql0/VHaPqucQOsI/AAAAAAAANnA/75rttiX6zz0/w800-no/PB142931.jpg 800 600  %}
+
+一群人點了一堆，感覺大家很久沒吃到中國食物的衝動 XDDD
+
+{% img https://lh3.googleusercontent.com/-FWWLdrAkIjU/VHaPrmydOYI/AAAAAAAANnM/OYHvv5M_G84/w500-no/PB142935.jpg  800 600 %}
+
+{% img https://lh3.googleusercontent.com/-qNyT-LmWhHo/VHaPsHxBXDI/AAAAAAAANno/BpATUXn3yKQ/w800-no/PB142936.jpg  800 600 %}
+
+{% img https://lh3.googleusercontent.com/-viQ9wprgh00/VHaPsSgQWsI/AAAAAAAANnY/sEcW8uMSI90/w800-no/PB142937.jpg  800 600 %}
+
+每個都好吃啊
+
+{% img https://lh3.googleusercontent.com/-OhzWJ60zW5o/VHaPvjxnc_I/AAAAAAAANn4/MetnrkGEbNo/w800-no/PB142941.jpg  800 600 %}
+
+美國的港式飲茶不用蒸籠的嗎?
+
+{% img https://lh3.googleusercontent.com/-I39cc-jJcvE/VHaPv5gyh-I/AAAAAAAANoc/VlVlWNMWP4w/w800-no/PB142942.jpg 800 600  %}
+
+不過敗筆是我們點了炒飯跟炒麵...
+
+{% img https://lh5.googleusercontent.com/-PizMB670PX8/VHaPxWaqUHI/AAAAAAAANoI/Dj-EGyF-syg/w800-no/PB142944.jpg 800 600  %}
+
+這炒麵跟炒飯有事嗎 XD 也太大碗了，失焦的炒飯
+
+{% img https://lh3.googleusercontent.com/-JeDTNlF0-F0/VHaPyRnsJmI/AAAAAAAANoY/l3uj10ZD4PQ/w800-no/PB142945.jpg 800 600  %}
+
+這家餐廳隔壁開一家 Tea Station 是天仁茗茶的，本來想說可以買杯珍奶，結果看到價位似乎要 5.99 的樣子，就算了 = =
+
+{% img https://lh3.googleusercontent.com/-H2-99sT3ZGA/VHaP2Roo9ZI/AAAAAAAANo4/xVgcAA2-mis/w800-no/PB142948.jpg 800 600  %}
+
+# 蓋提美術館
+
+下午的行程是到 [Getty Museum 蓋提美術館](http://en.wikipedia.org/wiki/J._Paul_Getty_Museum %}
+
+{% img https://lh6.googleusercontent.com/-bsexCUQD_Xg/VHlXnF_sf1I/AAAAAAAAOhw/hSLKow4eUSM/w800-no/DSC02111.JPG  800 600 %}
+
+蓋提美術館是私人美術館，免費參觀，停車場要錢就是，停車場在山下，要乘坐纜車上去美術館，整個美術館的設計也是非常優美。
+
+{% img https://lh6.googleusercontent.com/-iKSVecaFQK4/VHaP3A2MQJI/AAAAAAAANpI/y0wJXAKxQCo/w800-no/PB142954.jpg 800 600  %}
+
+園區有一片仙人掌
+
+{% img https://lh5.googleusercontent.com/-oYdxdT_2KgQ/VHaP4Ddnv0I/AAAAAAAANpY/BWWReKOEl98/w800-no/PB142958.jpg 800 600  %}
+
+{% img https://lh4.googleusercontent.com/-3_2c8394pfg/VHaP6pBqKQI/AAAAAAAANp4/eUkClP88_bQ/w800-no/PB142965.jpg 800 600  %}
+
+還有駐點的設計師
+
+{% img https://lh5.googleusercontent.com/-AexrYBHht1g/VHaP8dBiXOI/AAAAAAAANqQ/QfawrTeWLuA/w800-no/PB142970.jpg 800 600  %}
+
+{% img https://lh3.googleusercontent.com/-yt38hJGs2EQ/VHaP9eeAgTI/AAAAAAAANqg/QQ4iY0yW-9I/w500-no/PB142972.jpg 800 600  %}
+
+草地可以給大家躺，我們是因為看到有麻麻帶著小孩在草地滾才發現的
+
+{% img https://lh6.googleusercontent.com/-E1vgaebRpNQ/VHaQCVQ7AAI/AAAAAAAANrY/YwMYTqfEb4Q/w800-no/PB142985.jpg  800 600 %}
+
+# Urban Light
+
+晚上我們就到洛杉磯美術館(LACMA)旁的 [Urban light](http://en.wikipedia.org/wiki/Urban_Light)，簡單來說就是一堆以前的路燈移植過來的啦 XDDD
+
+{% img https://lh4.googleusercontent.com/-TaImlMEJNt0/VHaQGeT9UVI/AAAAAAAANsU/D7FDfiwLUt0/w800-no/PB142998.jpg  800 600 %}
+
+{% img https://lh4.googleusercontent.com/-o-4KjzWc8Mo/VHaQINEiJoI/AAAAAAAANso/52aedUKxX30/w500-no/PB143004.jpg  800 600 %}
+
+{% img https://lh6.googleusercontent.com/-7Hn3tc2qza8/VHaQIp50dMI/AAAAAAAANsw/dBqmv9h4PEg/w500-no/PB143007.jpg  800 600 %}
+
+{% img https://lh6.googleusercontent.com/-XmitY65ZWpU/VHaQKBKqfrI/AAAAAAAANtA/rg2hSE112b8/w500-no/PB143012.jpg 800 600  %}
+
+我覺得這裡用黑白拍還不錯，旁邊也有其他人在攝影，看起來是拍家庭紀念照
+
+離開 Urban Light 我們晚餐吃 [Park's BBQ](http://parksbbq.com/)，是一家韓式烤肉，有人會幫你料理肉，小費終於付的有感覺了 XD
+
+{% img https://lh5.googleusercontent.com/-evBwmMEX3tY/VHaQMbPabpI/AAAAAAAANtg/yyqau6W2uL8/w800-no/PB143022.jpg 800 600  %}
+
+{% img https://lh4.googleusercontent.com/-UVEXccb1d5M/VHaQPLN6PUI/AAAAAAAANt4/Hc2TGXxRq00/w800-no/PB143026.jpg 800 600  %}
+
+{% img https://lh6.googleusercontent.com/-GIggXCdUvZ0/VHaQOQinjCI/AAAAAAAANuo/K0FNtA5LzsQ/w800-no/PB143025.jpg 800 600  %}
+
+{% img https://lh3.googleusercontent.com/-kRbIh0BcVRE/VHaQRRuEp6I/AAAAAAAANuQ/6EDHdGrnGp0/w800-no/PB143030.jpg 800 600  %}
+
+# Griffith Observatory
+
+吃完晚餐，我們來到洛杉磯外圍的 [Griffith 天文臺](http://en.wikipedia.org/wiki/Griffith_Observatory %}
+
+{% img https://lh5.googleusercontent.com/-XFkOBm02q4I/VHaQTrgd6FI/AAAAAAAANuc/wkL5sufwxRs/w800-no/PB143035.jpg 800 600  %}
+
+這裡在一個山上，可以看洛杉磯市區夜景，白天可以看到 Hollywood sign
+
+{% img https://lh6.googleusercontent.com/-TPnUhA8eL54/VHaQUvb-MsI/AAAAAAAANvg/J6GuVbgeAZ0/w800-no/PB143039.jpg 800 600  %}
+
+{% img https://lh3.googleusercontent.com/-Kk7-S6AajHg/VHaQUyxigVI/AAAAAAAANu0/-n7pU85K3S8/w500-no/PB143043.jpg 800 600  %}
+
+這裡大概就是參觀天文臺(免費的)跟看看夜景
+
+當晚我們住 [Best Western Plus Hollywood](http://book.bestwestern.com/bestwestern/US/CA/Hollywood-hotels/BEST-WESTERN-PLUS-Hollywood-Hills-Hotel/Hotel-Overview.do?propertyCode=05204)，不過他的停車場入口超難找的，我們繞了三四圈才找到，結果隔天白天還是繞了兩次 = =，這裡也是我們住最貴又最小的旅館，只能說不愧是洛杉磯 QQ"
+
+# 華納兄弟
+
+隔天我們到華納兄弟參訪，進去還要檢查揹包跟過金屬門，大概是檢查有沒有刀子之類的吧
+
+{% img https://lh3.googleusercontent.com/-T1DrLITE5_0/VHaQWJ7V6iI/AAAAAAAANvE/17GAu_KB3dk/w800-no/PB153045.jpg 800 600  %}
+
+只要有交錢，人人都是 VIP
+
+{% img https://lh5.googleusercontent.com/-3SoZYZmNML8/VHaQW-vQrlI/AAAAAAAANvY/M_TJiFLfcM4/w800-no/PB153047.jpg 800 600  %}
+
+票面會寫名字
+
+{% img https://lh3.googleusercontent.com/-UGd46TOUTnk/VHaQX8VwXSI/AAAAAAAANvk/NNSiZzSNdZo/w500-no/PB153052.jpg 800 600  %}
+
+參訪就是坐著高爾夫球車逛各個製片廠，導遊人也很好會先問有沒有喜歡的電影之類的，然後就是帶我們一一介紹，不過全英文介紹有點吃力，尤其是對美劇沒有很了解的我 = =a
+
+{% img https://lh5.googleusercontent.com/-duf5TonYFzs/VHaQaP6bylI/AAAAAAAANwA/GBAwvW8-DNs/w800-no/PB153057.jpg 800 600  %}
+
+{% img https://lh3.googleusercontent.com/-gOBNHCwZqME/VHaQbXcwcMI/AAAAAAAANwY/wLK0QezXFj8/w800-no/PB153060.jpg 800 600  %}
+
+後面那個長方形活動樹牆是用來遮住背景的
+
+{% img https://lh4.googleusercontent.com/-XhOdKYR75Ak/VHaQc6bPViI/AAAAAAAANws/igINL0ULIGY/w800-no/PB153063.jpg 800 600  %}
+
+導遊說這塊草地是兩個禮拜前新鋪的，完全看不出來，不愧是拍電影，什麼都跟真的一樣，馬上就可以換新的佈置
+
+{% img https://lh5.googleusercontent.com/-HTP5Mvp74ZI/VHaQejBx0vI/AAAAAAAANxA/NJLDJfFoyl0/w800-no/PB153065.jpg 800 600  %}
+
+裡面還有座博物館，一樓是蝙蝠俠的，二樓是哈利波特
+
+{% img https://lh6.googleusercontent.com/-l9JMt7567Q8/VHaQiDk8SmI/AAAAAAAANxw/yRbWWJfABMM/w500-no/PB153072.jpg 800 600  %}
+
+有些是真實的戲服哦
+
+{% img https://lh5.googleusercontent.com/-8aybi7En2ic/VHaQi-eGFWI/AAAAAAAANx4/HQTI9T15rUs/w500-no/PB153074.jpg  800 600 %}
+
+二樓是哈利波特區
+
+{% img https://lh3.googleusercontent.com/-LDF40al-u8Y/VHaQq6JSeJI/AAAAAAAANzc/Szs9tQQYiOw/w500-no/PB153088.jpg  800 600 %}
+
+有個妙麗的蠟像，做得惟妙惟肖的
+
+{% img https://lh5.googleusercontent.com/-8cWk8YfnTPA/VHaQpdd6l-I/AAAAAAAANzE/eQ9s0Zml7yE/w800-no/PB153087.jpg  800 600 %}
+
+看看這手的膚色
+
+{% img https://lh5.googleusercontent.com/-L6k16wBheWw/VHaQqi7xJPI/AAAAAAAANzY/6CBeDUAfknM/w800-no/PB153091.jpg  800 600 %}
+
+催狂魔
+
+{% img https://lh4.googleusercontent.com/-C8fYq3hVf4Q/VHaQrRsxtiI/AAAAAAAANzw/QJA4Z8AAcos/w500-no/PB153092.jpg  800 600 催狂魔  催狂魔 %}
+
+還有魔杖的手稿
+
+{% img https://lh4.googleusercontent.com/-vnFvE3u5bP0/VHaQte09L6I/AAAAAAAAN0I/eeAcm7vOIOs/w800-no/PB153096.jpg  800 600 %}
+
+{% img https://lh5.googleusercontent.com/-gO1sbO8s34A/VHaQtji1zlI/AAAAAAAAN0M/8qpsXdgHmCs/w800-no/PB153097.jpg  800 600 %}
+
+我沒找到妙麗的，因為我忘記妙麗的英文名字是什麼 XD
+
+戲服
+
+{% img https://lh4.googleusercontent.com/-hGl89ZX6_yo/VHaQu1x7-ZI/AAAAAAAAN0g/zr024-Q-l0U/w500-no/PB153100.jpg 800 600  %}
+
+裡面也有兵工廠，製作木工或金屬
+
+{% img https://lh4.googleusercontent.com/-mNOGAWJtXXY/VHaQxhsEa0I/AAAAAAAAN1I/qE78Xf7GwMs/w800-no/PB153107.jpg  800 600 %}
+
+裡面另一座博物館收藏了蝙蝠俠各種車子，是真的可以開的
+
+{% img https://lh6.googleusercontent.com/-uM6ZySTFe4s/VHaQyH4Y9CI/AAAAAAAAN1Q/4izCiyitHPk/w500-no/PB153108.jpg  800 600 %}
+
+{% img https://lh3.googleusercontent.com/-5cE6WKI60wk/VHaQzcIongI/AAAAAAAAN1k/0gIXDutZ3Hs/w800-no/PB153111.jpg 800 600  %}
+
+{% img https://lh6.googleusercontent.com/-rYd6449j8Nk/VHaQ0CtI8dI/AAAAAAAAN1s/_sNgvyl5EWc/w800-no/PB153113.jpg  800 600 %}
+
+然後我們來到 Friends 的一部份佈景，是戲劇裡面的沙發跟吧台，導遊在這裡幫我們拍照
+
+{% img https://lh4.googleusercontent.com/-gGyWzSaWkcw/VHaQ3ORiHQI/AAAAAAAAN2U/bFVdi68MOVE/w800-no/PB153118.jpg 800 600  %}
+
+{% img https://lh3.googleusercontent.com/-B9Q4jNRocYQ/VHaQ3e9IylI/AAAAAAAAN2c/HActVWz451E/w800-no/PB153120.jpg 800 600  %}
+
+最後逛了倉庫，裡面堆放各種拍攝的道具
+
+{% img https://lh6.googleusercontent.com/-fva9XNhjM8I/VHaQ4dUrVpI/AAAAAAAAN2o/KeCVfTNM8_s/w800-no/PB153121.jpg  800 600 %}
+
+血跡塑膠片跟打人的假木頭
+
+{% img https://lh6.googleusercontent.com/-aGYtwuuIi8o/VHaQ7Lfw2CI/AAAAAAAAN3M/8VxbMZCta_Q/w800-no/PB153123.jpg 800 600  %}
+
+亞果出任務的場景？ 完全想不起來了
+
+{% img https://lh3.googleusercontent.com/-4WUQdmrj0_U/VHaQ5wmmZ_I/AAAAAAAAN24/vGJgllzfJmo/w800-no/PB153125.jpg  800 600 %}
+
+最後載我們回入口
+
+{% img https://lh5.googleusercontent.com/-QRzOpd3W2xA/VHaQ7b66A8I/AAAAAAAAN3U/X-V2t71Hp6Y/w500-no/PB153127.jpg  800 600 %}
+
+然後我們到附近可以看到 Hollywood sign 的地方拍照片，以示到此一遊 XD
+
+{% img https://lh6.googleusercontent.com/-GR8gjfSy1BQ/VHaQ7mUiSLI/AAAAAAAAN3Q/HvvtEyiEIos/w800-no/PB153129.jpg  800 600 %}
+
+午餐我們去吃龍蝦，不過我忘記是吃哪一家了 = ="
+
+{% img https://lh4.googleusercontent.com/-CtnQJhvhuyg/VHaQ8QG1xXI/AAAAAAAAN3g/UkMuifCgHeg/w800-no/PB153134.jpg  800 600 %}
+
+我不想吃一堆蝦，所以點了牛排+蝦子，不喜歡美國人每次牛排五分都還是焦焦的 = =，不過這蝦子真的超鮮甜的，很嫩！
+
+{% img https://lh6.googleusercontent.com/-JuT8bVc2jHU/VHaQ-VUbsII/AAAAAAAAN30/Yx2ZMDucMqw/w800-no/PB153136.jpg  800 600 %}
+
+{% img https://lh3.googleusercontent.com/-yyiuqG2CXkc/VHaQ87iO9OI/AAAAAAAAN3k/pzP_qnwVaCQ/w800-no/PB153137.jpg  800 600 %}
+
+# Santa Monica
+
+下午我們去 [Santa Monica](http://zh.wikipedia.org/wiki/%E5%9C%A3%E8%8E%AB%E5%B0%BC%E5%8D%A1) 逛逛，順便看海，終於看到 Apple Store，來朝聖一下，生意超級好的
+
+{% img https://lh4.googleusercontent.com/-UAlDr7kAdGA/VHaQ91QD0xI/AAAAAAAAN3w/3tlY7OoZM4M/w800-no/PB153139.jpg  800 600 %}
+
+公園也還蠻有趣的
+
+{% img https://lh5.googleusercontent.com/-rG5I2BcazjY/VHaQ_QDC2xI/AAAAAAAAN4I/Nr9jFoJZUmE/w800-no/PB153141.jpg  800 600  800 600 %}
+
+Santa Monica 的夕陽
+
+{% img https://lh5.googleusercontent.com/-laz98w5q1Nw/VHaQ_j99I1I/AAAAAAAAN4A/H1k0-2knQQ4/w800-no/PB153143.jpg  800 600 %}
+
+超多海鷗
+
+{% img https://lh5.googleusercontent.com/-I_2Sp1G6cDk/VHaRA_RcX8I/AAAAAAAAN4o/RGVNBjw0sKs/w800-no/PB153146.jpg  800 600 %}
+
+夕陽之2
+
+{% img https://lh4.googleusercontent.com/-g5CGWJm9e04/VHaRDN02DEI/AAAAAAAAN5A/Vp2jEbXNsAw/w800-no/PB153154.jpg  800 600 %}
+
+沙灘旁有遊樂園
+
+{% img https://lh6.googleusercontent.com/-AbB4XVgcq8U/VHaRDI180KI/AAAAAAAAN48/mv88aUKlBDA/w800-no/PB153156.jpg  800 600 %}
+
+遊樂園那邊整條街都有在賣紀念品的，也有街頭藝人
+
+{% img https://lh5.googleusercontent.com/-l7mQ4AegTIs/VHaRE-yI9oI/AAAAAAAAN5c/eH0qHqTRuJM/w800-no/PB153162.jpg  800 600 %}
+
+個人覺得他們的市徽很有趣
+
+{% img https://lh4.googleusercontent.com/-KxCqPuErlE0/VHaRGCMa1jI/AAAAAAAAN5s/3Y-VYiMlPzY/w800-no/PB153165.jpg  800 600 %}
+
+# 好萊塢大道
+
+隔天也是在洛杉磯的最後一天，同學是下午的飛機回台，我則是搭晚上到奧蘭多的飛機，所以早上還是有時間晃，我們去了[好萊塢大道](http://zh.wikipedia.org/zh-tw/%E5%A5%BD%E8%8E%B1%E5%9D%9E%E5%A4%A7%E9%81%93 %}
+
+這裡的好萊塢大道只有星星，沒有香港的手印，我們一開始找很久 = ="
+
+{% img https://lh3.googleusercontent.com/--gUR2B-QHKs/VHaRIAYV98I/AAAAAAAAN6Q/LvLW2hd5AEw/w800-no/PB163171.jpg  800 600 %}
+
+有手印的是在一家[中國戲院](http://zh.wikipedia.org/zh-tw/%E4%B8%AD%E5%9C%8B%E6%88%B2%E9%99%A2)前面，一點都不中國風 = =，很妖魔 XD 是要嚇誰
+
+{% img https://lh4.googleusercontent.com/-4qVQ7_HZsqk/VHaRH7Q7AxI/AAAAAAAAN6I/BpP661-uulU/w500-no/PB163169.jpg  800 600 %}
+
+這裡可以看到哈利波特的手印
+
+{% img https://lh6.googleusercontent.com/-mhwBxlefnx0/VHaRH_URM7I/AAAAAAAAN6E/vvkwqzVZ584/w800-no/PB163170.jpg  800 600 %}
+
+沿路走到末端，拜了拜 Google 大神，我們最後早餐在 [Tiago](http://www.tiagocoffee.com) 吃
+
+{% img https://lh3.googleusercontent.com/-lFHtTj4NxC4/VHaRMiJr5fI/AAAAAAAAN7Y/IKsFbkpJme8/w800-no/PB163185.jpg 800 600  %}
+
+店內佈置
+
+{% img https://lh3.googleusercontent.com/-M4N3Sg8koRM/VHaRJkTHFoI/AAAAAAAAN6o/KSZ2bAKWqhA/w800-no/PB163176.jpg  800 600 %}
+
+{% img https://lh3.googleusercontent.com/-u1qI5SPD49U/VHaRK6mCm0I/AAAAAAAAN64/H0fZ0a9884o/w800-no/PB163178.jpg  800 600 %}
+
+{% img https://lh4.googleusercontent.com/-ZTmiYIIZH5o/VHaRLNwul1I/AAAAAAAAN7A/5OT_0qwm_hc/w800-no/PB163180.jpg  800 600 %}
+
+{% img https://lh6.googleusercontent.com/-9joAnPGu4R8/VHaRLlAedPI/AAAAAAAAN7I/LWUUacDirv0/w800-no/PB163183.jpg  800 600 %}
+
+{% img https://lh4.googleusercontent.com/-pmJgrpbrKnY/VHaRMVg1jRI/AAAAAAAAN7Q/6Z7RYbOStr4/w800-no/PB163184.jpg  800 600 %}
+
+這是我點的藍莓鬆餅
+
+{% img https://lh3.googleusercontent.com/-GNcme4OuV9w/VHaRNJYBQtI/AAAAAAAAN7g/vgaESR2Ri_k/w800-no/PB163186.jpg 800 600  %}
+
+很好吃，非常推薦！
+
+吃完就沿著原路回去旅館 check out 然後開車回去還車了，抬起頭看到飛機一台一台的掠過上空，才突然有種旅程結束的感覺。
+
+{% img https://lh6.googleusercontent.com/-LFfVYk9M5L0/VHaRO7hF69I/AAAAAAAAN8A/TTapkZk4Zi8/w800-no/PB163191.jpg  800 600 %}
+
+洛杉磯機場國際廳
+
+{% img https://lh4.googleusercontent.com/-Z7wV9i7o8MQ/VHaRPecJHYI/AAAAAAAAN8E/Y-i7F--PUJc/w500-no/PB163196.jpg  800 600 %}
+
+美國真的很有趣很好玩，東西除了牛排每次都很焦不習慣之外其他都覺得也不錯吃(不過這是因為我們這次沒吃什麼華人食物就是，速食也吃不多)，有機會一定會再來玩第二次！
